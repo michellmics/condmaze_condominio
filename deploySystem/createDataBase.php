@@ -1,13 +1,16 @@
 <?php
+
+header('Content-Type: application/json');
+
 // Dados do cPanel
-$cpanel_user = 'inartcom'; // Usuário do cPanel
-$cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0'; // Token gerado no cPanel
-$cpanel_host = 'https://inart.com.br:2083'; // URL do cPanel (substitua pelo domínio do seu cPanel)
+$cpanel_user = 'inartcom'; 
+$cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0';
+$cpanel_host = 'https://inart.com.br:2083'; 
 
 // Dados do banco de dados
-$database_name = $cpanel_user . '_meubd'; // Nome do banco
-$user_name = $cpanel_user . '_user'; // Nome do usuário
-$user_password = 'SenhaForte123!'; // Senha do usuário do banco
+$database_name = $cpanel_user . '_bdcondominio'; // Nome do banco
+$user_name = $cpanel_user . '_userbdcondominio'; // Nome do usuário
+$user_password = 'Mi479585!condominio'; // Senha do usuário do banco
 
 // Cabeçalhos de autenticação
 $headers = [
