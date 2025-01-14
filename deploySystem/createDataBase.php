@@ -5,11 +5,8 @@ $cpanel_user = 'inartcom'; // Usuário do cPanel
 $cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0'; // Token gerado no cPanel
 $cpanel_host = 'https://inart.com.br:2083'; // URL do cPanel (substitua pelo domínio do seu cPanel)
 
-
 // Dados do banco de dados
-$database_name = $cpanel_user . '_seubd'; // O nome do banco deve incluir o prefixo do usuário
-$database_user = $cpanel_user . '_usuario'; // O nome do usuário deve incluir o prefixo do usuário
-$database_password = 'senha123';
+$database_name = $cpanel_user . '_meubd'; // Nome do banco, incluindo o prefixo do usuário
 
 // Cabeçalhos de autenticação
 $headers = [
@@ -35,34 +32,18 @@ function call_uapi($cpanel_host, $endpoint, $params, $headers) {
     return json_decode($response, true);
 }
 
-// 1. Criar o banco de dados
+// Debug: Verificar os dados sendo enviados
+echo "Tentando criar o banco de dados com o nome: $database_name\n";
+
+// Chamada para criar o banco de dados
 $response = call_uapi($cpanel_host, 'Mysql/create_database', ['name' => $database_name], $headers);
+
+// Debug: Verificar resposta da API
+print_r($response);
 
 if ($response['status'] !== 1) {
     die("Erro ao criar o banco de dados: " . implode(', ', $response['errors']));
 }
+
 echo "Banco de dados criado com sucesso!\n";
-
-// 2. Criar o usuário do banco de dados
-$response = call_uapi($cpanel_host, 'Mysql/create_user', [
-    'name' => $database_user,
-    'password' => $database_password
-], $headers);
-
-if ($response['status'] !== 1) {
-    die("Erro ao criar o usuário do banco de dados: " . implode(', ', $response['errors']));
-}
-echo "Usuário criado com sucesso!\n";
-
-// 3. Conceder permissões ao usuário no banco de dados
-$response = call_uapi($cpanel_host, 'Mysql/set_privileges_on_database', [
-    'user' => $database_user,
-    'database' => $database_name,
-    'privileges' => 'ALL PRIVILEGES'
-], $headers);
-
-if ($response['status'] !== 1) {
-    die("Erro ao conceder permissões ao usuário: " . implode(', ', $response['errors']));
-}
-echo "Usuário associado ao banco com sucesso!\n";
 ?>
