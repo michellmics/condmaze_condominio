@@ -6,8 +6,8 @@ $cpanel_host = 'https://inart.com.br:2083'; // URL do cPanel (substitua pelo dom
 
 
 // Dados do banco de dados
-$database_name = 'seubd';
-$database_user = 'seuusuario';
+$database_name = $cpanel_user . '_seubd'; // O nome do banco deve incluir o prefixo do usuário
+$database_user = $cpanel_user . '_usuario'; // O nome do usuário deve incluir o prefixo do usuário
 $database_password = 'senha123';
 
 // Cabeçalhos de autenticação
@@ -38,7 +38,7 @@ function call_uapi($cpanel_host, $endpoint, $params, $headers) {
 $response = call_uapi($cpanel_host, 'Mysql/create_database', ['name' => $database_name], $headers);
 
 if ($response['status'] !== 1) {
-    die("Erro ao criar o banco de dados: " . $response['errors'][0]);
+    die("Erro ao criar o banco de dados: " . implode(', ', $response['errors']));
 }
 echo "Banco de dados criado com sucesso!\n";
 
@@ -49,7 +49,7 @@ $response = call_uapi($cpanel_host, 'Mysql/create_user', [
 ], $headers);
 
 if ($response['status'] !== 1) {
-    die("Erro ao criar o usuário do banco de dados: " . $response['errors'][0]);
+    die("Erro ao criar o usuário do banco de dados: " . implode(', ', $response['errors']));
 }
 echo "Usuário criado com sucesso!\n";
 
@@ -61,7 +61,7 @@ $response = call_uapi($cpanel_host, 'Mysql/set_privileges_on_database', [
 ], $headers);
 
 if ($response['status'] !== 1) {
-    die("Erro ao conceder permissões ao usuário: " . $response['errors'][0]);
+    die("Erro ao conceder permissões ao usuário: " . implode(', ', $response['errors']));
 }
 echo "Usuário associado ao banco com sucesso!\n";
 ?>
