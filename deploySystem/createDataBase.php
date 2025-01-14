@@ -1,12 +1,13 @@
 <?php
-echo "aaa";
 // Dados do cPanel
 $cpanel_user = 'inartcom'; // Usuário do cPanel
 $cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0'; // Token gerado no cPanel
 $cpanel_host = 'https://inart.com.br:2083'; // URL do cPanel (substitua pelo domínio do seu cPanel)
 
 // Dados do banco de dados
-$database_name = $cpanel_user . '_meubd'; // Nome do banco, incluindo o prefixo do usuário
+$database_name = $cpanel_user . '_meubd'; // Nome do banco
+$user_name = $cpanel_user . '_user'; // Nome do usuário
+$user_password = 'SenhaForte123!'; // Senha do usuário do banco
 
 // Cabeçalhos de autenticação
 $headers = [
@@ -34,18 +35,34 @@ function call_uapi($cpanel_host, $endpoint, $params, $headers) {
     return json_decode($response, true);
 }
 
-// Debug: Verificar os dados sendo enviados
-echo "Tentando criar o banco de dados com o nome: $database_name\n";
-
-// Chamada para criar o banco de dados
+// Criar o banco de dados
 $response = call_uapi($cpanel_host, 'Mysql/create_database', ['name' => $database_name], $headers);
-
-// Debug: Verificar resposta da API
-print_r($response);
 
 if ($response['status'] !== 1) {
     die("Erro ao criar o banco de dados: " . implode(', ', $response['errors']));
 }
+echo "Banco de dados '$database_name' criado com sucesso!\n";
 
-echo "Banco de dados criado com sucesso!\n";
+// Criar o usuário do banco de dados
+$response = call_uapi($cpanel_host, 'Mysql/create_user', [
+    'name' => $user_name,
+    'password' => $user_password
+], $headers);
+
+if ($response['status'] !== 1) {
+    die("Erro ao criar o usuário: " . implode(', ', $response['errors']));
+}
+echo "Usuário '$user_name' criado com sucesso!\n";
+
+// Associar o usuário ao banco de dados com todos os privilégios
+$response = call_uapi($cpanel_host, 'Mysql/set_privileges_on_database', [
+    'user' => $user_name,
+    'database' => $database_name,
+    'privileges' => 'ALL PRIVILEGES'
+], $headers);
+
+if ($response['status'] !== 1) {
+    die("Erro ao associar o usuário ao banco de dados: " . implode(', ', $response['errors']));
+}
+echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
 ?>
