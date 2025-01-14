@@ -1,4 +1,5 @@
 <?php
+echo "aaa";
 // Dados do cPanel
 $cpanel_user = 'inartcom'; // Usuário do cPanel
 $cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0'; // Token gerado no cPanel
