@@ -11,17 +11,19 @@ $database_name = $cpanel_user . '_meubd'; // Nome do banco, incluindo o prefixo 
 // Cabeçalhos de autenticação
 $headers = [
     'Authorization: cpanel ' . $cpanel_user . ':' . $cpanel_token,
-    'Content-Type: application/json'
+    'Content-Type: application/x-www-form-urlencoded'
 ];
 
 // Função para chamar a API UAPI do cPanel
 function call_uapi($cpanel_host, $endpoint, $params, $headers) {
     $url = $cpanel_host . '/execute/' . $endpoint;
-    $query = http_build_query($params);
 
-    $ch = curl_init($url . '?' . $query);
+    $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+
     $response = curl_exec($ch);
 
     if (curl_errno($ch)) {
