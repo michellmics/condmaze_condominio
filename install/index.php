@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ],
     ];
 
+    $user_cpanel_get = $_POST['cpanel_usuario'];
+
     // Gerar conteúdo do arquivo config.cfg
     $config_content = "[DATA DB]\n";
     foreach ($data['DB'] as $key => $value) {
@@ -44,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Escrever no arquivo
     if (file_put_contents($config_file, $config_content)) {
-        header("Location: ../deploySystem/createDataBase.php");
+        header("Location: ../deploySystem/createDataBase.php?cpanel_usuario=$user_cpanel_get");
         exit(); // Certifique-se de sair após o redirecionamento
     } else {
         echo "Erro ao gerar o arquivo config.cfg.";
