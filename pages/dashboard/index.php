@@ -46,30 +46,28 @@
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <style>
-@media (max-width: 768px) {
-    .page-title-box {
-        display: flex;
-        flex-direction: column; /* Alinha itens verticalmente */
-    }
-
-    .page-title {
-        order: -1; /* Move o título para aparecer primeiro */
-        margin-bottom: 15px; /* Adiciona espaçamento inferior */
-    }
-
-    .page-title-right {
-        display: flex !important;
-        flex-wrap: wrap; /* Permite quebra de linha */
-        margin-top: 10px; /* Adiciona espaçamento superior */
-    }
-
-    .page-title-right select {
-        flex: 1 1 100%; /* Os selects ocupam toda a largura */
-        margin-bottom: 10px; /* Espaçamento inferior entre selects */
-    }
-}
-
-
+        @media (max-width: 768px) {
+            .page-title-box {
+                display: flex;
+                flex-direction: column; /* Alinha itens verticalmente */
+            }
+        
+            .page-title {
+                order: -1; /* Move o título para aparecer primeiro */
+                margin-bottom: 15px; /* Adiciona espaçamento inferior */
+            }
+        
+            .page-title-right {
+                display: flex !important;
+                flex-wrap: wrap; /* Permite quebra de linha */
+                margin-top: 10px; /* Adiciona espaçamento superior */
+            }
+        
+            .page-title-right select {
+                flex: 1 1 100%; /* Os selects ocupam toda a largura */
+                margin-bottom: 10px; /* Espaçamento inferior entre selects */
+            }
+        }
     </style>
    
 </head>
