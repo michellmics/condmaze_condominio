@@ -1,5 +1,12 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validar a senha do Banco de Dados
+    $db_pass = $_POST['db_pass'] ?? '';
+    if (!preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/', $db_pass)) {
+        echo "A senha do Banco de Dados deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, um número e um caractere especial.";
+        exit();
+    }
+
     // Diretório anterior ao public_html
     $config_dir = '/home/inartcom';
     $config_file = $config_dir . '/config.cfg';
@@ -10,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'host' => '"' . ($_POST['db_host'] ?? '') . '"',
             'dbname' => '"' . ($_POST['db_name'] ?? '') . '"',
             'user' => '"' . ($_POST['db_user'] ?? '') . '"',
-            'pass' => '"' . ($_POST['db_pass'] ?? '') . '"',
+            'pass' => '"' . $db_pass . '"',
         ],
         'EMAIL' => [
             'Username' => '"' . ($_POST['email_user'] ?? '') . '"',
@@ -25,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'porta' => '"' . ($_POST['cpanel_porta'] ?? '') . '"',
         ],
     ];
-    
 
     $user_cpanel_get = $_POST['cpanel_usuario'];
 
@@ -153,6 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label for="db_pass">Senha:</label>
                 <input type="password" name="db_pass" id="db_pass" required><br>
+                <small>Senha deve ter ao menos 8 caracteres, 1 maiúscula, 1 número e 1 caractere especial.</small>
             </div>
 
             <h2>E-mail</h2>
