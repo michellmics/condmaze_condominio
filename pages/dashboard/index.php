@@ -46,22 +46,29 @@
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <style>
-        @media (max-width: 768px) {
-    .page-title-right {
-        display: flex !important; /* Força a exibição */
-        flex-wrap: wrap; /* Permite quebra de linha para elementos */
-        justify-content: flex-start; /* Alinha os itens ao início */
+@media (max-width: 768px) {
+    .page-title-box {
+        display: flex;
+        flex-direction: column; /* Alinha itens verticalmente */
+        gap: 10px; /* Espaçamento entre elementos */
     }
 
-    .page-title-right .input-group {
-        flex: 1 1 100%; /* O input group ocupa toda a largura */
+    .page-title-right {
+        display: flex !important;
+        flex-wrap: wrap; /* Permite quebra de linha */
+        margin-bottom: 10px; /* Espaçamento inferior */
     }
 
     .page-title-right select {
-        flex: 1 1 100%; /* Selects se ajustam ao tamanho da tela */
-        margin-bottom: 10px; /* Espaçamento inferior para separação */
+        flex: 1 1 100%; /* Os selects ocupam toda a largura */
+        margin-bottom: 5px; /* Espaçamento inferior entre selects */
+    }
+
+    .page-title {
+        margin-top: 20px; /* Dá espaço adicional entre o título e os combobox */
     }
 }
+
     </style>
    
 </head>
