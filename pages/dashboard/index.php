@@ -9,6 +9,10 @@
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor("dezembro","2024");
     $totalRecebido = number_format($totalRecebido, 0, ',', '.');
+    $totalFundoReserva = $chartValor->getFundoReservaValor("dezembro","2024");
+	$totalFundoReserva = number_format($totalFundoReserva, 0, ',', '.');
+	$totalDespesa = $chartValor->getDespesaValor("dezembro","2024");
+	$totalDespesa = number_format($totalDespesa, 0, ',', '.');
     //--------------------
 
 
@@ -172,7 +176,7 @@
                                                 <i class="mdi mdi-currency-usd widget-icon bg-success-lighten text-success"></i>
                                             </div>
                                             <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Receita</h5>
-                                            <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3>
+                                            <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3> 
                                             <p class="mb-0 text-muted">
                                                 <span class="text-nowrap">Receitas do Mês</span>
                                             </p>
@@ -186,8 +190,8 @@
                                             <div class="float-end">
                                             <i class="mdi mdi-currency-usd widget-icon bg-danger-lighten text-danger"></i>
                                             </div>
-                                            <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Contas a Pagar</h5>
-                                            <h3 class="mt-3 mb-3">R$110.235,25</h3>
+                                            <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Despesas</h5>
+                                            <h3 class="mt-3 mb-3">R$<?php echo $totalDespesa; ?></h3>
                                             <p class="mb-0 text-muted">
                                                 <span class="text-nowrap">Despesas Quitadas</span>
                                             </p>
@@ -197,14 +201,14 @@
                             </div> <!-- end row -->
 
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-6"> 
                                     <div class="card widget-flat">
                                         <div class="card-body">
                                             <div class="float-end">
                                                 <i class="mdi mdi-pulse widget-icon"></i>
                                             </div>
                                             <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Fundo de Reserva</h5>
-                                            <h3 class="mt-3 mb-3">R$100.369,23</h3>
+                                            <h3 class="mt-3 mb-3">R$<?php echo $totalFundoReserva; ?></h3>
                                             <p class="mb-0 text-muted">                                               
                                                 <span class="text-nowrap">Total em Caixa</span>
                                             </p>
