@@ -59,12 +59,6 @@
   }
 </style>
 
-<div class="row col-md-12">
-            <div class="marquee-container text-md-end footer-links d-none d-md-block">
-                <span><?php echo "texxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxx"; ?></span>
-            </div>
-        </div>
-
 <footer class="footer">
     <div class="container-fluid">
         <div class="row">
@@ -77,12 +71,6 @@
                     <a href="javascript: void(0);">Webmail</a>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">               
-                fdsdfdsfdsfdsfdsfdsfds
-            </div>
-
         </div>
     </div>
 </footer>
