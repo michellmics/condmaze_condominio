@@ -76,12 +76,12 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboards" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-window"></i>Início <div class="dropdown-item"></div>
+                                    <i class="uil-home-alt"></i>Início <div class="dropdown-item"></div>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-window"></i>Moradores <div class="arrow-down"></div>
+                                    <i class="uil-box"></i>Moradores <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="widgets.html" class="dropdown-item">Lista de Moradores</a>
@@ -90,7 +90,7 @@
                             </li>     
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-window"></i>Salão de Festas <div class="arrow-down"></div>
+                                    <i class="uil-box"></i>Salão de Festas <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="widgets.html" class="dropdown-item">Minha lista de convidados</a>
@@ -98,7 +98,7 @@
                             </li>                       
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-package"></i>Administração <div class="arrow-down"></div>
+                                    <i class="uil uil-tachometer-fast"></i>Administração <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="widgets.html" class="dropdown-item">Indicadores</a>
