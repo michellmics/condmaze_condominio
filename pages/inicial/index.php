@@ -92,7 +92,7 @@
 
 
             <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    		<img src="https://prqdashortensias.com.br/sistema/img/logo_icon_trasnparent.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
+    		<img src="../../img/logo_128x128.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
 		</section>
 
 
