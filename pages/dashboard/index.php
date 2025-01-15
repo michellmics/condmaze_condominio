@@ -3,7 +3,7 @@
     error_reporting(E_ALL);        // Reporta todos os erros
 
 	include_once "../../objects/objects.php";
-	include_once '../../objetos_chart.php'; 
+	include_once '../../objects/objects_chart.php'; 
 
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
