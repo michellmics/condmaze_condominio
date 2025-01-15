@@ -174,7 +174,7 @@
                                             <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Receita</h5>
                                             <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3>
                                             <p class="mb-0 text-muted">
-                                                <span class="text-nowrap">Total de receitas do mês</span>
+                                                <span class="text-nowrap">Receitas do Mês</span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
