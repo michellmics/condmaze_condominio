@@ -7,10 +7,8 @@
 
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
-    //$totalRecebido = $chartValor->getReceitasValor($mesUserWidget,$anoUserWidget);
     $totalRecebido = $chartValor->getReceitasValor("dezembro","2024");
-    var_dump($totalRecebido);
-    die();
+    $totalRecebido = number_format($totalRecebido, 2, ',', '.');
     //--------------------
 
 
@@ -174,7 +172,7 @@
                                                 <i class="mdi mdi-currency-usd widget-icon bg-success-lighten text-success"></i>
                                             </div>
                                             <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Receita</h5>
-                                            <h3 class="mt-3 mb-3">R$112.025,23</h3>
+                                            <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3>
                                             <p class="mb-0 text-muted">
                                                 <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
                                                 <span class="text-nowrap">Último mês</span>
