@@ -171,7 +171,7 @@
                                             <h3 class="mt-3 mb-3">R$100.369,23</h3>
                                             <p class="mb-0 text-muted">
                                                 <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
-                                                <span class="text-nowrap">Mês Atual</span>
+                                                <span class="text-nowrap">Último mês</span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
@@ -199,7 +199,7 @@
                         <div class="col-xl-7 col-lg-6">
                             <div class="card card-h-100">
                                 <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Projections Vs Actuals</h4>
+                                    <h4 class="header-title">Inadimplência</h4>
                                     <div class="dropdown">
                                         <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="mdi mdi-dots-vertical"></i>
@@ -285,9 +285,8 @@
                         </div> <!-- end col-->
 
                         <div class="col-lg-4">
-                            <div class="card">
-                                <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Revenue By Location</h4>
+                        <div class="d-flex card-header justify-content-between align-items-center">
+                                    <h4 class="header-title">Total Sales</h4>
                                     <div class="dropdown">
                                         <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="mdi mdi-dots-vertical"></i>
@@ -304,45 +303,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="card-body pt-0">
-                                    <div class="mb-4 mt-3">
-                                        <div id="world-map-markers" style="height: 217px"></div>
-                                    </div>
-
-                                    <h5 class="mb-1 mt-0 fw-normal">New York</h5>
-                                    <div class="progress-w-percent">
-                                        <span class="progress-value fw-bold">72k </span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-
-                                    <h5 class="mb-1 mt-0 fw-normal">San Francisco</h5>
-                                    <div class="progress-w-percent">
-                                        <span class="progress-value fw-bold">39k </span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-
-                                    <h5 class="mb-1 mt-0 fw-normal">Sydney</h5>
-                                    <div class="progress-w-percent">
-                                        <span class="progress-value fw-bold">25k </span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-
-                                    <h5 class="mb-1 mt-0 fw-normal">Singapore</h5>
-                                    <div class="progress-w-percent mb-0">
-                                        <span class="progress-value fw-bold">61k </span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
                     <!-- end row -->
