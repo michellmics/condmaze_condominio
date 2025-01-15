@@ -96,21 +96,19 @@ if ($response['status'] !== 1) {
 }
 echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
 
-// Importar o arquivo .sql para o banco de dados
+// Caminho para o arquivo SQL a ser importado
 $sqlFilePath = "db.sql"; // Caminho para o arquivo .sql
-$sqlContent = file_get_contents($sqlFilePath);
 
-if (!$sqlContent) {
-    die("Erro ao ler o arquivo .sql.");
+// Verificar se o arquivo SQL existe
+if (!file_exists($sqlFilePath)) {
+    die("Erro: O arquivo SQL não foi encontrado.");
 }
 
-$importParams = [
+// Importar o arquivo .sql para o banco de dados
+$response = call_uapi($cpanel_host, 'Mysql/import_database', [
     'database' => $database_name,
-    'sql' => $sqlContent
-];
-
-// Usar a API do cPanel para importar o SQL
-$response = call_uapi($cpanel_host, 'Mysql/query', $importParams, $headers);
+    'file' => '@' . $sqlFilePath  // Importa o arquivo .sql
+], $headers);
 
 if ($response['status'] !== 1) {
     die("Erro ao importar o arquivo SQL: " . implode(', ', $response['errors']));
