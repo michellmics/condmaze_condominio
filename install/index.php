@@ -58,16 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Gerar Config.cfg</title>
     <style>
         body {
-            background-color: #2c3e50;
+            background-color: #1c1c1c;
             color: #ecf0f1;
             font-family: Arial, sans-serif;
             padding: 20px;
         }
         h1, h2 {
-            color: #2ecc71;
+            color: #e67e22;
         }
         form {
-            background-color: #34495e;
+            background-color: #2c2c2c;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -81,20 +81,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: block;
         }
         input[type="text"], input[type="password"], input[type="number"] {
-            background-color: #2c3e50;
+            background-color: #2c2c2c;
             color: #ecf0f1;
-            border: 1px solid #2ecc71;
+            border: 1px solid #e67e22;
             padding: 8px;
             width: 100%;
             margin-top: 5px;
             border-radius: 4px;
         }
         input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
-            border-color: #1abc9c;
+            border-color: #d35400;
             outline: none;
         }
+        input[readonly] {
+            background-color: #555;
+            cursor: not-allowed;
+        }
         button {
-            background-color: #2ecc71;
+            background-color: #e67e22;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -105,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #27ae60;
+            background-color: #d35400;
         }
         .container {
             width: 60%;
@@ -119,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST">
             <h2>Banco de Dados</h2>
             <label for="db_host">Host:</label>
-            <input type="text" name="db_host" id="db_host" required><br>
+            <input type="text" name="db_host" id="db_host" value="localhost" readonly><br>
 
             <label for="db_name">Nome do Banco:</label>
             <input type="text" name="db_name" id="db_name" required><br>
@@ -141,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" name="email_host" id="email_host" required><br>
 
             <label for="email_port">Porta:</label>
-            <input type="number" name="email_port" id="email_port" required><br>
+            <input type="number" name="email_port" id="email_port" value="587" readonly><br>
 
             <h2>cPanel</h2>
             <label for="cpanel_token">Token:</label>
@@ -151,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" name="cpanel_dominio" id="cpanel_dominio" required><br>
 
             <label for="cpanel_porta">Porta:</label>
-            <input type="number" name="cpanel_porta" id="cpanel_porta" required><br><br>
+            <input type="number" name="cpanel_porta" id="cpanel_porta" value="2083" readonly><br><br>
 
             <button type="submit">Gerar Config.cfg</button>
         </form>
