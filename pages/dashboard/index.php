@@ -175,7 +175,6 @@
                                             <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3>
                                             <p class="mb-0 text-muted">
                                                 <span class="text-nowrap">Total de receitas do mês</span>
-                                                <span class="text-nowrap">Último mês</span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
@@ -190,8 +189,7 @@
                                             <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Contas a Pagar</h5>
                                             <h3 class="mt-3 mb-3">R$110.235,25</h3>
                                             <p class="mb-0 text-muted">
-                                                <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 1.08%</span>
-                                                <span class="text-nowrap">Último mês</span>
+                                                <span class="text-nowrap">Despesas Quitadas</span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
