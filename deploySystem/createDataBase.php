@@ -29,15 +29,15 @@ $cpanelDominio = $configContent['CPANEL']['dominio'];
 $cpanelPorta = $configContent['CPANEL']['porta'];
 $cpanelToken = $configContent['CPANEL']['token'];
 
-// Dados do banco de dados
-$database_name = $cpanel_user . "_" . $dbName; // Nome do banco
-$user_name = $cpanel_user . "_" . $dbUser; // Nome do usuário
-$user_password = $dbPass; // Senha do usuário do banco
-
 // Dados do cPanel
 $cpanel_user = $cpanelusuario;
 $cpanel_token = $cpanelToken;
 $cpanel_host = $cpanelDominio . ":" . $cpanelPorta;
+
+// Dados do banco de dados
+$database_name = $cpanel_user . "_" . $dbName; // Nome do banco
+$user_name = $cpanel_user . "_" . $dbUser; // Nome do usuário
+$user_password = $dbPass; // Senha do usuário do banco
 
 // Cabeçalhos de autenticação
 $headers = [
@@ -95,6 +95,8 @@ if ($response['status'] !== 1) {
     die("Erro ao associar o usuário ao banco de dados: " . implode(', ', $response['errors']));
 }
 echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
+
+echo "aqui";
 
 // Agora, conectar ao banco de dados e executar o arquivo SQL
 
