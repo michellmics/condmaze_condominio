@@ -84,8 +84,8 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div >
-                                    <form>
-                                        <div >
+                                    <form class="d-flex">
+                                        <div class="input-group">
                                             <!-- Combobox para selecionar o mês -->
                                             <select class="form-control form-control-light" id="select-month">
                                                 <option value="" disabled selected>Selecione o mês</option>
