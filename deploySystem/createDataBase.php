@@ -2,8 +2,7 @@
 
 header('Content-Type: application/json');
 
-if(!isset($_GET['cpanel_usuario']))
-{
+if (!isset($_GET['cpanel_usuario'])) {
     echo "Arquivo de configuração incompleto.";
     die();
 }
@@ -16,7 +15,6 @@ if (!file_exists($configPath)) {
 }
 
 $configContent = parse_ini_file($configPath, true);  // true para usar seções
-
 
 if (!$configContent) {
     die("Erro: Não foi possível ler o arquivo de configuração.");
@@ -32,9 +30,9 @@ $cpanelPorta = $configContent['CPANEL']['porta'];
 $cpanelToken = $configContent['CPANEL']['token'];
 
 // Dados do cPanel
-$cpanel_user = $cpanelusuario; 
+$cpanel_user = $cpanelusuario;
 $cpanel_token = $cpanelToken;
-$cpanel_host = $cpanelDominio . ":" . $cpanelPorta; 
+$cpanel_host = $cpanelDominio . ":" . $cpanelPorta;
 
 // Dados do banco de dados
 $database_name = $cpanel_user . "_" . $dbName; // Nome do banco
@@ -97,4 +95,27 @@ if ($response['status'] !== 1) {
     die("Erro ao associar o usuário ao banco de dados: " . implode(', ', $response['errors']));
 }
 echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
+
+// Importar o arquivo .sql para o banco de dados
+$sqlFilePath = "db.sql"; // Caminho para o arquivo .sql
+$sqlContent = file_get_contents($sqlFilePath);
+
+if (!$sqlContent) {
+    die("Erro ao ler o arquivo .sql.");
+}
+
+$importParams = [
+    'database' => $database_name,
+    'sql' => $sqlContent
+];
+
+// Usar a API do cPanel para importar o SQL
+$response = call_uapi($cpanel_host, 'Mysql/query', $importParams, $headers);
+
+if ($response['status'] !== 1) {
+    die("Erro ao importar o arquivo SQL: " . implode(', ', $response['errors']));
+}
+
+echo "Arquivo SQL importado com sucesso para o banco '$database_name'!\n";
+
 ?>
