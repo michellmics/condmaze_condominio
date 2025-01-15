@@ -4,7 +4,7 @@ require "../objects/objetos.php";
 $siteAdmin = new SITE_ADMIN();  
   
 
-echo $siteAdmin->$configPath;
+echo $siteAdmin->configPath;
 die();
 
 
