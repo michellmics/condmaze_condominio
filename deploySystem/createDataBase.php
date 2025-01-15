@@ -15,6 +15,9 @@ if (!file_exists($configPath)) {
     die("Erro: Arquivo de configuração não encontrado.");
 }
 
+echo $configPath;
+die();
+
 $configContent = parse_ini_file($configPath, true);  // true para usar seções
 
 if (!$configContent) {
