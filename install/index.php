@@ -58,62 +58,70 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Gerar Config.cfg</title>
     <style>
         body {
-            background-color: #1c1c1c;
-            color: #ecf0f1;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
             padding: 20px;
+            margin: 0;
         }
         h1, h2 {
-            color: #e67e22;
+            color: #3498db;
+            text-align: center;
         }
         form {
-            background-color: #2c2c2c;
-            padding: 20px;
+            background-color: #ffffff;
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 60%;
-            margin: auto;
+            margin: 30px auto;
         }
         label {
-            color: #ecf0f1;
+            color: #555;
             font-weight: bold;
             margin-top: 10px;
             display: block;
         }
         input[type="text"], input[type="password"], input[type="number"] {
-            background-color: #2c2c2c;
-            color: #ecf0f1;
-            border: 1px solid #e67e22;
-            padding: 8px;
+            background-color: #f9f9f9;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 10px;
             width: 100%;
             margin-top: 5px;
             border-radius: 4px;
+            box-sizing: border-box;
         }
         input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
-            border-color: #d35400;
+            border-color: #3498db;
             outline: none;
         }
         input[readonly] {
-            background-color: #555;
+            background-color: #f1f1f1;
             cursor: not-allowed;
+            border-color: #ccc;
         }
         button {
-            background-color: #e67e22;
+            background-color: #3498db;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             margin-top: 20px;
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
+            width: 100%;
         }
         button:hover {
-            background-color: #d35400;
+            background-color: #2980b9;
         }
         .container {
-            width: 60%;
+            width: 70%;
             margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -122,40 +130,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Gerar Arquivo config.cfg</h1>
         <form method="POST">
             <h2>Banco de Dados</h2>
-            <label for="db_host">Host:</label>
-            <input type="text" name="db_host" id="db_host" value="localhost" readonly><br>
+            <div class="form-group">
+                <label for="db_host">Host:</label>
+                <input type="text" name="db_host" id="db_host" value="localhost" readonly><br>
+            </div>
 
-            <label for="db_name">Nome do Banco:</label>
-            <input type="text" name="db_name" id="db_name" required><br>
+            <div class="form-group">
+                <label for="db_name">Nome do Banco:</label>
+                <input type="text" name="db_name" id="db_name" required><br>
+            </div>
 
-            <label for="db_user">Usuário:</label>
-            <input type="text" name="db_user" id="db_user" required><br>
+            <div class="form-group">
+                <label for="db_user">Usuário:</label>
+                <input type="text" name="db_user" id="db_user" required><br>
+            </div>
 
-            <label for="db_pass">Senha:</label>
-            <input type="password" name="db_pass" id="db_pass" required><br>
+            <div class="form-group">
+                <label for="db_pass">Senha:</label>
+                <input type="password" name="db_pass" id="db_pass" required><br>
+            </div>
 
             <h2>E-mail</h2>
-            <label for="email_user">Usuário:</label>
-            <input type="text" name="email_user" id="email_user" required><br>
+            <div class="form-group">
+                <label for="email_user">Usuário:</label>
+                <input type="text" name="email_user" id="email_user" required><br>
+            </div>
 
-            <label for="email_pass">Senha:</label>
-            <input type="password" name="email_pass" id="email_pass" required><br>
+            <div class="form-group">
+                <label for="email_pass">Senha:</label>
+                <input type="password" name="email_pass" id="email_pass" required><br>
+            </div>
 
-            <label for="email_host">Host:</label>
-            <input type="text" name="email_host" id="email_host" required><br>
+            <div class="form-group">
+                <label for="email_host">Host:</label>
+                <input type="text" name="email_host" id="email_host" required><br>
+            </div>
 
-            <label for="email_port">Porta:</label>
-            <input type="number" name="email_port" id="email_port" value="587" readonly><br>
+            <div class="form-group">
+                <label for="email_port">Porta:</label>
+                <input type="number" name="email_port" id="email_port" value="587" readonly><br>
+            </div>
 
             <h2>cPanel</h2>
-            <label for="cpanel_token">Token:</label>
-            <input type="text" name="cpanel_token" id="cpanel_token" required><br>
+            <div class="form-group">
+                <label for="cpanel_token">Token:</label>
+                <input type="text" name="cpanel_token" id="cpanel_token" required><br>
+            </div>
 
-            <label for="cpanel_dominio">Domínio:</label>
-            <input type="text" name="cpanel_dominio" id="cpanel_dominio" required><br>
+            <div class="form-group">
+                <label for="cpanel_dominio">Domínio:</label>
+                <input type="text" name="cpanel_dominio" id="cpanel_dominio" required><br>
+            </div>
 
-            <label for="cpanel_porta">Porta:</label>
-            <input type="number" name="cpanel_porta" id="cpanel_porta" value="2083" readonly><br><br>
+            <div class="form-group">
+                <label for="cpanel_porta">Porta:</label>
+                <input type="number" name="cpanel_porta" id="cpanel_porta" value="2083" readonly><br><br>
+            </div>
 
             <button type="submit">Gerar Config.cfg</button>
         </form>
