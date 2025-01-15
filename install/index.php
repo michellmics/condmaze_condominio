@@ -148,12 +148,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="form-group">
                 <label for="db_name">Nome do Banco:</label>
-                <input type="text" name="db_name" id="db_name" required><br>
+                <input type="text" name="db_name" id="db_name" value="dbcondominio" readonly required><br>
             </div>
 
             <div class="form-group">
                 <label for="db_user">Usuário:</label>
-                <input type="text" name="db_user" id="db_user" required><br>
+                <input type="text" name="db_user" id="db_user" value="userdbcondominio" readonly required><br>
             </div>
 
             <div class="form-group">
