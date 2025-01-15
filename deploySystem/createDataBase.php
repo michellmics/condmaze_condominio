@@ -96,7 +96,15 @@ if ($response['status'] !== 1) {
 }
 echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
 
-// Caminho para o arquivo SQL a ser importado
+// Conectar ao banco de dados MySQL via PHP
+$mysqli = new mysqli($host, $user_name, $user_password, $database_name);
+
+// Verificar a conexão
+if ($mysqli->connect_error) {
+    die("Falha na conexão com o banco de dados: " . $mysqli->connect_error);
+}
+
+// Caminho do arquivo SQL
 $sqlFilePath = "db.sql"; // Caminho para o arquivo .sql
 
 // Verificar se o arquivo SQL existe
@@ -111,16 +119,14 @@ if ($sqlContent === false) {
     die("Erro ao ler o conteúdo do arquivo SQL.");
 }
 
-// Rodar o comando SQL
-$response = call_uapi($cpanel_host, 'Mysql/execute_sql', [
-    'database' => $database_name,
-    'sql' => $sqlContent
-], $headers);
-
-if ($response['status'] !== 1) {
-    die("Erro ao executar o arquivo SQL: " . implode(', ', $response['errors']));
+// Executar o arquivo SQL no banco de dados
+if ($mysqli->multi_query($sqlContent)) {
+    echo "Arquivo SQL executado com sucesso no banco '$database_name'!\n";
+} else {
+    die("Erro ao executar o arquivo SQL: " . $mysqli->error);
 }
 
-echo "Arquivo SQL executado com sucesso no banco '$database_name'!\n";
+// Fechar a conexão
+$mysqli->close();
 
 ?>
