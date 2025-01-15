@@ -83,7 +83,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
-                                <div >
+                                <div class="page-title-right">
                                     <form class="d-flex">
                                         <div class="input-group">
                                             <!-- Combobox para selecionar o mês -->
