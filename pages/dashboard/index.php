@@ -13,6 +13,11 @@
 	$totalFundoReserva = number_format($totalFundoReserva, 0, ',', '.');
 	$totalDespesa = $chartValor->getDespesaValor("dezembro","2024");
 	$totalDespesa = number_format($totalDespesa, 0, ',', '.');
+    $totalInadimplencia = $chartValor->getInadimplenciaFull("dezembro","2024");
+
+    var_dump($totalInadimplencia);
+    die();
+    
     //--------------------
 
 
