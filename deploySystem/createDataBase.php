@@ -29,15 +29,15 @@ $cpanelDominio = $configContent['CPANEL']['dominio'];
 $cpanelPorta = $configContent['CPANEL']['porta'];
 $cpanelToken = $configContent['CPANEL']['token'];
 
-// Dados do cPanel
-$cpanel_user = $cpanelusuario;
-$cpanel_token = $cpanelToken;
-$cpanel_host = $cpanelDominio . ":" . $cpanelPorta;
-
 // Dados do banco de dados
 $database_name = $cpanel_user . "_" . $dbName; // Nome do banco
 $user_name = $cpanel_user . "_" . $dbUser; // Nome do usuário
 $user_password = $dbPass; // Senha do usuário do banco
+
+// Dados do cPanel
+$cpanel_user = $cpanelusuario;
+$cpanel_token = $cpanelToken;
+$cpanel_host = $cpanelDominio . ":" . $cpanelPorta;
 
 // Cabeçalhos de autenticação
 $headers = [
@@ -96,41 +96,37 @@ if ($response['status'] !== 1) {
 }
 echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
 
-echo "aqui";
+// Agora, conectar ao banco de dados e executar o arquivo SQL
 
-// Conectar ao banco de dados MySQL via PHP
-$mysqli = new mysqli($host, $user_name, $user_password, $database_name);
+try {
+    // Conectar ao banco de dados usando PDO
+    $pdo = new PDO("mysql:host=$host;dbname=$database_name", $user_name, $user_password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Verificar a conexão
-if ($mysqli->connect_error) {
-    die("Falha na conexão com o banco de dados: " . $mysqli->connect_error);
-}
+    echo "Conexão ao banco de dados '$database_name' estabelecida com sucesso!\n";
 
-// Caminho do arquivo SQL
-$sqlFilePath = "db.sql"; // Caminho para o arquivo .sql
+    // Caminho do arquivo SQL
+    $sqlFilePath = "db.sql"; // Caminho para o arquivo .sql
 
-// Verificar se o arquivo SQL existe
-if (!file_exists($sqlFilePath)) {
-    die("Erro: O arquivo SQL não foi encontrado.");
-}
+    // Verificar se o arquivo SQL existe
+    if (!file_exists($sqlFilePath)) {
+        die("Erro: O arquivo SQL não foi encontrado.");
+    }
 
-// Ler o conteúdo do arquivo SQL
-$sqlContent = file_get_contents($sqlFilePath);
+    // Ler o conteúdo do arquivo SQL
+    $sqlContent = file_get_contents($sqlFilePath);
 
-var_dump($sqlContent);
+    if ($sqlContent === false) {
+        die("Erro ao ler o conteúdo do arquivo SQL.");
+    }
 
-if ($sqlContent === false) {
-    die("Erro ao ler o conteúdo do arquivo SQL.");
-}
+    // Executar o conteúdo do arquivo SQL
+    $pdo->exec($sqlContent);
 
-// Executar o arquivo SQL no banco de dados
-if ($mysqli->multi_query($sqlContent)) {
     echo "Arquivo SQL executado com sucesso no banco '$database_name'!\n";
-} else {
-    die("Erro ao executar o arquivo SQL: " . $mysqli->error);
-}
 
-// Fechar a conexão
-$mysqli->close();
+} catch (PDOException $e) {
+    die("Erro na conexão ou na execução do SQL: " . $e->getMessage());
+}
 
 ?>
