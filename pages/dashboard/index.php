@@ -127,7 +127,7 @@
     <a href="javascript: void(0);" class="btn btn-primary ms-1">
         <i class="mdi mdi-filter-variant"></i>
     </a>
-</form>
+</form> 
 
                                 </div>
                                 <h4 class="page-title">Indicadores</h4>
