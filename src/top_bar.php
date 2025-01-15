@@ -122,7 +122,7 @@
                                     <div class="d-flex">
                                         <img class="d-flex me-2 rounded-circle" src="../../assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                         <div class="w-100">
-                                            <h5 class="m-0 font-14"><?php echo $nomeSessionShort; ?></h5>
+                                            <h5 class="m-0 font-14">Jacob Deo</h5>
                                             <span class="font-12 mb-0">Developer</span>
                                         </div>
                                     </div>
@@ -382,7 +382,7 @@
                                 <img src="../../assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
                             </span>
                             <span class="d-lg-flex flex-column gap-1 d-none">
-                                <h5 class="my-0">Dominic Keller</h5>
+                                <h5 class="my-0"><?php echo $nomeSessionShort; ?></h5>
                                 <h6 class="my-0 fw-normal">Founder</h6>
                             </span>
                         </a>
