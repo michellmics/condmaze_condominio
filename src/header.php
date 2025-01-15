@@ -1,26 +1,4 @@
-<?php
-    ini_set('display_errors', 1);  // Habilita a exibição de erros
-    error_reporting(E_ALL);        // Reporta todos os erros
-	
-	session_start(); 
-    $_SESSION['last_activity'] = time();
-	define('SESSION_TIMEOUT', 43200); // 30 minutos
-    
-	
-	if (!isset($_SESSION['user_id'])) 
-	{
-	  header("Location: ../login/index.php");
-	  exit();
-	}
-    	// Atualiza o timestamp da última atividade
-	
-	$blocoSession = $_SESSION['user_bloco'];
-	$apartamentoSession = $_SESSION['user_apartamento'];
-	$nomeSession =  ucwords($_SESSION['user_name']);
-	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-	$userid = $_SESSION['user_id'];
 
-?>
 
 <header class="header" >
 			<!-- Topbar -->
@@ -39,7 +17,7 @@
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><b>Morador:</b> <? echo $usuariologado; ?></li> 
+								<li><b>Morador:</b> <? echo "yayaya.".$usuariologado; ?></li> 
 								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
