@@ -205,9 +205,8 @@
                                             </div>
                                             <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Fundo de Reserva</h5>
                                             <h3 class="mt-3 mb-3">R$100.369,23</h3>
-                                            <p class="mb-0 text-muted">
-                                                <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
-                                                <span class="text-nowrap">Último mês</span>
+                                            <p class="mb-0 text-muted">                                               
+                                                <span class="text-nowrap">Total em Caixa</span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
@@ -222,8 +221,7 @@
                                             <h5 class="text-muted fw-normal mt-0" title="Growth">Inadimplência</h5>
                                             <h3 class="mt-3 mb-3">30.56%</h3>
                                             <p class="mb-0 text-muted">
-                                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 30.87%</span>
-                                                <span class="text-nowrap">Último mês</span>
+                                                <span class="text-nowrap">% de Apartamentos </span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
