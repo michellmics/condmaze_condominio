@@ -42,6 +42,8 @@
                 pass = dbpass
             */
 
+            $configPath = '../../config.cfg';
+
             if (!file_exists($this->configPath)) {
                 die("Erro: Arquivo de configuração não encontrado.");
             }
