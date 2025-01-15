@@ -45,7 +45,7 @@
                         <!-- Logo Dark -->
                         <a href="index.html" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="../../assets/images/logo-dark.png" alt="dark logo">
+                                <img src="../../img/logo_128x32_black.png" alt="dark logo">
                             </span>
                             <span class="logo-sm">
                                 <img src="../../assets/images/logo-dark-sm.png" alt="small logo">
