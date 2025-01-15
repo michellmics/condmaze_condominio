@@ -17,8 +17,6 @@ if (!file_exists($configPath)) {
 
 $configContent = parse_ini_file($configPath, true);  // true para usar seções
 
-var_dump($configContent);
-die();
 
 if (!$configContent) {
     die("Erro: Não foi possível ler o arquivo de configuração.");
