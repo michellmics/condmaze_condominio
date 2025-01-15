@@ -82,7 +82,7 @@
                     </li>
 
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none nav-user px-6" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none nav-user px-4" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <span class="account-user-avatar">
                                 <img src="../../assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
                             </span>
