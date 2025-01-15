@@ -2,27 +2,43 @@
 
 header('Content-Type: application/json');
 
+if(!isset($_GET['cpanel_usuario']))
+{
+    echo "Arquivo de configuração incompleto.";
+    die();
+}
+
 $cpanel_usuario = $_GET['cpanel_usuario'];
+$configPath = "/home/$cpanel_usuario/config.cfg";
 
-//public $configPath = '/home/hortensias/config.cfg';
+if (!file_exists($configPath)) {
+    die("Erro: Arquivo de configuração não encontrado.");
+}
 
+$configContent = parse_ini_file($configPath, true);  // true para usar seções
 
+if (!$configContent) {
+    die("Erro: Não foi possível ler o arquivo de configuração.");
+}
 
-echo $cpanel_usuario;
-die();
-
-
-
+$host = $configContent['DATA DB']['host'];
+$dbName = $configContent['DATA DB']['dbname'];
+$dbUser = $configContent['DATA DB']['user'];
+$dbPass = $configContent['DATA DB']['pass'];
+$cpanelusuario = $configContent['CPANEL']['usuario'];
+$cpanelDominio = $configContent['CPANEL']['dominio'];
+$cpanelPorta = $configContent['CPANEL']['porta'];
+$cpanelToken = $configContent['CPANEL']['token'];
 
 // Dados do cPanel
-$cpanel_user = 'inartcom'; 
-$cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0';
-$cpanel_host = 'https://inart.com.br:2083'; 
+$cpanel_user = $cpanelusuario; 
+$cpanel_token = $cpanelToken;
+$cpanel_host = $cpanelDominio . ":" . $cpanelPorta; 
 
 // Dados do banco de dados
-$database_name = $cpanel_user . '_bdcondominio'; // Nome do banco
-$user_name = $cpanel_user . '_userbdcondominio'; // Nome do usuário
-$user_password = 'Mi479585!condominio'; // Senha do usuário do banco
+$database_name = $cpanel_user . "_" . $dbName; // Nome do banco
+$user_name = $cpanel_user . "_" . $dbUser; // Nome do usuário
+$user_password = $dbPass; // Senha do usuário do banco
 
 // Cabeçalhos de autenticação
 $headers = [
