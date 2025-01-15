@@ -84,15 +84,43 @@
                                 <div class="page-title-right">
                                 <form class="d-flex">
     <div class="input-group">
-        <select class="form-control form-control-light" id="dash-daterange">
-            <option value="opcao1">Opção 1</option>
-            <option value="opcao2">Opção 2</option>
-            <option value="opcao3">Opção 3</option>
+        <!-- Combobox para selecionar o mês -->
+        <select class="form-control form-control-light" id="select-month">
+            <option value="" disabled selected>Selecione o mês</option>
+            <option value="01">Janeiro</option>
+            <option value="02">Fevereiro</option>
+            <option value="03">Março</option>
+            <option value="04">Abril</option>
+            <option value="05">Maio</option>
+            <option value="06">Junho</option>
+            <option value="07">Julho</option>
+            <option value="08">Agosto</option>
+            <option value="09">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
         </select>
+
+        <!-- Combobox para selecionar o ano -->
+        <select class="form-control form-control-light ms-2" id="select-year">
+            <option value="" disabled selected>Selecione o ano</option>
+            <?php
+            // Gerar anos dinamicamente
+            $currentYear = date("Y");
+            $startYear = $currentYear - 10; // Define um intervalo de 10 anos anteriores
+            $endYear = $currentYear + 10; // Define um intervalo de 10 anos futuros
+
+            for ($year = $startYear; $year <= $endYear; $year++) {
+                echo "<option value='$year'>$year</option>";
+            }
+            ?>
+        </select>
+
         <span class="input-group-text bg-primary border-primary text-white">
             <i class="mdi mdi-calendar-range font-13"></i>
         </span>
     </div>
+
     <a href="javascript: void(0);" class="btn btn-primary ms-2">
         <i class="mdi mdi-autorenew"></i>
     </a>
@@ -100,6 +128,7 @@
         <i class="mdi mdi-filter-variant"></i>
     </a>
 </form>
+
                                 </div>
                                 <h4 class="page-title">Indicadores</h4>
                             </div>
