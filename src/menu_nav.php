@@ -79,10 +79,14 @@
                                     <i class="uil-window"></i>Início <div class="dropdown-item"></div>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboards" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-window"></i>Moradores <div class="dropdown-item"></div>
+                                 <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="uil-window"></i>Moradores <div class="arrow-down"></div>
                                 </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-components">
+                                    <a href="widgets.html" class="dropdown-item">Lista de Moradores</a>
+                                    <a href="widgets.html" class="dropdown-item">Minha lista de convidados</a>
+                                </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboards" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,20 +99,10 @@
                                     <i class="uil-package"></i>Administração <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                    <a href="widgets.html" class="dropdown-item">Widgets</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-layouts" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-window"></i>Layouts <div class="arrow-down"></div>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="topnav-layouts">
-                                    <a href="layouts-horizontal.html" class="dropdown-item" target="_blank">Horizontal</a>
-                                    <a href="layouts-full.html" class="dropdown-item" target="_blank">Full</a>
-                                    <a href="layouts-fullscreen.html" class="dropdown-item" target="_blank">Fullscreen</a>
-                                    <a href="layouts-hover.html" class="dropdown-item" target="_blank">Hover Menu</a>
-                                    <a href="layouts-compact.html" class="dropdown-item" target="_blank">Compact Menu</a>
-                                    <a href="layouts-icon-view.html" class="dropdown-item" target="_blank">Icon View</a>
+                                    <a href="widgets.html" class="dropdown-item">Indicadores</a>
+                                    <a href="widgets.html" class="dropdown-item">Atividades</a>
+                                    <a href="widgets.html" class="dropdown-item">Agenda</a>
+                                    <a href="widgets.html" class="dropdown-item">Adicionar Moradores</a>
                                 </div>
                             </li>
                         </ul>
