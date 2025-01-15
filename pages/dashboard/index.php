@@ -44,6 +44,34 @@
 
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+    /* Garantir que os select boxes se ajustem ao espaço disponível */
+    .input-group select {
+        width: 100%; /* Tornar os selects responsivos */
+        margin-bottom: 10px; /* Adicionar espaçamento inferior */
+    }
+    
+    /* Media query para dispositivos móveis */
+    @media (max-width: 768px) {
+        .input-group {
+            flex-wrap: wrap; /* Permite que os elementos quebrem linha */
+        }
+    
+        #select-month,
+        #select-year {
+            flex: 1 1 100%; /* Cada select ocupa 100% da largura disponível */
+            margin-bottom: 10px; /* Espaçamento inferior entre os selects */
+        }
+    
+        .input-group-text {
+            flex: 0 0 auto; /* Mantém o tamanho do botão de ícone */
+            margin-left: auto; /* Empurra o ícone para o final */
+        }
+    }
+    </style>
+
+
 </head>
 
 <body>
