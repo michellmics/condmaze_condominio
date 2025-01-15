@@ -125,7 +125,14 @@ try {
     // Executar o conteúdo do arquivo SQL
     $pdo->exec($sqlContent);
 
-    echo "Arquivo SQL executado com sucesso no banco '$database_name'!\n";
+    echo "Tabelas criadas no banco '$database_name'!\n";
+
+        // Remover o arquivo SQL após execução
+        if (unlink($sqlFilePath)) {
+            echo "Arquivo SQL removido com sucesso!\n";
+        } else {
+            echo "Erro ao remover o arquivo SQL.\n";
+        }
 
 } catch (PDOException $e) {
     die("Erro na conexão ou na execução do SQL: " . $e->getMessage());
