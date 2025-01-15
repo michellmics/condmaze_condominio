@@ -4,6 +4,7 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
 session_start(); 
+define('SESSION_TIMEOUT', 43200); // 12 horas
 
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
