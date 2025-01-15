@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Gerar Arquivo config.cfg</h1>
+        <h1>Instalação Sistema COndominios - Codemaze</h1>
         <form method="POST">
             <h2>Banco de Dados</h2>
             <div class="form-group">
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="email_host">Host:</label>
+                <label for="email_host">Host: Ex.: mail.dominio.com.br</label>
                 <input type="text" name="email_host" id="email_host" required><br>
             </div>
 
@@ -178,16 +178,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="cpanel_dominio">Domínio:</label>
+                <label for="cpanel_dominio">Domínio: Ex.: https://dominio.com.br</label>
                 <input type="text" name="cpanel_dominio" id="cpanel_dominio" required><br>
             </div>
 
             <div class="form-group">
                 <label for="cpanel_porta">Porta:</label>
                 <input type="number" name="cpanel_porta" id="cpanel_porta" value="2083" readonly><br><br>
-            </div>
+            </div> 
 
-            <button type="submit">Gerar Config.cfg</button>
+            <button type="submit">Instalar Sistema</button>
         </form>
     </div>
 </body>
