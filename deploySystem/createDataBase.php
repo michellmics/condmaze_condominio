@@ -117,6 +117,8 @@ if (!file_exists($sqlFilePath)) {
 // Ler o conteúdo do arquivo SQL
 $sqlContent = file_get_contents($sqlFilePath);
 
+var_dump($sqlContent);
+
 if ($sqlContent === false) {
     die("Erro ao ler o conteúdo do arquivo SQL.");
 }
