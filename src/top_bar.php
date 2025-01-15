@@ -38,7 +38,7 @@
                                 <img src="../img/logo_128x32_white.png" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="../img/logo_128x32_white.png" alt="small logo">
+                                <img src="../img/logo_128x32_white.png" alt="small logo"> 
                             </span>
                         </a>
 
