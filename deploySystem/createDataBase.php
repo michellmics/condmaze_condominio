@@ -2,8 +2,17 @@
 
 header('Content-Type: application/json');
 
-echo "cheguei";
+$cpanel_usuario = $_GET['cpanel_usuario'];
+
+//public $configPath = '/home/hortensias/config.cfg';
+
+
+
+echo $cpanel_usuario;
 die();
+
+
+
 
 // Dados do cPanel
 $cpanel_user = 'inartcom'; 

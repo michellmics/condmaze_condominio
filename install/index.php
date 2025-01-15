@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ],
         'CPANEL' => [
             'token' => $_POST['cpanel_token'] ?? '',
+            'usuario' => $_POST['cpanel_usuario'] ?? '',
             'dominio' => $_POST['cpanel_dominio'] ?? '',
             'porta' => $_POST['cpanel_porta'] ?? '',
         ],
@@ -176,6 +177,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label for="cpanel_token">Token:</label>
                 <input type="text" name="cpanel_token" id="cpanel_token" required><br>
+            </div>
+
+            <div class="form-group">
+                <label for="cpanel_usuario">Usuário:</label>
+                <input type="text" name="cpanel_usuario" id="cpanel_usuario" required><br>
             </div>
 
             <div class="form-group">
