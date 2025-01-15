@@ -102,7 +102,7 @@
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="mdi mdi-logout me-1"></i>
-                                <span>Logout</span>
+                                <span>Sair</span>
                             </a>
                         </div>
                     </li>
