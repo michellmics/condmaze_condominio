@@ -196,7 +196,7 @@ html, body {
     <body>
 	
 		<!-- Preloader -->
-		<?php include '../../src/preloader.php'; ?>
+		<?php //include '../../src/preloader.php'; ?>
 		<!-- End Preloader -->
      
 
