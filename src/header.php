@@ -17,7 +17,7 @@
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><b>Morador:</b> <? echo "yayaya.".$usuariologado; ?></li> 
+								<li><b>Morador:</b> <?php echo $usuariologado; ?></li> 
 								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
