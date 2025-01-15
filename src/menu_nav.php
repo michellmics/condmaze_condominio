@@ -33,7 +33,7 @@
                                     <i class="uil uil-tachometer-fast"></i>Administração <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                    <a href="widgets.html" class="dropdown-item">Indicadores</a>
+                                    <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
                                     <a href="widgets.html" class="dropdown-item">Atividades</a>
                                     <a href="widgets.html" class="dropdown-item">Agenda</a>
                                     <a href="widgets.html" class="dropdown-item">Webmail</a>
