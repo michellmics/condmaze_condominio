@@ -13,7 +13,6 @@
 	  header("Location: ../login/index.php");
 	  exit();
 	}
-    	// Atualiza o timestamp da última atividade
 	
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
@@ -22,10 +21,16 @@
 	$userid = $_SESSION['user_id'];
 
     $siteAdmin = new SITE_ADMIN();  
-    $siteAdmin->getPopupImagePublish();    
-    
-    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+    $siteAdmin->getPopupImagePublish(); 
+    $siteAdmin->getParameterInfo();
 
+    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+          $nomeCondominio = $item['CFG_DCVALOR']; 
+          break; 
+      }
+    }   
+    
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
     if($qtdePubli != 0)
     {
@@ -61,7 +66,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>Condomínio Parque das Hortências</title>
+        <title><?php echo $nomeCondominio; ?></title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="../../img/favicon.png">
