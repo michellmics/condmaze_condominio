@@ -232,7 +232,7 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Revenue</h4>
+                                    <h4 class="header-title">Despesas</h4>
                                     <div class="dropdown">
                                         <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="mdi mdi-dots-vertical"></i>
@@ -287,7 +287,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Total Sales</h4>
+                                    <h4 class="header-title">Despesas</h4>
                                     <div class="dropdown">
                                         <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="mdi mdi-dots-vertical"></i>
