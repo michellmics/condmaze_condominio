@@ -20,8 +20,9 @@
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
 	$nomeSession =  ucwords($_SESSION['user_name']);
-    $nomeSessionShort =  substr($nomeSession,0,12);
+    $nomeSessionShort =  substr($nomeSession,0,15);
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+    $nivelAcesso = ucwords($_SESSION['user_nivelacesso']);
 	$userid = $_SESSION['user_id'];
 ?>
 
@@ -383,7 +384,7 @@
                             </span>
                             <span class="d-lg-flex flex-column gap-1 d-none">
                                 <h5 class="my-0"><?php echo $nomeSessionShort; ?></h5>
-                                <h6 class="my-0 fw-normal">Founder</h6>
+                                <h6 class="my-0 fw-normal"><?php echo $nivelAcesso; ?></h6> 
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
