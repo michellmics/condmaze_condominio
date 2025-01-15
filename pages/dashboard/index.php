@@ -56,7 +56,7 @@
 
     .page-title-right .input-group {
         flex: 1 1 100%; /* Faz o input group ocupar toda a largura */
-    }
+    } 
 
     .page-title-right select {
         flex: 1 1 100%; /* Os selects se ajustam ao tamanho da tela */
