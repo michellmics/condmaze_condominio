@@ -285,7 +285,7 @@
                         </div> <!-- end col-->
 
                         <div class="col-lg-4">
-                        <div class="card">
+                            <div class="card">
                                 <div class="d-flex card-header justify-content-between align-items-center">
                                     <h4 class="header-title">Total Sales</h4>
                                     <div class="dropdown">
@@ -324,6 +324,10 @@
                                         </p>
                                         <p class="mb-0">
                                             <i class="mdi mdi-square text-warning"></i> E-mail
+                                            <span class="float-end">$154.02</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            <i class="mdi mdi-square text-warning"></i> outro
                                             <span class="float-end">$154.02</span>
                                         </p>
                                     </div>
