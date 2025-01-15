@@ -1,3 +1,16 @@
+<?php
+require "../objects/objetos.php";
+
+$siteAdmin = new SITE_ADMIN();  
+  
+
+echo $siteAdmin->$configPath;
+die();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
