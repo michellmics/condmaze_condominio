@@ -85,6 +85,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="widgets.html" class="dropdown-item">Lista de Moradores</a>
+                                    <a href="widgets.html" class="dropdown-item">Adicionar Moradores</a>
                                 </div>
                             </li>     
                             <li class="nav-item dropdown">
@@ -103,7 +104,6 @@
                                     <a href="widgets.html" class="dropdown-item">Indicadores</a>
                                     <a href="widgets.html" class="dropdown-item">Atividades</a>
                                     <a href="widgets.html" class="dropdown-item">Agenda</a>
-                                    <a href="widgets.html" class="dropdown-item">Adicionar Moradores</a>
                                 </div>
                             </li>
                         </ul>
