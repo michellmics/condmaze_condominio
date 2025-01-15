@@ -58,12 +58,12 @@
     text-decoration: underline;
   }
 </style>
-
-<footer class="footer">
-      <!-- Marquee com o conteúdo rolante -->
-  <div class="marquee-container">
+<div class="marquee-container">
     <span><?php echo "texxxx"; ?></span>
   </div>
+<footer class="footer">
+      <!-- Marquee com o conteúdo rolante -->
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
