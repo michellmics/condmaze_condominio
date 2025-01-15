@@ -67,7 +67,7 @@ class LoginSystem extends SITE_ADMIN
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 {
-    $secretKey = "6Lf3654qAAAAADXFzRqJWg7dN-XLJN_JJFMD7Lgx"; 
+    $secretKey = "6LcA-rcqAAAAAJtaGyxhlEy0tt9mdt6eP-cNGPzP"; 
 
     $recaptchaResponse = $_POST['g-recaptcha-response'];
 

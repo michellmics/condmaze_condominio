@@ -77,7 +77,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
             </div><!-- /.col -->
           </div>
           <br>
-          <center><div class="g-recaptcha" data-sitekey="6Lf3654qAAAAANEwGw3z4944gsNE3IT_vVAIrkSP"></div></center>
+          <center><div class="g-recaptcha" data-sitekey="6LcA-rcqAAAAAK2N1QMI38QK4s5pKEMYjCRIikX8"></div></center>
         </form>
 
         <!-- SCRIPT RECAPTCHA -->
