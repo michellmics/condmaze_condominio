@@ -46,20 +46,21 @@
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <style>
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
     .page-title-right {
-        display: flex !important; /* Força a exibição */
-        flex-wrap: wrap; /* Permite quebra de linha para elementos */
-        justify-content: flex-start; /* Alinha os itens ao início */
+        display: flex !important; /* Assegura exibição */
+        flex-wrap: wrap; /* Permite quebra de linha */
+        justify-content: flex-start; /* Alinha itens ao início */
+        margin-top: 20px; /* Ajuste a distância para baixo */
     }
 
     .page-title-right .input-group {
-        flex: 1 1 100%; /* O input group ocupa toda a largura */
+        flex: 1 1 100%; /* Faz o input group ocupar toda a largura */
     }
 
     .page-title-right select {
-        flex: 1 1 100%; /* Selects se ajustam ao tamanho da tela */
-        margin-bottom: 10px; /* Espaçamento inferior para separação */
+        flex: 1 1 100%; /* Os selects se ajustam ao tamanho da tela */
+        margin-bottom: 10px; /* Espaçamento inferior */
     }
 }
     </style>
