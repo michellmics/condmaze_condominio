@@ -91,13 +91,13 @@
             <!-- content -->
 
 
-            
+            <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     		<img src="../../img/logo_128x128.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
+		    </section>
 
 
 
-
-
+ 
 
 
 		<!-- Menu Nav Area -->
