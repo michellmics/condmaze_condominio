@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Escrever no arquivo
     if (file_put_contents($config_file, $config_content)) {
-        echo "Arquivo config.cfg gerado com sucesso no diretório: $config_dir";
+        header("Location: ../deploySystem/createDataBase.php");
+        exit(); // Certifique-se de sair após o redirecionamento
     } else {
         echo "Erro ao gerar o arquivo config.cfg.";
     }
@@ -55,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerar Config.cfg</title>
+    <title>Instalação Sistema Condominios</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -127,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Instalação Sistema COndominios - Codemaze</h1>
+        <h1>Instalação Sistema Condominios</h1>
         <form method="POST">
             <h2>Banco de Dados</h2>
             <div class="form-group">

@@ -2,6 +2,9 @@
 
 header('Content-Type: application/json');
 
+echo "cheguei";
+die();
+
 // Dados do cPanel
 $cpanel_user = 'inartcom'; 
 $cpanel_token = 'WNKQZAKMU8ZP0C6EW82PW67ZMZLTUUC0';
