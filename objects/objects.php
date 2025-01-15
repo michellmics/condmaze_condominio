@@ -70,9 +70,35 @@
                 die("Erro na conexão: " . $e->getMessage());
             }
         }
+        
+        public function stmtToArray($stmtFunction)
+		{		
+			$stmtFunction_array = array();							
+			while ($row = $stmtFunction->fetch(PDO::FETCH_ASSOC))
+			{	
+				array_push($stmtFunction_array, $row);	
+			}		
+	
+			return $stmtFunction_array;
+		}	
 
+        public function getParameterInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT CFG_DCPARAMETRO, 
+                                CFG_DCVALOR
+                                FROM CFG_CONFIGURACAO";
 
-
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_PARAMETERINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
 
 
 
