@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Diretório anterior ao public_html
-    $config_dir = dirname(__DIR__); // Ajuste conforme necessário
+    $config_dir = '/home/inartcom';
     $config_file = $config_dir . '/config.cfg';
 
     // Dados do formulário
