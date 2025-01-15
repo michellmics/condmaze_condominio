@@ -79,21 +79,22 @@
                                     <i class="uil-window"></i>Início <div class="dropdown-item"></div>
                                 </a>
                             </li>
-                                 <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="uil-window"></i>Moradores <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="widgets.html" class="dropdown-item">Lista de Moradores</a>
+                                </div>
+                            </li>     
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="uil-window"></i>Salão de Festas <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="widgets.html" class="dropdown-item">Minha lista de convidados</a>
                                 </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboards" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-dashboard"></i>Indicadores <div class="dropdown-item"></div>
-                                </a>
-                            </li>
-                            
+                            </li>                       
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="uil-package"></i>Administração <div class="arrow-down"></div>
