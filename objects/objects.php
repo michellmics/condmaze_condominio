@@ -33,11 +33,7 @@
         function __construct() {
             // Usando __DIR__ para obter o diretório atual e construir o caminho relativo
             $this->configPath = __DIR__ . '/../../config.cfg';
-
-            return $this->configPath;
         }
-
-
 
         function conexao()
         {
@@ -65,6 +61,8 @@
             $dbname = $configContent['DATA DB']['dbname'];
             $user = $configContent['DATA DB']['user'];
             $pass = $configContent['DATA DB']['pass'];
+
+            return $pass;
 
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
