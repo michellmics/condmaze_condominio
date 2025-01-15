@@ -1,22 +1,19 @@
 <?php
-	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	include_once "../../objects/objects.php";
 	
 	session_start(); 
+    $_SESSION['last_activity'] = time();
 	define('SESSION_TIMEOUT', 43200); // 30 minutos
+    
 	
 	if (!isset($_SESSION['user_id'])) 
 	{
-	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  header("Location: ../login/index.php");
 	  exit();
 	}
     	// Atualiza o timestamp da última atividade
-	$_SESSION['last_activity'] = time();
-
-	if (!isset($_SESSION['user_id'])) 
-	{
-	  header("Location: https://www.prqdashortensias.com.br/index.php");
-	  exit();
-	}
 	
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
