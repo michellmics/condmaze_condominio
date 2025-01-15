@@ -1,15 +1,71 @@
+<?php
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	include_once "../../objects/objects.php";
+	
+	session_start(); 
+    $_SESSION['last_activity'] = time();
+	define('SESSION_TIMEOUT', 43200); // 30 minutos
+    
+	
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: ../login/index.php");
+	  exit();
+	}
+	
+	$blocoSession = $_SESSION['user_bloco'];
+	$apartamentoSession = $_SESSION['user_apartamento'];
+	$nomeSession =  ucwords($_SESSION['user_name']);
+	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+	$userid = $_SESSION['user_id'];
+
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getPopupImagePublish(); 
+    $siteAdmin->getParameterInfo();
+
+    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+          $nomeCondominio = $item['CFG_DCVALOR']; 
+          break; 
+      }
+    }   
+    
+    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+    if($qtdePubli != 0)
+    {
+        $num = rand(0, $qtdePubli -1);
+        $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+        
+        if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+        {
+            $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+        }
+        else
+            {
+                $publiImageLink = "";
+            }        
+    }
+    else
+        {
+            $publiImageLink = "";
+        }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-layout="topnav">
 
 <head>
     <meta charset="utf-8" />
-    <title>Horizontal Layout | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title><?php echo $nomeCondominio; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
@@ -42,20 +98,20 @@
                         <!-- Logo light -->
                         <a href="index.html" class="logo-light">
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="logo">
+                                <img src="../../assets/images/logo.png" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="assets/images/logo-sm.png" alt="small logo">
+                                <img src="../../assets/images/logo-sm.png" alt="small logo">
                             </span>
                         </a>
 
                         <!-- Logo Dark -->
                         <a href="index.html" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="assets/images/logo-dark.png" alt="dark logo">
+                                <img src="../../assets/images/logo-dark.png" alt="dark logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="assets/images/logo-dark-sm.png" alt="small logo">
+                                <img src="../../assets/images/logo-dark-sm.png" alt="small logo">
                             </span>
                         </a>
                     </div>
