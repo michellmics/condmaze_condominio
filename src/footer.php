@@ -1,9 +1,11 @@
 <?php
-	//ini_set('display_errors', 1);
-	//ini_set('display_startup_errors', 1);
-	//error_reporting(E_ALL);
-
-  	include_once '../../objetos.php'; 
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	  include_once "../../objects/objects.php";
+	
+	  session_start(); 
+    $_SESSION['last_activity'] = time();
+	  define('SESSION_TIMEOUT', 43200); // 30 minutos
 
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getFooterPublish();    

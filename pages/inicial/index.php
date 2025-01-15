@@ -27,19 +27,24 @@
     //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
 
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
-    $num = rand(0, $qtdePubli -1);
-    $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
-    
-    if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+    if($qtdePubli != 0)
     {
-        $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+        $num = rand(0, $qtdePubli -1);
+        $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+        
+        if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+        {
+            $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+        }
+        else
+            {
+                $publiImageLink = "";
+            }        
     }
     else
         {
             $publiImageLink = "";
         }
-
-    
 
 
 ?>
