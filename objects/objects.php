@@ -27,6 +27,7 @@
         public $ARRAY_LOGINFO;
         public $ARRAY_POPUPPUBLISHINFO;
         public $ARRAY_RELINFO;
+        public $configPath;
 
 
         function __construct() {
