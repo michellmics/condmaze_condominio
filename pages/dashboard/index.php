@@ -143,7 +143,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <h4 class="page-title">Indicadores</h4>
+                                
                             </div>
                         </div>
                     </div>
