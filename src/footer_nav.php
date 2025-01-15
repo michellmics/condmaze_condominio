@@ -6,7 +6,7 @@
 
     $qtdePubli = count($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
     $num = rand(0, $qtdePubli -1);
-    $publiText = $siteAdmin->ARRAY_FOOTERPUBLISHINFO[$num]["PUB_DCDESC"];
+    if(isset($siteAdmin->ARRAY_FOOTERPUBLISHINFO[$num]["PUB_DCDESC"])){$publiText = $siteAdmin->ARRAY_FOOTERPUBLISHINFO[$num]["PUB_DCDESC"];}
 ?>
 
 <footer class="footer">
