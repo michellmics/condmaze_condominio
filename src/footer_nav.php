@@ -72,10 +72,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-        <div class="marquee-container">
-    <span><?php echo "texxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxx"; ?></span>
-  </div>
+        <div class="row col-md-12">
+            <div class="marquee-container">
+                <span><?php echo "texxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxx"; ?></span>
+            </div>
         </div>
     </div>
 </footer>
