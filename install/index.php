@@ -56,39 +56,105 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerar Config.cfg</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2ecc71;
+        }
+        form {
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            margin: auto;
+        }
+        label {
+            color: #ecf0f1;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="text"], input[type="password"], input[type="number"] {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border: 1px solid #2ecc71;
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
+        input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+            border-color: #1abc9c;
+            outline: none;
+        }
+        button {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #27ae60;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Gerar Arquivo config.cfg</h1>
-    <form method="POST">
-        <h2>Banco de Dados</h2>
-        <label>Host:</label><br>
-        <input type="text" name="db_host" required><br>
-        <label>Nome do Banco:</label><br>
-        <input type="text" name="db_name" required><br>
-        <label>Usuário:</label><br>
-        <input type="text" name="db_user" required><br>
-        <label>Senha:</label><br>
-        <input type="password" name="db_pass" required><br>
+    <div class="container">
+        <h1>Gerar Arquivo config.cfg</h1>
+        <form method="POST">
+            <h2>Banco de Dados</h2>
+            <label for="db_host">Host:</label>
+            <input type="text" name="db_host" id="db_host" required><br>
 
-        <h2>E-mail</h2>
-        <label>Usuário:</label><br>
-        <input type="text" name="email_user" required><br>
-        <label>Senha:</label><br>
-        <input type="password" name="email_pass" required><br>
-        <label>Host:</label><br>
-        <input type="text" name="email_host" required><br>
-        <label>Porta:</label><br>
-        <input type="number" name="email_port" required><br>
+            <label for="db_name">Nome do Banco:</label>
+            <input type="text" name="db_name" id="db_name" required><br>
 
-        <h2>cPanel</h2>
-        <label>Token:</label><br>
-        <input type="text" name="cpanel_token" required><br>
-        <label>Domínio:</label><br>
-        <input type="text" name="cpanel_dominio" required><br>
-        <label>Porta:</label><br>
-        <input type="number" name="cpanel_porta" required><br><br>
+            <label for="db_user">Usuário:</label>
+            <input type="text" name="db_user" id="db_user" required><br>
 
-        <button type="submit">Gerar Config.cfg</button>
-    </form>
+            <label for="db_pass">Senha:</label>
+            <input type="password" name="db_pass" id="db_pass" required><br>
+
+            <h2>E-mail</h2>
+            <label for="email_user">Usuário:</label>
+            <input type="text" name="email_user" id="email_user" required><br>
+
+            <label for="email_pass">Senha:</label>
+            <input type="password" name="email_pass" id="email_pass" required><br>
+
+            <label for="email_host">Host:</label>
+            <input type="text" name="email_host" id="email_host" required><br>
+
+            <label for="email_port">Porta:</label>
+            <input type="number" name="email_port" id="email_port" required><br>
+
+            <h2>cPanel</h2>
+            <label for="cpanel_token">Token:</label>
+            <input type="text" name="cpanel_token" id="cpanel_token" required><br>
+
+            <label for="cpanel_dominio">Domínio:</label>
+            <input type="text" name="cpanel_dominio" id="cpanel_dominio" required><br>
+
+            <label for="cpanel_porta">Porta:</label>
+            <input type="number" name="cpanel_porta" id="cpanel_porta" required><br><br>
+
+            <button type="submit">Gerar Config.cfg</button>
+        </form>
+    </div>
 </body>
 </html>
