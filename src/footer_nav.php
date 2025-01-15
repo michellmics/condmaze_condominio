@@ -59,7 +59,7 @@
   }
 </style>
 <div class="marquee-container">
-    <span><?php echo "texxxx"; ?></span>
+    <span><?php echo "texxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxx"; ?></span>
   </div>
 <footer class="footer">
       <!-- Marquee com o conteúdo rolante -->
