@@ -8,7 +8,7 @@
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor("dezembro","2024");
-    $totalRecebido = number_format($totalRecebido, 2, ',', '.');
+    $totalRecebido = number_format($totalRecebido, 0, ',', '.');
     //--------------------
 
 
