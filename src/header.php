@@ -1,3 +1,27 @@
+<?php
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	
+	session_start(); 
+    $_SESSION['last_activity'] = time();
+	define('SESSION_TIMEOUT', 43200); // 30 minutos
+    
+	
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: ../login/index.php");
+	  exit();
+	}
+    	// Atualiza o timestamp da última atividade
+	
+	$blocoSession = $_SESSION['user_bloco'];
+	$apartamentoSession = $_SESSION['user_apartamento'];
+	$nomeSession =  ucwords($_SESSION['user_name']);
+	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+	$userid = $_SESSION['user_id'];
+
+?>
+
 <header class="header" >
 			<!-- Topbar -->
 			<div class="topbar">
