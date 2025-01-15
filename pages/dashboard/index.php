@@ -14,10 +14,6 @@
 	$totalDespesa = $chartValor->getDespesaValor("dezembro","2024");
 	$totalDespesa = number_format($totalDespesa, 0, ',', '.');
     $totalInadimplencia = $chartValor->getInadimplenciaFull("dezembro","2024");
-
-    var_dump($totalInadimplencia);
-    die();
-    
     //--------------------
 
 
@@ -228,7 +224,7 @@
                                                 <i class="mdi mdi-account-multiple widget-icon"></i>
                                             </div>
                                             <h5 class="text-muted fw-normal mt-0" title="Growth">Inadimplência</h5>
-                                            <h3 class="mt-3 mb-3">30.56%</h3>
+                                            <h3 class="mt-3 mb-3"><?php echo $totalInadimplencia; ?>%</h3> 
                                             <p class="mb-0 text-muted">
                                                 <span class="text-nowrap">% de Apartamentos </span>
                                             </p>
