@@ -27,7 +27,8 @@
         public $ARRAY_LOGINFO;
         public $ARRAY_POPUPPUBLISHINFO;
         public $ARRAY_RELINFO;
-        public $configPath = '../../config.cfg';
+        public $configPath;
+
 
 
         function conexao()

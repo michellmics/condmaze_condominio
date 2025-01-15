@@ -27,7 +27,15 @@
         public $ARRAY_LOGINFO;
         public $ARRAY_POPUPPUBLISHINFO;
         public $ARRAY_RELINFO;
-        public $configPath = '../../config.cfg';
+
+
+        function __construct() {
+            // Usando __DIR__ para obter o diretório atual e construir o caminho relativo
+            $this->configPath = __DIR__ . '/../../config.cfg';
+
+            return $this->configPath;
+        }
+
 
 
         function conexao()
@@ -76,6 +84,6 @@
 
 
 
-        
+
     }
 ?>
