@@ -1,5 +1,8 @@
 <?php
-include_once 'objetos.php'; 
+ini_set('display_errors', 1);  // Habilita a exibição de erros
+error_reporting(E_ALL);        // Reporta todos os erros
+include_once "../../objects/objects.php";
+
 session_start(); 
 
 header("Cache-Control: no-cache, no-store, must-revalidate");
