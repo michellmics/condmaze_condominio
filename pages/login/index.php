@@ -7,10 +7,12 @@ include_once "../../objects/objects.php";
 $siteAdmin = new SITE_ADMIN();
 $siteAdmin->getParameterInfo();
 
-var_dump($siteAdmin->ARRAY_PARAMETERINFO);
-die();
-
-
+foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+  if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+      $nomeCondominio = $item['CFG_DCVALOR']; 
+      break; 
+  }
+}
 
 ?>
 
@@ -27,7 +29,7 @@ die();
       gtag('config', 'G-4VK4QL1B8G'); 
     </script>
     <meta charset="UTF-8">
-    <title>Condomínio Parque das Hortênsias</title>
+    <title><?php echo $nomeCondominio; ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -50,7 +52,7 @@ die();
         <img src="https://www.prqdashortensias.com.br/img/logo_site_small.png"></img>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Acesso a área administrativa</p>
+        <p class="login-box-msg">Acesso ao sistema</p>
         <form id="demo-form" action="login.php" method="post" autocomplete="on">
           <div class="form-group has-feedback">
             <input type="number" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="username" autocomplete="username"/>
