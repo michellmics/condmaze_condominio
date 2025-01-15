@@ -1,3 +1,30 @@
+<?php
+	session_start(); 
+	define('SESSION_TIMEOUT', 43200); // 30 minutos
+	
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  exit();
+	}
+
+    // Atualiza o timestamp da última atividade
+	$_SESSION['last_activity'] = time();
+
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  exit();
+	}
+
+	$blocoSession = $_SESSION['user_bloco'];
+	$apartamentoSession = $_SESSION['user_apartamento'];
+	$nomeSession =  ucwords($_SESSION['user_name']);
+    $nomeSessionShort =  substr($nomeSession,0,12);
+	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+	$userid = $_SESSION['user_id'];
+?>
+
 <div class="navbar-custom">
             <div class="topbar container-fluid">
                 <div class="d-flex align-items-center gap-lg-2 gap-1">
@@ -95,7 +122,7 @@
                                     <div class="d-flex">
                                         <img class="d-flex me-2 rounded-circle" src="../../assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                         <div class="w-100">
-                                            <h5 class="m-0 font-14">Jacob Deo</h5>
+                                            <h5 class="m-0 font-14"><?php echo $nomeSessionShort; ?></h5>
                                             <span class="font-12 mb-0">Developer</span>
                                         </div>
                                     </div>
@@ -369,24 +396,6 @@
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="mdi mdi-account-circle me-1"></i>
                                 <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <i class="mdi mdi-account-edit me-1"></i>
-                                <span>Settings</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <i class="mdi mdi-lifebuoy me-1"></i>
-                                <span>Support</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <i class="mdi mdi-lock-outline me-1"></i>
-                                <span>Lock Screen</span>
                             </a>
 
                             <!-- item-->
