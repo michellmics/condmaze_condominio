@@ -7,24 +7,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Dados do formulário
     $data = [
         'DB' => [
-            'host' => $_POST['db_host'] ?? '',
-            'dbname' => $_POST['db_name'] ?? '',
-            'user' => $_POST['db_user'] ?? '',
-            'pass' => $_POST['db_pass'] ?? '',
+            'host' => '"' . ($_POST['db_host'] ?? '') . '"',
+            'dbname' => '"' . ($_POST['db_name'] ?? '') . '"',
+            'user' => '"' . ($_POST['db_user'] ?? '') . '"',
+            'pass' => '"' . ($_POST['db_pass'] ?? '') . '"',
         ],
         'EMAIL' => [
-            'Username' => $_POST['email_user'] ?? '',
-            'Password' => $_POST['email_pass'] ?? '',
-            'Host' => $_POST['email_host'] ?? '',
-            'Port' => $_POST['email_port'] ?? '',
+            'Username' => '"' . ($_POST['email_user'] ?? '') . '"',
+            'Password' => '"' . ($_POST['email_pass'] ?? '') . '"',
+            'Host' => '"' . ($_POST['email_host'] ?? '') . '"',
+            'Port' => '"' . ($_POST['email_port'] ?? '') . '"',
         ],
         'CPANEL' => [
-            'token' => $_POST['cpanel_token'] ?? '',
-            'usuario' => $_POST['cpanel_usuario'] ?? '',
-            'dominio' => $_POST['cpanel_dominio'] ?? '',
-            'porta' => $_POST['cpanel_porta'] ?? '',
+            'token' => '"' . ($_POST['cpanel_token'] ?? '') . '"',
+            'usuario' => '"' . ($_POST['cpanel_usuario'] ?? '') . '"',
+            'dominio' => '"' . ($_POST['cpanel_dominio'] ?? '') . '"',
+            'porta' => '"' . ($_POST['cpanel_porta'] ?? '') . '"',
         ],
     ];
+    
 
     $user_cpanel_get = $_POST['cpanel_usuario'];
 
