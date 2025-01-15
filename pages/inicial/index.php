@@ -196,12 +196,12 @@ html, body {
     <body>
 	
 		<!-- Preloader -->
-		<?php include 'src/preloader.php'; ?>
+		<?php include '../../src/preloader.php'; ?>
 		<!-- End Preloader -->
      
 
 		<!-- Header Area -->
-		<?php include 'src/header.php'; ?>
+		<?php include '../../src/header.php'; ?>
 		<!-- End Header Area -->
 
 
@@ -228,7 +228,7 @@ html, body {
 
 <!-- Footer -->
 <footer class="footerNew">
-<?php include 'src/footer.php'; ?>
+<?php include '../../src/footer.php'; ?>
 </footer>
 		
 <!-- Controle do pop-up de promoção -->
