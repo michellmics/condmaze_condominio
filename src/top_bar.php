@@ -76,7 +76,7 @@
                 <ul class="topbar-menu d-flex align-items-center gap-3">
 
                     <li class="d-none d-sm-inline-block">
-                        <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Theme Mode">
+                        <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Alternar brilho">
                             <i class="ri-moon-line font-22"></i>
                         </div>
                     </li>
