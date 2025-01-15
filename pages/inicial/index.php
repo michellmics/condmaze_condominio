@@ -23,7 +23,7 @@
 
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getPopupImagePublish();    
-
+echo $usuariologado;
     //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
 
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
