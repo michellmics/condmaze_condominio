@@ -44,7 +44,7 @@ class LoginSystem extends SITE_ADMIN
                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                 //--------------------LOG----------------------//
 
-                echo '<meta http-equiv="refresh" content="0;url=sistema/index.php">'; // Redireciona após login bem-sucedido
+                echo '<meta http-equiv="refresh" content="0;url=../inicial/index.php">'; // Redireciona após login bem-sucedido
                 exit();
              
             } else 
