@@ -38,7 +38,7 @@
                                 <img src="../../img/logo_128x32_white.png" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="../../img/logo_128x32_white.png" alt="small logo"> 
+                                <img src="../../img/logo_41x41_small.png" alt="small logo"> 
                             </span>
                         </a>
 
@@ -48,7 +48,7 @@
                                 <img src="../../img/logo_128x32_black.png" alt="dark logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="../../assets/images/logo-dark-sm.png" alt="small logo">
+                                <img src="../../img/logo_41x41_small.png" alt="small logo">
                             </span>
                         </a>
                     </div>
