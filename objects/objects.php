@@ -57,9 +57,10 @@
                 die("Erro: Não foi possível ler o arquivo de configuração.");
             }
 
+            $cpanelUser = $configContent['CPANEL']['usuario'];
             $host = $configContent['DATA DB']['host'];
-            $dbname = $configContent['DATA DB']['dbname'];
-            $user = $configContent['DATA DB']['user'];
+            $dbname = $cpanelUser . "_" . $configContent['DATA DB']['dbname'];
+            $user = $cpanelUser . "_" . $configContent['DATA DB']['user'];
             $pass = $configContent['DATA DB']['pass'];
 
             try {
