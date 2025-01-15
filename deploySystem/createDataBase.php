@@ -96,6 +96,8 @@ if ($response['status'] !== 1) {
 }
 echo "Usuário '$user_name' associado ao banco '$database_name' com todos os privilégios!\n";
 
+sleep(5);
+
 // Conectar ao banco de dados MySQL via PHP
 $mysqli = new mysqli($host, $user_name, $user_password, $database_name);
 
