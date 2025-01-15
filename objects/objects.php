@@ -62,8 +62,6 @@
             $user = $configContent['DATA DB']['user'];
             $pass = $configContent['DATA DB']['pass'];
 
-            return $pass;
-
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
