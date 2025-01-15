@@ -61,6 +61,11 @@
 
 <footer class="footer">
     <div class="container-fluid">
+    <div class="row col-md-12">
+            <div class="marquee-container text-md-end footer-links d-none d-md-block">
+                <span><?php echo "texxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxx"; ?></span>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">               
                 <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de Mkt e Software | 
@@ -70,11 +75,6 @@
                 <div class="text-md-end footer-links d-none d-md-block">
                     <a href="javascript: void(0);">Webmail</a>
                 </div>
-            </div>
-        </div>
-        <div class="row col-md-12">
-            <div class="marquee-container">
-                <span><?php echo "texxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxxexxxx"; ?></span>
             </div>
         </div>
     </div>
