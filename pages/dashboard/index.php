@@ -1,10 +1,20 @@
 <?php
     ini_set('display_errors', 1);  // Habilita a exibição de erros
     error_reporting(E_ALL);        // Reporta todos os erros
+
 	include_once "../../objects/objects.php";
-	
-    $siteAdmin = new SITE_ADMIN();  
-    $siteAdmin->getPopupImagePublish(); 
+	include_once '../../objetos_chart.php'; 
+
+    //buscar dados charts
+    $chartValor = new SITE_CHARTS(); 
+    //$totalRecebido = $chartValor->getReceitasValor($mesUserWidget,$anoUserWidget);
+    $totalRecebido = $chartValor->getReceitasValor("dezembro","2024");
+    var_dump($totalRecebido);
+    die();
+    //--------------------
+
+
+    $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {

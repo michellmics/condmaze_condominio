@@ -37,16 +37,6 @@
 
         function conexao()
         {
-            /*
-                load fiule config.cfg
-
-                [DATA DB]
-                host = localhost
-                dbname = dbname
-                user = dbuser
-                pass = dbpass
-            */
-
             if (!file_exists($this->configPath)) {
                 die("Erro: Arquivo de configuração não encontrado.");
             }
