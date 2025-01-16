@@ -100,56 +100,26 @@
                                         <div class="tab-pane show active" id="tooltips-validation-preview">
                                             <form class="needs-validation" novalidate>
                                                 <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip01">First name</label>
-                                                    <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
+                                                    <label class="form-label" for="validationTooltip01">Nome Completo</label>
+                                                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Nome Completo" value="Mark" required>
                                                     <div class="valid-tooltip">
-                                                        Looks good!
+                                                        Validado!
                                                     </div>
                                                     <div class="invalid-tooltip">
-                                                        Please enter first name.
+                                                        Por favor, preencha o nome completo.
                                                     </div>
                                                 </div>
                                                 <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip02">Last name</label>
+                                                    <label class="form-label" for="validationTooltip02">CPF ou RG</label>
                                                     <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
                                                     <div class="valid-tooltip">
-                                                        Looks good!
+                                                        Validado!
                                                     </div>
                                                     <div class="invalid-tooltip">
-                                                        Please enter last name.
+                                                    Por favor, preencha o número do documento.
                                                     </div>
                                                 </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltipUsername">Username</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                                                        <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                                                        <div class="invalid-tooltip">
-                                                            Please choose a unique and valid username.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip03">City</label>
-                                                    <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
-                                                    <div class="invalid-tooltip">
-                                                        Please provide a valid city.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip04">State</label>
-                                                    <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
-                                                    <div class="invalid-tooltip">
-                                                        Please provide a valid state.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip05">Zip</label>
-                                                    <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
-                                                    <div class="invalid-tooltip">
-                                                        Please provide a valid zip.
-                                                    </div>
-                                                </div>
+               
                                                 <button class="btn btn-primary" type="submit">Submit form</button>
                                             </form>
                                         </div> <!-- end preview-->
