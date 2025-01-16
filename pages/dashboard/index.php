@@ -131,24 +131,24 @@
                                     <form class="d-flex">
                                         <div class="input-group">
                                             <!-- Combobox para selecionar o mês -->
-                                            <select class="form-control form-control-light" id="select-month">
+                                            <select class="form-control form-control-light" id="data-mes" name="data-mes">
                                                 <option value="" disabled selected>Selecione o mês</option>
-                                                <option value="01">Janeiro</option>
-                                                <option value="02">Fevereiro</option>
-                                                <option value="03">Março</option>
-                                                <option value="04">Abril</option>
-                                                <option value="05">Maio</option>
-                                                <option value="06">Junho</option>
-                                                <option value="07">Julho</option>
-                                                <option value="08">Agosto</option>
-                                                <option value="09">Setembro</option>
-                                                <option value="10">Outubro</option>
-                                                <option value="11">Novembro</option>
-                                                <option value="12">Dezembro</option>
+                                                <option value="Janeiro">Janeiro</option>
+                                                <option value="Fevereiro02">Fevereiro</option>
+                                                <option value="Março">Março</option>
+                                                <option value="Abril">Abril</option>
+                                                <option value="Maio">Maio</option>
+                                                <option value="Junho">Junho</option>
+                                                <option value="Julho">Julho</option>
+                                                <option value="Agosto">Agosto</option>
+                                                <option value="Setembro">Setembro</option>
+                                                <option value="Outubro">Outubro</option>
+                                                <option value="Novembro">Novembro</option>
+                                                <option value="Dezembro">Dezembro</option>
                                             </select>
 
                                             <!-- Combobox para selecionar o ano -->
-                                            <select class="form-control form-control-light ms-2" id="select-year">
+                                            <select class="form-control form-control-light ms-2" id="data-ano" name="data-ano">
                                                 <option value="" disabled selected>Selecione o ano</option>
                                                 <?php
                                                 // Gerar anos dinamicamente
@@ -162,11 +162,30 @@
                                                 ?>
                                             </select>
 
-                                            <span class="input-group-text bg-primary border-primary text-white">
+                                            <span class="input-group-text bg-primary border-primary text-white" id="calendar-icon>
                                                 <i class="mdi mdi-calendar-range font-13"></i>
                                             </span>
                                         </div>
                                     </form>
+                                        <script>
+                                            // Captura o evento de clique no ícone do calendário
+                                            document.getElementById("calendar-icon").addEventListener("click", function() {
+                                                // Captura os valores dos campos mês e ano
+                                                var mes = document.getElementById("data-mes").value;
+                                                var ano = document.getElementById("data-ano").value;
+                                            
+                                                // Verifica se os valores de mês e ano foram selecionados
+                                                if (mes && ano) {
+                                                    // Construa a URL com os parâmetros GET
+                                                    var url = "index.php?data-mes=" + encodeURIComponent(mes) + "&data-ano=" + encodeURIComponent(ano);
+                                                
+                                                    // Redireciona para a URL
+                                                    window.location.href = url;
+                                                } else {
+                                                    alert("Por favor, selecione o mês e o ano.");
+                                                }
+                                            });
+                                        </script>
                                 </div>
                                 <h4 class="page-title">Indicadores</h4> 
                             </div>
