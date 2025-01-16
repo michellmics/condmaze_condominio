@@ -107,26 +107,28 @@
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
-                                        <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Apto</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
-            <tr>
-                <td><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
-                <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nome</th>
+                                                        <th>Apto</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
+                                                        <tr>
+                                                            <td><?= htmlspecialchars($item['USU_IDUSUARIO']); ?></td>
+                                                            <td><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                            <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                            <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
+                                                            <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
                                         </div> <!-- end preview-->
 
 
