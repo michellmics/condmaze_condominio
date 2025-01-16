@@ -97,8 +97,6 @@
 </head>
 
 <body>
-
-
     <!-- Begin page -->
     <div class="wrapper">
 
@@ -308,13 +306,6 @@
                             </div>
                             <div class="card-body pt-0">
                                     <div class="table-responsive">
-                                            <!-- Datatables js -->
-    <script src="../../assets/vendor/datatables.net/js/dataTables.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <!-- Datatable Init js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
                                         <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
@@ -1143,6 +1134,14 @@
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
+
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <!-- Datatable Init js -->
+    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
 
 </body>
 
