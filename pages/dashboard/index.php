@@ -5,15 +5,18 @@
 	include_once "../../objects/objects.php";
 	include_once '../../objects/objects_chart.php'; 
 
+    $mesUsu= isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "dezembro"; 
+    $anoUsu= isset($_GET['data-ano']) ? strval($_GET['data-ano']) : "dezembro"; 
+
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
-    $totalRecebido = $chartValor->getReceitasValor("dezembro","2024");
+    $totalRecebido = $chartValor->getReceitasValor($mesUsu,$anoUsu);
     $totalRecebido = number_format($totalRecebido, 2, ',', '.');
-    $totalFundoReserva = $chartValor->getFundoReservaValor("dezembro","2024");
+    $totalFundoReserva = $chartValor->getFundoReservaValor($mesUsu,$anoUsu);
 	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
-	$totalDespesa = $chartValor->getDespesaValor("dezembro","2024");
+	$totalDespesa = $chartValor->getDespesaValor($mesUsu,$anoUsu);
 	$totalDespesa = number_format($totalDespesa, 2, ',', '.');
-    $totalInadimplencia = $chartValor->getInadimplenciaFull("outubro","2024");
+    $totalInadimplencia = $chartValor->getInadimplenciaFull($mesUsu,$anoUsu);
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
     //--------------------
 
