@@ -64,6 +64,17 @@
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+                                                        
+    <!-- Datatables css -->
+    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+                                               
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+
     <style>
         @media (max-width: 768px) {
             .page-title-box {
@@ -301,22 +312,40 @@
                             </div>
                             <div class="card-body pt-0">
                                     <div class="table-responsive">
-                                    <table class="table table-centered table-nowrap table-hover mb-0">
-    <tbody>
-        <?php foreach ($chartValor->ARRAY_DESPESATABLEINFO as $item): ?>
-            <tr>
-                <td>
-                    <h5 class="font-14 my-1 fw-normal"><?= htmlspecialchars($item["CON_NMTITULO"]) ?></h5>
-                    <span class="text-muted font-13">Dezembro de 2024</span>
-                </td>
-                <td>
-                    <h5 class="font-14 my-1 fw-normal">R$<?= number_format($item["CON_NMVALOR"], 2, ',', '.') ?></h5>
-                    <span class="text-muted font-13">Valor</span>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+                                    <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>$320,800</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Garrett Winters</td>
+                                                <td>Accountant</td>
+                                                <td>Tokyo</td>
+                                                <td>63</td>
+                                                <td>2011/07/25</td>
+                                                <td>$170,750</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                        
                                     </div> <!-- end table-responsive-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
