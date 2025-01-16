@@ -264,7 +264,7 @@
                         <div class="col-xl-7 col-lg-6">
                             <div class="card card-h-100">
                                 <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Total a receber de Taxa Condominal - Mês</h4>
+                                    <h4 class="header-title">A receber / Taxa Condominal</h4>
                                     <div class="dropdown">
                                         <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="mdi mdi-dots-vertical"></i>
