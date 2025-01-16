@@ -21,10 +21,7 @@
     //--------------------
 
     $chartValor->getPendenciaByMesFull();
-    $chartValor->getDespesaTableValor($mesUsu, $anoUsu);
-    var_dump($chartValor->ARRAY_DESPESATABLEINFO);
-    die();
-   
+    $chartValor->getDespesaTableValor($mesUsu, $anoUsu);  
 
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
@@ -304,22 +301,22 @@
                             </div>
                             <div class="card-body pt-0">
                                     <div class="table-responsive">
-                                        <table class="table table-centered table-nowrap table-hover mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <h5 class="font-14 my-1 fw-normal">Bradesco  Auto/Re  Companhia  de  Seguros</h5>
-                                                        <span class="text-muted font-13">Dezembro de 2024</span>
-                                                    </td>
-                                                    <td>
-                                                        <h5 class="font-14 my-1 fw-normal">R$6,518.18</h5>
-                                                        <span class="text-muted font-13">Valor</span>
-                                                    </td>
-                                                </tr>
-
-
-                                            </tbody>
-                                        </table>
+                                    <table class="table table-centered table-nowrap table-hover mb-0">
+    <tbody>
+        <?php foreach ($chartValor->ARRAY_DESPESATABLEINFO as $item): ?>
+            <tr>
+                <td>
+                    <h5 class="font-14 my-1 fw-normal"><?= htmlspecialchars($item["CON_NMTITULO"]) ?></h5>
+                    <span class="text-muted font-13">Dezembro de 2024</span>
+                </td>
+                <td>
+                    <h5 class="font-14 my-1 fw-normal">R$<?= number_format($item["CON_NMVALOR"], 2, ',', '.') ?></h5>
+                    <span class="text-muted font-13">Valor</span>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
                                     </div> <!-- end table-responsive-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
