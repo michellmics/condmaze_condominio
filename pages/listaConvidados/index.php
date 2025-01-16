@@ -110,17 +110,15 @@
                                             <table class="table table-centered mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Date of Birth</th>
-                                                        <th>Active?</th>
+                                                        <th>Nome</th>
+                                                        <th>CPF / RG</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>Risa D. Pearson</td>
                                                         <td>336-508-2157</td>
-                                                        <td>July 24, 1950</td>
                                                         <td>
                                                             <!-- Switch-->
                                                             <div>
@@ -132,7 +130,6 @@
                                                     <tr>
                                                         <td>Ann C. Thompson</td>
                                                         <td>646-473-2057</td>
-                                                        <td>January 25, 1959</td>
                                                         <td>
                                                             <!-- Switch-->
                                                             <div>
@@ -144,7 +141,6 @@
                                                     <tr>
                                                         <td>Paul J. Friend</td>
                                                         <td>281-308-0793</td>
-                                                        <td>September 1, 1939</td>
                                                         <td>
                                                             <!-- Switch-->
                                                             <div>
@@ -156,7 +152,6 @@
                                                     <tr>
                                                         <td>Linda G. Smith</td>
                                                         <td>606-253-1207</td>
-                                                        <td>May 3, 1962</td>
                                                         <td>
                                                             <!-- Switch-->
                                                             <div>
