@@ -206,6 +206,7 @@
                                             <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3> 
                                             <p class="mb-0 text-muted">
                                                 <span class="text-nowrap">Receitas do Mês</span>
+                                                <span class="text-nowrap"><?php echo $mesUsu."-". $anoUsu; ?></span> 
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
