@@ -68,17 +68,17 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                 <!-- Logo -->
                 <div class="auth-brand text-center text-lg-start">
                     <a href="index.html" class="logo-dark">
-                        <span><img src="../../assets/images/logo-dark.png" alt="dark logo" height="22"></span>
+                        <span><img src="../../img/logo_128x32_black.png" alt="dark logo" height="22"></span>
                     </a>
                     <a href="index.html" class="logo-light">
-                        <span><img src="../../assets/images/logo.png" alt="logo" height="22"></span>
+                        <span><img src="../../img/logo_128x32_black.png" alt="logo" height="22"></span>
                     </a>
                 </div>
 
                 <div class="my-auto">
                     <!-- title-->
                     <h4 class="mt-0">Acesso ao Sistema</h4>
-                    <p class="text-muted mb-4">Utilize o número do apartamento e a senha..</p>
+                    <p class="text-muted mb-4">Utilize o número do apartamento e a senha.</p>
 
                     <!-- form -->
                     <form action="#">
@@ -87,7 +87,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                             <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="username" autocomplete="username">
                         </div>
                         <div class="mb-3">
-                            <a href="pages-recoverpw-2.html" class="text-muted float-end"><small>Forgot your password?</small></a>
+                            <a href="pages-recoverpw-2.html" class="text-muted float-end"><small>Esqueceu sua senha?</small></a>
                             <label for="password" class="form-label">Senha</label>
                             <input class="form-control" type="password" required="" id="password" placeholder="Digite sua senha" name="password" autocomplete="current-password">
                         </div>
@@ -106,7 +106,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
 
                 <!-- Footer-->
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Não têm uma conta? Solicite ao Síndico agora mesmo :)</p>
+                    <p class="text-muted">Não têm uma conta? Entre em contato com o síndico.</p>
                 </footer>
 
             </div> <!-- end .card-body -->
