@@ -1,139 +1,122 @@
-<?php
-
-ini_set('display_errors', 1);  // Habilita a exibição de erros
-error_reporting(E_ALL);        // Reporta todos os erros
-include_once "../../objects/objects.php";
-
-$siteAdmin = new SITE_ADMIN();
-$siteAdmin->getParameterInfo();
-
-foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
-  if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
-      $nomeCondominio = $item['CFG_DCVALOR']; 
-      break; 
-  }
-}
-
-?>
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK4QL1B8G"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-        
-      gtag('config', 'G-4VK4QL1B8G'); 
-    </script>
-    <meta charset="UTF-8">
-    <title><?php echo $nomeCondominio; ?></title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
-    <link href="../../plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
-		<link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
-    <meta name="apple-mobile-web-app-title" content="Hortensias">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  </head>
-  <body class="login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <img src="https://www.prqdashortensias.com.br/img/logo_site_small.png"></img>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body">
-        <p class="login-box-msg">Acesso ao sistema</p>
-        <form id="demo-form" action="login.php" method="post" autocomplete="on">
-          <div class="form-group has-feedback">
-            <input type="number" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="username" autocomplete="username"/>
-            <span class="glyphicon glyphicon-home form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" aria-label="Digite sua senha" class="form-control" id="password" placeholder="Digite sua senha" name="password" autocomplete="current-password"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            <div class="text-left">
-              <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
-            </div>
-            <div class="text-left">
-              <a href="https://www.prqdashortensias.com.br/hortensiasapp.apk" download class="btn btn-link">Download App (Android)</a>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">                 
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-              
-              <button onclick="onSubmit(event)" type="submit" class="btn btn-primary btn-block btn-flat">login</button>
-            </div><!-- /.col -->
-          </div>
-          <br>
-          <center><div class="g-recaptcha" data-sitekey="6LcA-rcqAAAAAK2N1QMI38QK4s5pKEMYjCRIikX8"></div></center>
-        </form>
+<html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-menu-color="light" data-sidenav-user="true">
 
-        <!-- SCRIPT RECAPTCHA -->
-                    <!-- Onde a mensagem de sucesso/erro será exibida -->
-				<div id="form-message"></div>
-						<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<head>
+    <meta charset="utf-8" />
+    <title>Log In | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
 
-						<!-- Ajax para envio e exibicao do resultado sem load de pag nova -->
-						<script>
-							document.getElementById('demo-form').addEventListener('submit', function(e) {
-							    e.preventDefault(); // Impede o envio tradicional do formulário
-							
-							    // Verifica o reCAPTCHA
-							    var recaptchaResponse = grecaptcha.getResponse();
-							    if (recaptchaResponse.length === 0) {
-							        document.getElementById('form-message').innerHTML = "Por favor, complete o reCAPTCHA.";
-							        return; // Se o reCAPTCHA não foi resolvido, não submeta o formulário
-							    }
-							
-							    var formData = new FormData(this); // Captura todos os dados do formulário
-							
-							    var xhr = new XMLHttpRequest();
-							    xhr.open('POST', this.action, true); // Configura o envio via POST para o arquivo PHP
-							
-							    xhr.onload = function() {
-							        if (xhr.status === 200) {
-							            // Exibe a resposta do servidor na página
-							            document.getElementById('form-message').innerHTML = xhr.responseText;
-							        } else {
-							            document.getElementById('form-message').innerHTML = "Houve um erro no envio do formulário.";
-							        }
-							    };
-							
-							    xhr.send(formData); // Envia o formulário via AJAX
-							});
-						</script>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-       
+    <!-- Theme Config Js -->
+    <script src="assets/js/hyper-config.js"></script>
 
-      </div><!-- /.login-box-body -->
-    </div><!-- /.login-box -->
+    <!-- Vendor css -->
+    <link href="assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- jQuery 2.1.3 -->
-    <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
-    <!-- Bootstrap 3.3.2 JS -->
-    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
-      });
-    </script>
-  </body>
+    <!-- App css -->
+    <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="authentication-bg pb-0">
+
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="card-body d-flex flex-column h-100 gap-3">
+
+                <!-- Logo -->
+                <div class="auth-brand text-center text-lg-start">
+                    <a href="index.html" class="logo-dark">
+                        <span><img src="assets/images/logo-dark.png" alt="dark logo" height="22"></span>
+                    </a>
+                    <a href="index.html" class="logo-light">
+                        <span><img src="assets/images/logo.png" alt="logo" height="22"></span>
+                    </a>
+                </div>
+
+                <div class="my-auto">
+                    <!-- title-->
+                    <h4 class="mt-0">Sign In</h4>
+                    <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+
+                    <!-- form -->
+                    <form action="#">
+                        <div class="mb-3">
+                            <label for="emailaddress" class="form-label">Email address</label>
+                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <a href="pages-recoverpw-2.html" class="text-muted float-end"><small>Forgot your password?</small></a>
+                            <label for="password" class="form-label">Password</label>
+                            <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkbox-signin">
+                                <label class="form-check-label" for="checkbox-signin">Remember me</label>
+                            </div>
+                        </div>
+                        <div class="d-grid mb-0 text-center">
+                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Log In </button>
+                        </div>
+                        <!-- social-->
+                        <div class="text-center mt-4">
+                            <p class="text-muted font-16">Sign in with</p>
+                            <ul class="social-list list-inline mt-3">
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    <!-- end form-->
+                </div>
+
+                <!-- Footer-->
+                <footer class="footer footer-alt">
+                    <p class="text-muted">Don't have an account? <a href="pages-register-2.html" class="text-muted ms-1"><b>Sign Up</b></a></p>
+                </footer>
+
+            </div> <!-- end .card-body -->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <div class="auth-fluid-right text-center">
+            <div class="auth-user-testimonial">
+                <h2 class="mb-3">I love the color!</h2>
+                <p class="lead"><i class="mdi mdi-format-quote-open"></i> It's a elegent templete. I love it very much! . <i class="mdi mdi-format-quote-close"></i>
+                </p>
+                <p>
+                    - Hyper Admin User
+                </p>
+            </div> <!-- end auth-user-testimonial-->
+        </div>
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+
+</body>
+
 </html>
