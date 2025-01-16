@@ -91,27 +91,11 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Tooltips</h4>
-                                    <p class="text-muted font-14">If your form layout allows it, you can swap the
-                                        <code>.{valid|invalid}-feedback</code> classes for
-                                        <code>.{valid|invalid}-tooltip</code> classes to display validation feedback in
-                                        a styled tooltip. Be sure to have a parent with <code>position: relative</code>
-                                        on it for tooltip positioning. In the example below, our column classes have
-                                        this already, but your project may require an alternative setup.
+                                    <h4 class="header-title">Lista de Convidados</h4>
+                                    <p class="text-muted font-14">Cadastre seu convidado aqui e lembre-se de ativá-lo para 
+                                        garantir o acesso ao condomínio durante o uso do salão de festas.
                                     </p>
 
-                                    <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item">
-                                            <a href="#tooltips-validation-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#tooltips-validation-code" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul> <!-- end nav-->
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="tooltips-validation-preview">
                                             <form class="needs-validation" novalidate>
