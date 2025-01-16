@@ -16,7 +16,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-menu-color="light" data-sidenav-user="true">
+<html lang="en" data-layout="topnav">
 
 <head>
     <meta charset="utf-8" />
