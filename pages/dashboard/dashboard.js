@@ -121,7 +121,7 @@
             let taxasInadimplencia = [];
         
             // Preenche os arrays com os dados recebidos
-            data.forEach(item => {
+            data.forEach(item => { 
                 meses.push(traduzirMes(item.Mes));  // Adiciona o mês
                 taxasInadimplencia.push(parseFloat(item.TaxaInadimplencia));  // Adiciona a taxa de inadimplência
             });
