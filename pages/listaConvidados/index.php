@@ -119,6 +119,14 @@
                                                     Por favor, preencha o número do documento.
                                                     </div>
                                                 </div>
+
+                                                <div class="position-relative mb-3">
+                                                <!-- Without label-->
+                                                <input type="checkbox" id="switch0" data-switch="none"/>
+<label for="switch0" data-on-label="" data-off-label=""></label>
+                                                </div>
+ 
+
                
                                                 <button class="btn btn-primary" type="submit">Submit form</button>
                                             </form>
