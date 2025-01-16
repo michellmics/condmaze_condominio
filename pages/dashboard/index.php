@@ -69,14 +69,6 @@
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
                                                
-    <!-- Datatables js -->
-    <script src="../../assets/vendor/datatables.net/js/dataTables.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <!-- Datatable Init js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
-
     <style>
         @media (max-width: 768px) {
             .page-title-box {
@@ -105,6 +97,14 @@
 </head>
 
 <body>
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <!-- Datatable Init js -->
+    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
+
     <!-- Begin page -->
     <div class="wrapper">
 
