@@ -129,7 +129,7 @@
                         AND CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
                         AND CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
                         ORDER BY CON_NMVALOR DESC
-                        LIMIT 10";
+                        LIMIT 100";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
