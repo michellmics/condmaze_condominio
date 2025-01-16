@@ -88,7 +88,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Lista de Convidados</h4>
+                                <h4 class="page-title">Lista de Moradores <?php echo $nomeCondominio; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -98,24 +98,17 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Basic Data Table</h4>
+                                    <h4 class="header-title">Moradores </h4>
                                     <p class="text-muted font-14">
-                                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
-                                        function:
-                                        <code>$().DataTable();</code>. KeyTable provides Excel like cell navigation on any table. Events (focus, blur, action etc) can be assigned to individual
-                                        cells, columns, rows or all cells.
+                                        Nesta seção são listados todos os moradores do condomínio.
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
+                                                        <th>Nome</th>
+                                                        <th>Apto</th>
                                                     </tr>
                                                 </thead>
 
@@ -123,61 +116,12 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
+                                                        <td>1001</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>63</td>
-                                                        <td>2011/07/25</td>
-                                                        <td>$170,750</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td>Lael Greer</td>
-                                                        <td>Systems Administrator</td>
-                                                        <td>London</td>
-                                                        <td>21</td>
-                                                        <td>2009/02/27</td>
-                                                        <td>$103,500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Jonas Alexander</td>
-                                                        <td>Developer</td>
-                                                        <td>San Francisco</td>
-                                                        <td>30</td>
-                                                        <td>2010/07/14</td>
-                                                        <td>$86,500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Shad Decker</td>
-                                                        <td>Regional Director</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>51</td>
-                                                        <td>2008/11/13</td>
-                                                        <td>$183,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Michael Bruce</td>
-                                                        <td>Javascript Developer</td>
-                                                        <td>Singapore</td>
-                                                        <td>29</td>
-                                                        <td>2011/06/27</td>
-                                                        <td>$183,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Donna Snider</td>
-                                                        <td>Customer Support</td>
-                                                        <td>New York</td>
-                                                        <td>27</td>
-                                                        <td>2011/01/25</td>
-                                                        <td>$112,000</td>
-                                                    </tr>
+                                                        <td>3245</td>
+                                                    </tr>                                                   
                                                 </tbody>
                                             </table>
                                         </div> <!-- end preview-->
