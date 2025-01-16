@@ -6,14 +6,20 @@
         this.charts = [];
     }
 
-    // Configurações globais para os gráficos
+    // Função para inicializar os gráficos
     Dashboard.prototype.initCharts = function() {
         const defaultColors = ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"];
-        const chartColors = $("#revenue-chart").data("colors") || defaultColors;
+
+        // Cores para o gráfico de Receita
+        const revenueChartColors = $("#revenue-chart").data("colors") || defaultColors;
+
+        // Cores para o gráfico de Barras
         const barChartColors = $("#codemaze_bar_chart").data("colors") || defaultColors;
+
+        // Cores para o gráfico de Donut
         const donutChartColors = $("#average-sales").data("colors") || defaultColors;
 
-        // Gráfico de Linha
+        // Gráfico de Linha (Revenue Chart)
         const revenueChartOptions = {
             chart: {
                 height: 370,
@@ -32,7 +38,7 @@
                 { name: "Current Week", data: [10, 20, 15, 25, 20, 30, 20] },
                 { name: "Previous Week", data: [0, 15, 10, 30, 15, 35, 25] }
             ],
-            colors: chartColors,
+            colors: revenueChartColors,
             zoom: { enabled: false },
             legend: { show: false },
             xaxis: {
@@ -52,7 +58,7 @@
         };
         new ApexCharts(document.querySelector("#revenue-chart"), revenueChartOptions).render();
 
-        // Gráfico de Barras
+        // Gráfico de Barras (Bar Chart)
         const barChartOptions = {
             chart: { height: 256, type: "bar", stacked: true },
             plotOptions: { bar: { horizontal: false, columnWidth: "20%" } },
@@ -83,7 +89,7 @@
         };
         new ApexCharts(document.querySelector("#codemaze_bar_chart"), barChartOptions).render();
 
-        // Gráfico de Rosca (Donut)
+        // Gráfico de Donut (Average Sales)
         const donutChartOptions = {
             chart: { height: 202, type: "donut" },
             legend: { show: false },
