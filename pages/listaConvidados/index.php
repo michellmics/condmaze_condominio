@@ -101,7 +101,7 @@
                                             <form class="needs-validation" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Nome Completo" value="Mark" required>
+                                                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Nome Completo"  required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -111,7 +111,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">CPF ou RG</label>
-                                                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
+                                                    <input type="text" class="form-control" id="validationTooltip02" placeholder="CPF ou RG" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
