@@ -130,7 +130,8 @@
  
 
                
-                                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                                <button class="btn btn-primary" type="submit">Salvar</button>
+                                                <button class="btn btn-danger" type="submit">Cancelar</button>
                                             </form>
                                         </div> <!-- end preview-->
 
