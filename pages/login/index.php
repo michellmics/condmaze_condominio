@@ -81,7 +81,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                     <p class="text-muted mb-4">Utilize o número do apartamento e a senha.</p>
 
                     <!-- form -->
-                    <form action="#">
+                    <form id="demo-form" action="login.php" method="post" autocomplete="on">
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Apartamento</label>
                             <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="username" autocomplete="username">
@@ -98,11 +98,47 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                             </div>
                         </div>
                         <div class="d-grid mb-0 text-center">
-                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
+                            <button class="btn btn-primary" onclick="onSubmit(event)" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
+                        <center><div class="g-recaptcha" data-sitekey="6LcA-rcqAAAAAK2N1QMI38QK4s5pKEMYjCRIikX8"></div></center>
                     </form>
                     <!-- end form-->
                 </div>
+
+                 <!-- SCRIPT RECAPTCHA -->
+                    <!-- Onde a mensagem de sucesso/erro será exibida -->
+				<div id="form-message"></div>
+						<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+						<!-- Ajax para envio e exibicao do resultado sem load de pag nova -->
+						<script>
+							document.getElementById('demo-form').addEventListener('submit', function(e) {
+							    e.preventDefault(); // Impede o envio tradicional do formulário
+							
+							    // Verifica o reCAPTCHA
+							    var recaptchaResponse = grecaptcha.getResponse();
+							    if (recaptchaResponse.length === 0) {
+							        document.getElementById('form-message').innerHTML = "Por favor, complete o reCAPTCHA.";
+							        return; // Se o reCAPTCHA não foi resolvido, não submeta o formulário
+							    }
+							
+							    var formData = new FormData(this); // Captura todos os dados do formulário
+							
+							    var xhr = new XMLHttpRequest();
+							    xhr.open('POST', this.action, true); // Configura o envio via POST para o arquivo PHP
+							
+							    xhr.onload = function() {
+							        if (xhr.status === 200) {
+							            // Exibe a resposta do servidor na página
+							            document.getElementById('form-message').innerHTML = xhr.responseText;
+							        } else {
+							            document.getElementById('form-message').innerHTML = "Houve um erro no envio do formulário.";
+							        }
+							    };
+							
+							    xhr.send(formData); // Envia o formulário via AJAX
+							});
+						</script>
 
                 <!-- Footer-->
                 <footer class="footer footer-alt">
