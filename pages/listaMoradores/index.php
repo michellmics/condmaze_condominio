@@ -110,7 +110,6 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
                                                         <th>Nome</th>
                                                         <th>Apto</th>
                                                         <th></th>
@@ -120,7 +119,6 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
-                                                            <td><?= htmlspecialchars($item['USU_IDUSUARIO']); ?></td>
                                                             <td><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                             <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                             <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
