@@ -6,10 +6,10 @@
 	{
         //declaração de variaveis 
         public $pdo;
-        public $configPath = '/home/hortensias/config.cfg';
         public $ARRAY_DESPESAFULLINFO;
         public $ARRAY_INADIMPLENCIAFULLINFO;
         public $ARRAY_RECEITAFULLINFO;
+        public $ARRAY_PENDENCIAMESFULLINFO;
 
 
         function __construct() {
@@ -195,6 +195,52 @@
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA', $competencia, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_RECEITAFULLINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }  
+
+        public function getPendenciaByMesFull()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT 
+                            CONCAT(LPAD(PagamentosMensais.CON_DCMES_COMPETENCIA, 3, '0'), '/', PagamentosMensais.CON_DCANO_COMPETENCIA) AS Mes,
+                            ROUND(
+                                ((Config.TotalApartamentos - COALESCE(PagamentosMensais.TotalPagantes, 0)) / Config.TotalApartamentos) * 100,
+                                2
+                            ) AS TaxaInadimplencia
+                        FROM 
+                            (SELECT 
+                                 CAST(Valor.CFG_DCVALOR AS UNSIGNED) AS TotalApartamentos
+                             FROM 
+                                 CFG_CONFIGURACAO Valor
+                             WHERE 
+                                 Valor.CFG_DCPARAMETRO = 'QTDE_APARTAMENTOS'
+                             LIMIT 1) AS Config
+                        LEFT JOIN 
+                            (SELECT 
+                                 SUM(CAST(REGEXP_REPLACE(CONC.CON_DCDESC, '[^0-9]', '') AS UNSIGNED)) AS TotalPagantes,
+                                 CONC.CON_DCMES_COMPETENCIA,
+                                 CONC.CON_DCANO_COMPETENCIA
+                             FROM 
+                                 CON_CONCILIACAO CONC
+                             WHERE 
+                                 CONC.CON_DCTIPO = 'RECEITA' 
+                                 AND CONC.CON_NMTITULO = 'Taxa Condominial'
+                             GROUP BY 
+                                 CONC.CON_DCMES_COMPETENCIA, CONC.CON_DCANO_COMPETENCIA) AS PagamentosMensais
+                        ON 
+                            TRUE
+                        ORDER BY 
+                            PagamentosMensais.CON_DCANO_COMPETENCIA ASC, 
+                            PagamentosMensais.CON_DCMES_COMPETENCIA ASC;";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_PENDENCIAMESFULLINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          

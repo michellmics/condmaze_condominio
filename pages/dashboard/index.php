@@ -17,6 +17,9 @@
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
     //--------------------
 
+    $chartValor->getPendenciaByMesFull();
+    var_dump($chartValor->ARRAY_PENDENCIAMESFULLINFO);
+    die();
 
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
