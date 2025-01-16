@@ -119,7 +119,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
+                                                    <?php $t = count($siteAdmin->ARRAY_LISTAMORADORESINFO); echo $t;
+                                                    foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
                                                             <td><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                             <td><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
