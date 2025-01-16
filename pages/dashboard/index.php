@@ -295,56 +295,109 @@
 
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="card">
-                                <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Despesas</h4>
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body pt-0">
-                                    <div class="chart-content-bg">
-                                        <div class="row text-center">
-                                            <div class="col-sm-6">
-                                                <p class="text-muted mb-0 mt-3">Current Week</p>
-                                                <h2 class="fw-normal mb-3">
-                                                    <small class="mdi mdi-checkbox-blank-circle text-primary align-middle me-1"></small>
-                                                    <span>$58,254</span>
-                                                </h2>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="text-muted mb-0 mt-3">Previous Week</p>
-                                                <h2 class="fw-normal mb-3">
-                                                    <small class="mdi mdi-checkbox-blank-circle text-success align-middle me-1"></small>
-                                                    <span>$69,524</span>
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="card">
+                            <div class="d-flex card-header justify-content-between align-items-center">
+                                <h4 class="header-title">Top Selling Products</h4>
+                                <a href="javascript:void(0);" class="btn btn-sm btn-light">Export <i class="mdi mdi-download ms-1"></i></a>
+                            </div>
+                            <div class="card-body pt-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-centered table-nowrap table-hover mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">ASOS Ridley High Waist</h5>
+                                                        <span class="text-muted font-13">07 April 2018</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$79.49</h5>
+                                                        <span class="text-muted font-13">Price</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">82</h5>
+                                                        <span class="text-muted font-13">Quantity</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$6,518.18</h5>
+                                                        <span class="text-muted font-13">Amount</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">Marco Lightweight Shirt</h5>
+                                                        <span class="text-muted font-13">25 March 2018</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$128.50</h5>
+                                                        <span class="text-muted font-13">Price</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">37</h5>
+                                                        <span class="text-muted font-13">Quantity</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$4,754.50</h5>
+                                                        <span class="text-muted font-13">Amount</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">Half Sleeve Shirt</h5>
+                                                        <span class="text-muted font-13">17 March 2018</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$39.99</h5>
+                                                        <span class="text-muted font-13">Price</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">64</h5>
+                                                        <span class="text-muted font-13">Quantity</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$2,559.36</h5>
+                                                        <span class="text-muted font-13">Amount</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">Lightweight Jacket</h5>
+                                                        <span class="text-muted font-13">12 March 2018</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$20.00</h5>
+                                                        <span class="text-muted font-13">Price</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">184</h5>
+                                                        <span class="text-muted font-13">Quantity</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$3,680.00</h5>
+                                                        <span class="text-muted font-13">Amount</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">Marco Shoes</h5>
+                                                        <span class="text-muted font-13">05 March 2018</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$28.49</h5>
+                                                        <span class="text-muted font-13">Price</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">69</h5>
+                                                        <span class="text-muted font-13">Quantity</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-14 my-1 fw-normal">$1,965.81</h5>
+                                                        <span class="text-muted font-13">Amount</span>
+                                                    </td>
+                                                </tr>
 
-                                    <div class="dash-item-overlay d-none d-md-block" dir="ltr">
-                                        <h5>Today's Earning: $2,562.30</h5>
-                                        <p class="text-muted font-13 mb-3 mt-2">Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-                                            Etiam rhoncus...</p>
-                                        <a href="javascript: void(0);" class="btn btn-outline-primary">View Statements
-                                            <i class="mdi mdi-arrow-right ms-2"></i>
-                                        </a>
-                                    </div>
-                                    <div dir="ltr">
-                                        <div id="revenue-chart" class="apex-charts mt-3" data-colors="#727cf5,#0acf97"></div>
-                                    </div>
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end table-responsive-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
