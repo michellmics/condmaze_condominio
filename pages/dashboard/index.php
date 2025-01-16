@@ -8,11 +8,11 @@
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor("dezembro","2024");
-    $totalRecebido = number_format($totalRecebido, 0, ',', '.');
+    $totalRecebido = number_format($totalRecebido, 2, ',', '.');
     $totalFundoReserva = $chartValor->getFundoReservaValor("dezembro","2024");
-	$totalFundoReserva = number_format($totalFundoReserva, 0, ',', '.');
+	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
 	$totalDespesa = $chartValor->getDespesaValor("dezembro","2024");
-	$totalDespesa = number_format($totalDespesa, 0, ',', '.');
+	$totalDespesa = number_format($totalDespesa, 2, ',', '.');
     $totalInadimplencia = $chartValor->getInadimplenciaFull("outubro","2024");
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
     //--------------------
