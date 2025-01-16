@@ -237,7 +237,8 @@
                             TRUE
                         ORDER BY 
                             PagamentosMensais.CON_DCANO_COMPETENCIA DESC, 
-                            PagamentosMensais.CON_DCMES_COMPETENCIA DESC;";
+                            PagamentosMensais.CON_DCMES_COMPETENCIA DESC
+                        LIMIT 15;";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
