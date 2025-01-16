@@ -8,10 +8,6 @@
     $mesUsu = isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "dezembro"; 
     $anoUsu = isset($_GET['data-ano']) ? strval($_GET['data-ano']) : "2024"; 
 
-    var_dump($mesUsu);
-    var_dump($anoUsu);
-
-
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor($mesUsu, $anoUsu);
@@ -137,18 +133,18 @@
                                             <!-- Combobox para selecionar o mês -->
                                             <select class="form-control form-control-light" id="data-mes" name="data-mes">
                                                 <option value="" disabled selected>Selecione o mês</option>
-                                                <option value="Janeiro">Janeiro</option>
-                                                <option value="Fevereiro02">Fevereiro</option>
-                                                <option value="Março">Março</option>
-                                                <option value="Abril">Abril</option>
-                                                <option value="Maio">Maio</option>
-                                                <option value="Junho">Junho</option>
-                                                <option value="Julho">Julho</option>
-                                                <option value="Agosto">Agosto</option>
-                                                <option value="Setembro">Setembro</option>
-                                                <option value="Outubro">Outubro</option>
-                                                <option value="Novembro">Novembro</option>
-                                                <option value="Dezembro">Dezembro</option>
+                                                <option value="janeiro">Janeiro</option>
+                                                <option value="fevereiro02">Fevereiro</option>
+                                                <option value="março">Março</option>
+                                                <option value="abril">Abril</option>
+                                                <option value="maio">Maio</option>
+                                                <option value="junho">Junho</option>
+                                                <option value="julho">Julho</option>
+                                                <option value="agosto">Agosto</option>
+                                                <option value="setembro">Setembro</option>
+                                                <option value="outubro">Outubro</option>
+                                                <option value="novembro">Novembro</option>
+                                                <option value="dezembro">Dezembro</option>
                                             </select>
 
                                             <!-- Combobox para selecionar o ano -->
