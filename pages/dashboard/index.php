@@ -5,8 +5,8 @@
 	include_once "../../objects/objects.php";
 	include_once '../../objects/objects_chart.php'; 
 
-    $mesUsu= isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "dezembro"; 
-    $anoUsu= isset($_GET['data-ano']) ? strval($_GET['data-ano']) : "2024"; 
+    $mesUsu = isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "dezembro"; 
+    $anoUsu = isset($_GET['data-ano']) ? strval($_GET['data-ano']) : "2024"; 
 
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
