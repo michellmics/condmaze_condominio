@@ -83,10 +83,10 @@
 
 
                 <!-- Start Content-->
-                <div class="container-fluid">
+                <div class="container-fluid" class="col-lg-12">
 
                     <!-- start page title -->
-                    <div class="row">
+                    <div class="row" class="col-lg-12">
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
