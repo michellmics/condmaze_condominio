@@ -119,14 +119,14 @@
                                                     <tr>
                                                         <td>Tiger Nixon</td>
                                                         <td>1001</td>
-                                                        <i class="ri-home-fill"></i>
-                                                        <i class="ri-home-fill"></i>
+                                                        <td><i class="ri-home-fill"></i></td>
+                                                        <td><i class="ri-home-fill"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Garrett Winters</td>
                                                         <td>3245</td>
-                                                        <i class="ri-home-fill"></i>
-                                                        <i class="ri-home-fill"></i>
+                                                        <td><i class="ri-home-fill"></i></td>
+                                                        <td><i class="ri-home-fill"></i></td>
                                                     </tr>                                                   
                                                 </tbody>
                                             </table>
