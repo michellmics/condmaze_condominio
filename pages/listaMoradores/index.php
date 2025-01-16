@@ -107,8 +107,7 @@
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
-                                            
-                                            <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
                                                         <th>Nome</th>
