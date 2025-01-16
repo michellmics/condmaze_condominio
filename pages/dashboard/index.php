@@ -5,12 +5,13 @@
 	include_once "../../objects/objects.php";
 	include_once '../../objects/objects_chart.php'; 
 
-    $mesUsu = isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "janeiro"; 
+    $mesUsu = isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "dezembro"; 
     $anoUsu = isset($_GET['data-ano']) ? strval($_GET['data-ano']) : "2024"; 
 
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor($mesUsu, $anoUsu);
+    var_dump($totalRecebido);
     $totalRecebido = number_format($totalRecebido, 2, ',', '.');
     $totalFundoReserva = $chartValor->getFundoReservaValor($mesUsu, $anoUsu);
 	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
