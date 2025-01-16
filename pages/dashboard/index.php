@@ -11,11 +11,11 @@
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor($mesUsu, $anoUsu);
-    $totalRecebido = number_format($totalRecebido, 2, ',', '.');
+    if($totalRecebido != null){$totalRecebido = number_format($totalRecebido, 2, ',', '.');}
     $totalFundoReserva = $chartValor->getFundoReservaValor($mesUsu, $anoUsu);
-	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
+	if($totalFundoReserva != null){$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');}
 	$totalDespesa = $chartValor->getDespesaValor($mesUsu, $anoUsu);
-	$totalDespesa = number_format($totalDespesa, 2, ',', '.');
+	if($totalFundoReserva != null){$totalDespesa = number_format($totalDespesa, 2, ',', '.');}
     $totalInadimplencia = $chartValor->getInadimplenciaFull($mesUsu, $anoUsu);
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
     //--------------------
