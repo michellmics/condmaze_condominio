@@ -312,28 +312,22 @@
                             </div>
                             <div class="card-body pt-0">
                                     <div class="table-responsive">
-                                    <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-                                        <thead>
-                                            <tr>
-                                                <th>Descrição / Fornecedor</th>
-                                                <th>Valor</th>
-                                            </tr>
-                                        </thead>
-
-
-                                        <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                        
+                                        <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>Descrição / Fornecedor</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($chartValor->ARRAY_DESPESATABLEINFO as $item): ?>
+                                                    <tr>
+                                                        <td><?= htmlspecialchars($item["CON_NMTITULO"]) ?></td>
+                                                        <td>R$<?= number_format($item["CON_NMVALOR"], 2, ',', '.') ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
                                     </div> <!-- end table-responsive-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
