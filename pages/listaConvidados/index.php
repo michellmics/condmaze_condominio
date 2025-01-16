@@ -121,9 +121,10 @@
                                                 </div>
 
                                                 <div class="position-relative mb-3">
+                                                    <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
                                                     <!-- Bool Switch-->
                                                     <input type="checkbox" id="switch1" checked data-switch="bool"/>
-                                                    <label for="switch1" data-on-label="On" data-off-label="Off"></label>
+                                                    <label for="switch1" data-on-label="Sim" data-off-label="Não"></label>
                                                 </div>
  
 
