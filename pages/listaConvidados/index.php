@@ -81,7 +81,7 @@
                                         <li class="breadcrumb-item active">Form Validation</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Form Validation</h4>
+                                <h4 class="page-title">Lista de Convidados</h4>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Lista de Convidados</h4>
+                                    <h4 class="header-title">Cadastro de Convidado</h4>
                                     <p class="text-muted font-14">Cadastre seu convidado aqui e lembre-se de ativá-lo para 
                                         garantir o acesso ao condomínio durante o uso do salão de festas.
                                     </p>
