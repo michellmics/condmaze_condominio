@@ -106,7 +106,7 @@
                                         Nesta seção são listados todos os moradores do condomínio.
                                     </p>
                                     <div class="tab-content">
-                                        <div class="tab-pane show active" id="basic-datatable-preview">
+                                        <div class="tab-pane show active" id="basic-datatable">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
