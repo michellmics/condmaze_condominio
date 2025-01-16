@@ -128,8 +128,7 @@
                         WHERE CON_DCTIPO LIKE :DESPESA
                         AND CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
                         AND CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
-                        ORDER BY CON_NMVALOR DESC
-                        LIMIT 10";
+                        ORDER BY CON_NMVALOR DESC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
