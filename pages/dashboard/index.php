@@ -18,8 +18,8 @@
     //--------------------
 
     $chartValor->getPendenciaByMesFull();
-    var_dump($chartValor->ARRAY_PENDENCIAMESFULLINFO);
-    die();
+   // var_dump($chartValor->ARRAY_PENDENCIAMESFULLINFO);
+   
 
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
