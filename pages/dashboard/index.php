@@ -242,7 +242,7 @@
                         <div class="col-xl-7 col-lg-6">
                             <div class="card card-h-100">
                                 <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Inadimplência</h4>
+                                    <h4 class="header-title">Pêndencia Receita de Taxa Condominal - Mês</h4>
                                     <div class="dropdown">
                                         <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="mdi mdi-dots-vertical"></i>
@@ -261,7 +261,7 @@
                                 </div>
                                 <div class="card-body pt-0">
                                     <div dir="ltr">
-                                        <div id="high-performing-product" class="apex-charts" data-colors="#727cf5,#91a6bd40"></div>
+                                        <div id="codemaze_bar_chart" class="apex-charts" data-colors="#727cf5,#91a6bd40"></div>
                                     </div>
 
                                 </div> <!-- end card-body-->

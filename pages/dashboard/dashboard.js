@@ -112,9 +112,9 @@
                 legend: {
                     show: !1
                 },
-                colors: e = (t = r("#high-performing-product").data("colors")) ? t.split(",") : e,
+                colors: e = (t = r("#codemaze_bar_chart").data("colors")) ? t.split(",") : e,
                 xaxis: {
-                    categories: ["Jan", "Feb", "Mar", "Ap", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                     axisBorder: {
                         show: !1
                     }
@@ -139,7 +139,7 @@
                     }
                 }
             },
-            e = (new ApexCharts(document.querySelector("#high-performing-product"), o).render(), ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"]),
+            e = (new ApexCharts(document.querySelector("#codemaze_bar_chart"), o).render(), ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"]),
             o = {
                 chart: {
                     height: 202,
