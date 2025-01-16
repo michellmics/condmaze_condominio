@@ -100,6 +100,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                         <div class="d-grid mb-0 text-center">
                             <button class="btn btn-primary" onclick="onSubmit(event)" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
+                        <br><br>
                         <center><div class="g-recaptcha" data-sitekey="6LcA-rcqAAAAAK2N1QMI38QK4s5pKEMYjCRIikX8"></div></center>
                     </form>
                     <!-- end form-->
