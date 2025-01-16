@@ -102,8 +102,8 @@
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <i class="mdi mdi-logout me-1"></i>
-                                <span><a href="../logoff/index.php">Sair</a></span>
+                                <i class="mdi mdi-logout me-1" href="../logoff/index.php"></i>
+                                <span>Sair</span>
                             </a>
                         </div>
                     </li>
