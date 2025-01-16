@@ -75,11 +75,6 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                        <li class="breadcrumb-item active">Form Validation</li>
-                                    </ol>
                                 </div>
                                 <h4 class="page-title">Lista de Convidados</h4>
                             </div>
@@ -101,7 +96,7 @@
                                             <form class="needs-validation" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Nome Completo"  required>
+                                                    <input type="text" class="form-control" id="nome" placeholder="Nome Completo"  required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -111,7 +106,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">CPF ou RG</label>
-                                                    <input type="text" class="form-control" id="validationTooltip02" placeholder="CPF ou RG" required>
+                                                    <input type="text" class="form-control" id="documento" placeholder="CPF ou RG" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -124,14 +119,13 @@
                                                     <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
                                                     <br>
                                                     <!-- Bool Switch-->
-                                                    <input type="checkbox" id="switch1" checked data-switch="bool"/>
+                                                    <input type="checkbox" id="ativo" checked data-switch="bool"/>
                                                     <label for="switch1" data-on-label="Sim" data-off-label="Não"></label>
                                                 </div>
  
 
-               
+                                                <button class="btn btn-danger" type="submit">Cancelar</button>              
                                                 <button class="btn btn-primary" type="submit">Salvar</button>
-                                                <button class="btn btn-danger" type="submit">Cancelar</button>
                                             </form>
                                         </div> <!-- end preview-->
 
