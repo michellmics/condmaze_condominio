@@ -16,7 +16,7 @@
                                     <i class="uil-location-point"></i>Moradores <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                    <a href="widgets.html" class="dropdown-item">Lista de Moradores</a>
+                                    <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>
                                     <a href="widgets.html" class="dropdown-item">Adicionar Moradores</a>
                                 </div>
                             </li>     
