@@ -94,6 +94,24 @@
         };
         new ApexCharts(document.querySelector("#revenue-chart"), o).render();  // Renderiza o gráfico de receita
 
+        function traduzirMes(mes) {
+            const mesesEmPortugues = {
+                "Jan": "Jan",   // Janeiro
+                "Feb": "Fev",   // Fevereiro
+                "Mar": "Mar",   // Março
+                "Apr": "Abr",   // Abril
+                "May": "Mai",   // Maio
+                "Jun": "Jun",   // Junho
+                "Jul": "Jul",   // Julho
+                "Aug": "Ago",   // Agosto
+                "Sep": "Set",   // Setembro
+                "Oct": "Out",   // Outubro
+                "Nov": "Nov",   // Novembro
+                "Dec": "Dez"    // Dezembro
+            };
+            return mesesEmPortugues[mes] || mes;  // Retorna o mês traduzido ou o valor original caso não haja correspondência
+        }
+
         // Requisição para o endpoint e preenchimento do gráfico
         fetch("barGraph.php")
         .then(response => response.json())  // Converte a resposta em JSON
@@ -104,7 +122,7 @@
         
             // Preenche os arrays com os dados recebidos
             data.forEach(item => {
-                meses.push(item.Mes);  // Adiciona o mês
+                meses.push(traduzirMes(item.Mes));  // Adiciona o mês
                 taxasInadimplencia.push(parseFloat(item.TaxaInadimplencia));  // Adiciona a taxa de inadimplência
             });
         
