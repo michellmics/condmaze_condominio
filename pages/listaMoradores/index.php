@@ -13,6 +13,14 @@
       }
     }   
     
+
+    $siteAdmin->getListaMoradoresInfo();
+    
+
+    var_dump($siteAdmin->ARRAY_LISTAMORADORESINFO);
+    die();
+
+
 ?>
 
 <!DOCTYPE html>
