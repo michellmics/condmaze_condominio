@@ -98,7 +98,7 @@
             try{           
                 $sql = "SELECT *
                                 FROM USU_USUARIO
-                                ORDER BY USU_DCAPARTAMENTO ASC LIMIT 5";
+                                ORDER BY USU_DCAPARTAMENTO ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
