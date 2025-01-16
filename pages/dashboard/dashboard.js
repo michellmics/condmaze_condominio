@@ -95,7 +95,7 @@
         new ApexCharts(document.querySelector("#revenue-chart"), o).render();  // Renderiza o gráfico de receita
 
         // Requisição para o endpoint e preenchimento do gráfico
-fetch("https://inart.com.br/pages/dashboard/barGraph.php")
+fetch("barGraph.php")
 .then(response => response.json())  // Converte a resposta em JSON
 .then(data => {
     // Cria arrays para armazenar os meses e as taxas de inadimplência
