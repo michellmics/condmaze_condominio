@@ -97,6 +97,9 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                                 <label class="form-check-label" for="checkbox-signin">Lembrar?</label>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <a href="https://www.prqdashortensias.com.br/hortensiasapp.apk" download class="btn btn-link">Download App (Android)</a>
+                        </div>
                         <div class="d-grid mb-0 text-center">
                             <button class="btn btn-primary" onclick="onSubmit(event)" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
