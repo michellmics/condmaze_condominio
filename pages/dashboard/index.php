@@ -8,6 +8,10 @@
     $mesUsu = isset($_GET['data-mes']) ? strval($_GET['data-mes']) : "dezembro"; 
     $anoUsu = isset($_GET['data-ano']) ? strval($_GET['data-ano']) : "2024"; 
 
+    var_dump($mesUsu);
+    var_dump($anoUsu);
+
+
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor($mesUsu, $anoUsu);
