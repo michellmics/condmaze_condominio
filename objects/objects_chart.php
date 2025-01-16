@@ -10,6 +10,7 @@
         public $ARRAY_INADIMPLENCIAFULLINFO;
         public $ARRAY_RECEITAFULLINFO;
         public $ARRAY_PENDENCIAMESFULLINFO;
+        public $configPath;
 
 
         function __construct() {
