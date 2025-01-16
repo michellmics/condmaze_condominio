@@ -306,20 +306,12 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <h5 class="font-14 my-1 fw-normal">ASOS Ridley High Waist</h5>
-                                                        <span class="text-muted font-13">07 April 2018</span>
-                                                    </td>
-                                                    <td>
-                                                        <h5 class="font-14 my-1 fw-normal">$79.49</h5>
-                                                        <span class="text-muted font-13">Price</span>
-                                                    </td>
-                                                    <td>
-                                                        <h5 class="font-14 my-1 fw-normal">82</h5>
-                                                        <span class="text-muted font-13">Quantity</span>
+                                                        <h5 class="font-14 my-1 fw-normal">Bradesco  Auto/Re  Companhia  de  Seguros</h5>
+                                                        <span class="text-muted font-13">Dezembro de 2024</span>
                                                     </td>
                                                     <td>
                                                         <h5 class="font-14 my-1 fw-normal">$6,518.18</h5>
-                                                        <span class="text-muted font-13">Amount</span>
+                                                        <span class="text-muted font-13">Total</span>
                                                     </td>
                                                 </tr>
 
