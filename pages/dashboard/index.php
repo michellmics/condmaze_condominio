@@ -11,7 +11,6 @@
     //buscar dados charts
     $chartValor = new SITE_CHARTS(); 
     $totalRecebido = $chartValor->getReceitasValor($mesUsu, $anoUsu);
-    var_dump($totalRecebido);
     $totalRecebido = number_format($totalRecebido, 2, ',', '.');
     $totalFundoReserva = $chartValor->getFundoReservaValor($mesUsu, $anoUsu);
 	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
