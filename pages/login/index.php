@@ -1,12 +1,46 @@
+<?php
+
+ini_set('display_errors', 1);  // Habilita a exibição de erros
+error_reporting(E_ALL);        // Reporta todos os erros
+include_once "../../objects/objects.php";
+
+$siteAdmin = new SITE_ADMIN();
+$siteAdmin->getParameterInfo();
+
+foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+  if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+      $nomeCondominio = $item['CFG_DCVALOR']; 
+      break; 
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-menu-color="light" data-sidenav-user="true">
 
 <head>
     <meta charset="utf-8" />
-    <title>Log In | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title><?php echo $nomeCondominio; ?></title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK4QL1B8G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+        
+      gtag('config', 'G-4VK4QL1B8G'); 
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
+    <link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
+    <meta name="apple-mobile-web-app-title" content="Hortensias">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -43,46 +77,28 @@
 
                 <div class="my-auto">
                     <!-- title-->
-                    <h4 class="mt-0">Sign In</h4>
-                    <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+                    <h4 class="mt-0">Acesso ao Sistema</h4>
+                    <p class="text-muted mb-4">Utilize o número do apartamento e a senha..</p>
 
                     <!-- form -->
                     <form action="#">
                         <div class="mb-3">
-                            <label for="emailaddress" class="form-label">Email address</label>
-                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                            <label for="emailaddress" class="form-label">Apartamento</label>
+                            <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="username" autocomplete="username">
                         </div>
                         <div class="mb-3">
                             <a href="pages-recoverpw-2.html" class="text-muted float-end"><small>Forgot your password?</small></a>
-                            <label for="password" class="form-label">Password</label>
-                            <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                            <label for="password" class="form-label">Senha</label>
+                            <input class="form-control" type="password" required="" id="password" placeholder="Digite sua senha" name="password" autocomplete="current-password">
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox-signin">
-                                <label class="form-check-label" for="checkbox-signin">Remember me</label>
+                                <label class="form-check-label" for="checkbox-signin">Lembrar?</label>
                             </div>
                         </div>
                         <div class="d-grid mb-0 text-center">
-                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Log In </button>
-                        </div>
-                        <!-- social-->
-                        <div class="text-center mt-4">
-                            <p class="text-muted font-16">Sign in with</p>
-                            <ul class="social-list list-inline mt-3">
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
-                                </li>
-                            </ul>
+                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
                     </form>
                     <!-- end form-->
@@ -90,25 +106,12 @@
 
                 <!-- Footer-->
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Don't have an account? <a href="pages-register-2.html" class="text-muted ms-1"><b>Sign Up</b></a></p>
+                    <p class="text-muted">Não têm uma conta? Solicite ao Síndico agora mesmo :)</p>
                 </footer>
 
             </div> <!-- end .card-body -->
         </div>
-        <!-- end auth-fluid-form-box-->
 
-        <!-- Auth fluid right content -->
-        <div class="auth-fluid-right text-center">
-            <div class="auth-user-testimonial">
-                <h2 class="mb-3">I love the color!</h2>
-                <p class="lead"><i class="mdi mdi-format-quote-open"></i> It's a elegent templete. I love it very much! . <i class="mdi mdi-format-quote-close"></i>
-                </p>
-                <p>
-                    - Hyper Admin User
-                </p>
-            </div> <!-- end auth-user-testimonial-->
-        </div>
-        <!-- end Auth fluid right content -->
     </div>
     <!-- end auth-fluid-->
     <!-- Vendor js -->
