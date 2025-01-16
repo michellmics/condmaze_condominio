@@ -191,17 +191,15 @@
             </div> <!-- content -->
 
             <?php include '../../src/footer_nav.php'; ?>
-		<!-- End Menu Nav -->
 
-
-    </div>
+        </div>
 
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
 
 
-
+    </div>
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
