@@ -74,24 +74,18 @@
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
-
         <div class="content-page">
             <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
 
                 <!-- Start Content-->
                 <div class="container-fluid">
-
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <div class="page-title-right">
-                                </div>
-                                <h4 class="page-title">Lista de Convidados</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
 
                     <div class="row">
                         <div class="col-lg-12">
