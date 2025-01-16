@@ -25,7 +25,7 @@
                                     <i class="uil-box"></i>Salão de Festas <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                    <a href="widgets.html" class="dropdown-item">Minha lista de convidados</a>
+                                    <a href="../listaConvidados/index.php" class="dropdown-item">Minha lista de convidados</a>
                                 </div>
                             </li>                       
                             <li class="nav-item dropdown">
