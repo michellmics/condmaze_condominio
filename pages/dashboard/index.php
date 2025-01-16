@@ -1130,7 +1130,7 @@
     <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
     <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
     <!-- Dashboard App js -->
-    <script src="dashboard.js"></script>
+    <script src="dashboard.js?ver=<?php echo time(); ?>"></script>
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
