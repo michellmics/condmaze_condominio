@@ -187,7 +187,7 @@
                                             });
                                         </script>
                                 </div>
-                                <h4 class="page-title">Indicadores - <?php echo $mesUsu."/". $anoUsu; ?></h4> 
+                                <h4 class="page-title">Indicadores - <?php echo ucwords($mesUsu)."/". $anoUsu; ?></h4> 
                             </div>
                         </div>
                     </div>
