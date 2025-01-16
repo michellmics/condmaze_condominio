@@ -15,7 +15,7 @@
     $totalFundoReserva = $chartValor->getFundoReservaValor($mesUsu, $anoUsu);
 	if($totalFundoReserva != null){$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');}
 	$totalDespesa = $chartValor->getDespesaValor($mesUsu, $anoUsu);
-	if($totalFundoReserva != null){$totalDespesa = number_format($totalDespesa, 2, ',', '.');}
+	if($totalDespesa != null){$totalDespesa = number_format($totalDespesa, 2, ',', '.');}
     $totalInadimplencia = $chartValor->getInadimplenciaFull($mesUsu, $anoUsu);
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
     //--------------------
