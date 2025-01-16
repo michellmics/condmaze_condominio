@@ -88,7 +88,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Lista de Moradores <?php echo $nomeCondominio; ?></h4>
+                                <h4 class="page-title">Lista de Moradores</h4>
                             </div>
                         </div>
                     </div>
