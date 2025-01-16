@@ -219,41 +219,38 @@
                 if($CON_DCMES_COMPETENCIA_USUARIO  == "novembro"){$competencia = "Nov";}
                 if($CON_DCMES_COMPETENCIA_USUARIO  == "dezembro"){$competencia = "Dec";}
             
-            try{           
+            try{   
+                
                 $sql = "SELECT 
-                            SUM(CAST(REGEXP_REPLACE(CONC.CON_DCDESC, '[^0-9]', '') AS UNSIGNED)) AS Total
-                        FROM 
-                            CON_CONCILIACAO CONC
-                        WHERE 
-                            CONC.CON_DCTIPO = 'RECEITA' 
-                            AND CONC.CON_NMTITULO = 'Taxa Condominial'
-                            AND CONC.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
-                            AND CONC.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
-                            AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA;";
+                    ((TotalApartamentos - COALESCE(TotalPagantes, 0)) / TotalApartamentos) * 100 AS Total
+                FROM 
+                    (
+                        SELECT 
+                            (SELECT CAST(CFG.CFG_DCVALOR AS UNSIGNED)
+                             FROM CFG_CONFIGURACAO CFG
+                             WHERE CFG.CFG_DCPARAMETRO = 'QTDE_APARTAMENTOS') AS TotalApartamentos,
+
+                            (SELECT 
+                                SUM(CAST(REGEXP_REPLACE(CONC.CON_DCDESC, '[^0-9]', '') AS UNSIGNED))
+                             FROM 
+                                CON_CONCILIACAO CONC
+                             WHERE 
+                                CONC.CON_DCTIPO = 'RECEITA' 
+                                AND CONC.CON_NMTITULO = 'Taxa Condominial'
+                                AND CONC.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
+                                AND CONC.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
+                                AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA) AS TotalPagantes
+                    ) AS Subquery;";
+
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA', $competencia, PDO::PARAM_STR);
                 $stmt->execute();
-                $ADIMPLENTES = $stmt->fetch(PDO::FETCH_ASSOC);
+                $PERCINADIMPLENTES = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                $sql = "SELECT CFG.CFG_DCVALOR AS Total
-                        FROM CFG_CONFIGURACAO CFG
-                        WHERE CFG.CFG_DCPARAMETRO = 'QTDE_APARTAMENTOS'";
-
-                $stmt = $this->pdo->prepare($sql);
-                $stmt->execute();
-                $TOTAL_APARTAMENTOS = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                $adimplentes = $ADIMPLENTES['Total']; 
-                $totalApartamentos = $TOTAL_APARTAMENTOS['Total']; 
-    
-                // Calcula a porcentagem de inadimplentes
-                $inadimplentes = $totalApartamentos - $adimplentes;
-                $percentualInadimplentes = round(($inadimplentes / $totalApartamentos) * 100,2);
-
-                return $percentualInadimplentes;
+                return $PERCINADIMPLENTES ;
 
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
