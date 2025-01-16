@@ -248,7 +248,7 @@
                 $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA', $competencia, PDO::PARAM_STR);
                 $stmt->execute();
-                $PERCINADIMPLENTES = $stmt->fetch(PDO::FETCH_ASSOC);
+                $PERCINADIMPLENTES = $stmt->fetchColumn();
 
                 return $PERCINADIMPLENTES ;
 
