@@ -236,8 +236,8 @@
                         ON 
                             TRUE
                         ORDER BY 
-                            PagamentosMensais.CON_DCANO_COMPETENCIA ASC, 
-                            PagamentosMensais.CON_DCMES_COMPETENCIA ASC;";
+                            PagamentosMensais.CON_DCANO_COMPETENCIA DESC, 
+                            PagamentosMensais.CON_DCMES_COMPETENCIA DESC;";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
