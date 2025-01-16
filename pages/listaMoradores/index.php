@@ -119,14 +119,14 @@
                                                     <tr>
                                                         <td>Tiger Nixon</td>
                                                         <td>1001</td>
-                                                        <td><i data-lucide="edit"></i></td>
-                                                        <td><i class="ri-close-circle-line"></i></td>
+                                                        <td><i data-lucide="edit" style="color: blue;"></i></td>
+                                                        <td><i class="ri-close-circle-line" style="color: red;"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Garrett Winters</td>
                                                         <td>3245</td>
-                                                        <td><i data-lucide="edit"></i></td> 
-                                                        <td><i class="ri-close-circle-line"></i></td>
+                                                        <td><i data-lucide="edit" style="color: blue;"></i></td> 
+                                                        <td><i class="ri-close-circle-line" style="color: red;"></i></td>
                                                     </tr>                                                   
                                                 </tbody>
                                             </table>
