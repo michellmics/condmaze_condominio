@@ -121,9 +121,9 @@
                                                 </div>
 
                                                 <div class="position-relative mb-3">
-                                                <!-- Without label-->
-                                                <input type="checkbox" id="switch0" data-switch="none"/>
-<label for="switch0" data-on-label="" data-off-label=""></label>
+                                                    <!-- Bool Switch-->
+                                                    <input type="checkbox" id="switch1" checked data-switch="bool"/>
+                                                    <label for="switch1" data-on-label="On" data-off-label="Off"></label>
                                                 </div>
  
 
