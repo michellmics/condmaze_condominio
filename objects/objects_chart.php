@@ -121,11 +121,11 @@
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
 
-            $TIPO = "DESPESA";
+            $TIPO = "DESPESA%";
 
             try{           
                 $sql = "SELECT CON_NMTITULO, CON_NMVALOR FROM CON_CONCILIACAO   
-                        WHERE CON_DCTIPO LIKE ':DESPESA%'
+                        WHERE CON_DCTIPO LIKE :DESPESA
                         AND CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
                         AND CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
                         ORDER BY CON_NMVALOR DESC
