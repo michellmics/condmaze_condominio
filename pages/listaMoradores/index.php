@@ -62,7 +62,7 @@
 
 <body>
     <!-- Begin page -->
-    <div class="wrapper" class="col-lg-12">
+    <div class="wrapper">
 
 		<!-- Top bar Area -->
 		<?php include '../../src/top_bar.php'; ?>
@@ -72,7 +72,7 @@
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
 
-        <div class="content-page" class="col-lg-12">
+        <div class="content-page">
             <div class="content">
                 <!-- Start Content-->
                 <div class="container-fluid">
@@ -83,10 +83,10 @@
 
 
                 <!-- Start Content-->
-                <div class="container-fluid" class="col-lg-12">
+                <div class="container-fluid">
 
                     <!-- start page title -->
-                    <div class="row" class="col-lg-12">
+                    <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
@@ -119,7 +119,7 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
-                                                            <td style="font-size: 12px;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,15))."..."; ?></td>
+                                                            <td style="font-size: 12px;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,20))."..."; ?></td>
                                                             <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                             <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
                                                             <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
