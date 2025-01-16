@@ -62,7 +62,7 @@
 
 <body>
     <!-- Begin page -->
-    <div class="wrapper">
+    <div class="wrapper" class="col-lg-12">
 
 		<!-- Top bar Area -->
 		<?php include '../../src/top_bar.php'; ?>
@@ -72,7 +72,7 @@
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
 
-        <div class="content-page">
+        <div class="content-page" class="col-lg-12">
             <div class="content">
                 <!-- Start Content-->
                 <div class="container-fluid">
