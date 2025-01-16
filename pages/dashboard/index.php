@@ -21,7 +21,9 @@
     //--------------------
 
     $chartValor->getPendenciaByMesFull();
-   // var_dump($chartValor->ARRAY_PENDENCIAMESFULLINFO);
+    $chartValor->getDespesaTableValor($mesUsu, $anoUsu);
+    var_dump($chartValor->ARRAY_DESPESATABLEINFO);
+    die();
    
 
     $siteAdmin = new SITE_ADMIN();
@@ -310,8 +312,8 @@
                                                         <span class="text-muted font-13">Dezembro de 2024</span>
                                                     </td>
                                                     <td>
-                                                        <h5 class="font-14 my-1 fw-normal">$6,518.18</h5>
-                                                        <span class="text-muted font-13">Total</span>
+                                                        <h5 class="font-14 my-1 fw-normal">R$6,518.18</h5>
+                                                        <span class="text-muted font-13">Valor</span>
                                                     </td>
                                                 </tr>
 

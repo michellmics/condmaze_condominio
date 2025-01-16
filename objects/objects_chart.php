@@ -10,6 +10,7 @@
         public $ARRAY_INADIMPLENCIAFULLINFO;
         public $ARRAY_RECEITAFULLINFO;
         public $ARRAY_PENDENCIAMESFULLINFO;
+        public $ARRAY_DESPESATABLEINFO;
         public $configPath;
 
 
@@ -114,6 +115,33 @@
                 return ["error" => $e->getMessage()];
             }          
         }  
+
+        public function getDespesaTableValor($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+
+            $TIPO = "DESPESA";
+
+            try{           
+                $sql = "SELECT CON_NMTITULO, CON_NMVALOR FROM CON_CONCILIACAO   
+                        WHERE CON_DCTIPO LIKE ':DESPESA%'
+                        AND CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
+                        AND CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
+                        ORDER BY CON_NMVALOR DESC
+                        LIMIT 10";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':DESPESA', $TIPO, PDO::PARAM_STR);
+                $stmt->execute();
+
+                $this->ARRAY_DESPESATABLEINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        } 
         
         public function getReceitasValor($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
         {          
