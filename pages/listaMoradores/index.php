@@ -122,10 +122,10 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
-                                                            <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME'])."..."; ?></td>
-                                                            <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
-                                                            <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                            <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCEMAIL']); ?></td>
+                                                            <td><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                            <td><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
+                                                            <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                            <td><?= htmlspecialchars($item['USU_DCEMAIL']); ?></td>
                                                             <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
                                                             <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
                                                         </tr>
