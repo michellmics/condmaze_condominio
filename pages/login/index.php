@@ -43,7 +43,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
