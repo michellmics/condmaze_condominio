@@ -119,7 +119,7 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
-                                                            <td style="font-size: 12px;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,25))."..."; ?></td>
+                                                            <td style="font-size: 12px;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,30))."..."; ?></td>
                                                             <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                             <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
                                                             <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
