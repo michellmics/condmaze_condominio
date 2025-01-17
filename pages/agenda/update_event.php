@@ -3,32 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start(); 
-define('SESSION_TIMEOUT', 43200); // 30 minutos
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: https://www.prqdashortensias.com.br/index.php");
-  exit();
-}
-    // Atualiza o timestamp da última atividade
-$_SESSION['last_activity'] = time();
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: https://www.prqdashortensias.com.br/index.php");
-  exit();
-}
-
-$blocoSession = $_SESSION['user_bloco'];
-$apartamentoSession = $_SESSION['user_apartamento'];
-$nomeSession =  ucwords($_SESSION['user_name']);
-$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-$userid = $_SESSION['user_id'];
-
 $data = json_decode(file_get_contents('php://input'), true);
 
-include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
+include_once "../../objects/objects.php";
 
 // Instancia a classe SITE_ADMIN e chama a função de conexão
 $admin = new SITE_ADMIN();
