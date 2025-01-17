@@ -35,7 +35,7 @@
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
                                     <a href="widgets.html" class="dropdown-item">Atividades</a>
-                                    <a href="widgets.html" class="dropdown-item">Agenda</a>
+                                    <a href="../agenda/index.php" class="dropdown-item">Agenda</a>
                                     <a href="widgets.html" class="dropdown-item">Webmail</a>
                                 </div>
                             </li>
