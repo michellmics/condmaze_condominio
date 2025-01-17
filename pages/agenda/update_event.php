@@ -13,15 +13,19 @@ $admin->conexao(); // Conecta ao banco de dados usando a configuração
 
 // Sanitização dos dados recebidos
 $id = $data['id'];
+$titulo = $data['titulo'];
 $inicio = $data['inicio'];
 $fim = $data['fim'];
+$categoria = $data['categoria'];
 
 // Consulta SQL para atualizar o evento
-$sql = "UPDATE eventos SET inicio = :inicio, fim = :fim WHERE id = :id";
+$sql = "UPDATE eventos SET inicio = :inicio, fim = :fim, titulo = :titulo, categoria = :categoria WHERE id = :id";
 $stmt = $admin->pdo->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->bindParam(':inicio', $inicio, PDO::PARAM_STR);
 $stmt->bindParam(':fim', $fim, PDO::PARAM_STR);
+$stmt->bindParam(':categoria', $categoria, PDO::PARAM_STR);
+$stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
 $stmt->execute();
 
 // Verifica se a atualização foi bem-sucedida
