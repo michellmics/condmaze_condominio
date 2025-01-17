@@ -114,7 +114,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = $USU_IDUSUARIO ORDER BY LIS_DCNOME ASC LIMIT 2";
+                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = $USU_IDUSUARIO ORDER BY LIS_DCNOME ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
