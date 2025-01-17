@@ -25,6 +25,8 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
+    <script src="https://unpkg.com/@fullcalendar/core@4.4.0/locales/pt-br.js"></script>
+    
     <!-- App favicon -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
