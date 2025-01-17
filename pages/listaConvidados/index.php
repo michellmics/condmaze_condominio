@@ -14,8 +14,9 @@
     }   
     
 
-    $siteAdmin->getListaMoradoresInfo();
-    
+    $siteAdmin->getListaInfo($userid);
+    var_dump($siteAdmin->ARRAY_LISTAINFO);
+    die();
 ?>
 
 <!DOCTYPE html>
