@@ -70,8 +70,6 @@
 		<!-- End Menu Nav -->
             <?php
                 $siteAdmin->getListaInfo($userid);
-                var_dump($siteAdmin->ARRAY_LISTAINFO);
-                die();
             ?>
 
         <div class="content-page">
@@ -118,7 +116,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($array as $index => $item): ?>
+        <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
             <tr>
                 <td><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
                 <td><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
