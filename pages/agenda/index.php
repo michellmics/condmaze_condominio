@@ -91,8 +91,8 @@
                                             </div>
                                             <div id="external-events" class="mt-3">
                                                 <p class="text-muted">Arraste e solte um item no calendário para cadastrar.</p>
-                                                <div class="external-event bg-success-lighten text-success" data-class="bg-success"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Mudança Apartamento: {Num Ap}</div>
-                                                <div class="external-event bg-info-lighten text-info" data-class="bg-info"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Prestador {Nome Prestador}</div>
+                                                <div class="external-event bg-success-lighten text-success" data-class="bg-success"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Mudança Apartamento: </div>
+                                                <div class="external-event bg-info-lighten text-info" data-class="bg-info"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Prestador: </div>
                                             </div>
 
                                         </div> <!-- end col-->
