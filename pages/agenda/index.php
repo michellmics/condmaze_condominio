@@ -86,15 +86,13 @@
                                         <div class="col-lg-3">
                                             <div class="d-grid">
                                                 <button class="btn btn-lg font-16 btn-danger" id="btn-new-event">
-                                                    <i class="mdi mdi-plus-circle-outline"></i> Create New Event
+                                                    <i class="mdi mdi-plus-circle-outline"></i> Criar novo Evento
                                                 </button>
                                             </div>
                                             <div id="external-events" class="mt-3">
-                                                <p class="text-muted">Drag and drop your event or click in the calendar</p>
-                                                <div class="external-event bg-success-lighten text-success" data-class="bg-success"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>New Theme Release</div>
-                                                <div class="external-event bg-info-lighten text-info" data-class="bg-info"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>My Event</div>
-                                                <div class="external-event bg-warning-lighten text-warning" data-class="bg-warning"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Meet manager</div>
-                                                <div class="external-event bg-danger-lighten text-danger" data-class="bg-danger"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Create New theme</div>
+                                                <p class="text-muted">Arraste e solte um item no calendário para cadastrar.</p>
+                                                <div class="external-event bg-success-lighten text-success" data-class="bg-success"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Mudança Apartamento: {Num Ap}</div>
+                                                <div class="external-event bg-info-lighten text-info" data-class="bg-info"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Prestador {Nome Prestador}</div>
                                             </div>
 
                                         </div> <!-- end col-->
