@@ -1,9 +1,26 @@
+<?php
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	include_once "../../objects/objects.php";
+	
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getParameterInfo();
+
+    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+          $nomeCondominio = $item['CFG_DCVALOR']; 
+          break; 
+      }
+    }   
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-layout="topnav">
 
 <head>
     <meta charset="utf-8" />
-    <title>Calendar | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title><?php echo $nomeCondominio; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
