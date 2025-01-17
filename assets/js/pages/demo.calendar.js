@@ -78,6 +78,7 @@
             a = this;
 
         a.$calendarObj = new FullCalendar.Calendar(a.$calendar[0], {
+            locale: 'pt-br', // Adicionado idioma
             slotDuration: "00:15:00",
             slotMinTime: "08:00:00",
             slotMaxTime: "19:00:00",
