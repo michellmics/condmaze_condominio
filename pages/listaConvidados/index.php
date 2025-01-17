@@ -72,6 +72,11 @@
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
+            <?php
+                $siteAdmin->getListaInfo($userid);
+                var_dump($siteAdmin->ARRAY_LISTAINFO);
+                die();
+            ?>
 
         <div class="content-page">
             <div class="content">
