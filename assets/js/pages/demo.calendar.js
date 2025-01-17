@@ -71,7 +71,7 @@
             events: function(info, successCallback, failureCallback) {
                 // Carregar eventos do banco de dados
                 $.ajax({
-                    url: 'get_events.php', // Script PHP para buscar eventos
+                    url: 'fetch_events.php', // Script PHP para buscar eventos
                     dataType: 'json',
                     success: function(data) {
                         successCallback(data);
@@ -116,7 +116,7 @@
                     }, 
                     // Salvar no banco de dados via AJAX
                     $.ajax({
-                        url: 'save_event.php', // Script PHP para salvar o evento
+                        url: 'add_event.php', // Script PHP para salvar o evento
                         method: 'POST',
                         data: {
                             title: t.title,
