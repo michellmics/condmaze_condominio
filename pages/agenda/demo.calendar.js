@@ -100,6 +100,24 @@
                 allDay: !0
             });
         });
+
+        function formatDateToMySQLFormat(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear(),
+                hour = '' + d.getHours(),
+                minute = '' + d.getMinutes(),
+                second = '' + d.getSeconds();
+        
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+            if (hour.length < 2) hour = '0' + hour;
+            if (minute.length < 2) minute = '0' + minute;
+            if (second.length < 2) second = '0' + second;
+        
+            return [year, month, day].join('-') + ' ' + [hour, minute, second].join(':');
+        }
         
         a.$formEvent.on("submit", function (e) {
             e.preventDefault();
@@ -110,8 +128,8 @@
                        a.$selectedEvent.setProp("classNames", [l("#event-category").val()]))
                     : (t = {
                         titulo: l("#event-title").val(),      // Use "titulo" em vez de "title"
-                        inicio: a.$newEventData.date,          // "start" -> "inicio"
-                        fim: a.$newEventData.end,              // "end" -> "fim"
+                        inicio: formatDateToMySQLFormat(a.$newEventData.date), // Formata a data corretamente
+                        fim: formatDateToMySQLFormat(a.$newEventData.end),   // Formata a data corretamente
                         descricao: l("#event-description").val(),  // Se você tem uma descrição, também envie esse campo
                         categoria: l("#event-category").val()  // "category" -> "categoria"
                     }),
@@ -124,7 +142,6 @@
                         titulo: t.titulo,
                         inicio: t.inicio,
                         fim: t.fim,
-                        descricao: t.descricao,
                         categoria: t.categoria
                     },
                     success: function(response) {
@@ -141,6 +158,7 @@
                 }))
                 : (e.stopPropagation(), n.classList.add("was-validated"));
         });
+        
         
 
         l(a.$btnDeleteEvent.on("click", function () {
