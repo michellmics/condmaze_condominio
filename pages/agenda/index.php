@@ -80,22 +80,6 @@
                                                 <div class="external-event bg-danger-lighten text-danger" data-class="bg-danger"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Create New theme</div>
                                             </div>
 
-                                            <div class="mt-5 d-none d-xl-block">
-                                                <h5 class="text-center">How It Works ?</h5>
-
-                                                <ul class="ps-3">
-                                                    <li class="text-muted mb-3">
-                                                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                                    </li>
-                                                    <li class="text-muted mb-3">
-                                                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.
-                                                    </li>
-                                                    <li class="text-muted mb-3">
-                                                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                                    </li>
-                                                </ul>
-                                            </div>
-
                                         </div> <!-- end col-->
 
                                         <div class="col-lg-9">
