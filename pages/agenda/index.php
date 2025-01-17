@@ -93,6 +93,8 @@
                                                 <p class="text-muted">Arraste e solte um item no calendário para cadastrar.</p>
                                                 <div class="external-event bg-success-lighten text-success" data-class="bg-success"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Mudança Apartamento: </div>
                                                 <div class="external-event bg-info-lighten text-info" data-class="bg-info"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Prestador: </div>
+                                                <div class="external-event bg-warning-lighten text-warning" data-class="bg-warning"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Reunião: </div>
+                                                <div class="external-event bg-danger-lighten text-danger" data-class="bg-danger"><i class="mdi mdi-checkbox-blank-circle me-2 vertical-middle"></i>Entrega: </div>
                                             </div>
 
                                         </div> <!-- end col-->
