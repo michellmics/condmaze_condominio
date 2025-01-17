@@ -26,7 +26,7 @@
     <meta content="Coderthemes" name="author" />
 
     <script src="https://unpkg.com/@fullcalendar/core@4.4.0/locales/pt-br.js"></script>
-    
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
@@ -188,7 +188,7 @@
     <script src="../../assets/vendor/fullcalendar/index.global.min.js"></script>
 
     <!-- Calendar App Demo js -->
-    <script src="../../assets/js/pages/demo.calendar.js"></script>
+    <script src="../../assets/js/pages/demo.calendar.js?ver=<?php echo time(); ?>"></script>
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
