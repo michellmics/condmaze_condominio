@@ -2,83 +2,50 @@
     "use strict";
 
     function e() {
-        this.$body = l("body"), 
+        this.$body = l("body"),
         this.$modal = new bootstrap.Modal(document.getElementById("event-modal"), {
             backdrop: "static"
-        }), 
-        this.$calendar = l("#calendar"), 
-        this.$formEvent = l("#form-event"), 
-        this.$btnNewEvent = l("#btn-new-event"), 
-        this.$btnDeleteEvent = l("#btn-delete-event"), 
-        this.$btnSaveEvent = l("#btn-save-event"), 
-        this.$modalTitle = l("#modal-title"), 
-        this.$calendarObj = null, 
-        this.$selectedEvent = null, 
+        }),
+        this.$calendar = l("#calendar"),
+        this.$formEvent = l("#form-event"),
+        this.$btnNewEvent = l("#btn-new-event"),
+        this.$btnDeleteEvent = l("#btn-delete-event"),
+        this.$btnSaveEvent = l("#btn-save-event"),
+        this.$modalTitle = l("#modal-title"),
+        this.$calendarObj = null,
+        this.$selectedEvent = null,
         this.$newEventData = null;
     }
 
     e.prototype.onEventClick = function (e) {
-        this.$formEvent[0].reset(), 
-        this.$formEvent.removeClass("was-validated"), 
-        this.$newEventData = null, 
-        this.$btnDeleteEvent.show(), 
-        this.$modalTitle.text("Editar Evento"), 
-        this.$modal.show(), 
-        this.$selectedEvent = e.event, 
-        l("#event-title").val(this.$selectedEvent.title), 
+        this.$formEvent[0].reset(),
+        this.$formEvent.removeClass("was-validated"),
+        this.$newEventData = null,
+        this.$btnDeleteEvent.show(),
+        this.$modalTitle.text("Editar Evento"),
+        this.$modal.show(),
+        this.$selectedEvent = e.event,
+        l("#event-title").val(this.$selectedEvent.title),
         l("#event-category").val(this.$selectedEvent.classNames[0]);
     };
 
     e.prototype.onSelect = function (e) {
-        this.$formEvent[0].reset(), 
-        this.$formEvent.removeClass("was-validated"), 
-        this.$selectedEvent = null, 
-        this.$newEventData = e, 
-        this.$btnDeleteEvent.hide(), 
-        this.$modalTitle.text("Adicionar Novo Evento"), 
-        this.$modal.show(), 
+        this.$formEvent[0].reset(),
+        this.$formEvent.removeClass("was-validated"),
+        this.$selectedEvent = null,
+        this.$newEventData = e,
+        this.$btnDeleteEvent.hide(),
+        this.$modalTitle.text("Adicionar Novo Evento"),
+        this.$modal.show(),
         this.$calendarObj.unselect();
     };
 
     e.prototype.init = function () {
         var e = new Date(l.now()),
-            e = (new FullCalendar.Draggable(document.getElementById("external-events"), {
-                itemSelector: ".external-event",
-                eventData: function (e) {
-                    return {
-                        title: e.innerText,
-                        className: l(e).data("class")
-                    };
-                }
-            }), [
-                {
-                    title: "Reunião com Sr. Shreyu",
-                    start: new Date(l.now() + 158e6),
-                    end: new Date(l.now() + 338e6),
-                    className: "bg-warning"
-                },
-                {
-                    title: "Entrevista - Engenheiro Backend",
-                    start: e,
-                    end: e,
-                    className: "bg-success"
-                },
-                {
-                    title: "Triagem - Engenheiro Frontend",
-                    start: new Date(l.now() + 168e6),
-                    className: "bg-info"
-                },
-                {
-                    title: "Comprar Recursos de Design",
-                    start: new Date(l.now() + 338e6),
-                    end: new Date(l.now() + 4056e5),
-                    className: "bg-primary"
-                }
-            ]),
             a = this;
 
         a.$calendarObj = new FullCalendar.Calendar(a.$calendar[0], {
-            locale: 'pt-br', // Adicionado idioma
+            locale: 'pt-br',
             slotDuration: "00:15:00",
             slotMinTime: "08:00:00",
             slotMaxTime: "19:00:00",
@@ -101,7 +68,19 @@
                 center: "title",
                 right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
             },
-            initialEvents: e,
+            events: function(info, successCallback, failureCallback) {
+                // Carregar eventos do banco de dados
+                $.ajax({
+                    url: 'get_events.php', // Script PHP para buscar eventos
+                    dataType: 'json',
+                    success: function(data) {
+                        successCallback(data);
+                    },
+                    error: function() {
+                        failureCallback();
+                    }
+                });
+            },
             editable: !0,
             droppable: !0,
             selectable: !0,
@@ -127,26 +106,54 @@
             var t, n = a.$formEvent[0];
             n.checkValidity()
                 ? (a.$selectedEvent
-                    ? (a.$selectedEvent.setProp("title", l("#event-title").val()), 
+                    ? (a.$selectedEvent.setProp("title", l("#event-title").val()),
                        a.$selectedEvent.setProp("classNames", [l("#event-category").val()]))
                     : (t = {
                         title: l("#event-title").val(),
                         start: a.$newEventData.date,
                         allDay: a.$newEventData.allDay,
                         className: l("#event-category").val()
-                    }, a.$calendarObj.addEvent(t)), a.$modal.hide())
+                    }, 
+                    // Salvar no banco de dados via AJAX
+                    $.ajax({
+                        url: 'save_event.php', // Script PHP para salvar o evento
+                        method: 'POST',
+                        data: {
+                            title: t.title,
+                            start: t.start,
+                            allDay: t.allDay,
+                            category: t.className
+                        },
+                        success: function() {
+                            a.$calendarObj.refetchEvents(); // Recarrega os eventos
+                            a.$modal.hide();
+                        }
+                    })),
+                a.$modal.hide())
                 : (e.stopPropagation(), n.classList.add("was-validated"));
         });
 
         l(a.$btnDeleteEvent.on("click", function () {
-            a.$selectedEvent && (a.$selectedEvent.remove(), a.$selectedEvent = null, a.$modal.hide());
+            if (a.$selectedEvent) {
+                // Excluir o evento do banco de dados
+                $.ajax({
+                    url: 'delete_event.php', // Script PHP para excluir evento
+                    method: 'POST',
+                    data: { id: a.$selectedEvent.id },
+                    success: function () {
+                        a.$selectedEvent.remove();
+                        a.$selectedEvent = null;
+                        a.$modal.hide();
+                    }
+                });
+            }
         }));
     };
 
     l.CalendarApp = new e();
     l.CalendarApp.Constructor = e;
 })(window.jQuery),
-    (function () {
-        "use strict";
-        window.jQuery.CalendarApp.init();
-    })();
+(function () {
+    "use strict";
+    window.jQuery.CalendarApp.init();
+})();
