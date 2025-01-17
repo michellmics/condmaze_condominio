@@ -41,65 +41,58 @@
     };
 
     e.prototype.init = function () {
-        var a = this;
+        var e = new Date(l.now()),
+            a = this;
 
-        // Carregar eventos do banco de dados
-        $.ajax({
-            url: 'fetch_event.php', // Script PHP para buscar eventos
-            dataType: 'json',
-            success: function(data) {
-                var events = data.map(function(event) {
-                    return {
-                        id: event.id,
-                        title: event.title,
-                        start: event.start,
-                        end: event.end
-                    };
-                });
-                
-                // Inicializar o FullCalendar
-                a.$calendarObj = new FullCalendar.Calendar(a.$calendar[0], {
-                    locale: 'pt-br',
-                    slotDuration: "00:15:00",
-                    slotMinTime: "08:00:00",
-                    slotMaxTime: "19:00:00",
-                    themeSystem: "bootstrap",
-                    bootstrapFontAwesome: !1,
-                    buttonText: {
-                        today: "Hoje",
-                        month: "Mês",
-                        week: "Semana",
-                        day: "Dia",
-                        list: "Lista",
-                        prev: "Anterior",
-                        next: "Próximo"
+        a.$calendarObj = new FullCalendar.Calendar(a.$calendar[0], {
+            locale: 'pt-br',
+            slotDuration: "00:15:00",
+            slotMinTime: "08:00:00",
+            slotMaxTime: "19:00:00",
+            themeSystem: "bootstrap",
+            bootstrapFontAwesome: !1,
+            buttonText: {
+                today: "Hoje",
+                month: "Mês",
+                week: "Semana",
+                day: "Dia",
+                list: "Lista",
+                prev: "Anterior",
+                next: "Próximo"
+            },
+            initialView: "dayGridMonth",
+            handleWindowResize: !0,
+            height: l(window).height() - 200,
+            headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
+            },
+            events: function(info, successCallback, failureCallback) {
+                // Carregar eventos do banco de dados
+                $.ajax({
+                    url: 'get_events.php', // Script PHP para buscar eventos
+                    dataType: 'json',
+                    success: function(data) {
+                        successCallback(data);
                     },
-                    initialView: "dayGridMonth",
-                    handleWindowResize: !0,
-                    height: l(window).height() - 200,
-                    headerToolbar: {
-                        left: "prev,next today",
-                        center: "title",
-                        right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
-                    },
-                    events: events, // Carregar eventos inicialmente
-                    editable: !0,
-                    droppable: !0,
-                    selectable: !0,
-                    dateClick: function (e) {
-                        a.onSelect(e);
-                    },
-                    eventClick: function (e) {
-                        a.onEventClick(e);
+                    error: function() {
+                        failureCallback();
                     }
                 });
-
-                a.$calendarObj.render();
             },
-            error: function() {
-                console.log('Erro ao carregar eventos');
+            editable: !0,
+            droppable: !0,
+            selectable: !0,
+            dateClick: function (e) {
+                a.onSelect(e);
+            },
+            eventClick: function (e) {
+                a.onEventClick(e);
             }
         });
+
+        a.$calendarObj.render();
 
         a.$btnNewEvent.on("click", function () {
             a.onSelect({
@@ -114,45 +107,26 @@
             n.checkValidity()
                 ? (a.$selectedEvent
                     ? (a.$selectedEvent.setProp("title", l("#event-title").val()),
-                       a.$selectedEvent.setProp("classNames", [l("#event-category").val()]),
-                       // Atualizar evento no banco de dados
-                       $.ajax({
-                           url: 'update_event.php',
-                           method: 'POST',
-                           data: JSON.stringify({
-                               id: a.$selectedEvent.id,
-                               inicio: a.$selectedEvent.start,
-                               fim: a.$selectedEvent.end
-                           }),
-                           contentType: 'application/json',
-                           success: function(response) {
-                               if (response.status === 'success') {
-                                   a.$calendarObj.refetchEvents();
-                                   a.$modal.hide();
-                               }
-                           }
-                       }))
+                       a.$selectedEvent.setProp("classNames", [l("#event-category").val()]))
                     : (t = {
                         title: l("#event-title").val(),
                         start: a.$newEventData.date,
                         allDay: a.$newEventData.allDay,
                         className: l("#event-category").val()
                     }, 
-                    // Adicionar evento no banco de dados
+                    // Salvar no banco de dados via AJAX
                     $.ajax({
-                        url: 'add_event.php',
+                        url: 'save_event.php', // Script PHP para salvar o evento
                         method: 'POST',
-                        data: JSON.stringify({
-                            titulo: t.title,
-                            inicio: t.start,
-                            fim: t.end
-                        }),
-                        contentType: 'application/json',
-                        success: function(response) {
-                            if (response.status === 'success') {
-                                a.$calendarObj.refetchEvents();
-                                a.$modal.hide();
-                            }
+                        data: {
+                            title: t.title,
+                            start: t.start,
+                            allDay: t.allDay,
+                            category: t.className
+                        },
+                        success: function() {
+                            a.$calendarObj.refetchEvents(); // Recarrega os eventos
+                            a.$modal.hide();
                         }
                     })),
                 a.$modal.hide())
@@ -161,18 +135,15 @@
 
         l(a.$btnDeleteEvent.on("click", function () {
             if (a.$selectedEvent) {
-                // Excluir evento do banco de dados
+                // Excluir o evento do banco de dados
                 $.ajax({
-                    url: 'delete_event.php',
+                    url: 'delete_event.php', // Script PHP para excluir evento
                     method: 'POST',
-                    data: JSON.stringify({ id: a.$selectedEvent.id }),
-                    contentType: 'application/json',
-                    success: function (response) {
-                        if (response.status === 'success') {
-                            a.$selectedEvent.remove();
-                            a.$selectedEvent = null;
-                            a.$modal.hide();
-                        }
+                    data: { id: a.$selectedEvent.id },
+                    success: function () {
+                        a.$selectedEvent.remove();
+                        a.$selectedEvent = null;
+                        a.$modal.hide();
                     }
                 });
             }
