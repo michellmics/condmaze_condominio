@@ -116,7 +116,7 @@
                     }, 
                     // Salvar no banco de dados via AJAX
                     $.ajax({
-                        url: 'add_event.php', // Script PHP para salvar o evento
+                        url: 'update_event.php', // Script PHP para salvar o evento
                         method: 'POST',
                         data: {
                             title: t.title,
