@@ -18,6 +18,9 @@ $inicio = $data['inicio'];
 $fim = $data['fim'];
 $categoria = $data['categoria'];
 
+var_dump($data);
+die();
+
 // As datas já estão no formato correto vindo do JavaScript, então não é necessário mais ajustes
 // Consulta SQL para atualizar o evento
 $sql = "UPDATE eventos SET inicio = :inicio, fim = :fim, titulo = :titulo, categoria = :categoria WHERE id = :id";
