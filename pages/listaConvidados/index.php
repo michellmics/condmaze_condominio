@@ -112,7 +112,7 @@
         <tr>
             <th>Nome</th>
             <th>CPF / RG</th>
-            <th>Status</th>
+            <th>Ativo?</th>
         </tr>
     </thead>
     <tbody>
@@ -131,8 +131,8 @@
                         />
                         <label 
                             for="switch<?= $index; ?>" 
-                            data-on-label="Ativo" 
-                            data-off-label="Inativo" 
+                            data-on-label="Sim" 
+                            data-off-label="Não" 
                             class="mb-0 d-block">
                         </label>
                     </div>
