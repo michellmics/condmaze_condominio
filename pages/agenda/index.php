@@ -54,7 +54,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Agenda</h4>
+                                <h4 class="page-title">Agenda Portaria</h4>
                             </div>
                         </div>
                     </div>
