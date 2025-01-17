@@ -109,61 +109,41 @@
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
-                                            <table class="table table-centered mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nome</th>
-                                                        <th>CPF / RG</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Risa D. Pearson</td>
-                                                        <td>336-508-2157</td>
-                                                        <td>
-                                                            <!-- Switch-->
-                                                            <div>
-                                                                <input type="checkbox" id="switch01" checked data-switch="success"/>
-                                                                <label for="switch01" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ann C. Thompson</td>
-                                                        <td>646-473-2057</td>
-                                                        <td>
-                                                            <!-- Switch-->
-                                                            <div>
-                                                                <input type="checkbox" id="switch02" checked data-switch="success"/>
-                                                                <label for="switch02" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Paul J. Friend</td>
-                                                        <td>281-308-0793</td>
-                                                        <td>
-                                                            <!-- Switch-->
-                                                            <div>
-                                                                <input type="checkbox" id="switch03" data-switch="success"/>
-                                                                <label for="switch03" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Linda G. Smith</td>
-                                                        <td>606-253-1207</td>
-                                                        <td>
-                                                            <!-- Switch-->
-                                                            <div>
-                                                                <input type="checkbox" id="switch04" data-switch="success"/>
-                                                                <label for="switch04" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <table class="table table-centered mb-0">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF / RG</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($array as $index => $item): ?>
+            <tr>
+                <td><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
+                <td><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
+                <td>
+                    <!-- Switch -->
+                    <div>
+                        <input 
+                            type="checkbox" 
+                            id="switch<?= $index; ?>" 
+                            data-switch="success" 
+                            <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
+                        />
+                        <label 
+                            for="switch<?= $index; ?>" 
+                            data-on-label="Yes" 
+                            data-off-label="No" 
+                            class="mb-0 d-block">
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
