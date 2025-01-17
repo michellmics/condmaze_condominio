@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 
-include_once '../../objects.php'; // Carrega a classe de conexão e objetos
+include_once "../../objects/objects.php";
 
 // Instancia a classe SITE_ADMIN e chama a função de conexão
 $admin = new SITE_ADMIN();
