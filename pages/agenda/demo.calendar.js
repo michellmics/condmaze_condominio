@@ -100,7 +100,7 @@
                 allDay: !0
             });
         });
-
+        
         a.$formEvent.on("submit", function (e) {
             e.preventDefault();
             var t, n = a.$formEvent[0];
@@ -109,29 +109,39 @@
                     ? (a.$selectedEvent.setProp("title", l("#event-title").val()),
                        a.$selectedEvent.setProp("classNames", [l("#event-category").val()]))
                     : (t = {
-                        title: l("#event-title").val(),
-                        start: a.$newEventData.date,
-                        allDay: a.$newEventData.allDay,
-                        className: l("#event-category").val()
-                    }, 
-                    // Salvar no banco de dados via AJAX
-                    $.ajax({
-                        url: 'save_event.php', // Script PHP para salvar o evento
-                        method: 'POST',
-                        data: {
-                            title: t.title,
-                            start: t.start,
-                            allDay: t.allDay,
-                            category: t.className
-                        },
-                        success: function() {
+                        titulo: l("#event-title").val(),      // Use "titulo" em vez de "title"
+                        inicio: a.$newEventData.date,          // "start" -> "inicio"
+                        fim: a.$newEventData.end,              // "end" -> "fim"
+                        descricao: l("#event-description").val(),  // Se você tem uma descrição, também envie esse campo
+                        categoria: l("#event-category").val()  // "category" -> "categoria"
+                    }),
+                // Salvar no banco de dados via AJAX
+                $.ajax({
+                    url: 'update_event.php', // Script PHP para salvar o evento
+                    method: 'POST',
+                    data: {
+                        id: a.$selectedEvent.id,  // Enviar o ID do evento para o PHP
+                        titulo: t.titulo,
+                        inicio: t.inicio,
+                        fim: t.fim,
+                        descricao: t.descricao,
+                        categoria: t.categoria
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
                             a.$calendarObj.refetchEvents(); // Recarrega os eventos
                             a.$modal.hide();
+                        } else {
+                            console.log('Erro ao atualizar evento');
                         }
-                    })),
-                a.$modal.hide())
+                    },
+                    error: function() {
+                        console.log('Erro na requisição AJAX');
+                    }
+                }))
                 : (e.stopPropagation(), n.classList.add("was-validated"));
         });
+        
 
         l(a.$btnDeleteEvent.on("click", function () {
             if (a.$selectedEvent) {
