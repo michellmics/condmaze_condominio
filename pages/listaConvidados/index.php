@@ -13,7 +13,7 @@
       }
     }   
     
-
+    $userid = $_SESSION['user_id'];
     $siteAdmin->getListaInfo($userid);
     var_dump($siteAdmin->ARRAY_LISTAINFO);
     die();
