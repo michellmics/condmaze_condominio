@@ -71,7 +71,7 @@
             events: function(info, successCallback, failureCallback) {
                 // Carregar eventos do banco de dados
                 $.ajax({
-                    url: 'get_events.php', // Script PHP para buscar eventos
+                    url: 'ftech_events.php', // Script PHP para buscar eventos
                     dataType: 'json',
                     success: function(data) {
                         successCallback(data);
