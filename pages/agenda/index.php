@@ -188,7 +188,7 @@
     <script src="../../assets/vendor/fullcalendar/index.global.min.js"></script>
 
     <!-- Calendar App Demo js -->
-    <script src="../../assets/js/pages/demo.calendar.js?ver=<?php echo time(); ?>"></script>
+    <script src="demo.calendar.js?ver=<?php echo time(); ?>"></script>
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
