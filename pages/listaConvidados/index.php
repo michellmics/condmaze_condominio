@@ -101,9 +101,9 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Moradores </h4>
+                                    <h4 class="header-title">Convidados </h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os moradores do condomínio.
+                                        Nesta seção são listados todos os convidados cadastrados. Lembre-se, somente convidados <b>ativos</b> estarão visiveis para a portaria.
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
@@ -131,8 +131,8 @@
                         />
                         <label 
                             for="switch<?= $index; ?>" 
-                            data-on-label="Yes" 
-                            data-off-label="No" 
+                            data-on-label="Ativo" 
+                            data-off-label="Inativo" 
                             class="mb-0 d-block">
                         </label>
                     </div>
