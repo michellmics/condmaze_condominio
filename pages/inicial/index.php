@@ -14,6 +14,8 @@
       }
     }   
     
+    var_dump($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+    die();
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
     if($qtdePubli != 0)
     {
