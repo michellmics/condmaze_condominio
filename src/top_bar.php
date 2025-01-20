@@ -25,10 +25,10 @@
 
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
-	$nomeSession =  ucwords(strtolower($_SESSION['user_name'])); 
+	$nomeSession =  substr(strtoupper($_SESSION['user_name']),0,10); 
     $nomeSessionShort =  substr($nomeSession,0,15);
 	$usuariologado =  "<b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-    $nivelAcesso = ucwords(strtolower($_SESSION['user_nivelacesso']));
+    $nivelAcesso = strtoupper($_SESSION['user_nivelacesso']);
 	$userid = $_SESSION['user_id'];
 ?>
 
