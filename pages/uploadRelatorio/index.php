@@ -83,7 +83,7 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Processamento de Relatório</h4>
                                     <p class="text-muted font-14">
-                                        Aqui você pode fazer o upload do arquivo da administrador (receita ou despesa) para geração do relatório aos moradores.
+                                        Aqui você pode fazer o upload do arquivo da administradora (receita ou despesa) para geração do relatório aos moradores.
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="file-upload-preview">
