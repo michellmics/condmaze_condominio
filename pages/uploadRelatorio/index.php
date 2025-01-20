@@ -96,6 +96,18 @@
                                             <!-- Preview -->
                                             <div class="dropzone-previews mt-3" id="file-previews"></div>
                                         </div> <!-- end preview-->
+                                        <h6 class="font-15 mt-3">Inline</h6>
+
+<div class="mt-2">
+    <div class="form-check form-check-inline">
+        <input type="radio" id="customRadio3" name="customRadio1" class="form-check-input">
+        <label class="form-check-label" for="customRadio3">Toggle this custom radio</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="radio" id="customRadio4" name="customRadio1" class="form-check-input">
+        <label class="form-check-label" for="customRadio4">Or toggle this other custom radio</label>
+    </div>
+</div>
 
                                         <div class="tab-pane code" id="file-upload-code">
                                             <p class="m-2">Make sure to include following js files at end of <code>body element</code></p>
