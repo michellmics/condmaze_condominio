@@ -25,7 +25,7 @@
 
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
-	$nomeSession =  substr(strtoupper($_SESSION['user_name']),0,15); 
+	$nomeSession =  substr(strtoupper($_SESSION['user_name']),0,20); 
     $nomeSessionShort =  substr($nomeSession,0,15);
 	$usuariologado =  "<b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
     $nivelAcesso = strtoupper($_SESSION['user_nivelacesso']);
