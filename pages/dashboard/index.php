@@ -1147,7 +1147,7 @@
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-
+ 
     <!-- Datatables js -->
     <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
