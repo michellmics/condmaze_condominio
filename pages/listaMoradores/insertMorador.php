@@ -164,8 +164,8 @@
                                                         <input type="radio" id="customRadio4" name="customRadio1" class="form-check-input">
                                                         <label class="form-check-label" for="customRadio4">Portaria</label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="customRadiocolor5" name="customRadiocolor5" class="form-check-input">
+                                                    <div class="form-check form-check-inline form-radio-danger mb-2">
+                                                        <input type="radio" id="customRadiocolor5" name="customRadio1" class="form-check-input">
                                                         <label class="form-check-label" for="customRadio4">Síndico</label>
                                                     </div>
                                                 </div>
