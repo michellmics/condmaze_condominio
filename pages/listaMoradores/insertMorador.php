@@ -169,6 +169,7 @@
                                                         <label class="form-check-label" for="customRadio4">Síndico</label>
                                                     </div>
                                                 </div>
+                                                <br>
 
                                                 <button class="btn btn-danger" type="submit">Cancelar</button>              
                                                 <button class="btn btn-primary" type="submit">Salvar</button>
