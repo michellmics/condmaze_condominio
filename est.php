@@ -16,6 +16,11 @@
       justify-content: center;
       margin-top: 20px;
     }
+    .slot-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .slot {
       width: 100px;
       height: 100px;
@@ -34,6 +39,11 @@
       background-color: #f44336;
       color: white;
     }
+    .slot-number {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -44,7 +54,12 @@
       foreach ($slots as $id => $slot) {
         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
         $displayText = $slot['status'] === 'occupied' ? $slot['plate'] : 'Livre';
-        echo "<div class='slot $statusClass' data-id='$id'>$displayText</div>";
+        echo "
+          <div class='slot-wrapper'>
+            <div class='slot $statusClass' data-id='$id'>$displayText</div>
+            <span class='slot-number'>Vaga $id</span>
+          </div>
+        ";
       }
     ?>
   </div>
