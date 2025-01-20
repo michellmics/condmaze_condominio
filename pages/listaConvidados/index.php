@@ -106,6 +106,9 @@
                                         Nesta seção são listados todos os convidados cadastrados. Lembre-se, somente convidados <b>ativos</b> estarão visiveis para a portaria.
                                     </p>
                                     <div class="tab-content">
+                                    <div class="col-sm-5">
+                                            <a href="javascript:void(0);" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add Customers</a>
+                                        </div>
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
                                         <table class="table table-centered mb-0">
     <thead>
