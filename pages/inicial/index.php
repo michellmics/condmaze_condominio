@@ -67,6 +67,56 @@
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 </head>
 
+<!-- pop-up promoção CSS -->
+<style>
+    #promoPopup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        position: relative;
+		background: transparent; /* Alterado para transparente */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: none;
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+    }
+
+    .popup-content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .close-btn {
+		top: -20px; /* Move o botão para cima da imagem */
+        right: -20px; /* Move o botão para a direita da imagem */
+        position: absolute;
+        background:rgb(0, 0, 0);
+        color: white;
+        border: none;
+        font-size: 20px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background: #cc0000;
+    }
+</style>
+<!-- pop-up promoção CSS -->
+
 <body>
     <!-- Begin page -->
     <div class="wrapper">
@@ -88,6 +138,17 @@
             </div>
             <!-- content -->
 
+
+            		<!--  Pop-up publicidade-->
+                    <div id="promoPopup" style="display: none;">
+                        <div class="popup-content">
+                            <button class="close-btn" onclick="closePopup()">×</button>
+                            <a <?php echo $publiImageLink; ?>>
+                                <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
+                            </a>
+                        </div>
+                    </div>
+		            <!--  Pop-up publicidade-->
 
             <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     		    <img src="../../img/logo_128x128.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
