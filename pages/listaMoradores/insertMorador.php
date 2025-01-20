@@ -157,7 +157,7 @@
                                                 <h6 class="font-15 mt-3">Nível de Acesso</h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline form-radio-info mb-2">
-                                                        <input type="radio" id="customRadio3" name="customRadio1" class="form-check-input">
+                                                        <input type="radio" id="customRadio3" name="customRadio1" class="form-check-input" checked>
                                                         <label class="form-check-label" for="customRadio3">Morador</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-warning mb-2">
