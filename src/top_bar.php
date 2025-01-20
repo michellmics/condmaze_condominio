@@ -81,7 +81,9 @@
                 <ul class="topbar-menu d-flex align-items-center gap-3">
                 <?php echo $nomeSession . " - BL: " . $blocoSession . " AP: " . $apartamentoSession; ?>
 <br>
-<span style="font-size: small; color: red;"><?php echo $nivelAcesso; ?></span>
+<div style="font-size: small; color: red;">
+    <?php echo $nivelAcesso; ?>
+</div>
 </ul>
 
 
