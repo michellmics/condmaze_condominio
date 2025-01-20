@@ -1,7 +1,7 @@
 {
-    "1": { "status": "free", "plate": "", "entry_time": "" },
-    "2": { "status": "occupied", "plate": "ABC1234", "entry_time": "2025-01-20 14:30:00" },
-    "3": { "status": "free", "plate": "", "entry_time": "" },
-    "4": { "status": "free", "plate": "", "entry_time": "" },
-    "5": { "status": "occupied", "plate": "XYZ5678", "entry_time": "2025-01-20 15:00:00" }
-  }    
+  "1": { "status": "free", "plate": "", "entry_time": "" },
+  "2": { "status": "occupied", "plate": "ABC1234", "entry_time": "2025-01-20 14:30:00" },
+  "3": { "status": "free", "plate": "", "entry_time": "" },
+  "4": { "status": "free", "plate": "", "entry_time": "" },
+  "5": { "status": "occupied", "plate": "XYZ5678", "entry_time": "2025-01-20 15:00:00" }
+}
