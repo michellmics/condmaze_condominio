@@ -107,7 +107,7 @@
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5">
-                                            <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
