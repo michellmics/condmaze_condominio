@@ -71,7 +71,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Upload de Arquivos</h4>
+                                <h4 class="page-title">Enviar Arquivo</h4>
                             </div>
                         </div>
                     </div>
