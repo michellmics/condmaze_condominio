@@ -1,8 +1,6 @@
 <?php
-ob_start();
-session_start();
-    ini_set('display_errors', 1);  // Habilita a exibição de erros
-    error_reporting(E_ALL);        // Reporta todos os erros
+    ob_start();
+    session_start();
 
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
     $host = $_SERVER['HTTP_HOST'];
