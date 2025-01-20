@@ -105,11 +105,12 @@
                                                 </div>
 
                                             </form>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                           
 
                                             <!-- Preview -->
                                             <div class="dropzone-previews mt-3" id="file-previews"></div>
                                         </div> <!-- end preview-->
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
 
 
                                         <div class="tab-pane code" id="file-upload-code">
