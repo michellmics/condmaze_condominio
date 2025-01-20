@@ -190,9 +190,124 @@
             }          
         }
 
+        public function checkPubliExisInfo($ID)
+        {          
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+        
+            try {           
+                $sql = "SELECT 1 FROM PUB_PUBLICIDADE WHERE MKT_IDMKTPUBLICIDADE = :MKT_IDMKTPUBLICIDADE";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':MKT_IDMKTPUBLICIDADE', $ID, PDO::PARAM_STR);
+                $stmt->execute();
+        
+                // Verifica se encontrou algum registro
+                return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }
+        }
 
+        public function updatePubliInfo($PUB_DTINI, $PUB_DTFIM, $PUB_DCCLIENTEORIG, $PUB_STSTATUS, $MKT_IDMKTPUBLICIDADE, $PUB_DCIMG, $PUB_DCDESC, $PUB_DCTIPO, $PUB_DCLINK)
+        {                            
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
 
+            try {
 
+                $sql = "UPDATE PUB_PUBLICIDADE 
+                        SET
+                        PUB_DTINI = :PUB_DTINI,
+                        PUB_DTFIM = :PUB_DTFIM,
+                        PUB_DCCLIENTEORIG = :PUB_DCCLIENTEORIG,
+                        PUB_STSTATUS = :PUB_STSTATUS,
+                        PUB_DCIMG = :PUB_DCIMG,
+                        PUB_DCDESC = :PUB_DCDESC,
+                        PUB_DCTIPO = :PUB_DCTIPO,
+                        PUB_DCLINK = :PUB_DCLINK
+                        WHERE MKT_IDMKTPUBLICIDADE = :MKT_IDMKTPUBLICIDADE";                       
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PUB_DTINI', $PUB_DTINI, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DTFIM', $PUB_DTFIM, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCCLIENTEORIG', $PUB_DCCLIENTEORIG, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_STSTATUS', $PUB_STSTATUS, PDO::PARAM_STR);
+                $stmt->bindParam(':MKT_IDMKTPUBLICIDADE', $MKT_IDMKTPUBLICIDADE, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCIMG', $PUB_DCIMG, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCDESC', $PUB_DCDESC, PDO::PARAM_STR); 
+                $stmt->bindParam(':PUB_DCTIPO', $PUB_DCTIPO, PDO::PARAM_STR); 
+                $stmt->bindParam(':PUB_DCLINK', $PUB_DCLINK, PDO::PARAM_STR);
+
+            
+                $stmt->execute();
+           
+
+                if($PUB_STSTATUS == "ATIVA")
+                {
+                    return "PUBLICADO";
+                } 
+                else
+                    {
+                        return "PENDENTE";
+                    }
+                    
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return "ERRO: Não foi possível atualizar a publicidade.";
+            }
+        }
+
+        public function insertPubliInfo($PUB_DTINI, $PUB_DTFIM, $PUB_DCCLIENTEORIG, $PUB_STSTATUS, $MKT_IDMKTPUBLICIDADE, $PUB_DCIMG, $PUB_DCDESC, $PUB_DCTIPO, $PUB_DCLINK)
+        {                            
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+
+                $sql = "INSERT INTO PUB_PUBLICIDADE 
+                        (PUB_DTINI, PUB_DTFIM, PUB_DCCLIENTEORIG, PUB_STSTATUS, MKT_IDMKTPUBLICIDADE, PUB_DCIMG, PUB_DCDESC, PUB_DCTIPO, PUB_DCLINK) 
+                        VALUES (:PUB_DTINI, :PUB_DTFIM, :PUB_DCCLIENTEORIG, :PUB_STSTATUS, :MKT_IDMKTPUBLICIDADE, :PUB_DCIMG, :PUB_DCDESC, :PUB_DCTIPO, :PUB_DCLINK)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PUB_DTINI', $PUB_DTINI, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DTFIM', $PUB_DTFIM, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCCLIENTEORIG', $PUB_DCCLIENTEORIG, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_STSTATUS', $PUB_STSTATUS, PDO::PARAM_STR);
+                $stmt->bindParam(':MKT_IDMKTPUBLICIDADE', $MKT_IDMKTPUBLICIDADE, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCIMG', $PUB_DCIMG, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCDESC', $PUB_DCDESC, PDO::PARAM_STR);
+                $stmt->bindParam(':PUB_DCTIPO', $PUB_DCTIPO, PDO::PARAM_STR); 
+                $stmt->bindParam(':PUB_DCLINK', $PUB_DCLINK, PDO::PARAM_STR);
+
+            
+                $stmt->execute();
+
+                if($PUB_STSTATUS == "ATIVA")
+                {
+                    return "PUBLICADO";
+                } 
+                else
+                    {
+                        return "PENDENTE";
+                    }
+
+                        
+
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return "ERRO: Não foi possível inserir a publicidade.";
+            }
+        }
 
 
 
