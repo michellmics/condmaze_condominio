@@ -80,7 +80,7 @@
                 </div>
 
                 <ul class="topbar-menu d-flex align-items-center gap-3">
-                gg
+                <?php echo $nomeSession. " - BL: " .$blocoSession. "AP: ".$apartamentoSession ?>
 
 
                     
