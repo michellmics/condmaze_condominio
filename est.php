@@ -44,6 +44,11 @@
       font-size: 14px;
       color: #555;
     }
+    .entry-time {
+      font-size: 12px;
+      color: #fff;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -54,10 +59,13 @@
       foreach ($slots as $id => $slot) {
         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
         $displayText = $slot['status'] === 'occupied' ? $slot['plate'] : 'Livre';
+        $entryTimeText = $slot['status'] === 'occupied' ? "<div class='entry-time'>Entrada: {$slot['entry_time']}</div>" : '';
+        
         echo "
           <div class='slot-wrapper'>
             <div class='slot $statusClass' data-id='$id'>$displayText</div>
             <span class='slot-number'>Vaga $id</span>
+            $entryTimeText
           </div>
         ";
       }
