@@ -42,6 +42,7 @@
                                     <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
                                     <a href="widgets.html" class="dropdown-item">Atividades</a>
                                     <a href="../agenda/index.php" class="dropdown-item">Agenda</a>
+                                    <a href="../uploadRelatorio/index.php" class="dropdown-item">Upload Relatório</a> 
                                     <a href="<?php echo $webmailUrl; ?>" target="_blank" class="dropdown-item">Webmail</a>
                                 </div>
                             </li>
