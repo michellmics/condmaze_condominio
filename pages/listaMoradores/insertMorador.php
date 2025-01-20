@@ -125,7 +125,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Apartamento</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <input type="text" class="form-control" id="documento" placeholder="Num. Apartamento" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -135,7 +135,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Senha</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <input type="text" class="form-control" id="documento" placeholder="Senha" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -145,7 +145,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Confirme a Senha</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <input type="text" class="form-control" id="documento" placeholder="Confirme a senha" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
