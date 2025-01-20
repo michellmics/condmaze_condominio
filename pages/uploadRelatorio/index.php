@@ -96,13 +96,6 @@
                                                 <div class="fallback">
                                                     <input name="file" type="file" multiple />
                                                 </div>
-
-                                                <div class="dz-message needsclick">
-                                                    <i class="h1 text-muted ri-upload-cloud-2-line"></i>
-                                                    <h3>Drop files here or click to upload.</h3>
-                                                    <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                        <strong>not</strong> actually uploaded.)</span>
-                                                </div>
                                             </form>
 
                                             <!-- Preview -->
