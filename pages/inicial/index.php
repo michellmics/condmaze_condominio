@@ -1,6 +1,12 @@
 <?php
     ini_set('display_errors', 1);  // Habilita a exibição de erros
     error_reporting(E_ALL);        // Reporta todos os erros
+
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+    $host = $_SERVER['HTTP_HOST'];
+    $baseUrl = $protocol . "://" . $host;
+    $webmailUrl = $baseUrl . "//api//";
+
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
@@ -14,13 +20,14 @@
       }
     }   
     
-    var_dump($siteAdmin->ARRAY_POPUPPUBLISHINFO);
-    die();
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
     if($qtdePubli != 0)
     {
         $num = rand(0, $qtdePubli -1);
-        $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+        $publiImage = $webmailUrl.$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+
+        var_dump($publiImage);
+        die();
         
         if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
         {
