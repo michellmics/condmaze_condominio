@@ -75,12 +75,14 @@
 
                     <!-- Topbar Search Form -->
                     <div class="app-search dropdown d-none d-lg-block">
-                        cxcdfsfsdfdsfsdfsd
                     </div>
                 </div>
 
                 <ul class="topbar-menu d-flex align-items-center gap-3">
-                <?php echo $nomeSession. " - BL: " .$blocoSession. "AP: ".$apartamentoSession ?>
+    <?php echo $nomeSession . " - BL: " . $blocoSession . " AP: " . $apartamentoSession; ?>
+    <br>
+    Síndico
+</ul>
 
 
                     
