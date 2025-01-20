@@ -81,7 +81,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: slotId, plate: newPlate })
-        })
+        }) 
         .then(() => location.reload());
       });
     });
