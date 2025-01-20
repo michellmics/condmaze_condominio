@@ -59,12 +59,12 @@
       foreach ($slots as $id => $slot) {
         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
         $displayText = $slot['status'] === 'occupied' ? $slot['plate'] : 'Livre';
-        $entryTimeText = $slot['status'] === 'occupied' ? "<div class='entry-time'>Entrada: {$slot['entry_time']}</div>" : '';
+        $entryTimeText = $slot['status'] === 'occupied' ? "<div class='entry-time'>Entrada: {$slot['entry_time']}</div>" : 'z';
         
         echo "
           <div class='slot-wrapper'>
             <div class='slot $statusClass' data-id='$id'>$displayText</div>
-            <span class='slot-number'>Vaga $entryTimeText</span>
+            <span class='slot-number'>$entryTimeText</span>
             <span class='slot-number'>Vaga $id</span>
              
           </div>
