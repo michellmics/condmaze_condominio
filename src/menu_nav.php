@@ -1,5 +1,12 @@
      
         
+<?php
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+    $host = $_SERVER['HTTP_HOST'];
+    $baseUrl = $protocol . "://" . $host;
+    $webmailUrl = $baseUrl . "/webmail";
+?>
+        
         <!-- ========== Horizontal Menu Start ========== -->
         <div class="topnav">
             <div class="container-fluid">
@@ -36,7 +43,7 @@
                                     <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
                                     <a href="widgets.html" class="dropdown-item">Atividades</a>
                                     <a href="../agenda/index.php" class="dropdown-item">Agenda</a>
-                                    <a href="widgets.html" class="dropdown-item">Webmail</a>
+                                    <a href="<?php echo $webmailUrl; ?>" target="_blank" class="dropdown-item">Webmail</a>
                                 </div>
                             </li>
                         </ul>
