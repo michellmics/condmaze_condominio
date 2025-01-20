@@ -8,7 +8,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-home-alt"></i><div class="dropdown-item"><a href="../inicial/index.php">dsfsdf</a></div>
+                                    <i class="uil-home-alt"></i><div href="../listaConvidados/index.php" class="dropdown-item" >dsfsdf</div>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
