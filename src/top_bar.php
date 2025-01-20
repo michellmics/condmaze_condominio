@@ -1,10 +1,16 @@
 <?php
+
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+    $host = $_SERVER['HTTP_HOST'];
+    $baseUrl = $protocol . "://" . $host;
+    $webmailUrl = $baseUrl;
+
 	session_start(); 
 	define('SESSION_TIMEOUT', 43200); // 30 minutos
 	
 	if (!isset($_SESSION['user_id'])) 
 	{
-	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  header("Location: $webmailUrl");
 	  exit();
 	}
 
@@ -13,7 +19,7 @@
 
 	if (!isset($_SESSION['user_id'])) 
 	{
-	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  header("Location: $webmailUrl");
 	  exit();
 	}
 
