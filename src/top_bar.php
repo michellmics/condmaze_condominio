@@ -87,6 +87,8 @@
                         </div>
                     </li>
 
+                    dddddddddddd
+<!--
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-user px-4" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <span class="account-user-avatar">
@@ -99,20 +101,19 @@
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
-                            <!-- item-->
-                            <!-- item-->
+
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="mdi mdi-account-circle me-1"></i>
                                 <span>Minha Conta</span>
                             </a>
 
-                            <!-- item-->
+
                             <a href="../logoff/index.php" class="dropdown-item">
                                 <i class="mdi mdi-logout me-1"></i>
                                 <span>Sair</span>
                             </a>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
