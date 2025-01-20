@@ -1,0 +1,7 @@
+{
+    "1": { "status": "free", "plate": "" },
+    "2": { "status": "occupied", "plate": "ABC1234" },
+    "3": { "status": "free", "plate": "" },
+    "4": { "status": "free", "plate": "" },
+    "5": { "status": "occupied", "plate": "XYZ5678" }
+  }
