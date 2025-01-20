@@ -3,5 +3,10 @@
     "2": { "status": "occupied", "plate": "ABC1234" },
     "3": { "status": "free", "plate": "" },
     "4": { "status": "free", "plate": "" },
-    "5": { "status": "occupied", "plate": "XYZ5678" }
-  }
+    "5": { "status": "occupied", "plate": "XYZ5678" },
+    "6": { "status": "occupied", "plate": "XYZ5678" },
+    "7": { "status": "occupied", "plate": "XYZ5678" },
+    "8": { "status": "occupied", "plate": "XYZ5678" },
+    "9": { "status": "occupied", "plate": "XYZ5678" },
+    "10": { "status": "occupied", "plate": "XYZ5678" }
+}
