@@ -154,6 +154,22 @@
                                                     </div>
                                                 </div> 
 
+                                                <h6 class="font-15 mt-3">Nível de Acesso</h6>
+                                                <div class="mt-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <input type="radio" id="customRadio3" name="customRadio1" class="form-check-input">
+                                                        <label class="form-check-label" for="customRadio3">Morador</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input type="radio" id="customRadio4" name="customRadio1" class="form-check-input">
+                                                        <label class="form-check-label" for="customRadio4">Portaria</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input type="radio" id="customRadiocolor5" name="customRadiocolor5" class="form-check-input">
+                                                        <label class="form-check-label" for="customRadio4">Síndico</label>
+                                                    </div>
+                                                </div>
+
                                                 <button class="btn btn-danger" type="submit">Cancelar</button>              
                                                 <button class="btn btn-primary" type="submit">Salvar</button>
                                             </form>
