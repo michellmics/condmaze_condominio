@@ -2,6 +2,11 @@
     ini_set('display_errors', 1);  // Habilita a exibição de erros
     error_reporting(E_ALL);        // Reporta todos os erros
 
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+    $host = $_SERVER['HTTP_HOST'];
+    $baseUrl = $protocol . "://" . $host;
+    $webmailUrl = $baseUrl . "/api//";
+
 	include_once "../../objects/objects.php";
 	include_once '../../objects/objects_chart.php'; 
 
@@ -25,6 +30,28 @@
 
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
+    $siteAdmin->getPopupImagePublish(); 
+    $siteAdmin->getParameterInfo();
+
+    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+    if($qtdePubli != 0)
+    {
+        $num = rand(0, $qtdePubli -1);
+        $publiImage = $webmailUrl.$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+
+        if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+        {
+            $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+        }
+        else
+            {
+                $publiImageLink = "";
+            }        
+    }
+    else
+        {
+            $publiImageLink = "";
+        }
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -97,6 +124,55 @@
             }
         }
     </style>
+    <!-- pop-up promoção CSS -->
+    <style>
+        #promoPopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            position: relative;
+    		background: transparent; /* Alterado para transparente */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: none;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .popup-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .close-btn {
+    		top: -20px; /* Move o botão para cima da imagem */
+            right: -20px; /* Move o botão para a direita da imagem */
+            position: absolute;
+            background:rgb(0, 0, 0);
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background: #cc0000;
+        }
+    </style>
+    <!-- pop-up promoção CSS -->
    
 </head>
 
@@ -121,6 +197,17 @@
             </div>
             <!-- content -->
 
+
+                <!--  Pop-up publicidade-->
+                <div id="promoPopup" style="display: none;">
+                    <div class="popup-content">
+                        <button class="close-btn" onclick="closePopup()">×</button>
+                        <a <?php echo $publiImageLink; ?>>
+                            <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
+                        </a>
+                    </div>
+                </div>
+		        <!--  Pop-up publicidade-->
 
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
@@ -1071,6 +1158,34 @@
             </div>
         </div>
     </div>
+
+        <!-- Controle do pop-up de promoção -->
+        <script>
+            // Função para abrir o pop-up
+            function openPopup() {
+                document.getElementById('promoPopup').style.display = 'flex';
+            }
+        
+            // Função para fechar o pop-up
+            function closePopup() {
+                document.getElementById('promoPopup').style.display = 'none';
+            }
+        
+            // Fecha o pop-up ao clicar fora do quadrante
+            document.addEventListener('click', function(event) {
+                const popup = document.getElementById('promoPopup');
+                const popupContent = document.querySelector('.popup-content');
+                
+                if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
+                    closePopup();
+                }
+            });
+        
+            // Abra o pop-up automaticamente após 1,5 segundos
+            window.onload = function() {
+                setTimeout(openPopup, 1500);
+            };
+        </script>
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
