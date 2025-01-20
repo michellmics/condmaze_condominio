@@ -65,7 +65,7 @@
           <div class='slot-wrapper'>
             <div class='slot $statusClass' data-id='$id'>$displayText</div>
             <span class='slot-number'>Vaga $id</span>
-            $entryTimeText
+            $entryTimeText data
           </div>
         ";
       }
