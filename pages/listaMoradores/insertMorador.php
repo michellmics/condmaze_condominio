@@ -76,7 +76,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Lista de Convidados</h4>
+                                <h4 class="page-title">Cadastro de Morador</h4>
                             </div>
                         </div>
                     </div>
@@ -86,9 +86,8 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Cadastro de Convidado</h4>
-                                    <p class="text-muted font-14">Cadastre seu convidado aqui e lembre-se de ativá-lo para 
-                                        garantir o acesso ao condomínio durante o uso do salão de festas.
+                                    <h4 class="header-title">Morador</h4>
+                                    <p class="text-muted font-14">Nesta seção você pode cadastrar um novo morador para ter acesso ao sistema.
                                     </p>
 
                                     <div class="tab-content">
@@ -105,24 +104,35 @@
                                                     </div>
                                                 </div>
                                                 <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip02">CPF ou RG</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="CPF ou RG" required>
+                                                    <label class="form-label" for="validationTooltip02">E-mail</label>
+                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
                                                     <div class="invalid-tooltip">
-                                                    Por favor, preencha o número do documento.
+                                                    Por favor, preencha o e-mail do morador.
                                                     </div>
                                                 </div>
-
                                                 <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
-                                                    <br>
-                                                    <!-- Bool Switch-->
-                                                    <input type="checkbox" id="ativo" checked data-switch="bool"/>
-                                                    <label for="switch1" data-on-label="Sim" data-off-label="Não"></label>
+                                                    <label class="form-label" for="validationTooltip02">Bloco</label>
+                                                    <input type="text" class="form-control" id="documento" placeholder="Bloco" required>
+                                                    <div class="valid-tooltip">
+                                                        Validado!
+                                                    </div>
+                                                    <div class="invalid-tooltip">
+                                                    Por favor, preencha o número do bloco.
+                                                    </div>
                                                 </div>
- 
+                                                <div class="position-relative mb-3">
+                                                    <label class="form-label" for="validationTooltip02">Apartamento</label>
+                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <div class="valid-tooltip">
+                                                        Validado!
+                                                    </div>
+                                                    <div class="invalid-tooltip">
+                                                    Por favor, preencha o número do apartamento.
+                                                    </div>
+                                                </div> 
 
                                                 <button class="btn btn-danger" type="submit">Cancelar</button>              
                                                 <button class="btn btn-primary" type="submit">Salvar</button>
