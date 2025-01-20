@@ -105,6 +105,7 @@
                                                 </div>
 
                                             </form>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
 
                                             <!-- Preview -->
                                             <div class="dropzone-previews mt-3" id="file-previews"></div>
@@ -112,8 +113,6 @@
 
 
                                         <div class="tab-pane code" id="file-upload-code">
-                                            <p class="m-2">Make sure to include following js files at end of <code>body element</code></p>
-                                            <button class="btn-copy-clipboard" data-clipboard-action="copy">Copy</button>
                                         </div> <!-- end preview code-->
                                     </div> <!-- end tab-content-->
 
