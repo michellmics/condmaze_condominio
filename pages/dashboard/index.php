@@ -30,27 +30,8 @@
 
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
-    $siteAdmin->getPopupImagePublish(); 
 
-    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
-    if($qtdePubli != 0)
-    {
-        $num = rand(0, $qtdePubli -1);
-        $publiImage = $webmailUrl.$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
 
-        if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
-        {
-            $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
-        }
-        else
-            {
-                $publiImageLink = "";
-            }        
-    }
-    else
-        {
-            $publiImageLink = "";
-        }
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -66,7 +47,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title><?php //echo $nomeCondominio; ?></title>
+    <title><?php echo $nomeCondominio; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
