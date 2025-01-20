@@ -31,7 +31,6 @@
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
     $siteAdmin->getPopupImagePublish(); 
-    $siteAdmin->getParameterInfo();
 
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
     if($qtdePubli != 0)
@@ -1175,7 +1174,7 @@
             document.addEventListener('click', function(event) {
                 const popup = document.getElementById('promoPopup');
                 const popupContent = document.querySelector('.popup-content');
-                
+
                 if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
                     closePopup();
                 }
