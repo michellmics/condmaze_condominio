@@ -39,7 +39,7 @@
                     <!-- Topbar Brand Logo -->
                     <div class="logo-topbar">
                         <!-- Logo light -->
-                        <a href="../inicial/index.html" class="logo-light">
+                        <a href="../inicial/index.php" class="logo-light">
                             <span class="logo-lg">
                                 <img src="../../img/logo_128x32_white.png" alt="logo">
                             </span>
@@ -49,7 +49,7 @@
                         </a>
 
                         <!-- Logo Dark -->
-                        <a href="../inicial/index.html" class="logo-dark">
+                        <a href="../inicial/index.php" class="logo-dark">
                             <span class="logo-lg">
                                 <img src="../../img/logo_128x32_black.png" alt="dark logo">
                             </span>
