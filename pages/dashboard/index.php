@@ -174,16 +174,7 @@
             <!-- content -->
 
 
-                <!--  Pop-up publicidade-->
-                <div id="promoPopup" style="display: none;">
-                    <div class="popup-content">
-                        <button class="close-btn" onclick="closePopup()">×</button>
-                        <a <?php echo $publiImageLink; ?>>
-                            <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
-                        </a>
-                    </div>
-                </div>
-		        <!--  Pop-up publicidade-->
+
 
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
