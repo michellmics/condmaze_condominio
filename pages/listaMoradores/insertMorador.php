@@ -133,6 +133,26 @@
                                                     Por favor, preencha o número do apartamento.
                                                     </div>
                                                 </div> 
+                                                <div class="position-relative mb-3">
+                                                    <label class="form-label" for="validationTooltip02">Senha</label>
+                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <div class="valid-tooltip">
+                                                        Validado!
+                                                    </div>
+                                                    <div class="invalid-tooltip">
+                                                    Por favor, preencha a senha de acesso.
+                                                    </div>
+                                                </div> 
+                                                <div class="position-relative mb-3">
+                                                    <label class="form-label" for="validationTooltip02">Confirme a Senha</label>
+                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <div class="valid-tooltip">
+                                                        Validado!
+                                                    </div>
+                                                    <div class="invalid-tooltip">
+                                                    Por favor, preencha a senha de acesso.
+                                                    </div>
+                                                </div> 
 
                                                 <button class="btn btn-danger" type="submit">Cancelar</button>              
                                                 <button class="btn btn-primary" type="submit">Salvar</button>
