@@ -8,8 +8,8 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="../inicial/index.php" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-home-alt"></i>Início <div class="dropdown-item"></div>
-                                </a>
+                                <a href="../inicial/index.php"><i class="uil-home-alt"></i>Início <div class="dropdown-item"></a></div>
+                            </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
