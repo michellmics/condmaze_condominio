@@ -178,6 +178,12 @@
 
     /* Vaga ocupada */ 
     .slot.occupied {
+      background: linear-gradient(135deg,rgb(5, 129, 57),rgb(19, 90, 1));
+      color: white;
+    }
+
+    /* Vaga irregular*/ 
+    .slot.alert {
       background: linear-gradient(135deg,rgb(252, 50, 0),rgb(167, 19, 19));
       color: white;
     }
