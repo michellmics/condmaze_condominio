@@ -54,14 +54,19 @@
 
     /* Vaga livre */
     .slot.free {
-      background-color: #81c784;
+      background: linear-gradient(135deg, #81d4fa, #4fc3f7);
       color: white;
     }
 
     /* Vaga ocupada */
     .slot.occupied {
-      background-color: #e57373;
+      background: linear-gradient(135deg, #f44336, #d32f2f);
       color: white;
+    }
+
+    .slot:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     }
 
     .slot-number {
