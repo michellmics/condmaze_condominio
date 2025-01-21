@@ -172,7 +172,7 @@
 
     /* Vaga livre */
     .slot.free {
-      background: linear-gradient(135deg,rgb(9, 255, 0),rgb(30, 255, 0));
+      background: linear-gradient(135deg,rgb(44, 85, 139),rgb(72, 118, 172));
       color: white;
     }
 
