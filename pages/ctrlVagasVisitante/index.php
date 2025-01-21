@@ -306,7 +306,7 @@
                             $maxStay = 48 * 60 * 60; // 48 horas em segundos
                             // Calcular o tempo restante para 48h
                             $timeLeft = $maxStay - $timeDifference;
-                            $hoursLeft = floor($timeLeft / 3600); // Calcular as horas restantes
+                            $hoursLeft = round(floor($timeLeft / 3600),0); // Calcular as horas restantes
                             $minutesLeft = floor(($timeLeft % 3600) / 60); // Calcular os minutos restantes
                             $secondsLeft = $timeLeft % 60; // Calcular os segundos restantes
                             // Exibir a contagem regressiva
