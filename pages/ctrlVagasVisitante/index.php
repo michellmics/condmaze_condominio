@@ -281,16 +281,6 @@
             <!-- content -->
 
 
-            		<!--  Pop-up publicidade-->
-                    <div id="promoPopup" style="display: none;">
-                        <div class="popup-content">
-                            <button class="close-btn" onclick="closePopup()">×</button>
-                            <a <?php echo $publiImageLink; ?>>
-                                <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
-                            </a>
-                        </div>
-                    </div>
-		            <!--  Pop-up publicidade-->
 
                     <div class="row">
                         <div class="col-lg-12">
@@ -466,33 +456,7 @@
 
    
 
-    <!-- Controle do pop-up de promoção -->
-    <script>
-        // Função para abrir o pop-up
-        function openPopup() {
-            document.getElementById('promoPopup').style.display = 'flex';
-        }
-    
-        // Função para fechar o pop-up
-        function closePopup() {
-            document.getElementById('promoPopup').style.display = 'none';
-        }
-    
-        // Fecha o pop-up ao clicar fora do quadrante
-        document.addEventListener('click', function(event) {
-            const popup = document.getElementById('promoPopup');
-            const popupContent = document.querySelector('.popup-content');
-            
-            if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
-                closePopup();
-            }
-        });
-    
-        // Abra o pop-up automaticamente após 1,5 segundos
-        window.onload = function() {
-            setTimeout(openPopup, 1500);
-        };
-    </script>
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
