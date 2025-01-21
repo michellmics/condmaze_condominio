@@ -292,7 +292,7 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Controle do Estacionamento de Visitantes</h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos as vagas de veículo destinada aos visitantes do condomínio.
+                                        Nesta seção são listados todos as vagas de veículo destinada aos visitantes do condomínio.<br>
                                         Todo controle de entrada e saída é realizado pela portaria, podendo um veículo permanecer por no máximo 24h.
                                     </p>
                                     <div class="tab-content">
