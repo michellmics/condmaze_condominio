@@ -139,7 +139,7 @@
       <div class="modal-header">Preencha os dados do veículo</div>
       <input type="text" id="plateInput" maxlength="7" placeholder="Placa (máx. 7 caracteres)" oninput="this.value = this.value.toUpperCase()">
       <input type="text" id="apartmentInput" maxlength="5" placeholder="Apartamento (máx. 5 caracteres)">
-      <input type="text" id="modelInput" maxlength="20" placeholder="Modelo do veículo (máx. 20 caracteres)">
+      <input type="text" id="modelInput" maxlength="10" placeholder="Modelo do veículo (máx. 10 caracteres)" oninput="this.value = this.value.toUpperCase()">
       <div class="modal-footer">
         <button id="cancelButton">Cancelar</button>
         <button id="submitButton">Confirmar</button>
