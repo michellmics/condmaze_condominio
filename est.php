@@ -89,32 +89,44 @@
   </div>
 
   <script>
-    document.querySelectorAll('.slot').forEach(slot => {
-      slot.addEventListener('click', () => {
-        const slotId = slot.dataset.id;
-        const newPlate = prompt("Digite a placa do veículo:");
-        const newApartment = prompt("Digite o número do apartamento:");
-        const newModel = prompt("Digite o modelo do veículo:");
-        const entryTime = new Date().toISOString().slice(0, 19).replace("T", " ");  // Formato de data e hora
+  // Função para formatar a data no formato DD/MM/YYYY HH:MM
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  
+  return `${day}/${month}/${year} ${hours}:${minutes}`;
+}
 
-        if (newPlate && newApartment && newModel) {
-          fetch('update_slot.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: slotId,
-              plate: newPlate,
-              apartment: newApartment,
-              vehicle_model: newModel,
-              entry_time: entryTime
-            })
-          }) 
-          .then(() => location.reload());
-        } else {
-          alert("Todos os campos devem ser preenchidos!");
-        }
-      });
-    });
+document.querySelectorAll('.slot').forEach(slot => {
+  slot.addEventListener('click', () => {
+    const slotId = slot.dataset.id;
+    const newPlate = prompt("Digite a placa do veículo:");
+    const newApartment = prompt("Digite o número do apartamento:");
+    const newModel = prompt("Digite o modelo do veículo:");
+    const entryTime = formatDate(new Date());  // Usando a função formatDate para formatar a data e hora
+
+    if (newPlate && newApartment && newModel) {
+      fetch('update_slot.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: slotId,
+          plate: newPlate,
+          apartment: newApartment,
+          vehicle_model: newModel,
+          entry_time: entryTime
+        })
+      }) 
+      .then(() => location.reload());
+    } else {
+      alert("Todos os campos devem ser preenchidos!");
+    }
+  });
+});
+
   </script>
 </body>
 </html>

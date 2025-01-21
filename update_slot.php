@@ -6,7 +6,7 @@ $id = $data['id'];
 $newPlate = trim($data['plate']);
 $newApartment = trim($data['apartment']);
 $newModel = trim($data['vehicle_model']);
-$newEntryTime = $data['entry_time'];
+$newEntryTime = $data['entry_time'];  // A data já chega formatada
 
 if (isset($slots[$id])) {
     // Se a vaga está sendo ocupada
@@ -15,7 +15,7 @@ if (isset($slots[$id])) {
         $slots[$id]['plate'] = $newPlate;
         $slots[$id]['apartment'] = $newApartment;
         $slots[$id]['vehicle_model'] = $newModel;
-        $slots[$id]['entry_time'] = $newEntryTime;  // Registra a data e hora de entrada
+        $slots[$id]['entry_time'] = $newEntryTime;  // A data de entrada já está formatada
     }
     // Se a vaga está sendo liberada
     else {
