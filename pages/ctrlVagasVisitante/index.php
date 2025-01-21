@@ -287,8 +287,6 @@
 
                     foreach ($slots as $id => $slot) {
                         $irregular="";
-                        $remainingTime="";
-
                         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
 
                         if($slot['alarm'] === 'alarmed')
@@ -297,29 +295,13 @@
                             $irregular = "IRREGULAR";
                         } 
                         
-                        if($slot['status'] === 'occupied')
-                        {
-                            // Converter entry_time para timestamp
-                            $entryTime = strtotime($slot['entry_time']);
-                            $currentTime = time(); // Hora atual em timestamp
-                            $timeDifference = $currentTime - $entryTime; // Diferença em segundos          
-                            $maxStay = 48 * 60 * 60; // 48 horas em segundos
-                            // Calcular o tempo restante para 48h
-                            $timeLeft = $maxStay - $timeDifference;
-                            $hoursLeft = round(floor($timeLeft / 3600),0); // Calcular as horas restantes
-                            $minutesLeft = floor(($timeLeft % 3600) / 60); // Calcular os minutos restantes
-                            $secondsLeft = $timeLeft % 60; // Calcular os segundos restantes
-                            // Exibir a contagem regressiva
-                            $remainingTime = "$hoursLeft horas, $minutesLeft minutos";
-                        }
                         
                         
                         $displayText = $slot['status'] === 'occupied' 
                             ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                               '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'.
-                              '<div><b>Tempo restante:</b> ' . $remainingTime . '</div>'
+                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
                             : 'Livre';
                     
                         echo '<div class="slot-wrapper">
