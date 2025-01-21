@@ -280,8 +280,17 @@
                     $slots = json_decode(file_get_contents('slots.json'), true);
 
                     foreach ($slots as $id => $slot) {
+                        $irregular="";
                         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
-                        $statusClass = $slot['alarm'] === 'alarmed' ? 'alert' : $statusClass;
+
+                        if($slot['alarm'] === 'alarmed')
+                        {
+                            $statusClass = 'alert';
+                            $irregular = "IRREGULAR";
+                        } 
+                        
+                        
+                        
                         $displayText = $slot['status'] === 'occupied' 
                             ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
@@ -291,6 +300,7 @@
                     
                         echo '<div class="slot-wrapper">
                                 <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
+                                <span class="slot-number">' . $irregular . '</span>
                                 <span class="slot-number">Vaga ' . $id . '</span>
                               </div>';
                     }
