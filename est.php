@@ -9,46 +9,76 @@
       font-family: Arial, sans-serif;
       text-align: center;
     }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
     .parking-lot {
       display: grid;
-      grid-template-columns: repeat(5, 100px);
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
       justify-content: center;
       margin-top: 20px;
+      padding: 0 10px;
     }
+
     .slot-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .slot {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border: 2px solid #333;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.3s ease-in-out;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
+    .slot:hover {
+      transform: scale(1.05);
+    }
+
     .slot.free {
       background-color: #4caf50;
       color: white;
     }
+
     .slot.occupied {
       background-color: #f44336;
       color: white;
     }
+
     .slot-number {
-      margin-top: 5px;
-      font-size: 14px;
+      margin-top: 10px;
+      font-size: 16px;
       color: #555;
     }
+
     .entry-time {
-      font-size: 12px;
+      font-size: 14px;
       color: #fff;
       margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .slot {
+        width: 120px;
+        height: 120px;
+      }
+
+      .slot-number {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -65,7 +95,7 @@
                 '<div>Modelo: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
                 '<div>Apto: ' . htmlspecialchars($slot['apartment']) . '</div>' .
                 '<div>Entrada: ' . htmlspecialchars($slot['entry_time']) . '</div>'
-              : 'Livres';
+              : 'Livre';
 
           echo '<div class="slot-wrapper">
                   <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
