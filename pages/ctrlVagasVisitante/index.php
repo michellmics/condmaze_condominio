@@ -282,7 +282,7 @@
                     foreach ($slots as $id => $slot) {
                         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
                         $displayText = $slot['status'] === 'occupied' 
-                            ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' . 
+                            ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                               '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
                               '<div style="font-size: 12px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
