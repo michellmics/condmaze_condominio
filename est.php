@@ -137,7 +137,7 @@
   <div class="modal" id="inputModal">
     <div class="modal-content">
       <div class="modal-header">Preencha os dados do veículo</div>
-      <input type="text" id="plateInput" maxlength="7" placeholder="Placa (máx. 7 caracteres)">
+      <input type="text" id="plateInput" maxlength="7" placeholder="Placa (máx. 7 caracteres)" oninput="this.value = this.value.toUpperCase()">
       <input type="text" id="apartmentInput" maxlength="5" placeholder="Apartamento (máx. 5 caracteres)">
       <input type="text" id="modelInput" maxlength="20" placeholder="Modelo do veículo (máx. 20 caracteres)">
       <div class="modal-footer">
