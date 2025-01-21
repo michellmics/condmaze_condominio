@@ -225,7 +225,7 @@
 
     /* Estilo do botão */
     .modal-footer button {
-      background-color: #00796b;
+      background-color:rgb(173, 62, 238);
       color: white;
       padding: 10px 15px;
       margin-left: 10px;
