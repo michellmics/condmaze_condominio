@@ -54,23 +54,26 @@
 <body>
   <h1>Controle de Estacionamento</h1>
   <div class="parking-lot">
-    <?php
+  <?php
       $slots = json_decode(file_get_contents('slots.json'), true); // Carrega as vagas do arquivo JSON
       foreach ($slots as $id => $slot) {
-        $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
-        $displayText = $slot['status'] === 'occupied' ? $slot['plate'] : 'Livre';
-        $entryTimeText = $slot['status'] === 'occupied' ? "<div class='entry-time'>Entrada: {$slot['entry_time']}</div>" : 'z';
-        
-        echo "
-          <div class='slot-wrapper'>
-            <div class='slot $statusClass' data-id='$id'>$displayText</div>
-            <span class='slot-number'>$entryTimeText</span>
-            <span class='slot-number'>Vaga $id</span>
-             
-          </div>
-        ";
+          $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+          $displayText = $slot['status'] === 'occupied' ? $slot['plate'] : 'Livre';
+          
+          // Verifica se há uma entrada de data e hora e a exibe, caso contrário, deixa em branco
+          $entryTimeText = $slot['status'] === 'occupied' && !empty($slot['entry_time']) 
+              ? "<div class='entry-time'>Entrada: {$slot['entry_time']}</div>" 
+              : '';
+      
+          echo "
+              <div class='slot-wrapper'>
+                  <div class='slot $statusClass' data-id='$id'>$displayText</div>
+                  <span class='slot-number'>Vaga $id</span>
+                  $entryTimeText
+              </div>
+          ";
       }
-    ?>
+      ?>
   </div>
 
   <script>
