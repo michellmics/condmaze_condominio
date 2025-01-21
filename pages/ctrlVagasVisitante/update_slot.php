@@ -16,22 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $slots = json_decode(file_get_contents('slots.json'), true);
 
-    $plateExists = false;
-    // Itera sobre os slots para verificar se a placa já existe
-    foreach ($slots as $slot) {
-        if ($slot['plate'] === $plate) {
-            $plateExists = true;
-            break; // Encerra o loop, já que a placa foi encontrada
-        }
-    }
-    if ($plateExists)
-    {
-        echo json_encode(['error' => "O veículo com placa $plate já está cadastrado."]);
-        exit; 
-    }
-
-
-
     if (isset($slots[$id])) {
         if (empty($plate)) {
             // Liberar a vaga
