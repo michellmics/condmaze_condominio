@@ -518,7 +518,7 @@
     // Função para realizar o refresh da página após 30 minutos
     setInterval(function() {
         location.reload(); // Recarrega a página
-    }, 300000); // 30 minutos em milissegundos (30 * 60 * 1000)
+    }, 300000); // 5 minutos em milissegundos 
     </script>
 
 </body>
