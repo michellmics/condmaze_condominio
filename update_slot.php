@@ -3,10 +3,26 @@ $data = json_decode(file_get_contents('php://input'), true);
 $slots = json_decode(file_get_contents('slots.json'), true);
 
 $id = $data['id'];
-$newPlate = trim($data['plate']);
+$newPlate = strtoupper(trim($data['plate'])); // Placa em maiúsculas
 $newApartment = trim($data['apartment']);
-$newModel = trim($data['vehicle_model']);
-$newEntryTime = $data['entry_time'];  // A data já chega formatada
+$newModel = strtoupper(trim($data['vehicle_model'])); // Modelo em maiúsculas
+$newEntryTime = $data['entry_time']; // Data formatada enviada pelo cliente
+
+// Validações no servidor
+if (!preg_match('/^[A-Z0-9]{1,7}$/', $newPlate)) {
+    echo json_encode(['success' => false, 'message' => 'Placa inválida!']);
+    exit;
+}
+
+if (!preg_match('/^\d+$/', $newApartment)) {
+    echo json_encode(['success' => false, 'message' => 'Apartamento inválido!']);
+    exit;
+}
+
+if (empty($newModel)) {
+    echo json_encode(['success' => false, 'message' => 'Modelo do veículo inválido!']);
+    exit;
+}
 
 if (isset($slots[$id])) {
     // Se a vaga está sendo ocupada
@@ -29,6 +45,4 @@ if (isset($slots[$id])) {
     file_put_contents('slots.json', json_encode($slots, JSON_PRETTY_PRINT));
     echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Slot not found.']);
-}
-?>
+    echo json_encode(['success' => f

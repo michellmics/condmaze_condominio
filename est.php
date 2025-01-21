@@ -61,35 +61,23 @@
       $slots = json_decode(file_get_contents('slots.json'), true); // Carrega as vagas do arquivo JSON
 
       foreach ($slots as $id => $slot) {
-          $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
-          $displayText = $slot['status'] === 'occupied' ? $slot['plate'] : 'Livre';
+        $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+        $displayText = $slot['status'] === 'occupied' 
+            ? "{$slot['plate']}<br>Modelo: {$slot['vehicle_model']}<br>Apto: {$slot['apartment']}<br>Entrada: {$slot['entry_time']}" 
+            : 'Livre';
         
-          // Verifica se há uma entrada de data e hora e a exibe, caso contrário, deixa em branco
-          $entryTimeText = $slot['status'] === 'occupied' && !empty($slot['entry_time']) 
-              ? "<div class='entry-time'>Entrada: {$slot['entry_time']}</div>" 
-              : '';
-
-          // Exibe as informações do veículo se a vaga estiver ocupada
-          $vehicleInfo = $slot['status'] === 'occupied' && !empty($slot['vehicle_model']) 
-              ? "<div class='vehicle-info'>{$slot['vehicle_model']} - Apt. {$slot['apartment']}</div>" 
-              : '';
-
-          echo "
-              <div class='slot-wrapper'>
-                  <div class='slot $statusClass' data-id='$id'>
-                      $displayText
-                      $entryTimeText
-                      $vehicleInfo
-                  </div>
-                  <span class='slot-number'>Vaga $id</span>
-              </div>
-          ";
-      }
+        echo "
+            <div class='slot-wrapper'>
+                <div class='slot $statusClass' data-id='$id'>$displayText</div>
+                <span class='slot-number'>Vaga $id</span>
+            </div>
+        ";
+    }
     ?>
   </div>
 
   <script>
-  // Função para formatar a data no formato DD/MM/YYYY HH:MM
+// Função para formatar a data no formato DD/MM/YYYY HH:MM
 function formatDate(date) {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -103,10 +91,35 @@ function formatDate(date) {
 document.querySelectorAll('.slot').forEach(slot => {
   slot.addEventListener('click', () => {
     const slotId = slot.dataset.id;
-    const newPlate = prompt("Digite a placa do veículo:");
-    const newApartment = prompt("Digite o número do apartamento:");
-    const newModel = prompt("Digite o modelo do veículo:");
-    const entryTime = formatDate(new Date());  // Usando a função formatDate para formatar a data e hora
+
+    let newPlate = prompt("Digite a placa do veículo (máx. 7 caracteres):");
+    if (newPlate) {
+      newPlate = newPlate.toUpperCase().trim().slice(0, 7); // Limita a 7 caracteres e coloca em maiúsculas
+      if (!/^[A-Z0-9]{1,7}$/.test(newPlate)) {
+        alert("Placa inválida! Use apenas letras e números.");
+        return;
+      }
+    }
+
+    let newApartment = prompt("Digite o número do apartamento:");
+    if (newApartment) {
+      newApartment = newApartment.trim();
+      if (!/^\d+$/.test(newApartment)) {
+        alert("Apartamento inválido! Use apenas números.");
+        return;
+      }
+    }
+
+    let newModel = prompt("Digite o modelo do veículo:");
+    if (newModel) {
+      newModel = newModel.toUpperCase().trim(); // Coloca em maiúsculas
+      if (newModel.length === 0) {
+        alert("Modelo inválido!");
+        return;
+      }
+    }
+
+    const entryTime = formatDate(new Date()); // Formata a data de entrada
 
     if (newPlate && newApartment && newModel) {
       fetch('update_slot.php', {
