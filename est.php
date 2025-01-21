@@ -5,9 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estacionamento</title>
   <style>
-    /* Estilos gerais omitidos para brevidade */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
 
-    /* Modal */
+    h1 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
+    .parking-lot {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 0 10px;
+    }
+
+    .slot-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slot {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .slot.free {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .slot.occupied {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .slot-number {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Modal CSS */
     .modal {
       display: none;
       position: fixed;
@@ -41,6 +94,7 @@
 
     .modal-footer button {
       margin-left: 10px;
+      padding: 5px 10px;
     }
 
     input {
@@ -59,7 +113,24 @@
 <body>
   <h1>Controle de Estacionamento</h1>
   <div class="parking-lot">
-    <!-- PHP gerando as vagas omitido para brevidade -->
+    <?php
+      $slots = json_decode(file_get_contents('slots.json'), true);
+
+      foreach ($slots as $id => $slot) {
+          $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+          $displayText = $slot['status'] === 'occupied' 
+              ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' .
+                '<div>Modelo: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
+                '<div>Apto: ' . htmlspecialchars($slot['apartment']) . '</div>' .
+                '<div>Entrada: ' . htmlspecialchars($slot['entry_time']) . '</div>'
+              : 'Livre';
+
+          echo '<div class="slot-wrapper">
+                  <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
+                  <span class="slot-number">Vaga ' . $id . '</span>
+                </div>';
+      }
+    ?>
   </div>
 
   <!-- Modal -->
