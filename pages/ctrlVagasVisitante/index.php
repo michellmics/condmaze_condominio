@@ -360,17 +360,17 @@
                     }
                 
                     fetch('update_slot.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-        id: currentSlotId,
-        plate: plate,
-        apartment: apartment,
-        vehicle_model: model,
-        entry_time: new Date().toLocaleString('pt-BR')
-    })
-})
-.then(response => response.json()) // Converte a resposta em JSON
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        id: currentSlotId,
+                        plate: plate,
+                        apartment: apartment,
+                        vehicle_model: model,
+                        entry_time: new Date().toLocaleString('pt-BR')
+                      })
+                    })
+                    .then(response => response.json()) // Converte a resposta em JSON
 .then(data => {
     if (data.status === "error") {
         // Se a resposta for um erro, exibe a mensagem de erro
