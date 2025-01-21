@@ -299,7 +299,7 @@
 
 
     		    
-            <h1>Controle de Estacionamento</h1>
+            
                 <div class="parking-lot">
                   <?php
                     $slots = json_decode(file_get_contents('slots.json'), true);
