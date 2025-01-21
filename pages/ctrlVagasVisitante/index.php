@@ -281,6 +281,7 @@
 
                     foreach ($slots as $id => $slot) {
                         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+                        $statusClass = $slot['alarm'] === 'alarmed' ? 'alert' : $statusClass;
                         $displayText = $slot['status'] === 'occupied' 
                             ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
