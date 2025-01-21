@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'plate' => '',
                 'apartment' => '',
                 'vehicle_model' => '',
-                'entry_time' => ''
+                'entry_time' => '',
+                'alarm' => ''
             ];
         } else {
             // Atualizar vaga ocupada
@@ -33,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'plate' => $plate,
                 'apartment' => $apartment,
                 'vehicle_model' => $vehicle_model,
-                'entry_time' => $entry_time
+                'entry_time' => $entry_time,
+                'alarm' => ''
             ];
         }
 
