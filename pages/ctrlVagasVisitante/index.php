@@ -236,7 +236,7 @@
     }
 
     .modal-footer button:hover {
-      background-color: #004d40;
+      background-color:rgb(5, 170, 235);
     }
 
     input {
@@ -299,7 +299,7 @@
                             ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' . 
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                               '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                              '<div style="font-size: 12px; color: #666;">' . htmlspecialchars($slot['entry_time']) . '</div>'
+                              '<div style="font-size: 12px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
                             : 'Livre';
                     
                         echo '<div class="slot-wrapper">
