@@ -9,7 +9,7 @@
     use PHPMailer\PHPMailer\Exception;
 
 
-	class SITE_ADMIN
+	class SITE_ADMIN 
 	{
         //declaração de variaveis 
         public $pdo;
