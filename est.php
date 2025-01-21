@@ -5,23 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estacionamento</title>
   <style>
+    /* Estilo do corpo */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
     }
 
     h1 {
       margin-top: 20px;
-      font-size: 24px;
+      font-size: 30px;
+      color: #333;
     }
 
+    /* Estilo do estacionamento */
     .parking-lot {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 15px;
       justify-content: center;
-      margin-top: 20px;
-      padding: 0 10px;
+      margin-top: 30px;
+      padding: 0 15px;
     }
 
     .slot-wrapper {
@@ -30,37 +36,42 @@
       align-items: center;
     }
 
+    /* Estilo das vagas */
     .slot {
       width: 150px;
       height: 150px;
-      border: 2px solid #333;
+      border: 2px solid #ddd;
+      background-color: #e0f7fa;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       transition: 0.3s ease-in-out;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Vaga livre */
     .slot.free {
-      background-color: #4caf50;
+      background-color: #81c784;
       color: white;
     }
 
+    /* Vaga ocupada */
     .slot.occupied {
-      background-color: #f44336;
+      background-color: #e57373;
       color: white;
     }
 
     .slot-number {
       margin-top: 10px;
-      font-size: 16px;
+      font-size: 14px;
       color: #555;
+      font-weight: bold;
     }
 
-    /* Modal CSS */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -69,44 +80,54 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.3);
       justify-content: center;
       align-items: center;
     }
 
     .modal-content {
       background: white;
-      padding: 20px;
-      border-radius: 8px;
+      padding: 25px;
+      border-radius: 12px;
       width: 90%;
       max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .modal-header {
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
     }
 
-    .modal-footer {
-      margin-top: 10px;
-      text-align: right;
-    }
-
+    /* Estilo do botão */
     .modal-footer button {
+      background-color: #00796b;
+      color: white;
+      padding: 10px 15px;
       margin-left: 10px;
-      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal-footer button:hover {
+      background-color: #004d40;
     }
 
     input {
       width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
+      padding: 10px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 6px;
+      font-size: 16px;
     }
 
     input:focus {
-      border-color: #007bff;
+      border-color: #00796b;
+      outline: none;
     }
   </style>
 </head>
@@ -122,7 +143,7 @@
               ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' . 
                 '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                 '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                '<div style="font-size: 12px;">' . htmlspecialchars($slot['entry_time']) . '</div>'
+                '<div style="font-size: 12px; color: #666;">' . htmlspecialchars($slot['entry_time']) . '</div>'
               : 'Livre';
 
           echo '<div class="slot-wrapper">
