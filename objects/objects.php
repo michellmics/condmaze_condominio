@@ -1,10 +1,11 @@
 <?php
 
-    //include_once 'db.php'; 
+ini_set('display_errors', 1);  // Habilita a exibição de erros
+error_reporting(E_ALL);        // Reporta todos os erros
 
-    include '../../phpMailer/src/PHPMailer.php';
-    include '../../phpMailer/src/SMTP.php';
-    include '../../phpMailer/src/Exception.php'; 
+    include '../phpMailer/src/PHPMailer.php';
+    include '../phpMailer/src/SMTP.php';
+    include '../phpMailer/src/Exception.php'; 
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
