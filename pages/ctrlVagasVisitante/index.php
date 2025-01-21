@@ -286,7 +286,7 @@
                             ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                               '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                              '<div style="font-size: 12px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
+                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
                             : 'Livre';
                     
                         echo '<div class="slot-wrapper">
