@@ -31,7 +31,7 @@ foreach ($slots as $id => $slot) {
         // Se a diferença for maior que 48h, define o 'alarm' como 'alarmed'
         $slots[$id]['alarm'] = 'alarmed';
 
-        echo "Encontrado veiculo irregular."
+        echo "Encontrado veiculo irregular.";
 
         $veiculoI = $slot['vehicle_model']; 
         $placaI = $slot['plate']; 
