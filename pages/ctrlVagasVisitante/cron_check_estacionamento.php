@@ -1,5 +1,8 @@
 <?php
+ini_set('display_errors', 1);  // Habilita a exibição de erros
+error_reporting(E_ALL);        // Reporta todos os erros
 
+include_once "../../objects/objects.php";
 $siteAdmin = new SITE_ADMIN();  
 
 // Função para calcular a diferença de tempo entre agora e o 'entry_time'
