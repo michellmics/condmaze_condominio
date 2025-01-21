@@ -307,7 +307,7 @@
                         echo '<div class="slot-wrapper">
                                 <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
                                 <span class="slot-status">' . $irregular . '</span>
-                                <span class="slot-number">Vaga ' . $id . '</span>
+                                <span class="slot-number">ID ' . $id . '</span>
                               </div>';
                     }
                   ?>
