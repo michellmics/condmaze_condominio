@@ -65,7 +65,7 @@
                 '<div>Modelo: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
                 '<div>Apto: ' . htmlspecialchars($slot['apartment']) . '</div>' .
                 '<div>Entrada: ' . htmlspecialchars($slot['entry_time']) . '</div>'
-              : 'Livre';
+              : 'Livres';
 
           echo '<div class="slot-wrapper">
                   <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
