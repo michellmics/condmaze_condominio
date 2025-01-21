@@ -70,6 +70,22 @@
       margin-top: 5px;
     }
 
+    .release-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .release-button:hover {
+      background-color: #0056b3;
+    }
+
     @media (max-width: 768px) {
       .slot {
         width: 120px;
@@ -78,6 +94,10 @@
 
       .slot-number {
         font-size: 14px;
+      }
+
+      .release-button {
+        font-size: 12px;
       }
     }
   </style>
@@ -100,6 +120,7 @@
           echo '<div class="slot-wrapper">
                   <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
                   <span class="slot-number">Vaga ' . $id . '</span>
+                  <button class="release-button" data-id="' . $id . '">Liberar Vaga</button>
                 </div>';
       }
     ?>
@@ -116,6 +137,21 @@
       
       return `${day}/${month}/${year} ${hours}:${minutes}`;
     }
+
+    document.querySelectorAll('.release-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const slotId = button.dataset.id;
+        const confirmRelease = confirm("Tem certeza de que deseja liberar esta vaga?");
+        if (confirmRelease) {
+          fetch('release_slot.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: slotId })
+          })
+          .then(() => location.reload());
+        }
+      });
+    });
 
     document.querySelectorAll('.slot').forEach(slot => {
       slot.addEventListener('click', () => {
