@@ -9,7 +9,7 @@ function checkForAlarm($entry_time) {
     $interval = $current_time->diff($entry_time);
 
     // Verifica se a diferença é maior que 24 horas
-    return $interval->days >= 1;
+    return $interval->days > 2;
 }
 
 // Caminho do arquivo JSON
