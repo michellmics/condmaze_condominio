@@ -286,23 +286,47 @@
                     $slots = json_decode(file_get_contents('slots.json'), true);
 
                     foreach ($slots as $id => $slot) {
-                        $irregular="";
+                        $irregular = "";
                         $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
-
-                        if($slot['alarm'] === 'alarmed')
-                        {
+                    
+                        if ($slot['alarm'] === 'alarmed') {
                             $statusClass = 'alert';
                             $irregular = "IRREGULAR";
-                        } 
-                        
-                        
-                        
-                        $displayText = $slot['status'] === 'occupied' 
-                            ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
-                              '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
-                              '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
-                            : 'Livre';
+                        }
+                    
+                        // Verificar se o veículo está ocupado
+                        if ($slot['status'] === 'occupied') {
+                            // Converter entry_time para timestamp
+                            $entryTime = strtotime($slot['entry_time']);
+                            $currentTime = time(); // Hora atual em timestamp
+                            $timeDifference = $currentTime - $entryTime; // Diferença em segundos
+                    
+                            $maxStay = 48 * 60 * 60; // 48 horas em segundos
+                    
+                            if ($timeDifference > $maxStay) {
+                                // Se a estadia for superior a 48 horas, marcar como irregular
+                                $slot['alarm'] = 'alarmed';
+                                $irregular = "IRREGULAR";
+                            }
+                    
+                            // Calcular o tempo restante para 48h
+                            $timeLeft = $maxStay - $timeDifference;
+                            $hoursLeft = floor($timeLeft / 3600); // Calcular as horas restantes
+                            $minutesLeft = floor(($timeLeft % 3600) / 60); // Calcular os minutos restantes
+                            $secondsLeft = $timeLeft % 60; // Calcular os segundos restantes
+                    
+                            // Exibir a contagem regressiva
+                            $remainingTime = "$hoursLeft horas, $minutesLeft minutos";
+                    
+                            $displayText = '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
+                                           '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
+                                           '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
+                                           '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>' . 
+                                           '<div><b>Tempo restante:</b> ' . $remainingTime . '</div>'; 
+                        } else {
+                            // Se a vaga estiver livre
+                            $displayText = 'Livre';
+                        }
                     
                         echo '<div class="slot-wrapper">
                                 <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
@@ -310,6 +334,7 @@
                                 <span class="slot-number">Vaga ' . $id . '</span>
                               </div>';
                     }
+                    
                   ?>
                 </div>
                 
