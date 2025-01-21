@@ -120,9 +120,9 @@
           $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
           $displayText = $slot['status'] === 'occupied' 
               ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' .
-                '<div>Modelo: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
-                '<div>Apto: ' . htmlspecialchars($slot['apartment']) . '</div>' .
-                '<div>Entrada: ' . htmlspecialchars($slot['entry_time']) . '</div>'
+                '<div>CARRO: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
+                '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' .
+                '<div>' . htmlspecialchars($slot['entry_time']) . '</div>'
               : 'Livre';
 
           echo '<div class="slot-wrapper">
@@ -190,8 +190,8 @@
         return;
       }
 
-      if (model.length === 0 || model.length > 20) {
-        alert("Modelo inválido! Máximo de 20 caracteres.");
+      if (model.length === 0 || model.length > 10) {
+        alert("Modelo inválido! Máximo de 10 caracteres.");
         return;
       }
 
