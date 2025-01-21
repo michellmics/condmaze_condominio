@@ -178,6 +178,12 @@
       color: #555;
       font-weight: bold;
     }
+    .slot-status {
+      margin-top: 2px;
+      font-size: 10px;
+      color: red;
+      font-weight: italic;
+    }
 
     /* Modal */
     .modal {
@@ -300,7 +306,7 @@
                     
                         echo '<div class="slot-wrapper">
                                 <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
-                                <span class="slot-number">' . $irregular . '</span>
+                                <span class="slot-status">' . $irregular . '</span>
                                 <span class="slot-number">Vaga ' . $id . '</span>
                               </div>';
                     }
