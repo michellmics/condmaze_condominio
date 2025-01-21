@@ -57,12 +57,12 @@
   <div class="parking-lot">
     <?php
       $slots = json_decode(file_get_contents('slots.json'), true); // Carrega as vagas do arquivo JSON
-      
+
       foreach ($slots as $id => $slot) {
           $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
           $displayText = $slot['status'] === 'occupied' 
-              ? '<div>' . htmlspecialchars($slot['plate']) . '</div>' .
-                '<div>Modelo: ' . htmlspecialchars($slot['vehicle_model']) . '</div>' .
+              ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' .
+                '<div>Modelo: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
                 '<div>Apto: ' . htmlspecialchars($slot['apartment']) . '</div>' .
                 '<div>Entrada: ' . htmlspecialchars($slot['entry_time']) . '</div>'
               : 'Livre';
@@ -95,7 +95,7 @@
         if (newPlate) {
           newPlate = newPlate.toUpperCase().trim().slice(0, 7); // Limita a 7 caracteres e coloca em maiúsculas
           if (!/^[A-Z0-9]{1,7}$/.test(newPlate)) {
-            alert("Placa inválida! Use apenas letras e números.");
+            alert("Placa inválida! Use apenas letras e números (máximo 7 caracteres).");
             return;
           }
         }
