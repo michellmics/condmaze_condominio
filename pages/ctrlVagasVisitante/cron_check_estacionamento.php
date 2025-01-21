@@ -22,7 +22,7 @@ $slots = json_decode(file_get_contents($json_file), true);
 foreach ($slots as $id => $slot) {
     // Verifica se há um tempo de entrada
     if (!empty($slot['entry_time']) && checkForAlarm($slot['entry_time'])) {
-        // Se a diferença for maior que 24h, define o 'alarm' como 'alarmed'
+        // Se a diferença for maior que 48h, define o 'alarm' como 'alarmed'
         $slots[$id]['alarm'] = 'alarmed';
     }
 }
