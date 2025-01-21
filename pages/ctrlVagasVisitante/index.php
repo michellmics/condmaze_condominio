@@ -176,9 +176,9 @@
       color: white;
     }
 
-    /* Vaga ocupada */
+    /* Vaga ocupada */ 
     .slot.occupied {
-      background: linear-gradient(135deg, #f44336, #d32f2f);
+      background: linear-gradient(135deg,rgb(252, 50, 0),rgb(167, 19, 19));
       color: white;
     }
 
