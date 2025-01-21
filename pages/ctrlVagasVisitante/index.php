@@ -360,29 +360,28 @@
                     }
                 
                     fetch('update_slot.php', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        id: currentSlotId,
-                        plate: plate,
-                        apartment: apartment,
-                        vehicle_model: model,
-                        entry_time: new Date().toLocaleString('pt-BR')
-                      })
-                    })
-                    .then(response => response.json()) // Converte a resposta em JSON
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    id: currentSlotId,
+    plate: plate,
+    apartment: apartment,
+    vehicle_model: model,
+    entry_time: new Date().toLocaleString('pt-BR')
+  })
+})
+.then(response => response.json())  // Converte a resposta em JSON
 .then(data => {
-    if (data.status === "error") {
-        // Se a resposta for um erro, exibe a mensagem de erro
-        alert(data.message); // Aqui você pode exibir a mensagem de erro ao usuário
-    } else {
-        // Se a resposta for sucesso, fecha o modal e recarrega a página
-        closeModal();
-        location.reload();
-    }
+  if (data.error) {  // Verifica se há erro na resposta
+    alert(data.error);  // Exibe a mensagem de erro ao usuário
+  } else if (data.success) {  // Caso a operação seja bem-sucedida
+    closeModal();  // Fecha o modal
+    location.reload();  // Recarrega a página
+  }
 })
 .catch(error => {
-    console.error('Erro ao realizar a requisição:', error);
+  console.error('Erro ao realizar a requisição:', error);
+  alert('Ocorreu um erro na comunicação com o servidor.');  // Exibe uma mensagem de erro genérica
 });
               
                   document.getElementById('freeButton').addEventListener('click', () => {
