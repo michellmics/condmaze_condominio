@@ -1,7 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);  // Habilita a exibição de erros
-error_reporting(E_ALL);        // Reporta todos os erros
 
     include '../phpMailer/src/PHPMailer.php';
     include '../phpMailer/src/SMTP.php';
@@ -310,7 +308,7 @@ error_reporting(E_ALL);        // Reporta todos os erros
             }
         }
 
-        public function notifyEmail($SUBJECT, $MSG)
+        public function notifyEmail($SUBJECT, $MSG, $HOST)
         {
             $this->getParameterInfo();
 
@@ -328,8 +326,8 @@ error_reporting(E_ALL);        // Reporta todos os erros
             $body = "$MSG\n";
 
             // Adiciona cabeçalhos para o e-mail
-            $headers = "From: no-reply@prqdashortensias.com.br\r\n";
-            $headers .= "Reply-To: no-reply@prqdashortensias.com.br\r\n";
+            $headers = "From: no-reply@$HOST\r\n";
+            $headers .= "Reply-To: no-reply@$HOST\r\n";
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Define a codificação como UTF-8
             $headers .= "MIME-Version: 1.0\r\n";
             
