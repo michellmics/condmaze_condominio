@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if ($plateExists)
     {
-        http_response_code(400);
         echo json_encode(['error' => "O veículo com placa $plate já está cadastrado."]);
         exit; 
     }
