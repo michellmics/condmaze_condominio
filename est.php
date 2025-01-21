@@ -119,10 +119,10 @@
       foreach ($slots as $id => $slot) {
           $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
           $displayText = $slot['status'] === 'occupied' 
-              ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' .
-                '<div>CARRO: ' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' .
-                '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' .
-                '<div>' . htmlspecialchars($slot['entry_time']) . '</div>'
+              ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' . 
+                '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
+                '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
+                '<div>' . htmlspecialchars($slot['entry_time']) . '</div>' 
               : 'Livre';
 
           echo '<div class="slot-wrapper">
@@ -143,6 +143,7 @@
       <div class="modal-footer">
         <button id="cancelButton">Cancelar</button>
         <button id="submitButton">Confirmar</button>
+        <button id="freeButton">Liberar Vaga</button>
       </div>
     </div>
   </div>
@@ -210,6 +211,27 @@
         closeModal();
         location.reload();
       });
+    });
+
+    document.getElementById('freeButton').addEventListener('click', () => {
+      if (confirm("Tem certeza de que deseja liberar esta vaga?")) {
+        fetch('update_slot.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: currentSlotId,
+            status: 'free',
+            plate: '',
+            apartment: '',
+            vehicle_model: '',
+            entry_time: ''
+          })
+        })
+        .then(() => {
+          closeModal();
+          location.reload();
+        });
+      }
     });
   </script>
 </body>
