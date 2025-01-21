@@ -141,7 +141,7 @@
     /* Estilo do estacionamento */
     .parking-lot {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 15px;
       justify-content: center;
       margin-top: 40px;
