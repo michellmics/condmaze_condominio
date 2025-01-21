@@ -122,7 +122,7 @@
               ? '<div>' . htmlspecialchars(strtoupper($slot['plate'])) . '</div>' . 
                 '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                 '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                '<div>' . htmlspecialchars($slot['entry_time']) . '</div>' 
+                '<div style="font-size: 12px;">' . htmlspecialchars($slot['entry_time']) . '</div>'
               : 'Livre';
 
           echo '<div class="slot-wrapper">
