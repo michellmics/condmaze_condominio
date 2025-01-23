@@ -84,7 +84,7 @@ class registerVisitante extends SITE_ADMIN
                    
                 }
         } catch (PDOException $e) {  
-            echo "Erro ao cadastrar convidado."; 
+            echo "Erro ao cadastrar convidadoaaa."; 
         } 
     }
 }
