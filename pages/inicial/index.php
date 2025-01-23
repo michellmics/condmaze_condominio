@@ -293,7 +293,18 @@
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
-
+                                            
+                                            <b>Portaria</b><br>
+                                            <b>Telefone:</b> 19 99593-9865<br>
+                                            <br>
+                                            <b>Síndico(a):</b> Michelle Silva<br>
+                                            <b>Telefone:</b> 19 98346-6755<br>
+                                            <b>E-mail:</b> sindico@prqdashortensias.com.br<br>
+                                            <br>
+                                            <b>Subsindico(a):</b> *********<br>
+                                            <b>Telefone:</b> *********<br>
+                                            <b>E-mail:</b> subsindico@prqdashortensias.com.br<br>
+                                            <br>
                                             <b>Administradora:</b> Puiatti<br>
                                             <b>E-mail:</b> contato@puiatti.com.br<br>
                                             <b>Atend. Whatsapp:</b> (19) 99909-0561<br>
