@@ -14,8 +14,6 @@ class registerVisitante extends SITE_ADMIN
 
             $this->getParameterInfo();
 
-            $nome = strtoupper($nome);
-
             foreach($this->ARRAY_PARAMETERINFO as $value)
             {
                 if($value["CFG_DCPARAMETRO"] == "MAX_CONVIDADOS")
@@ -56,7 +54,7 @@ class registerVisitante extends SITE_ADMIN
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $documento = $_POST['documento'];
-    $nome = $_POST['nome'];
+    $nome = strtoupper($_POST['nome']);
     $userid = $_POST['userid'];
     $status = $_POST['status'];
     $apartamento = $_POST['apartamento'];
