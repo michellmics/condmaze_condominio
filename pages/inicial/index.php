@@ -2,12 +2,11 @@
     ini_set('display_errors', 1);  // Habilita a exibição de erros
     error_reporting(E_ALL);        // Reporta todos os erros
 
-    /*
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
     $host = $_SERVER['HTTP_HOST'];
     $baseUrl = $protocol . "://" . $host;
     $webmailUrl = $baseUrl . "/api//";
-*/
+
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
@@ -49,7 +48,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title><?php echo $nomeCondominio; ?></title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
