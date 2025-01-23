@@ -24,7 +24,7 @@
       $nome = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCNOME"];
       $documento = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
       $status = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
-      $status = ($status == 'ATIVO') ? 'checked' : '';
+      $status = ($status == 'ATIVO') ? '1' : '0';
 
       $metodo = "update";
     }
@@ -145,7 +145,7 @@
                                                     <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
                                                     <br>
                                                     <!-- Bool Switch-->
-                                                    <input type="checkbox" id="status" name="status" <?php if(isset($status)){echo $status;} ?> data-switch="bool"/>
+                                                    <input type="checkbox" id="status" name="status" value="<?php if(isset($status)){echo $status;} ?>" data-switch="bool"/>
                                                     <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
                                                 </div>
  
