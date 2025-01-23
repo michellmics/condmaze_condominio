@@ -93,9 +93,9 @@
                                 <img src="../../assets/images/users/avatar_generico.jpg" alt="user-image" width="32" class="rounded-circle">
                             </span>
                             <span class="d-lg-flex flex-column gap-1 d-none">
-                                <h5 class="my-0"><?php echo $nomeSessionShort; ?></h5>
-                                <h6 class="my-0 fw-normal"><?php echo $usuariologado; ?></h6> 
-                                <h6 class="my-0 fw-normal"><?php echo $nivelAcesso; ?></h6> 
+                                <h5 class="my-0"><?php //echo $nomeSessionShort; ?></h5>
+                                <h6 class="my-0 fw-normal"><?php //echo $usuariologado; ?></h6> 
+                                <h6 class="my-0 fw-normal"><?php //echo $nivelAcesso; ?></h6> 
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
