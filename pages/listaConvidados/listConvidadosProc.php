@@ -14,6 +14,8 @@ class registerVisitante extends SITE_ADMIN
 
             $this->getParameterInfo();
 
+            $nome = strtoupper($nome);
+
             foreach($this->ARRAY_PARAMETERINFO as $value)
             {
                 if($value["CFG_DCPARAMETRO"] == "MAX_CONVIDADOS")
