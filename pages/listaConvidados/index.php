@@ -191,7 +191,7 @@
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    alert(response);
+                    alert('Erro ao comunicar com o servidor.');
                 });
             });
         });
