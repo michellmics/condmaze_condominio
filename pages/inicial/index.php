@@ -294,8 +294,10 @@
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
 
-
-                                            conteudo aqui
+                                            <b>Administradora:</b> Puiatti<br>
+                                            <b>E-mail:</b> contato@puiatti.com.br<br>
+                                            <b>Atend. Whatsapp:</b> (19) 99909-0561<br>
+                                            <b>Telefones de contato:</b> (19)3238-8710 | (19)3238-9520<br>
 
 
 
