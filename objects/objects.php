@@ -81,13 +81,11 @@
             try{           
                 $sql = "SELECT ENC.ENC_IDENCOMENDA, USU.USU_DCAPARTAMENTO, ENC.ENC_STENCOMENDA, ENC.ENC_DTENTREGA_PORTARIA, ENC.ENC_DTENTREGA_MORADOR, ENC.ENC_DCOBSERVACAO, ENC.ENC_STENTREGA_MORADOR
                         FROM ENC_ENCOMENDA ENC 
-                        INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = :ENC.USU_IDUSUARIO)
+                        INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = ENC.USU_IDUSUARIO)
                         WHERE ENC.ENC_STENCOMENDA = 'DISPONIVEL' AND ENC.USU_IDUSUARIO = :ENC.USU_IDUSUARIO";
 
-                $sql = "SELECT * FROM ENC_ENCOMENDA";
-
                 $stmt = $this->pdo->prepare($sql);
-                //$stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_ENCOMENDAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
