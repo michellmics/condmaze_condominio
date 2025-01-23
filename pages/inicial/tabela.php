@@ -9,19 +9,19 @@
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
     <!-- Theme Config Js -->
-    <script src="assets/js/hyper-config.js"></script>
+    <script src="../../assets/js/hyper-config.js"></script>
 
     <!-- Vendor css -->
-    <link href="assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
-    <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- Icons css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -39,20 +39,20 @@
                         <!-- Logo light -->
                         <a href="index.html" class="logo-light">
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="logo">
+                                <img src="../../assets/images/logo.png" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="assets/images/logo-sm.png" alt="small logo">
+                                <img src="../../assets/images/logo-sm.png" alt="small logo">
                             </span>
                         </a>
 
                         <!-- Logo Dark -->
                         <a href="index.html" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="assets/images/logo-dark.png" alt="dark logo">
+                                <img src="../../assets/images/logo-dark.png" alt="dark logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="assets/images/logo-dark-sm.png" alt="small logo">
+                                <img src="../../assets/images/logo-dark-sm.png" alt="small logo">
                             </span>
                         </a>
                     </div>
@@ -114,7 +114,7 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <div class="d-flex">
-                                        <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
+                                        <img class="d-flex me-2 rounded-circle" src="../../assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
                                         <div class="w-100">
                                             <h5 class="m-0 font-14">Erwin Brown</h5>
                                             <span class="font-12 mb-0">UI Designer</span>
@@ -125,7 +125,7 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <div class="d-flex">
-                                        <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
+                                        <img class="d-flex me-2 rounded-circle" src="../../assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                         <div class="w-100">
                                             <h5 class="m-0 font-14">Jacob Deo</h5>
                                             <span class="font-12 mb-0">Developer</span>
@@ -151,29 +151,29 @@
 
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                            <img src="../../assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
                             <span class="align-middle d-none d-lg-inline-block">English</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                                <img src="../../assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                                <img src="../../assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                                <img src="../../assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                                <img src="../../assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
                             </a>
 
                         </div>
@@ -247,7 +247,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="../../assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
@@ -285,7 +285,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="../../assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
@@ -319,19 +319,19 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/slack.png" alt="slack">
+                                            <img src="../../assets/images/brands/slack.png" alt="slack">
                                             <span>Slack</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/github.png" alt="Github">
+                                            <img src="../../assets/images/brands/github.png" alt="Github">
                                             <span>GitHub</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/dribbble.png" alt="dribbble">
+                                            <img src="../../assets/images/brands/dribbble.png" alt="dribbble">
                                             <span>Dribbble</span>
                                         </a>
                                     </div>
@@ -340,19 +340,19 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/bitbucket.png" alt="bitbucket">
+                                            <img src="../../assets/images/brands/bitbucket.png" alt="bitbucket">
                                             <span>Bitbucket</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/dropbox.png" alt="dropbox">
+                                            <img src="../../assets/images/brands/dropbox.png" alt="dropbox">
                                             <span>Dropbox</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/g-suite.png" alt="G Suite">
+                                            <img src="../../assets/images/brands/g-suite.png" alt="G Suite">
                                             <span>G Suite</span>
                                         </a>
                                     </div>
@@ -384,7 +384,7 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <span class="account-user-avatar">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                                <img src="../../assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
                             </span>
                             <span class="d-lg-flex flex-column gap-1 d-none">
                                 <h5 class="my-0">Dominic Keller</h5>
@@ -439,20 +439,20 @@
             <!-- Brand Logo Light -->
             <a href="index.html" class="logo logo-light">
                 <span class="logo-lg">
-                    <img src="assets/images/logo.png" alt="logo">
+                    <img src="../../assets/images/logo.png" alt="logo">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="small logo">
+                    <img src="../../assets/images/logo-sm.png" alt="small logo">
                 </span>
             </a>
 
             <!-- Brand Logo Dark -->
             <a href="index.html" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="dark logo">
+                    <img src="../../assets/images/logo-dark.png" alt="dark logo">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-dark-sm.png" alt="small logo">
+                    <img src="../../assets/images/logo-dark-sm.png" alt="small logo">
                 </span>
             </a>
 
@@ -471,7 +471,7 @@
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="pages-profile.html">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="../../assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name mt-2">Dominic Keller</span>
                     </a>
                 </div>
@@ -1192,7 +1192,7 @@
                         <a href="javascript: void(0);" class="float-end close-btn text-white">
                             <i class="mdi mdi-close"></i>
                         </a>
-                        <img src="assets/images/svg/help-icon.svg" height="90" alt="Helper Icon Image" />
+                        <img src="../../assets/images/svg/help-icon.svg" height="90" alt="Helper Icon Image" />
                         <h5 class="mt-3">Unlimited Access</h5>
                         <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
                         <a href="javascript: void(0);" class="btn btn-secondary btn-sm">Upgrade</a>
@@ -1597,7 +1597,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-2.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-2.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Risa D. Pearson
                                                             </td>
                                                             <td>AC336 508 2157</td>
@@ -1609,7 +1609,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-3.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-3.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Ann C. Thompson
                                                             </td>
                                                             <td>SB646 473 2057</td>
@@ -1621,7 +1621,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-4.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-4.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Paul J. Friend
                                                             </td>
                                                             <td>DL281 308 0793</td>
@@ -1633,7 +1633,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-5.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-5.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Sean C. Nguyen
                                                             </td>
                                                             <td>CA269 714 6825</td>
@@ -1664,7 +1664,7 @@
                                                             &lt;tbody&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-2.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-2.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Risa D. Pearson
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;AC336 508 2157&lt;/td&gt;
@@ -1676,7 +1676,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-3.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-3.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Ann C. Thompson
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;SB646 473 2057&lt;/td&gt;
@@ -1688,7 +1688,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-4.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-4.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Paul J. Friend
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;DL281 308 0793&lt;/td&gt;
@@ -1700,7 +1700,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-5.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-5.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Sean C. Nguyen
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;CA269 714 6825&lt;/td&gt;
@@ -2154,7 +2154,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-6.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-6.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Risa D. Pearson
                                                             </td>
                                                             <td>AC336 508 2157</td>
@@ -2165,7 +2165,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-7.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-7.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Ann C. Thompson
                                                             </td>
                                                             <td>SB646 473 2057</td>
@@ -2176,7 +2176,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-8.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-8.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Paul J. Friend
                                                             </td>
                                                             <td>DL281 308 0793</td>
@@ -2187,7 +2187,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-9.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-9.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Sean C. Nguyen
                                                             </td>
                                                             <td>CA269 714 6825</td>
@@ -2217,7 +2217,7 @@
                                                             &lt;tbody&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-6.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-6.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Risa D. Pearson
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;AC336 508 2157&lt;/td&gt;
@@ -2228,7 +2228,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-7.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-7.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Ann C. Thompson
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;SB646 473 2057&lt;/td&gt;
@@ -2239,7 +2239,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-8.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-8.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Paul J. Friend
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;DL281 308 0793&lt;/td&gt;
@@ -2250,7 +2250,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-9.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-9.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Sean C. Nguyen
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;CA269 714 6825&lt;/td&gt;
@@ -2305,7 +2305,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-6.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-6.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Risa D. Pearson
                                                             </td>
                                                             <td>AC336 508 2157</td>
@@ -2316,7 +2316,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-7.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-7.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Ann C. Thompson
                                                             </td>
                                                             <td>SB646 473 2057</td>
@@ -2327,7 +2327,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-8.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-8.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Paul J. Friend
                                                             </td>
                                                             <td>DL281 308 0793</td>
@@ -2338,7 +2338,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="table-user">
-                                                                <img src="assets/images/users/avatar-9.jpg" alt="table-user" class="me-2 rounded-circle" />
+                                                                <img src="../../assets/images/users/avatar-9.jpg" alt="table-user" class="me-2 rounded-circle" />
                                                                 Sean C. Nguyen
                                                             </td>
                                                             <td>CA269 714 6825</td>
@@ -2368,7 +2368,7 @@
                                                             &lt;tbody&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-6.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-6.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Risa D. Pearson
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;AC336 508 2157&lt;/td&gt;
@@ -2379,7 +2379,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-7.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-7.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Ann C. Thompson
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;SB646 473 2057&lt;/td&gt;
@@ -2390,7 +2390,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-8.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-8.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Paul J. Friend
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;DL281 308 0793&lt;/td&gt;
@@ -2401,7 +2401,7 @@
                                                                 &lt;/tr&gt;
                                                                 &lt;tr&gt;
                                                                     &lt;td class=&quot;table-user&quot;&gt;
-                                                                        &lt;img src=&quot;assets/images/users/avatar-9.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
+                                                                        &lt;img src=&quot;../../assets/images/users/avatar-9.jpg&quot; alt=&quot;table-user&quot; class=&quot;me-2 rounded-circle&quot; /&gt;
                                                                         Sean C. Nguyen
                                                                     &lt;/td&gt;
                                                                     &lt;td&gt;CA269 714 6825&lt;/td&gt;
@@ -4000,15 +4000,15 @@
     </div>
 
     <!-- Vendor js -->
-    <script src="assets/js/vendor.min.js"></script>
+    <script src="../../assets/js/vendor.min.js"></script>
 
     <!-- Code Highlight js -->
-    <script src="assets/vendor/highlightjs/highlight.pack.min.js"></script>
-    <script src="assets/vendor/clipboard/clipboard.min.js"></script>
-    <script src="assets/js/hyper-syntax.js"></script>
+    <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
+    <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
+    <script src="../../assets/js/hyper-syntax.js"></script>
 
     <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="../../assets/js/app.min.js"></script>
 
 </body>
 
