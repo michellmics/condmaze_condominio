@@ -22,6 +22,8 @@ class registerVisitante extends SITE_ADMIN
                 }
             } 
 
+            $status = ($status == 'on') ? 'ATIVO' : 'INATIVO';
+
             //implementar verificacao se visitante ja existe e qtde maxima de visitantes.
 
             $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
