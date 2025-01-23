@@ -295,7 +295,7 @@
                                 
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h4 class="mt-0 mb-3">Deixe Seu Recado (Anônimo)</h4>
+                                                        <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
 
                                                         <textarea class="form-control form-control-light mb-2" placeholder="Write message" id="example-textarea" rows="3"></textarea>
                                                         <div class="text-end">
