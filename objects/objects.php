@@ -384,13 +384,13 @@
                 $stmt->bindParam(':LIS_STSTATUS', $LIS_STSTATUS, PDO::PARAM_STR); 
                 $stmt->execute();     
 
-                echo json_encode($result);
+                return "lascousss";
 
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 header('Content-Type: application/json');
-                echo json_encode(["error" => $e->getMessage()]);
-                exit;
+                return "lascou";
+               
             }
         }
 
