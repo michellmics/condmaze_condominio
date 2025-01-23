@@ -378,19 +378,17 @@
 
             try
             {         
-                $query = "UPDATE LIS_LISTACONVIDADOS SET LIS_STSTATUS = :LIS_STSTATUS WHERE LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
+                $sql = "UPDATE LIS_LISTACONVIDADOS SET LIS_STSTATUS = :LIS_STSTATUS WHERE LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
                 $stmt->bindParam(':LIS_STSTATUS', $LIS_STSTATUS, PDO::PARAM_STR); 
                 $stmt->execute();     
 
-                return "lascousss";
+                return ["success" => "Visitante atualizado com sucesso."];
 
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                header('Content-Type: application/json');
-                return "lascou";
-               
+                return ["error" => $e->getMessage()];
             }
         }
 
