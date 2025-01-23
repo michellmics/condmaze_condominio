@@ -120,7 +120,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
-                                                    <tr >
+                                                    <tr>
                                                         <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
                                                         <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
                                                         <td>

@@ -264,7 +264,7 @@
               }
             }).then(() => {
                   // Redirecionar ou atualizar a página, se necessário
-                  history.back();
+                   window.location.href = "index.php";
                 });
               },
               error: function (xhr, status, error) {
