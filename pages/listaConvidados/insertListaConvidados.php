@@ -196,7 +196,7 @@
           title: 'Formulário de convidados',
           text: "Têm certeza que deseja cadastrar o convidado?",
           showDenyButton: true,
-          confirmButtonText: 'SIM',
+          confirmButtonText: 'CONFIRMAR',
           denyButtonText: `CANCELAR`,
           confirmButtonColor: "#536de6",
           denyButtonColor: "#ff5b5b",
