@@ -295,7 +295,7 @@
                                             <div class="table-responsive-sm">
                                             
                                             <b>Grupo para comunicação</b><br>
-                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" taget="_blank">Link para o grupo</a><br>
+                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Link para o grupo</a><br>
                                             <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
