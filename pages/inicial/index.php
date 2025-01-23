@@ -234,11 +234,37 @@
                                             <div class="table-responsive-sm">
 
 
+                                                <div class="parking-lot">
+                                                  <?php
+                                                    $slots = json_decode(file_get_contents('../ctrlVagasVisitante/slots.json'), true);
+
+                                                    foreach ($slots as $id => $slot) {
+                                                        $irregular="";
+                                                        $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+                                                    
+                                                        if($slot['alarm'] === 'alarmed')
+                                                        {
+                                                            $statusClass = 'alert';
+                                                            $irregular = "IRREGULAR";
+                                                        } 
 
 
 
-
-
+                                                        $displayText = $slot['status'] === 'occupied' 
+                                                            ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
+                                                              '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
+                                                              '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
+                                                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
+                                                            : 'Livre';
+                                                    
+                                                        echo '<div class="slot-wrapper">
+                                                                <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
+                                                                <span class="slot-status">' . $irregular . '</span>
+                                                                <span class="slot-number">ID ' . $id . '</span>
+                                                              </div>';
+                                                    }
+                                                  ?>
+                                                </div> <!-- end foreach-->
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
