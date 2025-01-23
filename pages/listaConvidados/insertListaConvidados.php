@@ -204,7 +204,7 @@
           // Chama a validação do formulário
         const isValid = validarFormulario();
         const metodo = document.querySelector('input[name="metodo"]').value.trim();
-        const msgBox = "";
+        let msgBox = "";
 
         if(metodo == 'insert')
         {
