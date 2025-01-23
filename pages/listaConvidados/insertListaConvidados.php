@@ -99,7 +99,7 @@
                                             <form class="needs-validation" novalidate id="form" role="form" method="POST">
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
+                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
