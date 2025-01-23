@@ -203,6 +203,17 @@
       function confirmAndSubmit(event) {
           // Chama a validação do formulário
         const isValid = validarFormulario();
+        const metodo = document.querySelector('input[name="metodo"]').value.trim();
+        const msgBox = "";
+
+        if(metodo == 'insert')
+        {
+          msgBox = "Têm certeza que deseja cadastrar o convidado?";
+        }
+        else
+          {
+            msgBox = "Têm certeza que deseja atualizar o convidado?";
+          }
 
         // Se a validação falhar, interrompe a execução
         if (!isValid) {
@@ -212,7 +223,7 @@
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de convidados',
-          text: "Têm certeza que deseja cadastrar o convidado?",
+          text: msgBox,
           showDenyButton: true,
           confirmButtonText: 'CONFIRMAR',
           denyButtonText: `CANCELAR`,
