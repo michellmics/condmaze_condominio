@@ -328,7 +328,7 @@
                                                     <div class="card-body">
                                                         <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
                                                         <form class="needs-validation" novalidate id="form" role="form" method="POST">
-                                                        <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem." id="msg"  minlength="3" maxlength="300" name="msg" rows="3"></textarea>
+                                                        <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem." id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
                                                         <div class="text-end">
                                                             <div class="btn-group mb-2">
                                                             </div>
