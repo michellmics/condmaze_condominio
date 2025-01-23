@@ -285,7 +285,7 @@
                                     <p class="text-muted font-14">
                                         Compartilhe sua sugestão ou reclamação!
                                         Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
-                                        Atenção: Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens                                     
+                                        <br><b>Atenção:</b> Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens                                     
                                     </p>
 
                                     <div class="tab-content">
