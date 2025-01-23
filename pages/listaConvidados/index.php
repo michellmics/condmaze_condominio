@@ -132,6 +132,7 @@
                                                                     data-switch="success" 
                                                                     data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
                                                                     <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
                                                                 />
                                                                 <label 
                                                                     for="switch<?= $index; ?>" 
