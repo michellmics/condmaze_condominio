@@ -84,6 +84,8 @@
                         INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = :ENC.USU_IDUSUARIO)
                         WHERE ENC.ENC_STENCOMENDA = 'DISPONIVEL' AND ENC.USU_IDUSUARIO = :ENC.USU_IDUSUARIO";
 
+                $sql = "SELECT * FROM ENC_ENCOMENDA";
+
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->execute();

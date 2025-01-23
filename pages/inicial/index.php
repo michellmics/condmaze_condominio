@@ -134,7 +134,7 @@
 		<?php include '../../src/top_bar.php'; ?>
 		<!-- End Top bar -->
 
-        <?php $siteAdmin->getEncomendaMoradorInfo(352); var_dump($siteAdmin->ARRAY_ENCOMENDAINFO);?>
+        <?php $siteAdmin->getEncomendaMoradorInfo($userid); var_dump($siteAdmin->ARRAY_ENCOMENDAINFO);?>
 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
@@ -175,7 +175,7 @@
                                         <li class="breadcrumb-item active">Basic Tables</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Bem vindo aSo <?php echo $nomeCondominio; ?></h4>
+                                <h4 class="page-title">Bem vindo ao <?php echo $nomeCondominio; ?></h4>
                             </div>
                         </div>
                     </div>
