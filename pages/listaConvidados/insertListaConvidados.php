@@ -133,7 +133,7 @@
  
 
                                                 <button class="btn btn-danger" onclick="window.history.back()" type="button">Cancelar</button>              
-                                                <button class="btn btn-primary" type="button" id="salvar_empresa_1" name="salvar_empresa_1">Salvar</button>
+                                                <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>
                                             </form>
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
@@ -261,7 +261,7 @@
       }
       // Associar a função ao botão de submit
       $(document).ready(function () {
-        $("#salvar_empresa_1").on("click", confirmAndSubmit);
+        $("#botao").on("click", confirmAndSubmit);
       });
 </script> 
 <style>
