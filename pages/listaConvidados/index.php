@@ -115,7 +115,7 @@
                                                 <tr>
                                                     <th>Nome</th>
                                                     <th>CPF / RG</th>
-                                                    <th>Ativo?</th>
+                                                    <th>Aticvo?</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -124,7 +124,7 @@
                                                         <td><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
                                                         <td><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
                                                         <td>
-                                                            <!-- Switch -->
+                                                            <!-- Switch --> 
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
