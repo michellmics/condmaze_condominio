@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
     $apartamento = $_POST['apartamento'];
 
+    echo $userid;
+    exit;
+
  
      // Cria o objeto de registro de usuário e chama o método insertUser
      $registerVisitante = new registerVisitante();
