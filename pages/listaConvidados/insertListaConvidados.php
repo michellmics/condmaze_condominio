@@ -24,7 +24,7 @@
       $nome = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCNOME"];
       $documento = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
       $status = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
-      $status = ($status == 'ATIVO') ? '1' : '0';
+      $status = ($status == 'ATIVO') ? 'checked' : '';
 
       $metodo = "update";
     }
