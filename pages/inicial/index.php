@@ -314,15 +314,14 @@
                                                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                                                                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
                                                                 in faucibus.
-                                                            </div>
 
-                                                            <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
-                                                            <div class="w-100 overflow-hidden">
                                                                 <h5 class="mt-0">Jeremy Tomlinson 22/01/2025 13:00:12</h5>
                                                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                                                                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
                                                                 in faucibus.
                                                             </div>
+
+                                                            
                                                         </div>
 
                                                         <div class="text-center mt-2">
