@@ -12,6 +12,9 @@
           break; 
       }
     }   
+
+     echo $userid;
+     die();
     
 ?>
 
@@ -101,7 +104,7 @@
                                                 	<!-- CAMPOS COMO VARIAVEIS -->
                   	                                <input type="hidden" id="userid" name="userid" value="<? echo $userid; ?>"/>
                                                     <input type="hidden" id="apartamento" name="apartamento" value="<? echo $apartamentoSession; ?>"/>
-                  	                                <!-- CAMPOS COMO VARIAVEIS -->
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
                                             
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
