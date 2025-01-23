@@ -158,8 +158,8 @@
 
     /* Estilo das vagas */
     .slot {
-      width: 150px;
-      height: 150px;
+      width: 30px;
+      height: 30px;
       border: 2px solid #ddd;
       background-color: #e0f7fa;
       display: flex;
