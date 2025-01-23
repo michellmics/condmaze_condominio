@@ -134,7 +134,7 @@
 		<?php include '../../src/top_bar.php'; ?>
 		<!-- End Top bar -->
 
-        <?php $siteAdmin->getEncomendaMoradorInfo($userid); var_dump($siteAdmin->ARRAY_ENCOMENDAINFO);?>
+        <?php $siteAdmin->getEncomendaMoradorInfo(352); var_dump($siteAdmin->ARRAY_ENCOMENDAINFO);?>
 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
