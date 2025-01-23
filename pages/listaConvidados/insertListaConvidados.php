@@ -98,8 +98,8 @@
                                             <form class="needs-validation" novalidate id="form" role="form" method="POST">
                                                 
                                                 	<!-- CAMPOS COMO VARIAVEIS -->
-                  	                                <input type="hidden" id="userid" name="userid" value="<? echo $userid; ?>"/>
-                                                    <input type="hidden" id="apartamento" name="apartamento" value="<? echo $apartamentoSession; ?>"/>
+                  	                                <input type="hidden" id="userid" name="userid" value="<?php echo $userid; ?>"/>
+                                                    <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
                                                     <!-- CAMPOS COMO VARIAVEIS -->
                                             
                                                 <div class="position-relative mb-3">
