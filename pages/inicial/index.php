@@ -12,7 +12,7 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getPopupImagePublish(); 
     $siteAdmin->getParameterInfo();
-    $siteAdmin->getEncomendaMoradorInfo();
+  
 
     
 
@@ -133,6 +133,8 @@
 		<!-- Top bar Area -->
 		<?php include '../../src/top_bar.php'; ?>
 		<!-- End Top bar -->
+
+        <?php $siteAdmin->getEncomendaMoradorInfo($userid); ?>
 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
