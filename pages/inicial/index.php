@@ -12,6 +12,9 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getPopupImagePublish(); 
     $siteAdmin->getParameterInfo();
+    $siteAdmin->getEncomendaMoradorInfo();
+
+    
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -199,18 +202,40 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>12569</td>
-                                                            <td>194</td>
-                                                            <td>12/08/25 12:32</td>
-                                                            <td>
-                                                                <!-- Switch-->
-                                                                <div>
-                                                                    <input type="checkbox" id="status" checked data-switch="success" />
-                                                                    <label for="status" data-on-label="Sim" data-off-label="Não" class="mb-0 d-block"></label>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+
+
+
+                                                  
+                                                <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
+                                                    <tr>
+                                                        <td><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td><?= htmlspecialchars($item['ENC_DTENTREGA_PORTARIA']); ?></td>
+                                                        <td>
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
+                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'A RETIRAR' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                           
+
+
+
                                                     </tbody>
                                                 </table>
                                             </div> <!-- end table-responsive-->

@@ -27,6 +27,7 @@
         public $ARRAY_POPUPPUBLISHINFO;
         public $ARRAY_CONVIDADOINFO;
         public $ARRAY_RELINFO;
+        public $ARRAY_ENCOMENDAINFO;
         public $configPath;
 
 
@@ -71,6 +72,26 @@
 	
 			return $stmtFunction_array;
 		}	
+
+        public function getEncomendaMoradorInfo($USU_IDUSUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT ENC.ENC_IDENCOMENDA, USU.USU_DCAPARTAMENTO, ENC.ENC_STENCOMENDA, ENC.ENC_DTENTREGA_PORTARIA, ENC.ENC_DTENTREGA_MORADOR, ENC.ENC_DCOBSERVACAO, ENC.USU_STENTREGA_MORADOR
+                        FROM ENC_ENCOMENDA ENC 
+                        INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = ENC.USU_IDUSUARIO)
+                        WHERE ENC.ENC_STENCOMENDA = 'DISPONIVEL'";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_ENCOMENDAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
 
         public function getParameterInfo()
         {          
