@@ -132,7 +132,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">CPF ou RG</label>
-                                                    <input type="text" class="form-control" id="documento" value="<?php echo $documento; ?>" name="documento" placeholder="CPF ou RG" style="text-transform: uppercase;"  minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required>
+                                                    <input type="text" class="form-control" id="documento" value="<?php echo isset($documento); ?>" name="documento" placeholder="CPF ou RG" style="text-transform: uppercase;"  minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -145,7 +145,7 @@
                                                     <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
                                                     <br>
                                                     <!-- Bool Switch-->
-                                                    <input type="checkbox" id="status" name="status" <?php echo $status; ?> data-switch="bool"/>
+                                                    <input type="checkbox" id="status" name="status" <?php echo isset($status); ?> data-switch="bool"/>
                                                     <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
                                                 </div>
  
