@@ -14,6 +14,9 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
   }
 }
 
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +38,10 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
-    <link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
-    <meta name="apple-mobile-web-app-title" content="Hortensias">
+    <link rel="icon" href="<?php echo $host; ?>/logo_icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $host; ?>/logo_icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?php echo $host; ?>/logo_icon.png">
+    <meta name="apple-mobile-web-app-title" content="Condominio">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
@@ -98,7 +101,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="https://www.prqdashortensias.com.br/hortensiasapp.apk" download class="btn btn-link">Download App (Android)</a>
+                            <a href="<?php echo $host; ?>/appCondominio.apk" download class="btn btn-link">Download App (Android)</a>
                         </div>
                         <div class="d-grid mb-0 text-center">
                             <button class="btn btn-primary" onclick="onSubmit(event)" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
