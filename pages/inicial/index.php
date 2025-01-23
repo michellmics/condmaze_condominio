@@ -170,7 +170,7 @@
                                         <li class="breadcrumb-item active">Basic Tables</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Basic Tables</h4>
+                                <h4 class="page-title">Bem vindo ao <?php echo $nomeCondominio; ?></h4>
                             </div>
                         </div>
                     </div>
