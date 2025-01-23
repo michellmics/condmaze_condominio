@@ -333,7 +333,7 @@
                                                             <div class="btn-group mb-2">
                                                             </div>
                                                             <div class="btn-group mb-2 ms-2">
-                                                                <button type="button" class="btn btn-primary btn-sm">Enviar</button>
+                                                                <button type="button" class="btn btn-primary btn-sm" id="botao">Enviar</button>
                                                             </div>
                                                         </div>
                                                         </form>
@@ -422,19 +422,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-        function validarFormulario() {
-            const msg = document.querySelector('input[name="msg"]').value.trim();
-            if (!msg) {
-                alert("Digita a mensagem que deseja enviar.");
-                return false;
-            }
-            return true;
-        }
+
 
 
       function confirmAndSubmit(event) {
-          // Chama a validação do formulário
-        const isValid = validarFormulario();
 
 
         // Se a validação falhar, interrompe a execução
