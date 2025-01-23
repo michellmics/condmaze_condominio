@@ -423,23 +423,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-
-        function validarFormulario() {
-            const msg = document.querySelector('input[name="msg"]').value.trim(); 
-            if (!msg) {
-                alert("Todos os campos devem ser preenchidos.");
-                return false;
-            }
-            return true;
-        }
-
       function confirmAndSubmit(event) {
-
-        const isValid = validarFormulario();
-        // Se a validação falhar, interrompe a execução
-        if (!isValid) {
-            return;
-        }
 
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
