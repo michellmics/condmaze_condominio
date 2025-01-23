@@ -170,6 +170,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
+
+        // Seleciona o checkbox e o campo oculto
+        const statusCheckbox = document.getElementById('status');
+        const statusValueInput = document.getElementById('statusValue');
+
+        // Atualiza o valor do campo oculto com base no estado do checkbox
+        statusCheckbox.addEventListener('change', () => {
+            statusValueInput.value = statusCheckbox.checked ? 'ATIVO' : 'INATIVO';
+        });
+
+        // Garante que o valor correto seja enviado ao carregar o formulário
+        document.getElementById('form').addEventListener('submit', (event) => {
+            statusValueInput.value = statusCheckbox.checked ? 'ATIVO' : 'INATIVO';
+        });
+
+
+
         function validarFormulario() {
             const nome = document.querySelector('input[name="nome"]').value.trim();
             const documento = document.querySelector('input[name="documento"]').value.trim();
