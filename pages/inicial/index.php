@@ -123,157 +123,12 @@
 </style>
 <!-- pop-up promoção CSS -->
 
-<!-- vagas estacionamento CSS -->
-<style>
-    /* Estilo do corpo */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      background-color: #f4f7fa;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      margin-top: 20px;
-      font-size: 30px;
-      color: #333;
-    }
-
-    /* Estilo do estacionamento */
-    .parking-lot {
-      display: grid;
-      grid-template-columns: repeat(15, 1fr); /* Define 8 colunas fixas */
-      gap: 15px;
-      justify-content: center;
-      margin-top: 40px;
-      padding: 0 15px;
-    }
-
-    .slot-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Estilo das vagas */
-    .slot {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #ddd;
-      background-color: #e0f7fa;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: 0.3s ease-in-out;
-      border-radius: 3px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Vaga livre */
-    .slot.free {
-      background: linear-gradient(135deg,rgb(44, 85, 139),rgb(72, 118, 172));
-      color: white;
-    }
-
-    /* Vaga ocupada */ 
-    .slot.occupied {
-      background: linear-gradient(135deg,rgb(5, 129, 57),rgb(19, 90, 1));
-      color: white;
-    }
-
-    /* Vaga irregular*/ 
-    .slot.alert {
-      background: linear-gradient(135deg,rgb(252, 50, 0),rgb(167, 19, 19));
-      color: white;
-    }
-
-    .slot:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    }
-
-    .slot-number {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #555;
-      font-weight: bold;
-    }
-    .slot-status {
-      margin-top: 2px;
-      font-size: 10px;
-      color: red;
-      font-weight: italic;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal-header {
-      font-size: 20px;
-      margin-bottom: 15px;
-      color: #333;
-    }
-
-    /* Estilo do botão */
-    .modal-footer button {
-      background-color:rgb(173, 62, 238);
-      color: white;
-      padding: 10px 15px;
-      margin-left: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .modal-footer button:hover {
-      background-color:rgb(5, 170, 235);
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    input:focus {
-      border-color: #00796b;
-      outline: none;
-    }
-  </style>
-
 <body>
     <!-- Begin page -->
     <div class="wrapper">
 
 		<!-- Top bar Area -->
-		<?php //include '../../src/top_bar.php'; ?>
+		<?php include '../../src/top_bar.php'; ?>
 		<!-- End Top bar -->
 
 		<!-- Menu Nav Area -->
@@ -379,35 +234,12 @@
                                             <div class="table-responsive-sm">
 
 
-                                                <div class="parking-lot">
-                                                  <?php
-                                                    $slots = json_decode(file_get_contents('../ctrlVagasVisitante/slots.json'), true);
-
-                                                    foreach ($slots as $id => $slot) {
-                                                        $irregular="";
-                                                        $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
-                                                    
-                                                        if($slot['alarm'] === 'alarmed')
-                                                        {
-                                                            $statusClass = 'alert';
-                                                            $irregular = "IRREGULAR";
-                                                        } 
+                                            conteudo aqui
 
 
 
-                                                        $displayText = $slot['status'] === 'occupied' 
-                                                            ? '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                                                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
-                                                            : 'Livre';
-                                                    
-                                                        echo '<div class="slot-wrapper">
-                                                                <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
-                                                                <span class="slot-status">' . $irregular . '</span>
-                                                                <span class="slot-number">ID ' . $id . '</span>
-                                                              </div>';
-                                                    }
-                                                  ?>
-                                                </div> <!-- end foreach-->
+
+
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
