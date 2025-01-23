@@ -158,8 +158,8 @@
 
     /* Estilo das vagas */
     .slot {
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       border: 2px solid #ddd;
       background-color: #e0f7fa;
       display: flex;
@@ -168,7 +168,7 @@
       align-items: center;
       cursor: pointer;
       transition: 0.3s ease-in-out;
-      border-radius: 12px;
+      border-radius: 3px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
@@ -396,9 +396,7 @@
 
 
                                                         $displayText = $slot['status'] === 'occupied' 
-                                                            ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
-                                                              '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
-                                                              '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
+                                                            ? '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
                                                               '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
                                                             : 'Livre';
                                                     
