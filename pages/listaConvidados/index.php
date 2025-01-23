@@ -111,40 +111,40 @@
                                         </div>
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
                                         <table class="table table-centered mb-0">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>CPF / RG</th>
-            <th>Ativo?</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
-            <tr>
-                <td><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
-                <td><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
-                <td>
-                    <!-- Switch -->
-                    <div>
-                        <input 
-                            type="checkbox" 
-                            id="switch<?= $index; ?>" 
-                            data-switch="success" 
-                            data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
-                            <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
-                        />
-                        <label 
-                            for="switch<?= $index; ?>" 
-                            data-on-label="Sim" 
-                            data-off-label="Não" 
-                            class="mb-0 d-block">
-                        </label>
-                    </div>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>CPF / RG</th>
+                                                    <th>Ativo?</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
+                                                    <tr>
+                                                        <td><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
+                                                        <td><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
+                                                        <td>
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
+                                                                    <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
 
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
@@ -164,9 +164,40 @@
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
-
-
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
+        
+        switches.forEach(switchElem => {
+            switchElem.addEventListener('change', function () {
+                const id = this.getAttribute('data-id');
+                const status = this.checked ? 'ATIVO' : 'INATIVO';
+
+                // Envia a alteração para o servidor
+                fetch('updateStatusCheckbox.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id, status })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Erro ao atualizar o status!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao comunicar com o servidor.');
+                });
+            });
+        });
+    });
+</script>
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
