@@ -285,7 +285,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Comunicados</h4>
+                                    <h4 class="header-title">Contatos e Documentos Úteis</h4>
                                     <p class="text-muted font-14">
                                         Os Últimos avisos serão publicados aqui.
                                     </p>
