@@ -46,7 +46,7 @@ class registerVisitante extends SITE_ADMIN
             //--------------------LOG----------------------//
             $LOG_DCTIPO = "CADASTRO DE VISITANTE";
             $LOG_DCMSG = "O visitante $nome foi cadastrado com sucesso.";
-            $LOG_DCUSUARIO = $userid;
+            $LOG_DCUSUARIO = $_SESSION['user_id'];
             $LOG_DCAPARTAMENTO = $_SESSION['user_apartamento'];
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
             //--------------------LOG----------------------
