@@ -299,6 +299,7 @@
                                             <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
+                                            <b>E-mail:</b> portaria@prqdashortensias.com.br<br>
                                             <br>
                                             <b>Zelador</b><br>
                                             <b>Nome:</b> Udisson - Empresa Samekh<br>
