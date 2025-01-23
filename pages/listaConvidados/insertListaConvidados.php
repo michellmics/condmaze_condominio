@@ -13,6 +13,7 @@
       }
     }   
 
+    $metodo = "insert";
 
     //if edição de convidados
     if(isset($_GET['idconvidado']))
@@ -24,6 +25,8 @@
       $documento = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
       $status = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
       $status = ($status == 'ATIVO') ? 'checked' : '';
+
+      $metodo = "update";
     }
     
 ?>
@@ -113,6 +116,8 @@
                                                 	<!-- CAMPOS COMO VARIAVEIS -->
                   	                                <input type="hidden" id="userid" name="userid" value="<?php echo $userid; ?>"/>
                                                     <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
+                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
+                                                    <input type="hidden" id="idconvidado" name="idconvidado" value="<?php echo $idConvidado; ?>"/>
                                                     <!-- CAMPOS COMO VARIAVEIS -->
                                             
                                                 <div class="position-relative mb-3">
@@ -228,7 +233,7 @@
             var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
             $.ajax({
-              url: "inserirListConvidadosProc.php", // URL para processamento
+              url: "listConvidadosProc.php", // URL para processamento
               type: "POST",
               data: formData,
               processData: false, // Impede o jQuery de processar os dados

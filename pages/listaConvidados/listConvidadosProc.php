@@ -4,7 +4,7 @@ include_once "../../objects/objects.php";
 
 class registerVisitante extends SITE_ADMIN
 {
-    public function insertVisitante($documento, $nome, $userid, $status, $apartamento)
+    public function insertVisitante($documento, $nome, $userid, $status, $apartamento, $metodo, $idconvidado)
     {
         try {
             // Cria conexão com o banco de dados
@@ -23,14 +23,21 @@ class registerVisitante extends SITE_ADMIN
             } 
 
             $status = ($status == 'on') ? 'ATIVO' : 'INATIVO';
-
             //implementar verificacao se visitante ja existe e qtde maxima de visitantes.
 
-            $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
+            if($metodo == "insert")
+            {
+                $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
+                $LOG_DCMSG = "O visitante $nome foi cadastrado com sucesso.";
+            }
+            if($metodo == "update")
+            {
+                $result = $this->updateVisitListaInfo($nome, $documento, $status, $idconvidado);
+                $LOG_DCMSG = "O visitante $nome foi atualizado com sucesso.";
+            }
 
             //--------------------LOG----------------------//
-            $LOG_DCTIPO = "CADASTRO DE VISITANTE";
-            $LOG_DCMSG = "O visitante $nome foi cadastrado com sucesso.";
+            $LOG_DCTIPO = "CADASTRO DE VISITANTE";            
             $LOG_DCUSUARIO = $userid;
             $LOG_DCAPARTAMENTO = $apartamento;
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
@@ -51,9 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userid = $_POST['userid'];
     $status = $_POST['status'];
     $apartamento = $_POST['apartamento'];
+    $metodo = $_POST['metodo']; 
+    $idconvidado = $_POST['idconvidado'];
 
      // Cria o objeto de registro de usuário e chama o método insertUser
      $registerVisitante = new registerVisitante();
-     $registerVisitante->insertVisitante($documento, $nome, $userid, $status, $apartamento);
+     $registerVisitante->insertVisitante($documento, $nome, $userid, $status, $apartamento, $metodo, $idconvidado);
  }
  ?>

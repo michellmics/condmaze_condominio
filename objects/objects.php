@@ -360,6 +360,38 @@
             }
         }
 
+        public function updateVisitListaInfo($LIS_DCNOME, $LIS_DCDOCUMENTO, $LIS_STSTATUS, $LIS_IDLISTACONVIDADOS)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "UPDATE LIS_LISTACONVIDADOS 
+                        SET LIS_DCNOME = :LIS_DCNOME,
+                        LIS_DCDOCUMENTO = :LIS_DCDOCUMENTO,
+                        LIS_STSTATUS = :LIS_STSTATUS
+                        WHERE LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':LIS_DCNOME', $LIS_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_DCDOCUMENTO', $LIS_DCDOCUMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_STSTATUS', $LIS_STSTATUS, PDO::PARAM_STR);
+                
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Visitante atualizado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function notifyEmail($SUBJECT, $MSG, $HOST)
         {
             $this->getParameterInfo();
