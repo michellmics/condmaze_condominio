@@ -184,7 +184,7 @@
                                     <h4 class="header-title">Entregas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
                                     Os pacotes marcados como SIM na coluna <b>RECEBER?</b> da tabela abaixo, devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
-                                    O Pacote só será liberado pela portaria se o status da coluna <b>RECEBER?</b> estiver marcado como <b>SIM</b>.
+                                    O pacote só será liberado pela portaria se o status da coluna <b>RECEBER?</b> estiver marcado como <b>SIM</b>.
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
