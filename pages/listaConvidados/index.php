@@ -128,6 +128,7 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
+                                                                    style="cursor: pointer;" 
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
                                                                     data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
