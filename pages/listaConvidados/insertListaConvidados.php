@@ -24,7 +24,7 @@
       $documento=$siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
       $status=$siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
 
-      var_dump($idConvidado);
+      var_dump($nome);
       die();
     }
     
