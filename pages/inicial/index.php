@@ -294,8 +294,14 @@
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
                                             
+                                            <b>Grupo para comunicação</b><br>
+                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" taget="_blank">Link para o grupo</a><br>
+                                            <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
+                                            <br>
+                                            <b>Zelador</b><br>
+                                            <b>Nome:</b> Udisson - Empresa Samekh<br>
                                             <br>
                                             <b>Síndico(a):</b> Michelle Silva<br>
                                             <b>Telefone:</b> 19 98346-6755<br>
