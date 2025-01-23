@@ -156,7 +156,7 @@
                     </div>
 		            <!--  Pop-up publicidade-->
 
-            <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+            <section class="content" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
             <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
