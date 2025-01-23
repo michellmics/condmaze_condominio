@@ -131,7 +131,7 @@
                             id="switch<?php echo $index; ?>" 
                             data-switch="success" 
                             data-id="<?php echo $item['LIS_ID']; ?>" 
-                            <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
+                            <?php $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
                         />
                         <label 
                             for="switch<?php echo $index; ?>" 
