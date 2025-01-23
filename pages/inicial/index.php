@@ -143,7 +143,7 @@
     /* Estilo do estacionamento */
     .parking-lot {
       display: grid;
-      grid-template-columns: repeat(8, 1fr); /* Define 8 colunas fixas */
+      grid-template-columns: repeat(12, 1fr); /* Define 8 colunas fixas */
       gap: 15px;
       justify-content: center;
       margin-top: 40px;
