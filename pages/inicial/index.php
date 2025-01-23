@@ -287,7 +287,7 @@
 
                                     <h4 class="header-title">Contatos e Documentos Úteis</h4>
                                     <p class="text-muted font-14">
-                                        Os Últimos avisos serão publicados aqui.
+                                        Informações úteis do condomínio.
                                     </p>
 
                                     <div class="tab-content">
