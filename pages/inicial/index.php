@@ -285,7 +285,7 @@
                                     <p class="text-muted font-14">
                                         Compartilhe sua sugestão ou reclamação!
                                         Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
-                                        <br><b>Atenção:</b> Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens                                     
+                                        <br><b>Atenção:</b> Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens.                                     
                                     </p>
 
                                     <div class="tab-content">
@@ -297,13 +297,13 @@
                                                     <div class="card-body">
                                                         <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
 
-                                                        <textarea class="form-control form-control-light mb-2" placeholder="Write message" id="example-textarea" rows="3"></textarea>
+                                                        <textarea class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem." id="example-textarea" rows="3"></textarea>
                                                         <div class="text-end">
                                                             <div class="btn-group mb-2">
                                                                 <button type="button" class="btn btn-link btn-sm text-muted font-18"><i class="ri-attachment-2"></i></button>
                                                             </div>
                                                             <div class="btn-group mb-2 ms-2">
-                                                                <button type="button" class="btn btn-primary btn-sm">Submit</button>
+                                                                <button type="button" class="btn btn-primary btn-sm">Enviar</button>
                                                             </div>
                                                         </div>
 
