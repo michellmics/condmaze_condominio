@@ -328,7 +328,7 @@
                                                     <div class="card-body">
                                                         <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
                                                         <form class="needs-validation" novalidate id="form" role="form" method="POST">
-                                                        <textarea class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem." id="msg" name="msg" rows="3"></textarea>
+                                                        <textarea class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem." id="msg"  maxlength="300" name="msg" rows="3"></textarea>
                                                         <div class="text-end">
                                                             <div class="btn-group mb-2">
                                                             </div>
@@ -416,6 +416,33 @@
 
     </div>
     <!-- END wrapper -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const textArea = document.getElementById('msg');
+            const charCount = document.getElementById('charCount');
+        
+            // Atualizar contador de caracteres
+            textArea.addEventListener('input', function () {
+                const currentLength = textArea.value.length;
+                charCount.textContent = `${currentLength}/300`;
+            
+                // Limitar caracteres adicionais
+                if (currentLength > 300) {
+                    textArea.value = textArea.value.substring(0, 300);
+                    charCount.textContent = "300/300";
+                }
+            });
+        
+            // Validar antes de enviar
+            const form = document.getElementById('form');
+            form.addEventListener('submit', function (event) {
+                if (textArea.value.trim() === '') {
+                    event.preventDefault();
+                    alert('O campo de mensagem não pode estar vazio!');
+                }
+            });
+        });
+    </script>
 
       <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
