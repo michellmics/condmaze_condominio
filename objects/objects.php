@@ -384,7 +384,7 @@
                 $stmt->bindParam(':LIS_STSTATUS', $LIS_STSTATUS, PDO::PARAM_STR); 
                 $stmt->execute();     
 
-                return ["success" => "Visitante atualizado com sucesso."];
+                echo json_encode($result);
 
             } catch (PDOException $e) {
                 // Captura e retorna o erro
