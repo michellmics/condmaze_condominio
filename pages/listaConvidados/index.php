@@ -128,13 +128,13 @@
                     <div>
                         <input 
                             type="checkbox" 
-                            id="switch<?= $index; ?>" 
+                            id="switch<?php echo $index; ?>" 
                             data-switch="success" 
-                            data-id="<?= $item['LIS_ID']; ?>" 
+                            data-id="<?php echo $item['LIS_ID']; ?>" 
                             <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
                         />
                         <label 
-                            for="switch<?= $index; ?>" 
+                            for="switch<?php echo $index; ?>" 
                             data-on-label="Sim" 
                             data-off-label="Não" 
                             class="mb-0 d-block">
