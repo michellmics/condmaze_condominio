@@ -130,6 +130,7 @@
                             type="checkbox" 
                             id="switch<?= $index; ?>" 
                             data-switch="success" 
+                            data-id="<?= $item['LIS_ID']; ?>" 
                             <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
                         />
                         <label 
