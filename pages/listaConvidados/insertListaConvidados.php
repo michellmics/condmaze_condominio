@@ -26,6 +26,9 @@
       $status = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
       $status = ($status == 'ATIVO') ? 'checked' : '';
 
+      var_dump($status);
+      die();
+
       $metodo = "update";
     }
     
