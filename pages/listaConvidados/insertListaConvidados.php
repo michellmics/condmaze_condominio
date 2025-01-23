@@ -198,8 +198,8 @@
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#993399",
-          denyButtonColor: "#D8BFD8",
+          confirmButtonColor: "#536de6",
+          denyButtonColor: "#ff5b5b",
           width: '400px', // Largura do alerta
           icon: 'warning',
           customClass: {
@@ -226,7 +226,7 @@
               text: `${response}`,
               icon: 'success',
               width: '400px', // Largura do alerta
-              confirmButtonColor: "#993399",
+              confirmButtonColor: "#536de6",
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -244,7 +244,7 @@
               text: 'Erro ao atualizar o convidado.'.error,
               icon: 'error',
               width: '400px', // Largura do alerta
-              confirmButtonColor: "#993399",
+              confirmButtonColor: "#536de6",
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
