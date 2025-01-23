@@ -123,7 +123,7 @@
                                                     <br>
                                                     <!-- Bool Switch-->
                                                     <input type="checkbox" id="status" name="status" checked data-switch="bool"/>
-                                                    <label for="switch1" data-on-label="ATIVO" data-off-label="INATIVO"></label>
+                                                    <label for="status" data-on-label="ATIVO" data-off-label="INATIVO"></label>
                                                 </div>
  
 
