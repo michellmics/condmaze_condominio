@@ -388,7 +388,9 @@
 
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return ["error" => $e->getMessage()];
+                header('Content-Type: application/json');
+                echo json_encode(["error" => $e->getMessage()]);
+                exit;
             }
         }
 
