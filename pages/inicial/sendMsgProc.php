@@ -1,0 +1,34 @@
+<?php
+
+include_once "../../objects/objects.php";
+
+class insertMsg extends SITE_ADMIN
+{
+    public function insertMsg($msg)
+    {
+        try {
+            // Cria conexão com o banco de dados
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+                $result = $this->gravarMensagemSugestao($msg);
+
+            echo "Mensagem enviada com sucesso.";                                  
+                   
+                
+        } catch (PDOException $e) {  
+            echo "Erro ao cadastrar convidado."; 
+        } 
+    }
+}
+
+// Processa a requisição POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $msg = $_POST['msg'];
+
+     // Cria o objeto de registro de usuário e chama o método insertUser
+     $insertMsg= new insertMsg();
+     $insertMsg->insertMsg($msg);
+ }
+ ?>

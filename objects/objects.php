@@ -195,6 +195,34 @@
             }
         }
 
+        public function gravarMensagemSugestao($REC_DCMSG)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "INSERT INTO REC_RECLAMACAO 
+                        (REC_DCMSG, REC_DTDATA) 
+                        VALUES (:REC_DCMSG, :REC_DTDATA)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':REC_DCMSG', $REC_DCMSG, PDO::PARAM_STR);
+                $stmt->bindParam(':REC_DTDATA', $DATA, PDO::PARAM_STR);
+            
+                $stmt->execute();
+           
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function getPopupImagePublish()
         {          
                 // Verifica se a conexão já foi estabelecida
