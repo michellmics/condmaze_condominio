@@ -308,14 +308,13 @@
                                                         </div>
 
                                                         <div class="d-flex align-items-start mt-2">
-                                                            <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
                                                             <div class="w-100 overflow-hidden">
-                                                                <h5 class="mt-0">Jeremy Tomlinson 22/01/2025 13:00:12</h5>
+                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
                                                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                                                                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
                                                                 in faucibus.
-
-                                                                <h5 class="mt-0">Jeremy Tomlinson 22/01/2025 13:00:12</h5>
+                                                                <BR>
+                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
                                                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                                                                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
                                                                 in faucibus.
