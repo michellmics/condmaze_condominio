@@ -79,7 +79,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">ListaS de Convidados</h4>
+                                <h4 class="page-title">Lista de Convidados</h4>
                             </div>
                         </div>
                     </div>
