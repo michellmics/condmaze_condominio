@@ -300,7 +300,6 @@
                                                         <textarea class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem." id="example-textarea" rows="3"></textarea>
                                                         <div class="text-end">
                                                             <div class="btn-group mb-2">
-                                                                <button type="button" class="btn btn-link btn-sm text-muted font-18"><i class="ri-attachment-2"></i></button>
                                                             </div>
                                                             <div class="btn-group mb-2 ms-2">
                                                                 <button type="button" class="btn btn-primary btn-sm">Enviar</button>
