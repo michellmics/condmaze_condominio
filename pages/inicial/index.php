@@ -134,7 +134,7 @@
 		<?php include '../../src/top_bar.php'; ?>
 		<!-- End Top bar -->
 
-        <?php $siteAdmin->getEncomendaMoradorInfo($userid); var_dump($siteAdmin->ARRAY_ENCOMENDAINFO);?>
+        <?php $siteAdmin->getEncomendaMoradorInfo($userid);?>
 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
@@ -220,7 +220,7 @@
                                                                     type="checkbox" 
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
-                                                                    data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENTREGA_MORADOR'] === 'A RETIRAR' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
                                                                 />
