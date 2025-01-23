@@ -181,9 +181,9 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Basic example</h4>
+                                    <h4 class="header-title">Entregas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
-                                        For basic styling—light padding and only horizontal dividers—add the base class <code>.table</code> to any <code>&lt;table&gt;</code>.
+                                    Os pacotes marcados como SIM na coluna <b>RECEBER?</b> da tabela abaixo devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
@@ -205,8 +205,8 @@
                                                             <td>
                                                                 <!-- Switch-->
                                                                 <div>
-                                                                    <input type="checkbox" id="switch01" checked data-switch="success" />
-                                                                    <label for="switch01" data-on-label="Sim" data-off-label="Não" class="mb-0 d-block"></label>
+                                                                    <input type="checkbox" id="status" checked data-switch="success" />
+                                                                    <label for="status" data-on-label="Sim" data-off-label="Não" class="mb-0 d-block"></label>
                                                                 </div>
                                                             </td>
                                                         </tr>
