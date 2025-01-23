@@ -104,7 +104,7 @@
                                             
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
+                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  style="text-transform: uppercase;"  maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -114,7 +114,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">CPF ou RG</label>
-                                                    <input type="text" class="form-control" id="documento" name="documento" placeholder="CPF ou RG" minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required>
+                                                    <input type="text" class="form-control" id="documento" name="documento" placeholder="CPF ou RG" style="text-transform: uppercase;"  minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
