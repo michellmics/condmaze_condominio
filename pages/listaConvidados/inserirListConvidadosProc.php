@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
     $apartamento = $_POST['apartamento'];
 
-    echo $userid;
+    echo `$userid`;
     exit;
 
  
