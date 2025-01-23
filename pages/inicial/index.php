@@ -192,7 +192,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>NOME</th>
+                                                            <th>AP</th>
                                                             <th>DATA REGISTRO</th>
                                                             <th>RECEBER?</th>
                                                         </tr>
@@ -200,7 +200,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>12569</td>
-                                                            <td>MICHELL DUARTE DE OLIVEIRA</td>
+                                                            <td>194</td>
                                                             <td>12/08/2025 12:32</td>
                                                             <td>
                                                                 <!-- Switch-->
