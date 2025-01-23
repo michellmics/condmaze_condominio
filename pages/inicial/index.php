@@ -156,10 +156,8 @@
                     </div>
 		            <!--  Pop-up publicidade-->
 
-
-
-
-                    <div class="row">
+            <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+            <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
@@ -481,6 +479,7 @@
                         </div><!-- end col-->
                     </div>
                     <!-- end row-->
+		    </section>
 
 
 
