@@ -58,7 +58,8 @@ class LoginSystem extends SITE_ADMIN
                 $stmt->bindParam(':USU_DTEXP_TOKEN', $data_expira, PDO::PARAM_STR);
                 $stmt->execute();
 
-
+                    // Define o cookie com o token
+                    setcookie("auth_token", $token, time() + 5184000, "/", "", true, true); // Expira em 60 dias, apenas HTTPS, HttpOnly
 
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "LOGIN";
