@@ -92,6 +92,26 @@
                                                     <input name="file" type="file" multiple />
                                                 </div>
 
+                                                <div class="form-row" style="margin-bottom: 10px;  margin: 10px;">
+                                                    <div>
+                                                        <select class="form-control" id="mes" name="mes" required>
+                                                            <option value="" disabled selected>Mês de Referência</option>
+                                                            <option value="janeiro">Janeiro</option>
+                                                            <option value="fevereiro">Fevereiro</option>
+                                                            <option value="marco">Março</option>
+                                                            <option value="abril">Abril</option>
+                                                            <option value="maio">Maio</option>
+                                                            <option value="junho">Junho</option>
+                                                            <option value="julho">Julho</option>
+                                                            <option value="agosto">Agosto</option>
+                                                            <option value="setembro">Setembro</option>
+                                                            <option value="outubro">Outubro</option>
+                                                            <option value="novembro">Novembro</option>
+                                                            <option value="dezembro">Dezembro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <h6 class="font-15 mt-3">Tipo de dados</h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline">
