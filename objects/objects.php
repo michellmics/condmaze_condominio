@@ -28,6 +28,7 @@
         public $ARRAY_CONVIDADOINFO;
         public $ARRAY_RELINFO;
         public $ARRAY_ENCOMENDAINFO;
+        public $ARRAY_MENSAGENSINFO;
         public $configPath;
 
 
@@ -126,6 +127,25 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getListaMensagensSugestoesInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                                FROM REC_RECLAMACAO
+                                ORDER BY REC_DTDATA DESC
+                                LIMIT 20";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_MENSAGENSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          

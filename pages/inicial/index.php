@@ -12,7 +12,7 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getPopupImagePublish(); 
     $siteAdmin->getParameterInfo();
-  
+    $siteAdmin->getListaMensagensSugestoesInfo();
 
     
 
@@ -338,44 +338,19 @@
                                                         </div>
                                                         </form>
 
+                                                        
+
                                                         <div class="d-flex align-items-start mt-2">
                                                             <div class="w-100 overflow-hidden">
-                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                                vulputate at  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                                                <BR>
-                                                                <BR>
-                                                                <BR>
-                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                                vulputate at  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                                                <BR>
-                                                                <BR>
-                                                                <BR>
-                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                                vulputate at  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                                                <BR>
-                                                                <BR>
-                                                                <BR>
-                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                                vulputate at  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                                                <BR>
-                                                                <BR>
-                                                                <BR>
-                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                                vulputate at  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                                                <BR>
-                                                                <BR>
-                                                                <BR>
-                                                                <h5 class="mt-0">22/01/2025 13:00:12</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                                vulputate at  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                                            </div>
-
-                                                            
+                                                                <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
+                                                                    <h5 class="mt-0"><?= htmlspecialchars($item['REC_DTDATA']); ?></h5>
+                                                                        <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
+                                                                        <BR>
+                                                                        <BR>
+                                                                        <BR>
+                                                                        
+                                                                <?php endforeach; ?>
+                                                            </div>                                                            
                                                         </div>
 
                                                         <div class="text-center mt-2">
