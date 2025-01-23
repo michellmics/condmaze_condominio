@@ -224,9 +224,9 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Inverse table</h4>
+                                    <h4 class="header-title">Comunicados</h4>
                                     <p class="text-muted font-14">
-                                        You can also invert the colors—with light text on dark backgrounds—with <code>.table-dark</code>.
+                                        Os Últimos avisos serão publicados aqui.
                                     </p>
 
                                     <div class="tab-content">
