@@ -1,6 +1,6 @@
 <?php
-    ini_set('display_errors', 1);  // Habilita a exibição de erros
-    error_reporting(E_ALL);        // Reporta todos os erros
+  ini_set('display_errors', 1);  // Habilita a exibição de erros
+  error_reporting(E_ALL);        // Reporta todos os erros
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
@@ -12,6 +12,21 @@
           break; 
       }
     }   
+
+
+
+    if(isset($_GET['idconvidado']))
+    {
+      $idConvidado = $_GET['idconvidado'];
+
+      $siteAdmin->getConvidadoById($idConvidado);
+      $nome=$siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCNOME"];
+      $documento=$siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
+      $status=$siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
+
+      var_dump($idConvidado);
+      die();
+    }
     
 ?>
 

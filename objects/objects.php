@@ -25,6 +25,7 @@
         public $ARRAY_FOOTERPUBLISHINFO;
         public $ARRAY_LOGINFO;
         public $ARRAY_POPUPPUBLISHINFO;
+        public $ARRAY_CONVIDADOINFO;
         public $ARRAY_RELINFO;
         public $configPath;
 
@@ -123,6 +124,22 @@
             }          
         }
 
+        public function getConvidadoById($LIS_IDLISTACONVIDADOS)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_CONVIDADOINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
 
         public function insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO)
         {       
