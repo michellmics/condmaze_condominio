@@ -250,12 +250,29 @@
                     <!-- end row-->
 
                     <div class="row">
-                        <div class="col-xl-6">
+                    <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
 
-dfsfsdf
+                                    <h4 class="header-title">Comunicados</h4>
+                                    <p class="text-muted font-14">
+                                        Os Últimos avisos serão publicados aqui.
+                                    </p>
 
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+
+
+                                            conteudo aqui
+
+
+
+
+
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
@@ -263,8 +280,26 @@ dfsfsdf
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-sadasd
 
+                                    <h4 class="header-title">Comunicados</h4>
+                                    <p class="text-muted font-14">
+                                        Os Últimos avisos serão publicados aqui.
+                                    </p>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+
+
+                                            conteudo aqui
+
+
+
+
+
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
