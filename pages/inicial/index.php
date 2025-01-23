@@ -427,12 +427,6 @@
 
       function confirmAndSubmit(event) {
 
-
-        // Se a validação falhar, interrompe a execução
-        if (!isValid) {
-            return;
-        }
-
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Envio de Sugestão ou Reclamação',
