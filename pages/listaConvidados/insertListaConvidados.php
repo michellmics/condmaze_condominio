@@ -68,9 +68,7 @@
                 <!-- container -->
             </div>
             <!-- content -->
-<?php
-            echo $userid;
-            die(); ?>
+
                 <!-- Start Content-->
                 <div class="container-fluid">
 
@@ -172,17 +170,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-                function validarFormulario() {
-                    const nome = document.querySelector('input[name="nome"]').value.trim();
-                    const documento = document.querySelector('input[name="documento"]').value.trim();
-					const status = document.querySelector('input[name="status"]:checked'); 
-
-                    if (!nome || !documento) {
-                        alert("Todos os campos devem ser preenchidos.");
-                        return false;
-                    }
-                    return true;
-                }
+        function validarFormulario() {
+            const nome = document.querySelector('input[name="nome"]').value.trim();
+            const documento = document.querySelector('input[name="documento"]').value.trim();
+	    	const status = document.querySelector('input[name="status"]:checked')   
+            if (!nome || !documento) {
+                alert("Todos os campos devem ser preenchidos.");
+                return false;
+            }
+            return true;
+        }
 
 
       function confirmAndSubmit(event) {
