@@ -267,19 +267,19 @@
 <style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
-    font-size: 36px !important; /* Tamanho maior para o título */
+    font-size: 25px !important; /* Tamanho maior para o título */
   }
 
   .swal-text {
-    font-size: 24px !important; /* Tamanho maior para o conteúdo */
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
   }
 
   /* Aumentar o tamanho dos textos dos botões */
   .swal-confirm-btn,
   .swal-deny-btn,
   .swal-cancel-btn {
-    font-size: 20px !important; /* Tamanho maior para os textos dos botões */
-    padding: 12px 12px !important; /* Aumenta o espaço ao redor do texto */
+    font-size: 16px !important; /* Tamanho maior para os textos dos botões */
+    padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
 </style>
 <!-- ######################################################## --> 
