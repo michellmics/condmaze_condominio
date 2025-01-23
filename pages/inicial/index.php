@@ -416,33 +416,7 @@
 
     </div>
     <!-- END wrapper -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const textArea = document.getElementById('msg');
-            const charCount = document.getElementById('charCount');
-        
-            // Atualizar contador de caracteres
-            textArea.addEventListener('input', function () {
-                const currentLength = textArea.value.length;
-                charCount.textContent = `${currentLength}/300`;
-            
-                // Limitar caracteres adicionais
-                if (currentLength > 300) {
-                    textArea.value = textArea.value.substring(0, 300);
-                    charCount.textContent = "300/300";
-                }
-            });
-        
-            // Validar antes de enviar
-            const form = document.getElementById('form');
-            form.addEventListener('submit', function (event) {
-                if (textArea.value.trim() === '') {
-                    event.preventDefault();
-                    alert('O campo de mensagem não pode estar vazio!');
-                }
-            });
-        });
-    </script>
+     
 
       <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
@@ -450,9 +424,22 @@
     <script>
 
 
-
+        function validarFormulario() {
+            const msg = document.querySelector('input[name="msg"]').value.trim(); 
+            if (!msg) {
+                alert("Todos os campos devem ser preenchidos.");
+                return false;
+            }
+            return true;
+        }
 
       function confirmAndSubmit(event) {
+
+        const isValid = validarFormulario();
+        // Se a validação falhar, interrompe a execução
+        if (!isValid) {
+            return;
+        }
 
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
