@@ -43,6 +43,9 @@
 
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -96,7 +99,7 @@
                                             <form class="needs-validation" novalidate id="form" role="form" method="POST">
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  required>
+                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -106,7 +109,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">CPF ou RG</label>
-                                                    <input type="text" class="form-control" id="documento" name="documento" placeholder="CPF ou RG" required>
+                                                    <input type="text" class="form-control" id="documento" name="documento" placeholder="CPF ou RG" minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
