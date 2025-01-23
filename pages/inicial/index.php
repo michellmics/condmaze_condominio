@@ -229,8 +229,19 @@
                                         You can also invert the colors—with light text on dark backgrounds—with <code>.table-dark</code>.
                                     </p>
 
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
 
 
+
+
+
+
+
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
