@@ -1,27 +1,10 @@
 <?php
 
-session_start(); 
-define('SESSION_TIMEOUT', 43200); // 30 minutos
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: ../../index.html");
-  exit();
-}
-// Atualiza o timestamp da última atividade
-$_SESSION['last_activity'] = time();
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: ../../index.html");
-  exit();
-}
-
 include_once "../../objects/objects.php";
 
 class registerVisitante extends SITE_ADMIN
 {
-    public function insertVisitante($documento, $nome, $userid, $status)
+    public function insertVisitante($documento, $nome, $userid, $status, $apartamento)
     {
         try {
             // Cria conexão com o banco de dados
@@ -46,8 +29,8 @@ class registerVisitante extends SITE_ADMIN
             //--------------------LOG----------------------//
             $LOG_DCTIPO = "CADASTRO DE VISITANTE";
             $LOG_DCMSG = "O visitante $nome foi cadastrado com sucesso.";
-            $LOG_DCUSUARIO = $_SESSION['user_id'];
-            $LOG_DCAPARTAMENTO = $_SESSION['user_apartamento'];
+            $LOG_DCUSUARIO = $userid;
+            $LOG_DCAPARTAMENTO = $apartamento;
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
             //--------------------LOG----------------------
             echo "Convidado cadastrado com sucesso.";                                  
@@ -65,10 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $userid = $_POST['userid'];
     $status = $_POST['status'];
+    $apartamento = $_POST['apartamento'];
 
  
      // Cria o objeto de registro de usuário e chama o método insertUser
      $registerVisitante = new registerVisitante();
-     $registerVisitante->insertVisitante($documento, $nome, $userid, $status);
+     $registerVisitante->insertVisitante($documento, $nome, $userid, $status, $apartamento);
  }
  ?>
