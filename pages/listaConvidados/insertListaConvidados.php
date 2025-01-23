@@ -235,7 +235,7 @@
               }
             }).then(() => {
                   // Redirecionar ou atualizar a página, se necessário
-                  location.reload();
+                  history.back();
                 });
               },
               error: function (xhr, status, error) {
