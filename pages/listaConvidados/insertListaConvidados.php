@@ -12,9 +12,6 @@
           break; 
       }
     }   
-
-     echo $userid;
-     die();
     
 ?>
 
@@ -71,8 +68,9 @@
                 <!-- container -->
             </div>
             <!-- content -->
-
-
+<?php
+            echo $userid;
+            die(); ?>
                 <!-- Start Content-->
                 <div class="container-fluid">
 
