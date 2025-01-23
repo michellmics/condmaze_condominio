@@ -87,7 +87,7 @@
                 $sql = "SELECT * FROM ENC_ENCOMENDA";
 
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                //$stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_ENCOMENDAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
