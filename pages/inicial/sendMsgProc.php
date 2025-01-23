@@ -27,6 +27,12 @@ class insertMsg extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $msg = $_POST['msg'];
 
+    if($msg == "")
+    {
+        echo "O campo de mensagem não pode estar vazio.";
+        exit();
+    }
+
      // Cria o objeto de registro de usuário e chama o método insertUser
      $insertMsg= new insertMsg();
      $insertMsg->insertMsg($msg);
