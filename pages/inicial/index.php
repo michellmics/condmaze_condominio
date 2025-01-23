@@ -193,7 +193,7 @@
                                                         <tr>
                                                             <th>ID</th>
                                                             <th>AP</th>
-                                                            <th>DATA REGISTRO</th>
+                                                            <th>ENTRADA</th>
                                                             <th>RECEBER?</th>
                                                         </tr>
                                                     </thead>
