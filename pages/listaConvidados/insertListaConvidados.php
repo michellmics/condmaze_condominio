@@ -122,7 +122,7 @@
                                             
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" value="<?php echo $nome; ?>" id="nome" name="nome" placeholder="Nome Completo"  style="text-transform: uppercase;"  maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
+                                                    <input type="text" class="form-control" value="<?php echo isset($nome); ?>" id="nome" name="nome" placeholder="Nome Completo"  style="text-transform: uppercase;"  maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
