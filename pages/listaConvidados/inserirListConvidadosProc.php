@@ -1,5 +1,22 @@
 <?php
 
+session_start(); 
+define('SESSION_TIMEOUT', 43200); // 30 minutos
+
+if (!isset($_SESSION['user_id'])) 
+{
+  header("Location: ../../index.html");
+  exit();
+}
+// Atualiza o timestamp da última atividade
+$_SESSION['last_activity'] = time();
+
+if (!isset($_SESSION['user_id'])) 
+{
+  header("Location: ../../index.html");
+  exit();
+}
+
 include_once "../../objects/objects.php";
 
 class registerVisitante extends SITE_ADMIN
