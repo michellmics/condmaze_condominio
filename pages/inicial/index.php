@@ -213,9 +213,9 @@
                                                   
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
                                                     <tr>
-                                                        <td><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                        <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td><?= htmlspecialchars($item['ENC_DTENTREGA_PORTARIA']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DTENTREGA_PORTARIA']); ?></td>
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
