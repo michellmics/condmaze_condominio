@@ -383,7 +383,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
-                        alert('Erro ao atualizar o status!');
+                        //alert('Erro ao atualizar o status!');
                     }
                 })
                 .catch(error => {
@@ -415,8 +415,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
-                        alert('Erro ao atualizar o status!');
-                        console.error('Erro:', response);
+                        //alert('Erro ao atualizar o status!');
                     }
                 })
                 .catch(error => {
