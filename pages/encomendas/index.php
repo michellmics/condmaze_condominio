@@ -162,14 +162,14 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
-                                                                    id="switchDisponivel<?= $index; ?>" 
+                                                                    id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
-                                                                    data-id-ecomenda-disponivel="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
                                                                 />
                                                                 <label 
-                                                                    for="switchDisponivel<?= $index; ?>" 
+                                                                    for="switch<?= $index; ?>" 
                                                                     data-on-label="Sim" 
                                                                     data-off-label="Não" 
                                                                     class="mb-0 d-block">
@@ -181,14 +181,14 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
-                                                                    id="switch<?= $index; ?>" 
+                                                                    id="switch1<?= $index; ?>" 
                                                                     data-switch="success" 
-                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
                                                                 />
                                                                 <label 
-                                                                    for="switch<?= $index; ?>" 
+                                                                    for="switch1<?= $index; ?>" 
                                                                     data-on-label="Sim" 
                                                                     data-off-label="Não" 
                                                                     class="mb-0 d-block">
@@ -340,7 +340,7 @@
         
         switches.forEach(switchElem => {
             switchElem.addEventListener('change', function () {
-                const id = this.getAttribute('data-id-ecomenda-disponivel');
+                const id = this.getAttribute('data-id');
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
 
                 // Envia a alteração para o servidor
