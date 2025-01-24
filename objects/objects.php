@@ -584,12 +584,24 @@
                 $this->conexao();
             }
 
+            if($ENC_STENTREGA_MORADOR == "ENTREGUE")
+            {
+                $now = new DateTime(); 
+                $DATA = $now->format('Y-m-d H:i:s');
+            }
+            else
+                {
+                    $DATA = "0000-00-00 00:00:00";
+                }
+
+
             try
             {         
-                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_IDENCOMENDA = :ENC_IDENCOMENDA";
+                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR, ENC_DTENTREGA_MORADOR = :ENC_DTENTREGA_MORADOR WHERE ENC_IDENCOMENDA = :ENC_IDENCOMENDA";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':ENC_IDENCOMENDA', $ENC_IDENCOMENDA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 
+                $stmt->bindParam(':ENC_DTENTREGA_MORADOR', $DATA, PDO::PARAM_STR); 
                 $stmt->execute();     
 
                 return ["success" => "Encomenda atualizada com sucesso."];
