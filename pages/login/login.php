@@ -38,7 +38,7 @@ class LoginSystem extends SITE_ADMIN
                 $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
 
                 //TOKENIZAÇÃO
-                $token = $this->gerarToken();
+                $token = $this->gerarToken($user['USU_IDUSUARIO']);
 
                 // Prepara a consulta SQL para verificar o usuário
                 $sql = "UPDATE USU_USUARIO SET USU_DCTOKEN = :USU_DCTOKEN WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
