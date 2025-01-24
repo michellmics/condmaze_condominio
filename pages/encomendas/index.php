@@ -266,7 +266,7 @@
                     </div>
 
                     <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Cadastrar Pacote</button>
+                        <button class="btn btn-primary" id="botao" type="button">Cadastrar Pacote</button>
                     </div>
 
                 </form>
