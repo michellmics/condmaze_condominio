@@ -172,6 +172,12 @@
                                                             {
                                                                 $fieldMorador = "";
                                                             }
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                        $dataPortaria = $date->format('d/m/Y H:i');
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_MORADOR']);
+                                                        $dataMorador = $date->format('d/m/Y H:i');
                                                         
                                                         
                                                     ?>
@@ -179,8 +185,8 @@
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DTENTREGA_PORTARIA']); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DTENTREGA_MORADOR']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DCOBSERVACAO']); ?></td>
                                                         <td>
                                                             <!-- Switch -->
