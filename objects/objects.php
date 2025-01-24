@@ -308,7 +308,7 @@
            
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return ["error" => $e->getMessage()];
+                return  $e->getMessage();
             }
         }
 
