@@ -115,8 +115,8 @@
                                     <h4 class="header-title">Controle de Encomendas</h4>
                                     <p class="text-muted font-14">
                                     Nesta seção, você pode controlar o recebimento de encomendas do condomínio. Ao receber uma encomenda, cadastre o item no sistema e 
-                                    marque o status DISPONÍVEL como SIM, indicando que está pronta para retirada. O morador, por sua vez, deve marcar o 
-                                    status A RETIRAR como SIM para liberar o botão ENTREGUE?, permitindo que a portaria confirme a entrega.
+                                    marque o status <b>DISPONÍVEL</b> como <b>SIM</b>, indicando que está pronta para retirada. O morador, por sua vez, deve marcar o 
+                                    status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
                                     </p>
 
                                     <div class="tab-content">
