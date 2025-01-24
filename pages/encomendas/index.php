@@ -95,7 +95,7 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
-                                <button type="button" class="btn btn-info"><i class="mdi mdi-cloud me-1"></i> <span>Cloud Hosting</span> </button>
+                                
                                 </div>
                             </div>
                         </div>
@@ -113,6 +113,8 @@
                                     marque o status <b>DISPONÍVEL</b> como <b>SIM</b>, indicando que está pronta para retirada. O morador, por sua vez, deve marcar o 
                                     status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
                                     </p>
+
+                                    <button type="button" class="btn btn-info"><i class="mdi mdi-cloud me-1"></i> <span>Cloud Hosting</span> </button>
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
