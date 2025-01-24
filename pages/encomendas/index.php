@@ -385,6 +385,7 @@
                     if (!data.success) {
                         //alert('Erro ao atualizar o status!');
                     }
+                    window.location.href = "index.php";
                 })
                 .catch(error => {
                     console.error('Erro:', error);
@@ -393,7 +394,6 @@
             });
         });
     });
-    window.location.href = "index.php";
     </script>
 
 <script>
@@ -418,6 +418,7 @@
                     if (!data.success) {
                         //alert('Erro ao atualizar o status!');
                     }
+                    window.location.href = "index.php";
                 })
                 .catch(error => {
                     console.error('Erro:', error);
@@ -426,7 +427,6 @@
             });
         });
     });
-    window.location.href = "index.php";
     </script>
 
 
