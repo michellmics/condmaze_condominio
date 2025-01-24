@@ -151,11 +151,12 @@
 
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
                                                     <?php
-                                                        if($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR")
+                                                        $statusEnt = $item['ENC_STENTREGA_MORADOR'];
+
+                                                        if($statusEnt != "A RETIRAR")
                                                         {
                                                             $field = "disabled";
                                                         }
-                                                        $field = "disabled";
                                                     ?>
                                                     <tr>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
