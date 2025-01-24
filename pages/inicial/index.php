@@ -289,7 +289,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Informações Úteis</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Informações Úteis</h4>
                                     <p class="text-muted font-14">
                                         Dados relevantes para ficar por dentro do que acontece no condomínio.
                                     </p>
@@ -349,7 +349,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Sugestões / Reclamações</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
                                     <p class="text-muted font-14">
                                         Compartilhe sua sugestão ou reclamação!
                                         Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
