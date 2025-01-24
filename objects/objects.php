@@ -291,10 +291,13 @@
             $DATA = $now->format('Y-m-d H:i:s');
             $ENC_STENCOMENDA = "INDISPONIVEL";
 
+            $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';                    
+            $codigo = substr(str_shuffle($caracteres), 0, 5;
+
             try {
                 $sql = "INSERT INTO ENC_ENCOMENDA 
-                        (ENC_DCOBSERVACAO, USU_IDUSUARIO, ENC_DTENTREGA_PORTARIA, ENC_STENCOMENDA) 
-                        VALUES (:ENC_DCOBSERVACAO, :USU_IDUSUARIO, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA)";
+                        (ENC_IDENCOMENDA, ENC_DCOBSERVACAO, USU_IDUSUARIO, ENC_DTENTREGA_PORTARIA, ENC_STENCOMENDA) 
+                        VALUES (:ENC_IDENCOMENDA, :ENC_DCOBSERVACAO, :USU_IDUSUARIO, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -303,8 +306,11 @@
                 $stmt->bindParam(':ENC_DCOBSERVACAO', $ENC_DCOBSERVACAO, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_DTENTREGA_PORTARIA', $DATA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENCOMENDA', $ENC_STENCOMENDA, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_IDENCOMENDA', $codigo, PDO::PARAM_STR);
             
                 $stmt->execute();
+
+                return "Pacote registrado com sucesso. Código: $codigo";
            
             } catch (PDOException $e) {
                 // Captura e retorna o erro
