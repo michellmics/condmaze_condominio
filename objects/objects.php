@@ -294,7 +294,7 @@
             try {
                 $sql = "INSERT INTO ENC_ENCOMENDA 
                         (ENC_DCOBSERVACAO, USU_IDUSUARIO, ENC_DTENTREGA_PORTARIA, ENC_STENCOMENDA) 
-                        VALUES (:REC_DCMSG, :REC_DTDATA, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA)";
+                        VALUES (:ENC_DCOBSERVACAO, :USU_IDUSUARIO, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA)";
 
                 $stmt = $this->pdo->prepare($sql);
             
