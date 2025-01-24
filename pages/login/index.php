@@ -53,12 +53,14 @@ $host = $_SERVER['HTTP_HOST'];
 
     <!-- Vendor css -->
     <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
-
+ 
     <!-- App css -->
     <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body class="authentication-bg pb-0">
