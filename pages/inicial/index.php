@@ -191,8 +191,8 @@
 
                                     <h4 class="header-title">Top 5 Entregas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
-                                    Os pacotes marcados como SIM na coluna <b>RETIRAR?</b> da tabela abaixo, devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
-                                    O pacote só será liberado pela portaria se o status da coluna <b>RETIRAR?</b> estiver marcado como <b>SIM</b>.
+                                    Os pacotes marcados como SIM na coluna <b>RECEBER?</b> da tabela abaixo, devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
+                                    O pacote só será liberado pela portaria se o status da coluna <b>RECEBER?</b> estiver marcado como <b>SIM</b>.
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
@@ -284,7 +284,131 @@
                     </div>
                     <!-- end row-->
 
-                    
+                    <div class="row">
+                    <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="header-title">Informações Úteis</h4>
+                                    <p class="text-muted font-14">
+                                        Dados relevantes para ficar por dentro do que acontece no condomínio.
+                                    </p>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+                                            
+                                            <b>Grupo para comunicação</b><br>
+                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Link para o grupo</a><br>
+                                            <br>
+                                            <b>Horários para Reformas no Apartamento</b><br>
+                                            <b>Segunda a sexta:</b> 08h ás 17h<br>
+                                            <b>Sábado:</b> 08h ás 12h<br>
+                                            <b>Domingos e Feriados:</b> Não é permitido reforma<br>
+                                            <br>
+                                            <b>Horários da Piscina</b><br>
+                                            <b>Terça a sexta:</b> 10h ás 22h<br>
+                                            <b>Segundas:</b> Fechada para manutenção<br>
+                                            <br>
+                                            <b>Horários Salão de Festas</b><br>
+                                            <b>Segunda a Domingo:</b> 10h ás 00h<br>
+                                            <b>Valor do Aluguel:</b> R$60,00<br>
+                                            <br>
+                                            <b>Portaria</b><br>
+                                            <b>Telefone:</b> 19 99593-9865<br>
+                                            <b>E-mail:</b> portaria@prqdashortensias.com.br<br>
+                                            <br>
+                                            <b>Zelador</b><br>
+                                            <b>Nome:</b> Udisson - Empresa Samekh<br>
+                                            <br>
+                                            <b>Síndico(a):</b> Michelle Silva<br>
+                                            <b>Telefone:</b> 19 98346-6755<br>
+                                            <b>E-mail:</b> sindico@prqdashortensias.com.br<br>
+                                            <br>
+                                            <b>Subsindico(a):</b> *********<br>
+                                            <b>Telefone:</b> *********<br>
+                                            <b>E-mail:</b> subsindico@prqdashortensias.com.br<br>
+                                            <br>
+                                            <b>Administradora:</b> Puiatti<br>
+                                            <b>E-mail:</b> contato@puiatti.com.br<br>
+                                            <b>Atend. Whatsapp:</b> (19) 99909-0561<br>
+                                            <b>Telefones de contato:</b> (19)3238-8710 | (19)3238-9520<br>
+
+
+
+
+
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+                        </div><!-- end col-->
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="header-title">Sugestões / Reclamações</h4>
+                                    <p class="text-muted font-14">
+                                        Compartilhe sua sugestão ou reclamação!
+                                        Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
+                                        <br><b>Atenção:</b> Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens.                                     
+                                    </p>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+
+                                
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
+                                                        <form class="needs-validation" novalidate id="form" role="form" method="POST">
+                                                        <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
+                                                        <div class="text-end">
+                                                            <div class="btn-group mb-2">
+                                                            </div>
+                                                            <div class="btn-group mb-2 ms-2">
+                                                                <button type="button" class="btn btn-primary btn-sm" id="botao">Enviar</button>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+
+                                                        
+
+                                                        <div class="d-flex align-items-start mt-2">
+                                                            <div class="w-100 overflow-hidden">
+                                                                <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
+                                                                    <h5 class="mt-0"><?= htmlspecialchars($item['REC_DTDATA']); ?></h5>
+                                                                        <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
+                                                                        <BR>
+                                                                        <BR>
+                                                                        <BR>
+                                                                        
+                                                                <?php endforeach; ?>
+                                                            </div>                                                            
+                                                        </div>
+
+                                                        <div class="text-center mt-2">
+                                                            <a href="javascript:void(0);" class="text-danger">Ler mais </a>
+                                                        </div>
+                                                    </div> <!-- end card-body-->
+                                                </div>
+                                                <!-- end card-->
+
+
+
+
+
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+                        </div><!-- end col-->
+                    </div>
+                    <!-- end row-->
 
                 </div> <!-- container -->
 
