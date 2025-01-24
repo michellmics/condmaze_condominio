@@ -292,7 +292,7 @@
             $ENC_STENCOMENDA = "INDISPONIVEL";
 
             $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';                    
-            $codigo = substr(str_shuffle($caracteres), 0, 5;
+            $codigo = substr(str_shuffle($caracteres), 0, 5);
 
             try {
                 $sql = "INSERT INTO ENC_ENCOMENDA 
