@@ -165,7 +165,8 @@
                                                                 <input 
                                                                     type="checkbox" 
                                                                     id="switch"
-                                                                    data-switch="success"                                                                     
+                                                                    data-switch="success"  
+                                                                    disabled                                                                   
                                                                 />
                                                                 <label 
                                                                     for="switch" 
