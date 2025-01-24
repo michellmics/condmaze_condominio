@@ -47,7 +47,7 @@ class LoginSystem extends SITE_ADMIN
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
                 $stmt->execute();
 
-                echo $token;
+                echo json_encode(["success" => true, "token" => $token]);
 
                 /*
 
@@ -75,7 +75,7 @@ class LoginSystem extends SITE_ADMIN
 
                     $_SESSION = [];
                     session_destroy();
-                    echo "Usuário ou senha incorretos."; 
+                    echo json_encode(["success" => false, "message" => "Credenciais inválidas!"]);
                 }
         } catch (PDOException $e) {  
             echo "Erro: " . $e->getMessage();
