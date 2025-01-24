@@ -27,8 +27,9 @@ class registerPacote extends SITE_ADMIN
                 $LOG_DCTIPO = "ENCOMENDA";
                 $LOG_DCMSG = "Encomenda registrada no sistema para o apartamento $apartamento com código $codigo.";
                 $LOG_DCUSUARIO = "PORTARIA";
+                $LOG_DCCODIGO = $codigo;
                 $LOG_DCAPARTAMENTO = $apartamento;
-                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                 //--------------------LOG----------------------//
                 
                 echo "Pacote registrado com sucesso. Código $codigo";

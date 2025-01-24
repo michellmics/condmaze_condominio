@@ -222,7 +222,7 @@
             }          
         }
 
-        public function insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO)
+        public function insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO = 'N/A', $LOG_DCAPARTAMENTO = 'N/A', $LOG_DCCODIGO = 'N/A')
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
@@ -233,8 +233,8 @@
 
             try {
                 $sql = "INSERT INTO LOG_LOGSISTEMA 
-                        (LOG_DCTIPO, LOG_DCMSG, LOG_DCUSUARIO, LOG_DCAPARTAMENTO, LOG_DTLOG) 
-                        VALUES (:LOG_DCTIPO, :LOG_DCMSG, :LOG_DCUSUARIO, :LOG_DCAPARTAMENTO, :LOG_DTLOG)";
+                        (LOG_DCTIPO, LOG_DCMSG, LOG_DCUSUARIO, LOG_DCAPARTAMENTO, LOG_DTLOG, LOG_DCCODIGO) 
+                        VALUES (:LOG_DCTIPO, :LOG_DCMSG, :LOG_DCUSUARIO, :LOG_DCAPARTAMENTO, :LOG_DTLOG, :LOG_DCCODIGO)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -244,6 +244,7 @@
                 $stmt->bindParam(':LOG_DCUSUARIO', $LOG_DCUSUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':LOG_DCAPARTAMENTO', $LOG_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->bindParam(':LOG_DTLOG', $DATA, PDO::PARAM_STR);
+                $stmt->bindParam(':LOG_DCCODIGO', $LOG_DCCODIGO, PDO::PARAM_STR);
             
                 $stmt->execute();
            
@@ -606,8 +607,9 @@
                                 $LOG_DCTIPO = "ENCOMENDA";
                                 $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR";
                                 $LOG_DCUSUARIO = "MORADOR";
+                                $LOG_DCCODIGO = $ENC_IDENCOMENDA;
                                 $LOG_DCAPARTAMENTO = " ";
-                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                                 //--------------------LOG----------------------//
 
                 return ["success" => "Encomenda atualizada com sucesso."];
@@ -637,8 +639,9 @@
                 $LOG_DCTIPO = "ENCOMENDA";
                 $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENCOMENDA";
                 $LOG_DCUSUARIO = "PORTARIA";
+                $LOG_DCCODIGO = $ENC_IDENCOMENDA;
                 $LOG_DCAPARTAMENTO = " ";
-                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                 //--------------------LOG----------------------//
 
                 return ["success" => "Encomenda atualizada com sucesso."];
@@ -680,8 +683,9 @@
                                 $LOG_DCTIPO = "ENCOMENDA";
                                 $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR";
                                 $LOG_DCUSUARIO = "PORTARIA";
+                                $LOG_DCCODIGO = $ENC_IDENCOMENDA;
                                 $LOG_DCAPARTAMENTO = " ";
-                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                                 //--------------------LOG----------------------//
 
                 return ["success" => "Encomenda atualizada com sucesso."];
