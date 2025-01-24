@@ -118,6 +118,7 @@
                                                         <th>USUÁRIO</th>
                                                         <th>AP</th>
                                                         <th>TIPO</th>
+                                                        <th>COD</th>
                                                         <th>MSG</th>
                                                         <th>DATA</th>
                                                     </tr>
@@ -129,6 +130,7 @@
                                                             <td><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
                                                             <td><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
                                                             <td><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
+                                                            <td><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
                                                             <td><?= htmlspecialchars($item['LOG_DCMSG']); ?></td>
                                                             <td><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
 
