@@ -134,7 +134,7 @@
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
                                                     <?php
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
-                                                        $obs = substr($item['ENC_DCOBSERVACAO'],0,12)."...";
+                                                        $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
