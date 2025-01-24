@@ -602,6 +602,14 @@
                 $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 
                 $stmt->execute();     
 
+                                //--------------------LOG----------------------//
+                                $LOG_DCTIPO = "ENCOMENDA";
+                                $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR";
+                                $LOG_DCUSUARIO = "MORADOR";
+                                $LOG_DCAPARTAMENTO = " ";
+                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                                //--------------------LOG----------------------//
+
                 return ["success" => "Encomenda atualizada com sucesso."];
 
             } catch (PDOException $e) {
