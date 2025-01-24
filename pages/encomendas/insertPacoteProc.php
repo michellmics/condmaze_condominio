@@ -18,13 +18,13 @@ class registerPacote extends SITE_ADMIN
             if(count($this->ARRAY_LISTAMORADORESINFO) == 0)
             {
                 echo "Morador não encontrado no sistema. Verifique se está cadastrado."; 
-                exit();
             }
-
-            $result = $this->insertPacoteInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
-
-            echo "Pacote cadastrado com sucesso.";                                 
-                   
+            else
+            {
+                $result = $this->insertPacoteInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
+                echo "Pacote cadastrado com sucesso."; 
+            }
+ 
         } catch (PDOException $e) {  
             echo "Erro ao cadastrar pacote."; 
         } 
