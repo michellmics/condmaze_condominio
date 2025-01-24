@@ -45,14 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-    // Verifica se o token expirou
-    if (time() > $dados['exp']) {
-        echo json_encode(['success' => false, 'message' => 'Token expirado.']);
-        exit;
-    } else {
-        echo json_encode(['success' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
+        // Verifica se o token expirou
+        if (time() > $dados['exp']) {
+            echo json_encode(['success' => false, 'message' => 'Token expirado.']);
+            exit;
+        } else {
+            echo json_encode(['success' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
+        }
     }
-
+    else {
+        echo json_encode(['success' => false, 'message' => 'Token não encontrado.']);
+    }
 } else {
     echo json_encode(['success' => false, 'message' => 'Método não permitido.']);
 }
