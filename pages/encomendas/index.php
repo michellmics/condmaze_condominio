@@ -112,26 +112,13 @@
                     <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Basic Data Table</h4>
+                                    <h4 class="header-title">Controle de Encomendas</h4>
                                     <p class="text-muted font-14">
-                                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
-                                        function:
-                                        <code>$().DataTable();</code>. KeyTable provides Excel like cell navigation on any table. Events (focus, blur, action etc) can be assigned to individual
-                                        cells, columns, rows or all cells.
+                                    Nesta seção, você pode controlar o recebimento de encomendas do condomínio. Ao receber uma encomenda, cadastre o item no sistema e 
+                                    marque o status DISPONÍVEL como SIM, indicando que está pronta para retirada. O morador, por sua vez, deve marcar o 
+                                    status A RETIRAR como SIM para liberar o botão ENTREGUE?, permitindo que a portaria confirme a entrega.
                                     </p>
 
-                                    <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item">
-                                            <a href="#basic-datatable-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#basic-datatable-code" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul> <!-- end nav--> 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
