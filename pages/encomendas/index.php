@@ -124,7 +124,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>APARTAMENTO</th>
+                                                        <th>AP</th>
                                                         <th>TITULAR APARTAMENTO</th>
                                                         <th>DT ENTRADA</th>
                                                         <th>DT ENTREGA</th>
@@ -173,7 +173,13 @@
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DCOBSERVACAO']); ?></td>
+                                                        <td style="font-size: 12px;"><div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+</div></td>
+
+
+
+
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
