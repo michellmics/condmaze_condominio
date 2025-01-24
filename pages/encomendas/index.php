@@ -249,11 +249,11 @@
             <div class="modal-body">
                 <div class="text-center mt-2 mb-4">
                     <a href="index.html" class="text-success">
-                        <span>Cadastro de pacote</span>
+                        <span>Cadastro de Pacote</span>
                     </a>
                 </div>
 
-                <form class="ps-3 pe-3" action="#">
+                <form class="needs-validation" novalidate id="form" role="form" method="POST">
 
                     <div class="mb-3">
                         <label for="apartamento" class="form-label">Apartamento</label>
@@ -316,7 +316,7 @@
             var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
             $.ajax({
-              url: "sendMsgProc.php", // URL para processamento
+              url: "insertPacoteProc.php", // URL para processamento
               type: "POST",
               data: formData,
               processData: false, // Impede o jQuery de processar os dados

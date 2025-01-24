@@ -262,6 +262,37 @@
             }
         }
 
+        public function insertPacoteInfo($USU_IDUSUARIO, $ENC_DCOBSERVACAO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+            $ENC_STENCOMENDA = "INDISPONIVEL";
+
+            try {
+                $sql = "INSERT INTO ENC_ENCOMENDA 
+                        (ENC_DCOBSERVACAO, USU_IDUSUARIO, ENC_DTENTREGA_PORTARIA, ENC_STENCOMENDA) 
+                        VALUES (:REC_DCMSG, :REC_DTDATA, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_DCOBSERVACAO', $ENC_DCOBSERVACAO, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_DTENTREGA_PORTARIA', $DATA, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_STENCOMENDA', $ENC_STENCOMENDA, PDO::PARAM_STR);
+            
+                $stmt->execute();
+           
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function getPopupImagePublish()
         {          
                 // Verifica se a conexão já foi estabelecida
