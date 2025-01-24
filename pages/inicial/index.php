@@ -213,9 +213,13 @@
                                                   
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
                                                     <tr>
+                                                        <?php
+                                                            $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                            $dataEntrega = $date->format('d/m/Y H:i');
+                                                        ?>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DTENTREGA_PORTARIA']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($dataEntrega); ?></td>
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
