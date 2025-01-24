@@ -29,6 +29,7 @@
         public $ARRAY_RELINFO;
         public $ARRAY_ENCOMENDAINFO;
         public $ARRAY_MENSAGENSINFO;
+        public $ARRAY_TOKENINFO;
         public $configPath;
 
 
@@ -101,6 +102,23 @@
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_ENCOMENDAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
+
+        public function getTokenInfo($USU_DCTOKEN)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT USU_DCTOKEN, USU_DTEXP_TOKEN FROM USU_USUARIO WHERE USU_DCTOKEN = :USU_DCTOKEN";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_DCTOKEN', $USU_DCTOKEN, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_TOKENINFO = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }       
