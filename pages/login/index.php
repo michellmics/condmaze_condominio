@@ -108,36 +108,60 @@ $host = $_SERVER['HTTP_HOST'];
                 </div>
 
                 <script>
-                         document.getElementById('loginForm').addEventListener('submit', function(event) {
-                    event.preventDefault();
-                        
-                    const apartamento = document.getElementById('apartamento').value;
-                    const password = document.getElementById('password').value;
-                    const rememberMe = document.getElementById('checkbox-signin').checked;
-                        
-                    fetch('login.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ apartamento, senha: password })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            const token = data.token;
-                        
-                            // Salva o token no localStorage se "Lembrar-me" estiver marcado
-                            if (rememberMe) {
-                                localStorage.setItem('authToken', token); 
-                            }
-                        
-                            // Redireciona para a página protegida
-                            window.location.href = '../inicial/index.php';
-                        } else {
-                            alert(data.message);
+                    // Verifica o token ao carregar a página
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const token = localStorage.getItem('authToken');
+                        if (token) {
+                            fetch('verifyToken.php', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ token })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.valid) {
+                                    // Token válido, redireciona para a página inicial
+                                    window.location.href = '../inicial/index.php';
+                                } else {
+                                    // Token inválido, remove do localStorage
+                                    localStorage.removeItem('authToken');
+                                }
+                            })
+                            .catch(error => console.error('Erro ao verificar token:', error));
                         }
-                    })
-                    .catch(error => console.error('Erro:', error));
-                });
+                    });
+
+                    // Envia o formulário de login
+                    document.getElementById('loginForm').addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        
+                        const apartamento = document.getElementById('apartamento').value;
+                        const password = document.getElementById('password').value;
+                        const rememberMe = document.getElementById('checkbox-signin').checked;
+                        
+                        fetch('login.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ apartamento, senha: password })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                const token = data.token;
+                        
+                                // Salva o token no localStorage se "Lembrar-me" estiver marcado
+                                if (rememberMe) {
+                                    localStorage.setItem('authToken', token); 
+                                }
+                        
+                                // Redireciona para a página protegida
+                                window.location.href = '../inicial/index.php';
+                            } else {
+                                alert(data.message);
+                            }
+                        })
+                        .catch(error => console.error('Erro:', error));
+                    });
                 </script>
                 <!-- Footer-->
                 <footer class="footer footer-alt">
