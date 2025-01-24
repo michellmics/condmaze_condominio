@@ -141,7 +141,7 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>APARTAMENTO</th>
-                                                        <th>TITULAR AP.</th>
+                                                        <th>TITULAR APARTAMENTO</th>
                                                         <th>DT ENTRADA</th>
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
