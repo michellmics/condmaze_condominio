@@ -153,7 +153,7 @@
                                                     <?php
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
 
-                                                        if($statusEnt != "A RETIRAR")
+                                                        if($statusEnt != "A RETIRAR" && $statusEnt != "ENTREGUE")
                                                         {
                                                             $field = "disabled";
                                                         }
