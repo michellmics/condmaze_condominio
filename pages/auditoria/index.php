@@ -138,6 +138,23 @@
                                                     <?php endforeach; ?>
                                                 </tbody>
                                             </table>
+                                            <script>
+                                                $(document).ready(function () {
+                                                    $('#basic-datatable').DataTable({
+                                                        // Define o número de registros por página
+                                                        pageLength: 50,
+                                                    
+                                                        // Define a coluna de ordenação inicial (número da coluna começa em 0)
+                                                        order: [[6, 'desc']], // Ordena pela 7ª coluna (DATA), em ordem decrescente
+                                                    
+                                                        // Configura opções adicionais (se necessário)
+                                                        responsive: true,
+                                                        language: {
+                                                            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' // Tradução para português
+                                                        }
+                                                    });
+                                                });
+                                            </script>
                                         </div> <!-- end preview-->
 
 
