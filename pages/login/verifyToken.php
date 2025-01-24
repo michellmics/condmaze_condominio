@@ -20,14 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $token = $input['token'];
 
-    // Exemplo de verificação de token (substitua conforme sua lógica)
-    // Aqui, supomos que o token é salvo no banco de dados com informações do usuário
-    $siteAdmin = new SITE_ADMIN();
-    $siteAdmin->getTokenInfo('eyJ1c2VyX2lkIjozNTIsImV4cCI6MTc0MDMyOTcxNn0uNTA3YjE4OTI2ZTA4MzU0MWM3NGJmOGU5ZDM0MmFmZWE3YTJiNzdkZDgwNmE4ZjlmZjk1NTQ5Y2YwZmMyMzEzNQ=='); // Método fictício para buscar informações do token
-
-    if (!empty($siteAdmin->ARRAY_TOKENINFO)) {
+    if (!empty($token)) {
         // Supondo que o token está armazenado com informações de validade
-        $tokenData = $siteAdmin->ARRAY_TOKENINFO;
+        $tokenData = $token;
 
         // Divide o token em partes (dados e assinatura)
         $partes = explode('.', base64_decode($tokenData));
@@ -37,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         $dadosCodificados = $partes[0];
+        $assinatura = $partes[1];
 
         $dados = json_decode($dadosCodificados, true);
 
@@ -46,11 +42,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Verifica se o token expirou
-        if (time() > $dados['exp']) {
+        if (time() < $dados['exp']) {
             echo json_encode(['valid' => false, 'message' => 'Token expirado.']);
             exit;
-        } else {
-            echo json_encode(['valid' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
+        }
+
+        $chaveSecreta = "mcodemaze!4795condominio$#@!!@#$";
+
+        // Verifica a assinatura do token
+        $assinaturaCalculada = hash_hmac('sha256', $dadosCodificados, $chaveSecreta);
+        if (!hash_equals($assinatura, $assinaturaCalculada)) {
+            echo json_encode(['valid' => false, 'message' => 'Token inválido.']);
+            exit;
+        }
+        else
+        {
+            echo json_encode(['valid' => true, 'message' => 'Token válido.', 'user_id' => $dados['user_id']]);
         }
     }
     else {
