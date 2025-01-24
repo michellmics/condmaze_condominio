@@ -341,10 +341,10 @@
         switches.forEach(switchElem => {
             switchElem.addEventListener('change', function () {
                 const id = this.getAttribute('data-id');
-                const status = this.checked ? 'A RETIRAR' : 'PENDENTE';
+                const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
 
                 // Envia a alteração para o servidor
-                fetch('updateStatusCheckbox.php', {
+                fetch('updateStatusCheckboxDisponivel.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
