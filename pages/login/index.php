@@ -121,7 +121,7 @@ $host = $_SERVER['HTTP_HOST'];
                             .then(data => {
                                 if (data.valid) {
                                     // Token válido, redireciona para a página inicial
-                                    window.location.href = '../inicial/index.php';
+                                    //window.location.href = '../inicial/index.php';
                                 } else {
                                     // Token inválido, remove do localStorage
                                     localStorage.removeItem('authToken');
