@@ -15,7 +15,7 @@ class registerPacote extends SITE_ADMIN
             //implementar a validacao pra saber se existe o morador/ap
             $countMoradores = $this->getMoradoresByApInfo($apartamento);
 
-            if(count($countMoradores) == 0)
+            if(count($this->ARRAY_LISTAMORADORESINFO) == 0)
             {
                 echo "Morador não encontrado no sistema. Verifique se está cadastrado."; 
                 exit();

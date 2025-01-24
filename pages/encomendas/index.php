@@ -294,8 +294,8 @@
 
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Envio de Sugestão ou Reclamação',
-          text: "Tem certeza que deseja enviar a mensagem?",
+          title: 'Cadastro de Pacote',
+          text: "Tem certeza que deseja cadastrar um pacote?",
           showDenyButton: true,
           confirmButtonText: 'CONFIRMAR',
           denyButtonText: `CANCELAR`,
