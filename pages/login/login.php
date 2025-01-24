@@ -64,7 +64,7 @@ class LoginSystem extends SITE_ADMIN
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "LOGIN";
                 $LOG_DCMSG = "Usuário ".$user['USU_DCNOME']." logado com sucesso.";
-                $LOG_DCUSUARIO = $user['USU_IDUSUARIO'];
+                $LOG_DCUSUARIO = $user['USU_DCNOME'];
                 $LOG_DCAPARTAMENTO = $user['USU_DCAPARTAMENTO'];
                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                 //--------------------LOG----------------------//

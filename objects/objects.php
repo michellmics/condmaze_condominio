@@ -608,7 +608,7 @@
                                 $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR";
                                 $LOG_DCUSUARIO = "MORADOR";
                                 $LOG_DCCODIGO = $ENC_IDENCOMENDA;
-                                $LOG_DCAPARTAMENTO = " ";
+                                $LOG_DCAPARTAMENTO = "";
                                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                                 //--------------------LOG----------------------//
 
@@ -640,7 +640,7 @@
                 $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENCOMENDA";
                 $LOG_DCUSUARIO = "PORTARIA";
                 $LOG_DCCODIGO = $ENC_IDENCOMENDA;
-                $LOG_DCAPARTAMENTO = " ";
+                $LOG_DCAPARTAMENTO = "";
                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                 //--------------------LOG----------------------//
 
@@ -684,7 +684,7 @@
                                 $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR";
                                 $LOG_DCUSUARIO = "PORTARIA";
                                 $LOG_DCCODIGO = $ENC_IDENCOMENDA;
-                                $LOG_DCAPARTAMENTO = " ";
+                                $LOG_DCAPARTAMENTO = "";
                                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                                 //--------------------LOG----------------------//
 
