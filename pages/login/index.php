@@ -87,7 +87,7 @@ $host = $_SERVER['HTTP_HOST'];
                     <p class="text-muted mb-4">Utilize o número do apartamento e a senha.</p>
 
                     <!-- form -->
-                    <form id="demo-form" method="post" autocomplete="on">
+                    <form id="loginForm">
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Apartamento</label>
                             <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="username" autocomplete="username">
@@ -107,7 +107,7 @@ $host = $_SERVER['HTTP_HOST'];
                             <a href="<?php echo $host; ?>/appCondominio.apk" download class="btn btn-link">Download App (Android)</a>
                         </div>
                         <div class="d-grid mb-0 text-center">
-                            <button class="btn btn-primary" onclick="onSubmit(event)" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
+                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
                         <br><br>
                         <center><div class="g-recaptcha" data-sitekey="6LcA-rcqAAAAAK2N1QMI38QK4s5pKEMYjCRIikX8"></div></center>
@@ -116,32 +116,37 @@ $host = $_SERVER['HTTP_HOST'];
                 </div>
 
                 <script>
-                    function onSubmit(event) {
-                        event.preventDefault();
-                    
-                        const username = document.getElementById('apartamento').value;
-                        const password = document.getElementById('password').value;
-                        const rememberMe = document.getElementById('checkbox-signin').checked;
-                    
-                        fetch('login.php', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ username, password }),
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                if (rememberMe) {
-                                    localStorage.setItem('authToken', data.token);
-                                }
-                                alert('Login bem-sucedido!');
-                                window.location.href = 'dashboard.php';
-                            } else {
-                                alert('Credenciais inválidas!');
+                         document.getElementById('loginForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                        
+                    const apartamento = document.getElementById('apartamento').value;
+                    const password = document.getElementById('password').value;
+                    const rememberMe = document.getElementById('checkbox-signin').checked;
+                        
+                    fetch('login.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ apartamento, senha: password })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Login bem-sucedido!');
+                            const token = data.token;
+                        
+                            // Salva o token no localStorage se "Lembrar-me" estiver marcado
+                            if (rememberMe) {
+                                localStorage.setItem('authToken', token);
                             }
-                        })
-                        .catch(error => console.error('Erro:', error));
-                    }
+                        
+                            // Redireciona para a página protegida
+                            window.location.href = 'dashboard.php';
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+                    .catch(error => console.error('Erro:', error));
+                });
                 </script>
 
                  <!-- SCRIPT RECAPTCHA -->
