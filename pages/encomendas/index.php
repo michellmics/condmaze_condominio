@@ -162,14 +162,14 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
-                                                                    id="switch<?= $index; ?>" 
+                                                                    id="switchDisponivel<?= $index; ?>" 
                                                                     data-switch="success" 
-                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    data-id-ecomenda-disponivel="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
                                                                 />
                                                                 <label 
-                                                                    for="switch<?= $index; ?>" 
+                                                                    for="switchDisponivel<?= $index; ?>" 
                                                                     data-on-label="Sim" 
                                                                     data-off-label="Não" 
                                                                     class="mb-0 d-block">
@@ -340,7 +340,7 @@
         
         switches.forEach(switchElem => {
             switchElem.addEventListener('change', function () {
-                const id = this.getAttribute('data-id');
+                const id = this.getAttribute('data-id-ecomenda-disponivel');
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
 
                 // Envia a alteração para o servidor
