@@ -297,10 +297,17 @@
                                             <b>Grupo para comunicação</b><br>
                                             <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Link para o grupo</a><br>
                                             <br>
-                                            <b>Horário para Reformas no Apartamento</b><br>
+                                            <b>Horários para Reformas no Apartamento</b><br>
                                             <b>Segunda a sexta:</b> 08h ás 17h<br>
                                             <b>Sábado:</b> 08h ás 12h<br>
                                             <b>Domingos e Feriados:</b> Não é permitido reforma<br>
+                                            <br>
+                                            <b>Horários da Piscina</b><br>
+                                            <b>Terça a sexta:</b> 10h ás 22h<br>
+                                            <b>Segundas:</b> Fechada para manutenção<br>
+                                            <br>
+                                            <b>Horários Salão de Festas</b><br>
+                                            <b>Segunda a Domingo:</b> 10h ás 00h<br>
                                             <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
