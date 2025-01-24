@@ -310,7 +310,7 @@
             
                 $stmt->execute();
 
-                return "Pacote registrado com sucesso. Código: $codigo";
+                return $codigo;
            
             } catch (PDOException $e) {
                 // Captura e retorna o erro
@@ -625,6 +625,14 @@
                 $stmt->bindParam(':ENC_STENCOMENDA', $ENC_STENCOMENDA, PDO::PARAM_STR); 
                 $stmt->execute();     
 
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "ENCOMENDA";
+                $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENCOMENDA";
+                $LOG_DCUSUARIO = "PORTARIA";
+                $LOG_DCAPARTAMENTO = " ";
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                //--------------------LOG----------------------//
+
                 return ["success" => "Encomenda atualizada com sucesso."];
 
             } catch (PDOException $e) {
@@ -658,7 +666,15 @@
                 $stmt->bindParam(':ENC_IDENCOMENDA', $ENC_IDENCOMENDA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 
                 $stmt->bindParam(':ENC_DTENTREGA_MORADOR', $DATA, PDO::PARAM_STR); 
-                $stmt->execute();     
+                $stmt->execute();    
+                
+                                //--------------------LOG----------------------//
+                                $LOG_DCTIPO = "ENCOMENDA";
+                                $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR";
+                                $LOG_DCUSUARIO = "PORTARIA";
+                                $LOG_DCAPARTAMENTO = " ";
+                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                                //--------------------LOG----------------------//
 
                 return ["success" => "Encomenda atualizada com sucesso."];
 

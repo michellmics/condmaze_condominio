@@ -21,8 +21,17 @@ class registerPacote extends SITE_ADMIN
             }
             else
             {
-                $result = $this->insertPacoteInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
-                echo $result;
+                $codigo = $this->insertPacoteInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
+                
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "ENCOMENDA";
+                $LOG_DCMSG = "Encomenda registrada no sistema para o apartamento $apartamento com código $codigo.";
+                $LOG_DCUSUARIO = "PORTARIA";
+                $LOG_DCAPARTAMENTO = $apartamento;
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                //--------------------LOG----------------------//
+                
+                echo "Pacote registrado com sucesso. Código $codigo";
             }
  
         } catch (PDOException $e) {  
