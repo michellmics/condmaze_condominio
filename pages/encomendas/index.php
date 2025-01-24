@@ -249,20 +249,20 @@
             <div class="modal-body">
                 <div class="text-center mt-2 mb-4">
                     <a href="index.html" class="text-success">
-                        <span><img src="../../assets/images/logo-dark.png" alt="" height="18"></span>
+                        <span>Cadastro de pacote</span>
                     </a>
                 </div>
 
                 <form class="ps-3 pe-3" action="#">
 
                     <div class="mb-3">
-                        <label for="username" class="form-label">Apartamento</label>
-                        <input class="form-control" type="email" id="username" required="" placeholder="Michael Zenaty">
+                        <label for="apartamento" class="form-label">Apartamento</label>
+                        <input class="form-control" type="number" name="apartamento" id="apartamento" required="" placeholder="Digite o número do apartamento">
                     </div>
 
                     <div class="mb-3">
-                        <label for="emailaddress" class="form-label">Observacao</label>
-                        <input class="form-control" type="text" id="emailaddress" required="" placeholder="Digite algo que ajude a identificar o pacote">
+                        <label for="observacao" class="form-label">Observacao</label>
+                        <input class="form-control" type="text" id="observacao" name="observacao" required="" placeholder="Digite algo que ajude a identificar o pacote">
                     </div>
 
                     <div class="mb-3 text-center">
