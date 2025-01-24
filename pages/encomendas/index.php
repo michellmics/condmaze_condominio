@@ -192,7 +192,7 @@
                                                                     id="switch1<?= $index; ?>" 
                                                                     data-switch="success" 
                                                                     data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
+                                                                   
                                                                     onclick="event.stopPropagation();"
                                                                     <?php echo $field; ?>
                                                                 />
