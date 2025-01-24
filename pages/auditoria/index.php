@@ -101,13 +101,13 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Moradores </h4>
+                                    <h4 class="header-title">Auditoria </h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os moradores do condomínio.
+                                        Aqui são listados todas as atividades realizadas no sistema.
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5">
-                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                            
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
