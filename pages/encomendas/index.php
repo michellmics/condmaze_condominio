@@ -184,26 +184,7 @@
                                                                 </label>
                                                             </div>
                                                         </td>
-                                                        <td>
-                                                            <!-- Switch -->
-                                                            <div>
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    id="switch1<?= $index; ?>" 
-                                                                    data-switch="success" 
-                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                   
-                                                                    onclick="event.stopPropagation();"
-                                                                    <?php echo $field; ?>
-                                                                />
-                                                                <label 
-                                                                    for="switch1<?= $index; ?>" 
-                                                                    data-on-label="Sim" 
-                                                                    data-off-label="Não" 
-                                                                    class="mb-0 d-block">
-                                                                </label>
-                                                            </div>
-                                                        </td>
+
                                                     </tr>
                                                  <?php endforeach; ?>
                                                 </tbody>
