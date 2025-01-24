@@ -11,7 +11,7 @@
 	
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
-    $siteAdmin->getListaMensagensSugestoesInfo();
+    $siteAdmin->getEncomendaPortariaInfo();
 
     
 
@@ -133,7 +133,7 @@
                                                 Code
                                             </a>
                                         </li>
-                                    </ul> <!-- end nav-->
+                                    </ul> <!-- end nav--> 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
@@ -146,30 +146,32 @@
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
                                                         <th>DISPONIVEL?</th>
-                                                        <th>ENTREGUE?</th>
+                                                        <th>ENTREGUE?</th> 
                                                     </tr>
                                                 </thead>
-
-
                                                 <tbody>
+
+                                                <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
                                                     <tr>
-                                                        <td>12562</td>
-                                                        <td>194</td>
-                                                        <td>MICHELL DUARTE DE OLIVEIRA</td>
-                                                        <td>25/01/2025 11:55</td>
-                                                        <td>25/01/2025 15:20</td>
-                                                        <td>Retirado mediante facial</td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DTENTREGA_PORTARIA']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DTENTREGA_MORADOR']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DCOBSERVACAO']); ?></td>
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
-                                                                    id="switch"
-                                                                    data-switch="success"  
-                                                                    disabled                                                                   
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
                                                                 />
                                                                 <label 
-                                                                    for="switch" 
+                                                                    for="switch<?= $index; ?>" 
                                                                     data-on-label="Sim" 
                                                                     data-off-label="Não" 
                                                                     class="mb-0 d-block">
@@ -181,11 +183,14 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
-                                                                    id="switch"
-                                                                    data-switch="success"                                                                     
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
                                                                 />
                                                                 <label 
-                                                                    for="switch" 
+                                                                    for="switch<?= $index; ?>" 
                                                                     data-on-label="Sim" 
                                                                     data-off-label="Não" 
                                                                     class="mb-0 d-block">
@@ -193,6 +198,7 @@
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                 <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end preview-->
