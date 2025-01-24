@@ -69,15 +69,16 @@ class LoginSystem extends SITE_ADMIN
 
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $apartamento = $_POST['apartamento'] ?? null;
-    $password = $_POST['password'] ?? null;
+    $data = json_decode(file_get_contents('php://input'), true);
+    $apartamento = $data['apartamento'] ?? null;
+    $password = $data['senha'] ?? null;
 
     if (empty($apartamento) || empty($password)) {
-        echo json_encode(["success" => false, "message" => "Preencha todos os campos!"]);
+        echo json_encode(["success" => false, "message" => "Todos os campos são obrigatórios."]);
         exit;
     }
 
     $loginSystem = new LoginSystem();
-    $loginSystem->validateUser($apartamento, $password);
+    $result = $loginSystem->validateUser($apartamento, $password);
 }
 ?>
