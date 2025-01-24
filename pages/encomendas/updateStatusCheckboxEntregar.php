@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
-        $result = $siteAdmin->updateCheckboxEncomendasDisponivelPortaria($id, $status);
+        $result = $siteAdmin->updateCheckboxEncomendasPortaria($id, $status);
 
         echo json_encode(['success' => $result]);
     } else {
