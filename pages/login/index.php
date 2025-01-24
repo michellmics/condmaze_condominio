@@ -38,13 +38,6 @@ $host = $_SERVER['HTTP_HOST'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
-    <link rel="icon" href="<?php echo $host; ?>/logo_icon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="<?php echo $host; ?>/logo_icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="<?php echo $host; ?>/logo_icon.png">
-    <meta name="apple-mobile-web-app-title" content="Condominio">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
 
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
@@ -110,7 +103,6 @@ $host = $_SERVER['HTTP_HOST'];
                             <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
                         <br><br>
-                        <center><div class="g-recaptcha" data-sitekey="6LcA-rcqAAAAAK2N1QMI38QK4s5pKEMYjCRIikX8"></div></center>
                     </form>
                     <!-- end form-->
                 </div>
@@ -148,42 +140,6 @@ $host = $_SERVER['HTTP_HOST'];
                     .catch(error => console.error('Erro:', error));
                 });
                 </script>
-
-                 <!-- SCRIPT RECAPTCHA -->
-                    <!-- Onde a mensagem de sucesso/erro será exibida -->
-				<div id="form-message"></div>
-						<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-						<!-- Ajax para envio e exibicao do resultado sem load de pag nova -->
-						<script>
-							document.getElementById('demo-form').addEventListener('submit', function(e) {
-							    e.preventDefault(); // Impede o envio tradicional do formulário
-							
-							    // Verifica o reCAPTCHA
-							    var recaptchaResponse = grecaptcha.getResponse();
-							    if (recaptchaResponse.length === 0) {
-							        document.getElementById('form-message').innerHTML = "Por favor, complete o reCAPTCHA.";
-							        return; // Se o reCAPTCHA não foi resolvido, não submeta o formulário
-							    }
-							
-							    var formData = new FormData(this); // Captura todos os dados do formulário
-							
-							    var xhr = new XMLHttpRequest();
-							    xhr.open('POST', this.action, true); // Configura o envio via POST para o arquivo PHP
-							
-							    xhr.onload = function() {
-							        if (xhr.status === 200) {
-							            // Exibe a resposta do servidor na página
-							            document.getElementById('form-message').innerHTML = xhr.responseText;
-							        } else {
-							            document.getElementById('form-message').innerHTML = "Houve um erro no envio do formulário.";
-							        }
-							    };
-							
-							    xhr.send(formData); // Envia o formulário via AJAX
-							});
-						</script>
-
                 <!-- Footer-->
                 <footer class="footer footer-alt">
                     <p class="text-muted">Não têm uma conta? Entre em contato com o síndico.</p>

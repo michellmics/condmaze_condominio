@@ -86,51 +86,13 @@ class LoginSystem extends SITE_ADMIN
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 {
-    $secretKey = "6LcA-rcqAAAAAJtaGyxhlEy0tt9mdt6eP-cNGPzP"; 
 
-    $recaptchaResponse = $_POST['g-recaptcha-response'];
+    $apartamento = $_POST['username'];
+    $password = $_POST['password'];
+    
+    $loginSystem = new LoginSystem();
+    $result=$loginSystem->validateUser($apartamento, $password);       
 
-    // Verifique se o token foi recebido
-    if (!empty($recaptchaResponse))  
-    {
-        
-        // Verifique o reCAPTCHA fazendo uma solicitação à API do Google
-        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}");
-        $responseKeys = json_decode($response, true);
-
-        // Verifique o sucesso da validação
-        if ($responseKeys["success"]) 
-        {
-            $apartamento = $_POST['username'];
-            $password = $_POST['password'];
-
-            $loginSystem = new LoginSystem();
-            $result=$loginSystem->validateUser($apartamento, $password);
-        }
-        else 
-            {
-                //--------------------LOG----------------------//
-                $LOG_DCTIPO = "LOGIN FAILED";
-                $LOG_DCMSG = "Falha na verificação do reCAPTCHA";
-                $LOG_DCUSUARIO = "N/A";
-                $LOG_DCAPARTAMENTO = $apartamento;
-                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
-                //--------------------LOG----------------------//
-                echo "Falha na verificação do reCAPTCHA. Por favor, tente novamente.";
-            }
-    }
-    else 
-        {
-            //--------------------LOG----------------------//
-            $LOG_DCTIPO = "LOGIN FAILED";
-            $LOG_DCMSG = "Não completou o reCAPTCHA";
-            $LOG_DCUSUARIO = "N/A";
-            $LOG_DCAPARTAMENTO = $apartamento;
-            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
-            //--------------------LOG----------------------//
-
-            echo "Por favor, complete o reCAPTCHA.";
-        }
 }
  
 ?>
