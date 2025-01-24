@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
-        $result = $siteAdmin->updateCheckboxEncomendasMorador($id, $status);
+        $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status);
 
-        echo json_encode(['success' => $result]);
+        echo json_encode(['success' => $status]);
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);
     }
