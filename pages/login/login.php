@@ -69,7 +69,7 @@ class LoginSystem extends SITE_ADMIN
 
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $apartamento = $_POST['username'] ?? null;
+    $apartamento = $_POST['apartamento'] ?? null;
     $password = $_POST['password'] ?? null;
 
     if (empty($apartamento) || empty($password)) {
