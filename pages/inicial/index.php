@@ -308,6 +308,7 @@
                                             <br>
                                             <b>Horários Salão de Festas</b><br>
                                             <b>Segunda a Domingo:</b> 10h ás 00h<br>
+                                            <b>Valor do Aluguel:</b> R$60,00<br>
                                             <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
