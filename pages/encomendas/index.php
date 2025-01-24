@@ -13,11 +13,6 @@
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
 
-    var_dump($siteAdmin->ARRAY_ENCOMENDAINFO);
-    die();
-
-    
-
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
           $nomeCondominio = $item['CFG_DCVALOR']; 
@@ -176,7 +171,7 @@
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DCOBSERVACAO']); ?></td>
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DCOBSERVACAO']); ?></td> 
 
                                                         <td>
                                                             <!-- Switch -->
