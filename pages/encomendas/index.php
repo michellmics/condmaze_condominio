@@ -115,6 +115,7 @@
                                     </p>
 
                                     <button type="button" class="btn btn-info"><i class="mdi mdi-cloud me-1"></i> <span>Cloud Hosting</span> </button>
+                                    <br><br>
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
