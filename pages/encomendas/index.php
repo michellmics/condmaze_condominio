@@ -141,7 +141,7 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>APARTAMENTO</th>
-                                                        <th>NOME</th>
+                                                        <th>TITULAR AP.</th>
                                                         <th>DT ENTRADA</th>
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
@@ -153,14 +153,14 @@
 
                                                 <tbody>
                                                     <tr>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
-                                                        <td>System Architect</td>
-                                                        <td>System Architect</td>
+                                                        <td>12562</td>
+                                                        <td>194</td>
+                                                        <td>MICHELL DUARTE DE OLIVEIRA</td>
+                                                        <td>25/01/2025 11:55</td>
+                                                        <td>25/01/2025 15:20</td>
+                                                        <td>Retirado mediante facial</td>
+                                                        <td>SIM</td>
+                                                        <td>SIM</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
