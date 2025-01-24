@@ -393,35 +393,41 @@
             });
         });
     });
-</script>
-
-    <!-- Controle do pop-up de promoção -->
-    <script>
-        // Função para abrir o pop-up
-        function openPopup() {
-            document.getElementById('promoPopup').style.display = 'flex';
-        }
-    
-        // Função para fechar o pop-up
-        function closePopup() {
-            document.getElementById('promoPopup').style.display = 'none';
-        }
-    
-        // Fecha o pop-up ao clicar fora do quadrante
-        document.addEventListener('click', function(event) {
-            const popup = document.getElementById('promoPopup');
-            const popupContent = document.querySelector('.popup-content');
-            
-            if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
-                closePopup();
-            }
-        });
-    
-        // Abra o pop-up automaticamente após 1,5 segundos
-        window.onload = function() {
-            setTimeout(openPopup, 1500);
-        };
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
+        
+        switches.forEach(switchElem => {
+            switchElem.addEventListener('change', function () {
+                const id = this.getAttribute('data-id1');
+                const status = this.checked ? 'ENTREGUE' : 'PENDENTE';
+
+                // Envia a alteração para o servidor
+                fetch('updateStatusCheckboxEntregar.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id, status })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Erro ao atualizar o status!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao comunicar com o servidor.');
+                });
+            });
+        });
+    });
+    </script>
+
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
