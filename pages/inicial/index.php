@@ -189,7 +189,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title"> <i class=" ri-mail-send-line"></i> Entregas Disponíveis Para Retirada</h4>
+                                    <h4 class="header-title"> <i class=" ri-mail-send-line ri-2x"></i> Entregas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
                                     Os pacotes marcados como SIM na coluna <b>RETIRAR?</b> da tabela abaixo, devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
                                     O pacote só será liberado pela portaria se o status da coluna <b>RETIRAR?</b> estiver marcado como <b>SIM</b>.
