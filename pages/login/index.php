@@ -87,7 +87,7 @@ $host = $_SERVER['HTTP_HOST'];
                     <p class="text-muted mb-4">Utilize o número do apartamento e a senha.</p>
 
                     <!-- form -->
-                    <form id="demo-form" action="login.php" method="post" autocomplete="on">
+                    <form id="demo-form" method="post" autocomplete="on">
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Apartamento</label>
                             <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="username" autocomplete="username">
@@ -114,6 +114,35 @@ $host = $_SERVER['HTTP_HOST'];
                     </form>
                     <!-- end form-->
                 </div>
+
+                <script>
+                    function onSubmit(event) {
+                        event.preventDefault();
+                    
+                        const username = document.getElementById('apartamento').value;
+                        const password = document.getElementById('password').value;
+                        const rememberMe = document.getElementById('checkbox-signin').checked;
+                    
+                        fetch('login.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ username, password }),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                if (rememberMe) {
+                                    localStorage.setItem('authToken', data.token);
+                                }
+                                alert('Login bem-sucedido!');
+                                window.location.href = 'dashboard.php';
+                            } else {
+                                alert('Credenciais inválidas!');
+                            }
+                        })
+                        .catch(error => console.error('Erro:', error));
+                    }
+                </script>
 
                  <!-- SCRIPT RECAPTCHA -->
                     <!-- Onde a mensagem de sucesso/erro será exibida -->

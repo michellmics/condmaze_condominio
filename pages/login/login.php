@@ -47,6 +47,9 @@ class LoginSystem extends SITE_ADMIN
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
                 $stmt->execute();
 
+                echo $token;
+
+                /*
 
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "LOGIN";
@@ -58,6 +61,7 @@ class LoginSystem extends SITE_ADMIN
 
                         echo '<meta http-equiv="refresh" content="0;url=../inicial/index.php">'; // Redireciona após login bem-sucedido
                         exit();
+                */
              
             } else 
                 {
