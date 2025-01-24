@@ -83,7 +83,7 @@ $host = $_SERVER['HTTP_HOST'];
                     <form id="loginForm">
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Apartamento</label>
-                            <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="username" autocomplete="username">
+                            <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="apartamento" autocomplete="apartamento">
                         </div>
                         <div class="mb-3">
                             <a href="pages-recoverpw-2.html" class="text-muted float-end"><small>Esqueceu sua senha?</small></a>
