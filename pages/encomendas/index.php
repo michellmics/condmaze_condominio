@@ -127,6 +127,7 @@
                                                         <th>OBS</th>
                                                         <th>DISPONIVEL?</th>
                                                         <th>ENTREGUE?</th> 
+                                                        <th></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -213,7 +214,9 @@
                                                                 </label>
                                                             </div>
                                                         </td>
-
+                                                        <td>
+                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                                        </td>
                                                     </tr>
                                                  <?php endforeach; ?>
                                                 </tbody>
