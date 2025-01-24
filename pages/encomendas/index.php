@@ -153,7 +153,7 @@
                                                     <?php
                                                         if($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR")
                                                         {
-                                                            $field = "disable";
+                                                            $field = "disabled";
                                                         }
                                                     ?>
                                                     <tr>
