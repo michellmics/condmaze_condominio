@@ -56,6 +56,11 @@
                                     <a href="<?php echo $webmailUrl; ?>" target="_blank" class="dropdown-item">Webmail</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="../logoff/index.php" id="topnav-components" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="uil-home-alt"></i>Logoff <div class="dropdown-item"></div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
