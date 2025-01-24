@@ -123,7 +123,6 @@ $host = $_SERVER['HTTP_HOST'];
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            alert('Login bem-sucedido!');
                             const token = data.token;
                         
                             // Salva o token no localStorage se "Lembrar-me" estiver marcado
@@ -132,7 +131,7 @@ $host = $_SERVER['HTTP_HOST'];
                             }
                         
                             // Redireciona para a página protegida
-                            window.location.href = 'dashboard.php';
+                            window.location.href = 'inicial/index.php';
                         } else {
                             alert(data.message);
                         }
