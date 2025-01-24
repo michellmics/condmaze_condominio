@@ -58,7 +58,7 @@
                             </li>
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="../logoff/index.php" id="topnav-components" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-sign-out-alt"></i>Logoff <div class="dropdown-item"></div>
+                                    <i class="ri-logout-box-r-line"></i>Logoff <div class="dropdown-item"></div> 
                                 </a>
                             </li>
                         </ul>
