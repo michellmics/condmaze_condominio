@@ -69,16 +69,8 @@ class LoginSystem extends SITE_ADMIN
                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                 //--------------------LOG----------------------//
 
-                if($_SESSION['user_nivelacesso'] == "MORADOR" || $_SESSION['user_nivelacesso'] == "SINDICO")
-                {
-                    echo '<meta http-equiv="refresh" content="0;url=../dashboard/index.php">'; // Redireciona após login bem-sucedido
-                    exit();
-                }
-                else
-                    {
                         echo '<meta http-equiv="refresh" content="0;url=../inicial/index.php">'; // Redireciona após login bem-sucedido
                         exit();
-                    }
              
             } else 
                 {
