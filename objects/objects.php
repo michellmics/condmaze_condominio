@@ -577,6 +577,29 @@
             }
         }
 
+        public function updateCheckboxEncomendasDisponivelPortaria($ENC_IDENCOMENDA, $ENC_STENTREGA_MORADOR)
+        {
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try
+            {         
+                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_IDENCOMENDA = :ENC_IDENCOMENDA";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':ENC_IDENCOMENDA', $ENC_IDENCOMENDA, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENCOMENDA, PDO::PARAM_STR); 
+                $stmt->execute();     
+
+                return ["success" => "Encomenda atualizada com sucesso."];
+
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
 
 
     }
