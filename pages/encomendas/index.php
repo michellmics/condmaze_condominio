@@ -166,9 +166,12 @@
                                                         if($item['ENC_STENTREGA_MORADOR'] == "ENTREGUE") 
                                                         {
                                                             $fieldPortaria = "disabled";
-                                                            $fieldMorador = "disabled";
-                                                            
+                                                            $fieldMorador = "disabled";                                                            
                                                         }
+                                                        else
+                                                            {
+                                                                $fieldMorador = "";
+                                                            }
                                                         
                                                         
                                                     ?>
