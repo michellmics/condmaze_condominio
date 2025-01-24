@@ -203,7 +203,7 @@
                                                             <th>ID</th>
                                                             <th>AP</th>
                                                             <th>ENTRADA</th>
-                                                            <th>RECEBER?</th>
+                                                            <th>VOU RETIRAR?</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
