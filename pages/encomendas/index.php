@@ -241,7 +241,7 @@
     <!-- END wrapper -->
 
 
-<!-- Signup modal-->
+<!-- cadastrar pacote modal-->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal">Sign Up Modal</button>
 <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -250,7 +250,7 @@
             <div class="modal-body">
                 <div class="text-center mt-2 mb-4">
                     <a href="index.html" class="text-success">
-                        <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
+                        <span><img src="../../assets/images/logo-dark.png" alt="" height="18"></span>
                     </a>
                 </div>
 
@@ -297,7 +297,7 @@
             <div class="modal-body">
                 <div class="text-center mt-2 mb-4">
                     <a href="index.html" class="text-success">
-                        <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
+                        <span><img src="../../assets/images/logo-dark.png" alt="" height="18"></span>
                     </a>
                 </div>
 
