@@ -192,7 +192,7 @@
                                                                     data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($field); ?>
+                                                                    disabled
                                                                 />
                                                                 <label 
                                                                     for="switch1<?= $index; ?>" 
