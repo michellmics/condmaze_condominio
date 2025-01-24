@@ -416,6 +416,7 @@
                 .then(data => {
                     if (!data.success) {
                         alert('Erro ao atualizar o status!');
+                        console.error('Erro:', response);
                     }
                 })
                 .catch(error => {
