@@ -136,6 +136,7 @@
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
                                                     <?php
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
+                                                        $obs = substr($item['ENC_DCOBSERVACAO'],0,20);
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
@@ -171,7 +172,7 @@
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_DCOBSERVACAO']); ?></td> 
+                                                        <td style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
 
                                                         <td>
                                                             <!-- Switch -->

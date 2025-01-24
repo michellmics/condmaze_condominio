@@ -23,7 +23,7 @@ class registerPacote extends SITE_ADMIN
 
             $result = $this->insertPacoteInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
 
-            echo $result;                                
+            echo "Pacote cadastrado com sucesso.";                                 
                    
         } catch (PDOException $e) {  
             echo "Erro ao cadastrar pacote."; 
