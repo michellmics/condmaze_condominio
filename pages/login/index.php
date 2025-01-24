@@ -93,7 +93,7 @@ $host = $_SERVER['HTTP_HOST'];
                         <div class="mb-3">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox-signin">
-                                <label class="form-check-label" for="checkbox-signin">Lembrar?</label>
+                                <label class="form-check-label" for="checkbox-signin">Manter Conectado?</label>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -121,7 +121,7 @@ $host = $_SERVER['HTTP_HOST'];
                             .then(data => {
                                 if (data.valid) {
                                     // Token válido, redireciona para a página inicial
-                                    //window.location.href = '../inicial/index.php';
+                                    window.location.href = '../inicial/index.php';
                                 } else {
                                     // Token inválido, remove do localStorage
                                     localStorage.removeItem('authToken');
