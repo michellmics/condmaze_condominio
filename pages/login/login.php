@@ -39,22 +39,14 @@ class LoginSystem extends SITE_ADMIN
 
                 //TOKENIZAÇÃO
                 $token = $this->gerarToken();
-                $timestamp_atual = time();
-                $data_expira = strtotime('+60 days', $timestamp_atual);
-
-                // Formata o timestamp no formato MySQL (YYYY-MM-DD HH:MM:SS)
-                $data_expira = date('Y-m-d H:i:s', $data_expira);
 
                 // Prepara a consulta SQL para verificar o usuário
-                $sql = "UPDATE USU_USUARIO SET USU_DCTOKEN = :USU_DCTOKEN, USU_DTEXP_TOKEN = :USU_DTEXP_TOKEN WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
+                $sql = "UPDATE USU_USUARIO SET USU_DCTOKEN = :USU_DCTOKEN WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':USU_DCTOKEN', $token, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
-                $stmt->bindParam(':USU_DTEXP_TOKEN', $data_expira, PDO::PARAM_STR);
                 $stmt->execute();
 
-                    // Define o cookie com o token
-                    setcookie("auth_token", $token, time() + 5184000, "/", "", true, true); // Expira em 60 dias, apenas HTTPS, HttpOnly
 
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "LOGIN";
