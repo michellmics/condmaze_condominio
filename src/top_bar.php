@@ -10,8 +10,8 @@
 	
 	if (!isset($_SESSION['user_id'])) 
 	{
-	  //header("Location: $webmailUrl");
-	  //exit();
+	  header("Location: $webmailUrl");
+	  exit();
 	}
 
     // Atualiza o timestamp da última atividade
@@ -19,8 +19,8 @@
 
 	if (!isset($_SESSION['user_id'])) 
 	{
-	  //header("Location: $webmailUrl");
-	  //exit();
+	  header("Location: $webmailUrl");
+	  exit();
 	}
 
 	$blocoSession = $_SESSION['user_bloco'];
