@@ -62,6 +62,16 @@
                 die("Erro na conexão: " . $e->getMessage());
             }
         }
+
+        // Função para gerar um novo token de acesso
+        public function gerarToken($userId) {
+            $chaveSecreta = "mcodemaze!4795condominio$#@!!@#$"; // chave secreta forte
+            $dados = [
+                "user_id" => $userId,
+                "exp" => time() + (30 * 24 * 60 * 60) // Expira em 30 dias
+            ];
+            return base64_encode(json_encode($dados) . "." . hash_hmac('sha256', json_encode($dados), $chaveSecreta));
+        }
         
         public function stmtToArray($stmtFunction)
 		{		

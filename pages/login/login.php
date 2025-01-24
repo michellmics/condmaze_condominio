@@ -12,11 +12,6 @@ header("Expires: 0");
 
 class LoginSystem extends SITE_ADMIN
 {
-    // Função para gerar um novo token
-    function gerarToken(){
-        return bin2hex(random_bytes(32));
-    }
-
     public function validateUser($apartamento, $password)
     {
         try {
