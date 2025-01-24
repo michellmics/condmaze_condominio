@@ -158,7 +158,7 @@
                         <div class="popup-content">
                             <button class="close-btn" onclick="closePopup()">×</button>
                             <a <?php echo $publiImageLink; ?>>
-                                <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
+                                <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: auto; height: auto;">
                             </a>
                         </div>
                     </div>
