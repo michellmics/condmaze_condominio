@@ -95,7 +95,7 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
- ewrwerwer
+                                <button type="button" class="btn btn-info"><i class="mdi mdi-cloud me-1"></i> <span>Cloud Hosting</span> </button>
                                 </div>
                             </div>
                         </div>
