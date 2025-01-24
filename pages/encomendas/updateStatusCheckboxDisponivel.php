@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $siteAdmin = new SITE_ADMIN();
         $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status);
 
-        echo json_encode(['success' => $status]);
+        echo json_encode(['success' => $result]);
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);
     }
