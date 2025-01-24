@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Exemplo de verificação de token (substitua conforme sua lógica)
     // Aqui, supomos que o token é salvo no banco de dados com informações do usuário
     $siteAdmin = new SITE_ADMIN();
-    $siteAdmin->getTokenInfo($token); // Método fictício para buscar informações do token
+    $siteAdmin->getTokenInfo('eyJ1c2VyX2lkIjozNTIsImV4cCI6MTc0MDMyOTcxNn0uNTA3YjE4OTI2ZTA4MzU0MWM3NGJmOGU5ZDM0MmFmZWE3YTJiNzdkZDgwNmE4ZjlmZjk1NTQ5Y2YwZmMyMzEzNQ=='); // Método fictício para buscar informações do token
 
     if (!empty($siteAdmin->ARRAY_TOKENINFO)) {
         // Supondo que o token está armazenado com informações de validade
