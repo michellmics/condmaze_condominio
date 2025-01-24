@@ -150,6 +150,12 @@
                                                 <tbody>
 
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
+                                                    <?php
+                                                        if($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR")
+                                                        {
+                                                            $field = "disable";
+                                                        }
+                                                    ?>
                                                     <tr>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
@@ -186,6 +192,7 @@
                                                                     data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($field); ?>
                                                                 />
                                                                 <label 
                                                                     for="switch1<?= $index; ?>" 
