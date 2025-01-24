@@ -159,7 +159,6 @@
                                                         <td>25/01/2025 11:55</td>
                                                         <td>25/01/2025 15:20</td>
                                                         <td>Retirado mediante facial</td>
-                                                        <td>SIM</td>
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
