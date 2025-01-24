@@ -86,7 +86,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        /*height: 100%;*/
         background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
         display: flex;
         justify-content: center;
@@ -158,7 +158,7 @@
                         <div class="popup-content">
                             <button class="close-btn" onclick="closePopup()">×</button>
                             <a <?php echo $publiImageLink; ?>>
-                                <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: auto; height: auto;">
+                                <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
                             </a>
                         </div>
                     </div>
