@@ -156,12 +156,21 @@
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
                                                         {
-                                                            $field = "disabled";
+                                                            $fieldPortaria = "disabled";
                                                         }
                                                         else
                                                             {
-                                                                $field = "";
+                                                                $fieldPortaria = "";
                                                             }
+
+                                                        if($item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                            $fieldMorador = "disabled";
+                                                            
+                                                        }
+                                                        
+                                                        
                                                     ?>
                                                     <tr>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
@@ -180,6 +189,7 @@
                                                                     data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldMorador); ?>
                                                                 />
                                                                 <label 
                                                                     for="switch<?= $index; ?>" 
@@ -200,7 +210,7 @@
                                                                     data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($field); ?>
+                                                                    <?= htmlspecialchars($fieldPortaria); ?>
                                                                 />
                                                                 <label 
                                                                     for="switch1<?= $index; ?>" 
