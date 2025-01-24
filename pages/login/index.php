@@ -131,7 +131,7 @@ $host = $_SERVER['HTTP_HOST'];
                             }
                         
                             // Redireciona para a página protegida
-                            window.location.href = 'inicial/index.php';
+                            window.location.href = '../inicial/index.php';
                         } else {
                             alert(data.message);
                         }
