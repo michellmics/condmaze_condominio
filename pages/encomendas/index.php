@@ -115,7 +115,7 @@
                                     </p>
 
                                     <button type="button" class="btn btn-danger">Cadastrar Pacote</button>
-                                    <button type="button" class="btn btn-success float-end">Refresh</button>
+                                    <button type="button" class="btn btn-success float-end" onclick="location.reload()">Refresh</button>
                                     <br><br>
 
                                     <div class="tab-content">
