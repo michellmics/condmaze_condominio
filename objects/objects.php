@@ -113,7 +113,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT USU_DCTOKEN, USU_DTEXP_TOKEN FROM USU_USUARIO WHERE USU_DCTOKEN = :USU_DCTOKEN";
+                $sql = "SELECT USU_DCTOKEN FROM USU_USUARIO WHERE USU_DCTOKEN = :USU_DCTOKEN";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':USU_DCTOKEN', $USU_DCTOKEN, PDO::PARAM_STR);

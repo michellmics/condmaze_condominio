@@ -29,18 +29,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Supondo que o token está armazenado com informações de validade
         $tokenData = $siteAdmin->ARRAY_TOKENINFO;
 
-        // Verifica se o token está expirado
-        $currentTime = time();
-        $expirationTime = strtotime($tokenData['USU_DTEXP_TOKEN']); // Ajuste o campo conforme o banco
-
-        if ($currentTime > $expirationTime) {
-            echo json_encode(['success' => false, 'message' => 'Token expirado.']);
-        } else {
-            echo json_encode(['success' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
+        // Divide o token em partes (dados e assinatura)
+        $partes = explode('.', base64_decode($tokenData));
+        if (count($partes) !== 2) {
+            echo json_encode(['success' => false, 'message' => 'Token inválido.']);
+            exit;
         }
+        
+        $dadosCodificados = $partes[0];
+
+        $dados = json_decode($dadosCodificados, true);
+
+        if ($dados === null || !isset($dados['exp'])) {
+            echo json_encode(['success' => false, 'message' => 'Token inválido ou corrompido.']);
+            exit;
+        }
+
+    // Verifica se o token expirou
+    if (time() > $dados['exp']) {
+        echo json_encode(['success' => false, 'message' => 'Token expirado.']);
+        exit;
     } else {
-        echo json_encode(['success' => false, 'message' => 'Token inválido.']);
+        echo json_encode(['success' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
     }
+
 } else {
     echo json_encode(['success' => false, 'message' => 'Método não permitido.']);
 }
