@@ -257,12 +257,12 @@
 
                     <div class="mb-3">
                         <label for="apartamento" class="form-label">Apartamento</label>
-                        <input class="form-control" type="number" name="apartamento" id="apartamento" required="" placeholder="Digite o número do apartamento">
+                        <input class="form-control" type="number" name="apartamento" id="apartamento" maxlength="4" required="" placeholder="Digite o número do apartamento">
                     </div>
 
                     <div class="mb-3">
                         <label for="observacao" class="form-label">Observacao</label>
-                        <input class="form-control" type="text" id="observacao" name="observacao" required="" placeholder="Digite algo que ajude a identificar o pacote">
+                        <input class="form-control" type="text" id="observacao" name="observacao" required="" maxlength="50" placeholder="Digite algo que ajude a identificar o pacote">
                     </div>
 
                     <div class="mb-3 text-center">
