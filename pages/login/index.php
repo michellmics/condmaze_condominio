@@ -111,7 +111,6 @@ $host = $_SERVER['HTTP_HOST'];
                     // Verifica o token ao carregar a página
                     document.addEventListener('DOMContentLoaded', () => {
                         const token = localStorage.getItem('authToken');
-                        alert(token);
                         if (token) {
                             fetch('verifyToken.php', {
                                 method: 'POST',
@@ -126,7 +125,7 @@ $host = $_SERVER['HTTP_HOST'];
                                 } else {
                                     // Token inválido, remove do localStorage
                                     localStorage.removeItem('authToken');
-                                }
+                                } 
                             })
                             .catch(error => console.error('Erro ao verificar token:', error));
                         }
