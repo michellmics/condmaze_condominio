@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Verifica se o token expirou
-        if (time() < $dados['exp']) {
+        if (time() > $dados['exp']) {
             echo json_encode(['valid' => false, 'message' => 'Token expirado.'.$tokenData]);
             exit;
         }
