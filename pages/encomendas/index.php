@@ -101,7 +101,6 @@
                                         <li class="breadcrumb-item active">Basic Tables</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Bem vindo(a)</h4>
                             </div>
                         </div>
                     </div>
