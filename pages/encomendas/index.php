@@ -31,9 +31,6 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
-
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">

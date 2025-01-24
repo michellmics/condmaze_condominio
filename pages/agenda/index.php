@@ -27,9 +27,6 @@
 
     <script src="https://unpkg.com/@fullcalendar/core@4.4.0/locales/pt-br.js"></script>
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
-
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
 
