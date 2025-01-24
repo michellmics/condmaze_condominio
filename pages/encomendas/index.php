@@ -160,7 +160,38 @@
                                                         <td>25/01/2025 15:20</td>
                                                         <td>Retirado mediante facial</td>
                                                         <td>SIM</td>
-                                                        <td>SIM</td>
+                                                        <td>
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch"
+                                                                    data-switch="success"                                                                     
+                                                                />
+                                                                <label 
+                                                                    for="switch" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch"
+                                                                    data-switch="success"                                                                     
+                                                                />
+                                                                <label 
+                                                                    for="switch" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
