@@ -127,7 +127,7 @@ $host = $_SERVER['HTTP_HOST'];
                         
                             // Salva o token no localStorage se "Lembrar-me" estiver marcado
                             if (rememberMe) {
-                                localStorage.setItem('authToken', token);
+                                localStorage.setItem('authToken', token); 
                             }
                         
                             // Redireciona para a página protegida
