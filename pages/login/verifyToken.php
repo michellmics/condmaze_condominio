@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Divide o token em partes (dados e assinatura)
         $partes = explode('.', base64_decode($tokenData));
         if (count($partes) !== 2) {
-            echo json_encode(['success' => false, 'message' => 'Token inválido.']);
+            echo json_encode(['valid' => false, 'message' => 'Token inválido.']);
             exit;
         }
         
@@ -41,21 +41,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dados = json_decode($dadosCodificados, true);
 
         if ($dados === null || !isset($dados['exp'])) {
-            echo json_encode(['success' => false, 'message' => 'Token inválido ou corrompido.']);
+            echo json_encode(['valid' => false, 'message' => 'Token inválido ou corrompido.']);
             exit;
         }
 
         // Verifica se o token expirou
         if (time() > $dados['exp']) {
-            echo json_encode(['success' => false, 'message' => 'Token expirado.']);
+            echo json_encode(['valid' => false, 'message' => 'Token expirado.']);
             exit;
         } else {
-            echo json_encode(['success' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
+            echo json_encode(['valid' => true, 'message' => 'Token válido.', 'user' => $tokenData['user']]);
         }
     }
     else {
-        echo json_encode(['success' => false, 'message' => 'Token não encontrado.']);
+        echo json_encode(['valid' => false, 'message' => 'Token não encontrado.']);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Método não permitido.']);
+    echo json_encode(['valid' => false, 'message' => 'Método não permitido.']);
 }
