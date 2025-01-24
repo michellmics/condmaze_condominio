@@ -114,8 +114,8 @@
                                     status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
                                     </p>
 
-                                    <button type="button" class="btn btn-info"><i class="mdi mdi-star"></i> <span>Cadastrar Pacote</span> </button>
-                                    <button type="button" class="btn btn-success">Atualizar</button>
+                                    <button type="button" class="btn btn-danger">Cadastrar Pacote</button>
+                                    <button type="button" class="btn btn-success">Refresh</button>
                                     <br><br>
 
                                     <div class="tab-content">
