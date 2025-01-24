@@ -112,9 +112,8 @@
                                     status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
                                     </p>
 
-                                    <button type="button" class="btn btn-danger">Cadastrar Pacote</button>
-                                    <button type="button" class="btn btn-success float-end" onclick="location.reload()">Refresh</button>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#login-modal">Log In Modal</button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#login-modal">Cadastrar Pacote</button>
+                                    <button type="button" class="btn btn-success float-end" onclick="location.reload()">Refresh</button>                                    
                                     <br><br>
 
                                     <div class="tab-content">
