@@ -285,9 +285,9 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Contatos e Documentos Úteis</h4>
+                                    <h4 class="header-title">Informações Úteis</h4>
                                     <p class="text-muted font-14">
-                                        Informações úteis do condomínio.
+                                        Dados relevantes para ficar por dentro do que acontece no condomínio.
                                     </p>
 
                                     <div class="tab-content">
@@ -296,6 +296,11 @@
                                             
                                             <b>Grupo para comunicação</b><br>
                                             <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Link para o grupo</a><br>
+                                            <br>
+                                            <b>Horário para Reformas no Apartamento</b><br>
+                                            <b>Segunda a sexta:</b> 08h ás 17h<br>
+                                            <b>Sábado:</b> 08h ás 12h<br>
+                                            <b>Domingos e Feriados:</b> Não é permitido reforma<br>
                                             <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
