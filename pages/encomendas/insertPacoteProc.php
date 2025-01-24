@@ -21,7 +21,7 @@ class registerPacote extends SITE_ADMIN
                 exit();
             }
 
-            $result = $this->insertPacoteInfo($apartamento, $observacao);
+            $result = $this->insertPacoteInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
 
             echo "Pacote cadastrado com sucesso.";                                 
                    
