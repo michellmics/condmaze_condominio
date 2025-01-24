@@ -155,6 +155,7 @@
                                                         {
                                                             $field = "disabled";
                                                         }
+                                                        $field = "disabled";
                                                     ?>
                                                     <tr>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
