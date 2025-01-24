@@ -151,6 +151,25 @@
             }          
         }
 
+        public function getMoradoresByApInfo($USU_DCAPARTAMENTO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                                FROM USU_USUARIO
+                                WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO ";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_LISTAMORADORESINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function getListaMensagensSugestoesInfo()
         {          
                 // Verifica se a conexão já foi estabelecida
