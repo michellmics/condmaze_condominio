@@ -1,23 +1,6 @@
 <?php
 include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 
-session_start(); 
-define('SESSION_TIMEOUT', 43200); // 30 minutos
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: https://www.prqdashortensias.com.br/index.php");
-  exit();
-}
-	// Atualiza o timestamp da última atividade
-	$_SESSION['last_activity'] = time();
-
-	if (!isset($_SESSION['user_id'])) 
-	{
-	  header("Location: https://www.prqdashortensias.com.br/index.php");
-	  exit();
-	}
-
 class registerUser extends SITE_ADMIN
 {
     public function insertUser($email, $senha, $nome, $bloco, $apartamento, $nivel)
@@ -55,7 +38,7 @@ class registerUser extends SITE_ADMIN
                     $SUBJECT = "Seja Bem vindo(a) ao Condomínio Parque das Hortênsias";
                     $MSG = "Olá $nome, você foi cadastrado(a) no sistema do Condomínio Parque das Hortênsias. Seu usuário é seu e-mail e sua senha é: $senha. Para entrar no sistema acesse: https://www.prqdashortensias.com.br/";
                     $this->notifyUsuarioEmail($SUBJECT, $MSG, $email); //notificação por email
-
+/*
                     //--------------------LOG----------------------//
                     $LOG_DCTIPO = "NOVO CADASTRO";
                     $LOG_DCMSG = "O usuário $nome foi cadastrado com sucesso com credenciais de $nivel.";
@@ -63,7 +46,7 @@ class registerUser extends SITE_ADMIN
                     $LOG_DCAPARTAMENTO = $apartamento;
                     $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                     //--------------------LOG----------------------//
-
+*/
                     echo "Usuário cadastrado com sucesso."; 
                     
                 }
