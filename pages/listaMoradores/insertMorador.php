@@ -95,7 +95,7 @@
                                             <form class="needs-validation" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  required>
+                                                    <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -105,7 +105,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">E-mail</label>
-                                                    <input type="text" class="form-control" name="email" id="email" placeholder="E-mail" required>
+                                                    <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -115,7 +115,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Bloco</label>
-                                                    <input type="text" class="form-control" id="bloco" name="bloco" placeholder="Bloco" required>
+                                                    <input id="bloco" name="bloco"  type="number" class="form-control" placeholder="" maxlength="1" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -125,7 +125,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Apartamento</label>
-                                                    <input type="text" class="form-control" id="apartamento" name="apartamento" placeholder="Num. Apartamento" required>
+                                                    <input id="apartamento" name="apartamento" type="number" class="form-control" placeholder="" maxlength="4" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -135,7 +135,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Senha</label>
-                                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                                                    <input id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -143,29 +143,18 @@
                                                     Por favor, preencha a senha de acesso.
                                                     </div>
                                                 </div> 
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip02">Confirme a Senha</label>
-                                                    <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Senha" required>
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha a senha de acesso.
-                                                    </div>
-                                                </div> 
-
                                                 <h6 class="font-15 mt-3">Nível de Acesso</h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline form-radio-info mb-2">
-                                                        <input type="radio" id="customRadio3" name="customRadio1" class="form-check-input" checked>
+                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input" checked>
                                                         <label class="form-check-label" for="customRadio3">Morador</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-warning mb-2">
-                                                        <input type="radio" id="customRadio4" name="customRadio1" class="form-check-input">
+                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input">
                                                         <label class="form-check-label" for="customRadio4">Portaria</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-danger mb-2">
-                                                        <input type="radio" id="customRadiocolor5" name="customRadio1" class="form-check-input">
+                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input">
                                                         <label class="form-check-label" for="customRadio4">Síndico</label>
                                                     </div>
                                                 </div>
