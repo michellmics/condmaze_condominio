@@ -105,7 +105,7 @@
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="tooltips-validation-preview">
-                                            <form class="needs-validation" id="form-empresa" role="form" method="POST" enctype="multipart/form-data" novalidate>
+                                            <form class="needs-validation" id="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
                                                     <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
@@ -210,38 +210,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-        function validarFormulario() {
-            const nome = document.querySelector('input[name="nome"]').value.trim();
-            const documento = document.querySelector('input[name="documento"]').value.trim();
-	    	const status = document.querySelector('input[name="status"]:checked')   
-            if (!nome || !documento) {
-                alert("Todos os campos devem ser preenchidos.");
-                return false;
-            }
-            return true;
-        }
-
-
-      function confirmAndSubmit(event) {
-          // Chama a validação do formulário
-        const isValid = validarFormulario();
-        const metodo = document.querySelector('input[name="metodo"]').value.trim();
-        let msgBox = "";
-
-        if(metodo == 'insert')
-        {
-          msgBox = "Têm certeza que deseja cadastrar o convidado?";
-        }
-        else
-          {
-            msgBox = "Têm certeza que deseja atualizar o convidado?";
-          }
-
-        // Se a validação falhar, interrompe a execução
-        if (!isValid) {
-            return;
-        }
-
+       function confirmAndSubmit(event) {
+       
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Moradores',
