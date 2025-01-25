@@ -95,7 +95,7 @@
                                             <form class="needs-validation" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="nome" placeholder="Nome Completo"  required>
+                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"  required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -105,7 +105,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">E-mail</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="E-mail" required>
+                                                    <input type="text" class="form-control" name="email" id="email" placeholder="E-mail" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -115,7 +115,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Bloco</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="Bloco" required>
+                                                    <input type="text" class="form-control" id="bloco" name="bloco" placeholder="Bloco" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -125,7 +125,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Apartamento</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="Num. Apartamento" required>
+                                                    <input type="text" class="form-control" id="apartamento" name="apartamento" placeholder="Num. Apartamento" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -135,7 +135,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Senha</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="Senha" required>
+                                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -145,7 +145,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Confirme a Senha</label>
-                                                    <input type="text" class="form-control" id="documento" placeholder="Confirme a senha" required>
+                                                    <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Senha" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -174,70 +174,7 @@
                                                 <button class="btn btn-danger" type="submit">Cancelar</button>              
                                                 <button class="btn btn-primary" type="submit">Salvar</button>
                                             </form>
-                                        </div> <!-- end preview-->
-
-                                        <div class="tab-pane code" id="tooltips-validation-code">
-                                            <button class="btn-copy-clipboard" data-clipboard-action="copy">Copy</button>
-                                            <pre class="mb-0">
-                                                    <span class="html escape">
-                                                        &lt;form class=&quot;needs-validation&quot; novalidate&gt;
-                                                            &lt;div class=&quot;position-relative mb-3&quot;&gt;
-                                                                &lt;label class=&quot;form-label&quot; for=&quot;validationTooltip01&quot;&gt;First name&lt;/label&gt;
-                                                                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;validationTooltip01&quot; placeholder=&quot;First name&quot; value=&quot;Mark&quot; required&gt;
-                                                                &lt;div class=&quot;valid-tooltip&quot;&gt;
-                                                                    Looks good!
-                                                                &lt;/div&gt;
-                                                                &lt;div class=&quot;invalid-tooltip&quot;&gt;
-                                                                    Please enter first name.
-                                                                &lt;/div&gt;
-                                                            &lt;/div&gt;
-                                                            &lt;div class=&quot;position-relative mb-3&quot;&gt;
-                                                                &lt;label class=&quot;form-label&quot; for=&quot;validationTooltip02&quot;&gt;Last name&lt;/label&gt;
-                                                                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;validationTooltip02&quot; placeholder=&quot;Last name&quot; value=&quot;Otto&quot; required&gt;
-                                                                &lt;div class=&quot;valid-tooltip&quot;&gt;
-                                                                    Looks good!
-                                                                &lt;/div&gt;
-                                                                &lt;div class=&quot;invalid-tooltip&quot;&gt;
-                                                                    Please enter last name.
-                                                                &lt;/div&gt;
-                                                            &lt;/div&gt;
-                                                            &lt;div class=&quot;position-relative mb-3&quot;&gt;
-                                                                &lt;label class=&quot;form-label&quot; for=&quot;validationTooltipUsername&quot;&gt;Username&lt;/label&gt;
-                                                                &lt;div class=&quot;input-group&quot;&gt;
-                                                                    &lt;span class=&quot;input-group-text&quot; id=&quot;validationTooltipUsernamePrepend&quot;&gt;@&lt;/span&gt;
-                                                                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;validationTooltipUsername&quot; placeholder=&quot;Username&quot;
-                                                                        aria-describedby=&quot;validationTooltipUsernamePrepend&quot; required&gt;
-                                                                    &lt;div class=&quot;invalid-tooltip&quot;&gt;
-                                                                        Please choose a unique and valid username.
-                                                                    &lt;/div&gt;
-                                                                &lt;/div&gt;
-                                                            &lt;/div&gt;
-                                                            &lt;div class=&quot;position-relative mb-3&quot;&gt;
-                                                                &lt;label class=&quot;form-label&quot; for=&quot;validationTooltip03&quot;&gt;City&lt;/label&gt;
-                                                                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;validationTooltip03&quot; placeholder=&quot;City&quot; required&gt;
-                                                                &lt;div class=&quot;invalid-tooltip&quot;&gt;
-                                                                    Please provide a valid city.
-                                                                &lt;/div&gt;
-                                                            &lt;/div&gt;
-                                                            &lt;div class=&quot;position-relative mb-3&quot;&gt;
-                                                                &lt;label class=&quot;form-label&quot; for=&quot;validationTooltip04&quot;&gt;State&lt;/label&gt;
-                                                                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;validationTooltip04&quot; placeholder=&quot;State&quot; required&gt;
-                                                                &lt;div class=&quot;invalid-tooltip&quot;&gt;
-                                                                    Please provide a valid state.
-                                                                &lt;/div&gt;
-                                                            &lt;/div&gt;
-                                                            &lt;div class=&quot;position-relative mb-3&quot;&gt;
-                                                                &lt;label class=&quot;form-label&quot; for=&quot;validationTooltip05&quot;&gt;Zip&lt;/label&gt;
-                                                                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;validationTooltip05&quot; placeholder=&quot;Zip&quot; required&gt;
-                                                                &lt;div class=&quot;invalid-tooltip&quot;&gt;
-                                                                    Please provide a valid zip.
-                                                                &lt;/div&gt;
-                                                            &lt;/div&gt;
-                                                            &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit form&lt;/button&gt;
-                                                        &lt;/form&gt;
-                                                    </span>
-                                                </pre> <!-- end highlight-->
-                                        </div> <!-- end preview code-->
+                                        </div> <!-- end preview-->                                        
                                     </div> <!-- end tab-content-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
