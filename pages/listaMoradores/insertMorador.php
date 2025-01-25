@@ -105,7 +105,7 @@
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="tooltips-validation-preview">
-                                            <form class="needs-validation" id="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
+                                            <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
                                                     <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
