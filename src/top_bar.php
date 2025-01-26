@@ -41,7 +41,7 @@
                         <!-- Logo light -->
                         <a href="../inicial/index.php" class="logo-light">
                             <span class="logo-lg">
-                                <img src="../../img/logo_128x32_white.png" width="162px" height="43px" alt="logo">
+                                <img src="../../img/logo_128x32_white.png" width="162px" height="55px" alt="logo">
                             </span>
                             <span class="logo-sm">
                                 <img src="../../img/logo_41x41_small.png" alt="small logo"> 
