@@ -12,6 +12,27 @@
           break; 
       }
     }   
+
+    $metodo = "insert";
+
+        //if edição de morador
+        if(isset($_GET['idmorador']))
+        {
+          $idmorador = $_GET['idmorador'];
+    
+          $siteAdmin->getMoradorById($idConvidado);
+          $nome = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCNOME"];
+          $apartamento = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
+          $bloco = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
+          $telefone = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
+          $email = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
+          $senha = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
+          //$nivelMorador = ($status == 'ATIVO') ? 'checked' : '';
+    
+          $metodo = "update";
+        }
+
+        
     
 ?>
 
@@ -108,7 +129,7 @@
                                             <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
+                                                    <input value="<?php if(isset($nome)){echo $nome;} ?>" id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -118,7 +139,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">E-mail</label>
-                                                    <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
+                                                    <input value="<?php if(isset($email)){echo $email;} ?>" id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -128,7 +149,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Bloco</label>
-                                                    <input id="bloco" name="bloco" type="text" class="form-control" placeholder="" maxlength="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+                                                    <input value="<?php if(isset($bloco)){echo $bloco;} ?>" id="bloco" name="bloco" type="text" class="form-control" placeholder="" maxlength="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -138,7 +159,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Apartamento</label>
-                                                    <input id="apartamento" name="apartamento" type="text" class="form-control" placeholder="" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+                                                    <input value="<?php if(isset($apartamento)){echo $apartamento;} ?>" id="apartamento" name="apartamento" type="text" class="form-control" placeholder="" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -148,7 +169,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label">DDD + Telefone (Whatsapp)</label>
-                                                    <input id="telefone" name="telefone" type="text" class="form-control" placeholder="Ex.: 11982734359" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+                                                    <input value="<?php if(isset($telefone)){echo $telefone;} ?>" id="telefone" name="telefone" type="text" class="form-control" placeholder="Ex.: 11982734359" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -158,7 +179,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Senha</label>
-                                                    <input id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
+                                                    <input value="<?php if(isset($senha)){echo $senha;} ?>" id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
