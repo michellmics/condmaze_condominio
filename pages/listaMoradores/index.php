@@ -119,18 +119,16 @@
                                                         <th>Apto</th>
                                                         <th>E-mail</th>
                                                         <th></th>
-                                                        <th></th>
                                                     </tr>
                                                 </thead> 
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
                                                         <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                            <td><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
-                                                            <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                            <td><?= htmlspecialchars($item['USU_DCEMAIL']); ?></td>
-                                                            <td><i data-lucide="edit" style="color: #6699ff;"></i></td>
-                                                            <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>
+                                                        <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
