@@ -10,6 +10,8 @@ include_once "../../objects/objects.php";
 
 header('Content-Type: application/json');
 
+$siteAdmin = new SITE_ADMIN();
+
 // Verifica se o token foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtém os dados enviados no corpo da requisição
@@ -61,10 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         {
             $userIdMorador = $dados['user_id'];
 
+            if (!$siteAdmin->pdo) {
+                $siteAdmin->conexao();
+            }
+
             // Prepara a consulta SQL para verificar o usuário
             $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL, USU_DCNOME, USU_DCNIVEL, USU_DCBLOCO, USU_DCAPARTAMENTO 
             FROM USU_USUARIO WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
-            $stmt = $this->pdo->prepare($sql);
+            $stmt = $siteAdmin->pdo->prepare($sql);
             $stmt->bindParam(':USU_IDUSUARIO', $userIdMorador, PDO::PARAM_STR);
             $stmt->execute();
 
