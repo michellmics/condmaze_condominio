@@ -121,11 +121,11 @@
                                                         <th></th>
                                                         <th></th>
                                                     </tr>
-                                                </thead>
+                                                </thead> 
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
-                                                            <td><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                             <td><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
                                                             <td><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                             <td><?= htmlspecialchars($item['USU_DCEMAIL']); ?></td>
