@@ -228,7 +228,7 @@
             const senha = document.querySelector('input[name="senha"]').value.trim();
             const telefone = document.querySelector('input[name="telefone"]').value.trim();
 
-            if (!nome || !email !! !bloco || !apartamento || !senha || !telefone) {
+            if (!nome || !email || !bloco || !apartamento || !senha || !telefone) {
                 alert("Todos os campos devem ser preenchidos.");
                 return false;
             }
