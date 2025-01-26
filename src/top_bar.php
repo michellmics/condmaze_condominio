@@ -6,7 +6,7 @@
     $siteUrl = $baseUrl;
 
 	session_start(); 
-	define('SESSION_TIMEOUT', 60); // 30 minutos
+	define('SESSION_TIMEOUT', 43200); // 12 horas
 	
 	if (!isset($_SESSION['user_id'])) 
 	{
