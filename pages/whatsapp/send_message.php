@@ -7,6 +7,9 @@ $siteAdmin->conexao();
 
 use Twilio\Rest\Client;
 
+var_dump($siteAdmin->WHATSAPP_SID);
+die();
+
 // Suas credenciais do Twilio
 $sid = $siteAdmin->WHATSAPP_SID; // Substitua pelo seu Account SID
 $token = $siteAdmin->WHATSAPP_TOKEN; // Substitua pelo seu Auth Token
