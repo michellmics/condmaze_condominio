@@ -3,6 +3,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+
 // Inclua aqui o arquivo de configuração ou conexão com o banco de dados, se necessário
 include_once "../../objects/objects.php";
 
@@ -57,6 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         else
         {
+                        // Define as variáveis de sessão
+                        $_SESSION['user_id'] = $dados['user_id'];
+                        $_SESSION['user_bloco'] = $dados['user_bloco'] ?? null;
+                        $_SESSION['user_apartamento'] = $dados['user_apartamento'] ?? null;
+                        $_SESSION['user_name'] = $dados['user_name'] ?? null;
+                        $_SESSION['user_nivelacesso'] = $dados['user_nivelacesso'] ?? null;
+                        
             echo json_encode(['valid' => true, 'message' => 'Token válido.', 'user_id' => $dados['user_id']]);
         }
     }
