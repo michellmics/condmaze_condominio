@@ -79,15 +79,15 @@
             return base64_encode(json_encode($dados) . "." . hash_hmac('sha256', json_encode($dados), $chaveSecreta));
         }
 
-        public function whatsapp()
+        public function whatsapp($msg,$telefone)
         {
             // URL do script que processa os dados
             $url = 'https://prqdashortensias.com.br/pages/whatsapp/send_message.php';
 
             // Dados que serão enviados no POST
             $data = [
-                'telefone' => '11982734350', // Substitua pelo telefone
-                'message' => 'Olá, sua entrega está disponível para retirada na portaria do Condomínio Parque das Hortênsias.' // Substitua pela mensagem
+                'telefone' => "$telefone", // Substitua pelo telefone
+                'message' => "$msg"
             ];
 
             // Inicializar o cURL
