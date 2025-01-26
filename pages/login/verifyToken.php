@@ -59,12 +59,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         else
         {
-                        // Define as variáveis de sessão
-                        $_SESSION['user_id'] = $dados['user_id'];
-                        $_SESSION['user_bloco'] = $dados['user_bloco'] ?? null;
-                        $_SESSION['user_apartamento'] = $dados['user_apartamento'] ?? null;
-                        $_SESSION['user_name'] = $dados['user_name'] ?? null;
-                        $_SESSION['user_nivelacesso'] = $dados['user_nivelacesso'] ?? null;
+            $userIdMorador = $dados['user_id'];
+
+            // Prepara a consulta SQL para verificar o usuário
+            $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL, USU_DCNOME, USU_DCNIVEL, USU_DCBLOCO, USU_DCAPARTAMENTO 
+            FROM USU_USUARIO WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':USU_IDUSUARIO', $userIdMorador, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Define as variáveis de sessão
+            $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
+            $_SESSION['user_name'] = $user['USU_DCNOME'];
+            $_SESSION['user_email'] = $user['USU_DCEMAIL'];
+            $_SESSION['user_apartamento'] = $user['USU_DCAPARTAMENTO'];
+            $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
+            $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
+            $_SESSION['last_activity'] = time();
                         
             echo json_encode(['valid' => true, 'message' => 'Token válido.', 'user_id' => $dados['user_id']]);
         }
