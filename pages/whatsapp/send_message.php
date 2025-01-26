@@ -7,29 +7,35 @@ $siteAdmin->conexao();
 
 use Twilio\Rest\Client;
 
-// Suas credenciais do Twilio
-$sid = $siteAdmin->WHATSAPP_SID; // Substitua pelo seu Account SID
-$token = $siteAdmin->WHATSAPP_TOKEN; // Substitua pelo seu Auth Token
-$twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
 
-// Número de destino e mensagem
-$to = 'whatsapp:+5511982734350'; // Substitua pelo número de destino (inclua o código do país)
-$message = 'Olá! Esta é uma mensagem de teste enviada pelo Twilio.';
+    $telefone = $data['telefone'] ?? null;
+    $message = $data['message'] ?? null;
 
-// Enviar mensagem via Twilio
-try {
-    $client = new Client($sid, $token);
+    // Suas credenciais do Twilio
+    $sid = $siteAdmin->WHATSAPP_SID; // Substitua pelo seu Account SID
+    $token = $siteAdmin->WHATSAPP_TOKEN; // Substitua pelo seu Auth Token
+    $twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
 
-    $message = $client->messages->create(
-        $to,
-        [
-            'from' => $twilioNumber,
-            'body' => $message,
-        ]
-    );
+    // Número de destino e mensagem
+    $to = "whatsapp:+55$telefone"; // Substitua pelo número de destino (inclua o código do país)
 
-    echo "Mensagem enviada com sucesso! SID: " . $message->sid;
-} catch (Exception $e) {
-    echo "Erro ao enviar mensagem: " . $e->getMessage();
+    // Enviar mensagem via Twilio
+    try {
+        $client = new Client($sid, $token);
+
+        $message = $client->messages->create(
+            $to,
+            [
+                'from' => $twilioNumber,
+                'body' => $message,
+            ]
+        );
+
+        echo json_encode(['success' => 'Notificação enviada ao Whatsapp do morador.']);
+    } catch (Exception $e) {
+        echo json_encode(['error' => 'Notificação por Whatsapp apresentou um erro.']);
+    }
 }
 ?>
