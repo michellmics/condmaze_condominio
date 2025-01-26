@@ -78,6 +78,43 @@
             ];
             return base64_encode(json_encode($dados) . "." . hash_hmac('sha256', json_encode($dados), $chaveSecreta));
         }
+
+        public function whatsapp()
+        {
+            // URL do script que processa os dados
+            $url = 'https://prqdashortensias.com.br/pages/whatsapp/send_message.php';
+
+            // Dados que serão enviados no POST
+            $data = [
+                'telefone' => '11982734350', // Substitua pelo telefone
+                'message' => 'Olá, sua entrega está disponível para retirada na portaria do Condomínio Parque das Hortênsias.' // Substitua pela mensagem
+            ];
+
+            // Inicializar o cURL
+            $ch = curl_init($url);
+
+            // Configurar opções do cURL
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json', // Informar que os dados estão em JSON
+                'Content-Length: ' . strlen(json_encode($data))
+            ]);
+
+            // Executar a solicitação
+            $response = curl_exec($ch);
+
+            // Verificar erros
+            if (curl_errno($ch)) {
+                echo 'Erro no cURL: ' . curl_error($ch);
+            } else {
+                echo 'Resposta do servidor: ' . $response;
+            }
+
+            // Fechar o cURL
+            curl_close($ch);
+        }
         
         public function stmtToArray($stmtFunction)
 		{		
