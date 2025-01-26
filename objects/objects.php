@@ -30,7 +30,10 @@
         public $ARRAY_ENCOMENDAINFO;
         public $ARRAY_MENSAGENSINFO;
         public $ARRAY_TOKENINFO;
+        public $WHATSAPP_TOKEN;
+        public $WHATSAPP_SID;
         public $configPath;
+
 
 
         function __construct() {
@@ -55,6 +58,8 @@
             $dbname = $cpanelUser . "_" . $configContent['DATA DB']['dbname'];
             $user = $cpanelUser . "_" . $configContent['DATA DB']['user'];
             $pass = $configContent['DATA DB']['pass'];
+            $this->WHATSAPP_TOKEN = $configContent['WHATSAPP']['token'];
+            $this->WHATSAPP_SID = $configContent['WHATSAPP']['sid'];
 
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
