@@ -128,7 +128,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Bloco</label>
-                                                    <input id="bloco" name="bloco"  type="number" class="form-control" placeholder="" maxlength="1" required />
+                                                    <input id="bloco" name="bloco" type="text" class="form-control" placeholder="" maxlength="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -138,7 +138,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Apartamento</label>
-                                                    <input id="apartamento" name="apartamento" type="number" class="form-control" placeholder="" maxlength="4" required />
+                                                    <input id="apartamento" name="apartamento" type="text" class="form-control" placeholder="" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -148,7 +148,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label">DDD + Telefone (Whatsapp)</label>
-                                                    <input id="telefone" name="telefone" type="number" class="form-control" placeholder="" minlength="11" maxlength="11" required />
+                                                    <input id="telefone" name="telefone" type="text" class="form-control" placeholder="Ex.: 11982734359" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
