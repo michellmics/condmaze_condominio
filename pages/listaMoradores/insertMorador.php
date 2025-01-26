@@ -147,7 +147,7 @@
                                                     </div>
                                                 </div> 
                                                 <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip02">DDD + Telefone (Whatsapp)</label>
+                                                    <label class="form-label">DDD + Telefone (Whatsapp)</label>
                                                     <input id="telefone" name="telefone" type="number" class="form-control" placeholder="" minlength="11" maxlength="11" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
