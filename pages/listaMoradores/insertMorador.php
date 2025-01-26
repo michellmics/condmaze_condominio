@@ -220,8 +220,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
+        function validarFormulario() {
+            const nome = document.querySelector('input[name="nome"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const bloco = document.querySelector('input[name="bloco"]').value.trim();
+            const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
+            const senha = document.querySelector('input[name="senha"]').value.trim();
+            const telefone = document.querySelector('input[name="telefone"]').value.trim();
+
+            if (!nome || !email !! !bloco || !apartamento || !senha || !telefone) {
+                alert("Todos os campos devem ser preenchidos.");
+                return false;
+            }
+            return true;
+        }
+
+
+
        function confirmAndSubmit(event) {
        
+        const isValid = validarFormulario();
+
+        if (!isValid) {
+            return;
+        }
+
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Moradores',
