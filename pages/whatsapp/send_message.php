@@ -7,7 +7,7 @@ $siteAdmin->conexao();
 
 use Twilio\Rest\Client;
 
-var_dump($siteAdmin->WHATSAPP_SID);
+var_dump($siteAdmin->WHATSAPP_TOKEN);
 die();
 
 // Suas credenciais do Twilio
