@@ -13,10 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
         $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status);
-        $result = $siteAdmin->whatsapp();
+        if($status == "DISPONIVEL")
+        {
+            $result = $siteAdmin->whatsapp();
+        }
         echo json_encode(['success' => $result]);
-
-
 
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);
