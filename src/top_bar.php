@@ -44,7 +44,7 @@
                             <img src="../../img/logo_128x32_white.png" width="162px" height="43px" alt="logo" style="height: 43px; width: 162px;">
                             </span>
                             <span class="logo-sm">
-                                <img src="../../img/logo_41x41_small.png" alt="small logo"> 
+                            <img src="../../img/logo_128x128.png" width="41px" height="41px" alt="small logo" style="height: 41px; width: 41px;">
                             </span>
                         </a>
 
