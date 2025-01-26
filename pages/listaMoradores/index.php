@@ -117,7 +117,7 @@
                                                         <th>Nome</th>
                                                         <th>Bloco</th>
                                                         <th>Apto</th>
-                                                        <th>E-mail</th>
+                                                        <th>Telefone</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead> 

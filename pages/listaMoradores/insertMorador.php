@@ -20,13 +20,12 @@
         {
           $idmorador = $_GET['idmorador'];
     
-          $siteAdmin->getMoradorById($idConvidado);
-          $nome = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCNOME"];
-          $apartamento = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_DCDOCUMENTO"];
-          $bloco = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
-          $telefone = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
-          $email = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
-          $senha = $siteAdmin->ARRAY_CONVIDADOINFO["LIS_STSTATUS"];
+          $siteAdmin->getMoradorById($idmorador);
+          $nome = $siteAdmin->ARRAY_USERINFOBYID["USU_DCNOME"];
+          $apartamento = $siteAdmin->ARRAY_USERINFOBYID["USU_DCAPARTAMENTO"];
+          $bloco = $siteAdmin->ARRAY_USERINFOBYID["USU_DCBLOCO"];
+          $telefone = $siteAdmin->ARRAY_USERINFOBYID["USU_DCTELEFONE"];
+          $email = $siteAdmin->ARRAY_USERINFOBYID["USU_DCEMAIL"];
           //$nivelMorador = ($status == 'ATIVO') ? 'checked' : '';
     
           $metodo = "update";
@@ -127,7 +126,14 @@
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="tooltips-validation-preview">
                                             <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-                                                <div class="position-relative mb-3">
+                                                
+                                                                                                  	<!-- CAMPOS COMO VARIAVEIS -->
+                                                    <!-- CAMPOS COMO VARIAVEIS -->                                               <input type="hidden" id="userid" name="userid" value="<?php echo $userid; ?>"/>
+                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
+                                                    <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
+                                            
+                                                  <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
                                                     <input value="<?php if(isset($nome)){echo $nome;} ?>" id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
                                                     <div class="valid-tooltip">
