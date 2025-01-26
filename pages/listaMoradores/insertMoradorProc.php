@@ -3,7 +3,7 @@ include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 
 class registerUser extends SITE_ADMIN
 {
-    public function insertUser($email, $senha, $nome, $bloco, $apartamento, $nivel)
+    public function insertUser($email, $senha, $nome, $bloco, $apartamento, $nivel, $telefone )
     {
         try {
             // Cria conexão com o banco de dados
@@ -29,7 +29,7 @@ class registerUser extends SITE_ADMIN
             } else 
                 {
                     $passHash = password_hash($senha, PASSWORD_DEFAULT);
-                    $result = $this->insertUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash);
+                    $result = $this->insertUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone);
                     
                     $SUBJECT = "Cadastro de novo usuário";
                     $MSG = "O morador(a) $nome com e-mail $email foi cadastrado no sistema do Condomínio Parque das Hortências.";
@@ -64,9 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $bloco = $_POST['bloco'];
     $apartamento = $_POST['apartamento'];
     $nivel = $_POST['nivel'];
+    $telefone = $_POST['telefone'];
  
      // Cria o objeto de registro de usuário e chama o método insertUser
      $registerUser = new registerUser();
-     $registerUser->insertUser($email, $senha, $nome, $bloco, $apartamento, $nivel);
+     $registerUser->insertUser($email, $senha, $nome, $bloco, $apartamento, $nivel, $telefone);
  }
  ?>

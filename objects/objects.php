@@ -690,7 +690,7 @@
             }
         }
 
-        public function insertUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA)
+        public function insertUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_DCTELEFONE)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
@@ -701,8 +701,8 @@
 
             try {
                 $sql = "INSERT INTO USU_USUARIO 
-                        (USU_DCEMAIL, USU_DCNOME, USU_DCBLOCO, USU_DCAPARTAMENTO, USU_DCNIVEL, USU_DCSENHA, USU_DTCADASTRO) 
-                        VALUES (:USU_DCEMAIL, :USU_DCNOME, :USU_DCBLOCO, :USU_DCAPARTAMENTO, :USU_DCNIVEL, :USU_DCSENHA, :USU_DTCADASTRO)";
+                        (USU_DCEMAIL, USU_DCNOME, USU_DCBLOCO, USU_DCAPARTAMENTO, USU_DCNIVEL, USU_DCSENHA, USU_DTCADASTRO, USU_DCTELEFONE) 
+                        VALUES (:USU_DCEMAIL, :USU_DCNOME, :USU_DCBLOCO, :USU_DCAPARTAMENTO, :USU_DCNIVEL, :USU_DCSENHA, :USU_DTCADASTRO, :USU_DCTELEFONE)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -713,8 +713,8 @@
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
-                $stmt->bindParam(':USU_DTCADASTRO', $DATA, PDO::PARAM_STR);
-            
+                $stmt->bindParam(':USU_DTCADASTRO', $DATA, PDO::PARAM_STR); 
+                $stmt->bindParam(':USU_DCTELEFONE', $USU_DCTELEFONE, PDO::PARAM_STR);
                 $stmt->execute();
            
                 // Retorna uma mensagem de sucesso (opcional)
