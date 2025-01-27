@@ -741,6 +741,66 @@
                 return ["error" => $e->getMessage()];
             }
         }
+
+        public function updateUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_IDUSUARIO, $USU_DCTELEFONE)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+
+                if($USU_DCSENHA != "IGNORE")
+                {
+                    $sql = "UPDATE USU_USUARIO 
+                            SET
+                            USU_DCEMAIL = :USU_DCEMAIL,
+                            USU_DCNOME = :USU_DCNOME,
+                            USU_DCBLOCO = :USU_DCBLOCO,
+                            USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
+                            USU_DCNIVEL = :USU_DCNIVEL,
+                            USU_DCSENHA = :USU_DCSENHA,
+                            USU_DCTELEFONE = :USU_DCTELEFONE
+                            WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                    $stmt = $this->pdo->prepare($sql);
+                    $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
+                }
+                if($USU_DCSENHA == "IGNORE")
+                {
+                    $sql = "UPDATE USU_USUARIO 
+                            SET
+                            USU_DCEMAIL = :USU_DCEMAIL,
+                            USU_DCNOME = :USU_DCNOME,
+                            USU_DCBLOCO = :USU_DCBLOCO,
+                            USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
+                            USU_DCNIVEL = :USU_DCNIVEL,
+                            USU_DCTELEFONE = :USU_DCTELEFONE
+                            WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                    $stmt = $this->pdo->prepare($sql);
+                }                
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':USU_DCEMAIL', $USU_DCEMAIL, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCNOME', $USU_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCBLOCO', $USU_DCBLOCO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCTELEFONE', $USU_DCTELEFONE, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_INT);
+
+            
+                $stmt->execute();
+           
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Morador atualizado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
         
         public function updateCheckboxEncomendasDisponivelMorador($ENC_IDENCOMENDA, $ENC_STENCOMENDA)
         {

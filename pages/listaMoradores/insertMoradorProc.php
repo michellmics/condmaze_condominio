@@ -56,13 +56,13 @@ class registerUser extends SITE_ADMIN
                         if($senha == "")
                         {
                             $passHash = "IGNORE";
-                            $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone, $senha);
+                            $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone);
                             echo "Morador atualizado com sucesso."; 
                         }
                         if($senha != "")
                         {
                             $passHash = password_hash($senha, PASSWORD_DEFAULT);
-                            $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone, $senha);
+                            $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone);
                             echo "Morador atualizado com sucesso."; 
                         }
                     }
