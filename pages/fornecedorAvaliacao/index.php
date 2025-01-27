@@ -98,7 +98,7 @@
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Moradores </h4>
@@ -159,7 +159,7 @@
                                             </div>
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
-                                    <div class="tab-content">
+                                                                        <div class="tab-content">
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
                                                 <div class="accordion-item">
