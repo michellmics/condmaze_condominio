@@ -20,7 +20,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="uil-location-point"></i>Moradores <div class="arrow-down"></div>
+                                    <i class="uil-location-point"></i>Condomínio <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>
