@@ -106,8 +106,8 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Default Accordions</h4>
-                                    <p class="text-muted font-14 mb-3">Click the accordions below to expand/collapse the accordion content.</p>
+                                    <h4 class="header-title">Vidraçarias</h4>
+                                    <!--  <p class="text-muted font-14 mb-3">future</p> -->
 
                                     <ul class="nav nav-tabs nav-bordered mb-3">
                                         <li class="nav-item" role="presentation">
