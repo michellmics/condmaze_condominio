@@ -331,7 +331,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM USU_USUARIO WHERE USU_DCAPARTAMENTO = :USU_IDUSUARIO";
+                $sql = "SELECT * FROM USU_USUARIO WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
