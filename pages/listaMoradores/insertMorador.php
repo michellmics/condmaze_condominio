@@ -19,6 +19,8 @@
         if(isset($_GET['apartamento']))
         {
           $apartamento = $_GET['apartamento'];
+
+          $readonly = "readonly";
     
           $siteAdmin->getMoradorById($apartamento);
 
@@ -157,7 +159,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Bloco</label>
-                                                    <input value="<?php if(isset($bloco)){echo $bloco;} ?>" id="bloco" name="bloco" type="text" class="form-control" placeholder="" maxlength="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+                                                    <input value="<?php if(isset($bloco)){echo $bloco;} ?>" id="bloco" name="bloco" type="text" class="form-control" placeholder="" maxlength="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required <?php if(isset($readonly)){echo $readonly;} ?>/>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -167,8 +169,8 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">Apartamento</label>
-                                                    <input value="<?php if(isset($apartamento)){echo $apartamento;} ?>" id="apartamento" name="apartamento" type="text" class="form-control" placeholder="" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
-                                                    <div class="valid-tooltip">
+                                                    <input value="<?php if(isset($apartamento)){echo $apartamento;} ?>" id="apartamento" name="apartamento" type="text" class="form-control" placeholder="" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required <?php if(isset($readonly)){echo $readonly;} ?>/>
+                                                    <div class="valid-tooltip"> 
                                                         Validado!
                                                     </div>
                                                     <div class="invalid-tooltip">
