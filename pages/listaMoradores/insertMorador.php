@@ -256,9 +256,9 @@
             const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
             const senha = document.querySelector('input[name="senha"]').value.trim();
             const telefone = document.querySelector('input[name="telefone"]').value.trim();
-            const metodo = document.querySelector('input[name="metodo"]').value.trim();
+            const metodoF = document.querySelector('input[name="metodo"]').value.trim();
 
-            if(metodo != "update")
+            if(metodoF != "update")
             {
               if (!nome || !email || !bloco || !apartamento || !senha || !telefone) {
                   alert("Todos os campos devem ser preenchidos.");
@@ -266,7 +266,7 @@
               }
               return true;
             }
-            if(metodo == "update")
+            if(metodoF == "update")
             {
               if (!nome || !email || !bloco || !apartamento || !telefone) {
                   alert("Todos os campos devem ser preenchidos.");
