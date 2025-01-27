@@ -33,6 +33,7 @@ class registerUser extends SITE_ADMIN
                         $passHash = password_hash($senha, PASSWORD_DEFAULT);
                         $result = $this->insertUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone);
                         
+                        /*
                         $SUBJECT = "Cadastro de novo usuário";
                         $MSG = "O morador(a) $nome com e-mail $email foi cadastrado no sistema do Condomínio Parque das Hortências.";
                         $this->notifyEmail($SUBJECT, $MSG); //notificação por email
@@ -40,7 +41,7 @@ class registerUser extends SITE_ADMIN
                         $SUBJECT = "Seja Bem vindo(a) ao Condomínio Parque das Hortênsias";
                         $MSG = "Olá $nome, você foi cadastrado(a) no sistema do Condomínio Parque das Hortênsias. Seu usuário é seu e-mail e sua senha é: $senha. Para entrar no sistema acesse: https://www.prqdashortensias.com.br/";
                         $this->notifyUsuarioEmail($SUBJECT, $MSG, $email); //notificação por email
-/*  
+/*                      
                         //--------------------LOG----------------------//
                         $LOG_DCTIPO = "NOVO CADASTRO";
                         $LOG_DCMSG = "O usuário $nome foi cadastrado com sucesso com credenciais de $nivel.";
