@@ -26,7 +26,9 @@
           $bloco = $siteAdmin->ARRAY_USERINFOBYID["USU_DCBLOCO"];
           $telefone = $siteAdmin->ARRAY_USERINFOBYID["USU_DCTELEFONE"];
           $email = $siteAdmin->ARRAY_USERINFOBYID["USU_DCEMAIL"];
-          //$nivelMorador = ($status == 'ATIVO') ? 'checked' : '';
+          $nivelMorador = ($status == 'MORADOR') ? 'checked' : '';
+          $nivelSindico = ($status == 'SINDICO') ? 'checked' : '';
+          $nivelPortaria = ($status == 'PORTARIA') ? 'checked' : '';
     
           $metodo = "update";
         }
@@ -196,15 +198,15 @@
                                                 <h6 class="font-15 mt-3">Nível de Acesso</h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline form-radio-info mb-2">
-                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input" checked>
+                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelMorador)){echo $nivelMorador;} ?>>
                                                         <label class="form-check-label" for="customRadio3">Morador</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-warning mb-2">
-                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input">
+                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelPortaria)){echo $nivelPortaria;} ?>>
                                                         <label class="form-check-label" for="customRadio4">Portaria</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-danger mb-2">
-                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input">
+                                                        <input type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelSindico)){echo $nivelSindico;} ?>>
                                                         <label class="form-check-label" for="customRadio4">Síndico</label>
                                                     </div>
                                                 </div>
@@ -267,6 +269,18 @@
        function confirmAndSubmit(event) {
        
         const isValid = validarFormulario();
+        const metodo = document.querySelector('input[name="metodo"]').value.trim();
+
+        let msgBox = "";
+
+        if(metodo == 'insert')
+        {
+          msgBox = "Têm certeza que deseja inserir o morador?";
+        }
+        else
+          {
+            msgBox = "Têm certeza que deseja atualizar o morador?";
+          }
 
         if (!isValid) {
             return;
@@ -275,7 +289,7 @@
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Moradores',
-          text: "Tem certeza que deseja cadastrar o morador?",
+          text: msgBox,
           showDenyButton: true,
           confirmButtonText: 'CONFIRMAR',
           denyButtonText: `CANCELAR`,
