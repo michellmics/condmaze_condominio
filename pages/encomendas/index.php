@@ -171,7 +171,7 @@
                                                     <tr>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
