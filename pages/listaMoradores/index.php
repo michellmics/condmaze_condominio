@@ -113,22 +113,22 @@
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
-                                                    <tr>
-                                                        <th></th>
+                                                    <tr>                                                        
                                                         <th>Nome</th>
                                                         <th>Bloco</th>
                                                         <th>Apto</th>
-                                                        <th>Telefone</th>                                                        
+                                                        <th>Telefone</th>   
+                                                        <th></th>                                                     
                                                     </tr>
                                                 </thead> 
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
-                                                        <tr>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>                                                        
+                                                        <tr>                                                       
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>   
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
