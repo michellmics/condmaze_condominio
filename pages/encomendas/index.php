@@ -138,6 +138,7 @@
                                                     <?php
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
                                                         $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
+                                                        $nome = $item['USU_DCNOME'];
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
@@ -398,6 +399,7 @@
             switchElem.addEventListener('change', function () {
                 const id = this.getAttribute('data-id');
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
+                const nome = this.getAttribute('nome');
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {
@@ -405,7 +407,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ id, status })
+                    body: JSON.stringify({ id, status, nome })
                 })
                 .then(response => response.json())
                 .then(data => {
