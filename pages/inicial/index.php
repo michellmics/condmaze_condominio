@@ -366,6 +366,7 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
+                                                        <p class="text-muted font-14">dfdsfsdfsd</p>
                                                         <form class="needs-validation" novalidate id="form" role="form" method="POST">
                                                         <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
                                                         <div class="text-end">
@@ -385,7 +386,6 @@
                                                                    <?php     
                                                                     $data = new DateTime($item['REC_DTDATA']);
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
-
                                                                     ?>
                                                                     <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
                                                                         <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
