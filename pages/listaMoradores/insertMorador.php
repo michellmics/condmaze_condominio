@@ -22,10 +22,13 @@
     
           $siteAdmin->getMoradorById($apartamento);
 
+          var_dump($siteAdmin->ARRAY_USERINFOBYID["USU_DCTELEFONE"]);
+
           $nome = $siteAdmin->ARRAY_USERINFOBYID["USU_DCNOME"];
           $apartamento = $siteAdmin->ARRAY_USERINFOBYID["USU_DCAPARTAMENTO"];
           $bloco = $siteAdmin->ARRAY_USERINFOBYID["USU_DCBLOCO"];
           $telefone = $siteAdmin->ARRAY_USERINFOBYID["USU_DCTELEFONE"];
+          var_dump($siteAdmin->ARRAY_USERINFOBYID["USU_DCTELEFONE"]);
           $email = $siteAdmin->ARRAY_USERINFOBYID["USU_DCEMAIL"];
           $nivelMorador = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'MORADOR') ? 'checked' : '';
           $nivelSindico = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'SINDICO') ? 'checked' : '';
