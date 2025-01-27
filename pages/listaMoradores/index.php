@@ -124,10 +124,10 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?idmorador=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>
                                                         <td><i class="ri-close-circle-line" style="color: #ed5628;"></i></td>
                                                         </tr>
                                                     <?php endforeach; ?>
