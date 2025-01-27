@@ -399,7 +399,8 @@
             switchElem.addEventListener('change', function () {
                 const id = this.getAttribute('data-id');
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
-                const nome = this.getAttribute('nome');
+                const td = document.querySelector('td[nome]');
+                const nome = td.getAttribute('nome');
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {
