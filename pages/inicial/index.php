@@ -382,7 +382,12 @@
                                                         <div class="d-flex align-items-start mt-2">
                                                             <div class="w-100 overflow-hidden">
                                                                 <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
-                                                                    <h5 class="mt-0"><?= htmlspecialchars($item['REC_DTDATA']); ?></h5>
+                                                                   <?php     
+                                                                    $data = new DateTime($item['REC_DTDATA']);
+                                                                    $dataFormatada = $data->format('d/m/Y H:i:s');
+
+                                                                    ?>
+                                                                    <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
                                                                         <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
                                                                         <BR>
                                                                         <BR>
