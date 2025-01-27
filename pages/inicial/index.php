@@ -366,7 +366,7 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
-                                                        <p class="text-muted font-14">dfdsfsdfsd</p>
+                                                        <p class="text-muted font-14">As mensagens enviadas por meio deste formulário serão visíveis para todos os moradores.</p>
                                                         <form class="needs-validation" novalidate id="form" role="form" method="POST">
                                                         <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
                                                         <div class="text-end">
