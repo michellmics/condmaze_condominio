@@ -78,11 +78,13 @@
                     </div>
                 </div>
 
+                <a style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $apartamentoSession; ?>'">
                 <ul class="topbar-menu d-flex align-items-center gap-3">
-                <?php echo $nomeSession; ?>
-<br>
-<?php echo "BL: " . $blocoSession . " AP: " . $apartamentoSession; ?><span style="font-size: 10px; color: #34deeb;"><?php echo $nivelAcesso; ?></span>
-</ul>
+                    <?php echo $nomeSession; ?>
+                    <br>
+                    <?php echo "BL: " . $blocoSession . " AP: " . $apartamentoSession; ?><span style="font-size: 10px; color: #34deeb;"><?php echo $nivelAcesso; ?></span>
+                </ul>
+                </a>
 
 
                     
