@@ -733,7 +733,7 @@
                 $stmt->bindParam(':USU_DTCADASTRO', $DATA, PDO::PARAM_STR); 
                 $stmt->bindParam(':USU_DCTELEFONE', $USU_DCTELEFONE, PDO::PARAM_STR);
                 $stmt->execute();
-           
+                var_dump($stmt->errorInfo());
                 // Retorna uma mensagem de sucesso (opcional)
                 return ["success" => "Morador cadastrado com sucesso."];
             } catch (PDOException $e) {
