@@ -75,7 +75,7 @@
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
             <?php
-                $siteAdmin->getListaInfoByMorador($apartamento);
+                $siteAdmin->getListaInfoByMorador($userId);
             ?>
 
         <div class="content-page">
