@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <a style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $apartamentoSession; ?>'">
+                <a style="cursor: pointer;" onclick="window.location.href='https://prqdashortensias.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'">
                 <ul class="topbar-menu d-flex align-items-center gap-3">
                     <?php echo $nomeSession; ?>
                     <br>
