@@ -742,7 +742,7 @@
             }
         }
 
-        public function updateUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_IDUSUARIO, $USU_DCTELEFONE)
+        public function updateUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_DCTELEFONE)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
@@ -758,11 +758,10 @@
                             USU_DCEMAIL = :USU_DCEMAIL,
                             USU_DCNOME = :USU_DCNOME,
                             USU_DCBLOCO = :USU_DCBLOCO,
-                            USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
                             USU_DCNIVEL = :USU_DCNIVEL,
                             USU_DCSENHA = :USU_DCSENHA,
                             USU_DCTELEFONE = :USU_DCTELEFONE
-                            WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                            WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
 
                     $stmt = $this->pdo->prepare($sql);
                     $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
@@ -777,7 +776,7 @@
                             USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
                             USU_DCNIVEL = :USU_DCNIVEL,
                             USU_DCTELEFONE = :USU_DCTELEFONE
-                            WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                            WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
 
                     $stmt = $this->pdo->prepare($sql);
                 }                
@@ -789,8 +788,6 @@
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCTELEFONE', $USU_DCTELEFONE, PDO::PARAM_STR);
-                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_INT);
-
             
                 $stmt->execute();
            
