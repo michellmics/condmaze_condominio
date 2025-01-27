@@ -114,7 +114,7 @@
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Vidraçaria ERK - Fone: 19-99275895 (Hortolândia)
+                                                            <strong>Vidraçaria ERK</strong> - Fone: 19-99275895 (Hortolândia)
                                                         </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
