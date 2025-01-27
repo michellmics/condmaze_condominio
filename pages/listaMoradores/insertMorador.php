@@ -129,8 +129,7 @@
                                         <div class="tab-pane show active" id="tooltips-validation-preview">
                                             <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
                                                 
-                                                                                                  	<!-- CAMPOS COMO VARIAVEIS -->
-                                                    <!-- CAMPOS COMO VARIAVEIS -->                                               <input type="hidden" id="userid" name="userid" value="<?php echo $userid; ?>"/>
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
                                                     <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
                                                     <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
                                                     <!-- CAMPOS COMO VARIAVEIS -->
