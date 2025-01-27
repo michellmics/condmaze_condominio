@@ -158,6 +158,7 @@
                                         </table>
 
                                         </div> <!-- end preview-->
+                                        <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>
                                     </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
