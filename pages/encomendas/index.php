@@ -32,7 +32,6 @@
     <meta content="Coderthemes" name="author" />
 
     <!-- Plugin css -->
-    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
@@ -463,9 +462,6 @@
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
 
-
-    <!-- Apex Charts js -->
-    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
 
     <!-- Dashboard App js -->
     <script src="../../assets/js/pages/demo.dashboard.js"></script>
