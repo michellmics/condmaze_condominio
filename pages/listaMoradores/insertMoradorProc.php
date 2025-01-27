@@ -1,5 +1,7 @@
 <?php
-include_once '../../objetos.php'; // Carrega a classe de conexão e objetos
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	include_once "../../objects/objects.php";
 
 class registerUser extends SITE_ADMIN
 {
