@@ -5,7 +5,7 @@
 	
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
-
+    
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
           $nomeCondominio = $item['CFG_DCVALOR']; 
@@ -20,6 +20,10 @@
     }
 
     $userId = $_GET['userId'];
+    $siteAdmin->getMoradorByUserId($userId);
+    $nomeMorador = $this->ARRAY_USERINFOBYID["USU_DCNOME"];
+    $apMorador = $this->ARRAY_USERINFOBYID["USU_DCAPARTAMENTO"];
+
     
 ?>
 
@@ -109,11 +113,11 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Convidados </h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os convidados cadastrados. Lembre-se, somente convidados <b>ativos</b> estarão visiveis para a portaria.
+                                        Lista de convidados do morador: <?php echo $nomeMorador; ?> apartamento <?php echo $apMorador; ?>.
                                     </p>
                                     <div class="tab-content">
                                     <div class="col-sm-5">
-                                            <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
+
                                         </div>
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
                                         <table class="table table-centered mb-0">

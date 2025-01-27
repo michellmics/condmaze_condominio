@@ -325,6 +325,23 @@
             }          
         }
 
+        public function getMoradorByUserId($USU_IDUSUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM USU_USUARIO WHERE USU_DCAPARTAMENTO = :USU_IDUSUARIO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_USERINFOBYID = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO = 'N/A', $LOG_DCAPARTAMENTO = 'N/A', $LOG_DCCODIGO = 'N/A')
         {       
             // Verifica se a conexão já foi estabelecida
