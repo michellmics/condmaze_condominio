@@ -464,7 +464,7 @@
 
 
     <!-- Dashboard App js -->
-    <script src="../../assets/js/pages/demo.dashboard.js"></script>
+
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
