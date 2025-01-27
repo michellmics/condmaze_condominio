@@ -26,9 +26,9 @@
           $bloco = $siteAdmin->ARRAY_USERINFOBYID["USU_DCBLOCO"];
           $telefone = $siteAdmin->ARRAY_USERINFOBYID["USU_DCTELEFONE"];
           $email = $siteAdmin->ARRAY_USERINFOBYID["USU_DCEMAIL"];
-          $nivelMorador = ($status == 'MORADOR') ? 'checked' : '';
-          $nivelSindico = ($status == 'SINDICO') ? 'checked' : '';
-          $nivelPortaria = ($status == 'PORTARIA') ? 'checked' : '';
+          $nivelMorador = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'MORADOR') ? 'checked' : '';
+          $nivelSindico = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'SINDICO') ? 'checked' : '';
+          $nivelPortaria = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'PORTARIA') ? 'checked' : '';
     
           $metodo = "update";
         }
