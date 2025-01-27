@@ -13,13 +13,13 @@
       }
     }   
 
-    if(!isset($_GET['apartamento']))
+    if(!isset($_GET['userId']))
     {
         echo "error";
         die();
     }
 
-    $apartamento = $_GET['apartamento'];
+    $userId = $_GET['userId'];
     
 ?>
 

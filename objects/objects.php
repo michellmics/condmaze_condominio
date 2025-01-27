@@ -275,13 +275,13 @@
             }          
         }
 
-        public function getListaInfoByMorador($USU_DCAPARTAMENTO)
+        public function getListaInfoByMorador($USU_IDUSUARIO)
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_DCAPARTAMENTO = $USU_DCAPARTAMENTO ORDER BY LIS_DCNOME ASC";
+                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = $USU_IDUSUARIO ORDER BY LIS_DCNOME ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
