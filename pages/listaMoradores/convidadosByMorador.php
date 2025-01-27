@@ -21,7 +21,7 @@
 
     $userId = $_GET['userId'];
     $siteAdmin->getMoradorByUserId($userId);
-    $nomeMorador = ucwords($siteAdmin->ARRAY_USERINFOBYID["USU_DCNOME"]);
+    $nomeMorador = ucwords(strtolower($siteAdmin->ARRAY_USERINFOBYID["USU_DCNOME"]));
     $apMorador = $siteAdmin->ARRAY_USERINFOBYID["USU_DCAPARTAMENTO"];
 
     
