@@ -21,6 +21,9 @@
           $idmorador = $_GET['apartamento'];
     
           $siteAdmin->getMoradorById($apartamento);
+
+          var_dump($siteAdmin->ARRAY_USERINFOBYID);
+          die();
           $nome = $siteAdmin->ARRAY_USERINFOBYID["USU_DCNOME"];
           $apartamento = $siteAdmin->ARRAY_USERINFOBYID["USU_DCAPARTAMENTO"];
           $bloco = $siteAdmin->ARRAY_USERINFOBYID["USU_DCBLOCO"];
