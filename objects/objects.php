@@ -281,7 +281,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = $USU_IDUSUARIO ORDER BY LIS_DCNOME ASC";
+                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = $USU_IDUSUARIO AND LIS_STSTATUS = 'ATIVO' ORDER BY LIS_DCNOME ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
