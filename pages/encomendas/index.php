@@ -37,7 +37,7 @@
     <script src="../../assets/js/hyper-config.js"></script>
 
     <!-- Vendor css -->
-    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
 
     <!-- App css -->
     <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
