@@ -346,6 +346,11 @@
                 });
               },
               error: function (xhr, status, error) {
+                console.error("Erro ao atualizar o convidado:", {
+        status: status,
+        error: error,
+        responseText: xhr.responseText
+    });
                 Swal.fire({
               title: 'Erro!',
               text: 'Erro ao atualizar o convidado.'.error,
