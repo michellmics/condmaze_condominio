@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $data['nome'] ?? null;
 
     $nome = ucwords(strtolower($nome));
+    $nome = "Michell";
 
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
