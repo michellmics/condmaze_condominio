@@ -1,5 +1,5 @@
 <?php
-include_once '../objetos.php'; // Carrega a classe de conexão e objetos
+include_once '../../objetos.php'; // Carrega a classe de conexão e objetos
 
 class registerUser extends SITE_ADMIN
 {
@@ -70,7 +70,7 @@ class registerUser extends SITE_ADMIN
                     
                 }
         } catch (PDOException $e) {  
-            echo $e; 
+            echo "Erro ao cadastrar usuário."; 
         } 
     }
 }
