@@ -113,7 +113,7 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Convidados </h4>
                                     <p class="text-muted font-14">
-                                        Lista de convidados do morador: <?php echo $nomeMorador; ?> apartamento <?php echo $apMorador; ?>.
+                                        Lista de convidados do morador: <b><?php echo $nomeMorador; ?></b> apartamento <b><?php echo $apMorador; ?></b>.
                                     </p>
                                     <div class="tab-content">
                                     <div class="col-sm-5">
