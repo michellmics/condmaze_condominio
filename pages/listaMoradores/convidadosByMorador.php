@@ -121,6 +121,7 @@
                                                 <tr>
                                                     <th>Nome</th>
                                                     <th>CPF / RG</th>
+                                                    <th>Chegou?</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -128,6 +129,25 @@
                                                     <tr>
                                                         <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
                                                         <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
+                                                        <td>
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
+                                                                    <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
