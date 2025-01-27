@@ -131,7 +131,7 @@
                                                             Accordion Item #1
                                                         </button>
                                                     </h2>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
                                                             <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
                                                             plugin adds the appropriate classes that we use to style each element. These classes control the overall
