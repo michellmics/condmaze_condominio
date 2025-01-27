@@ -107,7 +107,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Vidraçarias</h4>
-                                    <!--  <p class="text-muted font-14 mb-3">future</p> -->
+                                    <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
