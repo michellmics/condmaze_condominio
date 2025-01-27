@@ -12,9 +12,14 @@
           break; 
       }
     }   
-    
 
-    $siteAdmin->getListaMoradoresInfo();
+    if(!isset($_GET['apartamento']))
+    {
+        echo "error";
+        die();
+    }
+
+    $apartamento = $_GET['apartamento'];
     
 ?>
 
@@ -36,9 +41,6 @@
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
-
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
@@ -54,10 +56,11 @@
 
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    
+
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
+
 </head>
 
 <body>
@@ -71,6 +74,9 @@
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
+            <?php
+                $siteAdmin->getListaInfoByMorador($apartamento);
+            ?>
 
         <div class="content-page">
             <div class="content">
@@ -91,7 +97,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Lista de Moradores</h4>
+                                <h4 class="page-title">Lista de Convidados</h4>
                             </div>
                         </div>
                     </div>
@@ -101,43 +107,54 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Moradores </h4>
+                                    <h4 class="header-title">Convidados </h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os moradores do condomínio.
+                                        Nesta seção são listados todos os convidados cadastrados. Lembre-se, somente convidados <b>ativos</b> estarão visiveis para a portaria.
                                     </p>
                                     <div class="tab-content">
-                                        <div class="col-sm-5">
-                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                    <div class="col-sm-5">
+                                            <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
                                         </div>
-                                        <br>
-                                        <div class="tab-pane show active" id="basic-datatable-preview">
-                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
-                                                <thead>
+                                        <div class="tab-pane show active" id="basic-datatable-preview">                                            
+                                        <table class="table table-centered mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>CPF / RG</th>
+                                                    <th>Ativo?</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
                                                     <tr>
-                                                        <th></th>
-                                                        <th>Nome</th>
-                                                        <th>Bloco</th>
-                                                        <th>Apto</th>
-                                                        <th>Telefone</th>                                                        
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
+                                                        <td>
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
+                                                                    <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
                                                     </tr>
-                                                </thead> 
-                                                <tbody>
-                                                    <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
-                                                        <tr>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>                                                        
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+
                                         </div> <!-- end preview-->
-
-
                                     </div> <!-- end tab-content-->
-
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
@@ -154,9 +171,40 @@
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
-
-
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
+        
+        switches.forEach(switchElem => {
+            switchElem.addEventListener('change', function () {
+                const id = this.getAttribute('data-id');
+                const status = this.checked ? 'ATIVO' : 'INATIVO';
+
+                // Envia a alteração para o servidor
+                fetch('updateStatusCheckbox.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id, status })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Erro ao atualizar o status!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao comunicar com o servidor.');
+                });
+            });
+        });
+    });
+</script>
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>

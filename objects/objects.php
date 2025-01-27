@@ -275,6 +275,22 @@
             }          
         }
 
+        public function getListaInfoByMorador($USU_DCAPARTAMENTO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_DCAPARTAMENTO = $USU_DCAPARTAMENTO ORDER BY LIS_DCNOME ASC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_LISTAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function getConvidadoById($LIS_IDLISTACONVIDADOS)
         {          
                 // Verifica se a conexão já foi estabelecida
