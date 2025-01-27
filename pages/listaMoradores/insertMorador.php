@@ -16,11 +16,11 @@
     $metodo = "insert";
 
         //if edição de morador
-        if(isset($_GET['idmorador']))
+        if(isset($_GET['apartamento']))
         {
-          $idmorador = $_GET['idmorador'];
+          $idmorador = $_GET['apartamento'];
     
-          $siteAdmin->getMoradorById($idmorador);
+          $siteAdmin->getMoradorById($apartamento);
           $nome = $siteAdmin->ARRAY_USERINFOBYID["USU_DCNOME"];
           $apartamento = $siteAdmin->ARRAY_USERINFOBYID["USU_DCAPARTAMENTO"];
           $bloco = $siteAdmin->ARRAY_USERINFOBYID["USU_DCBLOCO"];

@@ -292,16 +292,16 @@
             }          
         }
 
-        public function getMoradorById($USU_IDUSUARIO)
+        public function getMoradorById($USU_DCAPARTAMENTO)
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM USU_USUARIO WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                $sql = "SELECT * FROM USU_USUARIO WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
 
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_USERINFOBYID = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
