@@ -46,7 +46,7 @@
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <!-- SWEETALERT -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../js/sweetalert2@11.js"></script>
 
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -290,7 +290,7 @@
 
       <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../../js/jquery-3.5.1.min.js"></script>
     <script>
 
       function confirmAndSubmit(event) {
