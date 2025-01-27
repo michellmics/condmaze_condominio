@@ -70,7 +70,7 @@ class registerUser extends SITE_ADMIN
                     
                 }
         } catch (PDOException $e) {  
-            echo "Erro ao cadastrar usuário."; 
+            echo $e; 
         } 
     }
 }
