@@ -258,7 +258,7 @@
             const telefone = document.querySelector('input[name="telefone"]').value.trim();
             const metodo = document.querySelector('input[name="metodo"]').value.trim();
 
-            if(metodoF != "update")
+            if(metodo != "update")
             {
               if (!nome || !email || !bloco || !apartamento || !senha || !telefone) {
                   alert("Todos os campos devem ser preenchidos.");
