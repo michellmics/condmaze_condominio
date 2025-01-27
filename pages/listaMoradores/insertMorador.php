@@ -212,7 +212,7 @@
                                                 </div>
                                                 <br>
 
-                                                <button class="btn btn-danger" type="submit">Cancelar</button>              
+                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Cancelar</button>             
                                                 <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>
                                             </form>
                                         </div> <!-- end preview-->                                        
