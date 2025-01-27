@@ -25,7 +25,7 @@ class registerUser extends SITE_ADMIN
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
             // Se o usuário for encontrado e a senha for válida
-            if (isset($user['USU_IDUSUARIO'])) {
+            if (isset($user['USU_IDUSUARIO']) && $metodo == "insert") {
                 echo "Apartamento já cadastrado."; 
                 //exit();
             } else 
