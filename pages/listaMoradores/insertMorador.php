@@ -20,7 +20,7 @@
         {
           $apartamento = $_GET['apartamento'];
 
-          $readonly = "readonly style='border: 2px solid red;'";
+          $readonly = "readonly style='background-color: 2px solid red;'";
     
           $siteAdmin->getMoradorById($apartamento);
 
