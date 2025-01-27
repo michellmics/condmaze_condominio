@@ -108,20 +108,6 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Vidraçarias</h4>
                                     <!--  <p class="text-muted font-14 mb-3">future</p> -->
-
-                                    <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item" role="presentation">
-                                            <a href="#default-accordions-preview" class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="nav-preview" aria-selected="true">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#default-accordions-code" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="nav-code" aria-selected="false">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul> <!-- end nav-->
-
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
