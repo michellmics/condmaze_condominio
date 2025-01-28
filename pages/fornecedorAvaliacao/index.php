@@ -468,6 +468,7 @@
 
     <script>
 function confirmDelete(event, id) {
+    console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário de Avaliação',
         text: "Tem certeza que deseja exluir a avaliação?",
