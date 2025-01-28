@@ -752,6 +752,37 @@
             }
         }
 
+        public function insertEmpresaPrestadorInfo($PDS_DCNOME, $PDS_DCCATEGORIA, $PDS_DCTELEFONE, $PDS_DCCIDADE)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+
+            try {
+                $sql = "INSERT INTO PDS_PRESTADORE_SERVICO 
+                        (PDS_DCNOME, PDS_DCCATEGORIA, PDS_DCTELEFONE, PDS_DCCIDADE) 
+                        VALUES (:PDS_DCNOME, :PDS_DCCATEGORIA, :PDS_DCTELEFONE, :PDS_DCCIDADE)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PDS_DCNOME', $PDS_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCTELEFONE', $PDS_DCTELEFONE, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCCIDADE', $PDS_DCCIDADE, PDO::PARAM_STR);                
+            
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Prestador de Serviço cadastrado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function updateVisitListaInfo($LIS_DCNOME, $LIS_DCDOCUMENTO, $LIS_STSTATUS, $LIS_IDLISTACONVIDADOS)
         {       
             // Verifica se a conexão já foi estabelecida
