@@ -111,16 +111,19 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                    <div style="display: flex; flex-direction: column;">
-                        <strong>Vidraçaria ERK</strong>
-                        <span>Fone: 19-99275895 (Hortolândia)</span>
-                    </div>
-                    <div style="display: flex; align-items: center; margin-left: auto;">
-                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-                        <span style="margin-left: 10px; font-size: 14px; color: #555;">36 Avaliações</span>
-                    </div>
-                </button>
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#signup-modal">Avaliar Empresa</button>  
+                                    </div>
+                                        <div class="tab-pane show active" id="default-accordions-preview">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                    <div style="display: flex; flex-direction: column;">
+                                        <strong>Vidraçaria ERK</strong>
+                                        <span>Fone: 19-99275895 (Hortolândia)</span>
+                                    </div>                                    
+                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
