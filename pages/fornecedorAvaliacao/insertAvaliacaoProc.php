@@ -13,13 +13,11 @@ class registerAvaliacao extends SITE_ADMIN
                     $this->conexao();
                 }
 
-                $nome = strtoupper($nome);
-
-
                 // Prepara a consulta SQL para verificar o usuário
-                $sql = "SELECT APS_NMNOTA FROM APS_AVALIACAO_PRESTADOR WHERE USU_IDUSUARIO = :idmorador";
+                $sql = "SELECT APS_NMNOTA FROM APS_AVALIACAO_PRESTADOR WHERE USU_IDUSUARIO = :idmorador AND PDS_IDPRESTADOR_SERVICO = :idprestador";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':idmorador', $idmorador, PDO::PARAM_STR);
+                $stmt->bindParam(':idprestador', $idprestador, PDO::PARAM_STR);
                 $stmt->execute();
 
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
