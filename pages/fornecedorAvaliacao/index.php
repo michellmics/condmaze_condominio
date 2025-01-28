@@ -91,10 +91,10 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <!-- Alinhamento flexbox para o título e os botões -->
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="page-title">Avaliação de Prestadores de Serviço</h4>
-                    <div>
+                <!-- Alinhamento flexbox para título e botões -->
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                    <h4 class="page-title mb-3 mb-md-0">Avaliação de Prestadores de Serviço</h4>
+                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
                         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
                     </div>
