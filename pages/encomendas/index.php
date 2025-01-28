@@ -217,7 +217,7 @@
                                                         </td>
                                                         <td>
                                                             <?php 
-                                                               echo '<i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, ' . $item['ENC_IDENCOMENDA'] . ')"></i>';
+                                                               echo '<i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, "0GVH1")"></i>';
                                                             ?>
                                                         </td>
                                                     </tr>
@@ -286,7 +286,7 @@
     <!-- SWEETALERT 2 -->   
 
     <script>
-function confirmDelete(id) {
+function confirmDelete(event, id) {
     console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário Encomendas',
