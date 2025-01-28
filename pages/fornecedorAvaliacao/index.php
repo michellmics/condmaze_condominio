@@ -87,17 +87,22 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
 
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <div class="page-title-right">
-                                </div>
-                                <h4 class="page-title">Avaliação de Prestadores de Serviço</h4>
-                            </div>
-                        </div>
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <!-- Alinhamento flexbox para o título e os botões -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="page-title">Avaliação de Prestadores de Serviço</h4>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
                     </div>
-                    <!-- end page title -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
 
                     <div class="row">
                         <div class="col-xl-6">
