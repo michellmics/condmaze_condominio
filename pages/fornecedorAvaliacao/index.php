@@ -58,16 +58,6 @@
 
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- SWEETALERT -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<!-- ######################################################## --> 
-    <!-- SWEETALERT 2 --> 
-    <!-- SweetAlert2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
-    <!-- ######################################################## --> 
     
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
@@ -316,8 +306,7 @@
                         </a>
                     </div>
                                                                     
-                    <form class="ps-3 pe-3" action="#" >
-                    
+                    <form class="ps-3 pe-3" action="#">
                                                                     
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
@@ -341,7 +330,7 @@
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">                            
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="avaliar-modal">Fechar</button>           
                             <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
                                                                     
@@ -351,7 +340,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
