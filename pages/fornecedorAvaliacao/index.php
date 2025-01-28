@@ -872,18 +872,23 @@
 
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <input class="form-control" maxlength="18" minlength="3" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
+                            <input class="form-control" maxlength="20" minlength="3" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
                         </div>
 
                         <div class="mb-3">
                             <label for="nome" class="form-label">Categoria</label>
                             <select class="form-control" name="idprestador" id="idprestador" required>
-                                <option value="" disabled selected>Selecione uma Categoria</option>
-                                <?php foreach ($prestadoresAll as $item): ?>
-                                    <option value="<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO']); ?>">
-                                        <?php echo htmlspecialchars($item['PDS_DCNOME'] . " - " . $item['PDS_DCCATEGORIA']); ?>
-                                    </option>
-                                <?php endforeach; ?> 
+                                    <option value="" disabled selected>Selecione uma Categoria</option>
+                                    <option value="AR CONDICIONADO">AR CONDICIONADO"</option>
+                                    <option value="ELETRICISTA">ELETRICISTA</option>                                         
+                                    <option value="GESSO">TRABALHOS COM GESSO E PINTURA</option>
+                                    <option value="MECANICA">MECÂNICA / LAVA-RÁPIDO</option>
+                                    <option value="MARIDO">MARIDO DE ALUGUEL</option>
+                                    <option value="PEDREIRO">PEDREIRO</option>
+                                    <option value="PISO">PISOS / LAMINADOS</option>
+                                    <option value="PIZZARIA">PIZZARIAS / RESTAURANTES</option>
+                                    <option value="VIDRAÇARIA">VIDRAÇARIA</option>
+                                    <option value="OUTROS">OUTROS SERVIÇOS</option>                                         
                             </select>
                         </div>
 
