@@ -132,14 +132,7 @@
     }
 </style>
 <!-- pop-up promoção CSS -->
-    <style>
-        .notification {
-            background-color: #f0f0f0;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-    </style>
+
 <body>
     <!-- Begin page -->
     <div class="wrapper">
