@@ -61,11 +61,7 @@
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
-         <!-- Rateit js -->
-    <script src="../../assets/vendor/jquery.rateit/scripts/jquery.rateit.min.js"></script>
-
-<!-- Rateit Cemo  js -->
-<script src="../../assets/js/ui/component.rating.js"></script>
+     
 </head>
 
 <body>
@@ -132,7 +128,7 @@
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?> - 36 avaliações</strong>
                                                             <span>Fone: <?= htmlspecialchars($item['PDS_DCTELEFONE']); ?> (<?= htmlspecialchars($item['PDS_DCCIDADE']); ?>)</span>
                                                         </div>                                    
-                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
                                                         <?php                                                        
