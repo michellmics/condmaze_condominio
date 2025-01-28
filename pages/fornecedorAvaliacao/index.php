@@ -137,7 +137,8 @@
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
-                                                        <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                            <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong> - AP <?= htmlspecialchars($comentario_prestador['USU_DCAPARTAMENTO']); ?> BL <?= htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?></strong>
+                                                            <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                         </div>
                                                     </div>
                                                     <?php endforeach; ?>
