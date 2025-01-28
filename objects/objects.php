@@ -108,7 +108,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT PDS_DCNOME, PDS_DCCATEGORIA FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
+                $sql = "SELECT PDS_DCNOME, PDS_IDPRESTADOR_SERVICO, PDS_DCCATEGORIA FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
@@ -687,6 +687,41 @@
             
                 // Retorna uma mensagem de sucesso (opcional)
                 return ["success" => "Visitante cadastrado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+        public function insertAvaliacaoPrestadorInfo($PDS_IDPRESTADOR_SERVICO, $APS_DCCOMENTARIO, $APS_NMNOTA, $USU_IDUSUARIO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "INSERT INTO APS_AVALIACAO_PRESTADOR 
+                        (PDS_IDPRESTADOR_SERVICO, APS_DCCOMENTARIO, APS_NMNOTA, USU_IDUSUARIO, APS_DTAVAL) 
+                        VALUES (:PDS_IDPRESTADOR_SERVICO, :APS_DCCOMENTARIO, :APS_NMNOTA, :USU_IDUSUARIO, :APS_DTAVAL)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $PDS_IDPRESTADOR_SERVICO, PDO::PARAM_STR);
+                $stmt->bindParam(':APS_DCCOMENTARIO', $APS_DCCOMENTARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':APS_NMNOTA', $APS_NMNOTA, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':APS_DTAVAL', $DATA, PDO::PARAM_STR); 
+                
+            
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Avaliação cadastrada com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];

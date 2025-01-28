@@ -314,12 +314,17 @@
                     </div>
                                                                     
                     <form class="ps-3 pe-3" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>                                      
+                        
+                        <!-- CAMPOS COMO VARIAVEIS -->
+                        <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $userid; ?>"/>
+                        <!-- CAMPOS COMO VARIAVEIS -->
+
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <select class="form-control" name="nome" id="nome" required>
+                            <select class="form-control" name="idprestador" id="idprestador" required>
                                 <option value="" disabled selected>Selecione um Prestador</option>
                                 <?php foreach ($prestadoresAll as $item): ?>
-                                    <option value="<?php echo htmlspecialchars($item['PDS_DCNOME']); ?>">
+                                    <option value="<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO']); ?>">
                                         <?php echo htmlspecialchars($item['PDS_DCNOME'] . " - " . $item['PDS_DCCATEGORIA']); ?>
                                     </option>
                                 <?php endforeach; ?> 
@@ -336,7 +341,7 @@
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">                            
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>           
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
                             <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
                                                                     
@@ -352,7 +357,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-       function confirmAndSubmit(event) {       
+       function confirmAndSubmit(event) {   
           event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Moradores',
@@ -377,7 +382,7 @@
             var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
             $.ajax({
-              url: "insertMoradorProc.php", // URL para processamento
+              url: "insertAvaliacaoProc.php", // URL para processamento
               type: "POST",
               data: formData,
               processData: false, // Impede o jQuery de processar os dados
