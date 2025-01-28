@@ -217,7 +217,7 @@
                                                         </td>
                                                         <td>
                                                             
-                                                            <i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, ' . $item['ENC_IDENCOMENDA'] . ')"></i>
+                                                        <i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, <?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?>)"></i>
                                                         </td>
                                                     </tr>
                                                  <?php endforeach; ?>
