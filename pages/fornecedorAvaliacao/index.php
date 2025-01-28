@@ -311,7 +311,7 @@
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
                             <select class="form-control" name="nome" id="nome" required>
-                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="" disabled selected>Selecione um Prestador</option>
                                 <?php foreach ($prestadoresAll as $item): ?>
                                     <option value="<?php echo htmlspecialchars($item['PDS_DCNOME']); ?>">
                                         <?php echo htmlspecialchars($item['PDS_DCNOME'] . " - " . $item['PDS_DCCATEGORIA']); ?>
@@ -329,8 +329,9 @@
                             <textarea class="form-control" name="comentario" id="comentario" maxlength="299" placeholder="" rows="5"></textarea>
                         </div>
                                                                                                                                        
-                        <div class="mb-3 text-center">
-                            <button class="btn btn-primary" type="submit">Cadastrar</button>
+                        <div class="mb-3 text-center">                            
+                            <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
+                            <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
                                                                     
                     </form>
