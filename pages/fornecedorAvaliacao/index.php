@@ -145,14 +145,14 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(50, 92, 33);">
+                                                        <div class="accordion-body" style="color:rgb(28, 37, 58);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
                                                             ?>
-                                                                    <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto; font-size: 16px;"></div><br>
-                                                                    <strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
-                                                                    <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                                    &nbsp;&nbsp;<strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto; font-size: 16px;"></div><br>
+                                                                    &nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
+                                                                    &nbsp;&nbsp;<?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                             <?php
                                                                 }
                                                                 else
