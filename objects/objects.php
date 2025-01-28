@@ -102,6 +102,22 @@
             }       
         }
 
+        public function getAllPrestadores()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT PDS_DCNOME, PDS_DCCATEGORIA FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
+
         public function getAvaliacoesNotasAVGByPrestador($PDS_IDPRESTADOR_SERVICO)
         {          
                 // Verifica se a conexão já foi estabelecida

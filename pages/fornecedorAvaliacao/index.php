@@ -11,7 +11,12 @@
           $nomeCondominio = $item['CFG_DCVALOR']; 
           break; 
       }
-    }   
+    }  
+    
+    
+    $prestadoresAll = $siteAdmin->getAllPrestadores();
+    var_dump();
+    die();
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
