@@ -97,8 +97,6 @@
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Base UI</a></li>
                                         <li class="breadcrumb-item active">Accordions & Collapse</li>
                                     </ol>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>  
                                 </div>
                                 <h4 class="page-title">Avaliação de Prestadores de Serviço</h4>
                             </div>
@@ -110,12 +108,13 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>  
                                     <h4 class="header-title">Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>  
+                                       
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
