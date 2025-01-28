@@ -118,7 +118,7 @@
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                    <div style="display: flex; flex-direction: column;">
+                                    <div >
                                         <strong>Vidraçaria ERK</strong>
                                         <span>Fone: 19-99275895 (Hortolândia)</span>
                                     </div>                                    
