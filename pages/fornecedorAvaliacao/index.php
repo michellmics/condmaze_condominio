@@ -117,8 +117,11 @@
                                     <div style="display: flex; flex-direction: column;">
                                         <strong>Vidraçaria ERK</strong>
                                         <span>Fone: 19-99275895 (Hortolândia)</span>
-                                    </div>                                    
-                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
+                                        <button type="button" class="btn btn-primary btn-sm">Ação</button>
+                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                                    </div>
                                 </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
