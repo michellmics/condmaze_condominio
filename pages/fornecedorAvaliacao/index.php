@@ -904,7 +904,7 @@
 
                         <div class="mb-3 text-center">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
-                            <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
+                            <button class="btn btn-primary" type="button" id="botaoInsert" name="botaoInsert">Cadastrar</button>
                         </div>
 
                     </form>
@@ -961,7 +961,7 @@
                                                                                                                                        
                         <div class="mb-3 text-center">                            
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
-                            <button class="btn btn-primary" type="button" id="botaoInsert" name="botaoInsert">Cadastrar</button>
+                            <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
                                                                     
                     </form>
