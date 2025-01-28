@@ -14,7 +14,9 @@
     }   
     
 
-    $siteAdmin->getListaMoradoresInfo();
+    $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
+    var_dump($VIDRAÇARIA);
+    die();
     
 ?>
 

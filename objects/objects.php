@@ -69,6 +69,23 @@
             }
         }
 
+        public function getAvaliacoesByCategoria($PDS_DCCATEGORIA)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM VW_AVALIACAO_PRESTADOR WHERE PDS_DCCATEGORIA = :PDS_DCCATEGORIA";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
+                $stmt->execute();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
+
         // Função para gerar um novo token de acesso
         public function gerarToken($userId) {
             $chaveSecreta = "mcodemaze!4795condominio$#@!!@#$"; // chave secreta forte
