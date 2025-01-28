@@ -216,7 +216,8 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+
+                                                            <i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i>;
                                                         </td>
                                                     </tr>
                                                  <?php endforeach; ?>
@@ -280,6 +281,100 @@
 </div><!-- /.modal -->
 
 
+   <!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+
+    <script>
+function confirmDelete(event, id) {
+    console.log(id);  // Verifica se o id está correto
+    Swal.fire({
+        title: 'Formulário de Avaliação',
+        text: "Tem certeza que deseja exluir a avaliação?",
+        showDenyButton: true,
+        confirmButtonText: 'CONFIRMAR',
+        denyButtonText: `CANCELAR`,
+        confirmButtonColor: "#536de6",
+        denyButtonColor: "#ff5b5b",
+        width: '400px', // Largura do alerta
+        icon: 'warning',
+        customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Fazer a requisição AJAX
+            $.ajax({
+                url: "deleteAvaliacaoProc.php", // URL para processamento
+                type: "POST",
+                data: { id: id },  // Enviando o ID via POST
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Atenção',
+                        text: `${response}`,
+                        icon: 'success',
+                        width: '400px', // Largura do alerta
+                        confirmButtonColor: "#536de6",
+                        customClass: {
+                            title: 'swal-title', // Aplicando a mesma classe do título
+                            content: 'swal-content', // Aplicando a mesma classe do texto
+                            htmlContainer: 'swal-text',
+                            confirmButton: 'swal-confirm-btn'
+                        }
+                    }).then(() => {
+                        // Redirecionar ou atualizar a página, se necessário
+                        window.location.href = "index.php";
+                    });
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Erro ao excluir a avaliação.',
+                        icon: 'error',
+                        width: '400px', // Largura do alerta
+                        confirmButtonColor: "#536de6",
+                        customClass: {
+                            title: 'swal-title', // Aplicando a mesma classe do título
+                            content: 'swal-content', // Aplicando a mesma classe do texto
+                            htmlContainer: 'swal-text',
+                            confirmButton: 'swal-confirm-btn'
+                        }
+                    });
+                }
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+        }
+    });
+}
+
+$(document).ready(function () {
+    // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
+});
+</script>
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 25px !important; /* Tamanho maior para o título */
+  }
+
+  .swal-text {
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 16px !important; /* Tamanho maior para os textos dos botões */
+    padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
 
 
 
