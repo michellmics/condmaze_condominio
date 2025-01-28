@@ -326,7 +326,7 @@
                         
                         <div class="mb-3">
                             <label for="comentario" class="form-label">Comentário (opcional)</label>
-                            <input class="form-control" type="text" name="comentario" id="comentario" maxlength="299" placeholder="">
+                            <textarea class="form-control" name="comentario" id="comentario" maxlength="299" placeholder="" rows="5"></textarea>
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">
