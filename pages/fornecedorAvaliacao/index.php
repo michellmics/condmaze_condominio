@@ -18,7 +18,6 @@
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
-
     $GESSO = $siteAdmin->getAvaliacoesByCategoria("GESSO");
     $PISO = $siteAdmin->getAvaliacoesByCategoria("PISO");
     $PIZZARIA = $siteAdmin->getAvaliacoesByCategoria("PIZZARIA");
@@ -129,7 +128,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title">Vidraçarias</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
