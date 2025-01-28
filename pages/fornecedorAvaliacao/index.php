@@ -230,7 +230,7 @@
                 <div class="modal-body">
                     <div class="text-center mt-2 mb-4">
                         <a href="index.html" class="text-success">
-                            <span><img src="../../img/logo_128x128.png" alt="" height="18"></span>
+                            <span><img src="../../img/logo_128x32_black.png" alt="" height="18"></span>
                         </a>
                     </div>
 
@@ -274,7 +274,7 @@
                 <div class="modal-body">
                     <div class="text-center mt-2 mb-4">
                         <a href="index.html" class="text-success">
-                            <span><img src="../../img/logo_128x128.png" alt="" height="18"></span>
+                            <span><img src="../../img/logo_128x32_black.png" alt="" height="18"></span>
                         </a>
                     </div>
                                                                     
