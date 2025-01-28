@@ -16,7 +16,7 @@
     
     $prestadoresAll = $siteAdmin->getAllPrestadores();
     
-    $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
+    $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRACARIA");
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
     $GESSO = $siteAdmin->getAvaliacoesByCategoria("GESSO");
     $PISO = $siteAdmin->getAvaliacoesByCategoria("PISO");
@@ -25,7 +25,7 @@
     $MARIDO = $siteAdmin->getAvaliacoesByCategoria("MARIDO");
     $OUTROS = $siteAdmin->getAvaliacoesByCategoria("OUTROS");
     $ELETRICISTA = $siteAdmin->getAvaliacoesByCategoria("ELETRICISTA");
-    $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("AR CONDICIONADO");
+    $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("ARCONDICIONADO");
 
 ?>
 
@@ -879,7 +879,7 @@
                             <label for="categoria" class="form-label">Categoria</label>
                             <select class="form-control" name="categoria" id="categoria" required>
                                     <option value="" disabled selected>Selecione uma Categoria</option>
-                                    <option value="AR CONDICIONADO">AR CONDICIONADO</option>
+                                    <option value="ARCONDICIONADO">AR CONDICIONADO</option>
                                     <option value="ELETRICISTA">ELETRICISTA</option>                                         
                                     <option value="GESSO">TRABALHOS COM GESSO E PINTURA</option>
                                     <option value="MECANICA">MECÂNICA / LAVA-RÁPIDO</option>
@@ -887,7 +887,7 @@
                                     <option value="PEDREIRO">PEDREIRO</option>
                                     <option value="PISO">PISOS / LAMINADOS</option>
                                     <option value="PIZZARIA">PIZZARIAS / RESTAURANTES / PADARIAS</option>
-                                    <option value="VIDRAÇARIA">VIDRAÇARIA</option>
+                                    <option value="VIDRACARIA">VIDRAÇARIA</option>
                                     <option value="OUTROS">OUTROS SERVIÇOS</option>                                         
                             </select>
                         </div>
