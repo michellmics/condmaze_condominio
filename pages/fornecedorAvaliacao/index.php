@@ -360,7 +360,7 @@
        function confirmAndSubmit(event) {   
           event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Formulário de Moradores',
+          title: 'Formulário de Avaliação',
           text: "Tem certeza que deseja avaliar o prestador de serviço selecionado?",
           showDenyButton: true,
           confirmButtonText: 'CONFIRMAR',
@@ -382,7 +382,7 @@
             var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
             $.ajax({
-              url: "insertAvaliacaoProc.php", // URL para processamento
+              url: "insertAvaliacaoProc.php", // URL para processamento 
               type: "POST",
               data: formData,
               processData: false, // Impede o jQuery de processar os dados
