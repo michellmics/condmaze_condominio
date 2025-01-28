@@ -717,6 +717,30 @@
             }
         }
 
+        public function deleteEncomenda($ENC_IDENCOMENDA)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM ENC_ENCOMENDA WHERE ENC_IDENCOMENDA = :ENC_IDENCOMENDA";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':ENC_IDENCOMENDA', $ENC_IDENCOMENDA, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Encomenda deletada com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function insertAvaliacaoPrestadorInfo($PDS_IDPRESTADOR_SERVICO, $APS_DCCOMENTARIO, $APS_NMNOTA, $USU_IDUSUARIO)
         {       
             // Verifica se a conexão já foi estabelecida

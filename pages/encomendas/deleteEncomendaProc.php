@@ -3,7 +3,7 @@
     error_reporting(E_ALL);        // Reporta todos os erros
 	include_once "../../objects/objects.php";
 
-class deleteAvaliacao extends SITE_ADMIN
+class deleteEncomenda extends SITE_ADMIN
 {
     public function deleteAvaliacao($id)
     {
@@ -13,8 +13,8 @@ class deleteAvaliacao extends SITE_ADMIN
                     $this->conexao();
                 }
                
-                $result = $this->deleteAvaliacaoPrestadorInfo($id);
-                echo "Avaliação excluída com sucesso.";          
+                $result = $this->deleteEncomenda($id);
+                echo $result;          
                 
         } catch (PDOException $e) {  
             echo "Erro ao excluir a avaliação."; 
@@ -26,7 +26,7 @@ class deleteAvaliacao extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
 
-     $deleteAvaliacao = new deleteAvaliacao();
-     $deleteAvaliacao->deleteAvaliacao($id);
+     $deleteEncomenda = new deleteEncomenda();
+     $deleteEncomenda->deleteEncomenda($id);
  }
  ?>
