@@ -168,7 +168,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Vidraçarias</h4>
+                                    <h4 class="header-title">Pedreiro</h4>
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -176,7 +176,7 @@
                                     <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
-                                                <?php foreach ($VIDRAÇARIA as $item): 
+                                                <?php foreach ($PEDREIRO as $item): 
                                                     $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
                                                     $NOTASAVG = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador); 
                                                     $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);                                                         
