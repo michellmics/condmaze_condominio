@@ -889,7 +889,7 @@
 
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone (DDD+Telefone)</label>
-                            <input class="form-control" type="number" name="telefone" id="telefone" minlength="11" maxlength="11" required="" placeholder="">
+                            <input class="form-control" type="text" name="telefone" id="telefone" minlength="11" maxlength="11" pattern="^\d{11}$" required="" placeholder="">
                         </div>
 
                         <div class="mb-3">
