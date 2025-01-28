@@ -350,6 +350,10 @@
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
 
+    <!-- Plgins only -->
+    <script src="../../assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="../../assets/js/ui/component.range-slider.js"></script>
+
     <!-- Rateit js -->
     <script src="../../assets/vendor/jquery.rateit/scripts/jquery.rateit.min.js"></script>
 
