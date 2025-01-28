@@ -66,8 +66,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
     <!-- ######################################################## -->
     
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
@@ -221,7 +221,7 @@
                                                                     <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
                                                                     <br>
                                                                     &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?>
-                                                                    <i class="fas fa-trash-alt" style="cursor: pointer;" onclick="confirmDelete('<?= $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] ?>')"></i><br>
+                                                                    <i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete('<?= $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] ?>')"></i><br>
                                                                     <br>
                                                                     <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                             <?php
