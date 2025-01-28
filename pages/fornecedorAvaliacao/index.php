@@ -129,8 +129,10 @@
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
+                                                    <?php print_r($item); ?>
                                                         <?php
-                                                            $idPrestador = 1;
+                                                        
+                                                            $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
                                                             $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
                                                         ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
