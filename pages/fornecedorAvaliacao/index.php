@@ -197,7 +197,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Pedreiro</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pedreiro</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -271,7 +271,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title">Trabalhos com Gesso</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Trabalhos com Gesso</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -340,7 +340,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Pisos / Laminados</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pisos / Laminados</h4>
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -414,7 +414,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title">Pizzarias / Restaurantes</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pizzarias / Restaurantes</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -483,7 +483,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Mecânica / Lava-rápido</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Mecânica / Lava-rápido</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -557,7 +557,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title">Eletricista</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Eletricista</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -626,7 +626,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Ar Condicionado</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Ar Condicionado</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -700,7 +700,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title">Marido de Aluguel</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Marido de Aluguel</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -769,7 +769,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Outros Serviços</h4>
+                                    <h4 class="header-title"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Outros Serviços</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
