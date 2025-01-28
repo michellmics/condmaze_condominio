@@ -312,16 +312,8 @@
                                                                     
                         <div class="mb-3">
                             <label for="nota" class="form-label">Nota</label>
-                            <select class="form-control" name="nota" id="nota" required>
-                                <option value="" disabled selected>Selecione uma nota</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                                                                    
+                            <input type="text" id="nota" data-plugin="range-slider" data-type="single" data-grid="true" data-min="-1" data-max="5" data-from="0" /> </div>                                                                   
+                        
                         <div class="mb-3">
                             <label for="comentario" class="form-label">Comentário (opcional)</label>
                             <input class="form-control" type="text" name="comentario" id="comentario" maxlength="299" placeholder="">
