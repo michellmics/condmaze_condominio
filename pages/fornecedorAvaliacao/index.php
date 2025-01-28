@@ -961,7 +961,7 @@
                                                                                                                                        
                         <div class="mb-3 text-center">                            
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
-                            <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
+                            <button class="btn btn-primary" type="button" id="botaoInsert" name="botao">Cadastrar</button>
                         </div>
                                                                     
                     </form>
@@ -975,7 +975,7 @@
     <!-- SWEETALERT 2 -->   
     <script>
 
-       function confirmAndSubmit(event) {   
+       function confirmAndSubmitInsert(event) {   
           event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Avaliação',
@@ -1046,7 +1046,7 @@
       }
       // Associar a função ao botão de submit
       $(document).ready(function () {
-        $("#botao").on("click", confirmAndSubmit);
+        $("#botaoInsert").on("click", confirmAndSubmitInsert);
       });
 </script> 
 <style>
