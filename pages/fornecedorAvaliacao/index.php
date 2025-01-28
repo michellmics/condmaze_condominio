@@ -702,7 +702,7 @@
                             <div class="card">
                                 <div class="card-body">                                    
                                     <h4 class="header-title">Marido de Aluguel</h4>
-                                    <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
+                                    <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
@@ -771,7 +771,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Outros Serviços</h4>
-                                    <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
+                                    <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
