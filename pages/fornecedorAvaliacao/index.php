@@ -87,14 +87,14 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
 
-   <!-- start page title -->
-   <div class="row">
+    <!-- start page title -->
+    <div class="row">
         <div class="col-12">
             <div class="page-title-box">
                 <!-- Alinhamento flexbox para título e botões -->
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
                     <h4 class="page-title mb-3 mb-md-0">Avaliação de Prestadores de Serviço</h4>
-                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end mb-4">
+                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
                         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
                     </div>
@@ -112,6 +112,8 @@
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>  
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
