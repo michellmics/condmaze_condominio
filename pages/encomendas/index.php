@@ -216,8 +216,8 @@
                                                             </div>
                                                         </td>
                                                         <td>
-
-                                                            <i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i>;
+                                                            
+                                                            <i class="mdi mdi-delete" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i>;
                                                         </td>
                                                     </tr>
                                                  <?php endforeach; ?>
