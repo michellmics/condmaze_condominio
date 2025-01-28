@@ -86,7 +86,7 @@
 <style>
     @media (max-width: 768px) {
         .rateit-mdi {
-            font-size: 20px; /* Diminui o tamanho do ícone */
+            font-size: 15px; /* Diminui o tamanho do ícone */
             margin-left: auto; /* Ajusta o alinhamento se necessário */
         }
     }
