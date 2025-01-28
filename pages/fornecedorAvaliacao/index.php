@@ -137,8 +137,7 @@
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                         <?php 
                                                             $data = $comentario_prestador['APS_DTAVAL'];
-                                                            $date = DateTime::createFromFormat('Y-m-d', $data);
-                                                            $formattedDate = $date->format('d/m/Y');
+                                                            $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
