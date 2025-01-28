@@ -217,7 +217,7 @@
                                                         </td>
                                                         <td>
                                                             
-                                                            <i class="mdi mdi-delete" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i>;
+                                                            <i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, ' . $item['ENC_IDENCOMENDA'] . ')"></i>
                                                         </td>
                                                     </tr>
                                                  <?php endforeach; ?>
@@ -288,8 +288,8 @@
 function confirmDelete(event, id) {
     console.log(id);  // Verifica se o id está correto
     Swal.fire({
-        title: 'Formulário de Avaliação',
-        text: "Tem certeza que deseja exluir a avaliação?",
+        title: 'Formulário Encomendas',
+        text: "Tem certeza que deseja exluir a encomenda?",
         showDenyButton: true,
         confirmButtonText: 'CONFIRMAR',
         denyButtonText: `CANCELAR`,
@@ -308,7 +308,7 @@ function confirmDelete(event, id) {
         if (result.isConfirmed) {
             // Fazer a requisição AJAX
             $.ajax({
-                url: "deleteAvaliacaoProc.php", // URL para processamento
+                url: "deleteEncomendaProc.php", // URL para processamento
                 type: "POST",
                 data: { id: id },  // Enviando o ID via POST
                 success: function (response) {
