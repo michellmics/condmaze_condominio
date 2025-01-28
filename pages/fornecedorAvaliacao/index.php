@@ -307,7 +307,7 @@
                                                                     
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="">
+                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
                         </div>
                                                                     
                         <div class="mb-3">
