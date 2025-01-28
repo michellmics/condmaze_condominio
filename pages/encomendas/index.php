@@ -216,12 +216,9 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            
-                                                        <?php
-                                                            if (1 == 1) {
-                                                                echo '<i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $item['ENC_IDENCOMENDA'] . ')"></i><br>';
-                                                            }
-                                                        ?>
+                                                            <?php 
+                                                               echo '<i class="mdi mdi-delete" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $item['ENC_IDENCOMENDA'] . ')"></i><br>';
+                                                            ?>
                                                         </td>
                                                     </tr>
                                                  <?php endforeach; ?>
