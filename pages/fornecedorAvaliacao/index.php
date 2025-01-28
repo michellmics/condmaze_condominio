@@ -94,7 +94,7 @@
                 <!-- Alinhamento flexbox para título e botões -->
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
                     <h4 class="page-title mb-3 mb-md-0">Avaliação de Prestadores de Serviço</h4>
-                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end">
+                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end" style="margin-bottom: 20px;">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
                         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
                     </div>
