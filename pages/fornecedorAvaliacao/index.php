@@ -110,7 +110,7 @@
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Avaliar Empresa</button>  
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
@@ -141,61 +141,28 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Flush Accordions</h4>
-                                    <p class="text-muted font-14 mb-3">Add <code>.accordion-flush</code> to remove the default <code>background-color</code>, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.</p>
-
-                                    <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item" role="presentation">
-                                            <a href="#flush-accordions-preview" class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="nav-preview" aria-selected="true">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#flush-accordions-code" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="nav-code" aria-selected="false">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul> <!-- end nav-->
-
+                                    <h4 class="header-title">Vidraçarias</h4>
+                                    <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
-                                        <div class="tab-pane show active" id="flush-accordions-preview">
-                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Avaliar Empresa</button>  
+                                    </div>
+                                        <div class="tab-pane show active" id="default-accordions-preview">
+                                            <div class="accordion" id="accordionExample">
                                                 <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="flush-headingOne">
-                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                                            Accordion Item #1
-                                                        </button>
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                    <div style="display: flex; flex-direction: column;">
+                                        <strong>Vidraçaria ERK</strong>
+                                        <span>Fone: 19-99275895 (Hortolândia)</span>
+                                    </div>                                    
+                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                </button>
                                                     </h2>
-                                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-                                                            <code>.accordion-flush</code> class. This is the first item's accordion body.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="flush-headingTwo">
-                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                                            Accordion Item #2
-                                                        </button>
-                                                    </h2>
-                                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-                                                            <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-                                                            filled with some actual content.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="flush-headingThree">
-                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                                            Accordion Item #3
-                                                        </button>
-                                                    </h2>
-                                                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-                                                            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-                                                            happening here in terms of content, but just filling up the space to make it look, at least at first
-                                                            glance, a bit more representative of how this would look in a real-world application.
+                                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                          Vidraçaria muito boa. Atendeu em dia e sem nenhum problema. Ótimo suporte.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,6 +172,8 @@
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
+
+
                     </div>
                     <!-- end row-->
                 </div> <!-- container -->
