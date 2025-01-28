@@ -84,6 +84,10 @@
       <!-- NOTIFICAÇÕES -->
       <script src="notify.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+<script>$.NotificationApp.send("Title","Your awesome message text","Position","Background color","Icon")</script>
+
+  
 </head>
 
 <!-- pop-up promoção CSS -->
