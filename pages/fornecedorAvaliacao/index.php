@@ -150,9 +150,9 @@
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
                                                             ?>
-                                                                    &nbsp;&nbsp;<strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto; font-size: 16px;"></div><br>
-                                                                    &nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
-                                                                    &nbsp;&nbsp;<?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto; font-size: 16px;"></div><br>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
+                                                                    &nbsp;&nbsp;&nbsp;<?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                             <?php
                                                                 }
                                                                 else
