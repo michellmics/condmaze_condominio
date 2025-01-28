@@ -312,7 +312,7 @@
                                                                     
                         <div class="mb-3">
                             <label for="nota" class="form-label">Nota</label>
-                            <input type="text" id="nota" data-plugin="range-slider" data-type="single" data-grid="true" data-min="-1" data-max="5" data-from="0" /> </div>                                                                   
+                            <input type="text" id="nota" name="nota" data-plugin="range-slider" data-type="single" data-grid="true" data-min="1" data-max="5" data-from="0" /> </div>                                                                   
                         
                         <div class="mb-3">
                             <label for="comentario" class="form-label">Comentário (opcional)</label>
