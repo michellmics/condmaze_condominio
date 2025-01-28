@@ -145,7 +145,7 @@
                                                                 if(isset($comentario_prestador['USU_DCNOME']))
                                                                 {
                                                             ?>
-                                                                    <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><br>
+                                                                    <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div><br>
                                                                     <strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
                                                                     <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                             <?php
