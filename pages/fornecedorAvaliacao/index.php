@@ -491,7 +491,7 @@ function confirmDelete(event, id) {
             $.ajax({
                 url: "deleteAvaliacaoProc.php", // URL para processamento
                 type: "POST",
-                data: JSON.stringify({ id: id }), // Enviando dados como JSON
+                data: { id }, // Enviando o ID via POST
                 success: function (response) {
                     Swal.fire({
                         title: 'Atenção',
