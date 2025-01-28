@@ -263,7 +263,7 @@
 
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="">
+                            <input class="form-control" type="text" name="nome" id="nome" minlength="3" maxlength="17" required="" placeholder="">
                         </div>
 
                         <div class="mb-3">
@@ -273,12 +273,12 @@
 
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone (DDD+Telefone)</label>
-                            <input class="form-control" type="text" name="telefone" id="telefone" required="" placeholder="">
+                            <input class="form-control" type="text" name="telefone" id="telefone" minlength="11" maxlength="11" required="" placeholder="">
                         </div>
 
                         <div class="mb-3">
                             <label for="cidade" class="form-label">Cidade</label>
-                            <input class="form-control" type="text" name="cidade" id="cidade" required="" placeholder="">
+                            <input class="form-control" type="text" name="cidade" id="cidade" minlength="3" maxlength="15" required="" placeholder="">
                         </div>
 
                         <div class="mb-3 text-center">
@@ -312,12 +312,19 @@
                                                                     
                         <div class="mb-3">
                             <label for="nota" class="form-label">Nota</label>
-                            <input class="form-control" type="text" name="nota" id="nota" required="" placeholder="">
+                            <select class="form-control" name="nota" id="nota" required>
+                                <option value="" disabled selected>Selecione uma nota</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
                                                                     
                         <div class="mb-3">
                             <label for="comentario" class="form-label">Comentário (opcional)</label>
-                            <input class="form-control" type="text" name="comentario" id="comentario" placeholder="">
+                            <input class="form-control" type="text" name="comentario" id="comentario" maxlength="299" placeholder="">
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">
