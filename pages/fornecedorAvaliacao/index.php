@@ -222,7 +222,8 @@
                                                                     <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
                                                                     <br>
                                                                     &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?>
-                                                                    <i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete('<?= $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] ?>')"></i><br>
+                                                                    <i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, <?= $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] ?>)"></i><br>
+
                                                                     <br>
                                                                     <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                             <?php
@@ -492,7 +493,7 @@ function confirmDelete(event, id) {
             $.ajax({
                 url: "deleteAvaliacaoProc.php", // URL para processamento
                 type: "POST",
-                data: { id }, // Enviando o ID via POST
+                data: { id: id },  // Enviando o ID via POST
                 success: function (response) {
                     Swal.fire({
                         title: 'Atenção',
