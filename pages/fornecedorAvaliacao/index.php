@@ -14,6 +14,9 @@
     }   
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
+var_dump($VIDRAÇARIA);
+die();
+
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("AR CONDICIONADO");
 
@@ -145,7 +148,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(28, 37, 58);">
+                                                        <div class="accordion-body" style="color:rgb(40, 53, 83);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -156,9 +159,9 @@
                                                             <?php
                                                                 }
                                                                 else
-                                                                {
-                                                                    echo "Não há comentários.";
-                                                                }
+                                                                    {
+                                                                        echo "Não há comentários.";
+                                                                    }
                                                             ?>
                                                         </div>
                                                     </div>
