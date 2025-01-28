@@ -83,6 +83,15 @@
      
 </head>
 
+<style>
+    @media (max-width: 768px) {
+        .rateit-mdi {
+            font-size: 20px; /* Diminui o tamanho do ícone */
+            margin-left: auto; /* Ajusta o alinhamento se necessário */
+        }
+    }
+</style>
+
 <body>
     <!-- Begin page -->
     <div class="wrapper">
