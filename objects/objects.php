@@ -85,6 +85,22 @@
                 return ["error" => $e->getMessage()];
             }       
         }
+        public function getAvaliacoesByPrestador($PDS_IDPRESTADOR_SERVICO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM VW_AVALIACAO_PRESTADOR WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $PDS_IDPRESTADOR_SERVICO, PDO::PARAM_STR);
+                $stmt->execute();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
 
         // Função para gerar um novo token de acesso
         public function gerarToken($userId) {

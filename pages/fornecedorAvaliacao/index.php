@@ -13,11 +13,12 @@
       }
     }   
     
-
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
-    var_dump($VIDRAÇARIA);
-    die();
-    
+    $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
+    $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("AR CONDICIONADO");
+
+    $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador("1");
+
 ?>
 
 <!DOCTYPE html>
@@ -117,15 +118,16 @@
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
+                                            <?php foreach ($VIDRAÇARIA as $item): ?>
+                                                <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                    <div style="display: flex; flex-direction: column;">
-                                        <strong>Vidraçaria ERK - 36 avaliações</strong>
-                                        <span>Fone: 19-99275895 (Hortolândia)</span>
-                                    </div>                                    
-                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
-                                </button>
+                                                        <div style="display: flex; flex-direction: column;">
+                                                            <strong>Vidraçaria ERK - 36 avaliações</strong>
+                                                            <span>Fone: 19-99275895 (Hortolândia)</span>
+                                                        </div>                                    
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                    </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
@@ -133,6 +135,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            <?php endforeach; ?>
                                             </div>
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
