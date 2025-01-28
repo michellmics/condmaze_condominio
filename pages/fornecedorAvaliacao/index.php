@@ -112,8 +112,8 @@
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#signup-modal">Avaliar Empresa</button>  
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>  
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
@@ -221,51 +221,88 @@
 
     </div>
 
-    <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div id="cadastrar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <div class="modal-body">
-                <div class="text-center mt-2 mb-4">
-                    <a href="index.html" class="text-success">
-                        <span><img src="../../assets/images/logo-dark.png" alt="" height="18"></span>
-                    </a>
+                <div class="modal-body">
+                    <div class="text-center mt-2 mb-4">
+                        <a href="index.html" class="text-success">
+                            <span><img src="../../assets/images/logo-dark.png" alt="" height="18"></span>
+                        </a>
+                    </div>
+
+                    <form class="ps-3 pe-3" action="#">
+
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
+                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="categoria" class="form-label">Categoria</label>
+                            <input class="form-control" type="text" name="categoria" id="categoria" required="" placeholder="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone (DDD+Telefone)</label>
+                            <input class="form-control" type="text" name="telefone" id="telefone" required="" placeholder="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cidade" class="form-label">Cidade</label>
+                            <input class="form-control" type="text" name="cidade" id="cidade" required="" placeholder="">
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <button class="btn btn-primary" type="submit">Cadastrar</button>
+                        </div>
+
+                    </form>
+
                 </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-                <form class="ps-3 pe-3" action="#">
-
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Name</label>
-                        <input class="form-control" type="email" id="username" required="" placeholder="Michael Zenaty">
+    <div id="avaliar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                                                                    
+                <div class="modal-body">
+                    <div class="text-center mt-2 mb-4">
+                        <a href="index.html" class="text-success">
+                            <span><img src="../../assets/images/logo-dark.png" alt="" height="18"></span>
+                        </a>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="emailaddress" class="form-label">Email address</label>
-                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="john@deo.com">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="customCheck1">
-                            <label class="form-check-label" for="customCheck1">I accept <a href="#">Terms and Conditions</a></label>
-                        </div> 
-                    </div>
-
-                    <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Sign Up Free</button>
-                    </div>
-
-                </form>
-
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                                                                    
+                    <form class="ps-3 pe-3" action="#">
+                                                                    
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
+                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="">
+                        </div>
+                                                                    
+                        <div class="mb-3">
+                            <label for="nota" class="form-label">Nota</label>
+                            <input class="form-control" type="text" name="nota" id="nota" required="" placeholder="">
+                        </div>
+                                                                    
+                        <div class="mb-3">
+                            <label for="comentario" class="form-label">Comentário (opcional)</label>
+                            <input class="form-control" type="text" name="comentario" id="comentario" placeholder="">
+                        </div>
+                                                                                                                                       
+                        <div class="mb-3 text-center">
+                            <button class="btn btn-primary" type="submit">Cadastrar</button>
+                        </div>
+                                                                    
+                    </form>
+                                                                    
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
