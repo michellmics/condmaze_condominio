@@ -109,10 +109,9 @@
                                     <h4 class="header-title">Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Avaliar Empresa</button>  
-                                        <br>
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
