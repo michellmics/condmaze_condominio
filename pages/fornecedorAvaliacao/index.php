@@ -122,7 +122,7 @@
                                         <strong>Vidraçaria ERK</strong>
                                         <span>Fone: 19-99275895 (Hortolândia)</span>
                                     </div>                                    
-                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;">36 Avaliações</div>
                                 </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
