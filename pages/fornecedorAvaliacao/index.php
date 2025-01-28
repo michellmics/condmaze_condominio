@@ -109,10 +109,13 @@
                                     <h4 class="header-title">Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
+                                    <div class="col-sm-5">
+                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                        </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
                                                 <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne">dsd
+                                                    <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
                                     <div style="display: flex; flex-direction: column;">
                                         <strong>Vidraçaria ERK</strong>
