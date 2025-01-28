@@ -141,9 +141,20 @@
                                                         ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
-                                                            <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><br>
-                                                            <strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
-                                                            <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                            <?php 
+                                                                if(isset($comentario_prestador['USU_DCNOME']))
+                                                                {
+                                                            ?>
+                                                                    <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><br>
+                                                                    <strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
+                                                                    <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                            <?php
+                                                                }
+                                                                else
+                                                                {
+                                                                    echo "Não há comentários.";
+                                                                }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                     <?php endforeach; ?>
