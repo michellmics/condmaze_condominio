@@ -127,12 +127,16 @@
                                                         <div style="display: flex; flex-direction: column;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?> - 36 avaliações</strong>
                                                             <span>Fone: <?= htmlspecialchars($item['PDS_DCTELEFONE']); ?> (<?= htmlspecialchars($item['PDS_DCCIDADE']); ?>)</span>
-                                                        </div>                                    
-                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                        </div> 
+                                                        <?php
+                                                            $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador);                                                            
+                                                        ?>                                   
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($COMENTARIOS['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
                                                         <?php                                                        
-                                                            $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                            
                                                             $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
                                                         ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
