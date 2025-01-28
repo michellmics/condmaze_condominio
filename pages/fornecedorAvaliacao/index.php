@@ -128,15 +128,12 @@
                                                         </div> 
                                                         <?php
                                                             $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
-                                                            $NOTASAVG = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador);                                                            
+                                                            $NOTASAVG = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador); 
+                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);                                                           
                                                         ?>                                   
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
-                                                        <?php                                                        
-                                                            
-                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
-                                                        ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                         <?php 
                                                             $data = $comentario_prestador['APS_DTAVAL'];
