@@ -130,7 +130,7 @@
                                                     </button>
                                                     </h2>
                                                         <?php
-                                                            $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                            $idPrestador = 1;
                                                             $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
                                                         ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
