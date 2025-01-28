@@ -217,7 +217,7 @@
                                                         </td>
                                                         <td>
                                                             <?php 
-                                                               echo '<i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, "0GVH1")"></i>';
+                                                               echo '<i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, 0GVH1)"></i>';
                                                             ?>
                                                         </td>
                                                     </tr>
