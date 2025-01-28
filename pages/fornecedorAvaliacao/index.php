@@ -135,10 +135,15 @@
                                                             $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
                                                         ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
+                                                        <?php 
+                                                            $data = $comentario_prestador['APS_DTAVAL'];
+                                                            $date = DateTime::createFromFormat('Y-m-d', $data);
+                                                            $formattedDate = $date->format('d/m/Y');
+                                                        ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
                                                             <strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><br>
-                                                            <strong><?= htmlspecialchars($comentario_prestador['APS_DTAVAL']); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
+                                                            <strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
                                                             <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                         </div>
                                                     </div>
