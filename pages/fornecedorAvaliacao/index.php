@@ -337,7 +337,14 @@
                         
                         <div class="mb-3">
                             <label for="comentario" class="form-label">Comentário (opcional)</label>
-                            <textarea class="form-control" name="comentario" id="comentario" maxlength="299" placeholder="" rows="5"></textarea>
+                            <textarea class="form-control" name="comentario" id="comentario" placeholder="Digite seu comentário (máximo 300 caracteres)" rows="5" oninput="limitCharacters(this, 300)"></textarea>
+                                <script>
+                                function limitCharacters(textarea, maxLength) {
+                                    if (textarea.value.length > maxLength) {
+                                        textarea.value = textarea.value.substring(0, maxLength);
+                                    }
+                                }
+                                </script>
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">                            
