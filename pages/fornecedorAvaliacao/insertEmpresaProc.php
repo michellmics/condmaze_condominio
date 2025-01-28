@@ -28,8 +28,8 @@ class registerEmpresa extends SITE_ADMIN
                     //exit();
                 } else 
                     {                  
-                        $result = $this->insertAvaliacaoPrestadorInfo($nome, $categoria, $telefone, $cidade);
-                        echo "Prestador de serviço cadastrado com sucesso."; 
+                        $result = $this->insertEmpresaPrestadorInfo($nome, $categoria, $telefone, $cidade);
+                        echo "Prestador desssss serviço cadastrado com sucesso."; 
 
                     }                    
                 
