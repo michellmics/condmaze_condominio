@@ -14,7 +14,7 @@ class deleteEncomenda extends SITE_ADMIN
                 }
                
                 $result = $this->deleteEncomenda($id);
-                echo $result;          
+                echo "Encomenda excluída com sucesso.";      
                 
         } catch (PDOException $e) {  
             echo "Erro ao excluir a avaliação."; 
