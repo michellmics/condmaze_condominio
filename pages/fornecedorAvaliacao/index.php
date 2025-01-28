@@ -271,7 +271,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" style="display: flex; align-items: center;"><i class="ri-brush-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Trabalhos com Gesso</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center;"><i class="ri-brush-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Trabalhos com Gesso / Pintura</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
