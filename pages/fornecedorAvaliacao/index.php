@@ -470,7 +470,7 @@
 function confirmDelete(event, id) {
     Swal.fire({
         title: 'Formulário de Avaliação',
-        text: "Tem certeza que deseja apagar a avaliação?",
+        text: "Tem certeza que deseja exluir a avaliação?",
         showDenyButton: true,
         confirmButtonText: 'CONFIRMAR',
         denyButtonText: `CANCELAR`,
@@ -491,7 +491,7 @@ function confirmDelete(event, id) {
             $.ajax({
                 url: "deleteAvaliacaoProc.php", // URL para processamento
                 type: "POST",
-                data: { id: id }, // Enviando o ID via POST
+                data: JSON.stringify({ id: id }), // Enviando dados como JSON
                 success: function (response) {
                     Swal.fire({
                         title: 'Atenção',
