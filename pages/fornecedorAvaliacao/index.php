@@ -468,7 +468,6 @@
 
     <script>
 function confirmDelete(event, id) {
-    event.preventDefault(); // Impede o envio padrão do formulário
     Swal.fire({
         title: 'Formulário de Avaliação',
         text: "Tem certeza que deseja apagar a avaliação?",
