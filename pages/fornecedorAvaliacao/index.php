@@ -194,7 +194,7 @@
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                         <?php 
                                                             $data = $comentario_prestador['APS_DTAVAL'];
-                                                            $formattedDate = date('d/m/Y', strtotime($data));
+                                                            $formattedDate = date('d/m/Y', strtotime($data)); 
                                                         ?>
                                                     <div id="pedreiro<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body" style="color:rgb(40, 53, 83);">
