@@ -872,17 +872,24 @@
 
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
+                            <input class="form-control" maxlength="18" minlength="3" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
                         </div>
 
                         <div class="mb-3">
-                            <label for="categoria" class="form-label">Categoria</label>
-                            <input class="form-control" type="text" name="categoria" id="categoria" required="" placeholder="">
+                            <label for="nome" class="form-label">Categoria</label>
+                            <select class="form-control" name="idprestador" id="idprestador" required>
+                                <option value="" disabled selected>Selecione uma Categoria</option>
+                                <?php foreach ($prestadoresAll as $item): ?>
+                                    <option value="<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO']); ?>">
+                                        <?php echo htmlspecialchars($item['PDS_DCNOME'] . " - " . $item['PDS_DCCATEGORIA']); ?>
+                                    </option>
+                                <?php endforeach; ?> 
+                            </select>
                         </div>
 
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone (DDD+Telefone)</label>
-                            <input class="form-control" type="text" name="telefone" id="telefone" minlength="11" maxlength="11" required="" placeholder="">
+                            <input class="form-control" type="text" name="telefone" id="telefone" minlength="11" maxlength="11" required="" pattern="[0-9]+" placeholder="">
                         </div>
 
                         <div class="mb-3">
@@ -891,7 +898,8 @@
                         </div>
 
                         <div class="mb-3 text-center">
-                            <button class="btn btn-primary" type="submit">Cadastrar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
+                            <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
 
                     </form>
