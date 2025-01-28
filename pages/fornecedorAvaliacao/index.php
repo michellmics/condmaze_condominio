@@ -14,13 +14,8 @@
     }   
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
-var_dump($VIDRAÇARIA);
-die();
-
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("AR CONDICIONADO");
-
-    $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador("1");
 
 ?>
 
@@ -138,10 +133,6 @@ die();
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($COMENTARIOS['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
-                                                        <?php                                                        
-                                                            
-                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
-                                                        ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                         <?php 
                                                             $data = $comentario_prestador['APS_DTAVAL'];
