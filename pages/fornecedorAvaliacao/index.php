@@ -172,27 +172,55 @@
                                     <p class="text-muted font-14 mb-3">Avaliar Empresa</p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signup-modal">Adicionar Empresa</button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Avaliar Empresa</button>  
                                     </div>
-                                        <div class="tab-pane show active" id="default-accordions-preview">
+                                    <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($VIDRAÇARIA as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                    $NOTASAVG = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador); 
+                                                    $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);                                                         
+                                                    $countAval = count($COMENTARIOS);
+                                                ?>
+                                                <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                    <div style="display: flex; flex-direction: column;">
-                                        <strong>Vidraçaria ERK</strong>
-                                        <span>Fone: 19-99275895 (Hortolândia)</span>
-                                    </div>                                    
-                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
-                                </button>
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                                        <div style="display: flex; flex-direction: column;">
+                                                            <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?> - <?= htmlspecialchars($countAval); ?> avaliações</strong>
+                                                            <span>Fone: <?= htmlspecialchars($item['PDS_DCTELEFONE']); ?> (<?= htmlspecialchars($item['PDS_DCCIDADE']); ?>)</span>
+                                                        </div>                                
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                    </button>
                                                     </h2>
-                                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                          Vidraçaria muito boa. Atendeu em dia e sem nenhum problema. Ótimo suporte.
+                                                    <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
+                                                        <?php 
+                                                            $data = $comentario_prestador['APS_DTAVAL'];
+                                                            $formattedDate = date('d/m/Y', strtotime($data));
+                                                        ?>
+                                                    <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body" style="color:rgb(40, 53, 83);">
+                                                            <?php  
+                                                                if(isset($comentario_prestador['USU_DCNOME'])) 
+                                                                {
+                                                            ?>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= substr(htmlspecialchars($comentario_prestador['USU_DCNOME']),0,20)."..."; ?></strong>                                                                    
+                                                                    <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
+                                                                    <br>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
+                                                                    <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                            <?php
+                                                                }
+                                                                else
+                                                                    {
+                                                                        echo "Não há comentários.";
+                                                                    }
+                                                            ?>
                                                         </div>
                                                     </div>
+                                                    <?php endforeach; ?>
                                                 </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
                                             </div>
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
