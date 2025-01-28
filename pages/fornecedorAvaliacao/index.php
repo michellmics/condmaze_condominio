@@ -879,7 +879,7 @@
                             <label for="nome" class="form-label">Categoria</label>
                             <select class="form-control" name="idprestador" id="idprestador" required>
                                     <option value="" disabled selected>Selecione uma Categoria</option>
-                                    <option value="AR CONDICIONADO">AR CONDICIONADO"</option>
+                                    <option value="AR CONDICIONADO">AR CONDICIONADO</option>
                                     <option value="ELETRICISTA">ELETRICISTA</option>                                         
                                     <option value="GESSO">TRABALHOS COM GESSO E PINTURA</option>
                                     <option value="MECANICA">MECÂNICA / LAVA-RÁPIDO</option>
