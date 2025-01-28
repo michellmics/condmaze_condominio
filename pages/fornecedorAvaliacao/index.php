@@ -121,7 +121,7 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
                                                         <div style="display: flex; flex-direction: column;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?> - <?= htmlspecialchars($countAval); ?> avaliações</strong>
                                                             <span>Fone: <?= htmlspecialchars($item['PDS_DCTELEFONE']); ?> (<?= htmlspecialchars($item['PDS_DCCIDADE']); ?>)</span>
@@ -134,7 +134,7 @@
                                                             $data = $comentario_prestador['APS_DTAVAL'];
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
-                                                    <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div id="vidracaria<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body" style="color:rgb(40, 53, 83);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
@@ -184,7 +184,7 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedreiro<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
                                                         <div style="display: flex; flex-direction: column;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?> - <?= htmlspecialchars($countAval); ?> avaliações</strong>
                                                             <span>Fone: <?= htmlspecialchars($item['PDS_DCTELEFONE']); ?> (<?= htmlspecialchars($item['PDS_DCCIDADE']); ?>)</span>
@@ -197,7 +197,7 @@
                                                             $data = $comentario_prestador['APS_DTAVAL'];
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
-                                                    <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div id="pedreiro<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body" style="color:rgb(40, 53, 83);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
