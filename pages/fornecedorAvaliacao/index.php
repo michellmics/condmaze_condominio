@@ -129,11 +129,16 @@
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
+                                                        <?php
+                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($item['PDS_IDPRESTADOR_SERVICO']);
+                                                        ?>
+                                                    <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
-                                                          Vidraçaria muito boa. Atendeu em dia e sem nenhum problema. Ótimo suporte.
+                                                        <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                         </div>
                                                     </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             <?php endforeach; ?>
                                             </div>
