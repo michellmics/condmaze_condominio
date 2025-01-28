@@ -145,7 +145,12 @@
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
                                                             ?>
-                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong><br>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($comentario_prestador['USU_DCNOME']); ?></strong>
+                                                                    <span class="text-warning mdi mdi-star"></span>
+                                                            <span class="text-warning mdi mdi-star"></span>
+                                                            <span class="text-warning mdi mdi-star"></span>
+                                                            <span class="text-warning mdi mdi-star"></span>
+                                                            <span class="text-warning mdi mdi-star"></span><br>
                                                                     &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?><br>
                                                                     &nbsp;&nbsp;&nbsp;<?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                             <?php
