@@ -24,7 +24,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>
-                                    <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Fornecedores</a>                                    
+                                    <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>                                    
                                 </div>
                             </li>     
                             <li class="nav-item dropdown">
