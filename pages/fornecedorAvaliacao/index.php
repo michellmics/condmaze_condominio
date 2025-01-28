@@ -15,7 +15,7 @@
     
     
     $prestadoresAll = $siteAdmin->getAllPrestadores();
-    var_dump();
+    var_dump($prestadoresAll);
     die();
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
