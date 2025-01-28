@@ -295,7 +295,7 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div id="avaliar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="avaliar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-bs-toggle="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                                                                     
@@ -330,7 +330,7 @@
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">                            
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="avaliar-modal">Fechar</button>           
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>           
                             <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
                                                                     
