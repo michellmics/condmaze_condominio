@@ -15,8 +15,6 @@
     
     
     $prestadoresAll = $siteAdmin->getAllPrestadores();
-    var_dump($prestadoresAll);
-    die();
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRAÇARIA");
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
@@ -268,7 +266,7 @@
 
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <input class="form-control" type="text" name="nome" id="nome" minlength="3" maxlength="17" required="" placeholder="">
+                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
                         </div>
 
                         <div class="mb-3">
@@ -312,7 +310,14 @@
                                                                     
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required="" placeholder="" pattern="[A-Za-z0-9]+" style="text-transform: uppercase;">
+                            <select class="form-control" name="nome" id="nome" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <?php foreach ($prestadoresAll as $item): ?>
+                                    <option value="<?php echo htmlspecialchars($item['PDS_DCNOME']); ?>">
+                                        <?php echo htmlspecialchars($item['PDS_DCNOME'] . " - " . $item['PDS_DCCATEGORIA']); ?>
+                                    </option>
+                                <?php endforeach; ?> 
+                            </select>
                         </div>
                                                                     
                         <div class="mb-3">
