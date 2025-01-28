@@ -105,7 +105,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Cadastro de Convidado</h4>
-                                    <p class="text-muted font-14">Cadastre seu convidado aqui e <strong>lembre-se de ativá-lo para 
+                                    <p class="text-muted font-14">Cadastre seu convidado aqui e <strong style="color: red;">lembre-se de ativá-lo para 
                                         garantir o acesso ao condomínio </strong> durante o uso do salão de festas.
                                     </p>
 
