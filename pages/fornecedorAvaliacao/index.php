@@ -145,7 +145,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
+                                                        <div class="accordion-body" style="color: #ff0000;">
                                                             <?php 
                                                                 if(isset($comentario_prestador['USU_DCNOME']))
                                                                 {
