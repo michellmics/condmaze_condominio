@@ -61,6 +61,11 @@
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
+         <!-- Rateit js -->
+    <script src="../../assets/vendor/jquery.rateit/scripts/jquery.rateit.min.js"></script>
+
+<!-- Rateit Cemo  js -->
+<script src="../../assets/js/ui/component.rating.js"></script>
 </head>
 
 <body>
