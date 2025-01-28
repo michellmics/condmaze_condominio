@@ -876,8 +876,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="nome" class="form-label">Categoria</label>
-                            <select class="form-control" name="idprestador" id="idprestador" required>
+                            <label for="categoria" class="form-label">Categoria</label>
+                            <select class="form-control" name="categoria" id="categoria" required>
                                     <option value="" disabled selected>Selecione uma Categoria</option>
                                     <option value="AR CONDICIONADO">AR CONDICIONADO</option>
                                     <option value="ELETRICISTA">ELETRICISTA</option>                                         
