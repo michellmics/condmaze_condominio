@@ -23,8 +23,8 @@
     $PISO = $siteAdmin->getAvaliacoesByCategoria("PISO");
     $PIZZARIA = $siteAdmin->getAvaliacoesByCategoria("PIZZARIA");
     $MECANICA = $siteAdmin->getAvaliacoesByCategoria("MECANICA");
-    $MARIDO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
-    $OUTROS = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
+    $MARIDO = $siteAdmin->getAvaliacoesByCategoria("MARIDO");
+    $OUTROS = $siteAdmin->getAvaliacoesByCategoria("OUTROS");
     $ELETRICISTA = $siteAdmin->getAvaliacoesByCategoria("ELETRICISTA");
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("AR CONDICIONADO");
 
