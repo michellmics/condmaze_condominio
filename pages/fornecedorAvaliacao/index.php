@@ -886,7 +886,7 @@
                                     <option value="MARIDO">MARIDO DE ALUGUEL</option>
                                     <option value="PEDREIRO">PEDREIRO</option>
                                     <option value="PISO">PISOS / LAMINADOS</option>
-                                    <option value="PIZZARIA">PIZZARIAS / RESTAURANTES</option>
+                                    <option value="PIZZARIA">PIZZARIAS / RESTAURANTES / PADARIAS</option>
                                     <option value="VIDRAÇARIA">VIDRAÇARIA</option>
                                     <option value="OUTROS">OUTROS SERVIÇOS</option>                                         
                             </select>
