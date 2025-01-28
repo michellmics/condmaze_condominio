@@ -218,7 +218,7 @@
                                                         <td>
                                                             
                                                         <?php
-                                                            if ($item['ENC_IDENCOMENDA']) {
+                                                            if (1 == 1) {
                                                                 echo '<i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $item['ENC_IDENCOMENDA'] . ')"></i><br>';
                                                             }
                                                         ?>
