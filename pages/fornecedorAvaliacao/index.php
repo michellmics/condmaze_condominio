@@ -130,7 +130,8 @@
                                                     </button>
                                                     </h2>
                                                         <?php
-                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($item['PDS_IDPRESTADOR_SERVICO']);
+                                                            $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                            $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
                                                         ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
