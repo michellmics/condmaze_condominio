@@ -96,7 +96,7 @@
                                         <li class="breadcrumb-item active">Accordions & Collapse</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Accordions & Collapse</h4>
+                                <h4 class="page-title">Avaliação de Prestadores de Serviço</h4>
                             </div>
                         </div>
                     </div>
