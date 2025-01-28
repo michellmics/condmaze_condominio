@@ -175,8 +175,7 @@
                     </div>
 		            <!--  Pop-up publicidade-->
 
-                    <div id="notifications-container"></div>
-
+      
                     <div class="toast show align-items-center mb-4" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
         <div class="toast-body">
