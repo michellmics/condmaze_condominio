@@ -19,6 +19,9 @@
 
     $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador("1");
 
+    var_dump($VIDRAÇARIA);
+    die();
+
 ?>
 
 <!DOCTYPE html>
