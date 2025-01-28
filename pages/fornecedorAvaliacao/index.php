@@ -114,16 +114,11 @@
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                    <!-- Conteúdo principal do botão -->
                                     <div style="display: flex; flex-direction: column;">
                                         <strong>Vidraçaria ERK</strong>
                                         <span>Fone: 19-99275895 (Hortolândia)</span>
-                                    </div>
-                                    <!-- Contêiner do botão e estrelas -->
-                                    <div style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
-                                        <button type="button" class="btn btn-primary btn-sm">Ação</button>
-                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-                                    </div>
+                                    </div>                                    
+                                    <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                 </button>
                                                     </h2>
                                                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
