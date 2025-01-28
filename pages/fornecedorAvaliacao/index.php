@@ -330,7 +330,7 @@
                         </div>
                                                                                                                                        
                         <div class="mb-3 text-center">                            
-                            <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="avaliar-modal">Fechar</button>           
                             <button class="btn btn-primary" type="button" id="botao" name="botao">Cadastrar</button>
                         </div>
                                                                     
