@@ -118,10 +118,11 @@
                                     </div>
                                         <div class="tab-pane show active" id="default-accordions-preview">
                                             <div class="accordion" id="accordionExample">
+                                            <?php $aux = 0 ?>
                                             <?php foreach ($VIDRAÇARIA as $item): ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
                                                         <div style="display: flex; flex-direction: column;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?> - 36 avaliações</strong>
                                                             <span>Fone: <?= htmlspecialchars($item['PDS_DCTELEFONE']); ?> (<?= htmlspecialchars($item['PDS_DCCIDADE']); ?>)</span>
@@ -129,19 +130,19 @@
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
-                                                        <?php
-                                                        
+                                                        <?php                                                        
                                                             $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
                                                             $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);
                                                         ?>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
-                                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div id="collapse<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
                                                         <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
                                                         </div>
                                                     </div>
                                                     <?php endforeach; ?>
                                                 </div>
+                                                <?php $aux++; ?>
                                             <?php endforeach; ?>
                                             </div>
                                         </div> <!-- end preview-->
