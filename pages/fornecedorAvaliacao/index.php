@@ -117,8 +117,7 @@
                                     <div style="display: flex; flex-direction: column;">
                                         <strong>Vidraçaria ERK</strong>
                                         <span>Fone: 19-99275895 (Hortolândia)</span>
-                                    </div>
-                                    <div style="margin-left: auto;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal">Sign Up Modal</button></div>
+                                    </div>                                    
                                     <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                 </button>
                                                     </h2>
