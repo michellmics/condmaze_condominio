@@ -306,8 +306,7 @@
                         </a>
                     </div>
                                                                     
-                    <form class="ps-3 pe-3" action="#">
-                                                                    
+                    <form class="ps-3 pe-3" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>                                      
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome do Prestador de Serviço</label>
                             <select class="form-control" name="nome" id="nome" required>
