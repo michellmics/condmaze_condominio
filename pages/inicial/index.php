@@ -46,6 +46,7 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en" data-layout="topnav">
 
@@ -79,6 +80,10 @@
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
+
+      <!-- NOTIFICAÇÕES -->
+      <script src="notify.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <!-- pop-up promoção CSS -->
@@ -130,7 +135,14 @@
     }
 </style>
 <!-- pop-up promoção CSS -->
-
+    <style>
+        .notification {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+    </style>
 <body>
     <!-- Begin page -->
     <div class="wrapper">
@@ -165,6 +177,8 @@
                         </div>
                     </div>
 		            <!--  Pop-up publicidade-->
+
+                    <div id="notifications-container"></div>
 
                 <!-- Start Content-->
                 <div class="container-fluid">
