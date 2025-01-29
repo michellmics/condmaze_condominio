@@ -863,7 +863,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
         foreach ($campos as $nome => $valor) {
             if (count($valor) == 0) {
-                $erros[] = "ATENÇÃO: A Rceita com nome $nome está vazia, Contate o Administrador do Sistema.";
+                $erros[] = "<strong>ATENÇÃO:</strong> A Receita com nome $nome está vazia, Contate o Administrador do Sistema.";
             } else {
                 $siteAdmin->insertConciliacaoInfo($valor);
             }
@@ -1046,13 +1046,13 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     <!-- end page title -->
 
                     <?php
-                        echo "Resultado Processamento";
+                        echo "Resultado Processamento<br><br>";
                         // Exibir os erros de uma vez só, se houver
                         if (!empty($result)) {
                             echo implode("<br>", $result);
                         }
 
-                        echo "<br>$status"; 
+                        echo "<br><br>$status"; 
 
                     ?>
 
