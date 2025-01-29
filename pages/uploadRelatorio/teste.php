@@ -127,14 +127,14 @@ include_once "../../objects/objects.php";
             ];
 
             var_dump($receitas);
-            $siteAdmin->insertConciliacaoInfo($receitas);
+            return "Fim do processamento";
         }
 
         fclose($handle);
     }
 
     // Insere os dados processados no banco
-    
+    $siteAdmin->insertConciliacaoInfo($receitas);
 
 
 
