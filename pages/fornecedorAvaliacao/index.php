@@ -931,7 +931,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                    <div class="tab-pane show active" id="default-accordions-preview">
+                                    <div class="tab-pane show active" style="display: none;" id="outrosContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($OUTROS as $item): 
@@ -1461,7 +1461,7 @@ $(document).ready(function () {
 
 <script>
     document.getElementById("toggleGesso").addEventListener("click", function() {
-        var content = document.getElementsByName("empresaContent");
+        var content = document.getElementById("empresaContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
@@ -1471,7 +1471,7 @@ $(document).ready(function () {
     });
 
     document.getElementById("toggleVidraca").addEventListener("click", function() {
-        var content = document.getElementById("default-accordions-preview"); 
+        var content = document.getElementById("default-accordions-preview");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
@@ -1530,8 +1530,8 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById("toggleAr").addEventListener("click", function() {
-        var content = document.getElementById("arContent");
+    document.getElementById("togglePedreiro").addEventListener("click", function() {
+        var content = document.getElementById("pedreiroContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
@@ -1540,8 +1540,8 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById("toggleAr").addEventListener("click", function() {
-        var content = document.getElementById("arContent");
+    document.getElementById("toggleMoveis").addEventListener("click", function() {
+        var content = document.getElementById("moveisContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
@@ -1550,8 +1550,8 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById("toggleAr").addEventListener("click", function() {
-        var content = document.getElementById("arContent");
+    document.getElementById("toggleBar").addEventListener("click", function() {
+        var content = document.getElementById("barContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
@@ -1560,8 +1560,18 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById("toggleAr").addEventListener("click", function() {
-        var content = document.getElementById("arContent");
+    document.getElementById("toggleMarido").addEventListener("click", function() {
+        var content = document.getElementById("maridoContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+
+    document.getElementById("toggleOutros").addEventListener("click", function() {
+        var content = document.getElementById("outrosContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
