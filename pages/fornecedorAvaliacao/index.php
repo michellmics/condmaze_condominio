@@ -998,7 +998,7 @@
                     alert('O número de telefone deve ter exatamente 11 dígitos.');
                     return false;
                 }
-                
+
                 return true;              
         }
 
@@ -1104,8 +1104,20 @@
     <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script>
+        function validarFormulario() {
+            const idprestador = document.querySelector('select[name="idprestador"]').value.trim();
+            if (!idprestador) {
+                alert("Escolha um prestador de serviços.");
+                return false;
+            }
+            return true;              
+        }
 
        function confirmAndSubmit(event) {   
+        const isValid = validarFormulario();
+        if (!isValid) {
+            return;
+        }
           event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Avaliação',
