@@ -58,7 +58,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $isAcordosRecebidos = false;
 
         //Ler os dados de pagamento da taxa condominal
-        while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
             foreach ($data as &$item) {
                 // Substitui NBSP por espaços comuns
