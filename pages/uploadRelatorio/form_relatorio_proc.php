@@ -118,7 +118,15 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 $item = preg_replace('/\s+/', ' ', $item);
             }
          
-            var_dump($data); // Exibe os dados processados
+            
+            // Extrair os campos relevantes
+            $liquidacao = $data[3]; // Campo 'Liquid.'
+            $fornecedor = $data[5]; // Campo 'Fornecedor'
+            $valorLiquido = $data[8]; // Campo 'Valor liquído'
+
+
+            echo "$fornecedor<br>";
+
             
         }
 
