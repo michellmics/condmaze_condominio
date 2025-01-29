@@ -97,13 +97,6 @@
                         </div>
                     </div>
                     <!-- end page title -->
-                    <script>
-    $(document).ready(function() {
-        $('#basic-datatable').DataTable({
-            "order": [[4, 'desc']] // Coluna 4 (DT ENTREGA) ordenada de forma decrescente
-        });
-    });
-</script>
 
                     <div class="row">
 
@@ -126,15 +119,15 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th data-order="false">ID</th>
-                                                        <th data-order="false">AP</th>
-                                                        <th data-order="false">TITULAR APARTAMENTO</th>
-                                                        <th data-order='[[4, "desc"]]'>DT ENTRADA</th>
-                                                        <th data-order="false">DT ENTREGA</th>
-                                                        <th data-order="false">OBS</th>
-                                                        <th data-order="false">DISPONIVEL?</th>
-                                                        <th data-order="false">ENTREGUE?</th> 
-                                                        <th data-order="false"></th> 
+                                                        <th>ID</th>
+                                                        <th>AP</th>
+                                                        <th>TITULAR APARTAMENTO</th>
+                                                        <th>DT ENTRADA</th>
+                                                        <th>DT ENTREGA</th>
+                                                        <th>OBS</th>
+                                                        <th>DISPONIVEL?</th>
+                                                        <th>ENTREGUE?</th> 
+                                                        <th></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
