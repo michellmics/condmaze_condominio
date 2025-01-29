@@ -633,39 +633,46 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     $tamanhoMaximo = 2 * 1024 * 1024; // 2 MB
     $diretorioDestino = "csv_parser/"; // Pasta onde os arquivos serão salvos
 
-    var_dump($arquivo);
+echo "to aqui 1";
 
     // Valida o tamanho do arquivo
     if ($arquivo['size'] > $tamanhoMaximo) {
         die("Erro: O arquivo excede o tamanho máximo permitido de 2 MB.");
+        echo "to aqui 2";
     }
 
     // Valida o tipo do arquivo
     if (!in_array($arquivo['type'], $tiposPermitidos)) {
         die("Erro: Tipo de arquivo não permitido.");
+        echo "to aqui 3";
     }
-
+    echo "to aqui 4";
     $nomeArquivo = uniqid() . "-" . basename($arquivo['name']);
     $caminhoDestino = $diretorioDestino . $nomeArquivo;
 
     // Cria o diretório de destino, se não existir
     if (!is_dir($diretorioDestino)) {
+        echo "to aqui 5";
         mkdir($diretorioDestino, 0777, true);
     }
-
+    echo "to aqui 6";
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
         if($tipo == "receita")
         {
+            echo "to aqui 7";
             processCSV($caminhoDestino, $mesUser, $anoUser);
         }
         if($tipo == "despesa")
         {
+            echo "to aqui 8";
             processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
         }
 
+        echo "to aqui 10";
         $resultadoParser = "Sucesso: Arquivo processado.";
     } else {
+        echo "to aqui 9";
         $resultadoParser = "Erro: Não foi possível salvar o arquivo.";
     }
 
