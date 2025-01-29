@@ -728,9 +728,6 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
-            <?php
-                $siteAdmin->getListaInfo($userid);
-            ?>
 
         <div class="content-page">
             <div class="content">
