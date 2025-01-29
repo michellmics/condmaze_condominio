@@ -179,6 +179,8 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
+                                                                    title="Defina como SIM para que o morador possa visualizar a encomenda."
+                                                                    aria-label="Defina como SIM para que o morador possa visualizar a encomenda."
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
                                                                     data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
