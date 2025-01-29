@@ -81,7 +81,6 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 // Extrai o mês e o ano se o valor da competência estiver no formato esperado
                 $competencia = $data[1];
 
-                echo "$competencia<br>";
                 $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                 $ano = null;         // Valor padrão para o ano
 
@@ -130,10 +129,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+               if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                // Formatos: Oct-24 ou Oct-2024
+                $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+            
+            } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                // Formatos: 10-2024 ou 10/2024
+                $meses = [
+                    '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                    '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                    '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                ];
+            
+                $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+            }
+
                $MULTAS[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -162,10 +174,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $JUROS[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -194,10 +219,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $ADVOCATICIOS[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -226,10 +264,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $ATUALIZACAO_MONETARIA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -258,10 +309,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $PAGAMENTO_A_MENOR[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -290,10 +354,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $CARTAO_ACESSO[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -322,10 +399,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                if ($data[3] != "") { //junção de varias receitas sem total.
                 $OUTRAS_RECEITAS[] = [
                     'DESCRICAO' => $data[0],
@@ -356,10 +446,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $RENDIMENTO_APLICACAO[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -388,10 +491,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $FUNDO_INADIMPLENCIA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -420,10 +536,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $CONSUMO_AGUA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -452,10 +581,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $PARCELAMENTO_SABESP[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -484,10 +626,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $SALAO_FESTA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -516,10 +671,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $ACORDOS_RECEBIDOS[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -548,10 +716,23 @@ function processCSV($filePath, $mesUser, $anoUser) {
                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                $ano = null;         // Valor padrão para o ano
 
-               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
-                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-               }
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
                $SALAO_FESTA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -566,7 +747,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
             // FIM EVENTOS
         }
-/*
+
         //Alertas de campos vazio
         if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($TAXA_CONDOMINAL);}
         if(count($MULTAS) == 0){echo "ATENÇÃO: MULTAS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($MULTAS);}
@@ -582,7 +763,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PARCELAMENTO_SABESP);}
         if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($SALAO_FESTA);}
         if(count($ACORDOS_RECEBIDOS) == 0){echo "ATENÇÃO: ACORDOS_RECEBIDOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ACORDOS_RECEBIDOS);}
-*/
+
         fclose($handle);
 
         echo "Dados importados com sucesso!";
