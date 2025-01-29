@@ -1471,7 +1471,7 @@ $(document).ready(function () {
     });
 
     document.getElementById("toggleVidraca").addEventListener("click", function() {
-        var content = document.getElementById("vidracaContent");
+        var content = document.getElementsByName("vidracaContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
