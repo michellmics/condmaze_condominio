@@ -282,7 +282,7 @@
                             <div class="card card-h-100">
                                 <div class="d-flex card-header justify-content-between align-items-center">
                                     <h4 class="header-title">Pendência - Taxa Condominal</h4>
-                                    <div class="dropdown">
+                                    <div >
 
                                     
             fdsfsagdgasydyuasgduygsauydgyuasgdyugasdsadasd
