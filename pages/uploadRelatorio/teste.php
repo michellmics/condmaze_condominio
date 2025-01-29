@@ -70,7 +70,7 @@ include_once "../../objects/objects.php";
             
             // Obtém nome e valor (primeira e última coluna)
             $nome = $data[0] ?? ''; 
-            $valor = end($data) ?? '';
+            $valor = $data[3] ?? '';
 
             echo $valor;
 
