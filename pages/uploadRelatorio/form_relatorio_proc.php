@@ -838,22 +838,37 @@ function processCSV($filePath, $mesUser, $anoUser) {
             // FIM HONORARIOS ADVOCATICIOS
         }
 
-        //Alertas de campos vazio
-        if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($TAXA_CONDOMINAL);}
-        if(count($MULTAS) == 0){echo "ATENÇÃO: MULTAS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($MULTAS);}
-        if(count($JUROS) == 0){echo "ATENÇÃO: JUROS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($JUROS);}
-        if(count($ADVOCATICIOS) == 0){echo "ATENÇÃO: ADVOCATICIOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ADVOCATICIOS);}
-        if(count($ATUALIZACAO_MONETARIA) == 0){echo "ATENÇÃO: ATUALIZACAO_MONETARIA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ATUALIZACAO_MONETARIA);}
-        if(count($PAGAMENTO_A_MENOR) == 0){echo "ATENÇÃO: PAGAMENTO_A_MENOR VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PAGAMENTO_A_MENOR);}
-        if(count($CARTAO_ACESSO) == 0){echo "ATENÇÃO: CARTAO_ACESSO VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($CARTAO_ACESSO);}
-        if(count($OUTRAS_RECEITAS) == 0){echo "ATENÇÃO: OUTRAS_RECEITAS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($OUTRAS_RECEITAS);}
-        if(count($RENDIMENTO_APLICACAO) == 0){echo "ATENÇÃO: RENDIMENTO_APLICACAO VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($RENDIMENTO_APLICACAO);}
-        if(count($FUNDO_INADIMPLENCIA) == 0){echo "ATENÇÃO: FUNDO_INADIMPLENCIA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($FUNDO_INADIMPLENCIA);}
-        if(count($CONSUMO_AGUA) == 0){echo "ATENÇÃO: CONSUMO_AGUA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($CONSUMO_AGUA);}
-        if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PARCELAMENTO_SABESP);}
-        if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($SALAO_FESTA);}
-        if(count($ACORDOS_RECEBIDOS) == 0){echo "ATENÇÃO: ACORDOS_RECEBIDOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ACORDOS_RECEBIDOS);}
-        if(count($AUDITORIA) == 0){echo "ATENÇÃO: AUDITORIA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($AUDITORIA);}
+
+
+        //Alertas de campos vazio e inserção no bd
+
+        $erros = [];
+        $campos = [
+            "TAXA_CONDOMINAL" => $TAXA_CONDOMINAL,
+            "MULTAS" => $MULTAS,
+            "JUROS" => $JUROS,
+            "ADVOCATICIOS" => $ADVOCATICIOS,
+            "ATUALIZACAO_MONETARIA" => $ATUALIZACAO_MONETARIA,
+            "PAGAMENTO_A_MENOR" => $PAGAMENTO_A_MENOR,
+            "CARTAO_ACESSO" => $CARTAO_ACESSO,
+            "OUTRAS_RECEITAS" => $OUTRAS_RECEITAS,
+            "RENDIMENTO_APLICACAO" => $RENDIMENTO_APLICACAO,
+            "FUNDO_INADIMPLENCIA" => $FUNDO_INADIMPLENCIA,
+            "CONSUMO_AGUA" => $CONSUMO_AGUA,
+            "PARCELAMENTO_SABESP" => $PARCELAMENTO_SABESP,
+            "SALAO_FESTA" => $SALAO_FESTA,
+            "ACORDOS_RECEBIDOS" => $ACORDOS_RECEBIDOS,
+            "AUDITORIA" => $AUDITORIA
+        ];
+
+        foreach ($campos as $nome => $valor) {
+            if (count($valor) == 0) {
+                $erros[] = "ATENÇÃO: A Rceita com nome $nome está vazia, Contate o Administrador do Sistema.";
+            } else {
+                $siteAdmin->insertConciliacaoInfo($valor);
+            }
+        }
+
         fclose($handle);
 
         echo "Dados importados com sucesso!";
@@ -1029,6 +1044,12 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     </div>
                     <!-- end page title -->
 
+                    <?php
+                        // Exibir os erros de uma vez só, se houver
+                        if (!empty($erros)) {
+                            echo implode("<br>", $erros);
+                        }
+                    ?>
 
 
                 </div>
