@@ -284,11 +284,11 @@
                                     <h4 class="header-title">Pendência - Taxa Condominal</h4>
                                     <div class="dropdown">
 
-                                        <div >
+                                    
             fdsfsagdgasydyuasgduygsauydgyuasgdyugasdsadasd
             saduyasgdugasudgassauydgasugdyusagduygasdgsad
             sadguhasgdugasdg
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="card-body pt-0">
