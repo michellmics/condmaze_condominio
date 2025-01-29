@@ -139,8 +139,8 @@
                                                 <div style="flex: 1;">
                                                         <select class="form-control" id="tipo" name="tipo" required>
                                                             <option value="" disabled selected>Tipo</option>
-                                                            <option value="DESPESA">DESPESA</option>
-                                                            <option value="RECEITA">RECEITA</option>
+                                                            <option value="despesa">DESPESA</option>
+                                                            <option value="receita">RECEITA</option>
 
                                                         </select>
                                                     </div>
