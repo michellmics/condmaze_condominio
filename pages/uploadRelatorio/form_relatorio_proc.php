@@ -866,7 +866,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
     $despesas = [];
-
+ 
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
         // Ignorar as duas primeiras linhas
