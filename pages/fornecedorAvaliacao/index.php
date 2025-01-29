@@ -160,7 +160,7 @@
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
-                                                        <div class="rateit rateit-mdi" id="vidracaContent" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                     </button>
                                                     </h2>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
@@ -497,7 +497,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="toggleMecanica" style="display: flex; align-items: center;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Mecânica / Lava-rápido</h4>
+                                    <h4 class="header-title" id="toggleMecanica" style="display: flex; align-items: center;"><i class="ri-car-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Mecânica / Lava-rápido</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -714,7 +714,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleMoveis" style="display: flex; align-items: center;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Móveis Planejados / Marceneiro</h4>
+                                    <h4 class="header-title" id="toggleMoveis" style="display: flex; align-items: center;"><i class="ri-layout-2-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Móveis Planejados / Marceneiro</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -857,7 +857,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleMarido" style="display: flex; align-items: center;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Marido de Aluguel</h4>
+                                    <h4 class="header-title" id="toggleMarido" style="display: flex; align-items: center;"><i class="ri-settings-2-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Marido de Aluguel</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
