@@ -31,16 +31,15 @@ function converterParaFormatoAmericano($valor) {
 function processCSV($filePath, $mesUser, $anoUser) {
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
-    $receitas = [];
-
+    $despesas = [];
+ 
     // Abrir o arquivo CSV
-    if (($handle = fopen($filePath, 'r')) !== false) {
+    if (($handle = fopen($filePath, 'r')) !== FALSE) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
         fgetcsv($handle);
 
         $iniciarLeitura = false;
-        $descricaoReceita = "";
 
         // Ler os dados do CSV
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
@@ -77,7 +76,11 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             // Obtém nome e valor (primeira e última coluna)
             $nome = $data[0] ?? ''; 
-            $valor = end($data) ?? '';
+            $valor = $data[3] ?? '';
+
+            echo $valor;
+
+            
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
@@ -97,6 +100,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
             $competencia = $data[1] ?? '';
             $mes = $competencia;
             $ano = null;
+
+            
 
             if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
                 $mes = ucfirst(strtolower($matches[1]));
@@ -126,15 +131,16 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 'TIPO' => 'RECEITA',
                 'TITULO' => $descricaoReceita,
             ];
-        }
 
+            var_dump($receitas);
+            return "Fim do processamento";
+        }
         fclose($handle);
     }
 
-    // Insere os dados processados no banco
-    $siteAdmin->insertConciliacaoInfo($receitas);
-
+    $siteAdmin->insertConciliacaoInfoDespesa($despesas);
     return "Fim do processamento";
+
 }
 
 function processCSVDespesa($filePath, $mesUser, $anoUser) {
