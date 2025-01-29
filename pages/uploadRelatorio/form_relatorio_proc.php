@@ -871,7 +871,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
         fclose($handle);
 
-        echo "Dados importados com sucesso!";
+        return $erros;
+
     } else {
         echo "Erro ao abrir o arquivo.";
     }
@@ -953,7 +954,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         removeBOM($caminhoDestino);
         if($tipo == "receita")
         {
-            processCSV($caminhoDestino, $mesUser, $anoUser);
+            $result = processCSV($caminhoDestino, $mesUser, $anoUser);
         }
         if($tipo == "despesa")
         {
@@ -1046,11 +1047,11 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     <?php
                     echo "Resultado Processamento";
                         // Exibir os erros de uma vez só, se houver
-                        if (!empty($erros)) {
-                            echo implode("<br>", $erros);
+                        if (!empty($result)) {
+                            echo implode("<br>", $result);
                         }
 
-                        var_dump($erros);
+                        var_dump($result);
                     ?>
 
 
