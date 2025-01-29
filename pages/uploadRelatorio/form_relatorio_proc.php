@@ -1018,7 +1018,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 		<!-- Top bar Area -->
 		<?php include '../../src/top_bar.php'; ?>
 		<!-- End Top bar -->
-
+ 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
