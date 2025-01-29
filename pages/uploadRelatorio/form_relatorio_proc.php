@@ -17,6 +17,17 @@ function removeBOM($filePath) {
     }
 }
 
+function converterParaFormatoAmericano($valor) {
+    // Verifica se o número está no formato brasileiro (milhares com ponto e decimal com vírgula)
+    if (preg_match('/^\d{1,3}(\.\d{3})*,\d{2}$/', $valor)) {
+        // Substitui o ponto (.) por nada (remove separador de milhares)
+        $valor = str_replace('.', '', $valor);
+        // Substitui a vírgula (,) por ponto (separador decimal)
+        $valor = str_replace(',', '.', $valor);
+    }
+    return $valor;
+}
+
 function processCSV($filePath, $mesUser, $anoUser) {
 
     $siteAdmin = new SITE_ADMIN();  
@@ -101,6 +112,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
                     'COMPETENCIA MES' => $mes,
@@ -145,6 +158,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                 $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
             }
+
+            $data[3] = converterParaFormatoAmericano($data[3]);
 
                $MULTAS[] = [
                    'DESCRICAO' => $data[0],
@@ -191,6 +206,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $JUROS[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -235,6 +252,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
 
                $ADVOCATICIOS[] = [
                    'DESCRICAO' => $data[0],
@@ -281,6 +300,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $ATUALIZACAO_MONETARIA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -325,6 +346,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
 
                $PAGAMENTO_A_MENOR[] = [
                    'DESCRICAO' => $data[0],
@@ -371,6 +394,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $CARTAO_ACESSO[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -415,6 +440,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
 
                if ($data[3] != "") { //junção de varias receitas sem total.
                 $OUTRAS_RECEITAS[] = [
@@ -463,6 +490,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $RENDIMENTO_APLICACAO[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -507,6 +536,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
 
                $FUNDO_INADIMPLENCIA[] = [
                    'DESCRICAO' => $data[0],
@@ -553,6 +584,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $CONSUMO_AGUA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -597,6 +630,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
 
                $PARCELAMENTO_SABESP[] = [
                    'DESCRICAO' => $data[0],
@@ -643,6 +678,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $SALAO_FESTA[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -688,6 +725,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
                $ACORDOS_RECEBIDOS[] = [
                    'DESCRICAO' => $data[0],
                    'COMPETENCIA MES' => $mes,
@@ -732,6 +771,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
 
                $SALAO_FESTA[] = [
                    'DESCRICAO' => $data[0],
