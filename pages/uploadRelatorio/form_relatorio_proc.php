@@ -623,7 +623,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
 }
 
-$arquivo = $_FILES['arquivo'];
+$arquivo = $_FILES['arquivo']['error'];
 
 var_dump($arquivo);
 die();
