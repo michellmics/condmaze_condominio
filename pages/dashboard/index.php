@@ -23,6 +23,7 @@
 	if($totalDespesa != null){$totalDespesa = number_format($totalDespesa, 2, ',', '.');}
     $totalInadimplencia = $chartValor->getInadimplenciaFull($mesUsu, $anoUsu);
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
+    $totalInadimplencia = if($totalInadimplencia == "100,00"){$totalInadimplencia = "Sem Dados";}else{$totalInadimplencia = $totalInadimplencia."%";}
     //--------------------
 
     $chartValor->getPendenciaByMesFull();
@@ -266,7 +267,7 @@
                                                 <i class="mdi mdi-account-multiple widget-icon"></i>
                                             </div>
                                             <h5 class="text-muted fw-normal mt-0" title="Growth">Inadimplência</h5>
-                                            <h3 class="mt-3 mb-3"><?php echo $totalInadimplencia; ?>%</h3> 
+                                            <h3 class="mt-3 mb-3"><?php echo $totalInadimplencia; ?></h3> 
                                             <p class="mb-0 text-muted">
                                                 <span class="text-nowrap">% de Apartamentos </span>
                                             </p>
