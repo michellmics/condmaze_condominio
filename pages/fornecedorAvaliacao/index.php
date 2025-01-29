@@ -145,7 +145,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                        <div class="tab-pane show active show"  id="vidracaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
+                                        <div class="tab-pane show active" data-bs-toggle="collapse" id="vidracaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($VIDRAÇARIA as $item): 
