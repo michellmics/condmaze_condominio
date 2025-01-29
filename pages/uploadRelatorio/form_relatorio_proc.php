@@ -918,7 +918,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             } else {
                 $siteAdmin->insertConciliacaoInfo($valor);
             }
-        }
+        } 
 
         fclose($handle);
 
