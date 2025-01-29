@@ -67,6 +67,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $isSalaoFesta = false;
         $ACORDOS_RECEBIDOS = [];
         $isAcordosRecebidos = false;
+        $AUDITORIA = [];
+        $isAuditoria = false;
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
@@ -787,6 +789,53 @@ function processCSV($filePath, $mesUser, $anoUser) {
                ];
             }
             // FIM EVENTOS
+
+                        // INI HONORARIOS ADVOCATICIOS
+           if ($data[0] == "Taxa Auditoria"){$isAuditoria = true;continue;}
+           if ($isAuditoria && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isAuditoria = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
+                
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                }
+
+                $data[3] = converterParaFormatoAmericano($data[3]);
+
+               $AUDITORIA[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
+                   'TIPO' => 'RECEITA',
+                   'TITULO' => 'Honorários Advocaticios',
+               ];
+            }
+            // FIM HONORARIOS ADVOCATICIOS
         }
 
         //Alertas de campos vazio
@@ -804,7 +853,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PARCELAMENTO_SABESP);}
         if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($SALAO_FESTA);}
         if(count($ACORDOS_RECEBIDOS) == 0){echo "ATENÇÃO: ACORDOS_RECEBIDOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ACORDOS_RECEBIDOS);}
-
+        if(count($AUDITORIA) == 0){echo "ATENÇÃO: AUDITORIA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($AUDITORIA);}
         fclose($handle);
 
         echo "Dados importados com sucesso!";
