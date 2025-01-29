@@ -119,15 +119,15 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>AP</th>
-                                                        <th>TITULAR APARTAMENTO</th>
-                                                        <th>DT ENTRADA</th>
-                                                        <th>DT ENTREGA</th>
-                                                        <th>OBS</th>
-                                                        <th>DISPONIVEL?</th>
-                                                        <th>ENTREGUE?</th> 
-                                                        <th></th> 
+                                                        <th data-order="false">ID</th>
+                                                        <th data-order="false">AP</th>
+                                                        <th data-order="false">TITULAR APARTAMENTO</th>
+                                                        <th data-order="false">DT ENTRADA</th>
+                                                        <th data-order="false">DT ENTREGA</th>
+                                                        <th data-order="false">OBS</th>
+                                                        <th data-order="false">DISPONIVEL?</th>
+                                                        <th data-order="false">ENTREGUE?</th> 
+                                                        <th data-order="false"></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -179,9 +179,6 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
-                                                                    title="Defina como SIM para que o morador possa visualizar a encomenda."
-                                                                    aria-label="Defina como SIM para que o morador possa visualizar a encomenda."
-                                                                    style="pointer-events: auto;"
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
                                                                     data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
