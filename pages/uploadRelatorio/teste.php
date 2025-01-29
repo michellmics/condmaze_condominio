@@ -33,6 +33,8 @@ include_once "../../objects/objects.php";
         $iniciarLeitura = false;
         $descricaoReceita = "";
 
+        echo "aaahhhh";
+
         // Ler os dados do CSV
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
             // Limpa os espaços indesejados e caracteres especiais
