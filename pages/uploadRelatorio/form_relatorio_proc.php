@@ -1049,6 +1049,8 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                         if (!empty($erros)) {
                             echo implode("<br>", $erros);
                         }
+
+                        var_dump($erros);
                     ?>
 
 
