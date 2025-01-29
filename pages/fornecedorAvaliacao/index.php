@@ -1471,14 +1471,14 @@ $(document).ready(function () {
     });
 
     document.getElementById("toggleVidraca").addEventListener("click", function() {
-        var content = document.getElementById("vidracaContent");
-        // Alterna a visibilidade do conteúdo
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block"; // Exibe o conteúdo
-        } else {
-            content.style.display = "none"; // Oculta o conteúdo
-        }
-    });
+    var content = document.getElementById("vidracaContent");
+    // Alterna a visibilidade do conteúdo
+    if (content.style.visibility === "hidden" || content.style.visibility === "") {
+        content.style.visibility = "visible"; // Exibe o conteúdo
+    } else {
+        content.style.visibility = "hidden"; // Oculta o conteúdo
+    }
+});
 
     document.getElementById("togglePiso").addEventListener("click", function() {
         var content = document.getElementById("pisoContent");
