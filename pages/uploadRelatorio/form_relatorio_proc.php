@@ -120,11 +120,9 @@ function processCSV($filePath, $mesUser, $anoUser) {
          
             
             // Extrair os campos relevantes
-            $liquidacao = $data[3]; // Campo 'Liquid.'
-            $fornecedor = $data[5]; // Campo 'Fornecedor'
-            $valorLiquido = $data[8]; // Campo 'Valor liquído'
+            $fornecedor = $data[0]; // Campo 'Fornecedor'
+            $valorLiquido = $data[5]; // Campo 'Valor liquído'
 
-            var_dump($data);
 
             echo "$fornecedor<br>";
 
