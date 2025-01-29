@@ -103,6 +103,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 echo $mes;
                 echo "<br>";
                 echo $ano;
+                die();
 
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
