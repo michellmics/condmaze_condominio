@@ -145,7 +145,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                        <div class="tab-pane show active" data-bs-toggle="collapse" id="vidracaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
+                                        <div class="tab-pane show active" id="vidracaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($VIDRAÇARIA as $item): 
@@ -214,7 +214,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                    <div class="tab-pane show active" style="display: none;" id="pedreiroContent">
+                                    <div class="tab-pane collapse" style="display: none;" id="pedreiroContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($PEDREIRO as $item): 
@@ -1471,14 +1471,9 @@ $(document).ready(function () {
     });
 
     document.getElementById("toggleVidraca").addEventListener("click", function() {
-        var content = document.getElementById("vidracaContent");
-        // Alterna a visibilidade do conteúdo
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block"; // Exibe o conteúdo
-        } else {
-            content.style.display = "none"; // Oculta o conteúdo
-        }
-    });
+    var content = document.getElementById("vidracaContent");
+    content.classList.toggle("collapse"); // Alterna a classe collapse
+});
 
     document.getElementById("togglePiso").addEventListener("click", function() {
         var content = document.getElementById("pisoContent");
