@@ -23,7 +23,7 @@
 	if($totalDespesa != null){$totalDespesa = number_format($totalDespesa, 2, ',', '.');}
     $totalInadimplencia = $chartValor->getInadimplenciaFull($mesUsu, $anoUsu);
     $totalInadimplencia = number_format($totalInadimplencia, 2, ',', '.');
-    $totalInadimplencia = if($totalInadimplencia == "100,00"){$totalInadimplencia = "Sem Dados";}else{$totalInadimplencia = $totalInadimplencia."%";}
+    if($totalInadimplencia == "100,00"){$totalInadimplencia = "Sem Dados";}else{$totalInadimplencia = $totalInadimplencia."%";}
     //--------------------
 
     $chartValor->getPendenciaByMesFull();
