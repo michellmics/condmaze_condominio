@@ -260,6 +260,11 @@
             const telefone = document.querySelector('input[name="telefone"]').value.trim();
             const metodo = document.querySelector('input[name="metodo"]').value.trim();
 
+            if (telefone.length !== 11) {
+                alert('O número de telefone deve ter exatamente 11 dígitos.');
+                return false;
+            }
+
             if(metodo != "update")
             {
               if (!nome || !email || !bloco || !apartamento || !senha || !telefone) {
