@@ -139,11 +139,11 @@
                                                 <h6 class="font-15 mt-3">Tipo de dados</h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline">
-                                                        <input type="radio" id="customRadio3" name="customRadio1" class="form-check-input">
+                                                        <input type="radio" id="tipo" name="tipo" class="form-check-input">
                                                         <label class="form-check-label" for="customRadio3">Receita</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input type="radio" id="customRadio4" name="customRadio1" class="form-check-input">
+                                                        <input type="radio" id="tipo" name="tipo" class="form-check-input">
                                                         <label class="form-check-label" for="customRadio4">Despesa</label>
                                                     </div>
                                                 </div>
