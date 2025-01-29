@@ -989,11 +989,11 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                 $item = preg_replace('/\s+/', ' ', $item);
             }
          
+            $data[5] = converterParaFormatoAmericano($data[5]);
             
             // Extrair os campos relevantes
             $fornecedor = $data[0]; // Campo 'Fornecedor'
             $valorLiquido = $data[5]; // Campo 'Valor liquído'
-
 
             // Adicionar aos resultados
             $despesas[] = [
