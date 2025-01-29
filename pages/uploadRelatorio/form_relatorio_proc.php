@@ -104,9 +104,14 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 continue; // Pula essa linha se um dos dois estiver vazio
             }
         
-            // Verifica se a primeira coluna começa com "Total"
-            if (stripos($nome, 'Total') === 0) {
-                continue; // Pula a linha se começar com "Total"
+
+            // Verifica se a primeira coluna começa com "Total", "Mov. Líquido(Receitas-Despesas)" ou "F. "
+            if (
+                stripos($nome, 'Total') === 0 || 
+                stripos($nome, 'Mov. Líquido(Receitas-Despesas)') === 0 || 
+                stripos($nome, 'F. ') === 0
+            ) {
+                continue; // Pula a linha se começar com esses termos
             }
         
             // Processamento dos dados
