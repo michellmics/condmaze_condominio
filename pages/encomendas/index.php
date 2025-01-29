@@ -122,7 +122,7 @@
                                                         <th data-order="false">ID</th>
                                                         <th data-order="false">AP</th>
                                                         <th data-order="false">TITULAR APARTAMENTO</th>
-                                                        <th data-order="false">DT ENTRADA</th>
+                                                        <th data-order='[[4, "desc"]]'>DT ENTRADA</th>
                                                         <th data-order="false">DT ENTREGA</th>
                                                         <th data-order="false">OBS</th>
                                                         <th data-order="false">DISPONIVEL?</th>
