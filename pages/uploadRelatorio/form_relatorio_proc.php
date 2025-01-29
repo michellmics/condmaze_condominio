@@ -95,7 +95,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 stripos($nome, 'Mov. Líquido(Receitas-Despesas)') === 0 || 
                 stripos($nome, 'F. ') === 0
             ) {
-                continue;
+                continue; 
             }
 
             // Extração do mês e ano da competência
