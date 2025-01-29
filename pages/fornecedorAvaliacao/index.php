@@ -145,7 +145,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                        <div class="tab-pane show active" style="display: none;" id="vidracaContent">
+                                    <div class="tab-pane show active" style="visibility: hidden;" id="vidracaContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($VIDRAÇARIA as $item): 
@@ -1470,15 +1470,17 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById("toggleVidraca").addEventListener("click", function() {
-        var content = document.getElementById("vidracaContent");
-        // Alterna a visibilidade do conteúdo
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block"; // Exibe o conteúdo
-        } else {
-            content.style.display = "none"; // Oculta o conteúdo
-        }
-    });
+    document.getElementById("toggleGesso").addEventListener("click", function() {
+    var content = document.getElementById("vidracaContent");
+    // Alterna a visibilidade do conteúdo
+    if (content.style.visibility === "hidden" || content.style.visibility === "") {
+        content.style.visibility = "visible"; // Exibe o conteúdo
+        content.style.pointerEvents = "auto"; // Permite interação com o conteúdo
+    } else {
+        content.style.visibility = "hidden"; // Torna o conteúdo invisível
+        content.style.pointerEvents = "none"; // Impede interação com o conteúdo
+    }
+});
 
     document.getElementById("togglePiso").addEventListener("click", function() {
         var content = document.getElementById("pisoContent");
