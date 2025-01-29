@@ -32,49 +32,70 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
+    $receitas = [];
 
+    
+ 
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
-        // Ler o cabeçalho
-        $header = fgetcsv($handle);  // Aqui lemos o cabeçalho
+        // Ignorar as duas primeiras linhas
+        fgetcsv($handle);
+        fgetcsv($handle);
 
-        //campos a serem verificados
-        $TAXA_CONDOMINAL = [];
-        $isTaxaCondominial = false;
-        $MULTAS = [];
-        $isMultas = false;
-        $JUROS = [];
-        $isJuros = false;
-        $ADVOCATICIOS = [];
-        $isAdvocaticios = false;
-        $ATUALIZACAO_MONETARIA = [];
-        $isAtualizacaoMonetaria = false;
-        $PAGAMENTO_A_MENOR = [];
-        $isPagamentoMenor = false;
-        $CARTAO_ACESSO = [];
-        $isCartaoAcesso = false;
-        $OUTRAS_RECEITAS = [];
-        $isOutrasReceitas = false;
-        $RENDIMENTO_APLICACAO = [];
-        $isRendimentoAplicacao = false;
-        $FUNDO_INADIMPLENCIA = [];
-        $isFundoInadimplencia = false;
-        $CONSUMO_AGUA = [];
-        $isConsumoAgua = false;
-        $AGUA_E_ESGOTO = [];
-        $isAguaEsgoto = false;
-        $PARCELAMENTO_SABESP = [];
-        $isParcelamentoSabesp = false;
-        $SALAO_FESTA = [];
-        $isSalaoFesta = false;
-        $ACORDOS_RECEBIDOS = [];
-        $isAcordosRecebidos = false;
-        $AUDITORIA = [];
-        $isAuditoria = false;
+        $iniciarLeitura = false;
+        $descricaoReceita = "";
 
-        //Ler os dados de pagamento da taxa condominal
-        while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
+        // Ler os dados de pagamento da taxa condominial
+        while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {            
 
+            // Verifica se a linha contém "Despesas Ordinárias"
+            if (!$iniciarLeitura) {
+                foreach ($data as $coluna) {
+                    if (strpos($coluna, 'Receitas Ordinárias') !== false) {
+                        $iniciarLeitura = true; // Inicia a leitura a partir desta linha
+                        break;
+                    }
+                }
+                continue; // Pula as linhas até encontrar a desejada
+            }
+
+            //metodo para encontrar e identificar o q é tx de condominio
+            if (stripos($data[0], 'Taxa Condominial') === 0) {
+                $descricaoReceita = "Taxa Condominio";
+            }
+            if (stripos($data[0], 'Total de Taxa Condominial') === 0) {
+                $descricaoReceita = "Receitas";
+            }
+            
+        
+            // Verifica se há pelo menos duas colunas na linha (evita erros)
+            if (count($data) < 2) {
+                continue; // Ignora linhas que não têm pelo menos duas colunas
+            }
+        
+            // Obtém o primeiro e o último elemento da linha
+            $nome = trim($data[0]); // Primeira coluna (Nome)
+            $valor = trim(end($data)); // Última coluna (Valor)
+        
+            // Verifica se ambos os campos estão preenchidos
+            if (empty($nome) || empty($valor)) {
+                continue; // Pula essa linha se um dos dois estiver vazio
+            }
+        
+
+            // Verifica se a primeira coluna começa com "Total", "Mov. Líquido(Receitas-Despesas)" ou "F. "
+            if (
+                stripos($nome, 'Total') === 0 || 
+                stripos($nome, 'Mov. Líquido(Receitas-Despesas)') === 0 || 
+                stripos($nome, 'F. ') === 0
+            ) {
+                continue; // Pula a linha se começar com esses termos
+            }
+
+
+
+        
+            // Processamento dos dados
             foreach ($data as &$item) {
                 // Substitui NBSP por espaços comuns
                 $item = str_replace("\xC2\xA0", ' ', $item);
@@ -82,851 +103,56 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
             }
+
+            // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+            $competencia = $data[1];
+            $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+            $ano = null;         // Valor padrão para o ano
             
-           // INI TAXA CONDOMINAL
-            if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
-            // Se estamos na seção "Taxa Condominial" e a linha não está vazia
-            if ($isTaxaCondominial && !empty($data[0])) {
-                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                    $isTaxaCondominial = false; // Sai da seção
-                    continue;
-                }    
-                
-                // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-                $competencia = $data[1];
-
-                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-                $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-                $TAXA_CONDOMINAL[] = [
-                    'DESCRICAO' => $data[0],
-                    'COMPETENCIA MES' => $mes,
-                    'COMPETENCIA ANO' => $ano,
-                    'VALOR' => $data[3], 
-                    'DATANOW' => $dataHoraAtual,
-                    'COMPETENCIA MES USUARIO' => $mesUser,
-                    'COMPETENCIA ANO USUARIO' => $anoUser,
-                    'TIPO' => 'RECEITA',
-                    'TITULO' => 'Taxa Condominial',
-                ];
-            }
-            // FIM TAXA CONDOMINAL
-
-           // INI MULTAS
-           if ($data[0] == "Multas"){$isMultas = true;continue;}
-           if ($isMultas && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isMultas = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-               if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                // Formatos: Oct-24 ou Oct-2024
-                $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-            
-            } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                // Formatos: 10-2024 ou 10/2024
-                $meses = [
-                    '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                    '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                    '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                ];
-            
-                $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-            }
-
+             if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                 // Formatos: Oct-24 ou Oct-2024
+                 $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                 $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+             
+             } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                 // Formatos: 10-2024 ou 10/2024
+                 $meses = [
+                     '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                     '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                     '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                 ];
+             
+                 $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                 $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+             }
+         
             $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $MULTAS[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Multas',
-               ];
-            }
-            // FIM MULTAS
-
-            // INI AGUA E ESGOTO
-           if ($data[0] == "Água e Esgoto"){$isAguaEsgoto = true;continue;}
-           if ($isAguaEsgoto && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isAguaEsgoto = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-               if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                // Formatos: Oct-24 ou Oct-2024
-                $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
             
-            } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                // Formatos: 10-2024 ou 10/2024
-                $meses = [
-                    '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                    '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                    '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                ];
-            
-                $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-            }
 
-            $data[3] = converterParaFormatoAmericano($data[3]);
 
-               $AGUA_E_ESGOTO[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Multas',
-               ];
-            }
-            // FIM AGUA E ESGOTO
+            $RECEITAS[] = [
+                'DESCRICAO' => $data[0],
+                'COMPETENCIA MES' => $mes,
+                'COMPETENCIA ANO' => $ano,
+                'VALOR' => $data[3],
+                'DATANOW' => $dataHoraAtual,
+                'COMPETENCIA MES USUARIO' => $mesUser,
+                'COMPETENCIA ANO USUARIO' => $anoUser,
+                'TIPO' => 'RECEITA',
+                'TITULO' => $descricaoReceita,
+            ];
+        
 
             
-            // INI JUROS
-           if ($data[0] == "Juros"){$isJuros = true;continue;}
-           if ($isJuros && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isJuros = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $JUROS[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Juros',
-               ];
-            }
-            // FIM JUROS
+            return "Fim do processamento";
             
-            // INI HONORARIOS ADVOCATICIOS
-           if ($data[0] == "Honorários Advocaticios"){$isAdvocaticios = true;continue;}
-           if ($isAdvocaticios && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isAdvocaticios = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $ADVOCATICIOS[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Honorários Advocaticios',
-               ];
-            }
-            // FIM HONORARIOS ADVOCATICIOS
-                        
-            // INI ATUALIZACAO MONETARIA
-           if ($data[0] == "Atualização Monetária"){$isAtualizacaoMonetaria = true;continue;}
-           if ($isAtualizacaoMonetaria && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isAtualizacaoMonetaria = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $ATUALIZACAO_MONETARIA[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Atualização Monetária',
-               ];
-            }
-            // FIM ATUALIZACAO MONETARIA
-
-            // INI PAGAMENTO A MENOR
-           if ($data[0] == "Pagamento a menor"){$isPagamentoMenor = true;continue;}
-           if ($isPagamentoMenor && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isPagamentoMenor = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $PAGAMENTO_A_MENOR[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Pagamento a menor',
-               ];
-            }
-            // FIM PAGAMENTO A MENOR
-
-            // INI CARTAO DE ACESSO
-           if ($data[0] == "Cartão de Acesso"){$isCartaoAcesso = true;continue;}
-           if ($isCartaoAcesso && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isCartaoAcesso = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $CARTAO_ACESSO[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Cartão de Acesso',
-               ];
-            }
-            // FIM CARTAO DE ACESSO
-
-            // INI OUTRAS RECEITAS
-           if ($data[0] == "Outras Receitas"){$isOutrasReceitas = true;continue;}
-           if ($isOutrasReceitas && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isOutrasReceitas = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               if ($data[3] != "") { //junção de varias receitas sem total.
-                $OUTRAS_RECEITAS[] = [
-                    'DESCRICAO' => $data[0],
-                    'COMPETENCIA MES' => $mes,
-                    'COMPETENCIA ANO' => $ano,
-                    'VALOR' => $data[3],
-                    'DATANOW' => $dataHoraAtual,
-                    'COMPETENCIA MES USUARIO' => $mesUser,
-                    'COMPETENCIA ANO USUARIO' => $anoUser,
-                    'TIPO' => 'RECEITA',
-                    'TITULO' => 'Outras Receitas',
-                ];
-                }
-            }
-            // FIM OUTRAS RECEITAS
-
-            // INI RENDIMENTO APLICAÇÃO
-           if ($data[0] == "Rendimento Aplicação F.O."){$isRendimentoAplicacao = true;continue;}
-           if ($isRendimentoAplicacao && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isRendimentoAplicacao = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $RENDIMENTO_APLICACAO[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Rendimento Aplicação F.O.',
-               ];
-            }
-            // FIM RENDIMENTO APLICAÇÃO
-
-            // INI FUNDO INADIMPLENCA
-           if ($data[0] == "F. Inadimplencia"){$isFundoInadimplencia = true;continue;}
-           if ($isFundoInadimplencia && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isFundoInadimplencia = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $FUNDO_INADIMPLENCIA[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'F. Inadimplencia',
-               ];
-            }
-            // FIM FUNDO INADIMPLENCA
-
-            // INI CONSUMO AGUA
-           if ($data[0] == "Consumo de água"){$isConsumoAgua = true;continue;}
-           if ($isConsumoAgua && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isConsumoAgua = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $CONSUMO_AGUA[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Consumo de água',
-               ];
-            }
-            // FIM CONSUMO AGUA
-
-            // INI PARCELAMENTO SABESP
-           if ($data[0] == "Parcelamento SABESP"){$isParcelamentoSabesp = true;continue;}
-           if ($isParcelamentoSabesp && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isParcelamentoSabesp = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $PARCELAMENTO_SABESP[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Parcelamento SABESP',
-               ];
-            }
-            // FIM PARCELAMENTO SABESP
-
-            // INI SALAO DE FESTAS
-           if ($data[0] == "Salao de Festa"){$isSalaoFesta = true;continue;}
-           if ($isSalaoFesta && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isSalaoFesta = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $SALAO_FESTA[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Salao de Festa',
-               ];
-            }
-            // FIM SALAO DE FESTAS
-
-            // INI ACORDOS RECEBIDOS
-           if ($data[0] == "Acordos Recebidos"){$isAcordosRecebidos = true;continue;}
-           if ($isAcordosRecebidos && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isAcordosRecebidos = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $ACORDOS_RECEBIDOS[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Salao de Festa',
-               ];
-            }
-            // FIM ACORDOS RECEBIDOS
-
-            // INI EVENTOS
-           if ($data[0] == "Receitas de Eventos"){$isSalaoFesta = true;continue;}
-           if ($isSalaoFesta && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isSalaoFesta = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $SALAO_FESTA[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Receitas de Eventos',
-               ];
-            }
-            // FIM EVENTOS
-
-                        // INI HONORARIOS ADVOCATICIOS
-           if ($data[0] == "Taxa Auditoria"){$isAuditoria = true;continue;}
-           if ($isAuditoria && !empty($data[0])) {
-               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
-               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
-                   $isAuditoria = false; // Sai da seção
-                   continue;
-               }    
-
-               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
-               $competencia = $data[1];
-               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
-               $ano = null;         // Valor padrão para o ano
-
-                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: Oct-24 ou Oct-2024
-                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                
-                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                    // Formatos: 10-2024 ou 10/2024
-                    $meses = [
-                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                    ];
-                
-                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
-                }
-
-                $data[3] = converterParaFormatoAmericano($data[3]);
-
-               $AUDITORIA[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-                   'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mesUser,
-                   'COMPETENCIA ANO USUARIO' => $anoUser,
-                   'TIPO' => 'RECEITA',
-                   'TITULO' => 'Honorários Advocaticios',
-               ];
-            }
-            // FIM HONORARIOS ADVOCATICIOS
         }
-
-
-
-        //Alertas de campos vazio e inserção no bd
-
-        $erros = [];
-        $campos = [
-            "TAXA_CONDOMINAL" => $TAXA_CONDOMINAL,
-            "MULTAS" => $MULTAS,
-            "JUROS" => $JUROS,
-            "ADVOCATICIOS" => $ADVOCATICIOS,
-            "ATUALIZACAO_MONETARIA" => $ATUALIZACAO_MONETARIA,
-            "PAGAMENTO_A_MENOR" => $PAGAMENTO_A_MENOR,
-            "CARTAO_ACESSO" => $CARTAO_ACESSO,
-            "OUTRAS_RECEITAS" => $OUTRAS_RECEITAS,
-            "RENDIMENTO_APLICACAO" => $RENDIMENTO_APLICACAO,
-            "FUNDO_INADIMPLENCIA" => $FUNDO_INADIMPLENCIA,
-            "CONSUMO_AGUA" => $CONSUMO_AGUA,
-            "PARCELAMENTO_SABESP" => $PARCELAMENTO_SABESP,
-            "SALAO_FESTA" => $SALAO_FESTA,
-            "ACORDOS_RECEBIDOS" => $ACORDOS_RECEBIDOS,
-            "AUDITORIA" => $AUDITORIA,
-            "AGUA_E_ESGOTO" => $AGUA_E_ESGOTO
-        ];
-
-        foreach ($campos as $nome => $valor) {
-            if (count($valor) == 0) {
-                $erros[] = "<strong>ATENÇÃO:</strong> A Receita com nome $nome está vazia, Contate o Administrador do Sistema.";
-            } else {
-                $siteAdmin->insertConciliacaoInfo($valor);
-            }
-        } 
-
         fclose($handle);
-
-        return $erros;
-
-    } else {
-        echo "Erro ao abrir o arquivo.";
     }
+
+    $siteAdmin->insertConciliacaoInfo($RECEITAS);
+
+
 }
 
 function processCSVDespesa($filePath, $mesUser, $anoUser) {
