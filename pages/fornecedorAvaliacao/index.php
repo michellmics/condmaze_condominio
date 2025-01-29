@@ -26,6 +26,8 @@
     $OUTROS = $siteAdmin->getAvaliacoesByCategoria("OUTROS");
     $ELETRICISTA = $siteAdmin->getAvaliacoesByCategoria("ELETRICISTA");
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("ARCONDICIONADO");
+    $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
+    $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
 
 ?>
 
@@ -849,6 +851,149 @@
                     </div>
                     <!-- end row-->
 
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">                                    
+                                    <h4 class="header-title" style="display: flex; align-items: center;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Móveis Planejados / Marceneiro</h4>
+                                    <p class="text-muted font-14 mb-3"></p>
+                                    <div class="tab-content">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                    </div>
+                                        <div class="tab-pane show active" id="default-accordions-preview">
+                                            <div class="accordion" id="accordionExample">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($MOVEIS_PLANEJADOS as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                    $NOTASAVG = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador); 
+                                                    $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);                                                         
+                                                ?>
+                                                <div class="accordion-item">                                                    
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#moveis<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                                        <div style="display: flex; flex-direction: column;">
+                                                            <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
+                                                            <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
+                                                        </div>                                
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                    </button>
+                                                    </h2>
+                                                    <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
+                                                        <?php 
+                                                            $data = $comentario_prestador['APS_DTAVAL'];
+                                                            $formattedDate = date('d/m/Y', strtotime($data));
+                                                        ?>
+                                                    <div id="moveis<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body" style="color:rgb(40, 53, 83);">
+                                                            <?php  
+                                                                if(isset($comentario_prestador['USU_DCNOME'])) 
+                                                                {
+                                                            ?>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= substr(htmlspecialchars($comentario_prestador['USU_DCNOME']),0,20)."..."; ?></strong>                                                                    
+                                                                    <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
+                                                                    <br>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?>
+                                                                    
+                                                                    <?php
+                                                                        if ($comentario_prestador['USU_IDUSUARIO'] == $userid) {
+                                                                            echo '<i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i><br>';
+                                                                        }
+                                                                    ?>
+                                                                    <br>
+                                                                    <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                            <?php
+                                                                }
+                                                                else
+                                                                    {
+                                                                        echo "Não há comentários.";
+                                                                    }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title" style="display: flex; align-items: center;"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Bar / Pub</h4>
+                                    <p class="text-muted font-14 mb-3"></p>
+                                    <div class="tab-content">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                    </div>
+                                    <div class="tab-pane show active" id="default-accordions-preview">
+                                            <div class="accordion" id="accordionExample">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($BAR as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                    $NOTASAVG = $siteAdmin->getAvaliacoesNotasAVGByPrestador($idPrestador); 
+                                                    $COMENTARIOS = $siteAdmin->getAvaliacoesByPrestador($idPrestador);                                                         
+                                                    $countAval = count($COMENTARIOS);
+                                                ?>
+                                                <div class="accordion-item">                                                    
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bar<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+                                                        <div style="display: flex; flex-direction: column;">
+                                                            <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
+                                                            <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
+                                                        </div>                                
+                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                    </button>
+                                                    </h2>
+                                                    <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
+                                                        <?php 
+                                                            $data = $comentario_prestador['APS_DTAVAL'];
+                                                            $formattedDate = date('d/m/Y', strtotime($data));
+                                                        ?>
+                                                    <div id="bar<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body" style="color:rgb(40, 53, 83);">
+                                                            <?php  
+                                                                if(isset($comentario_prestador['USU_DCNOME'])) 
+                                                                {
+                                                            ?>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= substr(htmlspecialchars($comentario_prestador['USU_DCNOME']),0,20)."..."; ?></strong>                                                                    
+                                                                    <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
+                                                                    <br>
+                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?>
+                                                                    <?php
+                                                                        if ($comentario_prestador['USU_IDUSUARIO'] == $userid) {
+                                                                            echo '<i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i><br>';
+                                                                        }
+                                                                    ?>
+                                                                    <br>
+                                                                    <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
+                                                            <?php
+                                                                }
+                                                                else
+                                                                    {
+                                                                        echo "Não há comentários.";
+                                                                    }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+
+
+                    </div>
+                    <!-- end row-->
+
 
  
 
@@ -890,10 +1035,12 @@
                             <select class="form-control" name="categoria" id="categoria" required>
                                     <option value="" disabled selected>Selecione uma Categoria</option>
                                     <option value="ARCONDICIONADO">AR CONDICIONADO</option>
+                                    <option value="BAR">BAR / PUB</option>
                                     <option value="ELETRICISTA">ELETRICISTA</option>                                         
                                     <option value="GESSO">TRABALHOS COM GESSO E PINTURA</option>
                                     <option value="MECANICA">MECÂNICA / LAVA-RÁPIDO</option>
                                     <option value="MARIDO">MARIDO DE ALUGUEL</option>
+                                    <option value="MOVEIS_PLANEJADOS">MÓVEIS PLANEJADOS / MARCENEIRO</option>
                                     <option value="PEDREIRO">PEDREIRO</option>
                                     <option value="PISO">PISOS / LAMINADOS</option>
                                     <option value="PIZZARIA">PIZZARIAS / RESTAURANTES / PADARIAS</option>
