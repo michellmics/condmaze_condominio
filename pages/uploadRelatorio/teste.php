@@ -43,7 +43,7 @@ include_once "../../objects/objects.php";
                 $item = trim($item);
                 $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
             }
-            echo "aaahhhh";
+
             // Verifica se encontrou a linha inicial para leitura
             if (!$iniciarLeitura) {
                 foreach ($data as $coluna) {
@@ -119,6 +119,8 @@ include_once "../../objects/objects.php";
                 'TIPO' => 'RECEITA',
                 'TITULO' => $descricaoReceita,
             ];
+
+            var_dump($receitas);
         }
 
         fclose($handle);
