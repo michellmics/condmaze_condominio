@@ -990,15 +990,15 @@
                 const nome = document.querySelector('input[name="nome"]').value.trim();
                 const cidade = document.querySelector('input[name="cidade"]').value.trim();
 
-                if (telefone.length !== 11) {
-                    alert('O número de telefone deve ter exatamente 11 dígitos.');
-                    return false;
-                }
-
                 if (!nome || !telefone || !categoria || !cidade) {
                     alert("Todos os campos devem ser preenchidos.");
                     return false;
                 }
+                if (telefone.length !== 11) {
+                    alert('O número de telefone deve ter exatamente 11 dígitos.');
+                    return false;
+                }
+                
                 return true;              
         }
 
