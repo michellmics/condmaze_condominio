@@ -83,7 +83,13 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                 $ano = null;         // Valor padrão para o ano
 
-                if (preg_match('/^(\d{2})\/(\d{4})$/', $competencia, $matches)) {
+                if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: Oct-24 ou Oct-2024
+                    $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+                
+                } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                    // Formatos: 10-2024 ou 10/2024
                     $meses = [
                         '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
                         '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
@@ -91,15 +97,12 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     ];
                 
                     $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
-                    $ano = substr($matches[2], -2); // Pega os últimos dois dígitos do ano
-                
-                    $competencia_formatada = "$mes-$ano";                    
+                    $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
-                
-                if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia_formatada, $matches)) {
-                    $mes = $matches[1]; // Primeiro grupo corresponde ao mês
-                    $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
-                }
+
+                echo $mes;
+                echo "<br>";
+                echo $ano;
 
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
