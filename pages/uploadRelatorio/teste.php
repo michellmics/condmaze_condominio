@@ -131,7 +131,7 @@ include_once "../../objects/objects.php";
 
         fclose($handle);
     }
-    var_dump($receitas[20]);
+    var_dump($receitas);
     // Insere os dados processados no banco
     $siteAdmin->insertConciliacaoInfo($receitas);
 
