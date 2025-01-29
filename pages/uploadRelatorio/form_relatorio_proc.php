@@ -40,12 +40,10 @@ function processCSV($filePath, $mesUser, $anoUser) {
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
-        fgetcsv($handle);
 
         $iniciarLeitura = false;
-        $descricaoReceita = "";
 
-        // Ler os dados do CSV
+        // buscas as taxas de condominio
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
             // Limpa os espaços indesejados e caracteres especiais
             foreach ($data as &$item) {
@@ -57,7 +55,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             // Verifica se encontrou a linha inicial para leitura
             if (!$iniciarLeitura) {
                 foreach ($data as $coluna) {
-                    if (stripos(trim($coluna), 'Receitas Ordinárias') !== false) {
+                    if (stripos(trim($coluna), 'Taxa Condominial') !== false) {
                         $iniciarLeitura = true; // Inicia a leitura
                         break;
                     }
@@ -65,23 +63,14 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 continue; // Pula as linhas até encontrar a desejada
             }
 
-            // Para de ler ao encontrar "Total de Receitas"
-            if ($data[0] == 'Total de Receitas') {
-                break;
-            }
-
-            // Identifica tipo de receita
-            if (stripos($data[0] ?? '', 'Taxa Condominial') === 0) {
-                $descricaoReceita = "Taxa Condominio";
-            }
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 $descricaoReceita = "Receitas";
+                break;
             }
             
             // Obtém nome e valor (primeira e última coluna)
-            $nome = $data[0] ?? ''; 
-            $valor = $data[3] ?? ''; 
-
+            $nome = trim($data[0]); // Primeira coluna (Nome)
+            $valor = trim(end($data)); // Última coluna (Valor)
                  
 
             // Verifica se ambos os campos estão preenchidos
@@ -89,21 +78,10 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 continue;
             }
 
-            // Pula linhas que começam com termos indesejados
-            if (
-                stripos($nome, 'Total') === 0 || 
-                stripos($nome, 'Mov. Líquido(Receitas-Despesas)') === 0 || 
-                stripos($nome, 'F. ') === 0
-            ) {
-                continue; 
-            }
-
             // Extração do mês e ano da competência
             $competencia = $data[1] ?? '';
             $mes = $competencia;
-            $ano = null;
-
-            
+            $ano = null;            
 
             if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
                 $mes = ucfirst(strtolower($matches[1]));
@@ -119,7 +97,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
 
             // Converte valor para formato americano, se existir
-            $valorFormatado = isset($data[3]) ? converterParaFormatoAmericano($data[3]) : '';
+            $valorFormatado = isset($valor) ? converterParaFormatoAmericano($valor) : '';
 
             // Adiciona ao array de receitas
             $receitas[] = [
@@ -131,12 +109,74 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 'COMPETENCIA MES USUARIO' => $mesUser,
                 'COMPETENCIA ANO USUARIO' => $anoUser,
                 'TIPO' => 'RECEITA',
-                'TITULO' => $descricaoReceita,
+                'TITULO' => "Taxa Condominal",
             ];
 
            
             
             
+        }
+
+        $iniciarLeitura = false;
+
+        // buscas o total de receita
+        while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
+                    // Limpa os espaços indesejados e caracteres especiais
+                    foreach ($data as &$item) {
+                        $item = str_replace("\xC2\xA0", ' ', $item); // Remove NBSP
+                        $item = trim($item);
+                        $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
+                    }
+        
+                    // Verifica se encontrou a linha inicial para leitura
+                    if (!$iniciarLeitura) {
+                        foreach ($data as $coluna) {
+                            if ($coluna[0] == 'Total de Receitas') {
+                                $iniciarLeitura = true; // Inicia a leitura
+                                break;
+                            }
+                        }
+                        continue; // Pula as linhas até encontrar a desejada
+                    }
+                          
+                    // Obtém nome e valor (primeira e última coluna)
+                    $nome = trim($data[0]); // Primeira coluna (Nome)
+                    $valor = trim(end($data)); // Última coluna (Valor)
+
+                    if($nome != "Total de Receitas") {
+                        break;
+                    }
+                         
+        
+                    // Verifica se ambos os campos estão preenchidos
+                    if (empty($nome) || empty($valor)) {
+                        continue;
+                    }
+        
+                    // Extração do mês e ano da competência
+                    $competencia = $data[1] ?? '';
+                    $mes = $mesUser;
+                    $ano = $anoUser;       
+        
+                    // Converte valor para formato americano, se existir
+                    $valorFormatado = isset($valor) ? converterParaFormatoAmericano($valor) : '';
+        
+                    // Adiciona ao array de receitas
+                    $receitas[] = [
+                        'DESCRICAO' => $nome,
+                        'COMPETENCIA MES' => $mes,
+                        'COMPETENCIA ANO' => $ano,
+                        'VALOR' => $valorFormatado,
+                        'DATANOW' => $dataHoraAtual,
+                        'COMPETENCIA MES USUARIO' => $mesUser,
+                        'COMPETENCIA ANO USUARIO' => $anoUser,
+                        'TIPO' => 'RECEITA',
+                        'TITULO' => "Taxa Condominal",
+                    ];
+        
+                   
+                    
+                    
         }
 
         fclose($handle);
