@@ -80,7 +80,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             // Obtém nome e valor (primeira e última coluna)
             $nome = $data[0] ?? ''; 
-            $valor = $data[3] ?? '';
+            $valor = $data[3] ?? ''; 
 
                  
 
