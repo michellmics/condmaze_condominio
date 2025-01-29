@@ -66,7 +66,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
 
             // Para de ler ao encontrar "Total de Receitas"
-            if (stripos($data[0] ?? '', 'Total de Receitas') === 0) {
+            if ($data[0] == 'Total de Receitas') {
                 break;
             }
 
