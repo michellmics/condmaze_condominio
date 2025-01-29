@@ -134,7 +134,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
 
 
-            $RECEITAS[] = [
+            $receitas[] = [
                 'DESCRICAO' => $data[0],
                 'COMPETENCIA MES' => $mes,
                 'COMPETENCIA ANO' => $ano,
@@ -150,11 +150,11 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             return "Fim do processamento";
             
-        }
+        } //fim while
         fclose($handle);
     }
 
-    $siteAdmin->insertConciliacaoInfo($RECEITAS);
+    $siteAdmin->insertConciliacaoInfo($receitas);
 
 
 }
