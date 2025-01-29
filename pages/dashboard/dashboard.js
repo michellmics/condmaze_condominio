@@ -187,10 +187,10 @@
                 },
                 annotations: {
                     yaxis: [{
-                        y: 20,  // Limiar no valor Y (ajuste conforme necessário)
+                        y: 15,  // Limiar no valor Y (ajuste conforme necessário)
                         borderColor: '#FF0000',  // Cor da linha (vermelho)
                         label: {
-                            text: 'Limiar de Inadimplência 20%',  // Texto da anotação
+                            text: 'Objetivo de Inadimplência 15%',  // Texto da anotação
                             style: {
                                 color: '#FF0000',  // Cor do texto
                                 background: '#FFF',  // Fundo do texto
