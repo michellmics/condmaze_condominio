@@ -120,7 +120,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
          
             var_dump($data); // Exibe os dados processados
             
-
+        }
 
 
 
@@ -214,6 +214,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
         } 
 */
+
         fclose($handle);
 
         return "Processamento concluído";
