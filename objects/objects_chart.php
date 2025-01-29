@@ -171,7 +171,7 @@
                 */
                 $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
                         FROM CON_CONCILIACAO CON
-                        WHERE 
+                        WHERE CON.CON_DCTIPO = 'RECEITA' AND
                         CON.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
                         AND CON.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO";
 
