@@ -623,6 +623,9 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
 }
 
+$tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
+$mesUser = isset($_POST['mes']) ? trim($_POST['mes']) : '';
+$anoUser = isset($_POST['ano']) ? trim($_POST['ano']) : '';
 echo "testeeeeeeeeeeeeeee";
 var_dump($mesUser);
 die();
