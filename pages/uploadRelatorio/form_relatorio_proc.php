@@ -96,11 +96,11 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $competencia_formatada = "$mes-$ano";                    
                 }
                 
-                if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $$competencia_formatada, $matches)) {
+                if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia_formatada, $matches)) {
                     $mes = $matches[1]; // Primeiro grupo corresponde ao mês
                     $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
                 }
-                
+
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
                     'COMPETENCIA MES' => $mes,
