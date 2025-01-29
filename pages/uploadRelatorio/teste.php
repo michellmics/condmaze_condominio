@@ -72,6 +72,8 @@ include_once "../../objects/objects.php";
             $nome = $data[0] ?? ''; 
             $valor = end($data) ?? '';
 
+            echo $nome;
+
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
                 continue;
