@@ -145,7 +145,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                    <div class="tab-pane show active" style="visibility: hidden;" id="vidracaContent">
+                                        <div class="tab-pane show active" style="display: none;" id="vidracaContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($VIDRAÇARIA as $item): 
@@ -1460,25 +1460,25 @@ $(document).ready(function () {
 
 
 <script>
-    document.getElementById("toggleGesso").addEventListener("click", function() {
-        var content = document.getElementById("empresaContent");
-        // Alterna a visibilidade do conteúdo
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block"; // Exibe o conteúdo
-        } else {
-            content.style.display = "none"; // Oculta o conteúdo
-        }
-    });
 
     document.getElementById("toggleGesso").addEventListener("click", function() {
     var content = document.getElementById("vidracaContent");
+
     // Alterna a visibilidade do conteúdo
-    if (content.style.visibility === "hidden" || content.style.visibility === "") {
-        content.style.visibility = "visible"; // Exibe o conteúdo
-        content.style.pointerEvents = "auto"; // Permite interação com o conteúdo
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block"; // Exibe o conteúdo
+
+        // Força a renderização das estrelas novamente
+        setTimeout(function() {
+            var stars = content.querySelectorAll('.star-rating');
+            stars.forEach(function(star) {
+                // Atualiza as estrelas para garantir que o estado de marcação seja mantido
+                // Se você tiver uma função para renderizar as estrelas, chame-a aqui.
+                star.style.display = "inline-block"; // Apenas exemplo de manipulação
+            });
+        }, 10); // Espera um pouco para garantir que o conteúdo foi exibido
     } else {
-        content.style.visibility = "hidden"; // Torna o conteúdo invisível
-        content.style.pointerEvents = "none"; // Impede interação com o conteúdo
+        content.style.display = "none"; // Oculta o conteúdo
     }
 });
 
