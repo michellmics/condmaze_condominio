@@ -29,9 +29,12 @@ function converterParaFormatoAmericano($valor) {
 }
 
 function processCSV($filePath, $mesUser, $anoUser) {
+
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
-    $despesas = [];
+    $receitas = [];
+
+    
  
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
@@ -40,91 +43,102 @@ function processCSV($filePath, $mesUser, $anoUser) {
         fgetcsv($handle);
 
         $iniciarLeitura = false;
+        $descricaoReceita = "";
 
-        // Ler os dados do CSV
-        while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
-            // Limpa os espaços indesejados e caracteres especiais
-            foreach ($data as &$item) {
-                $item = str_replace("\xC2\xA0", ' ', $item); // Remove NBSP
-                $item = trim($item);
-                $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
-            }
+        // Ler os dados de pagamento da taxa condominial
+        while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {            
 
-            // Verifica se encontrou a linha inicial para leitura
+            // Verifica se a linha contém "Receitas Ordinárias"
             if (!$iniciarLeitura) {
                 foreach ($data as $coluna) {
-                    if (stripos(trim($coluna), 'Receitas Ordinárias') !== false) {
-                        $iniciarLeitura = true; // Inicia a leitura
+                    if (strpos($coluna, 'Receitas Ordinárias') !== false) {
+                        $iniciarLeitura = true; // Inicia a leitura a partir desta linha
                         break;
                     }
                 }
                 continue; // Pula as linhas até encontrar a desejada
             }
 
-            // Para de ler ao encontrar "Total de Receitas"
-            if (stripos($data[0] ?? '', 'Total de Receitas') === 0) {
-                break;
+            if (stripos($data[0], 'Total de Receitas') === 0) {
+                break; //para de ler o arquivo pois acabou as receitas
             }
 
-            // Identifica tipo de receita
-            if (stripos($data[0] ?? '', 'Taxa Condominial') === 0) {
+            //metodo para encontrar e identificar o q é tx de condominio
+            if (stripos($data[0], 'Taxa Condominial') === 0) {
                 $descricaoReceita = "Taxa Condominio";
             }
-            if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
+            if (stripos($data[0], 'Total de Taxa Condominial') === 0) {
                 $descricaoReceita = "Receitas";
             }
             
-            // Obtém nome e valor (primeira e última coluna)
-            $nome = $data[0] ?? ''; 
-            $valor = $data[3] ?? '';
-
-            echo $valor;
-
-            
-
+        
+            // Verifica se há pelo menos duas colunas na linha (evita erros)
+            if (count($data) < 2) {
+                continue; // Ignora linhas que não têm pelo menos duas colunas
+            }
+        
+            // Obtém o primeiro e o último elemento da linha
+            $nome = trim($data[0]); // Primeira coluna (Nome)
+            $valor = trim($data[3]); // Última coluna (Valor)
+        
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
-                continue;
+                continue; // Pula essa linha se um dos dois estiver vazio
             }
+        
 
-            // Pula linhas que começam com termos indesejados
+            // Verifica se a primeira coluna começa com "Total", "Mov. Líquido(Receitas-Despesas)" ou "F. "
             if (
                 stripos($nome, 'Total') === 0 || 
                 stripos($nome, 'Mov. Líquido(Receitas-Despesas)') === 0 || 
                 stripos($nome, 'F. ') === 0
             ) {
-                continue;
+                continue; // Pula a linha se começar com esses termos
             }
 
-            // Extração do mês e ano da competência
-            $competencia = $data[1] ?? '';
-            $mes = $competencia;
-            $ano = null;
 
+
+        
+            // Processamento dos dados
+            foreach ($data as &$item) {
+                // Substitui NBSP por espaços comuns
+                $item = str_replace("\xC2\xA0", ' ', $item);
+                $item = trim($item);
+                // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
+                $item = preg_replace('/\s+/', ' ', $item);
+            }
+
+            // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+            $competencia = $data[1];
+            $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+            $ano = null;         // Valor padrão para o ano
+            
+             if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                 // Formatos: Oct-24 ou Oct-2024
+                 $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                 $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+             
+             } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                 // Formatos: 10-2024 ou 10/2024
+                 $meses = [
+                     '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                     '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                     '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                 ];
+             
+                 $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                 $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+             }
+         
+            $data[3] = converterParaFormatoAmericano($data[3]);
             
 
-            if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
-                $mes = ucfirst(strtolower($matches[1]));
-                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2];
-            } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
-                $meses = [
-                    '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
-                    '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
-                    '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
-                ];
-                $mes = $meses[$matches[1]] ?? $mes;
-                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2];
-            }
 
-            // Converte valor para formato americano, se existir
-            $valorFormatado = isset($data[3]) ? converterParaFormatoAmericano($data[3]) : '';
-
-            // Adiciona ao array de receitas
             $receitas[] = [
-                'DESCRICAO' => $nome,
+                'DESCRICAO' => $data[0],
                 'COMPETENCIA MES' => $mes,
                 'COMPETENCIA ANO' => $ano,
-                'VALOR' => $valorFormatado,
+                'VALOR' => $data[3],
                 'DATANOW' => $dataHoraAtual,
                 'COMPETENCIA MES USUARIO' => $mesUser,
                 'COMPETENCIA ANO USUARIO' => $anoUser,
@@ -133,13 +147,15 @@ function processCSV($filePath, $mesUser, $anoUser) {
             ];
 
             var_dump($receitas);
-            return "Fim do processamento";
-        }
+            
+            
+        } //fim while
         fclose($handle);
     }
 
-    $siteAdmin->insertConciliacaoInfoDespesa($despesas);
+    $siteAdmin->insertConciliacaoInfo($receitas);
     return "Fim do processamento";
+
 
 }
 
