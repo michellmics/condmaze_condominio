@@ -566,7 +566,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
             // FIM EVENTOS
         }
-
+/*
         //Alertas de campos vazio
         if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($TAXA_CONDOMINAL);}
         if(count($MULTAS) == 0){echo "ATENÇÃO: MULTAS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($MULTAS);}
@@ -582,7 +582,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PARCELAMENTO_SABESP);}
         if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($SALAO_FESTA);}
         if(count($ACORDOS_RECEBIDOS) == 0){echo "ATENÇÃO: ACORDOS_RECEBIDOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ACORDOS_RECEBIDOS);}
-
+*/
         fclose($handle);
 
         echo "Dados importados com sucesso!";
