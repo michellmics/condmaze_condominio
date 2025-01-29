@@ -209,12 +209,12 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pedreiro</h4>
+                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pedreiro</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                    <div class="tab-pane show active" id="default-accordions-preview">
+                                    <div class="tab-pane show active" style="display: none;" id="pedreiroContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($PEDREIRO as $item): 
@@ -1480,8 +1480,8 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById("toggleGesso").addEventListener("click", function() {
-        var content = document.getElementById("empresaContent");
+    document.getElementById("togglePedreiro").addEventListener("click", function() {
+        var content = document.getElementById("pedreiroContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
