@@ -80,6 +80,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 
                 // Extrai o mês e o ano se o valor da competência estiver no formato esperado
                 $competencia = $data[1];
+
+                echo "$competencia<br>";
                 $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                 $ano = null;         // Valor padrão para o ano
 
