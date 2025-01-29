@@ -100,11 +100,6 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
                 }
 
-                echo $mes;
-                echo "<br>";
-                echo $ano;
-                die();
-
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
                     'COMPETENCIA MES' => $mes,
