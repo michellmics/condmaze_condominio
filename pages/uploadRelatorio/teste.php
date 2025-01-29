@@ -126,16 +126,16 @@ include_once "../../objects/objects.php";
                 'TITULO' => $descricaoReceita,
             ];
 
-            var_dump($receitas);
-            $siteAdmin->insertConciliacaoInfo($receitas);
-
+           
+            
+            
         }
 
         fclose($handle);
     }
-
+    var_dump($receitas[0]);
     // Insere os dados processados no banco
-  
+    $siteAdmin->insertConciliacaoInfo($receitas);
 
 
 
