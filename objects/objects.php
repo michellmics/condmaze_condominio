@@ -389,6 +389,13 @@
 
         }
 
+        function formatarValorParaMySQL($valor) {
+            // Remove separadores de milhar
+            $valor = str_replace(',', '', $valor);
+            // Retorna o valor convertido para float
+            return (float)$valor;
+        }
+
         public function getListaMensagensSugestoesInfo()
         {          
                 // Verifica se a conexão já foi estabelecida
