@@ -72,9 +72,7 @@ include_once "../../objects/objects.php";
             $nome = $data[0] ?? ''; 
             $valor = $data[3] ?? '';
 
-            echo $valor;
-
-            
+                 
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
@@ -133,7 +131,7 @@ include_once "../../objects/objects.php";
 
         fclose($handle);
     }
-    var_dump($receitas[0]);
+    var_dump($receitas[20]);
     // Insere os dados processados no banco
     $siteAdmin->insertConciliacaoInfo($receitas);
 
