@@ -638,6 +638,9 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     $tamanhoMaximo = 2 * 1024 * 1024; // 2 MB
     $diretorioDestino = "csv_parser/"; // Pasta onde os arquivos serão salvos
 
+    var_dump($mesUser);
+    die();
+
     // Valida o tamanho do arquivo
     if ($arquivo['size'] > $tamanhoMaximo) {
         die("Erro: O arquivo excede o tamanho máximo permitido de 2 MB.");
