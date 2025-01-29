@@ -136,15 +136,13 @@
                                                 </div>
 
 
-                                                <h6 class="font-15 mt-3">Tipo de dados</h6>
-                                                <div class="mt-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tipo" name="tipo" class="form-check-input">
-                                                        <label class="form-check-label" for="customRadio3">Receita</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tipo" name="tipo" class="form-check-input">
-                                                        <label class="form-check-label" for="customRadio4">Despesa</label>
+                                                <div style="flex: 1;">
+                                                        <select class="form-control" id="tipo" name="tipo" required>
+                                                            <option value="" disabled selected>Tipo</option>
+                                                            <option value="DESPESA">DESPESA</option>
+                                                            <option value="RECEITA">RECEITA</option>
+
+                                                        </select>
                                                     </div>
                                                 </div>
 
