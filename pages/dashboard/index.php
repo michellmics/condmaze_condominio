@@ -222,7 +222,7 @@
                                             <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Receita</h5>
                                             <h3 class="mt-3 mb-3">R$<?php echo $totalRecebido; ?></h3> 
                                             <p class="mb-0 text-muted">
-                                                <span class="text-nowrap">Receitas do Mês</span>
+                                                <span class="text-nowrap">Receitas do Mês <?php echo $mesUsu; ?></span>
                                             </p>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->
@@ -335,25 +335,6 @@
 
             </div>
             <!-- content -->
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-end footer-links d-none d-md-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
 
         </div>
 
