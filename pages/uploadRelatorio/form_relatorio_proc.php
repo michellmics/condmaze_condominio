@@ -1005,6 +1005,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                 'TIPO' => 'DESPESA'
             ];
 
+            return "Fim do processamento";
             
         }
         fclose($handle);
