@@ -1530,6 +1530,16 @@ $(document).ready(function () {
         }
     });
 
+    document.getElementById("togglePedreiro").addEventListener("click", function() {
+        var content = document.getElementById("pedreiroContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+
     document.getElementById("toggleMoveis").addEventListener("click", function() {
         var content = document.getElementById("moveisContent");
         // Alterna a visibilidade do conteúdo
