@@ -219,7 +219,7 @@
                                                             <?php 
                                                                 if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
                                                                 {
-                                                                    echo '<i class="mdi mdi-delete" style="cursor: pointer;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
+                                                                    echo '<i class="mdi mdi-delete" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
                                                                 }
                                                             ?>
                                                         </td>
