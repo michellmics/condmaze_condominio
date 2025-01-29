@@ -146,7 +146,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 'TITULO' => $descricaoReceita,
             ];
 
-
+            var_dump($receitas);
             
             
         } //fim while
