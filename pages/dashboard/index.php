@@ -281,14 +281,7 @@
                         <div class="col-xl-7 col-lg-6">
                             <div class="card card-h-100">
                                 <div class="d-flex card-header justify-content-between align-items-center">
-                                    <h4 class="header-title">Pendência - Taxa Condominal</h4>
-                                    
-
-                                    
-                                    A meta de inadimplência indica que, quando a taxa ultrapassa os 15%, o condomínio pode <br>
-                                    enfrentar dificuldades para honrar com o pagamento de contas essenciais.
-                                       
-                                    
+                                    <h4 class="header-title">Pendência - Taxa Condominal</h4>                                                                        
                                 </div>
                                 <div class="card-body pt-0">
                                     <div dir="ltr">
