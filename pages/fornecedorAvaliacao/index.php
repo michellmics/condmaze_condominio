@@ -1146,7 +1146,7 @@
         <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script>
-            function validarFormulario() {
+            function validarFormulario1() {
                 const telefone = document.querySelector('input[name="telefone"]').value.trim();
                 const categoria = document.querySelector('select[name="categoria"]').value.trim();
                 const nome = document.querySelector('input[name="nome"]').value.trim();
@@ -1165,7 +1165,7 @@
         }
 
        function confirmAndSubmitInsert(event) {   
-        const isValid = validarFormulario();
+        const isValid = validarFormulario1();
         if (!isValid) {
             return;
         }
@@ -1266,7 +1266,7 @@
     <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script>
-        function validarFormulario() {
+        function validarFormulario2() {
             const idprestador = document.querySelector('select[name="idprestador"]').value.trim();
             if (!idprestador) {
                 alert("Escolha um prestador de serviços.");
@@ -1276,7 +1276,7 @@
         }
 
        function confirmAndSubmit(event) {   
-        const isValid = validarFormulario();
+        const isValid = validarFormulario2();
         if (!isValid) {
             return;
         }
