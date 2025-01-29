@@ -1473,12 +1473,14 @@ $(document).ready(function () {
     document.getElementById("toggleVidraca").addEventListener("click", function() {
     var content = document.getElementById("vidracaContent");
     // Alterna a visibilidade do conteúdo
-    if (content.style.visibility === "hidden" || content.style.visibility === "") {
-        content.style.visibility = "visible"; // Exibe o conteúdo
+    if (content.style.opacity === "0" || content.style.opacity === "") {
+        content.style.opacity = "1"; // Exibe o conteúdo
+        content.style.pointerEvents = "auto"; // Permite interação com o conteúdo
     } else {
-        content.style.visibility = "hidden"; // Oculta o conteúdo
+        content.style.opacity = "0"; // Torna o conteúdo invisível
+        content.style.pointerEvents = "none"; // Impede interação com o conteúdo
     }
-});
+});;
 
     document.getElementById("togglePiso").addEventListener("click", function() {
         var content = document.getElementById("pisoContent");
