@@ -131,7 +131,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     // Verifica se encontrou a linha inicial para leitura
                     if (!$iniciarLeitura) {
                         foreach ($data as $coluna) {
-                            if ($coluna[0] == 'Total de Receitas') {
+                            if ($coluna == 'Total de Receitas') {
                                 $iniciarLeitura = true; // Inicia a leitura
                                 break;
                             }
