@@ -285,9 +285,8 @@
                                     
 
                                     
-            fdsfsagdgasydyuasgduygsauydgyuasgdy<br>ugasdsadasd
-            saduyasgdugasudgassauydgasugdyusag<br>duygasdgsad
-            sadguhasgdugasdg
+                                    A meta de inadimplência indica que, quando a taxa ultrapassa os 15%, o condomínio pode <br>
+                                    enfrentar dificuldades para honrar com o pagamento de contas essenciais.
                                        
                                     
                                 </div>
