@@ -82,11 +82,25 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 $competencia = $data[1];
                 $mes = $competencia; // Valor padrão, caso não seja no formato esperado
                 $ano = null;         // Valor padrão para o ano
+
+                if (preg_match('/^(\d{2})\/(\d{4})$/', $competencia, $matches)) {
+                    $meses = [
+                        '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                        '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                        '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                    ];
                 
-                if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                    $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                    $ano = substr($matches[2], -2); // Pega os últimos dois dígitos do ano
+                
+                    $competencia_formatada = "$mes-$ano";                    
+                }
+                
+                if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $$competencia_formatada, $matches)) {
                     $mes = $matches[1]; // Primeiro grupo corresponde ao mês
                     $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
                 }
+                
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
                     'COMPETENCIA MES' => $mes,
