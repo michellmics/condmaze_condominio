@@ -72,7 +72,7 @@ include_once "../../objects/objects.php";
             $nome = $data[0] ?? ''; 
             $valor = end($data) ?? '';
 
-            echo $nome;
+            
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
@@ -92,6 +92,8 @@ include_once "../../objects/objects.php";
             $competencia = $data[1] ?? '';
             $mes = $competencia;
             $ano = null;
+
+            echo $competencia;
 
             if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
                 $mes = ucfirst(strtolower($matches[1]));
