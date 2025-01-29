@@ -196,6 +196,17 @@
                                 background: '#FFF',  // Fundo do texto
                             }
                         }
+                    }], // Adiciona um texto dentro da área do gráfico
+                    xaxis: [{
+                        x: 2,  // Posiciona o texto no valor X desejado (ajuste conforme necessário)
+                        y: 50,  // Posiciona o texto no valor Y desejado (ajuste conforme necessário)
+                        text: 'Texto explicativo',  // Texto que você deseja exibir
+                        borderColor: '#000',  // Cor da borda do texto
+                        backgroundColor: '#FFF',  // Cor de fundo do texto
+                        style: {
+                            fontSize: '14px',  // Tamanho da fonte
+                            color: '#000'  // Cor da fonte
+                        }
                     }]
                 }
             };
