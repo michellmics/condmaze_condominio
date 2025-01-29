@@ -942,7 +942,6 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     if (!in_array($arquivo['type'], $tiposPermitidos)) {
         die("Erro: Tipo de arquivo não permitido.");
     }
-    echo "to aqui 4";
     $nomeArquivo = uniqid() . "-" . basename($arquivo['name']);
     $caminhoDestino = $diretorioDestino . $nomeArquivo;
 
@@ -1045,6 +1044,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     <!-- end page title -->
 
                     <?php
+                    echo "Resultado Processamento";
                         // Exibir os erros de uma vez só, se houver
                         if (!empty($erros)) {
                             echo implode("<br>", $erros);
