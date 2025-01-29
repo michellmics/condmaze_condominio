@@ -179,7 +179,7 @@
                                                 </div> 
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label">DDD + Telefone (Whatsapp)</label>
-                                                    <input value="<?php if(isset($telefone)){echo $telefone;} ?>" id="telefone" name="telefone" type="text" class="form-control" placeholder="Ex.: 11982734359" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+                                                    <input value="<?php if(isset($telefone)){echo $telefone;} ?>" id="telefone" name="telefone" type="text" class="form-control" placeholder="Ex.: 11982734359" minlength="11" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
