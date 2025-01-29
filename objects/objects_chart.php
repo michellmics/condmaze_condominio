@@ -257,7 +257,7 @@
                                  CON_CONCILIACAO CONC
                              WHERE 
                                  CONC.CON_DCTIPO = 'RECEITA' 
-                                 AND CONC.CON_NMTITULO = 'Taxa Condominial'
+                                 AND CONC.CON_NMTITULO = 'Taxa Condominio'
                              GROUP BY 
                                  CONC.CON_DCMES_COMPETENCIA, CONC.CON_DCANO_COMPETENCIA) AS PagamentosMensais
                         ON 
@@ -311,7 +311,7 @@
                                 CON_CONCILIACAO CONC
                              WHERE 
                                 CONC.CON_DCTIPO = 'RECEITA' 
-                                AND CONC.CON_NMTITULO = 'Taxa Condominial'
+                                AND CONC.CON_NMTITULO = 'Taxa Condominio'
                                 AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA
                                 AND CONC.CON_DCANO_COMPETENCIA = :CON_DCANO_COMPETENCIA_USUARIO) AS TotalPagantes
                     ) AS Subquery;";
