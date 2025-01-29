@@ -104,6 +104,11 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 continue; // Pula essa linha se um dos dois estiver vazio
             }
         
+            // Verifica se a primeira coluna começa com "Total"
+            if (stripos($nome, 'Total') === 0) {
+                continue; // Pula a linha se começar com "Total"
+            }
+        
             // Processamento dos dados
             foreach ($data as &$item) {
                 // Substitui NBSP por espaços comuns
@@ -112,7 +117,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
             }
-        
+         
             var_dump($data); // Exibe os dados processados
             die();
 
@@ -125,7 +130,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
 
 
-            
+
             
            // INI TAXA CONDOMINAL
             if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
