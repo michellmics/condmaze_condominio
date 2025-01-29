@@ -20,7 +20,6 @@
 
 
 
-
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== false) {
         // Ignorar as duas primeiras linhas
