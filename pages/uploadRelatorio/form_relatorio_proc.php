@@ -1,9 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-include_once '../../objetos.php';
+    ini_set('display_errors', 1);  // Habilita a exibição de erros
+    error_reporting(E_ALL);        // Reporta todos os erros
+	include_once "../../objects/objects.php";
 
 function removeBOM($filePath) {
     // Ler o conteúdo do arquivo
@@ -624,9 +622,6 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
     $siteAdmin->insertConciliacaoInfoDespesa($despesas);
 
 }
-
-var_dump($mesUser);
-die();
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
