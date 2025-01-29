@@ -995,7 +995,7 @@
                     return false;
                 }
 
-                if (!nome || !telefone || !categoria || !apartamento || !cidade) {
+                if (!nome || !telefone || !categoria || !cidade) {
                     alert("Todos os campos devem ser preenchidos.");
                     return false;
                 }
