@@ -145,7 +145,7 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                        <div class="tab-pane show active" id="default-accordions-preview">
+                                        <div class="tab-pane show active" style="visibility: hidden;" id="vidracaContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($VIDRAÇARIA as $item): 
@@ -1471,7 +1471,7 @@ $(document).ready(function () {
     });
 
     document.getElementById("toggleVidraca").addEventListener("click", function() {
-        var content = document.getElementById("default-accordions-preview");
+        var content = document.getElementById("vidracaContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
