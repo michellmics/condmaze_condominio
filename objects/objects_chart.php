@@ -312,14 +312,12 @@
                              WHERE 
                                 CONC.CON_DCTIPO = 'RECEITA' 
                                 AND CONC.CON_NMTITULO = 'Taxa Condominial'
-                                AND CONC.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
-                                AND CONC.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
-                                AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA) AS TotalPagantes
+                                AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA
+                                AND CONC.CON_DCANO_COMPETENCIA = :CON_DCANO_COMPETENCIA_USUARIO) AS TotalPagantes
                     ) AS Subquery;";
 
 
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA', $competencia, PDO::PARAM_STR);
                 $stmt->execute();
