@@ -97,6 +97,13 @@
                         </div>
                     </div>
                     <!-- end page title -->
+                    <script>
+    $(document).ready(function() {
+        $('#basic-datatable').DataTable({
+            "order": [[4, 'desc']] // Coluna 4 (DT ENTREGA) ordenada de forma decrescente
+        });
+    });
+</script>
 
                     <div class="row">
 
