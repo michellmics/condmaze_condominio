@@ -64,7 +64,6 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
 
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
-                $descricaoReceita = "Receitas";
                 break;
             }
             
