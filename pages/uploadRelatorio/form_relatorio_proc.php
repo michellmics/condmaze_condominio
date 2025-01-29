@@ -119,7 +119,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
          
             var_dump($data); // Exibe os dados processados
-            die();
+            
 
 
 
@@ -130,7 +130,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
 
 
-
+/*
             
            // INI TAXA CONDOMINAL
             if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
