@@ -984,8 +984,29 @@
         <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script>
+            function validarFormulario() {
+                const telefone = document.querySelector('input[name="telefone"]').value.trim();
+                const categoria = document.querySelector('input[name="categoria"]').value.trim();
+                const nome = document.querySelector('input[name="nome"]').value.trim();
+                const cidade = document.querySelector('input[name="cidade"]').value.trim();
+
+                if (telefone.length !== 11) {
+                    alert('O número de telefone deve ter exatamente 11 dígitos.');
+                    return false;
+                }
+
+                if (!nome || !telefone || !categoria || !apartamento || !cidade) {
+                    alert("Todos os campos devem ser preenchidos.");
+                    return false;
+                }
+                return true;              
+        }
 
        function confirmAndSubmitInsert(event) {   
+        const isValid = validarFormulario();
+        if (!isValid) {
+            return;
+        }
           event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Formulário de Avaliação',
