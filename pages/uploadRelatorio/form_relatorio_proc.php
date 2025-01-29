@@ -623,22 +623,17 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
 }
 
-$arquivo = $_FILES['arquivo']['error'];
-
-var_dump($arquivo);
-die();
-
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
     $mesUser = isset($_POST['mes']) ? trim($_POST['mes']) : '';
     $anoUser = isset($_POST['ano']) ? trim($_POST['ano']) : '';
 
-
-
     $arquivo = $_FILES['arquivo'];
     $tiposPermitidos = ['text/csv'];
     $tamanhoMaximo = 2 * 1024 * 1024; // 2 MB
     $diretorioDestino = "csv_parser/"; // Pasta onde os arquivos serão salvos
+
+    var_dump("$arquivo");
 
     // Valida o tamanho do arquivo
     if ($arquivo['size'] > $tamanhoMaximo) {
