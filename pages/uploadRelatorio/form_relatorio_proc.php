@@ -61,6 +61,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $isFundoInadimplencia = false;
         $CONSUMO_AGUA = [];
         $isConsumoAgua = false;
+        $AGUA_E_ESGOTO = [];
+        $isAguaEsgoto = false;
         $PARCELAMENTO_SABESP = [];
         $isParcelamentoSabesp = false;
         $SALAO_FESTA = [];
@@ -177,6 +179,54 @@ function processCSV($filePath, $mesUser, $anoUser) {
             }
             // FIM MULTAS
 
+            // INI AGUA E ESGOTO
+           if ($data[0] == "Água e Esgoto"){$isAguaEsgoto = true;continue;}
+           if ($isAguaEsgoto && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isAguaEsgoto = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+               if (preg_match('/^([A-Za-z]{3})-(\d{2,4})$/', $competencia, $matches)) {
+                // Formatos: Oct-24 ou Oct-2024
+                $mes = ucfirst(strtolower($matches[1])); // Garante a capitalização correta (Oct)
+                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+            
+            } elseif (preg_match('/^(\d{2})[-\/](\d{2,4})$/', $competencia, $matches)) {
+                // Formatos: 10-2024 ou 10/2024
+                $meses = [
+                    '01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr',
+                    '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug',
+                    '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec'
+                ];
+            
+                $mes = $meses[$matches[1]]; // Converte o número do mês para a abreviação em inglês
+                $ano = (strlen($matches[2]) == 2) ? '20' . $matches[2] : $matches[2]; // Converte ano de 2 dígitos para 4
+            }
+
+            $data[3] = converterParaFormatoAmericano($data[3]);
+
+               $AGUA_E_ESGOTO[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
+                   'TIPO' => 'RECEITA',
+                   'TITULO' => 'Multas',
+               ];
+            }
+            // FIM AGUA E ESGOTO
+
+            
             // INI JUROS
            if ($data[0] == "Juros"){$isJuros = true;continue;}
            if ($isJuros && !empty($data[0])) {
@@ -858,7 +908,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
             "PARCELAMENTO_SABESP" => $PARCELAMENTO_SABESP,
             "SALAO_FESTA" => $SALAO_FESTA,
             "ACORDOS_RECEBIDOS" => $ACORDOS_RECEBIDOS,
-            "AUDITORIA" => $AUDITORIA
+            "AUDITORIA" => $AUDITORIA,
+            "AGUA_E_ESGOTO" => $AGUA_E_ESGOTO
         ];
 
         foreach ($campos as $nome => $valor) {
