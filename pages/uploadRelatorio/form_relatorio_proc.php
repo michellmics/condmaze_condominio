@@ -75,7 +75,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $isAuditoria = false;
 
         $iniciarLeitura = false;
-        
+
         // Ler os dados de pagamento da taxa condominial
         while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
             
@@ -90,6 +90,20 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 continue; // Pula as linhas até encontrar a desejada
             }
         
+            // Verifica se há pelo menos duas colunas na linha (evita erros)
+            if (count($data) < 2) {
+                continue; // Ignora linhas que não têm pelo menos duas colunas
+            }
+        
+            // Obtém o primeiro e o último elemento da linha
+            $nome = trim($data[0]); // Primeira coluna (Nome)
+            $valor = trim(end($data)); // Última coluna (Valor)
+        
+            // Verifica se ambos os campos estão preenchidos
+            if (empty($nome) || empty($valor)) {
+                continue; // Pula essa linha se um dos dois estiver vazio
+            }
+        
             // Processamento dos dados
             foreach ($data as &$item) {
                 // Substitui NBSP por espaços comuns
@@ -101,6 +115,17 @@ function processCSV($filePath, $mesUser, $anoUser) {
         
             var_dump($data); // Exibe os dados processados
             die();
+
+
+
+
+
+
+
+
+
+
+            
             
            // INI TAXA CONDOMINAL
             if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
