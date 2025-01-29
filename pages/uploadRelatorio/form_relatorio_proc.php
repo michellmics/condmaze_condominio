@@ -625,6 +625,8 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
 }
 
+var_dump($mesUser);
+die();
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
