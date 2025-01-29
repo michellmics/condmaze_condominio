@@ -160,13 +160,20 @@
                 if($CON_DCMES_COMPETENCIA_USUARIO  == "novembro"){$competencia = "Nov";}
                 if($CON_DCMES_COMPETENCIA_USUARIO  == "dezembro"){$competencia = "Dec";}
             
-            try{           
+            try{   
+                /*        
                 $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
                         FROM CON_CONCILIACAO CON
                         WHERE 
                         CON.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
                         AND CON.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
                         AND (CON.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA OR CON.CON_DCMES_COMPETENCIA = 'Acordo')";
+                */
+                $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
+                        FROM CON_CONCILIACAO CON
+                        WHERE 
+                        CON.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
+                        AND CON.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
