@@ -72,7 +72,7 @@ include_once "../../objects/objects.php";
             $nome = $data[0] ?? ''; 
             $valor = end($data) ?? '';
 
-            echo $nome;
+            echo $valor;
 
             
 
