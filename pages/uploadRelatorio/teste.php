@@ -33,7 +33,7 @@ include_once "../../objects/objects.php";
         $iniciarLeitura = false;
         $descricaoReceita = "";
 
-        echo "aaahhhh";
+        
 
         // Ler os dados do CSV
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
@@ -43,7 +43,7 @@ include_once "../../objects/objects.php";
                 $item = trim($item);
                 $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
             }
-
+            echo "aaahhhh";
             // Verifica se encontrou a linha inicial para leitura
             if (!$iniciarLeitura) {
                 foreach ($data as $coluna) {
