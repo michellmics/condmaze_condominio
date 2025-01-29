@@ -986,7 +986,7 @@
     <script>
             function validarFormulario() {
                 const telefone = document.querySelector('input[name="telefone"]').value.trim();
-                const categoria = document.querySelector('input[name="categoria"]').value.trim();
+                const categoria = document.querySelector('select[name="categoria"]').value.trim();
                 const nome = document.querySelector('input[name="nome"]').value.trim();
                 const cidade = document.querySelector('input[name="cidade"]').value.trim();
 
