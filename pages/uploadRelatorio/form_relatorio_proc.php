@@ -146,17 +146,15 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 'TITULO' => $descricaoReceita,
             ];
 
-            var_dump($receitas);
-        
 
             
-            return "Fim do processamento";
             
         } //fim while
         fclose($handle);
     }
 
     $siteAdmin->insertConciliacaoInfo($receitas);
+    return "Fim do processamento";
 
 
 }
@@ -237,13 +235,14 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                 'TIPO' => 'DESPESA'
             ];
 
-            return "Fim do processamento";
+            
             
         }
         fclose($handle);
     }
 
     $siteAdmin->insertConciliacaoInfoDespesa($despesas);
+    return "Fim do processamento";
 
 }
 
