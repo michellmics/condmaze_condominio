@@ -153,8 +153,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
         fclose($handle);
     }
 
-    $siteAdmin->insertConciliacaoInfo($receitas);
-    return "Fim do processamento";
+    $result = $siteAdmin->insertConciliacaoInfo($receitas);
+    return $result;
 
 
 }
