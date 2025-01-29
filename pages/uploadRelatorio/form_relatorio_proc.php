@@ -48,7 +48,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         // Ler os dados de pagamento da taxa condominial
         while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {            
 
-            // Verifica se a linha contém "Despesas Ordinárias"
+            // Verifica se a linha contém "Receitas Ordinárias"
             if (!$iniciarLeitura) {
                 foreach ($data as $coluna) {
                     if (strpos($coluna, 'Receitas Ordinárias') !== false) {
@@ -57,6 +57,10 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     }
                 }
                 continue; // Pula as linhas até encontrar a desejada
+            }
+
+            if (stripos($data[0], 'Total de Receitas') === 0) {
+                break; //para de ler o arquivo pois acabou as receitas
             }
 
             //metodo para encontrar e identificar o q é tx de condominio
