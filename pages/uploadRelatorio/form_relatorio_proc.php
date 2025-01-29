@@ -73,6 +73,9 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $isAcordosRecebidos = false;
         $AUDITORIA = [];
         $isAuditoria = false;
+
+        $iniciarLeitura = false;
+        
         // Ler os dados de pagamento da taxa condominial
         while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
             
