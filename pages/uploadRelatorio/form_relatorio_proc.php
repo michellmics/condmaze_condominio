@@ -1052,7 +1052,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                             echo implode("<br>", $result);
                         }
 
-                        echo "<br>$status";
+                        echo "<br>$status"; 
 
                     ?>
 
