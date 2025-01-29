@@ -141,7 +141,6 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
         fclose($handle);
     }
-    var_dump($receitas);
     // Insere os dados processados no banco
     $siteAdmin->insertConciliacaoInfo($receitas);
 
