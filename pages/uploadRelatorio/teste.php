@@ -127,13 +127,14 @@ include_once "../../objects/objects.php";
             ];
 
             var_dump($receitas);
+            $siteAdmin->insertConciliacaoInfo($receitas);
         }
 
         fclose($handle);
     }
 
     // Insere os dados processados no banco
-    $siteAdmin->insertConciliacaoInfo($receitas);
+    
 
 
 
