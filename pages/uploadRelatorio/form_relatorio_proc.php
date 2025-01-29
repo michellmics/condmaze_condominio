@@ -955,6 +955,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         if($tipo == "receita")
         {
             $result = processCSV($caminhoDestino, $mesUser, $anoUser);
+            $status = "O processamento foi concluído com sucesso.";
         }
         if($tipo == "despesa")
         {
@@ -1045,13 +1046,14 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     <!-- end page title -->
 
                     <?php
-                    echo "Resultado Processamento";
+                        echo "Resultado Processamento";
                         // Exibir os erros de uma vez só, se houver
                         if (!empty($result)) {
                             echo implode("<br>", $result);
                         }
 
-                        var_dump($result);
+                        echo "<br>$status";
+
                     ?>
 
 
