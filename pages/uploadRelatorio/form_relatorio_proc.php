@@ -358,11 +358,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     <!-- end page title -->
 
                     <?php
-                        echo "Resultado Processamento<br><br>";
-                        // Exibir os erros de uma vez só, se houver
-                    var_dump($result);
-                        echo "<br><br>$status"; 
-
+                        echo "Arquivo processado<br><br>";
                     ?>
 
 
