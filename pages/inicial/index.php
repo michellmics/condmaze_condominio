@@ -176,11 +176,7 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                        <li class="breadcrumb-item active">Basic Tables</li>
-                                    </ol>
+
                                 </div>
                                 <h4 class="page-title">Bem vindo(a)</h4>
                             </div>
@@ -265,7 +261,7 @@
 
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> INSTRUÇÕES / ADEQUAÇÕES</h4>
                                     <p class="text-muted font-14">
-                                        Os Últimos avisos serão publicados aqui.
+                                        Anotações e arquivos úteis
                                     </p>
 
                                     <div class="tab-content">
@@ -273,7 +269,7 @@
                                             <div class="table-responsive-sm">
 
 
-                                            conteudo aqui
+                                            Nenhum conteúdo publicado
 
 
 
@@ -400,7 +396,7 @@
                                                         </div>
 
                                                         <div class="text-center mt-2">
-                                                            <a href="javascript:void(0);" class="text-danger">Ler mais </a>
+                                                            <a href="javascript:void(0);" class="text-danger"></a>
                                                         </div>
                                                     </div> <!-- end card-body-->
                                                 </div>
