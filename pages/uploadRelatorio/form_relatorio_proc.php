@@ -67,7 +67,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
             }
-
+            var_dump($data[0]);
+            die();
             
            // INI TAXA CONDOMINAL
             if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
