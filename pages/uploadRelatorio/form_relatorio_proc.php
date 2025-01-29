@@ -73,10 +73,21 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $isAcordosRecebidos = false;
         $AUDITORIA = [];
         $isAuditoria = false;
-
-        //Ler os dados de pagamento da taxa condominal
+        // Ler os dados de pagamento da taxa condominial
         while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
-
+            
+            // Verifica se a linha contém "Despesas Ordinárias"
+            if (!$iniciarLeitura) {
+                foreach ($data as $coluna) {
+                    if (strpos($coluna, 'Despesas Ordinárias') !== false) {
+                        $iniciarLeitura = true; // Inicia a leitura a partir desta linha
+                        break;
+                    }
+                }
+                continue; // Pula as linhas até encontrar a desejada
+            }
+        
+            // Processamento dos dados
             foreach ($data as &$item) {
                 // Substitui NBSP por espaços comuns
                 $item = str_replace("\xC2\xA0", ' ', $item);
@@ -84,8 +95,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
             }
-
-            var_dump($data);
+        
+            var_dump($data); // Exibe os dados processados
             die();
             
            // INI TAXA CONDOMINAL
