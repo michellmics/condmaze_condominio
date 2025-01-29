@@ -140,12 +140,12 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" style="display: flex; align-items: center;"><i class="ri-window-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Vidraçarias</h4>
+                                    <h4 class="header-title" id="toggleVidraca" style="display: flex; align-items: center;"><i class="ri-window-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                        <div class="tab-pane show active" id="default-accordions-preview">
+                                        <div class="tab-pane show active" style="display: none;" id="VidracaContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($VIDRAÇARIA as $item): 
@@ -350,17 +350,6 @@
                         </div> <!-- end col-->
 
                         <!-- Script para alternar a visibilidade -->
-<script>
-    document.getElementById("toggleGesso").addEventListener("click", function() {
-        var content = document.getElementById("empresaContent");
-        // Alterna a visibilidade do conteúdo
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block"; // Exibe o conteúdo
-        } else {
-            content.style.display = "none"; // Oculta o conteúdo
-        }
-    });
-</script>
 
                         <div class="col-xl-6">
                             <div class="card">
@@ -1468,6 +1457,53 @@ $(document).ready(function () {
 </style>
 <!-- ######################################################## --> 
 <!-- SWEETALERT 2 -->   
+
+
+<script>
+    document.getElementById("toggleGesso").addEventListener("click", function() {
+        var content = document.getElementById("empresaContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+
+    document.getElementById("toggleVidraca").addEventListener("click", function() {
+        var content = document.getElementById("vidracaContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+
+    document.getElementById("toggleGesso").addEventListener("click", function() {
+        var content = document.getElementById("empresaContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
