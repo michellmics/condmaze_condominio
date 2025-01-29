@@ -90,7 +90,7 @@
                                         <div class="tab-pane show active" id="file-upload-preview">
                                         <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
                                                 <div class="fallback">
-                                                    <input name="file" type="file" multiple />
+                                                    <input name="arquivo" id="arquivo" type="file" multiple />
                                                 </div>
 
                                                 <div class="form-row" style="margin-bottom: 10px; margin: 10px; display: flex; gap: 10px;">
