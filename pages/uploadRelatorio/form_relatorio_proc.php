@@ -92,7 +92,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             // Escrever no arquivo
             file_put_contents($arquivo, $conteudo);
 
-
+            die();
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
 
