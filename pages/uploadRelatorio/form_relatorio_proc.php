@@ -208,7 +208,7 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
 
                     if($mesUser  == "janeiro"){$mes = "Jan";}
                     if($mesUser  == "fevereiro"){$mes = "Feb";}
-                    if($mesUser  == "março"){$mes = "Mar";}
+                    if($mesUser  == "marco"){$mes = "Mar";}
                     if($mesUser  == "abril"){$mes = "Apr";}
                     if($mesUser  == "maio"){$mes = "May";}
                     if($mesUser  == "junho"){$mes = "Jun";}
@@ -429,7 +429,16 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     </div>
     <!-- content -->
 
-    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+        </div>
+        <!-- container -->
+    </div>
+    <!-- content -->
+
+    <div class="d-flex flex-column justify-content-center align-items-center vh-75">
         <!-- start page title -->
         <div class="text-center">
             <h4 class="page-title">Processamento de Arquivo</h4>
@@ -442,6 +451,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     </div>
 
 </div>
+
 <!-- content -->
 
         <!-- ============================================================== -->
