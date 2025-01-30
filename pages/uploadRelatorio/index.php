@@ -78,87 +78,54 @@
                     </div>
                     <!-- end page title -->
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title">Processamento de Relatório</h4>
-                                    <p class="text-muted font-14">
-                                        Aqui você pode fazer o upload do arquivo da administradora (receita ou despesa) para geração do relatório aos moradores.
-                                    </p>
-                                    <div class="tab-content">
-                                        <div class="tab-pane show active" id="file-upload-preview">
-                                        <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
-                                                <div class="fallback">
-                                                    <input name="arquivo" id="arquivo" type="file" multiple />
-                                                </div>
+                    <div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="col-md-6">
+        <div class="card shadow-lg rounded-lg">
+            <div class="card-body text-center">
+                <h4 class="header-title">Processamento de Relatório</h4>
+                <p class="text-muted font-14">
+                    Aqui você pode fazer o upload do arquivo da administradora (receita ou despesa) para geração do relatório aos moradores.
+                </p>
 
-                                                <div class="form-row" style="margin-bottom: 10px; margin: 10px; display: flex; gap: 10px;">
-                                                    <div style="flex: 1;">
-                                                        <select class="form-control" id="mes" name="mes" required>
-                                                            <option value="" disabled selected>Mês de Referência</option>
-                                                            <option value="janeiro">Janeiro</option>
-                                                            <option value="fevereiro">Fevereiro</option>
-                                                            <option value="marco">Março</option>
-                                                            <option value="abril">Abril</option>
-                                                            <option value="maio">Maio</option>
-                                                            <option value="junho">Junho</option>
-                                                            <option value="julho">Julho</option>
-                                                            <option value="agosto">Agosto</option>
-                                                            <option value="setembro">Setembro</option>
-                                                            <option value="outubro">Outubro</option>
-                                                            <option value="novembro">Novembro</option>
-                                                            <option value="dezembro">Dezembro</option>
-                                                        </select>
-                                                    </div>
-                                                    <div style="flex: 1;">
-                                                        <select class="form-control" id="ano" name="ano" required>
-                                                            <option value="" disabled selected>Ano de Referência</option>
-                                                            <option value="2024">2024</option>
-                                                            <option value="2025">2025</option>
-                                                            <option value="2026">2026</option>
-                                                            <option value="2027">2027</option>
-                                                            <option value="2028">2028</option>
-                                                            <option value="2029">2029</option>
-                                                            <option value="2030">2030</option>
-                                                            <option value="2031">2031</option>
-                                                            <option value="2032">2032</option>
-                                                            <option value="2033">2033</option>
-                                                            <option value="2034">2034</option>
-                                                            <option value="2035">2035</option>
-                                                            <option value="2036">2036</option>
-                                                            <option value="2037">2037</option>
-                                                            <option value="2038">2038</option>
-                                                            <option value="2039">2039</option>
-                                                            <option value="2040">2040</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-                                                                                     <!-- Preview -->
-                                            <div class="dropzone-previews mt-3" id="file-previews"></div>
-                                        </div> <!-- end preview-->
-                                        <button type="submit" class="btn btn-primary">Enviar</button>
-
-                                            </form>
-                                           
-
-      
-
-
-                                        <div class="tab-pane code" id="file-upload-code">
-                                        </div> <!-- end preview code-->
-                                    </div> <!-- end tab-content-->
-
-
-                                </div>
-                                <!-- end card-body -->
-                            </div>
-                            <!-- end card-->
-                        </div>
-                        <!-- end col-->
+                <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <input name="arquivo" id="arquivo" type="file" class="form-control" />
                     </div>
+
+                    <div class="d-flex gap-2">
+                        <select class="form-control" id="mes" name="mes" required>
+                            <option value="" disabled selected>Mês de Referência</option>
+                            <option value="janeiro">Janeiro</option>
+                            <option value="fevereiro">Fevereiro</option>
+                            <option value="marco">Março</option>
+                            <option value="abril">Abril</option>
+                            <option value="maio">Maio</option>
+                            <option value="junho">Junho</option>
+                            <option value="julho">Julho</option>
+                            <option value="agosto">Agosto</option>
+                            <option value="setembro">Setembro</option>
+                            <option value="outubro">Outubro</option>
+                            <option value="novembro">Novembro</option>
+                            <option value="dezembro">Dezembro</option>
+                        </select>
+
+                        <select class="form-control" id="ano" name="ano" required>
+                            <option value="" disabled selected>Ano de Referência</option>
+                            <?php for ($i = 2024; $i <= 2040; $i++) {
+                                echo "<option value='$i'>$i</option>";
+                            } ?>
+                        </select>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
                     <!-- end row -->
 
                 </div>
