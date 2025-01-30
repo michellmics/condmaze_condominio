@@ -860,6 +860,33 @@
             }
         }
 
+        public function deleteReport($CON_DCMES_COMPETENCIA_USUARIO, $CON_DCANO_COMPETENCIA_USUARIO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM CON_CONCILIACAO 
+                WHERE CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO AND 
+                    CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Relatório deletado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function insertAvaliacaoPrestadorInfo($PDS_IDPRESTADOR_SERVICO, $APS_DCCOMENTARIO, $APS_NMNOTA, $USU_IDUSUARIO)
         {       
             // Verifica se a conexão já foi estabelecida

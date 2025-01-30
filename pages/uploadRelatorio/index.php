@@ -47,6 +47,8 @@
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- SWEETALERT -->
+    <script src="../../js/sweetalert2@11.js"></script>
 
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
@@ -164,10 +166,19 @@
                                                                 $DATA = $date->format('d/m/Y H:i');
                                                         ?>
                                                         <tr>                                                       
-                                                        <td style="cursor: pointer;"><?= htmlspecialchars($DATA); ?></td>
-                                                        <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCMES_COMPETENCIA_USUARIO'])); ?></td>
-                                                        <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCANO_COMPETENCIA_USUARIO'])); ?></td>
-                                                        <td style="cursor: pointer;>"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars($DATA); ?></td>
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCMES_COMPETENCIA_USUARIO'])); ?></td>
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCANO_COMPETENCIA_USUARIO'])); ?></td>
+                                                            <td style="cursor: pointer;">
+                                                                <i class="mdi mdi-delete" 
+                                                                   title="Excluir encomenda" 
+                                                                   style="cursor: pointer; font-size: 24px;" 
+                                                                   onclick="confirmDelete(event, 
+                                                                       '<?php echo htmlspecialchars($item['CON_DCMES_COMPETENCIA_USUARIO'], ENT_QUOTES, 'UTF-8'); ?>', 
+                                                                       '<?php echo htmlspecialchars($item['CON_DCANO_COMPETENCIA_USUARIO'], ENT_QUOTES, 'UTF-8'); ?>'
+                                                                   )">
+                                                                </i>
+                                                            </td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
@@ -205,7 +216,103 @@
         <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
+   <!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
 
+    <script>
+function confirmDelete(event, mes, ano) {
+    console.log(id);  // Verifica se o id está correto
+    Swal.fire({
+        title: 'Formulário Relatórios',
+        text: "Tem certeza que deseja exluir o relatório?",
+        showDenyButton: true,
+        confirmButtonText: 'CONFIRMAR',
+        denyButtonText: `CANCELAR`,
+        confirmButtonColor: "#536de6",
+        denyButtonColor: "#ff5b5b",
+        width: '400px', // Largura do alerta
+        icon: 'warning',
+        customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Fazer a requisição AJAX
+            $.ajax({
+                url: "deleteReportProc.php", // URL para processamento
+                type: "POST",
+                        data: { 
+                        mes: mes, 
+                        ano: ano 
+                    },
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Atenção',
+                        text: `${response}`,
+                        icon: 'success',
+                        width: '400px', // Largura do alerta
+                        confirmButtonColor: "#536de6",
+                        customClass: {
+                            title: 'swal-title', // Aplicando a mesma classe do título
+                            content: 'swal-content', // Aplicando a mesma classe do texto
+                            htmlContainer: 'swal-text',
+                            confirmButton: 'swal-confirm-btn'
+                        }
+                    }).then(() => {
+                        // Redirecionar ou atualizar a página, se necessário
+                        window.location.href = "index.php";
+                    });
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Erro ao excluir a avaliação.',
+                        icon: 'error',
+                        width: '400px', // Largura do alerta
+                        confirmButtonColor: "#536de6",
+                        customClass: {
+                            title: 'swal-title', // Aplicando a mesma classe do título
+                            content: 'swal-content', // Aplicando a mesma classe do texto
+                            htmlContainer: 'swal-text',
+                            confirmButton: 'swal-confirm-btn'
+                        }
+                    });
+                }
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+        }
+    });
+}
+
+$(document).ready(function () {
+    // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
+});
+</script>
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 25px !important; /* Tamanho maior para o título */
+  }
+
+  .swal-text {
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 16px !important; /* Tamanho maior para os textos dos botões */
+    padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
 
 
     <!-- Datatables js -->
