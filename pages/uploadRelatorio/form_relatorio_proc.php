@@ -79,6 +79,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
+                return "Não encontrado valores válidos";
                 continue;
             }
 
@@ -122,10 +123,9 @@ function procCondominio($filePath, $mesUser, $anoUser) {
         }
 
         // Insere os dados processados no banco
-        $siteAdmin->insertConciliacaoInfo($receitas);
-        
-
+        $result = $siteAdmin->insertConciliacaoInfo($receitas);
         fclose($handle);
+        return $result;
 
     }
 
@@ -183,6 +183,7 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         
                     // Verifica se ambos os campos estão preenchidos
                     if (empty($nome) || empty($valor)) {
+                        return "Não encontrado valores válidos";
                         continue;
                     }
         
@@ -222,9 +223,9 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
         }
 
         // Insere os dados processados no banco
-        $siteAdmin->insertConciliacaoInfo($receitas);
-
+        $result = $siteAdmin->insertConciliacaoInfo($receitas);
         fclose($handle);
+        return $result;
 
     }
 
@@ -282,6 +283,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                         
                     // Verifica se ambos os campos estão preenchidos
                     if (empty($nome) || empty($valor)) {
+                        return "Não encontrado valores válidos";
                         continue;
                     }
         
@@ -303,9 +305,9 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
         }
 
         // Insere os dados processados no banco
-        $siteAdmin->insertConciliacaoInfoDespesa($despesas);
-
+        $result = $siteAdmin->insertConciliacaoInfoDespesa($despesas);
         fclose($handle);
+        return $result;
 
     }
 
@@ -342,24 +344,19 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     }
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
-        if($tipo == "receita")
-        {
-            $result = procCondominio($caminhoDestino, $mesUser, $anoUser);
-            $result = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
-            $result = processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
-            $status = "O processamento foi concluído com sucesso.";
-        }
-        if($tipo == "despesa")
-        {
-            processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
-            $status = "O processamento foi concluído com sucesso.";
-        }
 
-        $resultadoParser = "Sucesso: Arquivo processado.";
+            $procCondominio = procCondominio($caminhoDestino, $mesUser, $anoUser);
+            $procReceitaTotal = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
+            $processCSVDespesa = processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
     } else {
         $resultadoParser = "Erro: Não foi possível salvar o arquivo.";
     }
 
+    $resultadoProcessamento = "
+    Processamento das Taxas de Condominio: $procCondominio <br>
+    Processamento da Receita Mensal: $procReceitaTotal <br>
+    Processamento das Despesas: $processCSVDespesa <br>  
+    ";
 
 }
     
