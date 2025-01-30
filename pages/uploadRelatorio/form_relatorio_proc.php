@@ -374,18 +374,12 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     }
 
     $resultadoProcessamento = "
-    Processamento das Taxas de Condominio: $procCondominio <br>
-    Processamento da Receita Mensal: $procReceitaTotal <br>
-    Processamento das Despesas: $processCSVDespesa <br>
+    <strong>Processamento das Taxas de Condominio:</strong> $procCondominio <br>
+    <strong>Processamento da Receita Mensal:</strong> $procReceitaTotal <br>
+    <strong>Processamento das Despesas:</strong> $processCSVDespesa <br>
     ";
-
 }
-    
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en" data-layout="topnav">
@@ -434,14 +428,14 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                 <!-- container -->
             </div>
             <!-- content -->
-
+                <div>
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Enviar Arquivo</h4>
+                                <h4 class="page-title">Processamento de Arquivo</h4>
                             </div>
                         </div>
                     </div>
