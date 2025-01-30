@@ -181,16 +181,27 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
+                    if (empty(end($data))) {
+                        array_pop($data); // Remove o último campo se estiver vazio
+                    }
+
+                    // Obtém nome e valor (primeira e última coluna)
+                    $nome = trim($data[0]); // Primeira coluna (Nome)
+                    if(trim(end($data)) != null) {
+                        $valor = trim(end($data)); // Última coluna (Valor) 
+                    }
+                    else
+                        {
+                            $valor = trim(prev($data)); // Penultima coluna (Valor) 
+                        }
+
                     while (!empty($data) && empty(end($data))) {
                         array_pop($data); 
                     }
-
-                               
-
-            
                     
                     $valoresArray = array_values($data);
                     $tamanhoArray = count($valoresArray);
+                    $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
                     $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
                     $nome = trim($valoresArray[0]);
                     
@@ -199,17 +210,6 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue;
                     }
                         
-
-            //debug --------------------------------
-            ob_start();
-            var_dump($tamanhoArray);
-            $conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
-            //$conteudo = $competencia; // Penultima coluna (Valor)             
-            $arquivo = "dump.txt";
-            file_put_contents($arquivo, $conteudo);
-            //die();
-            //debug --------------------------------
-
                     // Verifica se ambos os campos estão preenchidos
                     if (empty($nome) || empty($valor)) {
                         return "Não encontrado valores válidos";
@@ -296,14 +296,19 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    while (!empty($data) && empty(end($data))) {
-                        array_pop($data); 
+                    if (empty(end($data))) {
+                        array_pop($data); // Remove o último campo se estiver vazio
                     }
-                    
-                    $valoresArray = array_values($data);
-                    $tamanhoArray = count($valoresArray);
-                    $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
-                    $nome = trim($valoresArray[0]);
+
+                    // Obtém nome e valor (primeira e última coluna)
+                    $nome = trim($data[0]); // Primeira coluna (Nome)
+                    if(trim(end($data)) != null) {
+                        $valor = trim(end($data)); // Última coluna (Valor) 
+                    }
+                    else
+                        {
+                            $valor = trim(prev($data)); // Penultima coluna (Valor) 
+                        }
 
                     if($nome != "Total de Despesas") {
                         continue;
