@@ -67,14 +67,10 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 break;
             }  
-
-            if (empty(end($data))) {
-                array_pop($data); // Remove o último campo se estiver vazio
-            }
-            
+           
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
-            $valor = trim(end($data)); // Última coluna (Valor)
+            $valor = trim($data[3]); // Última coluna (Valor)
                  
 
             // Verifica se ambos os campos estão preenchidos
