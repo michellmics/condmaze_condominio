@@ -340,7 +340,8 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
 
 
-
+<?php
+/*
 
 
 
@@ -451,9 +452,9 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
 </html>
 
+*/
 
-
-
+?>
 
 
 
