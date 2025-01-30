@@ -139,15 +139,18 @@ function processCSV($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
+                    // Obtém nome e valor (primeira e última coluna)
+                    $nome = trim($data[0]); // Primeira coluna (Nome)
+                    $valor = trim(end($data)); // Última coluna (Valor)
+
                     if($nome != "Total de Receitas") {
                         continue;
                     }
 
                     var_dump($data);
+                    die();
                           
-                    // Obtém nome e valor (primeira e última coluna)
-                    $nome = trim($data[0]); // Primeira coluna (Nome)
-                    $valor = trim(end($data)); // Última coluna (Valor)
+
 
                     if($nome != "Total de Receitas") {
                         break;
