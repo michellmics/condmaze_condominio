@@ -127,13 +127,13 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
                                                         <tr>
-                                                            <td><?= htmlspecialchars($item['LOG_IDLOG']); ?></td>
-                                                            <td><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
-                                                            <td><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
-                                                            <td><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
-                                                            <td><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
-                                                            <td><?= htmlspecialchars($item['LOG_DCMSG']); ?></td>
-                                                            <td><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_IDLOG']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCMSG']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
 
                                                         </tr>
                                                     <?php endforeach; ?>
