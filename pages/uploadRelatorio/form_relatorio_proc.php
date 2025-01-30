@@ -273,6 +273,16 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
 }
 
+
+$caminhoDestino = "set_new.csv";
+$mesUser = "novembro";
+$anoUser = "2024";
+
+$result = processCSV($caminhoDestino, $mesUser, $anoUser);
+$status = "O processamento foi concluído com sucesso.";
+
+/*
+
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
     $mesUser = isset($_POST['mes']) ? trim($_POST['mes']) : '';
@@ -320,7 +330,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
 }
     
-
+*/
 ?>
 
 
