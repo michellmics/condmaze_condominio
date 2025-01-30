@@ -67,10 +67,14 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 break;
             }  
+
+            if (empty(end($data))) {
+                array_pop($data); // Remove o último campo se estiver vazio
+            }
             
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
-            $valor = trim($data[3]); // Última coluna (Valor)
+            $valor = trim(end($data)); // Última coluna (Valor)
                  
 
             // Verifica se ambos os campos estão preenchidos
@@ -165,9 +169,13 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
+                    if (empty(end($data))) {
+                        array_pop($data); // Remove o último campo se estiver vazio
+                    }
+
                     // Obtém nome e valor (primeira e última coluna)
                     $nome = trim($data[0]); // Primeira coluna (Nome)
-                    $valor = trim($data[3]); // Última coluna (Valor)
+                    $valor = trim(end($data)); // Última coluna (Valor) 
 
                     if($nome != "Total de Receitas") {
                         continue;
@@ -243,6 +251,10 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                 continue; // Ignora linhas que não têm pelo menos duas colunas
             }
         
+            if (empty(end($data))) {
+                array_pop($data); // Remove o último campo se estiver vazio
+            }
+
             // Obtém o primeiro e o último elemento da linha
             $nome = trim($data[0]); // Primeira coluna (Nome)
             $valor = trim(end($data)); // Última coluna (Valor)
