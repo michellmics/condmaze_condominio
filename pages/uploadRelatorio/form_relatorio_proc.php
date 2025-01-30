@@ -132,7 +132,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
         // Insere os dados processados no banco
         $result = $siteAdmin->insertConciliacaoInfo($receitas);
         fclose($handle);
-       // return $result;
+        return "Concluído com sucesso";
 
     }
 
@@ -241,7 +241,7 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
         // Insere os dados processados no banco
         $result = $siteAdmin->insertConciliacaoInfo($receitas);
         fclose($handle);
-        return $result;
+        return "Concluído com sucesso";
 
     }
 
@@ -329,7 +329,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
         // Insere os dados processados no banco
         $result = $siteAdmin->insertConciliacaoInfoDespesa($despesas);
         fclose($handle);
-        return $result;
+        return "Concluído com sucesso";
 
     }
 
