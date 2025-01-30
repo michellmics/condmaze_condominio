@@ -314,12 +314,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php //foreach ($chartValor->ARRAY_DESPESATABLEINFO as $item): ?>
+                                                
                                                     <tr>
-                                                        <td><?= //htmlspecialchars($item["CON_NMTITULO"]) ?></td>
-                                                        <td>R$<?= //number_format($item["CON_NMVALOR"], 2, ',', '.') ?></td>
+                                                        <td></td>
+                                                        <td>R$</td>
                                                     </tr>
-                                                <?php //endforeach; ?>
+                                               
                                             </tbody>
                                         </table>
                                     </div> 
