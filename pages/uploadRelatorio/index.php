@@ -221,7 +221,7 @@
 
     <script>
 function confirmDelete(event, mes, ano) {
-    console.log(id);  // Verifica se o id está correto
+    //console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário Relatórios',
         text: "Tem certeza que deseja exluir o relatório?",
