@@ -132,7 +132,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
         // Insere os dados processados no banco
         $result = $siteAdmin->insertConciliacaoInfo($receitas);
         fclose($handle);
-        return $result;
+       // return $result;
 
     }
 
