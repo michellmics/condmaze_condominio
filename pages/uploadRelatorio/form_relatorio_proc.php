@@ -116,7 +116,10 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             
         }
-        
+
+        // Insere os dados processados no banco
+        $siteAdmin->insertConciliacaoInfo($receitas);
+
         $iniciarLeitura = false;
 
         // buscas o total de receita
@@ -174,10 +177,13 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     ];       
         }
 
+        // Insere os dados processados no banco
+        $siteAdmin->insertConciliacaoInfo($receitas);
+
         fclose($handle);
+
     }
-    // Insere os dados processados no banco
-    $siteAdmin->insertConciliacaoInfo($receitas);
+
 
 
 }
