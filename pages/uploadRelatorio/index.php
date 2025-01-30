@@ -89,7 +89,7 @@
 
                                    <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
                                        <div class="mb-3">
-                                           <input name="arquivo" id="arquivo" type="file" class="form-control" />
+                                           <input name="arquivo" id="arquivo" type="file" accept=".csv" class="form-control" />
                                        </div>
 
                                        <div class="d-flex gap-2">
