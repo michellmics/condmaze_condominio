@@ -195,17 +195,6 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                             $valor = trim(prev($data)); // Penultima coluna (Valor) 
                         }
 
-                    while (!empty($data) && empty(end($data))) {
-                        array_pop($data); 
-                    }
-                    
-                    $valoresArray = array_values($data);
-                    $tamanhoArray = count($valoresArray);
-                    $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
-                    $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
-                    $nome = trim($valoresArray[0]);
-                    
-
                     if($nome != "Total de Receitas") {
                         continue;
                     }
@@ -216,6 +205,8 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue;
                     }
         
+                    // Extração do mês e ano da competência
+                    $competencia = $data[1] ?? '';
 
                     if($mesUser  == "janeiro"){$mes = "Jan";}
                     if($mesUser  == "fevereiro"){$mes = "Feb";}
