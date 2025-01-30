@@ -78,7 +78,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
             $nome = trim($valoresArray[0]);
 
-
+            /*
             //debug --------------------------------
             ob_start();
             var_dump($data);
@@ -88,7 +88,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             file_put_contents($arquivo, $conteudo);
             die();
             //debug --------------------------------
-  
+            */  
 
 
             // Verifica se ambos os campos estão preenchidos
@@ -181,21 +181,15 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    if (empty(end($data))) {
-                        array_pop($data); // Remove o último campo se estiver vazio
+                    while (!empty($data) && empty(end($data))) {
+                        array_pop($data); 
                     }
-
-                    // Obtém nome e valor (primeira e última coluna)
-                    $nome = trim($data[0]); // Primeira coluna (Nome)
-                    if(trim(end($data)) != null) {
-                        $valor = trim(end($data)); // Última coluna (Valor) 
-                    }
-                    else
-                        {
-                            $valor = trim(prev($data)); // Penultima coluna (Valor) 
-                        }
-
                     
+                    $valoresArray = array_values($data);
+                    $tamanhoArray = count($valoresArray);
+                    $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
+                    $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
+                    $nome = trim($valoresArray[0]);
                     
 
                     if($nome != "Total de Receitas") {
@@ -208,8 +202,6 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue;
                     }
         
-                    // Extração do mês e ano da competência
-                    $competencia = $data[1] ?? '';
 
                     if($mesUser  == "janeiro"){$mes = "Jan";}
                     if($mesUser  == "fevereiro"){$mes = "Feb";}
@@ -290,19 +282,15 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    if (empty(end($data))) {
-                        array_pop($data); // Remove o último campo se estiver vazio
+                    while (!empty($data) && empty(end($data))) {
+                        array_pop($data); 
                     }
-
-                    // Obtém nome e valor (primeira e última coluna)
-                    $nome = trim($data[0]); // Primeira coluna (Nome)
-                    if(trim(end($data)) != null) {
-                        $valor = trim(end($data)); // Última coluna (Valor) 
-                    }
-                    else
-                        {
-                            $valor = trim(prev($data)); // Penultima coluna (Valor) 
-                        }
+                    
+                    $valoresArray = array_values($data);
+                    $tamanhoArray = count($valoresArray);
+                    $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
+                    $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
+                    $nome = trim($valoresArray[0]);
 
                     if($nome != "Total de Despesas") {
                         continue;
