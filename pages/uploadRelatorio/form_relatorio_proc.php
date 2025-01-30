@@ -279,7 +279,7 @@ $mesUser = "novembro";
 $anoUser = "2024";
 
 $result = processCSV($caminhoDestino, $mesUser, $anoUser);
-$status = "O processamento foi concluído com sucesso.";
+echo "O processamento foi concluído com sucesso.";
 
 /*
 
