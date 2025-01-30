@@ -127,7 +127,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                         $item = trim($item);
                         $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
                     }
-        echo "aqui";
+        
                     // Verifica se encontrou a linha inicial para leitura
                     if (!$iniciarLeitura) {
                         foreach ($data as $coluna) {
@@ -138,6 +138,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                         }
                         continue; // Pula as linhas até encontrar a desejada
                     }
+
+                    var_dump($data);
                           
                     // Obtém nome e valor (primeira e última coluna)
                     $nome = trim($data[0]); // Primeira coluna (Nome)
