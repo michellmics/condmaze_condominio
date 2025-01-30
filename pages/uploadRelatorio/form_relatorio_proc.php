@@ -421,41 +421,28 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 		<!-- End Menu Nav -->
 
         <div class="content-page">
-            <div class="content">
-                <!-- Start Content-->
-                <div class="container-fluid">
-                </div>
-                <!-- container -->
-            </div>
-            <!-- content -->
-                <div>
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <div class="page-title-right">
-                                </div>
-                                <h4 class="page-title">Processamento de Arquivo</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
-
-                    <?php
-                        echo "Status do processamento de Arquivo:<br><br>";
-                        echo $resultadoProcessamento;
-                    ?>
-
-
-                </div>
-                <!-- container -->
-
-            </div>
-            <!-- content -->
-
-            <?php include '../../src/footer_nav.php'; ?>
-
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
         </div>
+        <!-- container -->
+    </div>
+    <!-- content -->
+
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <!-- start page title -->
+        <div class="text-center">
+            <h4 class="page-title">Processamento de Arquivo</h4>
+            <p>Status do processamento de Arquivo:</p>
+            <strong><?php echo $resultadoProcessamento; ?></strong>
+        </div>
+
+        <!-- Botão de voltar -->
+        <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
+    </div>
+
+</div>
+<!-- content -->
 
         <!-- ============================================================== -->
         <!-- End Page content -->
