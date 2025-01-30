@@ -72,17 +72,13 @@ function procCondominio($filePath, $mesUser, $anoUser) {
                 array_pop($data); // Remove o último campo se estiver vazio
             }
            
-
-
-
-
             $valoresArray = array_values($data);
             $tamanhoArray = count($valoresArray);
             $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
             $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
             $nome = trim($valoresArray[0]);
 
-
+/*
             //debug --------------------------------
             ob_start();
             //var_dump($dados);
@@ -92,16 +88,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             file_put_contents($arquivo, $conteudo);
             die();
             //debug --------------------------------
-
-
-
-            /*
-
-            // Obtém nome e valor (primeira e última coluna)
-            $nome = trim($data[0]); // Primeira coluna (Nome)
-            $valor = trim(end($data));   
-            competencia =   
-            */          
+*/  
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
