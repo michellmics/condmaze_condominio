@@ -28,7 +28,7 @@ function converterParaFormatoAmericano($valor) {
     return $valor;
 }
 
-function processCSV($filePath, $mesUser, $anoUser) {
+function procCondominio($filePath, $mesUser, $anoUser) {
 
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
@@ -43,7 +43,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         
         $receitas = [];
         $iniciarLeitura = false;
-        /*
+        
         // buscas as taxas de condominio
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
             // Limpa os espaços indesejados e caracteres especiais
@@ -119,10 +119,32 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
         // Insere os dados processados no banco
         $siteAdmin->insertConciliacaoInfo($receitas);
-        */
-        $iniciarLeitura = false;
-        $receitas = [];
+        
 
+        fclose($handle);
+
+    }
+
+
+
+}
+
+function procReceitaTotal($filePath, $mesUser, $anoUser) {
+
+    $siteAdmin = new SITE_ADMIN();  
+    $dataHoraAtual = date('Y-m-d H:i:s'); 
+    
+
+   
+ 
+    // Abrir o arquivo CSV
+    if (($handle = fopen($filePath, 'r')) !== FALSE) {
+        // Ignorar as duas primeiras linhas
+        fgetcsv($handle);
+        
+        $receitas = [];
+        $iniciarLeitura = false;
+  
         // buscas o total de receita
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
                     // Limpa os espaços indesejados e caracteres especiais
@@ -281,7 +303,9 @@ $caminhoDestino = "nov.csv";
 $mesUser = "novembro";
 $anoUser = "2024";
 
-$result = processCSV($caminhoDestino, $mesUser, $anoUser);
+$result = procCondominio($caminhoDestino, $mesUser, $anoUser);
+$result = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
+
 echo "O processamento foi concluído com sucesso.";
 
 /*
