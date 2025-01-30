@@ -84,7 +84,7 @@
                                <div class="card-body text-center">
                                    <h4 class="header-title">Processamento de Relatório</h4>
                                    <p class="text-muted font-14">
-                                       Aqui você pode fazer o upload do arquivo da administradora (receita ou despesa) para geração do relatório aos moradores.
+                                       Aqui você pode fazer o upload do arquivo da administradora para geração do relatório aos moradores.
                                    </p>
 
                                    <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
