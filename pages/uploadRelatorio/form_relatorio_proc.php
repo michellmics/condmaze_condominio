@@ -294,7 +294,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
             // Adicionar aos resultados
             $despesas[] = [
                 'TITULO' => $nome,
-                'VALOR' => $valorLiquido,
+                'VALOR' => $valorFormatado,
                 'DATANOW' => $dataHoraAtual,
                 'COMPETENCIA MES USUARIO' => $mesUser,
                 'COMPETENCIA ANO USUARIO' => $anoUser,
@@ -303,7 +303,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
         }
 
         // Insere os dados processados no banco
-        $siteAdmin->insertConciliacaoInfo($receitas);
+        $siteAdmin->insertConciliacaoInfo($despesas);
 
         fclose($handle);
 
