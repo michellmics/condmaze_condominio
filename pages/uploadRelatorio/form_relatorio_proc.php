@@ -67,11 +67,14 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 break;
             }  
+
+            // Remover apenas os campos vazios no final
+            while (!empty($data) && end($data) === "") {
+                array_pop($data);
+            }
            
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
-
-            return $data;
 
             if(trim($data[3]) != null) {
                 $valor = trim(end($data)); // Última coluna (Valor) 
@@ -364,19 +367,19 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
 
-            $resultadoProcessamento = procCondominio($caminhoDestino, $mesUser, $anoUser);
+            $procCondominio = procCondominio($caminhoDestino, $mesUser, $anoUser);
             $procReceitaTotal = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
             $processCSVDespesa = processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
     } else {
         $resultadoParser = "Erro: Não foi possível salvar o arquivo.";
     }
-/*
+
     $resultadoProcessamento = "
     Processamento das Taxas de Condominio: $procCondominio <br>
     Processamento da Receita Mensal: $procReceitaTotal <br>
     Processamento das Despesas: $processCSVDespesa <br>
     ";
-*/
+
 }
     
 
@@ -447,7 +450,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
                     <?php
                         echo "Status do processamento de Arquivo:<br><br>";
-                        var_dump($resultadoProcessamento);
+                        echo $resultadoProcessamento;
                     ?>
 
 
