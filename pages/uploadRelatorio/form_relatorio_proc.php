@@ -202,7 +202,7 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
 
             //debug --------------------------------
             ob_start();
-            var_dump($data);
+            var_dump($valoresArray);
             $conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
             //$conteudo = $competencia; // Penultima coluna (Valor)             
             $arquivo = "dump.txt";
