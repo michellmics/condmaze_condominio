@@ -295,7 +295,8 @@
                     </div>
                     <!-- end row -->
 
-                    <div class="row">
+                     
+                <!-- <div class="row">
                         <div class="col-lg-12">
                         <div class="card">
                             <div class="d-flex card-header justify-content-between align-items-center">
@@ -313,20 +314,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($chartValor->ARRAY_DESPESATABLEINFO as $item): ?>
+                                                <?php //foreach ($chartValor->ARRAY_DESPESATABLEINFO as $item): ?>
                                                     <tr>
-                                                        <td><?= htmlspecialchars($item["CON_NMTITULO"]) ?></td>
-                                                        <td>R$<?= number_format($item["CON_NMVALOR"], 2, ',', '.') ?></td>
+                                                        <td><?= //htmlspecialchars($item["CON_NMTITULO"]) ?></td>
+                                                        <td>R$<?= //number_format($item["CON_NMVALOR"], 2, ',', '.') ?></td>
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php //endforeach; ?>
                                             </tbody>
                                         </table>
-                                    </div> <!-- end table-responsive-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div>
-                    <!-- end row -->
+                                    </div> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> -->
+               
+                    
 
 
 
