@@ -72,59 +72,59 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Enviar Arquivo</h4>
+                                <h4 class="page-title"></h4>
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
 
                     <div class="d-flex justify-content-center mt-5">
-    <div class="col-md-6">
-        <div class="card shadow-lg rounded-lg">
-            <div class="card-body text-center">
-                <h4 class="header-title">Processamento de Relatório</h4>
-                <p class="text-muted font-14">
-                    Aqui você pode fazer o upload do arquivo da administradora (receita ou despesa) para geração do relatório aos moradores.
-                </p>
+                       <div class="col-md-6">
+                           <div class="card shadow-lg rounded-lg">
+                               <div class="card-body text-center">
+                                   <h4 class="header-title">Processamento de Relatório</h4>
+                                   <p class="text-muted font-14">
+                                       Aqui você pode fazer o upload do arquivo da administradora (receita ou despesa) para geração do relatório aos moradores.
+                                   </p>
 
-                <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <input name="arquivo" id="arquivo" type="file" class="form-control" />
+                                   <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
+                                       <div class="mb-3">
+                                           <input name="arquivo" id="arquivo" type="file" class="form-control" />
+                                       </div>
+
+                                       <div class="d-flex gap-2">
+                                           <select class="form-control" id="mes" name="mes" required>
+                                               <option value="" disabled selected>Mês de Referência</option>
+                                               <option value="janeiro">Janeiro</option>
+                                               <option value="fevereiro">Fevereiro</option>
+                                               <option value="marco">Março</option>
+                                               <option value="abril">Abril</option>
+                                               <option value="maio">Maio</option>
+                                               <option value="junho">Junho</option>
+                                               <option value="julho">Julho</option>
+                                               <option value="agosto">Agosto</option>
+                                               <option value="setembro">Setembro</option>
+                                               <option value="outubro">Outubro</option>
+                                               <option value="novembro">Novembro</option>
+                                               <option value="dezembro">Dezembro</option>
+                                           </select>
+
+                                           <select class="form-control" id="ano" name="ano" required>
+                                               <option value="" disabled selected>Ano de Referência</option>
+                                               <?php for ($i = 2024; $i <= 2040; $i++) {
+                                                   echo "<option value='$i'>$i</option>";
+                                               } ?>
+                                           </select>
+                                       </div>
+                                           
+                                       <div class="mt-3">
+                                           <button type="submit" class="btn btn-primary">Enviar</button>
+                                       </div>
+                                   </form>
+                               </div>
+                           </div>
+                       </div>
                     </div>
-
-                    <div class="d-flex gap-2">
-                        <select class="form-control" id="mes" name="mes" required>
-                            <option value="" disabled selected>Mês de Referência</option>
-                            <option value="janeiro">Janeiro</option>
-                            <option value="fevereiro">Fevereiro</option>
-                            <option value="marco">Março</option>
-                            <option value="abril">Abril</option>
-                            <option value="maio">Maio</option>
-                            <option value="junho">Junho</option>
-                            <option value="julho">Julho</option>
-                            <option value="agosto">Agosto</option>
-                            <option value="setembro">Setembro</option>
-                            <option value="outubro">Outubro</option>
-                            <option value="novembro">Novembro</option>
-                            <option value="dezembro">Dezembro</option>
-                        </select>
-
-                        <select class="form-control" id="ano" name="ano" required>
-                            <option value="" disabled selected>Ano de Referência</option>
-                            <?php for ($i = 2024; $i <= 2040; $i++) {
-                                echo "<option value='$i'>$i</option>";
-                            } ?>
-                        </select>
-                    </div>
-
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
                     <!-- end row -->
 
