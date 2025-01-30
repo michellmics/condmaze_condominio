@@ -264,7 +264,7 @@
                                  CON_CONCILIACAO CONC
                              WHERE 
                                  CONC.CON_DCTIPO = 'RECEITA' 
-                                 AND CONC.CON_NMTITULO = 'Taxa Condominio'
+                                 AND CONC.CON_NMTITULO = 'Taxa Condominal'
                              GROUP BY 
                                  CONC.CON_DCMES_COMPETENCIA, CONC.CON_DCANO_COMPETENCIA) AS PagamentosMensais
                         ON 
