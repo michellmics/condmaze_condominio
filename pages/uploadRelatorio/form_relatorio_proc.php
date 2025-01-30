@@ -233,97 +233,85 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
 }
 
 function processCSVDespesa($filePath, $mesUser, $anoUser) {
+
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
-    $despesas = [];
+    
+
+   
  
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
-        fgetcsv($handle);
-
+        
+        $despesas = [];
         $iniciarLeitura = false;
-
-        // Ler os dados de pagamento da taxa condominial
-        while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
-            
-            // Verifica se a linha contém "Despesas Ordinárias"
-            if (!$iniciarLeitura) {
-                foreach ($data as $coluna) {
-                    if (strpos($coluna, 'Despesas Ordinárias') !== false) {
-                        $iniciarLeitura = true; // Inicia a leitura a partir desta linha
-                        break;
+  
+        // buscas o total de despesas
+        while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
+                    // Limpa os espaços indesejados e caracteres especiais
+                    foreach ($data as &$item) {
+                        $item = str_replace("\xC2\xA0", ' ', $item); // Remove NBSP
+                        $item = trim($item);
+                        $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
                     }
-                }
-                continue; // Pula as linhas até encontrar a desejada
-            }
         
-            // Verifica se há pelo menos duas colunas na linha (evita erros)
-            if (count($data) < 2) {
-                continue; // Ignora linhas que não têm pelo menos duas colunas
-            }
-        
-            if (empty(end($data))) {
-                array_pop($data); // Remove o último campo se estiver vazio
-            }
+                    // Verifica se encontrou a linha inicial para leitura
+                    if (!$iniciarLeitura) {
+                        foreach ($data as $coluna) {
+                            if ($coluna == 'Taxa Condominial') {
+                                $iniciarLeitura = true; // Inicia a leitura
+                                break;
+                            }
+                        }
+                        continue; // Pula as linhas até encontrar a desejada
+                    }
 
-            // Obtém o primeiro e o último elemento da linha
-            $nome = trim($data[0]); // Primeira coluna (Nome)
-            $valor = trim(end($data)); // Última coluna (Valor)
-        
-            // Verifica se ambos os campos estão preenchidos
-            if (empty($nome) || empty($valor)) {
-                continue; // Pula essa linha se um dos dois estiver vazio
-            }
-        
+                    if (empty(end($data))) {
+                        array_pop($data); // Remove o último campo se estiver vazio
+                    }
 
-            // Verifica se a primeira coluna começa com "Total", "Mov. Líquido(Receitas-Despesas)" ou "F. "
-            if (
-                stripos($nome, 'Total') === 0 || 
-                stripos($nome, 'Mov. Líquido(Receitas-Despesas)') === 0 || 
-                stripos($nome, 'F. ') === 0
-            ) {
-                continue; // Pula a linha se começar com esses termos
-            }
-        
-            // Processamento dos dados
-            foreach ($data as &$item) {
-                // Substitui NBSP por espaços comuns
-                $item = str_replace("\xC2\xA0", ' ', $item);
-                $item = trim($item);
-                // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
-                $item = preg_replace('/\s+/', ' ', $item);
-            }
-         
-            $valor = converterParaFormatoAmericano($valor);
-            
-            // Extrair os campos relevantes
-            $fornecedor = $data[0]; // Campo 'Fornecedor'
-            $valorLiquido = $valor; // Campo 'Valor liquído'
+                    // Obtém nome e valor (primeira e última coluna)
+                    $nome = trim($data[0]); // Primeira coluna (Nome)
+                    $valor = trim(end($data)); // Última coluna (Valor) 
 
+                    if($nome != "Total de Despesas") {
+                        continue;
+                    }
+                        
+                    // Verifica se ambos os campos estão preenchidos
+                    if (empty($nome) || empty($valor)) {
+                        continue;
+                    }
+        
+             
+        
+                    // Converte valor para formato americano, se existir
+                    $valorFormatado = isset($valor) ? converterParaFormatoAmericano($valor) : '';
+        
+                    // Adiciona ao array de receitas
             // Adicionar aos resultados
             $despesas[] = [
-                'TITULO' => $fornecedor,
+                'TITULO' => $nome,
                 'VALOR' => $valorLiquido,
                 'DATANOW' => $dataHoraAtual,
                 'COMPETENCIA MES USUARIO' => $mesUser,
                 'COMPETENCIA ANO USUARIO' => $anoUser,
                 'TIPO' => 'DESPESA'
-            ];
-
-            
-            
+            ];    
         }
+
+        // Insere os dados processados no banco
+        $siteAdmin->insertConciliacaoInfo($receitas);
+
         fclose($handle);
+
     }
 
-    $siteAdmin->insertConciliacaoInfoDespesa($despesas);
-    return "Fim do processamento";
+
 
 }
-
-
 
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
@@ -358,6 +346,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         {
             $result = procCondominio($caminhoDestino, $mesUser, $anoUser);
             $result = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
+            $result = processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
             $status = "O processamento foi concluído com sucesso.";
         }
         if($tipo == "despesa")
