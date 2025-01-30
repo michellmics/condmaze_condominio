@@ -167,14 +167,14 @@
                                                         
                                                     ?>
                                                     <tr>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
 
-                                                        <td>
+                                                        <td class="align-middle">
                                                             <!-- Switch -->
                                                             <div>
                                                                 <input 
@@ -195,7 +195,7 @@
                                                             </div>
                                                         </td>
 
-                                                        <td>
+                                                        <td class="align-middle">
                                                             <!-- Switch -->
                                                             <div>
                                                                 <input 
@@ -215,7 +215,7 @@
                                                                 </label>
                                                             </div>
                                                         </td>
-                                                        <td>
+                                                        <td class="align-middle">
                                                             <?php 
                                                                 if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
                                                                 {
