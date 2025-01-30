@@ -299,16 +299,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 }
 
 
-$caminhoDestino = "nov.csv";
-$mesUser = "novembro";
-$anoUser = "2024";
 
-$result = procCondominio($caminhoDestino, $mesUser, $anoUser);
-$result = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
-
-echo "O processamento foi concluído com sucesso.";
-
-/*
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
@@ -340,7 +331,8 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         removeBOM($caminhoDestino);
         if($tipo == "receita")
         {
-            $result = processCSV($caminhoDestino, $mesUser, $anoUser);
+            $result = procCondominio($caminhoDestino, $mesUser, $anoUser);
+            $result = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
             $status = "O processamento foi concluído com sucesso.";
         }
         if($tipo == "despesa")
@@ -357,7 +349,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
 }
     
-*/
+
 ?>
 
 
@@ -367,8 +359,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
 
 
-<?php
-/*
+
 
 
 
@@ -479,9 +470,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
 </html>
 
-*/
 
-?>
 
 
 
