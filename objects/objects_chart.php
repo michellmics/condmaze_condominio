@@ -242,52 +242,52 @@
             
             try{           
                 $sql = "SELECT 
-    CONCAT(
-        LPAD(
-            CASE PagamentosMensais.CON_DCMES_COMPETENCIA
-                WHEN 'Jan' THEN 1 WHEN 'Feb' THEN 2 WHEN 'Mar' THEN 3 WHEN 'Apr' THEN 4
-                WHEN 'May' THEN 5 WHEN 'Jun' THEN 6 WHEN 'Jul' THEN 7 WHEN 'Aug' THEN 8
-                WHEN 'Sep' THEN 9 WHEN 'Oct' THEN 10 WHEN 'Nov' THEN 11 WHEN 'Dec' THEN 12
-            END, 
-            2, '0'
-        ), 
-        '/', PagamentosMensais.CON_DCANO_COMPETENCIA
-    ) AS Mes,
-    ROUND(
-        ((Config.TotalApartamentos - COALESCE(PagamentosMensais.TotalPagantes, 0)) / Config.TotalApartamentos) * 100,
-        2
-    ) AS TaxaInadimplencia
-FROM 
-    (SELECT 
-         CAST(Valor.CFG_DCVALOR AS UNSIGNED) AS TotalApartamentos
-     FROM 
-         CFG_CONFIGURACAO Valor
-     WHERE 
-         Valor.CFG_DCPARAMETRO = 'QTDE_APARTAMENTOS'
-     LIMIT 1) AS Config
-LEFT JOIN 
-    (SELECT 
-         SUM(CAST(REGEXP_REPLACE(CONC.CON_DCDESC, '[^0-9]', '') AS UNSIGNED)) AS TotalPagantes,
-         CONC.CON_DCMES_COMPETENCIA,
-         CONC.CON_DCANO_COMPETENCIA
-     FROM 
-         CON_CONCILIACAO CONC
-     WHERE 
-         CONC.CON_DCTIPO = 'RECEITA' 
-         AND CONC.CON_NMTITULO = 'Taxa Condominal'
-     GROUP BY 
-         CONC.CON_DCMES_COMPETENCIA, CONC.CON_DCANO_COMPETENCIA) AS PagamentosMensais
-ON 
-    TRUE
-ORDER BY 
-    PagamentosMensais.CON_DCANO_COMPETENCIA DESC,
-    CASE PagamentosMensais.CON_DCMES_COMPETENCIA
-        WHEN 'Jan' THEN 1 WHEN 'Feb' THEN 2 WHEN 'Mar' THEN 3 WHEN 'Apr' THEN 4
-        WHEN 'May' THEN 5 WHEN 'Jun' THEN 6 WHEN 'Jul' THEN 7 WHEN 'Aug' THEN 8
-        WHEN 'Sep' THEN 9 WHEN 'Oct' THEN 10 WHEN 'Nov' THEN 11 WHEN 'Dec' THEN 12
-    END ASC
-LIMIT 15;
-";
+                            CONCAT(
+                                LPAD(
+                                    CASE PagamentosMensais.CON_DCMES_COMPETENCIA
+                                        WHEN 'Jan' THEN 1 WHEN 'Feb' THEN 2 WHEN 'Mar' THEN 3 WHEN 'Apr' THEN 4
+                                        WHEN 'May' THEN 5 WHEN 'Jun' THEN 6 WHEN 'Jul' THEN 7 WHEN 'Aug' THEN 8
+                                        WHEN 'Sep' THEN 9 WHEN 'Oct' THEN 10 WHEN 'Nov' THEN 11 WHEN 'Dec' THEN 12
+                                    END, 
+                                    2, '0'
+                                ), 
+                                '/', PagamentosMensais.CON_DCANO_COMPETENCIA
+                            ) AS Mes,
+                            ROUND(
+                                ((Config.TotalApartamentos - COALESCE(PagamentosMensais.TotalPagantes, 0)) / Config.TotalApartamentos) * 100,
+                                2
+                            ) AS TaxaInadimplencia
+                        FROM 
+                            (SELECT 
+                                 CAST(Valor.CFG_DCVALOR AS UNSIGNED) AS TotalApartamentos
+                             FROM 
+                                 CFG_CONFIGURACAO Valor
+                             WHERE 
+                                 Valor.CFG_DCPARAMETRO = 'QTDE_APARTAMENTOS'
+                             LIMIT 1) AS Config
+                        LEFT JOIN 
+                            (SELECT 
+                                 SUM(CAST(REGEXP_REPLACE(CONC.CON_DCDESC, '[^0-9]', '') AS UNSIGNED)) AS TotalPagantes,
+                                 CONC.CON_DCMES_COMPETENCIA,
+                                 CONC.CON_DCANO_COMPETENCIA
+                             FROM 
+                                 CON_CONCILIACAO CONC
+                             WHERE 
+                                 CONC.CON_DCTIPO = 'RECEITA' 
+                                 AND CONC.CON_NMTITULO = 'Taxa Condominal'
+                             GROUP BY 
+                                 CONC.CON_DCMES_COMPETENCIA, CONC.CON_DCANO_COMPETENCIA) AS PagamentosMensais
+                        ON 
+                            TRUE
+                        ORDER BY 
+                            PagamentosMensais.CON_DCANO_COMPETENCIA DESC,
+                            CASE PagamentosMensais.CON_DCMES_COMPETENCIA
+                                WHEN 'Jan' THEN 1 WHEN 'Feb' THEN 2 WHEN 'Mar' THEN 3 WHEN 'Apr' THEN 4
+                                WHEN 'May' THEN 5 WHEN 'Jun' THEN 6 WHEN 'Jul' THEN 7 WHEN 'Aug' THEN 8
+                                WHEN 'Sep' THEN 9 WHEN 'Oct' THEN 10 WHEN 'Nov' THEN 11 WHEN 'Dec' THEN 12
+                            END ASC
+                        LIMIT 15;
+                        ";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
