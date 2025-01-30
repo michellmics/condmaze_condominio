@@ -70,7 +70,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
            
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
-            if(trim(end($data)) != null) {
+            if(trim($data[3]) != null) {
                 $valor = trim(end($data)); // Última coluna (Valor) 
             }
             else
