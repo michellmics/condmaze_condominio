@@ -131,12 +131,16 @@ function processCSV($filePath, $mesUser, $anoUser) {
                     // Verifica se encontrou a linha inicial para leitura
                     if (!$iniciarLeitura) {
                         foreach ($data as $coluna) {
-                            if ($coluna == 'Total de Receitas') {
+                            if ($coluna == 'Taxa Condominial') {
                                 $iniciarLeitura = true; // Inicia a leitura
                                 break;
                             }
                         }
                         continue; // Pula as linhas até encontrar a desejada
+                    }
+
+                    if($nome != "Total de Receitas") {
+                        continue;
                     }
 
                     var_dump($data);
