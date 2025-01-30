@@ -41,7 +41,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
         
-        /*
+        
         $iniciarLeitura = false;
 
         // buscas as taxas de condominio
@@ -116,7 +116,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             
         }
-        */
+        
         $iniciarLeitura = false;
 
         // buscas o total de receita
@@ -141,26 +141,12 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
                     // Obtém nome e valor (primeira e última coluna)
                     $nome = trim($data[0]); // Primeira coluna (Nome)
-                    $valor = trim(end($data)); // Última coluna (Valor)
+                    $valor = trim($data[3]); // Última coluna (Valor)
 
                     if($nome != "Total de Receitas") {
                         continue;
                     }
-
-                    var_dump($data);
-                  
-                          
-
-
-                    if($nome != "Total de Receitas") {
-                        break;
-                    }
-                         
-                    echo " - -- $$$$  - -- ";
-
-            var_dump($valor);
-
-            die();
+                        
                     // Verifica se ambos os campos estão preenchidos
                     if (empty($nome) || empty($valor)) {
                         continue;
@@ -184,12 +170,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                         'COMPETENCIA MES USUARIO' => $mesUser,
                         'COMPETENCIA ANO USUARIO' => $anoUser,
                         'TIPO' => 'RECEITA',
-                        'TITULO' => "Taxa Condominal",
-                    ];
-        
-                   
-                    
-                    
+                        'TITULO' => "Receita Total",
+                    ];      
         }
 
         fclose($handle);
