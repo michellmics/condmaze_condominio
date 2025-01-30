@@ -12,6 +12,8 @@
           break; 
       }
     }   
+
+    $siteAdmin->getListaMoradoresInfo();
     
 ?>
 
@@ -36,6 +38,15 @@
 
     <!-- Icons css -->
     <link href="../../../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Datatables css -->
+    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
 
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
@@ -122,6 +133,56 @@
                                        </div>
                                    </form>
                                </div>
+
+
+
+
+                               <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title">Moradores </h4>
+                                    <p class="text-muted font-14">
+                                        Nesta seção são listados todos os moradores do condomínio.
+                                    </p>
+                                    <div class="tab-content">
+                                        <div class="col-sm-5">
+                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                        </div>
+                                        <br>
+                                        <div class="tab-pane show active" id="basic-datatable-preview">
+                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                                <thead>
+                                                    <tr>                                                        
+                                                        <th>Nome</th>
+                                                        <th>Bloco</th>
+                                                        <th>Apto</th>
+                                                        <th>Telefone</th>   
+                                                        <th></th>                                                     
+                                                    </tr>
+                                                </thead> 
+                                                <tbody>
+                                                    <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
+                                                        <tr>                                                       
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>   
+                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- end preview-->
+
+
+                                    </div> <!-- end tab-content-->
+
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+
+
+
+
+
                            </div>
                        </div>
                     </div>
@@ -146,7 +207,23 @@
 
 
 
-    
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+
+    <!-- Datatable Demo Aapp js -->
+    <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
