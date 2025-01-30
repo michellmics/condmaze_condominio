@@ -407,7 +407,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
-	<!-- PWA MOBILE CONF -->
+	<!-- PWA MOBILE CONF --> 
 </head>
 
 <body>
