@@ -186,15 +186,7 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                     }
 
                                
-            //debug --------------------------------
-            ob_start();
-            var_dump($data);
-            $conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
-            //$conteudo = $competencia; // Penultima coluna (Valor)             
-            $arquivo = "dump.txt";
-            file_put_contents($arquivo, $conteudo);
-            //die();
-            //debug --------------------------------
+
             
                     
                     $valoresArray = array_values($data);
@@ -207,6 +199,17 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue;
                     }
                         
+
+            //debug --------------------------------
+            ob_start();
+            var_dump($data);
+            $conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
+            //$conteudo = $competencia; // Penultima coluna (Valor)             
+            $arquivo = "dump.txt";
+            file_put_contents($arquivo, $conteudo);
+            //die();
+            //debug --------------------------------
+
                     // Verifica se ambos os campos estão preenchidos
                     if (empty($nome) || empty($valor)) {
                         return "Não encontrado valores válidos";
