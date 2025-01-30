@@ -34,13 +34,13 @@ function processCSV($filePath, $mesUser, $anoUser) {
     $dataHoraAtual = date('Y-m-d H:i:s'); 
     $receitas = [];
 
-    
+    echo "aqui1";
  
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
-
+        echo "aqui2";
         $iniciarLeitura = false;
 
         // buscas as taxas de condominio
@@ -51,18 +51,18 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 $item = trim($item);
                 $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
             }
-
+            echo "aqui3";
             // Verifica se encontrou a linha inicial para leitura
             if (!$iniciarLeitura) {
                 foreach ($data as $coluna) {
                     if (stripos(trim($coluna), 'Taxa Condominial') !== false) {
                         $iniciarLeitura = true; // Inicia a leitura
-                        break;
+                        break; echo "aqui4";
                     }
                 }
                 continue; // Pula as linhas até encontrar a desejada
             }
-
+            echo "aqui5";
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 break;
             }
