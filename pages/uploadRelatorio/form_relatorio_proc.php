@@ -68,9 +68,8 @@ function procCondominio($filePath, $mesUser, $anoUser) {
                 break;
             }  
 
-            // Remover apenas os campos vazios no final
-            while (!empty($data) && end($data) === "") {
-                array_pop($data);
+            if (empty(end($data))) {
+                array_pop($data); // Remove o último campo se estiver vazio
             }
            
             // Obtém nome e valor (primeira e última coluna)
@@ -177,9 +176,8 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    // Remover apenas os campos vazios no final
-                    while (!empty($data) && end($data) === "") {
-                        array_pop($data);
+                    if (empty(end($data))) {
+                        array_pop($data); // Remove o último campo se estiver vazio
                     }
 
                     // Obtém nome e valor (primeira e última coluna)
@@ -287,9 +285,8 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    // Remover apenas os campos vazios no final
-                    while (!empty($data) && end($data) === "") {
-                        array_pop($data);
+                    if (empty(end($data))) {
+                        array_pop($data); // Remove o último campo se estiver vazio
                     }
 
                     // Obtém nome e valor (primeira e última coluna)
