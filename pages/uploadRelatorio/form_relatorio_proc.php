@@ -32,7 +32,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
-    $receitas = [];
+    
 
    
  
@@ -41,9 +41,9 @@ function processCSV($filePath, $mesUser, $anoUser) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
         
-        
+        $receitas = [];
         $iniciarLeitura = false;
-       
+        
         // buscas as taxas de condominio
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
             // Limpa os espaços indesejados e caracteres especiais
@@ -121,7 +121,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
         $siteAdmin->insertConciliacaoInfo($receitas);
 
         $iniciarLeitura = false;
-
+        $receitas = [];
+        
         // buscas o total de receita
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
                     // Limpa os espaços indesejados e caracteres especiais
