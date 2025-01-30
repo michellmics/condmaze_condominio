@@ -187,7 +187,6 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                     
                     $valoresArray = array_values($data);
                     $tamanhoArray = count($valoresArray);
-                    $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
                     $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
                     $nome = trim($valoresArray[0]);
                     
@@ -288,7 +287,6 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                     
                     $valoresArray = array_values($data);
                     $tamanhoArray = count($valoresArray);
-                    $competencia = trim($valoresArray[$tamanhoArray - 3]); // antePenúltima coluna
                     $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
                     $nome = trim($valoresArray[0]);
 
