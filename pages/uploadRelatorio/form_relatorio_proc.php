@@ -171,7 +171,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                         'COMPETENCIA ANO USUARIO' => $anoUser,
                         'TIPO' => 'RECEITA',
                         'TITULO' => "Receita Total",
-                    ];      
+                    ];       
         }
 
         fclose($handle);
