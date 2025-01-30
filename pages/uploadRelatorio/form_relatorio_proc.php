@@ -62,10 +62,15 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 }
                 continue; // Pula as linhas até encontrar a desejada
             }
-           var_dump($data);
+            echo " - -- $$$$  - -- ";
+
+            var_dump($receitas);
+          
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 break;
             }
+            
+            
             
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
