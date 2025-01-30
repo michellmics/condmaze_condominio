@@ -303,7 +303,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
         }
 
         // Insere os dados processados no banco
-        $siteAdmin->insertConciliacaoInfo($despesas);
+        $siteAdmin->insertConciliacaoInfoDespesa($despesas);
 
         fclose($handle);
 
