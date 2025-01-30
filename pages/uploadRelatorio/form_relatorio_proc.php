@@ -72,11 +72,11 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
-            $valor = trim(end($data)); // Última coluna (Valor)
+            $valor = trim($data[3]); // Última coluna (Valor)
                  
             echo " - -- $$$$  - -- ";
 
-            var_dump($nome);
+            var_dump($valor);
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
