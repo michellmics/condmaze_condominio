@@ -127,7 +127,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                         $item = trim($item);
                         $item = preg_replace('/\s+/', ' ', $item); // Remove espaços extras
                     }
-        
+        echo "aqui";
                     // Verifica se encontrou a linha inicial para leitura
                     if (!$iniciarLeitura) {
                         foreach ($data as $coluna) {
