@@ -372,7 +372,6 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     Processamento das Taxas de Condominio: $procCondominio <br>
     Processamento da Receita Mensal: $procReceitaTotal <br>
     Processamento das Despesas: $processCSVDespesa <br>
-    <br>$resultadoParser <br> 
     ";
 
 }
