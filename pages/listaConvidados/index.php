@@ -119,9 +119,9 @@
                                             <tbody>
                                                 <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
                                                     <tr>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
-                                                        <td>
+                                                        <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
+                                                        <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
+                                                        <td class="align-middle">
                                                             <!-- Switch -->
                                                             <div>
                                                                 <input 
