@@ -96,8 +96,6 @@ function procCondominio($filePath, $mesUser, $anoUser) {
                 continue;
             }
 
-            // Extração do mês e ano da competência
-            $competencia = $data[1] ?? '';
             $mes = $competencia;
             $ano = null;            
 
