@@ -366,11 +366,23 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         mkdir($diretorioDestino, 0777, true);
     }
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
-        removeBOM($caminhoDestino);
 
+        $check = new SITE_ADMIN();  
+        $checkExists = $check->checkReportExists();
+        if(!$checkExists) {
+            removeBOM($caminhoDestino);    
             $procCondominio = procCondominio($caminhoDestino, $mesUser, $anoUser);
             $procReceitaTotal = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
             $processCSVDespesa = processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
+        }
+        else{
+            $processCSVDespesa = "Relatório já existe no sistema.";
+            $procReceitaTotal = "Relatório já existe no sistema.";
+            $procCondominio = "Relatório já existe no sistema.";
+        }
+
+
+
     } else {
         $resultadoParser = "Erro: Não foi possível salvar o arquivo.";
     }
