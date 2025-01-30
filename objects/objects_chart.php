@@ -286,7 +286,7 @@
                                 WHEN 'May' THEN 5 WHEN 'Jun' THEN 6 WHEN 'Jul' THEN 7 WHEN 'Aug' THEN 8
                                 WHEN 'Sep' THEN 9 WHEN 'Oct' THEN 10 WHEN 'Nov' THEN 11 WHEN 'Dec' THEN 12
                             END ASC
-                        LIMIT 15;
+                        LIMIT 12;
                         ";
 
                 $stmt = $this->pdo->prepare($sql);
