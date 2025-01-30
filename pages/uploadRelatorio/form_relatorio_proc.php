@@ -184,6 +184,18 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                     while (!empty($data) && empty(end($data))) {
                         array_pop($data); 
                     }
+
+                               
+            //debug --------------------------------
+            ob_start();
+            var_dump($data);
+            $conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
+            //$conteudo = $competencia; // Penultima coluna (Valor)             
+            $arquivo = "dump.txt";
+            file_put_contents($arquivo, $conteudo);
+            die();
+            //debug --------------------------------
+            
                     
                     $valoresArray = array_values($data);
                     $tamanhoArray = count($valoresArray);
