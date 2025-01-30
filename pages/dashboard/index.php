@@ -180,7 +180,7 @@
                                             </select>
 
                                             <span class="input-group-text bg-primary border-primary text-white" id="calendar-icon">
-                                            <i class="mdi mdi-hand-pointing-right font-15"></i>
+                                            <i class="mdi mdi-send font-12"></i>
                                             </span>
                                         </div>
                                     </form>
