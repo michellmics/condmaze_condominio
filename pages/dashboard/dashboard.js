@@ -96,63 +96,109 @@
 
         function traduzirMes(mes) {
             const mesesEmPortugues = {
-                "Jan": "Jan", "Feb": "Fev", "Mar": "Mar", "Apr": "Abr",
-                "May": "Mai", "Jun": "Jun", "Jul": "Jul", "Aug": "Ago",
-                "Sep": "Set", "Oct": "Out", "Nov": "Nov", "Dec": "Dez"
+                "Jan": "Jan",   // Janeiro
+                "Feb": "Fev",   // Fevereiro
+                "Mar": "Mar",   // Março
+                "Apr": "Abr",   // Abril
+                "May": "Mai",   // Maio
+                "Jun": "Jun",   // Junho
+                "Jul": "Jul",   // Julho
+                "Aug": "Ago",   // Agosto
+                "Sep": "Set",   // Setembro
+                "Oct": "Out",   // Outubro
+                "Nov": "Nov",   // Novembro
+                "Dec": "Dez"    // Dezembro
             };
-            return mesesEmPortugues[mes] || mes;
+            return mesesEmPortugues[mes] || mes;  // Retorna o mês traduzido ou o valor original caso não haja correspondência
         }
-        
-        // Ordem fixa dos meses para garantir a ordenação correta
-        const ordemMeses = {
-            "Jan": 1, "Fev": 2, "Mar": 3, "Abr": 4, "Mai": 5, "Jun": 6,
-            "Jul": 7, "Ago": 8, "Set": 9, "Out": 10, "Nov": 11, "Dez": 12
-        };
-        
+
+        // Requisição para o endpoint e preenchimento do gráfico
         fetch("barGraph.php")
-            .then(response => response.json())
-            .then(data => {
-                // Mapeia os dados traduzidos
-                let dados = data.map(item => ({
-                    mes: traduzirMes(item.Mes),
-                    taxa: parseFloat(item.TaxaInadimplencia)
-                }));
+        .then(response => response.json())  // Converte a resposta em JSON
+        .then(data => {
+            // Cria arrays para armazenar os meses e as taxas de inadimplência
+            let meses = [];
+            let taxasInadimplencia = [];
         
-                // Ordena os dados corretamente baseado no índice do mês
-                dados.sort((a, b) => ordemMeses[a.mes] - ordemMeses[b.mes]);
+            // Preenche os arrays com os dados recebidos
+            data.forEach(item => { 
+                meses.push(traduzirMes(item.Mes));  // Adiciona o mês
+                taxasInadimplencia.push(parseFloat(item.TaxaInadimplencia));  // Adiciona a taxa de inadimplência
+            });
         
-                // Separa os arrays ordenados
-                let meses = dados.map(item => item.mes);
-                let taxasInadimplencia = dados.map(item => item.taxa);
-        
-                // Configuração do gráfico
-                var o = {
-                    chart: { height: 256, type: "bar", stacked: true },
-                    plotOptions: { bar: { horizontal: false, columnWidth: "20%" } },
-                    dataLabels: { enabled: false },
-                    stroke: { show: true, width: 0, colors: ["transparent"] },
-                    series: [{ name: "Taxa Atual de Inadimplência", data: taxasInadimplencia }],
-                    zoom: { enabled: false },
-                    legend: { show: false },
-                    colors: e = (t = r("#codemaze_bar_chart").data("colors")) ? t.split(",") : e,
-                    xaxis: { categories: meses, axisBorder: { show: false } },
-                    yaxis: {
-                        stepSize: 10,
-                        labels: { formatter: e => e + "%", offsetX: -15 }
-                    },
-                    fill: { opacity: 1 },
-                    tooltip: { y: { formatter: e => e + "%" } },
-                    annotations: {
-                        yaxis: [{
-                            y: 15,
-                            borderColor: '#FF0000',
-                            label: {
-                                text: 'Meta Inadimplência 15%',
-                                style: { color: '#FF0000', background: '#FFF' }
-                            }
-                        }]
+            // Configuração do gráfico de barras
+            var o = {
+                chart: {
+                    height: 256,
+                    type: "bar",  // Tipo de gráfico: barra
+                    stacked: true  // Empilha as barras
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,  // Gráfico de barras verticais
+                        columnWidth: "20%"  // Largura das barras
                     }
-                };
+                },
+                dataLabels: {
+                    enabled: false  // Desativa os rótulos de dados
+                },
+                stroke: {
+                    show: true,
+                    width: 0,
+                    colors: ["transparent"]  // Sem bordas nas barras
+                },
+                series: [  // Defina os dados das séries aqui
+                    {
+                        name: "Taxa Atual de Inadimplência",
+                        data: taxasInadimplencia  // Usa os dados de taxas de inadimplência
+                    }
+                ],
+                zoom: {
+                    enabled: false  // Desativa o zoom
+                },
+                legend: {
+                    show: false  // Desativa a legenda
+                },
+                colors: e = (t = r("#codemaze_bar_chart").data("colors")) ? t.split(",") : e,  // Usa cores configuradas, se houver
+                xaxis: {
+                    categories: meses,  // Usa os meses extraídos dos dados
+                    axisBorder: {
+                        show: false  // Desativa a borda do eixo X
+                    }
+                },
+                yaxis: {
+                    stepSize: 10,  // Define o incremento do eixo Y
+                    labels: {
+                        formatter: function(e) {
+                            return e + "%";  // Formatação das taxas de inadimplência no eixo Y
+                        },
+                        offsetX: -15
+                    }
+                },
+                fill: {
+                    opacity: 1  // Opacidade das barras
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(e) {
+                            return e + "%";  // Formatação das tooltips
+                        }
+                    }
+                },
+                annotations: {
+                    yaxis: [{
+                        y: 15,  // Limiar no valor Y (ajuste conforme necessário)
+                        borderColor: '#FF0000',  // Cor da linha (vermelho)
+                        label: {
+                            text: 'Meta Inadimplência 15%',  // Texto da anotação
+                            style: {
+                                color: '#FF0000',  // Cor do texto
+                                background: '#FFF',  // Fundo do texto
+                            }
+                        }
+                    }],
+                }
+            };
         
             // Renderiza o gráfico de barras com os dados obtidos
             new ApexCharts(document.querySelector("#codemaze_bar_chart"), o).render();
