@@ -318,7 +318,7 @@
                                 CON_CONCILIACAO CONC
                              WHERE 
                                 CONC.CON_DCTIPO = 'RECEITA' 
-                                AND CONC.CON_NMTITULO = 'Taxa Condominio'
+                                AND CONC.CON_NMTITULO = 'Taxa Condominal'
                                 AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA
                                 AND CONC.CON_DCANO_COMPETENCIA = :CON_DCANO_COMPETENCIA_USUARIO) AS TotalPagantes
                     ) AS Subquery;";
