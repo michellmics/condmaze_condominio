@@ -340,9 +340,9 @@
             
                 // Executar a consulta
                 if (!$stmt->execute()) {
-                    return "Erro ao inserir os dados: " . $stmt->error;
+                    //return "Erro ao inserir os dados: " . $stmt->error;
                 } else {
-                    return "Registro inserido com sucesso!";
+                    //return "Registro inserido com sucesso!";
                 }
             
             }
@@ -380,9 +380,9 @@
             
                 // Executar a consulta
                 if (!$stmt->execute()) {
-                    return "Erro ao inserir os dados: " . $stmt->error;
+                    //return "Erro ao inserir os dados: " . $stmt->error;
                 } else {
-                    return "Registro inserido com sucesso!";
+                    //return "Registro inserido com sucesso!";
                 }
             
             }
