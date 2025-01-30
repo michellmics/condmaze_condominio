@@ -177,8 +177,9 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    if (empty(end($data))) {
-                        array_pop($data); // Remove o último campo se estiver vazio
+                    // Remover apenas os campos vazios no final
+                    while (!empty($data) && end($data) === "") {
+                        array_pop($data);
                     }
 
                     // Obtém nome e valor (primeira e última coluna)
@@ -286,8 +287,9 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                         continue; // Pula as linhas até encontrar a desejada
                     }
 
-                    if (empty(end($data))) {
-                        array_pop($data); // Remove o último campo se estiver vazio
+                    // Remover apenas os campos vazios no final
+                    while (!empty($data) && end($data) === "") {
+                        array_pop($data);
                     }
 
                     // Obtém nome e valor (primeira e última coluna)
