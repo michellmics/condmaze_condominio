@@ -43,7 +43,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         
         
         $iniciarLeitura = false;
-
+        /*
         // buscas as taxas de condominio
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
             // Limpa os espaços indesejados e caracteres especiais
@@ -116,7 +116,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             
         }
-        
+        */
         $iniciarLeitura = false;
 
         // buscas o total de receita
