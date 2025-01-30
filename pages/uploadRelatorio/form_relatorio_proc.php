@@ -364,19 +364,19 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
 
-            $procCondominio = procCondominio($caminhoDestino, $mesUser, $anoUser);
+            $resultadoProcessamento = procCondominio($caminhoDestino, $mesUser, $anoUser);
             $procReceitaTotal = procReceitaTotal($caminhoDestino, $mesUser, $anoUser);
             $processCSVDespesa = processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
     } else {
         $resultadoParser = "Erro: Não foi possível salvar o arquivo.";
     }
-
+/*
     $resultadoProcessamento = "
     Processamento das Taxas de Condominio: $procCondominio <br>
     Processamento da Receita Mensal: $procReceitaTotal <br>
     Processamento das Despesas: $processCSVDespesa <br>
     ";
-
+*/
 }
     
 
