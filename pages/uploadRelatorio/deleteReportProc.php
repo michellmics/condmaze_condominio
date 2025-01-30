@@ -5,7 +5,7 @@
 
 class deleteReport extends SITE_ADMIN
 {
-    public function deleteReport($mes, $ano)
+    public function deleteReportFunc($mes, $ano)
     {
         try {
                 // Cria conexão com o banco de dados
@@ -28,6 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ano = $_POST['ano'];
 
      $deleteReport = new deleteReport();
-     $deleteReport->deleteReport($mes, $ano);
+     $deleteReport->deleteReportFunc($mes, $ano);
  }
  ?>
