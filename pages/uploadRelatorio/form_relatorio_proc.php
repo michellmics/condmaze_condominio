@@ -78,17 +78,18 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             $valor = trim($valoresArray[$tamanhoArray - 1]); // Ultima coluna
             $nome = trim($valoresArray[0]);
 
-/*
+
             //debug --------------------------------
             ob_start();
-            //var_dump($dados);
-            //$conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
-            $conteudo = $competencia; // Penultima coluna (Valor)             
+            var_dump($dados);
+            $conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
+            //$conteudo = $competencia; // Penultima coluna (Valor)             
             $arquivo = "dump.txt";
             file_put_contents($arquivo, $conteudo);
             die();
             //debug --------------------------------
-*/  
+  
+
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
