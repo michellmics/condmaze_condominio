@@ -62,9 +62,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                 }
                 continue; // Pula as linhas até encontrar a desejada
             }
-            echo " - -- $$$$  - -- ";
 
-            var_dump($receitas);
           
             if (stripos($data[0] ?? '', 'Total de Taxa Condominial') === 0) {
                 break;
@@ -76,6 +74,9 @@ function processCSV($filePath, $mesUser, $anoUser) {
             $nome = trim($data[0]); // Primeira coluna (Nome)
             $valor = trim(end($data)); // Última coluna (Valor)
                  
+            echo " - -- $$$$  - -- ";
+
+            var_dump($valor);
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
