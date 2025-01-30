@@ -136,17 +136,7 @@
                                                 </div>
 
 
-                                                <div style="flex: 1;">
-                                                        <select class="form-control" id="tipo" name="tipo" required>
-                                                            <option value="" disabled selected>Tipo</option>
-                                                            <option value="despesa">DESPESA</option>
-                                                            <option value="receita">RECEITA</option>
-
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                                                      <!-- Preview -->
+                                                                                     <!-- Preview -->
                                             <div class="dropzone-previews mt-3" id="file-previews"></div>
                                         </div> <!-- end preview-->
                                         <button type="submit" class="btn btn-primary">Enviar</button>

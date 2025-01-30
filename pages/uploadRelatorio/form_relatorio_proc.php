@@ -317,7 +317,6 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
-    $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
     $mesUser = isset($_POST['mes']) ? trim($_POST['mes']) : '';
     $anoUser = isset($_POST['ano']) ? trim($_POST['ano']) : '';
 
@@ -355,22 +354,14 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     $resultadoProcessamento = "
     Processamento das Taxas de Condominio: $procCondominio <br>
     Processamento da Receita Mensal: $procReceitaTotal <br>
-    Processamento das Despesas: $processCSVDespesa <br>  
+    Processamento das Despesas: $processCSVDespesa <br>
+    <br>$resultadoParser <br> 
     ";
 
 }
     
 
 ?>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -436,7 +427,8 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
                     <!-- end page title -->
 
                     <?php
-                        echo "Arquivo processado<br><br>";
+                        echo "Status do processamento de Arquivo:<br><br>";
+                        echo $resultadoProcessamento;
                     ?>
 
 
