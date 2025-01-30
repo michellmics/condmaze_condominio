@@ -169,9 +169,9 @@
                         AND CON.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
                         AND (CON.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA OR CON.CON_DCMES_COMPETENCIA = 'Acordo')";
                 */
-                $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
+                $sql = "SELECT CON.CON_NMVALOR AS TOTAL
                         FROM CON_CONCILIACAO CON
-                        WHERE CON.CON_DCTIPO = 'RECEITA' AND
+                        WHERE CON.CON_NMTITULO = 'Receita Total' AND
                         CON.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
                         AND CON.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO";
 
