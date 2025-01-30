@@ -188,7 +188,20 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
         
                     // Extração do mês e ano da competência
                     $competencia = $data[1] ?? '';
-                    $mes = $mesUser;
+
+                    if($mesUser  == "janeiro"){$mes = "Jan";}
+                    if($mesUser  == "fevereiro"){$mes = "Feb";}
+                    if($mesUser  == "março"){$mes = "Mar";}
+                    if($mesUser  == "abril"){$mes = "Apr";}
+                    if($mesUser  == "maio"){$mes = "May";}
+                    if($mesUser  == "junho"){$mes = "Jun";}
+                    if($mesUser  == "julho"){$mes = "Jul";}
+                    if($mesUser  == "agosto"){$mes = "Aug";}
+                    if($mesUser  == "setembro"){$mes = "Sep";}
+                    if($mesUser  == "outubro"){$mes = "Oct";}
+                    if($mesUser  == "novembro"){$mes = "Nov";}
+                    if($mesUser  == "dezembro"){$mes = "Dec";}
+
                     $ano = $anoUser;       
         
                     // Converte valor para formato americano, se existir
