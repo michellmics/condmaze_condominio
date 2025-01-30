@@ -69,6 +69,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             }  
            
             // Obtém nome e valor (primeira e última coluna)
+            $nome = trim($data[0]); // Primeira coluna (Nome)
             if(trim(end($data)) != null) {
                 $valor = trim(end($data)); // Última coluna (Valor) 
             }
@@ -284,6 +285,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                     }
 
                     // Obtém nome e valor (primeira e última coluna)
+                    $nome = trim($data[0]); // Primeira coluna (Nome)
                     if(trim(end($data)) != null) {
                         $valor = trim(end($data)); // Última coluna (Valor) 
                     }
