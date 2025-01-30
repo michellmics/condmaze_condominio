@@ -87,7 +87,7 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             ob_start();
             //var_dump($dados);
             //$conteudo = ob_get_clean(); //pega o valor do var_dump() se quiser gravar em txt
-            $conteudo = $valor; // Penultima coluna (Valor)            
+            $conteudo = $competencia; // Penultima coluna (Valor)            
             $arquivo = "dump.txt";
             file_put_contents($arquivo, $conteudo);
             die();
