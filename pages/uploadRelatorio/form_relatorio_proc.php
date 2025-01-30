@@ -368,7 +368,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
 
         $check = new SITE_ADMIN();  
-        $checkExists = $check->checkReportExists();
+        $checkExists = $check->checkReportExists($mesUser,$anoUser);
         if(!$checkExists) {
             removeBOM($caminhoDestino);    
             $procCondominio = procCondominio($caminhoDestino, $mesUser, $anoUser);
