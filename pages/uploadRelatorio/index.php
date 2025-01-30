@@ -158,8 +158,13 @@
                                                 </thead> 
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_UPLOADREPORTINFO as $item): ?>
+
+                                                        <?php
+                                                                $date = new DateTime($item['CON_DTINSERT']);
+                                                                $DATA = $date->format('d/m/Y H:i');
+                                                        ?>
                                                         <tr>                                                       
-                                                        <td style="cursor: pointer;"><?= htmlspecialchars($item['CON_DTINSERT']); ?></td>
+                                                        <td style="cursor: pointer;"><?= htmlspecialchars($DATA); ?></td>
                                                         <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCMES_COMPETENCIA_USUARIO'])); ?></td>
                                                         <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCANO_COMPETENCIA_USUARIO'])); ?></td>
                                                         <td style="cursor: pointer;>"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
