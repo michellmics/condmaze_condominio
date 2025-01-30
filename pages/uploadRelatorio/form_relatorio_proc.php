@@ -41,6 +41,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         // Ignorar as duas primeiras linhas
         fgetcsv($handle);
         
+        /*
         $iniciarLeitura = false;
 
         // buscas as taxas de condominio
@@ -115,7 +116,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
             
             
         }
-
+        */
         $iniciarLeitura = false;
 
         // buscas o total de receita
