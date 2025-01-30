@@ -193,7 +193,7 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
             //$conteudo = $competencia; // Penultima coluna (Valor)             
             $arquivo = "dump.txt";
             file_put_contents($arquivo, $conteudo);
-            die();
+            //die();
             //debug --------------------------------
             
                     
