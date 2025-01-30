@@ -76,7 +76,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
                  
             echo " - -- $$$$  - -- ";
 
-            var_dump($valor);
+            var_dump($data);
 
             // Verifica se ambos os campos estão preenchidos
             if (empty($nome) || empty($valor)) {
