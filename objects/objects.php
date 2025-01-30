@@ -32,6 +32,7 @@
         public $ARRAY_TOKENINFO;
         public $WHATSAPP_TOKEN;
         public $WHATSAPP_SID;
+        public $ARRAY_UPLOADREPORTINFO;
         public $configPath;
 
 
@@ -282,6 +283,34 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getUploadedReportInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT 
+                            CON_DTINSERT, 
+                            CON_DCMES_COMPETENCIA_USUARIO, 
+                            CON_DCANO_COMPETENCIA_USUARIO
+                        FROM CON_CONCILIACAO cc
+                        WHERE CON_DTINSERT = (
+                            SELECT MAX(CON_DTINSERT) 
+                            FROM CON_CONCILIACAO 
+                            WHERE CON_DCMES_COMPETENCIA_USUARIO = cc.CON_DCMES_COMPETENCIA_USUARIO
+                            AND CON_DCANO_COMPETENCIA_USUARIO = cc.CON_DCANO_COMPETENCIA_USUARIO
+                        )
+                        GROUP BY CON_DCANO_COMPETENCIA_USUARIO, CON_DCMES_COMPETENCIA_USUARIO
+                        ORDER BY CON_DTINSERT DESC;";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_UPLOADREPORTINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          

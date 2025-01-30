@@ -13,7 +13,7 @@
       }
     }   
 
-    $siteAdmin->getListaMoradoresInfo();
+    $siteAdmin->getUploadedReportInfo();
     
 ?>
 
@@ -139,34 +139,30 @@
 
                                <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Moradores </h4>
+                                    <h4 class="header-title">Relatórios Enviados </h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os moradores do condomínio.
                                     </p>
                                     <div class="tab-content">
-                                        <div class="col-sm-5">
-                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                        <div class="col-sm-5">                                            
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>                                                        
-                                                        <th>Nome</th>
-                                                        <th>Bloco</th>
-                                                        <th>Apto</th>
-                                                        <th>Telefone</th>   
+                                                        <th>DT UPLOAD</th>
+                                                        <th>MÊS</th>
+                                                        <th>ANO</th>
                                                         <th></th>                                                     
                                                     </tr>
                                                 </thead> 
                                                 <tbody>
-                                                    <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
+                                                    <?php foreach ($siteAdmin->ARRAY_UPLOADREPORTINFO as $item): ?>
                                                         <tr>                                                       
-                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCNOME']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>   
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
+                                                        <td style="cursor: pointer;"><?= htmlspecialchars($item['CON_DTINSERT']); ?></td>
+                                                        <td style="cursor: pointer;"><?= htmlspecialchars($item['CON_DCMES_COMPETENCIA_USUARIO']); ?></td>
+                                                        <td style="cursor: pointer;"><?= htmlspecialchars($item['CON_DCANO_COMPETENCIA_USUARIO']); ?></td>
+                                                        <td style="cursor: pointer;>"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
