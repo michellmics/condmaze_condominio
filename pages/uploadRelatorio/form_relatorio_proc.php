@@ -68,16 +68,15 @@ function procCondominio($filePath, $mesUser, $anoUser) {
                 break;
             }  
 
-            // Remover apenas os campos vazios no final
-            while (!empty($data) && end($data) === "") {
-                array_pop($data);
+            if (empty(end($data))) {
+                array_pop($data); // Remove o último campo se estiver vazio
             }
            
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
 
             if(trim($data[3]) != null) {
-                $valor = trim(end($data)); // Última coluna (Valor) 
+                $valor = trim($data[3]); // Última coluna (Valor) 
             }
             else
                 {
