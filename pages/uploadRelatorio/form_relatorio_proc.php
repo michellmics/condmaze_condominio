@@ -69,8 +69,13 @@ function procCondominio($filePath, $mesUser, $anoUser) {
             }  
            
             // Obtém nome e valor (primeira e última coluna)
-            $nome = trim($data[0]); // Primeira coluna (Nome)
-            $valor = trim($data[3]); // Última coluna (Valor)
+            if(trim(end($data)) != null) {
+                $valor = trim(end($data)); // Última coluna (Valor) 
+            }
+            else
+                {
+                    $valor = trim(prev($data)); // Penultima coluna (Valor) 
+                }
                  
 
             // Verifica se ambos os campos estão preenchidos
@@ -171,7 +176,16 @@ function procReceitaTotal($filePath, $mesUser, $anoUser) {
 
                     // Obtém nome e valor (primeira e última coluna)
                     $nome = trim($data[0]); // Primeira coluna (Nome)
-                    $valor = trim(end($data)); // Última coluna (Valor) 
+                    if(trim(end($data)) != null) {
+                        $valor = trim(end($data)); // Última coluna (Valor) 
+                    }
+                    else
+                        {
+                            $valor = trim(prev($data)); // Penultima coluna (Valor) 
+                        }
+
+                    
+                    
 
                     if($nome != "Total de Receitas") {
                         continue;
@@ -270,8 +284,13 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
                     }
 
                     // Obtém nome e valor (primeira e última coluna)
-                    $nome = trim($data[0]); // Primeira coluna (Nome)
-                    $valor = trim(end($data)); // Última coluna (Valor) 
+                    if(trim(end($data)) != null) {
+                        $valor = trim(end($data)); // Última coluna (Valor) 
+                    }
+                    else
+                        {
+                            $valor = trim(prev($data)); // Penultima coluna (Valor) 
+                        }
 
                     if($nome != "Total de Despesas") {
                         continue;
