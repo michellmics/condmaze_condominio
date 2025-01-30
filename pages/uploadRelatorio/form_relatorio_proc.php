@@ -68,8 +68,8 @@ function procCondominio($filePath, $mesUser, $anoUser) {
                 break;
             }  
 
-            if (empty(end($data))) {
-                array_pop($data); // Remove o último campo se estiver vazio
+            while (!empty($data) && empty(end($data))) {
+                array_pop($data); 
             }
            
             $valoresArray = array_values($data);
