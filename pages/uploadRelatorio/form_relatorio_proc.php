@@ -43,7 +43,7 @@ function processCSV($filePath, $mesUser, $anoUser) {
         
         $receitas = [];
         $iniciarLeitura = false;
-        
+        /*
         // buscas as taxas de condominio
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
             // Limpa os espaços indesejados e caracteres especiais
@@ -119,10 +119,10 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
         // Insere os dados processados no banco
         $siteAdmin->insertConciliacaoInfo($receitas);
-
+        */
         $iniciarLeitura = false;
         $receitas = [];
-        
+
         // buscas o total de receita
         while (($data = fgetcsv($handle, 1000, ';')) !== false) {  
                     // Limpa os espaços indesejados e caracteres especiais
