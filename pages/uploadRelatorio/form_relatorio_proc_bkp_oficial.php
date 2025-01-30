@@ -72,27 +72,6 @@ function procCondominio($filePath, $mesUser, $anoUser) {
                 array_pop($data); // Remove o último campo se estiver vazio
             }
            
-
-
-            // Ativar o buffer de saída
-            ob_start();
-
-            // Variável para testar
-            $dados = $data;
-
-            // Executar var_dump() e capturar a saída
-            var_dump($dados);
-
-            // Obter o conteúdo do buffer
-            $conteudo = ob_get_clean();
-
-            // Caminho do arquivo onde o conteúdo será salvo
-            $arquivo = "dump.txt";
-
-            // Escrever no arquivo
-            file_put_contents($arquivo, $conteudo);
-
-
             // Obtém nome e valor (primeira e última coluna)
             $nome = trim($data[0]); // Primeira coluna (Nome)
 
