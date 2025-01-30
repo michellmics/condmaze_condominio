@@ -103,8 +103,11 @@
             return mesesEmPortugues[mes] || mes;
         }
         
-        // Ordem correta dos meses em português para referência na ordenação
-        const ordemMeses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+        // Ordem fixa dos meses para garantir a ordenação correta
+        const ordemMeses = {
+            "Jan": 1, "Fev": 2, "Mar": 3, "Abr": 4, "Mai": 5, "Jun": 6,
+            "Jul": 7, "Ago": 8, "Set": 9, "Out": 10, "Nov": 11, "Dez": 12
+        };
         
         fetch("barGraph.php")
             .then(response => response.json())
@@ -115,8 +118,8 @@
                     taxa: parseFloat(item.TaxaInadimplencia)
                 }));
         
-                // Ordena os dados pela ordem dos meses
-                dados.sort((a, b) => ordemMeses.indexOf(a.mes) - ordemMeses.indexOf(b.mes));
+                // Ordena os dados corretamente baseado no índice do mês
+                dados.sort((a, b) => ordemMeses[a.mes] - ordemMeses[b.mes]);
         
                 // Separa os arrays ordenados
                 let meses = dados.map(item => item.mes);
