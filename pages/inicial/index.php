@@ -373,8 +373,6 @@
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
-
-                                
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
@@ -389,28 +387,19 @@
                                                         </div>
                                                         </form>
 
-
-
-
-                                                        
                                                         <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
                                                         <div class="d-flex align-items-start mt-3">
                                                             <a class="pe-3" href="#">
-                                                                <img src="../../assets/images/users/avatar-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                                <img src="../../img/logo_128x128.png" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
-                                                            <div class="w-100 overflow-hidden">
-                                                              
+                                                            <div class="w-100 overflow-hidden">                                                              
                                                                 <?php     
                                                                     $data = new DateTime($item['REC_DTDATA']);
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
                                                                 ?>
                                                                     
-                                                                <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
-                                                                    
-                                                                        <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
-
-                                                                        
-                                                                
+                                                                <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>                                                                    
+                                                                <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>                                                                       
                                                             </div>                                                            
                                                         </div>
                                                         <?php endforeach; ?>
@@ -420,11 +409,6 @@
                                                     </div> <!-- end card-body-->
                                                 </div>
                                                 <!-- end card-->
-
-
-
-
-
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
