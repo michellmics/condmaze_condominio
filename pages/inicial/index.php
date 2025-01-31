@@ -143,56 +143,37 @@
 
 <style>
 /* Preloader container */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);  /* semi-transparent background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;  /* ensures it's on top of everything */
-}
-
-/* Loader styles */
 .loader {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
   position: relative;
-  animation: rotate 1.5s ease-in infinite alternate;
 }
-
+.loader::after,
 .loader::before {
   content: '';
+  width: 48px;
+  height: 48px;
+  border: 2px solid #FFF;
   position: absolute;
   left: 0;
-  bottom: 0;
-  color: #FF3D00;
-  background: currentColor;
-  width: 64px;
-  height: 32px;
-  border-radius: 0 0 50px 50px;
+  top: 0;
+  box-sizing: border-box;
+  animation: rotation 2s ease-in-out infinite;
 }
-
 .loader::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  background: #FFF;
-  width: 8px;
-  height: 64px;
-  animation: rotate 1.2s linear infinite alternate-reverse;
+  border-color: #FF3D00;
+  animation-delay: 1s;
 }
 
-/* Rotation animation */
-@keyframes rotate {
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
   100% {
     transform: rotate(360deg);
   }
-}
+} 
 </style>   
 
 <body>
