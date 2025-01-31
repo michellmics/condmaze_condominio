@@ -231,13 +231,10 @@
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
-                                                        <i class="ri-tools-line ri-2x" 
+                                                        <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
                                                                    style="cursor: pointer; font-size: 24px;" 
-                                                                   onclick="confirmDelete(event, 
-                                                                       '<?php echo htmlspecialchars($item['CON_DCMES_COMPETENCIA_USUARIO'], ENT_QUOTES, 'UTF-8'); ?>', 
-                                                                       '<?php echo htmlspecialchars($item['CON_DCANO_COMPETENCIA_USUARIO'], ENT_QUOTES, 'UTF-8'); ?>'
-                                                                   )">
+                                                                  >
                                                                 </i>
                                                     </button>
                                                     </h2>
