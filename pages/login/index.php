@@ -157,10 +157,10 @@ $host = $_SERVER['HTTP_HOST'];
     <!-- Modal -->
     <div id="pwaModal">
         <div class="modal-content">
-            <h3>Adicione este site ao seu iPhone 📱</h3>
-            <p>Para instalar como um PWA, clique no botão <strong>Compartilhar</strong> (ícone no Safari) e depois em <strong>Adicionar à Tela de Início</strong>.</p>
+            <h3>Instale o app (PWA) no iPhone 📱</h3>
+            <p>Para instalar como um PWA, clique agora no botão <strong>Compartilhar</strong> (ícone no Safari) que esta no rodapé e depois em <strong>Adicionar à Tela de Início</strong>.</p>
             <button class="close-btn" onclick="fecharModal()">Fechar</button>
-        </div>
+        </div> 
     </div>
 
     <div class="auth-fluid">
