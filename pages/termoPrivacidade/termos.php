@@ -58,7 +58,6 @@
             if (data.status === "sucesso") {
                 var modalTermo = bootstrap.Modal.getInstance(document.getElementById("modalTermo"));
                 modalTermo.hide();
-                console.log("Dados enviados:", data.dados);
             } else {
                 alert("Erro ao registrar o aceite.");
             }
