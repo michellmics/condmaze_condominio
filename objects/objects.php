@@ -1250,7 +1250,7 @@
                 
                                 //--------------------LOG----------------------//
                                 $LOG_DCTIPO = "UPDATE";
-                                $LOG_DCMSG = "o Usuário com ID $USU_IDUSUARIO aceitou os termos de privacidade.";
+                                $LOG_DCMSG = "o usuário(a) $USU_DCNOME aceitou os termos de privacidade.";
                                 $LOG_DCUSUARIO = $USU_DCNOME;
                                 $LOG_DCCODIGO = "N/A";
                                 $LOG_DCAPARTAMENTO = "";
