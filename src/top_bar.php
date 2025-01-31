@@ -46,7 +46,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);  /* semi-transparent background */
+  background: rgba(9, 202, 250, 0.8);  /* semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +58,7 @@
   width: 64px;
   height: 64px;
   position: relative;
-  animation: rotate 1.5s ease-in infinite alternate;
+  animation: rotate 1.5s ease-in infinite alternate; 
 }
 
 .loader::before {
@@ -66,7 +66,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  color: #FF3D00;
+  color:rgb(0, 240, 200);
   background: currentColor;
   width: 64px;
   height: 32px;
