@@ -847,22 +847,22 @@
 
                 $this->pdo->beginTransaction();
 
-                $sql = "DELETE FROM APS_AVALIACAO_PRESTADOR WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+                $sql = "DELETE FROM APS_AVALIACAO_PRESTADOR WHERE PDS_IDPRESTADOR_SERVICO = :ID";
                 $stmt = $this->pdo->prepare($sql);            
                 // Liga os parâmetros aos valores
-                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $ID, PDO::PARAM_STR);
+                $stmt->bindParam(':ID', $ID, PDO::PARAM_STR);
                 $stmt->execute();  
 
-                $sql = "DELETE FROM PDS_PRESTADORE_SERVICO WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+                $sql = "DELETE FROM PDS_PRESTADORE_SERVICO WHERE PDS_IDPRESTADOR_SERVICO = :ID";
                 $stmt = $this->pdo->prepare($sql);            
                 // Liga os parâmetros aos valores
-                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $ID, PDO::PARAM_STR);
+                $stmt->bindParam(':ID', $ID, PDO::PARAM_STR);
                 $stmt->execute();                   
                 
                 $this->pdo->commit();
 
             } catch (PDOException $e) {
-                // Captura e retorna o erro
+                $this->pdo->rollBack();
                 return ["error" => $e->getMessage()];
             }
         }
