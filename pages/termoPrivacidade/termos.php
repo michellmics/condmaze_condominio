@@ -51,7 +51,7 @@
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: `var1=${encodeURIComponent(var1)}&var2=${encodeURIComponent(var2)}&var3=${encodeURIComponent(var3)}`
+            body: `userid=${encodeURIComponent(userid)}&nomeSession=${encodeURIComponent(nomeSession)}&apartamentoSessio=${encodeURIComponent(apartamentoSessio)}`
         })
         .then(response => response.json())
         .then(data => {
