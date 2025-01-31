@@ -22,6 +22,42 @@
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra (opcional) */
 }
 </style>
+
+<!-- Modal -->
+<div class="modal fade" id="modalTermo" tabindex="-1" aria-labelledby="modalTermoLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTermoLabel">Termo de Privacidade e Proteção de Dados</h5>
+            </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                <p><strong>Última atualização:</strong> 30/01/2025</p>
+                <p>A <strong>Codemaze</strong> valoriza sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a LGPD.</p>
+
+                <h5>1. Dados Coletados</h5>
+                <ul>
+                    <li>Nome completo;</li>
+                    <li>Telefone;</li>
+                    <li>E-mail;</li>
+                    <li>Número do apartamento.</li>
+                    <li>Bloco do apartamento.</li>
+                </ul>
+
+                <h5>2. Finalidade da Coleta de Dados</h5>
+                <ul>
+                    <li>Cadastro e identificação do morador;</li>
+                    <li>Comunicação e envio de notificações;</li>
+                    <li>Controle de acesso e segurança;</li>
+                    <li>Cumprimento de obrigações legais.</li>
+                </ul>
+
+                <h5>3. Seus Direitos</h5>
+                <p>Você pode acessar, corrigir ou excluir seus dados conforme a LGPD. Entre em contato: <strong>suporte@codemaze.com.br</strong>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="footer">
     <div class="container-fluid">
         <div class="row">
