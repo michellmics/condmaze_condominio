@@ -143,7 +143,7 @@
 		<?php include '../../src/top_bar.php'; ?>
         <!-- Inclui o modal do termo -->
         <?php 
-            $termoCheck = $siteAdmin->checkTermoPrivacidade(); 
+            $termoCheck = $siteAdmin->checkTermoPrivacidade($userid); 
             if ($termoCheck["USU_STTERMO_PRIVACIDADE"] != "ACEITO") { include '../termoPrivacidade/termos.php'; } 
         ?>
         
