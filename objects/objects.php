@@ -1234,6 +1234,37 @@
             }
         }
 
+        public function updateTerPrivacidade($USU_IDUSUARIO, $USU_DCNOME, $LOG_DCAPARTAMENTO)
+        {
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try
+            {         
+                $sql = "UPDATE USU_USUARIO SET USU_STTERMO_PRIVACIDADE = 'ACEITO' WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->execute();    
+                
+                                //--------------------LOG----------------------//
+                                $LOG_DCTIPO = "update";
+                                $LOG_DCMSG = "o Usuário com ID $USU_IDUSUARIO aceitou os termos de privacidade.";
+                                $LOG_DCUSUARIO = $USU_DCNOME;
+                                $LOG_DCCODIGO = "N/A";
+                                $LOG_DCAPARTAMENTO = "";
+                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+                                //--------------------LOG----------------------//
+
+                return ["success" => "Termo atualizado com sucesso."];
+
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function bdLogClear()
         {       
             // Verifica se a conexão já foi estabelecida
