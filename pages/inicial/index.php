@@ -16,6 +16,8 @@
 
     
 
+    
+
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
           $nomeCondominio = $item['CFG_DCVALOR']; 
@@ -139,6 +141,12 @@
 
 		<!-- Top bar Area -->
 		<?php include '../../src/top_bar.php'; ?>
+        <!-- Inclui o modal do termo -->
+        <?php 
+            $termoCheck = $siteAdmin->checkTermoPrivacidade(); 
+            if ($termoCheck["USU_STTERMO_PRIVACIDADE"] != "ACEITO") { include '../termoPrivacidade/termos.php'; } 
+        ?>
+        
 		<!-- End Top bar -->
 
         <?php $siteAdmin->getEncomendaMoradorInfo($userid);?>
@@ -146,9 +154,6 @@
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
-
-            <!-- Inclui o modal do termo -->
-            <?php include '../termoPrivacidade/termos.php'; ?>
 
         <div class="content-page">
             <div class="content">

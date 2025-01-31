@@ -1249,7 +1249,7 @@
                 $stmt->execute();    
                 
                                 //--------------------LOG----------------------//
-                                $LOG_DCTIPO = "update";
+                                $LOG_DCTIPO = "UPDATE";
                                 $LOG_DCMSG = "o Usuário com ID $USU_IDUSUARIO aceitou os termos de privacidade.";
                                 $LOG_DCUSUARIO = $USU_DCNOME;
                                 $LOG_DCCODIGO = "N/A";
@@ -1303,6 +1303,24 @@
             }          
         }
 
+        public function checkTermoPrivacidade($USU_IDUSUARIO) 
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT USU_STTERMO_PRIVACIDADE FROM USU_USUARIO 
+                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR); 
+                $stmt->execute();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function checkReportExists($CON_DCMES_COMPETENCIA_USUARIO, $CON_DCANO_COMPETENCIA_USUARIO) 
         {          
                 // Verifica se a conexão já foi estabelecida
@@ -1322,8 +1340,6 @@
                 return ["error" => $e->getMessage()];
             }          
         }
-
-
 
     }
 ?>
