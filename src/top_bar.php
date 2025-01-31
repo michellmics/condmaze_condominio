@@ -86,7 +86,7 @@
 
 /* Rotation animation */
 @keyframes rotate {
-  100% {
+  100% { 
     transform: rotate(360deg);
   }
 }
