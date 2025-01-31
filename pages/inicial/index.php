@@ -392,11 +392,12 @@
 
 
 
-
                                                         
 
-                                                        <div class="d-flex align-items-start mt-2">
-                                                           
+                                                        <div class="d-flex align-items-start mt-3">
+                                                        <a class="pe-3" href="#">
+                                                    <img src="../../assets/images/users/avatar-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                </a>
                                                             <div class="w-100 overflow-hidden">
                                                                 <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
                                                                    <?php     
@@ -404,9 +405,9 @@
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
                                                                     ?>
                                                                     
-                                                                    <h5 class="mt-0"></h5>
-                                                                    <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
-                                                                        <td><strong><?= htmlspecialchars($dataFormatada); ?></strong> - <?= htmlspecialchars($item['REC_DCMSG']); ?></td>
+                                                                    <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
+                                                                    
+                                                                        <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
                                                                         <BR>
                                                                         <BR>
                                                                         <BR>
