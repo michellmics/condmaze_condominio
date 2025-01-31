@@ -1257,7 +1257,7 @@
                                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                                 //--------------------LOG----------------------//
 
-                return ["success" => "Termo aceito com sucesso."];
+                return ["status" => "sucesso", "mensagem" => "Aceite registrado com sucesso!"];
 
             } catch (PDOException $e) {
                 // Captura e retorna o erro
