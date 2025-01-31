@@ -139,7 +139,7 @@
                 </div>
 
                 <a style="cursor: pointer;" onclick="window.location.href='https://prqdashortensias.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'">
-                <ul class="topbar-menu d-flex align-items-center gap-3" style="font-size: 10px;">
+                <ul class="topbar-menu d-flex align-items-center gap-3" style="font-size: 12px;">
                     <?php echo $nomeSession; ?>
                     <br>
                     <?php echo "BL: " . $blocoSession . " AP: " . $apartamentoSession; ?><span style="font-size: 10px; color:rgb(138, 235, 241);"><?php echo $nivelAcesso; ?></span>
