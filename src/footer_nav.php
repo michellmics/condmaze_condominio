@@ -22,25 +22,21 @@
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra (opcional) */
 }
 </style>
-
-
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> 
-                            <a href="javascript: void(0);">Termo de Privacidade</a> 
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-end footer-links d-none d-md-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 footer-links" >               
+                <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> Soluções de Mkt e Software
+                <a href="javascript: void(0);">Termo de Privacidade</a>  
+            </div>
+            <div class="col-md-6">
+                <div class="text-md-end footer-links d-none d-md-block">
+                    <a href="javascript: void(0);">Termo de Privacidade</a>
                 </div>
-            </footer>
-            <!-- end Footer -->
+            </div>            
+            
+        </div>
+    </div>
+</footer>
+
+
