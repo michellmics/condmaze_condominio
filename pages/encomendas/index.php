@@ -122,7 +122,7 @@
                                                         <th>ID</th>
                                                         <th>AP</th>
                                                         <th>NOME</th>
-                                                        <th>DT ENTRADAs</th>
+                                                        <th>DT ENTRADA</th>
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
                                                         <th>DISPONIVEL?</th>
