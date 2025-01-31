@@ -26,7 +26,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">               
-                <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a>  
+                <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> 
+                <a href="javascript: void(0);">Termo de Privacidade</a>  
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
