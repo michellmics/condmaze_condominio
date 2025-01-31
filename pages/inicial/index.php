@@ -147,6 +147,9 @@
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
 
+            <!-- Inclui o modal do termo -->
+            <?php include '../termoPrivacidade/termos.php'; ?>
+
         <div class="content-page">
             <div class="content">
                 <!-- Start Content-->
@@ -155,6 +158,7 @@
                 <!-- container -->
             </div>
             <!-- content -->
+             
 
 
             		<!--  Pop-up publicidade-->
