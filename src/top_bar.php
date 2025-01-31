@@ -142,7 +142,7 @@
                 <ul class="topbar-menu d-flex align-items-center gap-3">
                     <?php echo $nomeSession; ?>
                     <br>
-                    <?php echo "BL: " . $blocoSession . " AP: " . $apartamentoSession; ?><span style="font-size: 09px; color:rgb(138, 235, 241);"><?php echo $nivelAcesso; ?></span>
+                    <?php echo "BL: " . $blocoSession . " GAP: " . $apartamentoSession; ?><span style="font-size: 09px; color:rgb(138, 235, 241);"><?php echo $nivelAcesso; ?></span>
                 </ul>
                 </a>
 
