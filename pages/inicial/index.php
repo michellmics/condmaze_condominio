@@ -406,7 +406,7 @@
                                                                     
                                                                     <h5 class="mt-0"></h5>
                                                                     <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
-                                                                        <td><?= htmlspecialchars($dataFormatada); ?><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
+                                                                        <td><strong><?= htmlspecialchars($dataFormatada); ?></strong> - <?= htmlspecialchars($item['REC_DCMSG']); ?></td>
                                                                         <BR>
                                                                         <BR>
                                                                         <BR>
