@@ -59,6 +59,8 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
+    <link rel="stylesheet" type="text/css" href="../../loading-bar/dist/loading-bar.css"/>
+    <script type="text/javascript" src="../../loading-bar/dist/loading-bar.js"></script>
 
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
@@ -137,18 +139,12 @@
 
 <body>
 
-    <!-- Pre-loader -->
-    <div id="preloader">
-        <div id="status">
-            <div class="bouncing-loader">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
-    <!-- End Preloader-->
-     
+<div
+  data-preset="bubble"
+  class="ldBar label-center"
+  data-value="35"
+></div>
+
     <!-- Begin page -->
     <div class="wrapper">
 
