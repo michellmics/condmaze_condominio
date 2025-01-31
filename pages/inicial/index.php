@@ -393,14 +393,13 @@
 
 
                                                         
-
-                                                        <div class="d-flex align-items-start mt-3">
                                                         <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
-                                                        <a class="pe-3" href="#">
-                                                            <img src="../../assets/images/users/avatar-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
-                                                        </a>
+                                                        <div class="d-flex align-items-start mt-3">
+                                                            <a class="pe-3" href="#">
+                                                                <img src="../../assets/images/users/avatar-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                            </a>
                                                             <div class="w-100 overflow-hidden">
-                                                                
+                                                              
                                                                    <?php     
                                                                     $data = new DateTime($item['REC_DTDATA']);
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
@@ -413,10 +412,10 @@
                                                                         <BR>
                                                                         <BR>
                                                                         
-                                                                <?php endforeach; ?>
+                                                                
                                                             </div>                                                            
                                                         </div>
-
+                                                        <?php endforeach; ?>
                                                         <div class="text-center mt-2">
                                                             <a href="javascript:void(0);" class="text-danger"></a>
                                                         </div>
