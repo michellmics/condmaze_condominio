@@ -27,8 +27,11 @@
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
                                     <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>                                                           
                                     <?php endif; ?>         
-
-                                    <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>                                    
+                                    
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>
+                                    <?php endif; ?>    
+                                                                        
                                 </div>
                             </li>     
                             <li class="nav-item dropdown">
