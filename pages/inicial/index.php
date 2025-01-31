@@ -398,6 +398,9 @@
                                                                     $data = new DateTime($item['REC_DTDATA']);
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
                                                                     ?>
+                                                                                                                    <a class="pe-3" href="#">
+                                                    <img src="../../assets/images/users/avatar-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                </a>
                                                                     <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
                                                                         <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
                                                                         <BR>
