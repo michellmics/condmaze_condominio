@@ -111,12 +111,57 @@ $host = $_SERVER['HTTP_HOST'];
   }
 }
 </style> 
+
+<style>
+        /* Estilização do modal deteccao pwa*/
+        #pwaModal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close-btn {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
 <body class="authentication-bg pb-0">
 
 <!-- Preloader Wrapper -->
 <div id="preloader">
   <span class="loader"></span>
 </div>
+
+    <!-- Modal -->
+    <div id="pwaModal">
+        <div class="modal-content">
+            <h3>Adicione este site ao seu iPhone 📱</h3>
+            <p>Para instalar como um PWA, clique no botão <strong>Compartilhar</strong> (ícone no Safari) e depois em <strong>Adicionar à Tela de Início</strong>.</p>
+            <button class="close-btn" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
 
     <div class="auth-fluid">
         <!--Auth fluid left content -->
@@ -231,6 +276,29 @@ $host = $_SERVER['HTTP_HOST'];
         </div>
 
     </div>
+
+    <script>
+        function detectarPWAeiPhone() {
+            // Verifica se é um iPhone
+            let isIphone = /iphone|ipod/i.test(navigator.userAgent);
+
+            // Verifica se já está rodando como PWA
+            let isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+            // Se for iPhone e não for PWA, exibe o modal
+            if (isIphone && !isPWA) {
+                document.getElementById("pwaModal").style.display = "block";
+            }
+        }
+
+        function fecharModal() {
+            document.getElementById("pwaModal").style.display = "none";
+        }
+
+        // Executa a verificação após o carregamento da página
+        window.onload = detectarPWAeiPhone;
+    </script>
+    
     <!-- end auth-fluid-->
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
