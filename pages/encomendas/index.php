@@ -121,7 +121,7 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>AP</th>
-                                                        <th>TITULAR AP</th>
+                                                        <th>TITULAR APARATAMENTO</th>
                                                         <th>DT ENTRADA</th>
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
