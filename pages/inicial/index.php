@@ -169,7 +169,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  color: #FF3D00;
+  color:rgb(3, 83, 136);
   background: currentColor;
   width: 64px;
   height: 32px;
@@ -181,7 +181,7 @@
   position: absolute;
   left: 50%;
   top: 10%;
-  background: #FFF;
+  background: rgb(43, 250, 122);
   width: 8px;
   height: 64px;
   animation: rotate 1.2s linear infinite alternate-reverse;
