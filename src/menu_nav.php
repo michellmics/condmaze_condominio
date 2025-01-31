@@ -47,7 +47,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
                                     <a href="../encomendas/index.php" class="dropdown-item">Encomendas</a>
                                     <?php endif; ?> 
 
