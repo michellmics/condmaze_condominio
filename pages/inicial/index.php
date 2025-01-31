@@ -400,17 +400,15 @@
                                                             </a>
                                                             <div class="w-100 overflow-hidden">
                                                               
-                                                                   <?php     
+                                                                <?php     
                                                                     $data = new DateTime($item['REC_DTDATA']);
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
-                                                                    ?>
+                                                                ?>
                                                                     
-                                                                    <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
+                                                                <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
                                                                     
                                                                         <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
-                                                                        <BR>
-                                                                        <BR>
-                                                                        <BR>
+
                                                                         
                                                                 
                                                             </div>                                                            
