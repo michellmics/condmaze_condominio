@@ -142,12 +142,6 @@
 </div>
 
 <style>
-<!-- Preloader Wrapper -->
-<div id="preloader">
-  <span class="loader"></span>
-</div>
-
-<style>
 /* Preloader container */
 #preloader {
   position: fixed;
@@ -164,50 +158,41 @@
 
 /* Loader styles */
 .loader {
-  width: 48px;
-  height: 48px;
-  display: inline-block;
+  width: 64px;
+  height: 64px;
   position: relative;
+  animation: rotate 1.5s ease-in infinite alternate;
 }
 
-.loader::after,
 .loader::before {
   content: '';
-  width: 48px;
-  height: 48px;
-  border: 2px solid #FFF;
   position: absolute;
   left: 0;
-  top: 0;
-  box-sizing: border-box;
-  animation: rotation 2s ease-in-out infinite;
+  bottom: 0;
+  color: #FF3D00;
+  background: currentColor;
+  width: 64px;
+  height: 32px;
+  border-radius: 0 0 50px 50px;
 }
 
 .loader::after {
-  border-color: #FF3D00;
-  animation-delay: 1s;
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  background: #FFF;
+  width: 8px;
+  height: 64px;
+  animation: rotate 1.2s linear infinite alternate-reverse;
 }
 
 /* Rotation animation */
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
+@keyframes rotate {
   100% {
     transform: rotate(360deg);
   }
 }
-</style>
-
-<script>
-// Hide the preloader after 2 seconds (optional)
-document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(function () {
-        document.getElementById("preloader").style.display = "none";
-    }, 2000);
-});
-</script>
-
 </style>   
 
 <body>
