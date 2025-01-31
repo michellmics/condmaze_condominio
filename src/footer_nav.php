@@ -32,9 +32,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
             <div class="modal-body" id="conteudoTermos">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTermoLabel">Termo de Privacidade e Proteção de Dados</h5>
-            </div>
             <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
                 <p><strong>Última atualização:</strong> 30/01/2025</p>
                 <p>A <strong>Codemaze</strong> valoriza sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a LGPD.</p>
