@@ -201,7 +201,7 @@ $host = $_SERVER['HTTP_HOST'];
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="hortensias.apk" download class="btn btn-link">Download Apps (Android)</a>
+                            <a href="hortensias.apk" download class="btn btn-link">Download App (Android)</a>
                         </div>
                         <div class="d-grid mb-0 text-center">
                             <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
