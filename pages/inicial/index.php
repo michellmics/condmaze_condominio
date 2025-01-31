@@ -164,24 +164,6 @@
             </div>
             <!-- content -->
              
-<!-- Modal -->
-<div class="modal fade" id="modalTermos" tabindex="-1" aria-labelledby="modalTermosLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTermosLabel">Termos de Privacidade</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body" id="conteudoTermos">
-                <!-- O conteúdo será carregado aqui -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
             		<!--  Pop-up publicidade-->
                     <div id="promoPopup" style="display: none;">
                         <div class="popup-content">
