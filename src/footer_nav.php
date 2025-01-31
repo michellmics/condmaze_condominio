@@ -59,14 +59,7 @@
                 <h5>3. Seus Direitos</h5>
                 <p>Você pode acessar, corrigir ou excluir seus dados conforme a LGPD. Entre em contato: <strong>suporte@codemaze.com.br</strong>.</p>
 
-                <!-- Checkbox para aceitar os termos -->
-                <div class="form-check mt-3">
-                    <input type="checkbox" class="form-check-input" id="aceiteTermo" onchange="liberarBotao()">
-                    <label class="form-check-label" for="aceiteTermo">Li e aceito os termos de privacidade</label>
-                </div>
-            </div>
-            <div class="modal-footer">
-            <button type="button" id="btnAceitar" class="btn btn-success" disabled onclick="enviarAceite('<?= $userid ?>', '<?= $nomeSession ?>', '<?= $apartamentoSession ?>')">OK</button>
+
             </div>
             </div>
             <div class="modal-footer">
