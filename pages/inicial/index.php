@@ -404,9 +404,9 @@
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
                                                                     ?>
                                                                     
-                                                                    <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
+                                                                    <h5 class="mt-0"></h5>
                                                                     <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
-                                                                        <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
+                                                                        <td><?= htmlspecialchars($dataFormatada); ?><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
                                                                         <BR>
                                                                         <BR>
                                                                         <BR>
