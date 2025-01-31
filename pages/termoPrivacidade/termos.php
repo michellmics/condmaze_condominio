@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnAceitar" class="btn btn-success" disabled onclick="enviarAceite($userid, $nomeSession, $apartamentoSessio)">OK</button>>OK</button>
+            <button type="button" id="btnAceitar" class="btn btn-success" disabled onclick="enviarAceite('valor1', 'valor2', 'valor3')">OK</button>
             </div>
         </div>
     </div>
