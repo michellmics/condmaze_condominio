@@ -23,7 +23,11 @@
                                     <i class="uil-location-point"></i>Condomínio <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                    <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
+                                    <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>                                                           
+                                    <?php endif; ?>         
+
                                     <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>                                    
                                 </div>
                             </li>     
@@ -32,7 +36,9 @@
                                     <i class="uil-box"></i>Salão de Festas <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                                     <a href="../listaConvidados/index.php" class="dropdown-item">Minha lista de convidados</a>
+                                    <?php endif; ?> 
                                 </div>
                             </li>    
                             <li class="nav-item dropdown">
@@ -40,7 +46,11 @@
                                     <i class="uil uil-building"></i>Portaria <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                                     <a href="../encomendas/index.php" class="dropdown-item">Encomendas</a>
+                                    <?php endif; ?> 
+
                                     <a href="../ctrlVagasVisitante/index.php" class="dropdown-item">Vagas Estac. Visitantes</a>
 
                                 </div>
@@ -50,11 +60,26 @@
                                     <i class="uil uil-tachometer-fast"></i>Administração <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                                     <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
+                                    <?php endif; ?> 
+
+                                    <?php if ($nivelAcesso == 'SINDICO'): ?>
                                     <a href="../auditoria/index.php" class="dropdown-item">Auditoria</a>
+                                    <?php endif; ?> 
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
                                     <a href="../agenda/index.php" class="dropdown-item">Agenda</a>
-                                    <a href="../uploadRelatorio/index.php" class="dropdown-item">Enviar Arquivo</a> 
+                                    <?php endif; ?>
+
+                                    <?php if ($nivelAcesso == 'SINDICO'): ?>
+                                    <a href="../uploadRelatorio/index.php" class="dropdown-item">Enviar Arquivo</a>
+                                    <?php endif; ?>
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
                                     <a href="<?php echo $webmailUrl; ?>" target="_blank" class="dropdown-item">Webmail</a>
+                                    <?php endif; ?>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
