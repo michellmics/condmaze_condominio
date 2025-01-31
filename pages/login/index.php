@@ -280,14 +280,18 @@ $host = $_SERVER['HTTP_HOST'];
     <script>
         function detectarPWAeiPhone() {
             // Verifica se é um iPhone
-            let isIphone = /iphone|ipod/i.test(navigator.userAgent);
+            let isIphone = /iphone|ipod/i.test(navigator.userAgent.toLowerCase());
 
-            // Verifica se já está rodando como PWA
-            let isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+            // Verifica se já está rodando como PWA (tentamos diferentes formas)
+            let isPWA = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
-            // Se for iPhone e não for PWA, exibe o modal
+            // Correção para iOS: verificar se a janela ocupa toda a tela
             if (isIphone && !isPWA) {
-                document.getElementById("pwaModal").style.display = "block";
+                // Em um PWA, normalmente a altura é diferente devido à barra do Safari ausente
+                const isFullScreen = window.innerHeight === screen.height;
+                if (!isFullScreen) {
+                    document.getElementById("pwaModal").style.display = "block";
+                }
             }
         }
 
@@ -295,10 +299,10 @@ $host = $_SERVER['HTTP_HOST'];
             document.getElementById("pwaModal").style.display = "none";
         }
 
-        // Executa a verificação após o carregamento da página
+        // Aguarda o carregamento da página para executar a verificação
         window.onload = detectarPWAeiPhone;
     </script>
-    
+
     <!-- end auth-fluid-->
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
