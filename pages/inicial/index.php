@@ -664,6 +664,14 @@
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
 
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        document.querySelector(".loader").style.display = "none";
+    }, 2000); // 2000 milissegundos = 2 segundos
+});
+</script>
+
 </body>
 
 </html>
