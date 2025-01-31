@@ -192,10 +192,10 @@
                     <!-- end page title -->
 
                     <div class="row">
+                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Entregas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
                                     Os pacotes marcados como SIM na coluna <b>RETIRAR?</b> da tabela abaixo, devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
@@ -261,7 +261,7 @@
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
-
+                        <?php endif; ?>  
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
