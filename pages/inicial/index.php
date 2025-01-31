@@ -390,7 +390,7 @@
                                                         <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
                                                         <div class="d-flex align-items-start mt-3">
                                                             <a class="pe-3" href="#">
-                                                                <img src="../../img/logo_128x128.png" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                                <img src="../../img/anonimo.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
                                                             <div class="w-100 overflow-hidden">                                                              
                                                                 <?php     
