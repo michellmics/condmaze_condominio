@@ -687,7 +687,13 @@
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
 
-    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        document.getElementById("preloader").style.display = "none";
+    }, 2000);
+});
+</script>
 
 </body>
 
