@@ -139,11 +139,7 @@
 
 <body>
 
-<div
-  data-preset="bubble"
-  class="ldBar label-center"
-  data-value="35"
-></div>
+<div data-preset="bubble" data-pattern-size="10"></div>
 
     <!-- Begin page -->
     <div class="wrapper">
