@@ -836,6 +836,37 @@
             }
         }
 
+        public function deletePrestadorInfo($ID)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+
+                $this->pdo->beginTransaction();
+
+                $sql = "DELETE FROM APS_AVALIACAO_PRESTADOR WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+                $stmt = $this->pdo->prepare($sql);            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $ID, PDO::PARAM_STR);
+                $stmt->execute();  
+
+                $sql = "DELETE FROM PDS_PRESTADORE_SERVICO WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+                $stmt = $this->pdo->prepare($sql);            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $ID, PDO::PARAM_STR);
+                $stmt->execute();                   
+                
+                $this->pdo->commit();
+
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function deleteEncomenda($ENC_IDENCOMENDA)
         {       
             // Verifica se a conexão já foi estabelecida
