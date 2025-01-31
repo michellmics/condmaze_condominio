@@ -396,7 +396,7 @@
                                                         
 
                                                         <div class="d-flex align-items-start mt-2">
-                                                            <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
+                                                           
                                                             <div class="w-100 overflow-hidden">
                                                                 <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
                                                                    <?php     
@@ -405,6 +405,7 @@
                                                                     ?>
                                                                     
                                                                     <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>
+                                                                    <img class="me-3 avatar-sm rounded-circle" src="../../assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
                                                                         <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>
                                                                         <BR>
                                                                         <BR>
