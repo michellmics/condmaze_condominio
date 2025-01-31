@@ -49,7 +49,7 @@
                 </ul>
 
                 <h5>2. Finalidade da Coleta de Dados</h5>
-                <ul>
+                <ul> 
                     <li>Cadastro e identificação do morador;</li>
                     <li>Comunicação e envio de notificações;</li>
                     <li>Controle de acesso e segurança;</li>
