@@ -46,7 +46,7 @@
     }
 
     function enviarAceite(userid, nomeSession, apartamentoSessio) {
-        fetch("salvar_aceite.php", {
+        fetch("../termoPrivacidade/salvar_aceite.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
