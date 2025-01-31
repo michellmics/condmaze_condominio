@@ -56,10 +56,7 @@ $host = $_SERVER['HTTP_HOST'];
 	<!-- PWA MOBILE CONF -->
      
 </head>
-<!-- Preloader Wrapper -->
-<div id="preloader">
-  <span class="loader"></span>
-</div>
+
 
 <style>
 /* Preloader container */
@@ -115,6 +112,11 @@ $host = $_SERVER['HTTP_HOST'];
 }
 </style> 
 <body class="authentication-bg pb-0">
+
+<!-- Preloader Wrapper -->
+<div id="preloader">
+  <span class="loader"></span>
+</div>
 
     <div class="auth-fluid">
         <!--Auth fluid left content -->
