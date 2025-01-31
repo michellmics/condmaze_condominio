@@ -2,7 +2,7 @@
   "name": "Hortênsias",
   "short_name": "Hortênsias",
   "description": "Aplicação PWA para Hortênsias",
-  "start_url": "pages/login/index.php",
+  "start_url": "https://prqdashortensias.com.br/pages/login/index.php",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
