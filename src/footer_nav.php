@@ -40,7 +40,7 @@
 
 <script>
     function abrirTermos() {
-        fetch("../termoPrivacidade/termos.php")
+        fetch("..pages/termoPrivacidade/termos.php")
             .then(response => response.text())
             .then(data => {
                 document.getElementById("conteudoTermos").innerHTML = data;
