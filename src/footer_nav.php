@@ -26,7 +26,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 footer-links" >               
-                <a href="https://codemaze.com.br" target="_blank">| <b>Codemaze</b> |</a>  <a href="javascript: void(0);">Termo de Privacidade</a>
+                <a href="https://codemaze.com.br" target="_blank">| <b>Codemaze</b> |</a>  <a href="#" onclick="abrirTermos()">Termo de Privacidade</a>
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
@@ -37,5 +37,18 @@
         </div>
     </div>
 </footer>
+
+<script>
+    function abrirTermos() {
+        fetch("../termoPrivacidade/termos.php")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("conteudoTermos").innerHTML = data;
+                var modal = new bootstrap.Modal(document.getElementById("modalTermos"));
+                modal.show();
+            })
+            .catch(error => console.error("Erro ao carregar os termos:", error));
+    }
+</script>
 
 
