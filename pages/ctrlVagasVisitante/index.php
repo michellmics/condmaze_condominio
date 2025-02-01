@@ -322,9 +322,9 @@
                     <input type="text" id="apartmentInput" maxlength="5" placeholder="Apartamento (máx. 5 caracteres)">
                     <input type="text" id="modelInput" maxlength="10" placeholder="Modelo do veículo (máx. 10 caracteres)" oninput="this.value = this.value.toUpperCase()">
                     <div class="modal-footer">
-                      <button id="cancelButton">Cancelar</button>
-                      <button id="submitButton">Confirmar</button>
-                      <button id="freeButton" style="background-color:rgb(7, 143, 41); color: white; border: none; padding: 10px 20px; cursor: pointer;">
+                      <button id="cancelButton" style="background-color:rgb(158, 22, 28); color: white; border: none; padding: 10px 20px; cursor: pointer;">Cancelar</button>
+                      <button id="submitButton" style="background-color:rgb(7, 77, 143); color: white; border: none; padding: 10px 20px; cursor: pointer;">Confirmar</button>
+                      <button id="freeButton" style="background-color:rgb(7, 143, 41); color: white; border: none; padding: 10px 20px; cursor: pointer;">Liberar Vaga</button>
                     </div>
                   </div>
                 </div>
