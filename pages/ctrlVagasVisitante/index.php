@@ -303,7 +303,7 @@
                               '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
                               '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
                               '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
-                            :  ($slot['slot_number'] > 40 ? 'Livre<br>Rotativa' : 'Livre');
+                            :  ($id > 40 ? 'Livre<br>Rotativa' : 'Livre');
                     
                         echo '<div class="slot-wrapper">
                                 <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
