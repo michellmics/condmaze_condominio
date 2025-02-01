@@ -139,7 +139,7 @@
                                             
                                                   <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip01">Nome Completo</label>
-                                                    <input value="<?php if(isset($nome)){echo $nome;} ?>" id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
+                                                    <input value="<?php if(isset($nome)){echo $nome;} ?>" id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="" maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
@@ -149,7 +149,7 @@
                                                 </div>
                                                 <div class="position-relative mb-3">
                                                     <label class="form-label" for="validationTooltip02">E-mail</label>
-                                                    <input value="<?php if(isset($email)){echo $email;} ?>" id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
+                                                    <input value="<?php if(isset($email)){echo $email;} ?>" id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
                                                     <div class="valid-tooltip">
                                                         Validado!
                                                     </div>
