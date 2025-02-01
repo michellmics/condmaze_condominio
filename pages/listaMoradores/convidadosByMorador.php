@@ -136,6 +136,7 @@
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
+                                                                <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
                                                                 <input 
                                                                     type="checkbox" 
                                                                     id="switch<?= $index; ?>" 
@@ -150,6 +151,7 @@
                                                                     data-off-label="Não" 
                                                                     class="mb-0 d-block">
                                                                 </label>
+                                                                <?php endif; ?> 
                                                             </div>
                                                         </td>
                                                     </tr>
