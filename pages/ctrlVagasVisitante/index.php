@@ -313,7 +313,7 @@
                     }
                   ?>
                 </div>
-                
+                <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>        
                 <!-- Modal -->
                 <div class="modal" id="inputModal">
                   <div class="modal-content">
@@ -328,6 +328,7 @@
                     </div>
                   </div>
                 </div>
+                <?php endif; ?> 
                 
                 <script>
                   const modal = document.getElementById('inputModal');
