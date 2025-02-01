@@ -324,7 +324,7 @@
                     <div class="modal-footer">
                       <button id="cancelButton">Cancelar</button>
                       <button id="submitButton">Confirmar</button>
-                      <button id="freeButton">Liberar Vaga</button>
+                      <button id="freeButton" style="background-color:rgb(7, 143, 41); color: white; border: none; padding: 10px 20px; cursor: pointer;">
                     </div>
                   </div>
                 </div>
