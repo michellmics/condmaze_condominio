@@ -106,9 +106,11 @@
                                         Nesta seção são listados todos os moradores do condomínio.
                                     </p>
                                     <div class="tab-content">
+                                        <?php if ($nivelAcesso == 'SINDICO'): ?>
                                         <div class="col-sm-5">
                                             <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
                                         </div>
+                                        <?php endif; ?> 
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
