@@ -152,13 +152,13 @@
 
     /* Vaga livre */
     .slot.free {
-      background: linear-gradient(135deg,rgb(18, 100, 43),rgb(72, 118, 172));
+      background: linear-gradient(135deg,rgb(18, 100, 43),rgb(8, 105, 65));
       color: white;
     }
 
     /* Vaga ocupada */ 
     .slot.occupied {
-      background: linear-gradient(135deg,rgb(5, 84, 129),rgb(19, 90, 1));
+      background: linear-gradient(135deg,rgb(5, 84, 129),rgb(10, 193, 199));
       color: white;
     }
 
