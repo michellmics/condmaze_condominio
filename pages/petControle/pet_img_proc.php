@@ -12,14 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $siteAdmin = new SITE_ADMIN();  
-    $siteAdmin->getHashImgInfo($tipo);  
-
-    // Verifica se o arquivo enviado é uma imagem
-    $tipos_aceitos = ['jpeg', 'jpg', 'png', 'gif'];
-    if (!in_array(strtolower($extensao), $tipos_aceitos)) {
-        echo "Tipo de arquivo não permitido. Apenas imagens JPEG, PNG e GIF são aceitas.";
-        exit;
-    }
+    $siteAdmin->getHashImgInfo($raca, $cor, $tipo);  
 
     foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
             $imgResult[] = [
