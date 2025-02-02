@@ -101,9 +101,9 @@
                                 <div class="mb-3">
                                     <label for="tipo" class="form-label">TIPO</label>
                                     <select class="form-control" id="tipo" name="tipo" required>
-                                        <option value="CAO">Cão</option>
-                                        <option value="GATO">Gato</option>
-                                        <option value="PASSARO">Pássaro</option>
+                                        <option value="CAO">CÃO</option>
+                                        <option value="GATO">GATO</option>
+                                        <option value="PASSARO">PÁSSARO</option>
                                     </select>
                                 </div>
 
