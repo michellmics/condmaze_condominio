@@ -86,21 +86,21 @@
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <!-- Nome -->
                                 <div class="mb-3">
-                                    <label for="nome" class="form-label">Nome do Pet</label>
+                                    <label for="nome" class="form-label">NOME DO PET</label>
                                     <input type="text" class="form-control" id="nome" name="nome" required>
                                 </div>
 
                                 <!-- Raça -->
                                 <div class="mb-3">
-                                    <label for="raca" class="form-label">Raça</label>
+                                    <label for="raca" class="form-label">RAÇA</label>
                                     <input type="text" class="form-control" id="raca" name="raca" required>
                                 </div>
 
                                 <!-- Tipo -->
                                 <div class="mb-3">
-                                    <label for="tipo" class="form-label">Tipo</label>
+                                    <label for="tipo" class="form-label">TIPO</label>
                                     <select class="form-control" id="tipo" name="tipo" required>
-                                        <option value="CACHORRO">Cão</option>
+                                        <option value="CAO">Cão</option>
                                         <option value="GATO">Gato</option>
                                         <option value="PASSARO">Pássaro</option>
                                     </select>
@@ -128,7 +128,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalAnimaisLabel">Pets Similares</h5>
+                        <h5 class="modal-title" id="modalAnimaisLabel">PETS SIMILARES</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -145,7 +145,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="imagemModalLabel">Imagem do Pet</h5>
+                <h5 class="modal-title" id="imagemModalLabel">FOTO DO PET</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
