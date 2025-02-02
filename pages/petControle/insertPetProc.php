@@ -35,12 +35,12 @@ class registerPet extends SITE_ADMIN
 
     function getImageHashGD($imagePath) {
         $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem
-        $img = imagescale($img, 32, 32); // Redimensiona para 32x32
+        $img = imagescale($img, 128, 128); // Redimensiona para 32x32
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
         
         $pixels = [];
-        for ($y = 0; $y < 32; $y++) {
-            for ($x = 0; $x < 32; $x++) {
+        for ($y = 0; $y < 128; $y++) {
+            for ($x = 0; $x < 128; $x++) {
                 $rgb = imagecolorat($img, $x, $y);
                 $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
                 $pixels[] = $gray;
