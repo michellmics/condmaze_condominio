@@ -6,54 +6,8 @@ include_once "../../objects/objects.php";
 
 class registerPet extends SITE_ADMIN
 {
-    // Função para calcular o histograma de cores de uma imagem
-    function calculateColorHistogram($imagePath) {
-        // Verifica se o arquivo existe
-        if (!file_exists($imagePath)) {
-            throw new Exception("Arquivo de imagem não encontrado.");
-        }
-
-        // Carrega a imagem conforme sua extensão
-        $extensao = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
-        switch ($extensao) {
-            case 'jpeg':
-            case 'jpg':
-                $image = imagecreatefromjpeg($imagePath);
-                break;
-            case 'png':
-                $image = imagecreatefrompng($imagePath);
-                break;
-            case 'gif':
-                $image = imagecreatefromgif($imagePath);
-                break;
-            default:
-                throw new Exception("Tipo de arquivo inválido.");
-        }
-
-        if (!$image) {
-            throw new Exception("Falha ao carregar a imagem.");
-        }
-
-        $width = imagesx($image);
-        $height = imagesy($image);
-        $histogram = [];
-
-        // Calcula o histograma de cores
-        for ($x = 0; $x < $width; $x++) {
-            for ($y = 0; $y < $height; $y++) {
-                $rgb = imagecolorat($image, $x, $y);
-                $colors = imagecolorsforindex($image, $rgb);
-                $color = sprintf('%02X%02X%02X', $colors['red'], $colors['green'], $colors['blue']);
-                $histogram[$color] = ($histogram[$color] ?? 0) + 1;
-            }
-        }
-
-        imagedestroy($image);
-        return json_encode($histogram); // Retorna o histograma como JSON
-    }
-
     // Função para inserir o pet no banco de dados
-    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
+    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path)
     {
         try {
             if (!$this->pdo) {
@@ -61,7 +15,7 @@ class registerPet extends SITE_ADMIN
             }
 
             // Insere as informações do pet, incluindo o histograma de cores
-            $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path, $imageHash);
+            $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path);
 
             //--------------------LOG----------------------//
             $LOG_DCTIPO = "PET";
@@ -144,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Calcula o histograma de cores e insere as informações no banco
     $petAddInfo = new registerPet();
-    $imageHash = $petAddInfo->calculateColorHistogram($foto_path);
-    $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash);
+     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path);
 }
 ?>
