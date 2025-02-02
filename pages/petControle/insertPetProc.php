@@ -25,7 +25,7 @@ class registerPet extends SITE_ADMIN
             }
         }
     
-        // Debug: Verifica os valores dos pixels
+        // Debug: Exibe todos os valores dos pixels
         var_dump($pixels);
     
         // Calcula a mediana dos pixels
@@ -41,9 +41,13 @@ class registerPet extends SITE_ADMIN
             $hash .= ($pixel >= $median) ? '1' : '0';
         }
     
+        // Debug: Exibe o hash gerado
+        echo "Hash gerado: " . $hash . "<br>";
+    
         imagedestroy($img);
         return $hash;
     }
+    
     
 
     public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
