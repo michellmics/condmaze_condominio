@@ -8,7 +8,7 @@ $carne_calculada = $_POST['carnecalculada'] ?? 0;
 $custo_total = $_POST['custototal'] ?? 0;
 $custo_por_pessoa = $_POST['custoporpessoa'] ?? 0;
 
-var_dump($qtde_homens);
+var_dump($_POST['descricao']);
 die();
 
 // Inserir os itens da lista
