@@ -128,7 +128,7 @@
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5 d-flex justify-content-end">  
-                                        <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
+                                        <a href="insertListaConvidados.php" class="btn btn-danger mb-2 btn btn-danger ms-auto"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
