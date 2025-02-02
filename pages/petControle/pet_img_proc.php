@@ -4,33 +4,71 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
 // Função para gerar o hash perceptual da imagem
-function getImageHashPerceptual($imageResource) {
-    $img = $imageResource;
-    $img = imagescale($img, 8, 8); // Redimensiona para 8x8
-    imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
+function calculateColorHistogram($imagePath) {
+    // Verifica se o arquivo existe
+    if (!file_exists($imagePath)) {
+        throw new Exception("Arquivo de imagem não encontrado.");
+    }
 
-    $pixels = [];
-    for ($y = 0; $y < 8; $y++) {
-        for ($x = 0; $x < 8; $x++) {
-            $rgb = imagecolorat($img, $x, $y);
-            $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
-            $pixels[] = $gray;
+    // Carrega a imagem conforme sua extensão
+    $extensao = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
+    switch ($extensao) {
+        case 'jpeg':
+        case 'jpg':
+            $image = imagecreatefromjpeg($imagePath);
+            break;
+        case 'png':
+            $image = imagecreatefrompng($imagePath);
+            break;
+        case 'gif':
+            $image = imagecreatefromgif($imagePath);
+            break;
+        default:
+            throw new Exception("Tipo de arquivo inválido.");
+    }
+
+    if (!$image) {
+        throw new Exception("Falha ao carregar a imagem.");
+    }
+
+    $width = imagesx($image);
+    $height = imagesy($image);
+    $histogram = [];
+
+    // Calcula o histograma de cores
+    for ($x = 0; $x < $width; $x++) {
+        for ($y = 0; $y < $height; $y++) {
+            $rgb = imagecolorat($image, $x, $y);
+            $colors = imagecolorsforindex($image, $rgb);
+            $color = sprintf('%02X%02X%02X', $colors['red'], $colors['green'], $colors['blue']);
+            $histogram[$color] = ($histogram[$color] ?? 0) + 1;
         }
     }
 
-    $avg = array_sum($pixels) / count($pixels);
-    $hash = '';
-    foreach ($pixels as $pixel) {
-        $hash .= ($pixel >= $avg) ? '1' : '0';
-    }
-
-    imagedestroy($img);
-    return $hash;
+    imagedestroy($image);
+    return json_encode($histogram); // Retorna o histograma como JSON
 }
 
 // Função para calcular a distância de Hamming entre dois hashes
-function hammingDistance($hash1, $hash2) {
-    return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
+function calculateChiSquaredDistance($histogram1, $histogram2) {
+    // Converte os histogramas de JSON para arrays
+    $histogram1 = json_decode($histogram1, true);
+    $histogram2 = json_decode($histogram2, true);
+
+    // Inicializa a soma da distância de Chi-Quadrado
+    $distance = 0;
+
+    // Junta todas as chaves dos dois histogramas
+    $allKeys = array_unique(array_merge(array_keys($histogram1), array_keys($histogram2)));
+
+    // Calcula a distância de Chi-Quadrado
+    foreach ($allKeys as $key) {
+        $h1 = isset($histogram1[$key]) ? $histogram1[$key] : 0;
+        $h2 = isset($histogram2[$key]) ? $histogram2[$key] : 0;
+        $distance += ($h1 - $h2) ** 2 / ($h1 + $h2 + 1e-6);  // Adiciona um pequeno valor para evitar divisão por zero
+    }
+
+    return $distance;
 }
 
 // Processa a requisição POST
@@ -73,13 +111,13 @@ if (!$imagem) {
     exit;
 }
 
-$hash1 = getImageHashPerceptual($imagem);  // Gerando o hash perceptual da imagem recebida
+$hash1 = calculateColorHistogram($imagem);  // Gerando o hash perceptual da imagem recebida
 
 $imagensSemelhantes = [];
 
 foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
-    $distance = hammingDistance($hash1, $hash);  // Calcula a distância de Hamming
+    $distance = calculateChiSquaredDistance($hash1, $hash);  // Calcula a distância de Hamming
 
     // Ajuste o limiar conforme necessário
     if ($distance < 15) {  // Se a distância for menor que 35, considera como semelhante
