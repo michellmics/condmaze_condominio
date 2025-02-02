@@ -191,7 +191,7 @@ function mostrarImagem(src) {
                                    <h4 class="header-title">Meus Pets</h4>
                                    <p class="text-muted font-14">
                                    🐾 Encontrou um Pet Perdido?
-                                   Verifique se ele pode ser de um morador do condomínio e ajude a devolver ao lar! 😊 A precisão da correspondência depende da qualidade da foto enviada e dos registros no sistema.
+                                   Verifique se ele pode ser de um morador do condomínio e ajude a devolver ao lar! 😊
                                    </p>
 
                                    <form id="formProcurar" enctype="multipart/form-data">
