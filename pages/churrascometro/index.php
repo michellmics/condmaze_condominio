@@ -128,13 +128,23 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-3 mb-3">
+                                            <div class="col-4 mb-3">
                                                 <label for="qtdehomem" class="form-label">Carne Necessária</label>
                                                 <input class="form-control" id="carnenecessaria" type="number" name="carnenecessaria" style="background-color:rgb(10, 10, 10); color: white;">
                                             </div>
-                                            <div class="col-3 mb-3">
+                                            <div class="col-4 mb-3">
                                                 <label for="qtdemulher" class="form-label">Carne Calculada</label>
                                                 <input class="form-control" id="carnecalculada" type="number" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <label for="custototal" class="form-label">Custo Total</label>
+                                                <input class="form-control" id="custototal" type="text" name="custototal" style="background-color:rgb(5, 89, 158); color: white;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-3">
+                                                <label for="custoporpessoa" class="form-label">Carne Necessária</label>
+                                                <input class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
                                         </div>
 
