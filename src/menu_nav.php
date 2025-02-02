@@ -45,6 +45,11 @@
                                     <a href="../listaConvidados/index.php" class="dropdown-item">Minha lista de convidados</a>
                                     <?php endif; ?> 
                                 </div>
+                                <div class="dropdown-menu" aria-labelledby="topnav-components">
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <a href="../churrascometro/index.php" class="dropdown-item">Churrascômetro</a>
+                                    <?php endif; ?> 
+                                </div>
                             </li>    
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
