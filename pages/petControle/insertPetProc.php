@@ -9,8 +9,11 @@ class registerPet extends SITE_ADMIN
     function getImageHashPerceptual($imagePath) {
         // Carrega a imagem
         $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem JPEG
+        if (!$img) {
+            die("Erro ao carregar a imagem.");
+        }
 
-        var_dump($img);
+
         $img = imagescale($img, 8, 8);  // Redimensiona para 8x8 pixels
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
         
@@ -22,7 +25,7 @@ class registerPet extends SITE_ADMIN
                 $pixels[] = $gray;
             }
         }
-
+        var_dump($pixels);
         // Calcula a mediana dos pixels
         sort($pixels);
         $median = $pixels[count($pixels) / 2];
