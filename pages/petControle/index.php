@@ -101,30 +101,22 @@
                                    </p>
 
                                    <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
-                                       <div class="mb-3">
-                                           <input name="arquivo" id="arquivo" type="file" accept=".csv" class="form-control" />
-                                           <div class="d-flex gap-2">
-                                           <select class="form-control" id="mes" name="mes" required>
-                                               <option value="" disabled selected>Tipo</option>
-                                               <option value="janeiro">Cachorro</option>
-                                               <option value="fevereiro">Gato</option>
-                                           </select>
-                                       </div>
-                                       
-                                        </div>
+    <div class="d-flex gap-2 align-items-center">
+        <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
 
-                                       <div class="d-flex gap-2">
-                                           <select class="form-control" id="mes" name="mes" required>
-                                               <option value="" disabled selected>Tipo</option>
-                                               <option value="janeiro">Cachorro</option>
-                                               <option value="fevereiro">Gato</option>
-                                           </select>
-                                       </div>
-                                           
-                                       <div class="mt-3">
-                                           <button type="submit" class="btn btn-primary">Enviar</button>
-                                       </div>
-                                   </form>
+        <select class="form-control" id="tipo" name="tipo" required>
+            <option value="" disabled selected>TIPO</option>
+            <option value="CACHORRO">CÃO</option>
+            <option value="GATO">GATO</option>
+            <option value="PASSARO">PÁSSARO</option>
+        </select>
+    </div>
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>
+
                                </div>
 
 
