@@ -146,7 +146,7 @@
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
                                                 <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
-                                            <div class="col-3 mb-3">
+                                                    <div class="col-3 mb-3">
             <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
         </div>
                                         </div>
@@ -156,17 +156,7 @@
 
 
                                         </div>
-
-
-
-
-               <!-- Ini formulario--></form>
-
-
-
-
-
-               <script>
+                                        <script>
 function calcularValorTotal(element) {
     // Encontra a linha atual
     let linha = element.closest('.row');
@@ -212,6 +202,10 @@ function adicionarLinha() {
     ultimaLinha.querySelector('.col-3.mb-3').appendChild(btnAdicionar);
 }
 </script>
+
+
+
+               <!-- Ini formulario--></form>
                                     </div> <!-- end tab-content-->
 
                                 </div> <!-- end card body-->
