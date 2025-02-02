@@ -133,13 +133,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Libera a memória
     imagedestroy($imagem);
-    imagedestroy($imagem_redimensionada);
-
-    $imageHash = getImageHashGD($foto_path);
-
+    imagedestroy($imagem_redimensionada);  
 
     // Se o upload e redimensionamento forem bem-sucedidos, insere as informações no banco
     $petAddInfo = new registerPet();
+    $imageHash = $petAddInfo->getImageHashGD($foto_path);
     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
     echo "Pet cadastrado com sucesso!";
 }
