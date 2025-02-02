@@ -94,7 +94,7 @@
                        <div class="col-md-6">
                            <div class="card shadow-lg rounded-lg">
                                <div class="card-body text-center">
-                                   <h4 class="header-title">Pets</h4>
+                                   <h4 class="header-title">Meus Pets</h4>
                                    <p class="text-muted font-14">
                                        Viu um animalzinho perdido? Verifique aqui se ele pode ser de um morador e o ajude a encontrar o lar :).
                                        A precisão dependerá da foto enviada e dos registros no sistema.
@@ -123,14 +123,12 @@
 
                                <div class="card">
                                 <div class="card-body">
-                                <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
-                                    <h4 class="header-title">Meus Pets </h4>
+                                    <h4 class="header-title"></h4>
                                     <p class="text-muted font-14">
                                     </p>
                                     <div class="tab-content">
-
                                         <div class="col-sm-5">  
-                                        
+                                        <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
