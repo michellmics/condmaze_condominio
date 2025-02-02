@@ -69,6 +69,55 @@
 
         <?php $siteAdmin->getPetsInfo($userid); ?>
 
+            <!-- Modal -->
+            <div class="modal fade" id="petModal" tabindex="-1" aria-labelledby="petModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="petModalLabel">Cadastrar Pet</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
+                                <!-- Nome -->
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome do Pet</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                </div>
+
+                                <!-- Raça -->
+                                <div class="mb-3">
+                                    <label for="raca" class="form-label">Raça</label>
+                                    <input type="text" class="form-control" id="raca" name="raca" required>
+                                </div>
+
+                                <!-- Tipo -->
+                                <div class="mb-3">
+                                    <label for="tipo" class="form-label">Tipo</label>
+                                    <select class="form-control" id="tipo" name="tipo" required>
+                                        <option value="CACHORRO">Cão</option>
+                                        <option value="GATO">Gato</option>
+                                        <option value="PASSARO">Pássaro</option>
+                                    </select>
+                                </div>
+
+                                <!-- Foto -->
+                                <div class="mb-3">
+                                    <label for="foto" class="form-label">Foto</label>
+                                    <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg, image/jpg, image/png, image/gif" required>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         <div class="content-page">
             <div class="content">
                 <!-- Start Content-->
@@ -111,7 +160,6 @@
                                                 <option value="PASSARO">PÁSSARO</option>
                                             </select>
                                         </div>
-
                                         <div class="mt-3">
                                             <button type="submit" class="btn btn-primary">Procurar</button>
                                         </div>
@@ -128,7 +176,9 @@
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5">  
-                                        <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#petModal">
+        <i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet
+    </button>
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
