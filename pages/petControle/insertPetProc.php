@@ -2,31 +2,6 @@
 ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 
-session_start(); 
-define('SESSION_TIMEOUT', 43200); // 12 horas
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: $siteUrl");
-  exit();
-}
-
-// Atualiza o timestamp da última atividade
-$_SESSION['last_activity'] = time();
-
-if (!isset($_SESSION['user_id'])) 
-{
-  header("Location: $siteUrl");
-  exit();
-}
-
-$blocoSession = $_SESSION['user_bloco'];
-$apartamentoSession = $_SESSION['user_apartamento'];
-$nomeSession =  substr(strtoupper($_SESSION['user_name']),0,21)."..."; 
-$nomeSessionShort =  substr($nomeSession,0,15);
-$usuariologado =  "<b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-$nivelAcesso = strtoupper($_SESSION['user_nivelacesso']);
-$userid = $_SESSION['user_id'];
 
 include_once "../../objects/objects.php";
 
@@ -65,7 +40,7 @@ class registerPet extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recebe os dados do formulário e os converte para maiúsculas
     $nome = strtoupper($_POST['nome']);
-    $idMorador = $userid;
+    $idMorador = $_POST['idmorador'];
     $raca = strtoupper($_POST['raca']);
     $apartamento = $_POST['apartamento'];
     $tipo = $_POST['tipo'];

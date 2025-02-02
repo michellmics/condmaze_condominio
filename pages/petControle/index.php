@@ -99,7 +99,7 @@
 
                                 <div class="mb-3">
                                     <label for="cor" class="form-label">COR</label>
-                                    <select class="form-control" id="cor" name="cor" required style="width: 120px;">
+                                    <select class="form-control" id="cor" name="cor" required>
                                         <option value="" disabled selected>COR</option>
                                         <option value="PRETO">PRETO</option>
                                         <option value="BRANCO">BRANCO</option>
