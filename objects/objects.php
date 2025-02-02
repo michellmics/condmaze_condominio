@@ -599,7 +599,6 @@
                 $stmt->bindParam(':PEM_DCRACA', $PEM_DCRACA, PDO::PARAM_STR);
                 $stmt->bindParam(':PEM_DCTIPO', $PEM_DCTIPO, PDO::PARAM_STR);
                 $stmt->bindParam(':PET_DCPATHFOTO', $PET_DCPATHFOTO, PDO::PARAM_STR);
-                $stmt->bindParam(':PEM_DCHASHBIN', $PEM_DCHASHBIN, PDO::PARAM_STR);
             
                 $stmt->execute();
            
