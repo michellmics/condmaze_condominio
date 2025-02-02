@@ -109,77 +109,109 @@
 
                 <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
 
-                <div class="row">
-    <div class="col-12 mb-3">
-        <label for="descricao" class="form-label">Descrição do Item</label>
-        <input type="text" class="form-control" id="descricao" name="descricao[]" placeholder="Descrição do Item">
-    </div>
-    <div class="col-3 mb-3">
-        <label for="quantidade" class="form-label">Quantidade</label>
-        <input type="number" class="form-control" id="quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal()">
-    </div>
-    <div class="col-3 mb-3">
-        <label for="valorunitario" class="form-label">Valor Unitário</label>
-        <input type="number" class="form-control" id="valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal()">
-    </div>
-    <div class="col-3 mb-3">
-        <label for="valortotal" class="form-label">Valor Total</label>
-        <input type="number" class="form-control" id="valortotal" name="valortotal[]" step="0.01" min="0" readonly>
-    </div>
-    <div class="col-3 mb-3">
-        <button type="button" class="btn btn-primary" onclick="adicionarLinha()">Adicionar Linha</button>
-    </div>
-</div>
+                                        <div class="row">
+                                            <div class="col-3 mb-3">
+                                                <label for="qtdehomem" class="form-label">Qtde Homens</label>
+                                                <input class="form-control" id="qtdehomem" type="number" name="qtdehomem"  step="1" min="0">
+                                            </div>
+                                            <div class="col-3 mb-3">
+                                                <label for="qtdemulher" class="form-label">Qtde Mulheres</label>
+                                                <input class="form-control" id="qtdemulher" type="number" name="qtdemulher"  step="1" min="0">
+                                            </div>
+                                            <div class="col-3 mb-3">
+                                                <label for="qtdehomem" class="form-label">Fator C. Homem</label>
+                                                <input readonly class="form-control" id="consumohomem" value="500g" type="text" name="consumohomem" style="background-color:rgb(209, 209, 209);">
+                                            </div>
+                                            <div class="col-3 mb-3">
+                                                <label for="qtdemulher" class="form-label">Fator C. Mulher</label>
+                                                <input readonly class="form-control" id="consumomulher" value="350g" type="text" name="consumomulher" style="background-color:rgb(209, 209, 209);">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4 mb-3">
+                                                <label for="qtdehomem" class="form-label">Carne Necessária</label>
+                                                <input readonly class="form-control" id="carnenecessaria" type="number" name="carnenecessaria" style="background-color:rgb(10, 10, 10); color: white;">
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <label for="qtdemulher" class="form-label">Carne Calculada</label>
+                                                <input readonly class="form-control" id="carnecalculada" type="number" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <label for="custototal" class="form-label">Custo Total do Evento</label>
+                                                <input readonly class="form-control" id="custototal" type="text" name="custototal" style="background-color:rgb(5, 89, 158); color: white;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-3">
+                                                <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
+                                                <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
+                                            </div>
+                                            <div class="col-3 mb-3">
+            <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
+        </div>
+                                        </div>
+                                        <div class="row">
 
-<div id="itens-adicionados"></div>
 
-<script>
-function calcularValorTotal() {
-    let quantidade = parseFloat(document.getElementById('quantidade').value) || 0;
-    let valorUnitario = parseFloat(document.getElementById('valorunitario').value) || 0;
-    let valorTotal = quantidade * valorUnitario;
-    document.getElementById('valortotal').value = valorTotal.toFixed(2);
-}
 
-function adicionarLinha() {
-    let descricao = document.getElementById('descricao').value;
-    let quantidade = document.getElementById('quantidade').value;
-    let valorUnitario = document.getElementById('valorunitario').value;
-    let valorTotal = document.getElementById('valortotal').value;
 
-    if (descricao && quantidade && valorUnitario && valorTotal) {
-        let novoItem = `
-        <div class="row">
-            <div class="col-3 mb-3">
-                <input type="text" class="form-control" name="descricao[]" value="${descricao}" readonly>
-            </div>
-            <div class="col-3 mb-3">
-                <input type="number" class="form-control" name="quantidade[]" value="${quantidade}" readonly>
-            </div>
-            <div class="col-3 mb-3">
-                <input type="number" class="form-control" name="valorunitario[]" value="${valorUnitario}" readonly>
-            </div>
-            <div class="col-3 mb-3">
-                <input type="number" class="form-control" name="valortotal[]" value="${valorTotal}" readonly>
-            </div>
-        </div>`;
-        document.getElementById('itens-adicionados').innerHTML += novoItem;
-
-        // Limpar os campos para adicionar nova linha
-        document.getElementById('descricao').value = '';
-        document.getElementById('quantidade').value = '';
-        document.getElementById('valorunitario').value = '';
-        document.getElementById('valortotal').value = '';
-    } else {
-        alert('Por favor, preencha todos os campos antes de adicionar a linha.');
-    }
-}
-</script>
+                                        </div>
 
 
 
 
                <!-- Ini formulario--></form>
+
+
+
+
+
+               <script>
+function calcularValorTotal(element) {
+    // Encontra a linha atual
+    let linha = element.closest('.row');
+    
+    // Pega os valores de quantidade e valor unitário
+    let quantidade = parseFloat(linha.querySelector('.quantidade').value) || 0;
+    let valorUnitario = parseFloat(linha.querySelector('.valorunitario').value) || 0;
+    
+    // Calcula o valor total
+    let valorTotal = quantidade * valorUnitario;
+    
+    // Define o valor total no campo correspondente
+    linha.querySelector('.valortotal').value = valorTotal.toFixed(2);
+}
+
+function adicionarLinha() {
+    // Cria uma nova linha com os mesmos campos, mas sem o botão "Adicionar Linha"
+    let novaLinha = document.querySelector('.linha-item').cloneNode(true);
+
+    // Limpa os campos da nova linha
+    let campos = novaLinha.querySelectorAll('input');
+    campos.forEach(function(campo) {
+        campo.value = '';
+        if (campo.type !== 'button' && campo.type !== 'submit') {
+            campo.disabled = false;
+        }
+    });
+
+    // Remove o botão "Adicionar Linha" da nova linha
+    novaLinha.querySelector('.adicionar-linha').remove();
+
+    // Adiciona a nova linha ao final do formulário
+    document.getElementById('formulario-itens').appendChild(novaLinha);
+
+    // Adiciona novamente o botão na última linha
+    let ultimaLinha = document.querySelector('#formulario-itens .row:last-child');
+    let btnAdicionar = document.createElement('button');
+    btnAdicionar.type = 'button';
+    btnAdicionar.classList.add('btn', 'btn-primary', 'adicionar-linha');
+    btnAdicionar.textContent = 'Adicionar Linha';
+    btnAdicionar.setAttribute('onclick', 'adicionarLinha()');
+
+    ultimaLinha.querySelector('.col-3.mb-3').appendChild(btnAdicionar);
+}
+</script>
                                     </div> <!-- end tab-content-->
 
                                 </div> <!-- end card body-->
