@@ -123,6 +123,25 @@
             </div>
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="modalAnimais" tabindex="-1" aria-labelledby="modalAnimaisLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAnimaisLabel">Animais Encontrados</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="resultadoPesquisa">
+                            <p>Carregando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="content-page">
             <div class="content">
                 <!-- Start Content-->
@@ -154,7 +173,7 @@
                                    Verifique se ele pode ser de um morador do condomínio e ajude a devolver ao lar! 😊 A precisão da correspondência depende da qualidade da foto enviada e dos registros no sistema.
                                    </p>
 
-                                   <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
+                                   <form id="formProcurar" enctype="multipart/form-data">
                                         <div class="d-flex gap-2 align-items-center">
                                             <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
 
@@ -166,12 +185,30 @@
                                             </select>
                                         </div>
                                         <div class="mt-3">
-                                            <button type="submit" class="btn btn-primary">Procurar</button>
+                                        <button type="submit" class="btn btn-primary">Procurar</button>
                                         </div>
                                     </form>
                                </div>
 
-
+                               <script>
+                                    document.getElementById("formProcurar").addEventListener("submit", function(event) {
+                                        event.preventDefault();
+                                    
+                                        var formData = new FormData(this);
+                                    
+                                        fetch("pet_img_proc.php", {
+                                            method: "POST",
+                                            body: formData
+                                        })
+                                        .then(response => response.text()) 
+                                        .then(data => {
+                                            document.getElementById("resultadoPesquisa").innerHTML = data;
+                                            var myModal = new bootstrap.Modal(document.getElementById("modalAnimais"));
+                                            myModal.show();
+                                        })
+                                        .catch(error => console.error("Erro na requisição:", error));
+                                    });
+                                </script>
 
 
                                <div class="card">
