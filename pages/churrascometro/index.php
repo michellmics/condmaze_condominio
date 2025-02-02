@@ -203,6 +203,7 @@
                 <input type="text" class="form-control valortotal" name="valortotal[]" readonly>
             </div>
         </div>
+        <br>
     `;
     formularioItens.appendChild(novaLinha);
 }
