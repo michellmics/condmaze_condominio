@@ -173,7 +173,37 @@
                                                 </div>
                                             </div>
 
+<!-- Botão para adicionar nova linha -->
+<button type="button" class="btn btn-primary" id="adicionar-item" onclick="adicionarItem()">Adicionar Item</button>
 
+<script>
+    // Função para adicionar uma nova linha de formulário
+    function adicionarItem() {
+        var formularioItens = document.getElementById('formulario-itens');
+        var novaLinha = formularioItens.querySelector('.linha-item').cloneNode(true);
+        
+        // Limpar os campos da nova linha para que fiquem vazios
+        var inputs = novaLinha.querySelectorAll('input');
+        inputs.forEach(function(input) {
+            input.value = '';
+        });
+
+        // Adicionar a nova linha abaixo da última
+        formularioItens.appendChild(novaLinha);
+    }
+
+    // Função de cálculo para os valores totais (se necessário)
+    function calcularValorTotal(element) {
+        var row = element.closest('.linha-item');
+        var quantidade = row.querySelector('.quantidade').value;
+        var valorUnitario = row.querySelector('.valorunitario').value;
+        var valorTotal = row.querySelector('.valortotal');
+
+        if (quantidade && valorUnitario) {
+            valorTotal.value = (quantidade * valorUnitario).toFixed(2);
+        }
+    }
+</script>
 
 
                                         
