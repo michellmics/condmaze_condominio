@@ -4,33 +4,8 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
 function getImageHashGD($imageResource) {
-    // Verifica a extensão da imagem
-    $extensao = image_type_to_extension(exif_imagetype($imageResource), false);
-
-    // Carrega a imagem conforme a extensão
-    switch (strtolower($extensao)) {
-        case 'jpeg':
-        case 'jpg':
-            $img = imagecreatefromjpeg($imageResource);
-            break;
-        case 'png':
-            $img = imagecreatefrompng($imageResource);
-            break;
-        case 'gif':
-            $img = imagecreatefromgif($imageResource);
-            break;
-        default:
-            echo "Formato de imagem não suportado.\n";
-            return null;
-    }
-
-    if (!$img) {
-        echo "Erro ao carregar a imagem.\n";
-        return null;
-    }
-
-    // Redimensiona e aplica a conversão para escala de cinza
-    $img = imagescale($img, 64, 64);
+    // Redimensiona a imagem para 64x64 e converte para escala de cinza
+    $img = imagescale($imageResource, 64, 64);
     imagefilter($img, IMG_FILTER_GRAYSCALE);
 
     $pixels = [];
@@ -55,6 +30,7 @@ function getImageHashGD($imageResource) {
     imagedestroy($img);
     return $hash;
 }
+
 
 
 function hammingDistance($hash1, $hash2) {
