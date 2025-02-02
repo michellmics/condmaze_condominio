@@ -161,11 +161,11 @@
                                                         <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
                                                     </div>
                                                     <div class="row" class="linha-item">
-                                                    <div class="col-4 mb-3">
+                                                    <div class="col-6 mb-3">
                                                         <label for="valorunitario" class="form-label">Valor Unitário</label>
                                                         <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
                                                     </div>
-                                                    <div class="col-4 mb-3">
+                                                    <div class="col-6 mb-3">
                                                         <label for="valortotal" class="form-label">Valor Total</label>
                                                         <input type="number" class="form-control valortotal" name="valortotal[]" step="0.01" min="0" readonly>
                                                     </div>
