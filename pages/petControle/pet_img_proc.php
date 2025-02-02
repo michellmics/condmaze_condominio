@@ -90,7 +90,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
             'tutor' => "TUTOR",  // Ajuste conforme necessário
             'raca' => $imgInfo['PEM_DCRACA'],
             'img' => $imgInfo['PET_DCPATHFOTO']
-        ];  
+        ];   
     }
 }
 
