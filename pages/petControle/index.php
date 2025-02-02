@@ -286,7 +286,7 @@ function mostrarImagem(src) {
                                                                 <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
                                                                    style="cursor: pointer; font-size: 20px; vertical-align: middle;" 
-                                                                   onclick="confirmDelete(event, 
+                                                                   onclick="confirmDelete(event,  
                                                                        '<?php echo htmlspecialchars($item['PEM_IDPETMORADOR'], ENT_QUOTES, 'UTF-8'); ?>')">
                                                                 </i>
                                                             </td>
