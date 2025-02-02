@@ -14,7 +14,7 @@ class deletePetMorador extends SITE_ADMIN
                 }
                
                 $result = $this->deletePetInfo($id);
-                echo "Pet excluído com sucesso. id: $id";          
+                echo "Pet excluído com sucesso.";          
                 
         } catch (PDOException $e) {  
             echo "Erro ao excluir o Pet."; 
