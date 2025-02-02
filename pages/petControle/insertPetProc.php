@@ -33,30 +33,32 @@ class registerPet extends SITE_ADMIN
         } 
     }
 
-    function getImageHashGD($imagePath) {
-        $img = imagecreatefromjpeg($imagePath);
-        $img = imagescale($img, 8, 8); // Redimensiona para 8x8
-        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
+    function getPerceptualHash($imageResource) {
+        $img = imagescale($imageResource, 32, 32); // Aumentar resolução melhora precisão
+        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para escala de cinza
     
         $pixels = [];
-        for ($y = 0; $y < 8; $y++) {
-            for ($x = 0; $x < 8; $x++) {
+        for ($y = 0; $y < 32; $y++) {
+            for ($x = 0; $x < 32; $x++) {
                 $rgb = imagecolorat($img, $x, $y);
-                $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
+                $gray = ($rgb >> 16) & 0xFF;
                 $pixels[] = $gray;
             }
         }
     
-        $avg = array_sum($pixels) / count($pixels);
+        // Ordena os pixels e pega a mediana
+        sort($pixels);
+        $median = $pixels[count($pixels) / 2];
+    
+        // Gera um hash baseado na mediana
         $hash = '';
         foreach ($pixels as $pixel) {
-            $hash .= ($pixel >= $avg) ? '1' : '0';
+            $hash .= ($pixel >= $median) ? '1' : '0';
         }
     
         imagedestroy($img);
         return $hash;
     }
-}
 
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
