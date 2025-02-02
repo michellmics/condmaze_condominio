@@ -33,9 +33,7 @@ function hammingDistance($hash1, $hash2) {
 
 
 // Processa a requisição POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
     
     // Recebe os dados do formulário e os converte para maiúsculas
     $foto = $_FILES['arquivo'];
