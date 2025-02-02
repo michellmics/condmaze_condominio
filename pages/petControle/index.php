@@ -78,7 +78,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="insertPetProc.php" method="POST" enctype="multipart/form-data">
+                            <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
 
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
@@ -114,7 +114,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>
                                 </div>
                             </form>
                         </div>
@@ -251,6 +251,139 @@
         <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
+
+  <!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        function validarFormulario() {
+            const nome = document.querySelector('input[name="nome"]').value.trim();
+            const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
+            const raca = document.querySelector('input[name="raca"]').value.trim();
+            const tipo = document.querySelector('input[name="tipo"]').value.trim();
+            const foto = document.querySelector('input[name="foto"]').value.trim();
+
+
+              if (!nome || !apartamento || !raca || !tipo || !foto) {
+                  alert("Todos os campos devem ser preenchidos.");
+                  return false;
+              }
+        }
+
+
+       function confirmAndSubmit(event) {       
+        const isValid = validarFormulario();
+
+        if (!isValid) {
+            return;
+        }
+
+        event.preventDefault(); // Impede o envio padrão do formulário
+        Swal.fire({
+          title: 'Formulário de Pets',
+          text: "Têm certeza que deseja cadastrar o Pet?",
+          showDenyButton: true,
+          confirmButtonText: 'CONFIRMAR',
+          denyButtonText: `CANCELAR`,
+          confirmButtonColor: "#536de6",
+          denyButtonColor: "#ff5b5b",
+          width: '400px', // Largura do alerta
+          icon: 'warning',
+          customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Capturar os dados do formulário
+            var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
+            // Fazer a requisição AJAX
+            $.ajax({
+              url: "insertPetProc.php", // URL para processamento
+              type: "POST",
+              data: formData,
+              processData: false, // Impede o jQuery de processar os dados
+              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
+              success: function (response) {
+                Swal.fire({
+              title: 'Atenção',
+              text: `${response}`,
+              icon: 'success',
+              width: '400px', // Largura do alerta
+              confirmButtonColor: "#536de6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            }).then(() => {
+                  // Redirecionar ou atualizar a página, se necessário
+                   window.location.href = "index.php";
+                });
+              },
+              error: function (xhr, status, error) {
+                Swal.fire({
+              title: 'Erro!',
+              text: 'Erro ao atualizar o convidado.'.error,
+              icon: 'error',
+              width: '400px', // Largura do alerta
+              confirmButtonColor: "#536de6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            });
+              },
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+          }
+        });
+      }
+      // Associar a função ao botão de submit
+      $(document).ready(function () {
+        $("#botao").on("click", confirmAndSubmit);
+      });
+</script> 
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 25px !important; /* Tamanho maior para o título */
+  }
+
+  .swal-text {
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 16px !important; /* Tamanho maior para os textos dos botões */
+    padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
+
+
+
+
+
+
+
+
+
+
+
+
    <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
 
