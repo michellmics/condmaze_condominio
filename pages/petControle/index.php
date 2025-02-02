@@ -123,12 +123,14 @@
 
                                <div class="card">
                                 <div class="card-body">
+                                <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
                                     <h4 class="header-title">Meus Pets </h4>
                                     <p class="text-muted font-14">
                                     </p>
                                     <div class="tab-content">
-                                        <div class="col-sm-5 d-flex justify-content-end">  
-                                        <a href="insertListaConvidados.php" class="btn btn-danger mb-2 btn btn-danger ms-auto"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
+
+                                        <div class="col-sm-5">  
+                                        
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
