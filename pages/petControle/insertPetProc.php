@@ -13,7 +13,8 @@ class registerPet extends SITE_ADMIN
             die("Erro ao carregar a imagem.");
         }
     
-        $img = imagescale($img, 8, 8);  // Redimensiona para 8x8 pixels
+        // Redimensiona para 8x8 pixels para reduzir a complexidade
+        $img = imagescale($img, 8, 8);  
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
     
         $pixels = [];
@@ -21,24 +22,34 @@ class registerPet extends SITE_ADMIN
             for ($x = 0; $x < 8; $x++) {
                 $rgb = imagecolorat($img, $x, $y);
                 $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
-                $pixels[] = $gray;
+                $pixels[$y][$x] = $gray;
             }
         }
     
         // Debug: Exibe todos os valores dos pixels
+        echo "<pre>";
         var_dump($pixels);
+        echo "</pre>";
     
-        // Calcula a mediana dos pixels
-        sort($pixels);
-        $median = $pixels[count($pixels) / 2];
+        // Calcula a média de todos os pixels
+        $totalPixelValue = 0;
+        $numPixels = 0;
+        foreach ($pixels as $row) {
+            foreach ($row as $pixel) {
+                $totalPixelValue += $pixel;
+                $numPixels++;
+            }
+        }
     
-        // Debug: Verifica a mediana
-        echo "Mediana: " . $median . "<br>";
+        // Calcula a média dos pixels
+        $averagePixelValue = $totalPixelValue / $numPixels;
     
-        // Gera um hash baseado na mediana
+        // Gera um hash binário baseado na comparação dos pixels com a média
         $hash = '';
-        foreach ($pixels as $pixel) {
-            $hash .= ($pixel >= $median) ? '1' : '0';
+        foreach ($pixels as $row) {
+            foreach ($row as $pixel) {
+                $hash .= ($pixel >= $averagePixelValue) ? '1' : '0';
+            }
         }
     
         // Debug: Exibe o hash gerado
@@ -47,6 +58,7 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
+    
     
     
 
