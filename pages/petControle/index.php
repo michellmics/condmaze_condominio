@@ -83,7 +83,7 @@
 
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
-                                <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
+                                <input type="text" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <!-- Nome -->
                                 <div class="mb-3">
@@ -98,7 +98,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cor" class="form-label">COR2</label>
+                                    <label for="cor" class="form-label">COR</label>
                                     <select class="form-control" id="cor" name="cor" required>
                                         <option value="" disabled selected>COR</option>
                                         <option value="PRETO">PRETO</option>
