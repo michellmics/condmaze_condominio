@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         echo "</tbody></table>";
     } else {
-        echo "Nenhuma imagem semelhante encontrada.";
+        echo "Nenhuma pet encontrado.";
     }
 }
 ?>
