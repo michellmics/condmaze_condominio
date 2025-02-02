@@ -66,7 +66,7 @@
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>        
 		<!-- End Menu Nav -->
-         
+
         <?php $siteAdmin->getPetsInfo($userid); ?>
 
         <div class="content-page">
@@ -92,6 +92,7 @@
 
                     <div class="d-flex justify-content-center mt-4">
                        <div class="col-md-6">
+                       <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
                            <div class="card shadow-lg rounded-lg">
                                <div class="card-body text-center">
                                    <h4 class="header-title">Pets</h4>
