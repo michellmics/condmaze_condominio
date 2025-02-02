@@ -35,17 +35,6 @@ class registerPet extends SITE_ADMIN
         return $hash;
     }
 
-    // Método para comparar dois hashes perceptuais
-    function compareHashes($hash1, $hash2) {
-        $distance = 0;
-        for ($i = 0; $i < strlen($hash1); $i++) {
-            if ($hash1[$i] != $hash2[$i]) {
-                $distance++;
-            }
-        }
-        return $distance;
-    }
-
     public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
     {
         try {
