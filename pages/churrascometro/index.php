@@ -184,6 +184,7 @@
 <script>
     // Função para adicionar uma nova linha de formulário
     function adicionarItem() {
+    let index = 1;  // Variável para controlar os índices dos novos checkboxes
     const formularioItens = document.getElementById('formulario-itens');
     const novaLinha = document.createElement('div');
     novaLinha.classList.add('row', 'linha-item');
@@ -195,11 +196,11 @@
             <label for="descricao" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
             <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
         </div>
-<div class="col-3" style="padding-bottom: 5px;">
-    <label class="form-label" for="carneCheckbox">Carne?</label><br>
-    <input type="checkbox" name="status[]" carneCheckbox data-switch="bool"/>
-    <label for="carneCheckbox" data-on-label="SIM" data-off-label="NÃO"></label>
-</div>
+           <div class="col-3" style="padding-bottom: 5px;">
+                <label class="form-label" for="carneCheckbox${index}">Carne?</label><br>
+                <input type="checkbox" id="carneCheckbox${index}" name="carneCheckbox[]" data-switch="bool"/>
+                <label for="carneCheckbox${index}" data-on-label="SIM" data-off-label="NÃO"></label>
+            </div>
         <div class="row linha-item">
             <div class="col-4" style="padding-bottom: 5px;">
                 <label for="quantidade" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Quantidade</label>
