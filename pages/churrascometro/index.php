@@ -173,11 +173,13 @@
                                                         </div>
                                                 </div>
 
-                                                <div class="col-4 mb-3">
-                                                    <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
-                                                </div>
+
 
                                             </div>
+
+                                            <div class="col-4 mb-3">
+                                                    <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
+                                                </div>
 
 
                                         
