@@ -171,11 +171,12 @@
                                                                 <input type="number" class="form-control valortotal" name="valortotal[]" step="0.01" min="0" readonly>
                                                             </div>
                                                         </div>
-
-                                                    <div class="col-4 mb-3">
-                                                        <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
-                                                    </div>
                                                 </div>
+
+                                                <div class="col-4 mb-3">
+                                                    <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
+                                                </div>
+
                                             </div>
 
 
