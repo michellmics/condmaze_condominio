@@ -78,7 +78,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
+                            <form action="insertPetProc.php" method="POST" enctype="multipart/form-data">
 
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
