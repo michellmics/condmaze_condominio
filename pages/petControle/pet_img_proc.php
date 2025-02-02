@@ -3,15 +3,40 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
-function getPerceptualHash($imageResource) {
-    $img = imagescale($imageResource, 32, 32); // Aumentar resolução melhora precisão
+function getPerceptualHash($imagePath) {
+    // Tenta carregar a imagem de acordo com a extensão
+    $extensao = pathinfo($imagePath, PATHINFO_EXTENSION);
+    
+    switch (strtolower($extensao)) {
+        case 'jpeg':
+        case 'jpg':
+            $img = imagecreatefromjpeg($imagePath);
+            break;
+        case 'png':
+            $img = imagecreatefrompng($imagePath);
+            break;
+        case 'gif':
+            $img = imagecreatefromgif($imagePath);
+            break;
+        default:
+            echo "Formato de imagem não suportado.\n";
+            return null;
+    }
+
+    if (!$img) {
+        echo "Erro ao carregar a imagem.\n";
+        return null;
+    }
+
+    // Redimensiona a imagem para 32x32 para capturar detalhes suficientes
+    $img = imagescale($img, 32, 32);
     imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para escala de cinza
 
     $pixels = [];
     for ($y = 0; $y < 32; $y++) {
         for ($x = 0; $x < 32; $x++) {
             $rgb = imagecolorat($img, $x, $y);
-            $gray = ($rgb >> 16) & 0xFF;
+            $gray = ($rgb >> 16) & 0xFF; // Extrai o valor de cinza
             $pixels[] = $gray;
         }
     }
@@ -20,7 +45,7 @@ function getPerceptualHash($imageResource) {
     sort($pixels);
     $median = $pixels[count($pixels) / 2];
 
-    // Gera um hash baseado na mediana
+    // Gera o hash com base na comparação dos pixels com a mediana
     $hash = '';
     foreach ($pixels as $pixel) {
         $hash .= ($pixel >= $median) ? '1' : '0';
@@ -29,6 +54,7 @@ function getPerceptualHash($imageResource) {
     imagedestroy($img);
     return $hash;
 }
+
 
 
 function hammingDistance($hash1, $hash2) {
