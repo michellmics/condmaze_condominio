@@ -9,6 +9,8 @@ class registerPet extends SITE_ADMIN
     function getImageHashPerceptual($imagePath) {
         // Carrega a imagem
         $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem JPEG
+
+        var_dump($img);
         $img = imagescale($img, 8, 8);  // Redimensiona para 8x8 pixels
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
         
