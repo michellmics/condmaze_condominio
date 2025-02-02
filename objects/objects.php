@@ -579,7 +579,7 @@
             }
         }
 
-        public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO, $PEM_DCHASHBIN)
+        public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
