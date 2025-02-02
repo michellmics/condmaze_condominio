@@ -179,9 +179,10 @@
                                                 </div>
                                             </div>
                                         </div>
-</form>
 <!-- Botão para adicionar nova linha -->
 <button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
+                                    </form>
+
 
 <script>
     let index = 1;  // Variável para controlar os índices dos novos checkboxes
