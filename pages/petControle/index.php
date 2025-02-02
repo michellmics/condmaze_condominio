@@ -105,7 +105,6 @@
                                         <option value="BRANCO">BRANCO</option>
                                         <option value="CARAMELO">CARAMELO</option>
                                         <option value="CINZA">CINZA</option>
-                                        <option value="">TODOS</option> 
                                     </select>
                                 </div>
 
