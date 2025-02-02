@@ -104,7 +104,7 @@ if (!empty($imagensSemelhantes)) {
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>
         <a class='pe-3' href='#'>
-            <img src='" . htmlspecialchars($item['PET_DCPATHFOTO']) . "' class='avatar-sm rounded-circle' alt='Generic placeholder image'>
+            <img src='" . htmlspecialchars($imagem['PET_DCPATHFOTO']) . "' class='avatar-sm rounded-circle' alt='Generic placeholder image'>
         </a>
       </td>";
         echo "</tr>";
