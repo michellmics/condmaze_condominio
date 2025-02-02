@@ -89,7 +89,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Lista de Moradores</h4>
+                                <h4 class="page-title">AUDITORIA DE AÇÕES</h4>
                             </div>
                         </div>
                     </div>
