@@ -96,12 +96,12 @@ if (!empty($imagensSemelhantes)) {
     foreach ($imagensSemelhantes as $imagem) {
 
         // Exibindo nome dentro de um <td> corretamente
-        echo "<table><tr><th>NOME</th><th>RAÇA</th><th>TUTOR</th><th>APTO</th>";
+        echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'><thead><tr><th>NOME</th><th>RAÇA</th><th>TUTOR</th><th>APTO</th></tr><thead>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['raca'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['tutor'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
-        echo "</tr></table>";
+        echo "</table>";
     }
 } else {
     echo "Nenhuma imagem semelhante encontrada.";
