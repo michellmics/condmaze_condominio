@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 }
-
+ 
 // Exemplo de comparação
 $hash1 = getImageHashGD($imagem);
 
