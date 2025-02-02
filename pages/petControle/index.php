@@ -91,7 +91,7 @@
                     </div>
                     <!-- end page title -->
 
-                    <div class="d-flex justify-content-center mt-5">
+                    <div class="d-flex justify-content-center mt-4">
                        <div class="col-md-6">
                            <div class="card shadow-lg rounded-lg">
                                <div class="card-body text-center">
