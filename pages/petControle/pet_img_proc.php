@@ -84,23 +84,25 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
         // Se a imagem for similar, adiciona as informações no array
         $imagensSemelhantes[] = [
             'nome' => $imgInfo['PEM_DCNOME'],
-            'apartamento' => "APARTAMENTO",
+            'apartamento' => "194",
             'tutor' => "TUTOR",
-            'raca' => $imgInfo['PEM_DCRACA']
+            'raca' => $imgInfo['PEM_DCRACA'],
+            'img' => $imgInfo['PET_DCPATHFOTO']
+
         ];
     }
 }
 
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
-    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'><thead><tr><th>NOME</th><th>RAÇA</th><th>TUTOR</th><th>APTO</th></tr><thead><tbody>";
+    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'><thead><tr><th>NOME</th><th>RAÇA</th><th>APTO</th><th></th></tr><thead><tbody>";
     foreach ($imagensSemelhantes as $imagem) {
         // Exibindo nome dentro de um <td> corretamente 
         echo "<tr>";      
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['raca'])) . "</td>";
-        echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['tutor'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
+        echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['img'])) . "</td>";
         echo "</tr>";
     }
 } else {
