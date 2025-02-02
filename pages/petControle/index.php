@@ -98,14 +98,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cor" class="form-label">COR</label>
+                                    <label for="cor" class="form-label">COR2</label>
                                     <select class="form-control" id="cor" name="cor" required>
                                         <option value="" disabled selected>COR</option>
                                         <option value="PRETO">PRETO</option>
                                         <option value="BRANCO">BRANCO</option>
                                         <option value="CARAMELO">CARAMELO</option>
                                         <option value="CINZA">CINZA</option>
-                                        <option value="">TODOS</option>
+                                        <option value="">TODOS</option> 
                                     </select>
                                 </div>
 
