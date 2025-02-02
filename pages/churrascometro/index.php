@@ -107,36 +107,8 @@
                                         <div class="col-sm-5">
                                             
                                         </div>
-                                        <br>
-                                        <div class="tab-pane show active" id="basic-datatable-preview">
-                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>USUÁRIO</th>
-                                                        <th>APTO</th>
-                                                        <th>TIPO</th>
-                                                        <th>COD</th>
-                                                        <th>MSG</th>
-                                                        <th>DATA</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
-                                                        <tr>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_IDLOG']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCMSG']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
 
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- end preview-->
+  conteúdo aqui
 
 
                                     </div> <!-- end tab-content-->
