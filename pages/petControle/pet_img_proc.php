@@ -80,7 +80,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $distance = hammingDistance($hash1, $hash);
 
     // Ajuste o limiar conforme necessário
-    if ($distance < 9) {
+    if ($distance < 10) {
         // Se a imagem for similar, adiciona as informações no array
         $imagensSemelhantes[] = [
             'nome' => $imgInfo['PEM_DCNOME'],
