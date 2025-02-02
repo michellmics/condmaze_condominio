@@ -42,8 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getHashImgInfo($tipo);  
-    var_dump($siteAdmin->ARRAY_HASHIMGINFO);
-    exit;
 
     // Verifica se o arquivo enviado é uma imagem
     $tipos_aceitos = ['jpeg', 'jpg', 'png', 'gif'];
