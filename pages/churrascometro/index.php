@@ -197,7 +197,7 @@
         </div>
         <div class="col-3" style="padding-bottom: 5px;">
             <label class="form-label" for="validationTooltip01">Carne?</label><br>
-            <input type="checkbox" id="status" name="status" data-switch="bool"/>
+            <input type="checkbox" status name="status[]" data-switch="bool"/>
             <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
         </div>
         <div class="row linha-item">
