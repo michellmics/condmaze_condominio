@@ -142,7 +142,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-9 mb-3">
+                                            <div class="col-8 mb-3">
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
                                                 <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
