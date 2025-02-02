@@ -14,6 +14,8 @@ function calculateColorHistogram($imagePath) {
     $extensao = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
     switch ($extensao) {
         case 'jpeg':
+            $image = imagecreatefromjpeg($imagePath);
+            break;
         case 'jpg':
             $image = imagecreatefromjpeg($imagePath);
             break;
