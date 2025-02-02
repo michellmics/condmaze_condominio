@@ -88,13 +88,13 @@
                                 <!-- Nome -->
                                 <div class="mb-3">
                                     <label for="nome" class="form-label">NOME DO PET</label>
-                                    <input type="text" class="form-control" id="nome" maxlength="15" name="nome" style="text-transform: uppercase;" required>
+                                    <input type="text" class="form-control" id="nome" maxlength="25" name="nome" style="text-transform: uppercase;" required>
                                 </div>
 
                                 <!-- Raça -->
                                 <div class="mb-3">
                                     <label for="raca" class="form-label">RAÇA</label>
-                                    <input type="text" class="form-control" id="raca" name="raca" maxlength="15" style="text-transform: uppercase;" required>
+                                    <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required>
                                 </div>
 
                                 <!-- Tipo -->
