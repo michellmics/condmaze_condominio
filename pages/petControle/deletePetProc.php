@@ -17,7 +17,7 @@ class deletePetMorador extends SITE_ADMIN
                 echo "Pet excluído com sucesso.";          
                 
         } catch (PDOException $e) {  
-            echo "Erro ao excluir o Pet."; 
+            echo "Erro ao excluir o Pet.";  
         } 
     }
 }
