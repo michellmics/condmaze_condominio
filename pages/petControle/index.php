@@ -26,7 +26,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
 
@@ -266,7 +267,7 @@ function mostrarImagem(src) {
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
                                                         <tr> 
-                                                            <td> <i class="mdi mdi-cat"></i> </td>                                                
+                                                            <td> <i class="bi bi-cat" style="color: orange; font-size: 24px;"></i> </td>                                                
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>                                                        
                                                             <td style="cursor: pointer; vertical-align: middle;">
