@@ -96,7 +96,7 @@
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col-lg-9">
+                        <div class="col-lg-7">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Organização de Evento </h4>
