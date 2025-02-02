@@ -87,7 +87,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     echo "Distância entre " . $hash1 . " e " . $hash . " = " . $distance . "<br>"; 
 
     // Ajuste o limiar conforme necessário
-    if ($distance < 20) { 
+    if ($distance < 35) { 
         // Se a imagem for similar, adiciona as informações no array
         $imagensSemelhantes[] = [
             'nome' => $imgInfo['PEM_DCNOME'],
