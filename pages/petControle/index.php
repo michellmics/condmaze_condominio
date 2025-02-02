@@ -174,20 +174,20 @@
                                    </p>
 
                                    <form id="formProcurar" enctype="multipart/form-data">
-                                        <div class="d-flex gap-2 align-items-center">
-                                            <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
+    <div class="d-flex gap-2 align-items-center">
+        <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
 
-                                            <select class="form-control" id="tipo" name="tipo" required style="width: 130px;">
-                                                <option value="" disabled selected>TIPO</option>
-                                                <option value="CACHORRO">CÃO</option>
-                                                <option value="GATO">GATO</option>
-                                                <option value="PASSARO">PÁSSARO</option>
-                                            </select>
-                                        </div>
-                                        <div class="mt-3">
-                                        <button type="submit" class="btn btn-primary">Procurar</button>
-                                        </div>
-                                    </form>
+        <select class="form-control" id="tipo" name="tipo" required style="width: 130px;">
+            <option value="" disabled selected>TIPO</option>
+            <option value="CACHORRO">CÃO</option>
+            <option value="GATO">GATO</option>
+            <option value="PASSARO">PÁSSARO</option>
+        </select>
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Procurar</button>
+    </div>
+</form>
                                </div>
 
                                <script>
