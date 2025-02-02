@@ -114,7 +114,7 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>USUÁRIO</th>
-                                                        <th>AP</th>
+                                                        <th>APTO</th>
                                                         <th>TIPO</th>
                                                         <th>COD</th>
                                                         <th>MSG</th>
