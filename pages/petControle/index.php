@@ -97,6 +97,17 @@
                                     <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required>
                                 </div>
 
+                                <div class="mb-3">
+                                    <select class="form-control" id="cor" name="cor" required style="width: 120px;">
+                                        <option value="" disabled selected>COR</option>
+                                        <option value="PRETO">PRETO</option>
+                                        <option value="BRANCO">BRANCO</option>
+                                        <option value="CARAMELO">CARAMELO</option>
+                                        <option value="CINZA">CINZA</option>
+                                        <option value="">TODOS</option>
+                                    </select>
+                                    </div>
+
                                 <!-- Tipo -->
                                 <div class="mb-3">
                                     <label for="tipo" class="form-label">TIPO</label>
