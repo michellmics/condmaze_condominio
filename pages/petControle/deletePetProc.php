@@ -3,9 +3,9 @@
     error_reporting(E_ALL);        // Reporta todos os erros
 	include_once "../../objects/objects.php";
 
-class deleteAvaliacao extends SITE_ADMIN
+class deletePetMorador extends SITE_ADMIN
 {
-    public function deleteAvaliacao($id)
+    public function deletePetbd($id)
     {
         try {
                 // Cria conexão com o banco de dados
@@ -13,11 +13,11 @@ class deleteAvaliacao extends SITE_ADMIN
                     $this->conexao();
                 }
                
-                $result = $this->deleteAvaliacaoPrestadorInfo($id);
-                echo "Avaliação excluída com sucesso.";          
+                $result = $this->deletePetInfo($id);
+                echo "Pet excluído com sucesso. id: $id";          
                 
         } catch (PDOException $e) {  
-            echo "Erro ao excluir a avaliação."; 
+            echo "Erro ao excluir o Pet."; 
         } 
     }
 }
@@ -26,7 +26,7 @@ class deleteAvaliacao extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
 
-     $deleteAvaliacao = new deleteAvaliacao();
-     $deleteAvaliacao->deleteAvaliacao($id);
+     $deletePet = new deletePetMorador();
+     $deletePet->deletePetbd($id);
  }
  ?>
