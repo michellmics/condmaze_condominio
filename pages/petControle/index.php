@@ -68,7 +68,7 @@
 		<?php include '../../src/menu_nav.php'; ?>        
 		<!-- End Menu Nav -->
 
-        <?php $siteAdmin->getPetsInfo($userid); ?>
+        <?php $siteAdmin->getPetsInfoById($userid); ?>
 
             <!-- Modal -->
             <div class="modal fade" id="petModal" tabindex="-1" aria-labelledby="petModalLabel" aria-hidden="true">
@@ -276,6 +276,7 @@ function mostrarImagem(src) {
                                                     </tr>
                                                 </thead> 
                                                 <tbody>
+                                                <?php $siteAdmin->getPetsInfoById($userid); ?>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
                                                         <tr> 
                                                             <?php
