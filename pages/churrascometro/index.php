@@ -157,7 +157,7 @@
             <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
         </div>
         <div class="col-3" style="padding-bottom: 5px;">
-            <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
+            <label class="form-label" for="validationTooltip01">Carne?</label>
             <input type="checkbox" id="status" name="status" data-switch="bool"/>
             <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
         </div>
@@ -191,12 +191,12 @@
     
     novaLinha.innerHTML = `
         <div style="background-color:rgb(255, 255, 255);">&nbsp;</div>
-        <div class="col-12" style="padding-bottom: 5px;">
+        <div class="col-9" style="padding-bottom: 5px;">
             <label for="descricao" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
             <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
         </div>
         <div class="col-3" style="padding-bottom: 5px;">
-            <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
+            <label class="form-label" for="validationTooltip01">Carne?</label>
             <input type="checkbox" id="status" name="status" data-switch="bool"/>
             <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
         </div>
