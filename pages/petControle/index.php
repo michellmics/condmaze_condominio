@@ -198,13 +198,13 @@ function mostrarImagem(src) {
                                         <label for="raca" class="form-label">RAÇA</label>
                                         <input type="text" class="form-control" id="raca" name="raca" required>
 
-                                            <select class="form-control" id="tipo" name="tipo" required style="width: 130px;">
+                                            <select class="form-control" id="tipo" name="tipo" required style="width: 120px;">
                                                 <option value="" disabled selected>TIPO</option>
                                                 <option value="CAO">CÃO</option>
                                                 <option value="GATO">GATO</option>
                                                 <option value="PASSARO">PÁSSARO</option>
                                             </select>
-                                            <select class="form-control" id="cor" name="cor" required style="width: 130px;">
+                                            <select class="form-control" id="cor" name="cor" required style="width: 150px;">
                                                 <option value="" disabled selected>COR</option>
                                                 <option value="PRETO">PRETO</option>
                                                 <option value="BRANCO">BRANCO</option>
