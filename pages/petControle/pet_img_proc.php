@@ -81,8 +81,6 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
     $distance = hammingDistance($hash1, $hash);  // Calcula a distância de Hamming
 
-    echo "Distância entre " . $hash1 . " e " . $hash . " = " . $distance . "<br>"; 
-
     // Ajuste o limiar conforme necessário
     if ($distance < 35) {  // Se a distância for menor que 35, considera como semelhante
         // Se a imagem for similar, adiciona as informações no array
@@ -92,7 +90,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
             'tutor' => "TUTOR",  // Ajuste conforme necessário
             'raca' => $imgInfo['PEM_DCRACA'],
             'img' => $imgInfo['PET_DCPATHFOTO']
-        ];
+        ];  
     }
 }
 
