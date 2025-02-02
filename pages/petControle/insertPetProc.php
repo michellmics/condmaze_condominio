@@ -4,7 +4,7 @@ include_once "../../objects/objects.php";
 
 class registerPet extends SITE_ADMIN
 {
-    public function insertPet($nome, $raca, $tipo, $apartamento, $imageHash)
+    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
     {
         try {
             // Cria conexão com o banco de dados
@@ -12,7 +12,7 @@ class registerPet extends SITE_ADMIN
                 $this->conexao();
             }
 
-                $codigo = $this->insertPetInfo($this->ARRAY_LISTAMORADORESINFO["USU_IDUSUARIO"], $observacao);
+                $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path, $imageHash);
                 
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "PET";
@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Recebe os dados do formulário e os converte para maiúsculas
     $nome = strtoupper($_POST['nome']);
+    $idMorador = strtoupper($_POST['idmorador']);
     $raca = strtoupper($_POST['raca']);
     $apartamento = $_POST['apartamento'];
     $tipo = $_POST['tipo'];
@@ -137,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Se o upload e redimensionamento forem bem-sucedidos, insere as informações no banco
     $petAddInfo = new registerPet();
-    $petAddInfo->insertPet($nome, $raca, $tipo, $apartamento, $imageHash); 
+    $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
     echo "Pet cadastrado com sucesso!";
 }
 ?>

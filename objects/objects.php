@@ -578,6 +578,36 @@
             }
         }
 
+        public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO, $PEM_DCHASHBIN)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "INSERT INTO LOG_LOGSISTEMA 
+                        (USU_IDUSUARIO, PEM_DCNOME, PEM_DCRACA, PEM_DCTIPO, PET_DCPATHFOTO, PEM_DCHASHBIN) 
+                        VALUES (:USU_IDUSUARIO, :PEM_DCNOME, :PEM_DCRACA, :PEM_DCTIPO, :PET_DCPATHFOTO, :PEM_DCHASHBIN)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':PEM_DCNOME', $PEM_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':PEM_DCRACA', $PEM_DCRACA, PDO::PARAM_STR);
+                $stmt->bindParam(':PEM_DCTIPO', $PEM_DCTIPO, PDO::PARAM_STR);
+                $stmt->bindParam(':PET_DCPATHFOTO', $PET_DCPATHFOTO, PDO::PARAM_STR);
+                $stmt->bindParam(':PEM_DCHASHBIN', $PEM_DCHASHBIN, PDO::PARAM_STR);
+            
+                $stmt->execute();
+           
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function gravarMensagemSugestao($REC_DCMSG)
         {       
             // Verifica se a conexão já foi estabelecida

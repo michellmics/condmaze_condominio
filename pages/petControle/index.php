@@ -79,6 +79,11 @@
                         </div>
                         <div class="modal-body">
                             <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
+
+                                <!-- CAMPOS COMO VARIAVEIS -->
+                                <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
+                                <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
+                                <!-- CAMPOS COMO VARIAVEIS -->
                                 <!-- Nome -->
                                 <div class="mb-3">
                                     <label for="nome" class="form-label">Nome do Pet</label>
@@ -177,8 +182,8 @@
                                     <div class="tab-content">
                                         <div class="col-sm-5">  
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#petModal">
-        <i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet
-    </button>
+                                            <i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet
+                                        </button>
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
