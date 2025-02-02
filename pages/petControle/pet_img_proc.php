@@ -101,7 +101,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
     $distance = hammingDistance($hash1, $hash); 
 
-    echo "Distância ". $imgInfo['PEM_DCNOME'] . " = " . $distance . "<br>"; 
+    //echo "Distância ". $imgInfo['PEM_DCNOME'] . " = " . $distance . "<br>"; 
 
     // Ajuste o limiar conforme necessário
     if ($distance < 160) { 
