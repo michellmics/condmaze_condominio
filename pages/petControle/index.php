@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);  // Habilita a exibição de erros
+error_reporting(E_ALL);        // Reporta todos os erros
+
 function getImageHashGD($imagePath) {
     $img = imagecreatefromjpeg($imagePath);
     $img = imagescale($img, 8, 8); // Redimensiona para 8x8
