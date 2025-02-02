@@ -140,7 +140,27 @@
             </div>
         </div>
 
+<!-- Modal para exibir a imagem em tamanho original -->
+<div class="modal fade" id="imagemModal" tabindex="-1" aria-labelledby="imagemModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imagemModalLabel">Imagem do Pet</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="imagemGrande" src="" class="img-fluid rounded" alt="Imagem ampliada">
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Script para atualizar a imagem no modal -->
+<script>
+function mostrarImagem(src) {
+    document.getElementById("imagemGrande").src = src;
+}
+</script>
 
         <div class="content-page">
             <div class="content">
@@ -176,7 +196,7 @@
                                    <form id="formProcurar" enctype="multipart/form-data">
                                         <div class="d-flex gap-2 align-items-center">
                                             <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
-                                    
+
                                             <select class="form-control" id="tipo" name="tipo" required style="width: 130px;">
                                                 <option value="" disabled selected>TIPO</option>
                                                 <option value="CACHORRO">CÃO</option>

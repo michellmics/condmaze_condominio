@@ -95,23 +95,33 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
 
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
-    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'><thead><tr><th>NOME</th><th>RAÇA</th><th>APTO</th><th></th></tr><thead><tbody>";
+    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'>
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>RAÇA</th>
+                    <th>APTO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>";
     foreach ($imagensSemelhantes as $imagem) {
-        // Exibindo nome dentro de um <td> corretamente 
         echo "<tr>";      
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['raca'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
         echo "<td style='cursor: pointer; vertical-align: middle;'>
-        <a class='pe-3' href='#'>
-            <img src='" . htmlspecialchars($imagem['img']) . "' class='avatar-sm rounded-circle' alt='Generic placeholder image'>
-        </a>
-      </td>";
+                <a class='pe-3' href='#' data-bs-toggle='modal' data-bs-target='#imagemModal' onclick='mostrarImagem(\"" . htmlspecialchars($imagem['img']) . "\")'>
+                    <img src='" . htmlspecialchars($imagem['img']) . "' class='avatar-sm rounded-circle' alt='Imagem do pet'>
+                </a>
+              </td>";
         echo "</tr>";
     }
+    echo "</tbody></table>";
 } else {
     echo "Nenhuma imagem semelhante encontrada.";
 }
+
 
 echo "</tbody></table>";
 
