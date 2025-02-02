@@ -267,7 +267,7 @@ function mostrarImagem(src) {
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
                                                         <tr> 
-                                                            <td> <i class="bi bi-cat" style="color: orange; font-size: 24px;"></i> </td>                                                
+                                                            <td> <i class="fa-solid fa-cat" style="color: orange; font-size: 24px;"></i> </td>                                                
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>                                                        
                                                             <td style="cursor: pointer; vertical-align: middle;">
