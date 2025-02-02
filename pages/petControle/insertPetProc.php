@@ -40,11 +40,11 @@ class registerPet extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recebe os dados do formulário e os converte para maiúsculas
     $nome = strtoupper($_POST['nome']);
-    $idMorador = $_POST['idmorador'];
+    $idMorador = isset($_POST['idmorador']);
     $raca = strtoupper($_POST['raca']);
     $apartamento = $_POST['apartamento'];
-    $tipo = $_POST['tipo'];
-    $cor = $_POST['cor'];
+    $tipo = isset($_POST['tipo']);
+    $cor = isset($_POST['cor']);
 
     if(!$nome || !$raca || !$tipo || !$cor)
     {
