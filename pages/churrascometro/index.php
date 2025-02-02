@@ -156,17 +156,16 @@
                                                         <label for="descricao" class="form-label">Descrição do Item</label>
                                                         <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
                                                     </div>
-                                                    <div class="col-3" style="padding-bottom: 5px;">
-                                                        <label for="quantidade" class="form-label">Quantidade</label>
-                                                        <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
-                                                    </div>
-
                                                         <div class="row" class="linha-item">
-                                                            <div class="col-6" style="padding-bottom: 5px;">
+                                                            <div class="col-4" style="padding-bottom: 5px;">
+                                                                <label for="quantidade" class="form-label">Quantidade</label>
+                                                                <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
+                                                            </div>
+                                                            <div class="col-4" style="padding-bottom: 5px;">
                                                                 <label for="valorunitario" class="form-label">Valor Unitário</label>
                                                                 <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
                                                             </div>
-                                                            <div class="col-6" style="padding-bottom: 5px;">
+                                                            <div class="col-4" style="padding-bottom: 5px;">
                                                                 <label for="valortotal" class="form-label">Valor Total</label>
                                                                 <input type="number" class="form-control valortotal" name="valortotal[]" step="0.01" min="0" readonly>
                                                             </div>
