@@ -94,14 +94,20 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
     foreach ($imagensSemelhantes as $imagem) {
-        echo "Nome: " . $imagem['nome'] . "<br>";
-        echo "Apartamento: " . $imagem['apartamento'] . "<br>";
-        echo "Tutor: " . $imagem['tutor'] . "<br>";
-        echo "Raça: " . $imagem['raca'] . "<br><br>";
+        echo "Nome: " . htmlspecialchars($imagem['nome']) . "<br>";
+        echo "Apartamento: " . htmlspecialchars($imagem['apartamento']) . "<br>";
+        echo "Tutor: " . htmlspecialchars($imagem['tutor']) . "<br>";
+        echo "Raça: " . htmlspecialchars($imagem['raca']) . "<br><br>";
+
+        // Exibindo nome dentro de um <td> corretamente
+        echo "<table><tr>";
+        echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
+        echo "</tr></table>";
     }
 } else {
     echo "Nenhuma imagem semelhante encontrada.";
 }
+
 
 
 
