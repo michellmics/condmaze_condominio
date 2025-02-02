@@ -4,24 +4,20 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
 function getImageHashGD($imageResource) {
-    // Redimensiona a imagem para 64x64 e converte para escala de cinza
-    $img = imagescale($imageResource, 64, 64);
-    imagefilter($img, IMG_FILTER_GRAYSCALE);
+    $img = $imageResource; // Agora, usa o recurso de imagem diretamente
+    $img = imagescale($img, 8, 8); // Redimensiona para 8x8
+    imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
 
     $pixels = [];
-    for ($y = 0; $y < 64; $y++) {
-        for ($x = 0; $x < 64; $x++) {
+    for ($y = 0; $y < 8; $y++) {
+        for ($x = 0; $x < 8; $x++) {
             $rgb = imagecolorat($img, $x, $y);
-            $gray = ($rgb >> 16) & 0xFF;  // Intensidade de cinza
+            $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
             $pixels[] = $gray;
         }
     }
 
-    // Calcula a média dos pixels
     $avg = array_sum($pixels) / count($pixels);
-    echo "Média: $avg\n";
-
-    // Gera o hash comparando com a média
     $hash = '';
     foreach ($pixels as $pixel) {
         $hash .= ($pixel >= $avg) ? '1' : '0';
@@ -30,8 +26,6 @@ function getImageHashGD($imageResource) {
     imagedestroy($img);
     return $hash;
 }
-
-
 
 function hammingDistance($hash1, $hash2) {
     return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
@@ -48,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getHashImgInfo($tipo);  
+    var_dump($siteAdmin->ARRAY_HASHIMGINFO);
+    exit;
 
     // Verifica se o arquivo enviado é uma imagem
     $tipos_aceitos = ['jpeg', 'jpg', 'png', 'gif'];
@@ -90,7 +86,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
     $distance = hammingDistance($hash1, $hash); 
 
-    echo "Distância ". $imgInfo['PEM_DCNOME'] . " = " . $distance . "<br>"; 
+    echo "Distância entre " . $hash1 . " e " . $hash . " = " . $distance . "<br>"; 
 
     // Ajuste o limiar conforme necessário
     if ($distance < 20) { 

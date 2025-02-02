@@ -34,60 +34,32 @@ class registerPet extends SITE_ADMIN
     }
 
     function getImageHashGD($imagePath) {
-        $extensao = pathinfo($imagePath, PATHINFO_EXTENSION);
+        $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem
+        $img = imagescale($img, 32, 32); // Redimensiona para 32x32
+        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
         
-        // Tenta carregar a imagem de acordo com a extensão
-        switch (strtolower($extensao)) {
-            case 'jpeg':
-            case 'jpg':
-                $img = imagecreatefromjpeg($imagePath);
-                break;
-            case 'png':
-                $img = imagecreatefrompng($imagePath);
-                break;
-            case 'gif':
-                $img = imagecreatefromgif($imagePath);
-                break;
-            default:
-                echo "Formato de imagem não suportado.\n";
-                return null;
-        }
-    
-        if (!$img) {
-            echo "Erro ao carregar a imagem.\n";
-            return null;
-        }
-    
-        // Redimensiona e aplica a conversão para escala de cinza
-        $img = imagescale($img, 64, 64);
-        imagefilter($img, IMG_FILTER_GRAYSCALE);
-    
         $pixels = [];
-        for ($y = 0; $y < 64; $y++) {
-            for ($x = 0; $x < 64; $x++) {
+        for ($y = 0; $y < 32; $y++) {
+            for ($x = 0; $x < 32; $x++) {
                 $rgb = imagecolorat($img, $x, $y);
-                $gray = ($rgb >> 16) & 0xFF;  // Intensidade de cinza
+                $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
                 $pixels[] = $gray;
             }
         }
     
-        // Calcula a média dos pixels
-        $avg = array_sum($pixels) / count($pixels);
-        echo "Média: $avg\n";
+        // Ordena os pixels e pega a mediana
+        sort($pixels);
+        $median = $pixels[count($pixels) / 2];
     
-        // Gera o hash comparando com a média
+        // Gera um hash baseado na mediana
         $hash = '';
         foreach ($pixels as $pixel) {
-            $hash .= ($pixel >= $avg) ? '1' : '0';
+            $hash .= ($pixel >= $median) ? '1' : '0';
         }
     
         imagedestroy($img);
         return $hash;
     }
-    
-    
-    
-    
     
 }
 
