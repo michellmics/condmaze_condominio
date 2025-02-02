@@ -31,7 +31,7 @@ function hammingDistance($hash1, $hash2) {
 }
 
 // Exemplo de comparação
-$hash1 = getImageHashGD('foto6.jpeg');
+$hash1 = getImageHashGD('foto1.jpg');
 $hash2 = getImageHashGD('foto1.jpg');
 
 $distance = hammingDistance($hash1, $hash2);
