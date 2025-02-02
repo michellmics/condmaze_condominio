@@ -82,6 +82,8 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
     $distance = hammingDistance($hash1, $hash); 
 
+    echo "Distância entre " . $hash1 . " e " . $hash . " = " . $distance . "<br>";
+
     // Ajuste o limiar conforme necessário
     if ($distance < 20) { 
         // Se a imagem for similar, adiciona as informações no array
@@ -96,13 +98,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     }
 }
 
-echo "Hash da imagem enviada: " . $hash1 . "<br>";
 
-foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
-    echo "Hash armazenado: " . $imgInfo['PEM_DCHASHBIN'] . "<br>";
-}
-
-exit();
 
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
