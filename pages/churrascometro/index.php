@@ -118,6 +118,14 @@
                                                 <label for="qtdemulher" class="form-label">Qtde Mulheres</label>
                                                 <input class="form-control" id="qtdemulher" type="number" name="qtdemulher">
                                             </div>
+                                            <div class="col-6 mb-3">
+                                                <label for="qtdehomem" class="form-label">Fator C. Homem</label>
+                                                <input class="form-control" id="consumohomem" type="number" name="consumohomem">
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <label for="qtdemulher" class="form-label">Fator C. Mulher</label>
+                                                <input class="form-control" id="consumomulher" type="number" name="consumomulher">
+                                            </div>
                                         </div>
 
 
