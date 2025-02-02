@@ -99,7 +99,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">AudRegistro de Ações </h4>
+                                    <h4 class="header-title">Registro de Ações </h4>
                                     <p class="text-muted font-14">
                                         Aqui são listados todas as atividades realizadas no sistema.
                                     </p>
