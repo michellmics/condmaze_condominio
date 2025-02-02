@@ -176,10 +176,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Botão para adicionar nova linha -->
+<button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
                                             <button type="submit" class="btn btn-success">Salvar</button>                                 </div>
 </form>
-<!-- Botão para adicionar nova linha -->
-<button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
+
 
 <script>
     let index = 1;  // Variável para controlar os índices dos novos checkboxes
