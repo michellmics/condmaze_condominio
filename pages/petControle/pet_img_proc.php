@@ -3,20 +3,21 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
-function getImageHashGD($imagePath) {
-    $extensao = pathinfo($imagePath, PATHINFO_EXTENSION);
-    
-    // Tenta carregar a imagem de acordo com a extensão
+function getImageHashGD($imageResource) {
+    // Verifica a extensão da imagem
+    $extensao = image_type_to_extension(exif_imagetype($imageResource), false);
+
+    // Carrega a imagem conforme a extensão
     switch (strtolower($extensao)) {
         case 'jpeg':
         case 'jpg':
-            $img = imagecreatefromjpeg($imagePath);
+            $img = imagecreatefromjpeg($imageResource);
             break;
         case 'png':
-            $img = imagecreatefrompng($imagePath);
+            $img = imagecreatefrompng($imageResource);
             break;
         case 'gif':
-            $img = imagecreatefromgif($imagePath);
+            $img = imagecreatefromgif($imageResource);
             break;
         default:
             echo "Formato de imagem não suportado.\n";
@@ -54,6 +55,7 @@ function getImageHashGD($imagePath) {
     imagedestroy($img);
     return $hash;
 }
+
 
 function hammingDistance($hash1, $hash2) {
     return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
