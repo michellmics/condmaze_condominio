@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Recebe os dados do formulário e os converte para maiúsculas
     $foto = $_FILES['foto'];
-    $tipo = $_FILES['tipo'];
+    $tipo = $_POST['tipo'];
     $extensao = pathinfo($foto['name'], PATHINFO_EXTENSION); 
 
     $siteAdmin = new SITE_ADMIN();  
