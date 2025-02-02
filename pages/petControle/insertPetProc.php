@@ -34,7 +34,7 @@ class registerPet extends SITE_ADMIN
     }
 
     function getPerceptualHash($imageResource) {
-        $img = imagescale($imageResource, 32, 32); // Aumentar resolução melhora precisão
+        $imagem = imagecreatefromjpeg($foto_path);
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para escala de cinza
     
         $pixels = [];
