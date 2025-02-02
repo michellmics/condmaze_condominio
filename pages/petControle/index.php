@@ -268,9 +268,9 @@ function mostrarImagem(src) {
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
                                                         <tr> 
                                                             <?php
-                                                                if($item['PEM_DCTIPO'] = "GATO"){$iconPet = "fa-solid fa-cat";}
-                                                                if($item['PEM_DCTIPO'] = "CAO"){$iconPet = "fa-solid fa-dog";}
-                                                                if($item['PEM_DCTIPO'] = "PASSARO"){$iconPet = "fa-solid fa-dove";}
+                                                                if($item['PEM_DCTIPO'] == "GATO"){$iconPet = "fa-solid fa-cat";}
+                                                                if($item['PEM_DCTIPO'] == "CAO"){$iconPet = "fa-solid fa-dog";}
+                                                                if($item['PEM_DCTIPO'] == "PASSARO"){$iconPet = "fa-solid fa-dove";}
                                                                 
                                                             ?>
 
