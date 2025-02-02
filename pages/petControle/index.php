@@ -282,7 +282,7 @@ function mostrarImagem(src) {
                                                                 <img src="<?= htmlspecialchars($item['PET_DCPATHFOTO']); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
                                                             </td>                                                            
-                                                            <td style="cursor: pointer;">
+                                                            <td style="cursor: pointer; vertical-align: middle;">
                                                                 <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
                                                                    style="cursor: pointer; font-size: 20px; vertical-align: middle;" 
