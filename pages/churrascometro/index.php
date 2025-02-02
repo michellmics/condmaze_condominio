@@ -107,7 +107,7 @@
                                         <div class="col-sm-5">                                            
                                         </div>
 
-                <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
+                <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" action="churras_proc.php" enctype="multipart/form-data" novalidate>
 
                                         <div class="row">
                                             <div class="col-3 mb-3">
