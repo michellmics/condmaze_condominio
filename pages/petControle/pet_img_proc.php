@@ -111,7 +111,8 @@ if (!$imagem) {
     exit;
 }
 
-$hash1 = calculateColorHistogram($imagem);  // Gerando o hash perceptual da imagem recebida
+// Corrigindo a linha que chama a função calculateColorHistogram
+$hash1 = calculateColorHistogram($foto['tmp_name']);  // Passando o caminho correto da imagem
 
 $imagensSemelhantes = [];
 
