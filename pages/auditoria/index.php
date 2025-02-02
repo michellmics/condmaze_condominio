@@ -89,7 +89,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">AUDITORIA DE AÇÕES</h4>
+                                <h4 class="page-title">Auditoria</h4>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Auditoria </h4>
+                                    <h4 class="header-title">AudRegistro de Ações </h4>
                                     <p class="text-muted font-14">
                                         Aqui são listados todas as atividades realizadas no sistema.
                                     </p>
