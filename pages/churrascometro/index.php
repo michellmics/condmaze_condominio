@@ -146,17 +146,32 @@
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
                                                 <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
-                                                    <div class="col-3 mb-3">
+                                        </div>
+                                        <div id="formulario-itens">
+    <div class="row" class="linha-item">
+        <div class="col-3 mb-3">
+            <label for="descricao" class="form-label">Descrição do Item</label>
+            <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
+        </div>
+        <div class="col-3 mb-3">
+            <label for="quantidade" class="form-label">Quantidade</label>
+            <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
+        </div>
+        <div class="col-3 mb-3">
+            <label for="valorunitario" class="form-label">Valor Unitário</label>
+            <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
+        </div>
+        <div class="col-3 mb-3">
+            <label for="valortotal" class="form-label">Valor Total</label>
+            <input type="number" class="form-control valortotal" name="valortotal[]" step="0.01" min="0" readonly>
+        </div>
+        <div class="col-3 mb-3">
             <button type="button" class="btn btn-primary adicionar-linha" onclick="adicionarLinha()">Adicionar Linha</button>
         </div>
-                                        </div>
-                                        <div class="row">
+    </div>
+</div>
 
-
-
-
-                                        </div>
-                                        <script>
+<script>
 function calcularValorTotal(element) {
     // Encontra a linha atual
     let linha = element.closest('.row');
@@ -202,6 +217,7 @@ function adicionarLinha() {
     ultimaLinha.querySelector('.col-3.mb-3').appendChild(btnAdicionar);
 }
 </script>
+
 
 
 
