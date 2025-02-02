@@ -93,14 +93,13 @@
 
                                 <!-- Raça -->
                                 <div class="mb-3">
-                                    <label for="raca" class="form-label">RAÇA</label>
+                                    <label for="raca" class="form-label">QUAL A RAÇA?</label>
                                     <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cor" class="form-label">COR</label>
+                                    <label for="cor" class="form-label">QUAL A COR?</label>
                                     <select class="form-control" id="cor" name="cor" required>
-                                        <option value="" disabled selected>COR</option>
                                         <option value="PRETO">PRETO</option>
                                         <option value="BRANCO">BRANCO</option>
                                         <option value="CARAMELO">CARAMELO</option>
@@ -110,7 +109,7 @@
 
                                 <!-- Tipo -->
                                 <div class="mb-3">
-                                    <label for="tipo" class="form-label">TIPO</label>
+                                    <label for="tipo" class="form-label">QUAL O TIPO?</label>
                                     <select class="form-control" id="tipo" name="tipo" required>
                                         <option value="CAO">CÃO</option>
                                         <option value="GATO">GATO</option>
@@ -120,7 +119,7 @@
 
                                 <!-- Foto -->
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">Foto</label>
+                                    <label for="foto" class="form-label">FOTO?</label>
                                     <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg, image/jpg, image/png, image/gif" required>
                                 </div>
 

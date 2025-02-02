@@ -46,10 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipo = $_POST['tipo'];
     $cor = $_POST['cor'];
 
-    echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
-
     // Processa a foto
     $foto = $_FILES['foto'];
     $extensao = strtolower(pathinfo($foto['name'], PATHINFO_EXTENSION));
