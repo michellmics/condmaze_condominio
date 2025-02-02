@@ -4,32 +4,49 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
 function getImageHashGD($imageResource) {
-    $img = $imageResource; // Agora, usa o recurso de imagem diretamente
-    $img = imagescale($img, 8, 8); // Redimensiona para 8x8
-    imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
+    $img = imagescale($imageResource, 8, 8); // Redimensiona para 8x8
 
-    $pixels = [];
+    $pixelsR = [];
+    $pixelsG = [];
+    $pixelsB = [];
+
     for ($y = 0; $y < 8; $y++) {
         for ($x = 0; $x < 8; $x++) {
             $rgb = imagecolorat($img, $x, $y);
-            $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
-            $pixels[] = $gray;
+            $r = ($rgb >> 16) & 0xFF; 
+            $g = ($rgb >> 8) & 0xFF;
+            $b = $rgb & 0xFF;
+
+            $pixelsR[] = $r;
+            $pixelsG[] = $g;
+            $pixelsB[] = $b;
         }
     }
 
-    $avg = array_sum($pixels) / count($pixels);
-    $hash = '';
-    foreach ($pixels as $pixel) {
-        $hash .= ($pixel >= $avg) ? '1' : '0';
-    }
+    // Calcula média para cada canal
+    $avgR = array_sum($pixelsR) / count($pixelsR);
+    $avgG = array_sum($pixelsG) / count($pixelsG);
+    $avgB = array_sum($pixelsB) / count($pixelsB);
+
+    // Gera hash para cada canal
+    $hashR = '';
+    $hashG = '';
+    $hashB = '';
+
+    foreach ($pixelsR as $pixel) { $hashR .= ($pixel >= $avgR) ? '1' : '0'; }
+    foreach ($pixelsG as $pixel) { $hashG .= ($pixel >= $avgG) ? '1' : '0'; }
+    foreach ($pixelsB as $pixel) { $hashB .= ($pixel >= $avgB) ? '1' : '0'; }
 
     imagedestroy($img);
-    return $hash;
+
+    // Retorna um hash que leva em conta todas as cores
+    return $hashR . $hashG . $hashB;
 }
 
 function hammingDistance($hash1, $hash2) {
     return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
 }
+
 
 
 // Processa a requisição POST
