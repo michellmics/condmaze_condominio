@@ -885,6 +885,30 @@
             }
         }
 
+        public function deletePetInfo($PEM_IDPETMORADOR)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM PEM_PETMORADOR WHERE PEM_IDPETMORADOR = :PEM_IDPETMORADOR";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PEM_IDPETMORADOR', $PEM_IDPETMORADOR, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Avaliação deletada com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function deletePrestadorInfo($ID)
         {       
             // Verifica se a conexão já foi estabelecida

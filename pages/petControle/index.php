@@ -258,8 +258,8 @@
 function confirmDelete(event, mes, ano) {
     //console.log(id);  // Verifica se o id está correto
     Swal.fire({
-        title: 'Formulário Relatórios',
-        text: "Tem certeza que deseja exluir o relatório?",
+        title: 'Formulário de Pets',
+        text: "Tem certeza que deseja exluir o pet?",
         showDenyButton: true,
         confirmButtonText: 'CONFIRMAR',
         denyButtonText: `CANCELAR`,
@@ -278,7 +278,7 @@ function confirmDelete(event, mes, ano) {
         if (result.isConfirmed) {
             // Fazer a requisição AJAX
             $.ajax({
-                url: "deleteReportProc.php", // URL para processamento
+                url: "deletePetProc.php", // URL para processamento
                 type: "POST",
                         data: { 
                         mes: mes, 
@@ -305,7 +305,7 @@ function confirmDelete(event, mes, ano) {
                 error: function (xhr, status, error) {
                     Swal.fire({
                         title: 'Erro!',
-                        text: 'Erro ao excluir a avaliação.',
+                        text: 'Erro ao excluir o Pet.',
                         icon: 'error',
                         width: '400px', // Largura do alerta
                         confirmButtonColor: "#536de6",
