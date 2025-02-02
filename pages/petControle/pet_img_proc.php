@@ -30,16 +30,80 @@ function hammingDistance($hash1, $hash2) {
     return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
 }
 
-// Exemplo de comparação
-$hash1 = getImageHashGD('foto1.jpg');
-$hash2 = getImageHashGD('foto1.jpg');
 
-$distance = hammingDistance($hash1, $hash2);
-if ($distance < 10) { // Ajuste o limiar conforme necessário
-    echo "Imagens semelhantes!";
-} else {
-    echo "Imagens diferentes!";
+// Processa a requisição POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    
+    
+    // Recebe os dados do formulário e os converte para maiúsculas
+    $foto = $_FILES['foto'];
+    $tipo = $_FILES['tipo'];
+    $extensao = pathinfo($foto['name'], PATHINFO_EXTENSION); 
+
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getHashImgInfo($tipo);  
+
+    // Verifica se o arquivo enviado é uma imagem
+    $tipos_aceitos = ['jpeg', 'jpg', 'png', 'gif'];
+    if (!in_array(strtolower($extensao), $tipos_aceitos)) {
+        echo "Tipo de arquivo não permitido. Apenas imagens JPEG, PNG e GIF são aceitas.";
+        exit;
+    }
+
+    // Carrega a imagem conforme sua extensão
+    switch ($extensao) {
+        case 'jpeg':
+        case 'jpg':
+            $imagem = imagecreatefromjpeg($foto['tmp_name']);
+            break;
+        case 'png':
+            $imagem = imagecreatefrompng($foto['tmp_name']);
+            break;
+        case 'gif':
+            $imagem = imagecreatefromgif($foto['tmp_name']);
+            break;
+        default:
+            echo "Tipo de arquivo inválido.";
+            exit;
+    }
+
+
 }
+
+// Exemplo de comparação
+$hash1 = getImageHashGD($imagem);
+
+$imagensSemelhantes = [];
+
+foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
+    $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
+    $distance = hammingDistance($hash1, $hash);
+
+    // Ajuste o limiar conforme necessário
+    if ($distance < 10) {
+        // Se a imagem for similar, adiciona as informações no array
+        $imagensSemelhantes[] = [
+            'nome' => $imgInfo['PEM_DCNOME'],
+            'apartamento' => "APARTAMENTO",
+            'tutor' => "TUTOR",
+            'raca' => $imgInfo['PEM_DCRACA']
+        ];
+    }
+}
+
+// Exibindo as imagens semelhantes encontradas
+if (!empty($imagensSemelhantes)) {
+    foreach ($imagensSemelhantes as $imagem) {
+        echo "Nome: " . $imagem['nome'] . "<br>";
+        echo "Apartamento: " . $imagem['apartamento'] . "<br>";
+        echo "Tutor: " . $imagem['tutor'] . "<br>";
+        echo "Raça: " . $imagem['raca'] . "<br><br>";
+    }
+} else {
+    echo "Nenhuma imagem semelhante encontrada.";
+}
+
 
 
 
