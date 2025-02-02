@@ -259,7 +259,7 @@ function mostrarImagem(src) {
                                                     <tr>     
                                                         <th></th>                                                   
                                                         <th>NOME</th>
-                                                        <th>COR</th>
+                                                        <th>RAÇA</th>
                                                         <th>FOTO</th>
                                                         <th></th>                                                     
                                                     </tr>
@@ -275,8 +275,8 @@ function mostrarImagem(src) {
                                                             ?>
 
                                                             <td> <i class="<?php echo $iconPet; ?>" style="color:rgb(2, 133, 255); font-size: 24px;"></i> </td>                                                
-                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
-                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PET_DCCOR'])); ?></td>                                                        
+                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCNOME']),0,10)); ?></td>
+                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCRACA']),0,10)); ?></td>                                                        
                                                             <td style="cursor: pointer; vertical-align: middle;">
                                                             <a class="pe-3" href="#">
                                                                 <img src="<?= htmlspecialchars($item['PET_DCPATHFOTO']); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
