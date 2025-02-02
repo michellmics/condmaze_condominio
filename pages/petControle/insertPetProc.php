@@ -33,15 +33,16 @@ class registerPet extends SITE_ADMIN
         } 
     }
 
-    function getPerceptualHash($imageResource) {
-        $imagem = imagecreatefromjpeg($foto_path);
-        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para escala de cinza
-    
+    function getImageHashGD($imagePath) {
+        $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem
+        $img = imagescale($img, 32, 32); // Redimensiona para 32x32
+        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
+        
         $pixels = [];
         for ($y = 0; $y < 32; $y++) {
             for ($x = 0; $x < 32; $x++) {
                 $rgb = imagecolorat($img, $x, $y);
-                $gray = ($rgb >> 16) & 0xFF;
+                $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
                 $pixels[] = $gray;
             }
         }
@@ -59,6 +60,7 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
+    
 }
 
 // Processa a requisição POST
@@ -140,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Se o upload e redimensionamento forem bem-sucedidos, insere as informações no banco
     $petAddInfo = new registerPet();
-    $imageHash = $petAddInfo->getPerceptualHash($foto_path);
+    $imageHash = $petAddInfo->getImageHashGD($foto_path);
     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
 }
 ?>
