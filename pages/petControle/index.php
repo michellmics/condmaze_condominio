@@ -100,7 +100,6 @@
                                 <div class="mb-3">
                                     <label for="cor" class="form-label">QUAL A COR?</label>
                                     <select class="form-control" id="cor" name="cor" required>
-                                        <option value="" disabled selected>ESCOLHA A COR</option>
                                         <option value="PRETO">PRETO</option>
                                         <option value="BRANCO">BRANCO</option>
                                         <option value="CARAMELO">CARAMELO</option>
@@ -112,7 +111,6 @@
                                 <div class="mb-3">
                                     <label for="tipo" class="form-label">QUAL O TIPO?</label>
                                     <select class="form-control" id="tipo" name="tipo" required>
-                                    <option value="" disabled selected>ESCOLHA O TIPO</option>
                                         <option value="CAO">CÃO</option>
                                         <option value="GATO">GATO</option>
                                         <option value="PASSARO">PÁSSARO</option>
