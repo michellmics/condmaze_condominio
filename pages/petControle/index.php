@@ -281,7 +281,7 @@ function confirmDelete(event, id) {
                 url: "deletePetProc.php", // URL para processamento
                 type: "POST",
                 data: { 
-                    id: '2'
+                    id: id
                 },
                 success: function (response) {
                     Swal.fire({
