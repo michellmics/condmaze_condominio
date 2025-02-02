@@ -83,7 +83,7 @@
 
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <input type="hidden" id="apartamento" name="apartamento" value="<?php echo $apartamentoSession; ?>"/>
-                                <input type="text" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
+                                <input type="text" id="idmorador" name="idmorador" value="<?php echo $userid; ?>"/>
                                 <!-- CAMPOS COMO VARIAVEIS -->
                                 <!-- Nome -->
                                 <div class="mb-3">
