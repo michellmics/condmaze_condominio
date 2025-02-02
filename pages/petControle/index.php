@@ -94,7 +94,7 @@
                                 <!-- Raça -->
                                 <div class="mb-3">
                                     <label for="raca" class="form-label">QUAL A RAÇA?</label>
-                                    <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required>
+                                    <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required pattern="^(?!\s*$).+" title="Este campo não pode ser vazio.">
                                 </div>
 
                                 <div class="mb-3">
