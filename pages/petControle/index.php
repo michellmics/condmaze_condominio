@@ -103,7 +103,15 @@
                                    <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
                                        <div class="mb-3">
                                            <input name="arquivo" id="arquivo" type="file" accept=".csv" class="form-control" />
+                                           <div class="d-flex gap-2">
+                                           <select class="form-control" id="mes" name="mes" required>
+                                               <option value="" disabled selected>Tipo</option>
+                                               <option value="janeiro">Cachorro</option>
+                                               <option value="fevereiro">Gato</option>
+                                           </select>
                                        </div>
+                                       
+                                        </div>
 
                                        <div class="d-flex gap-2">
                                            <select class="form-control" id="mes" name="mes" required>
