@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'apartamento' => "194",  // Ajuste conforme necessário
                 'tutor' => "TUTOR",  // Ajuste conforme necessário
                 'raca' => $imgInfo['PEM_DCRACA'],
-                'img' => $imgInfo['PET_DCPATHFOTO']
+                'img' => $imgInfo['PET_DCPATHFOTO'],
+                'tipo' => $imgInfo['PEM_DCTIPO']
             ];            
     }
 
@@ -29,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<table id='basic-datatable' class='table table-striped table-sm dt-responsive nowrap w-100'>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>NOME</th>
                         <th>RAÇA</th>
                         <th>APTO</th>
@@ -37,7 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </thead>
                 <tbody>";
         foreach ($imgResult as $imagem) {
-            echo "<tr>";      
+            
+            if($imagem['tipo'] == "GATO"){$iconPet = "fa-solid fa-cat";}
+            if($imagem['tipo'] == "CAO"){$iconPet = "fa-solid fa-dog";}
+            if($imagem['tipo'] == "PASSARO"){$iconPet = "fa-solid fa-dove";}
+            
+        
+
+
+            echo "<tr>";  
+            echo "<td style='vertical-align: middle;'><i class='{$iconPet}' style='color:rgb(2, 133, 255); font-size: 18px;'></i></td>";  
             echo "<td style='cursor: pointer; vertical-align: middle; font-size: 10px;'>" . htmlspecialchars(substr(strtoupper($imagem['nome']),0,13)) . "</td>";
             echo "<td style='cursor: pointer; vertical-align: middle; font-size: 10px;'>" . htmlspecialchars(substr(strtoupper($imagem['raca']),0,13)) . "</td>";
             echo "<td style='cursor: pointer; vertical-align: middle; font-size: 10px;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
