@@ -3,24 +3,29 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
-function getPerceptualHash($imagePath) {
-    // Tenta carregar a imagem de acordo com a extensão
-    $extensao = pathinfo($imagePath, PATHINFO_EXTENSION);
-    
-    switch (strtolower($extensao)) {
-        case 'jpeg':
-        case 'jpg':
-            $img = imagecreatefromjpeg($imagePath);
-            break;
-        case 'png':
-            $img = imagecreatefrompng($imagePath);
-            break;
-        case 'gif':
-            $img = imagecreatefromgif($imagePath);
-            break;
-        default:
-            echo "Formato de imagem não suportado.\n";
-            return null;
+function getPerceptualHash($imageResource) {
+    // Verifica se a variável passada é um recurso de imagem
+    if (is_resource($imageResource)) {
+        $img = $imageResource;
+    } else {
+        // Caso não seja um recurso, tenta carregar a imagem do caminho
+        $extensao = pathinfo($imageResource, PATHINFO_EXTENSION);
+
+        switch (strtolower($extensao)) {
+            case 'jpeg':
+            case 'jpg':
+                $img = imagecreatefromjpeg($imageResource);
+                break;
+            case 'png':
+                $img = imagecreatefrompng($imageResource);
+                break;
+            case 'gif':
+                $img = imagecreatefromgif($imageResource);
+                break;
+            default:
+                echo "Formato de imagem não suportado.\n";
+                return null;
+        }
     }
 
     if (!$img) {
@@ -54,6 +59,7 @@ function getPerceptualHash($imagePath) {
     imagedestroy($img);
     return $hash;
 }
+
 
 
 
