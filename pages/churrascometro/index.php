@@ -179,18 +179,18 @@
 <script>
     // Função para adicionar uma nova linha de formulário
     function adicionarItem() {
-        var formularioItens = document.getElementById('formulario-itens');
-        var novaLinha = formularioItens.querySelector('.linha-item').cloneNode(true);
-        
-        // Limpar os campos da nova linha para que fiquem vazios
-        var inputs = novaLinha.querySelectorAll('input');
-        inputs.forEach(function(input) {
-            input.value = '';
-        });
+            var formularioItens = document.getElementById('formulario-itens');
+            var novaLinha = formularioItens.querySelector('.linha-item').cloneNode(true);
+            
+            // Limpar os campos da nova linha para que fiquem vazios
+            var inputs = novaLinha.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                input.value = '';
+            });
 
-        // Adicionar a nova linha abaixo da última
-        formularioItens.appendChild(novaLinha);
-    }
+            // Adicionar a nova linha abaixo da última
+            formularioItens.appendChild(novaLinha);
+        }
 
     // Função de cálculo para os valores totais (se necessário)
     function calcularValorTotal(element) {
