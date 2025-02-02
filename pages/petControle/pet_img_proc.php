@@ -4,29 +4,9 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
 // Função para gerar o hash perceptual da imagem
-function calculateColorHistogram($imagePath) {
-    // Verifica se o arquivo existe
-    if (!file_exists($imagePath)) {
-        throw new Exception("Arquivo de imagem não encontrado.");
-    }
-
-    // Carrega a imagem conforme sua extensão
-    $extensao = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
-    switch ($extensao) {
-        case 'jpeg':
-        case 'jpg':
-            $image = imagecreatefromjpeg($imagePath);
-            break;
-        case 'png':
-            $image = imagecreatefrompng($imagePath);
-            break;
-        case 'gif':
-            $image = imagecreatefromgif($imagePath);
-            break;
-        default:
-            throw new Exception("Tipo de arquivo inválido.");
-    }
-
+function calculateColorHistogram($imageData) {
+    // Cria uma imagem a partir dos dados da imagem
+    $image = imagecreatefromstring($imageData);
     if (!$image) {
         throw new Exception("Falha ao carregar a imagem.");
     }
@@ -88,23 +68,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Cria um arquivo temporário para armazenar a imagem
-    $tempImagePath = '/path/to/temp/directory/' . uniqid('image_', true) . '.' . $extensao;
-    if (!move_uploaded_file($foto['tmp_name'], $tempImagePath)) {
-        echo "Erro ao mover o arquivo para o diretório temporário.";
+    // Lê os dados da imagem enviada
+    $imageData = file_get_contents($foto['tmp_name']);
+    if (!$imageData) {
+        echo "Erro ao ler os dados da imagem.";
         exit;
     }
 
-    // Chama a função passando o caminho do arquivo temporário
+    // Chama a função passando os dados da imagem
     try {
-        $hash1 = calculateColorHistogram($tempImagePath);  // Gerando o hash perceptual da imagem recebida
+        $hash1 = calculateColorHistogram($imageData);  // Gerando o hash perceptual da imagem recebida
     } catch (Exception $e) {
         echo "Erro ao processar a imagem: " . $e->getMessage();
         exit;
     }
-
-    // Remove o arquivo temporário após o processamento
-    unlink($tempImagePath);
 
     // Continuar com o processamento das imagens
     $imagensSemelhantes = [];
@@ -114,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $distance = calculateChiSquaredDistance($hash1, $hash);  // Calcula a distância de Hamming
 
         // Ajuste o limiar conforme necessário
-        if ($distance < 15) {  // Se a distância for menor que 35, considera como semelhante
+        if ($distance < 15) {  // Se a distância for menor que 15, considera como semelhante
             // Se a imagem for similar, adiciona as informações no array
             $imagensSemelhantes[] = [
                 'nome' => $imgInfo['PEM_DCNOME'],
