@@ -110,10 +110,14 @@
                 <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
 
                                             <div class="mb-3">
-                                                <label for="example-number" class="form-label">Number</label>
-                                                <input class="form-control" id="example-number" type="number" name="number">
+                                                <label for="example-number" class="form-label">Qtde Homens</label>
+                                                <input class="form-control" id="qtdehomem" type="number" name="qtdehomem">
                                             </div>
 
+                                            <div class="mb-3">
+                                                <label for="example-number" class="form-label">Qtde Mulheres</label>
+                                                <input class="form-control" id="qtdemulher" type="number" name="qtdemulher">
+                                            </div>
 
 
 
