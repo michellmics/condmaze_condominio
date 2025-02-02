@@ -44,8 +44,6 @@
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                                     <a href="../listaConvidados/index.php" class="dropdown-item">Minha lista de convidados</a>
                                     <?php endif; ?> 
-                                </div>
-                                <div class="dropdown-menu" aria-labelledby="topnav-components">
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                                     <a href="../churrascometro/index.php" class="dropdown-item">Churrascômetro</a>
                                     <?php endif; ?> 
