@@ -77,7 +77,7 @@ $imagensSemelhantes = [];
 
 foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
-    $distance = hammingDistance($hash1, $hash);
+    $distance = hammingDistance($hash1, $hash); 
 
     // Ajuste o limiar conforme necessário
     if ($distance < 10) {
