@@ -152,7 +152,7 @@
 
                                             <div id="formulario-itens">
                                                 <div class="row" class="linha-item" style="background-color: #D3D3D3;">
-                                                    <div class="col-9" style="padding-bottom: 5px;">
+                                                    <div class="col-12" style="padding-bottom: 5px;">
                                                         <label for="descricao" class="form-label">Descrição do Item</label>
                                                         <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
                                                     </div>
