@@ -902,7 +902,7 @@
                 $stmt->execute();
             
                 // Retorna uma mensagem de sucesso (opcional)
-                return ["success" => "Avaliação deletada com sucesso."];
+                return ["success" => "Pet deletado com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];

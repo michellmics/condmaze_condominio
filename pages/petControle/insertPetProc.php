@@ -139,6 +139,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $petAddInfo = new registerPet();
     $imageHash = $petAddInfo->getImageHashGD($foto_path);
     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
-    echo "Pet cadastrado com sucesso!";
 }
 ?>
