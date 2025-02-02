@@ -5,18 +5,17 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 class registerPet extends SITE_ADMIN
 {
-    // Método para gerar o hash perceptual
     function getImageHashPerceptual($imagePath) {
         // Carrega a imagem
         $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem JPEG
+    
         if (!$img) {
             die("Erro ao carregar a imagem.");
         }
-
-
+    
         $img = imagescale($img, 8, 8);  // Redimensiona para 8x8 pixels
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
-        
+    
         $pixels = [];
         for ($y = 0; $y < 8; $y++) {
             for ($x = 0; $x < 8; $x++) {
@@ -25,10 +24,16 @@ class registerPet extends SITE_ADMIN
                 $pixels[] = $gray;
             }
         }
+    
+        // Debug: Verifica os valores dos pixels
         var_dump($pixels);
+    
         // Calcula a mediana dos pixels
         sort($pixels);
         $median = $pixels[count($pixels) / 2];
+    
+        // Debug: Verifica a mediana
+        echo "Mediana: " . $median . "<br>";
     
         // Gera um hash baseado na mediana
         $hash = '';
@@ -39,6 +44,7 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
+    
 
     public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
     {
