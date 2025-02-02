@@ -35,12 +35,12 @@ class registerPet extends SITE_ADMIN
 
     function getImageHashGD($imagePath) {
         $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem
-        $img = imagescale($img, 32, 32); // Redimensiona para 32x32
+        $img = imagescale($img, 64, 64); // Redimensiona para 64x64 (ajustado para maior resolução)
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
         
         $pixels = [];
-        for ($y = 0; $y < 32; $y++) {
-            for ($x = 0; $x < 32; $x++) {
+        for ($y = 0; $y < 64; $y++) { // Aumentei o tamanho da imagem para 64x64
+            for ($x = 0; $x < 64; $x++) {
                 $rgb = imagecolorat($img, $x, $y);
                 $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
                 $pixels[] = $gray;
@@ -51,6 +51,10 @@ class registerPet extends SITE_ADMIN
         sort($pixels);
         $median = $pixels[count($pixels) / 2];
     
+        // Debug: Verifica a mediana e os primeiros 10 valores dos pixels
+        echo "Mediana: $median\n";
+        echo "Primeiros 10 Pixels: " . implode(', ', array_slice($pixels, 0, 10)) . "\n";
+    
         // Gera um hash baseado na mediana
         $hash = '';
         foreach ($pixels as $pixel) {
@@ -60,6 +64,7 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
+    
     
 }
 
