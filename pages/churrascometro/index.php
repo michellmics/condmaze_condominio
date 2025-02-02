@@ -185,7 +185,7 @@
     novaLinha.style.backgroundColor = '#D3D3D3';
     
     novaLinha.innerHTML = `
-        <div style="background-color:rgb(255, 255, 255);">dssd</div>
+        <div style="background-color:rgb(255, 255, 255);">&nbsp;</div>
         <div class="col-12" style="padding-bottom: 5px;">
             <label for="descricao" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
             <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
