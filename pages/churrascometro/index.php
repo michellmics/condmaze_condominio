@@ -127,6 +127,16 @@
                                                 <input readonly class="form-control" id="consumomulher" value="350g" type="text" name="consumomulher" style="background-color:rgb(209, 209, 209);">
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-3 mb-3">
+                                                <label for="qtdehomem" class="form-label">Carne Necessária</label>
+                                                <input class="form-control" id="carnenecessaria" type="number" name="carnenecessaria" style="background-color:rgb(10, 10, 10); color: white;">
+                                            </div>
+                                            <div class="col-3 mb-3">
+                                                <label for="qtdemulher" class="form-label">Carne Calculada</label>
+                                                <input class="form-control" id="carnecalculada" type="number" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
+                                            </div>
+                                        </div>
 
 
 
