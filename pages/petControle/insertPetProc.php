@@ -46,6 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipo = $_POST['tipo'];
     $cor = $_POST['cor'];
 
+    if(!$nome || !$raca || !$tipo || !$cor)
+    {
+        echo "Todos os campos devem ser preenchidos.";
+        exit;
+    }
+
     // Processa a foto
     $foto = $_FILES['foto'];
     $extensao = strtolower(pathinfo($foto['name'], PATHINFO_EXTENSION));

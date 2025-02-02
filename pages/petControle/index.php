@@ -94,12 +94,13 @@
                                 <!-- Raça -->
                                 <div class="mb-3">
                                     <label for="raca" class="form-label">QUAL A RAÇA?</label>
-                                    <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required pattern="^(?!\s*$).+" title="Este campo não pode ser vazio.">
+                                    <input type="text" class="form-control" id="raca" name="raca" maxlength="25" style="text-transform: uppercase;" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="cor" class="form-label">QUAL A COR?</label>
                                     <select class="form-control" id="cor" name="cor" required>
+                                        <option value="" disabled selected>COR</option>
                                         <option value="PRETO">PRETO</option>
                                         <option value="BRANCO">BRANCO</option>
                                         <option value="CARAMELO">CARAMELO</option>
@@ -119,7 +120,7 @@
 
                                 <!-- Foto -->
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">FOTO?</label>
+                                    <label for="foto" class="form-label">FOTO</label>
                                     <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg, image/jpg, image/png, image/gif" required>
                                 </div>
 
