@@ -127,7 +127,7 @@
                                     <p class="text-muted font-14">
                                     </p>
                                     <div class="tab-content">
-                                        <div class="col-sm-5">  
+                                        <div class="col-sm-5 text-end">  
                                         <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Cadastrar Meu Pet</a>                                          
                                         </div>
                                         <br>
