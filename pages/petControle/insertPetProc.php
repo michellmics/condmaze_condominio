@@ -59,6 +59,7 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
+}
 
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -139,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Se o upload e redimensionamento forem bem-sucedidos, insere as informações no banco
     $petAddInfo = new registerPet();
-    $imageHash = $petAddInfo->getImageHashGD($foto_path);
+    $imageHash = $petAddInfo->getPerceptualHash($foto_path);
     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
 }
 ?>
