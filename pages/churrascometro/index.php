@@ -150,59 +150,76 @@
                                         <div class="row">
 
 
-                                            <div id="formulario-itens">
-                                                <div class="row" class="linha-item" style="background-color: #D3D3D3;">
-                                                    <div class="col-12" style="padding-bottom: 5px;">
-                                                        <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
-                                                        <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
-                                                    </div>
-                                                        <div class="row" class="linha-item">
-                                                            <div class="col-4" style="padding-bottom: 5px;">
-                                                                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Quantidade</label>
-                                                                <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
-                                                            </div>
-                                                            <div class="col-4" style="padding-bottom: 5px;">
-                                                                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Unitário</label>
-                                                                <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
-                                                            </div>
-                                                            <div class="col-4" style="padding-bottom: 5px;">
-                                                                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Total</label>
-                                                                <input type="number" class="form-control valortotal" name="valortotal[]" step="0.01" min="0" readonly>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
+                                        <div id="formulario-itens">
+    <div class="row linha-item" style="background-color: #D3D3D3;">
+        <div class="col-12" style="padding-bottom: 5px;">
+            <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
+            <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
+        </div>
+        <div class="row linha-item">
+            <div class="col-4" style="padding-bottom: 5px;">
+                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Quantidade</label>
+                <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
+            </div>
+            <div class="col-4" style="padding-bottom: 5px;">
+                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Unitário</label>
+                <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
+            </div>
+            <div class="col-4" style="padding-bottom: 5px;">
+                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Total</label>
+                <input type="text" class="form-control valortotal" name="valortotal[]" readonly>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Botão para adicionar nova linha -->
-<button type="button" class="btn btn-primary" id="adicionar-item" onclick="adicionarItem()">Adicionar Item</button>
+<button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
 
 <script>
     // Função para adicionar uma nova linha de formulário
     function adicionarItem() {
-            var formularioItens = document.getElementById('formulario-itens');
-            var novaLinha = formularioItens.querySelector('.linha-item').cloneNode(true);
-            
-            // Limpar os campos da nova linha para que fiquem vazios
-            var inputs = novaLinha.querySelectorAll('input');
-            inputs.forEach(function(input) {
-                input.value = '';
-            });
+    const formularioItens = document.getElementById('formulario-itens');
+    const novaLinha = document.createElement('div');
+    novaLinha.classList.add('row', 'linha-item');
+    novaLinha.style.backgroundColor = '#D3D3D3';
+    
+    novaLinha.innerHTML = `
+        <div class="col-12" style="padding-bottom: 5px;">
+            <label for="descricao" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
+            <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
+        </div>
+        <div class="row linha-item">
+            <div class="col-4" style="padding-bottom: 5px;">
+                <label for="quantidade" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Quantidade</label>
+                <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
+            </div>
+            <div class="col-4" style="padding-bottom: 5px;">
+                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Unitário</label>
+                <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
+            </div>
+            <div class="col-4" style="padding-bottom: 5px;">
+                <label for="valortotal" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Total</label>
+                <input type="text" class="form-control valortotal" name="valortotal[]" readonly>
+            </div>
+        </div>
+    `;
+    formularioItens.appendChild(novaLinha);
+}
 
-            // Adicionar a nova linha abaixo da última
-            formularioItens.appendChild(novaLinha);
-        }
+
+
+
+
 
     // Função de cálculo para os valores totais (se necessário)
     function calcularValorTotal(element) {
-        var row = element.closest('.linha-item');
-        var quantidade = row.querySelector('.quantidade').value;
-        var valorUnitario = row.querySelector('.valorunitario').value;
-        var valorTotal = row.querySelector('.valortotal');
-
-        if (quantidade && valorUnitario) {
-            valorTotal.value = (quantidade * valorUnitario).toFixed(2);
-        }
-    }
+    const linhaItem = element.closest('.linha-item');
+    const quantidade = linhaItem.querySelector('.quantidade').value;
+    const valorUnitario = linhaItem.querySelector('.valorunitario').value;
+    const valorTotal = linhaItem.querySelector('.valortotal');
+    valorTotal.value = (quantidade * valorUnitario).toFixed(2);
+}
 </script>
 
 
