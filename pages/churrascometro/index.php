@@ -151,7 +151,7 @@
 
 
                                         <div id="formulario-itens">
-    <div class="row linha-item" style="background-color: #D3D3D3;">
+    <div class="row linha-item" style="background-color:#f3f1f1;">
         <div class="col-12" style="padding-bottom: 5px;">
             <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
             <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
@@ -182,7 +182,7 @@
     const formularioItens = document.getElementById('formulario-itens');
     const novaLinha = document.createElement('div');
     novaLinha.classList.add('row', 'linha-item');
-    novaLinha.style.backgroundColor = '#D3D3D3';
+    novaLinha.style.backgroundColor = '#f3f1f1';
     
     novaLinha.innerHTML = `
         <div style="background-color:rgb(255, 255, 255);">&nbsp;</div>
