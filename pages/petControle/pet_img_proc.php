@@ -3,8 +3,8 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
-function getImageHashGD($imagePath) {
-    $img = imagecreatefromjpeg($imagePath);
+function getImageHashGD($imageResource) {
+    $img = $imageResource; // Agora, usa o recurso de imagem diretamente
     $img = imagescale($img, 8, 8); // Redimensiona para 8x8
     imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
 
