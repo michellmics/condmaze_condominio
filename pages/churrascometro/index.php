@@ -147,6 +147,7 @@
                                                 <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
                                         </div>
+                                        <div class="row">
                                         <div id="formulario-itens">
     <div class="row" class="linha-item">
         <div class="col-3 mb-3">
@@ -171,52 +172,9 @@
     </div>
 </div>
 
-<script>
-function calcularValorTotal(element) {
-    // Encontra a linha atual
-    let linha = element.closest('.row');
-    
-    // Pega os valores de quantidade e valor unitário
-    let quantidade = parseFloat(linha.querySelector('.quantidade').value) || 0;
-    let valorUnitario = parseFloat(linha.querySelector('.valorunitario').value) || 0;
-    
-    // Calcula o valor total
-    let valorTotal = quantidade * valorUnitario;
-    
-    // Define o valor total no campo correspondente
-    linha.querySelector('.valortotal').value = valorTotal.toFixed(2);
-}
 
-function adicionarLinha() {
-    // Cria uma nova linha com os mesmos campos, mas sem o botão "Adicionar Linha"
-    let novaLinha = document.querySelector('.linha-item').cloneNode(true);
-
-    // Limpa os campos da nova linha
-    let campos = novaLinha.querySelectorAll('input');
-    campos.forEach(function(campo) {
-        campo.value = '';
-        if (campo.type !== 'button' && campo.type !== 'submit') {
-            campo.disabled = false;
-        }
-    });
-
-    // Remove o botão "Adicionar Linha" da nova linha
-    novaLinha.querySelector('.adicionar-linha').remove();
-
-    // Adiciona a nova linha ao final do formulário
-    document.getElementById('formulario-itens').appendChild(novaLinha);
-
-    // Adiciona novamente o botão na última linha
-    let ultimaLinha = document.querySelector('#formulario-itens .row:last-child');
-    let btnAdicionar = document.createElement('button');
-    btnAdicionar.type = 'button';
-    btnAdicionar.classList.add('btn', 'btn-primary', 'adicionar-linha');
-    btnAdicionar.textContent = 'Adicionar Linha';
-    btnAdicionar.setAttribute('onclick', 'adicionarLinha()');
-
-    ultimaLinha.querySelector('.col-3.mb-3').appendChild(btnAdicionar);
-}
-</script>
+                                        
+                                        </div>
 
 
 
