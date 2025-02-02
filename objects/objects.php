@@ -1420,7 +1420,7 @@
             try{           
                 $sql = "SELECT * FROM PEM_PETMORADOR WHERE 
                 PEM_DCTIPO LIKE :PEM_DCTIPO AND 
-                PET_DCCOR LIKE :PET_DCCOR AND (PEM_DCRACA LIKE :PEM_DCRACA)";
+                PET_DCCOR LIKE :PET_DCCOR AND PEM_DCRACA LIKE :PEM_DCRACA";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':PEM_DCTIPO', $PEM_DCTIPO, PDO::PARAM_STR);
