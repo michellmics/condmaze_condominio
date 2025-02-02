@@ -274,7 +274,7 @@ function mostrarImagem(src) {
                                                                 
                                                             ?>
 
-                                                            <td> <i class="<?php echo $iconPet; ?>" style="color:rgb(2, 133, 255); font-size: 24px;"></i> </td>                                                
+                                                            <td> <i style="vertical-align: middle;" class="<?php echo $iconPet; ?>" style="color:rgb(2, 133, 255); font-size: 18px;"></i> </td>                                                
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCNOME']),0,10)); ?></td>
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCRACA']),0,10)); ?></td>                                                        
                                                             <td style="cursor: pointer; vertical-align: middle;">
@@ -285,7 +285,7 @@ function mostrarImagem(src) {
                                                             <td style="cursor: pointer;">
                                                                 <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
-                                                                   style="cursor: pointer; font-size: 24px; vertical-align: middle;" 
+                                                                   style="cursor: pointer; font-size: 15px; vertical-align: middle;" 
                                                                    onclick="confirmDelete(event, 
                                                                        '<?php echo htmlspecialchars($item['PEM_IDPETMORADOR'], ENT_QUOTES, 'UTF-8'); ?>')">
                                                                 </i>
