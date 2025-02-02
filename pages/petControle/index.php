@@ -259,7 +259,7 @@ function mostrarImagem(src) {
                                                     <tr>     
                                                         <th></th>                                                   
                                                         <th>NOME</th>
-                                                        <th>TIPO</th>
+                                                        <th>COR</th>
                                                         <th>FOTO</th>
                                                         <th></th>                                                     
                                                     </tr>
@@ -267,9 +267,16 @@ function mostrarImagem(src) {
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
                                                         <tr> 
-                                                            <td> <i class="fa-solid fa-cat" style="color: orange; font-size: 24px;"></i> </td>                                                
+                                                            <?php
+                                                                if($item['PEM_DCTIPO'] = "GATO"){$iconPet = "fa-solid fa-cat";}
+                                                                if($item['PEM_DCTIPO'] = "CAO"){$iconPet = "fa-solid fa-dog";}
+                                                                if($item['PEM_DCTIPO'] = "PASSARO"){$iconPet = "fa-solid fa-dove";}
+                                                                
+                                                            ?>
+
+                                                            <td> <i class="<?php echo $iconPet; ?>" style="color: orange; font-size: 24px;"></i> </td>                                                
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
-                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>                                                        
+                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PET_DCCOR'])); ?></td>                                                        
                                                             <td style="cursor: pointer; vertical-align: middle;">
                                                             <a class="pe-3" href="#">
                                                                 <img src="<?= htmlspecialchars($item['PET_DCPATHFOTO']); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
