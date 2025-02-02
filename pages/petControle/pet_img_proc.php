@@ -93,7 +93,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
         ];   
     }
 }
-
+ 
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
     echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'>
