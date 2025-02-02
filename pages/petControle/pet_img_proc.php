@@ -93,7 +93,7 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
 
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
-    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'><thead><tr><th>NOME</th><th>RAÇA</th><th>TUTOR</th><th>APTO</th></tr><thead>";
+    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'><thead><tr><th>NOME</th><th>RAÇA</th><th>TUTOR</th><th>APTO</th></tr><thead><tbody>";
     foreach ($imagensSemelhantes as $imagem) {
         // Exibindo nome dentro de um <td> corretamente       
         echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
@@ -106,7 +106,7 @@ if (!empty($imagensSemelhantes)) {
     echo "Nenhuma imagem semelhante encontrada.";
 }
 
-echo "</table>";
+echo "</tbody></table>";
 
 
 
