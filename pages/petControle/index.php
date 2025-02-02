@@ -104,7 +104,7 @@
     <div class="d-flex gap-2 align-items-center">
         <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
 
-        <select class="form-control" id="tipo" name="tipo" required>
+        <select class="form-control" id="tipo" name="tipo" required style="width: 120px;">
             <option value="" disabled selected>TIPO</option>
             <option value="CACHORRO">CÃO</option>
             <option value="GATO">GATO</option>
