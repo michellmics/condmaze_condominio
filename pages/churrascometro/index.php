@@ -142,10 +142,15 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12 mb-3">
+                                            <div class="col-9 mb-3">
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
                                                 <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
+                                            <div class="col-3 mb-3">
+                                                <button type="submit" class="btn btn-success">Salvar</button>
+                                            </div>
+
+                                            
                                         </div>
                                         <div class="row">
 
@@ -176,7 +181,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                                             </div>
+                                        </div>
 </form>
 <!-- Botão para adicionar nova linha -->
 <button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
