@@ -275,8 +275,8 @@ function mostrarImagem(src) {
                                                             ?>
 
                                                             <td style="vertical-align: middle;"> <i class="<?php echo $iconPet; ?>" style="color:rgb(2, 133, 255); font-size: 18px;"></i> </td>                                                
-                                                            <td style="cursor: pointer; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCNOME']),0,10)); ?></td>
-                                                            <td style="cursor: pointer; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCRACA']),0,10)); ?></td>                                                        
+                                                            <td style="cursor: pointer; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCNOME']),0,13)); ?></td>
+                                                            <td style="cursor: pointer; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(substr(strtoupper($item['PEM_DCRACA']),0,13)); ?></td>                                                        
                                                             <td style="cursor: pointer; font-size: 10px;vertical-align: middle;">
                                                             <a class="pe-3" href="#">
                                                                 <img src="<?= htmlspecialchars($item['PET_DCPATHFOTO']); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
