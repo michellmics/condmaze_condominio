@@ -120,11 +120,11 @@
                                             </div>
                                             <div class="col-3 mb-3">
                                                 <label for="qtdehomem" class="form-label">Fator C. Homem</label>
-                                                <input readonly class="form-control" id="consumohomem" value="500g" type="text" name="consumohomem" style="background-color:rgb(186, 192, 194);">
+                                                <input readonly class="form-control" id="consumohomem" value="500g" type="text" name="consumohomem" style="background-color:rgb(209, 209, 209);">
                                             </div>
                                             <div class="col-3 mb-3">
                                                 <label for="qtdemulher" class="form-label">Fator C. Mulher</label>
-                                                <input readonly class="form-control" id="consumomulher" value="350g" type="text" name="consumomulher" style="background-color:rgb(202, 202, 202);">
+                                                <input readonly class="form-control" id="consumomulher" value="350g" type="text" name="consumomulher" style="background-color:rgb(209, 209, 209);">
                                             </div>
                                         </div>
 
