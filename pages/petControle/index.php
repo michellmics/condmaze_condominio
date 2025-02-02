@@ -254,7 +254,7 @@ function mostrarImagem(src) {
                                         </div>
                                         <br>
                                         <div class="tab-pane show active" id="basic-datatable-preview">
-                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                            <table id="basic-datatable" class="table table-striped table table-sm dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>     
                                                         <th></th>                                                   
