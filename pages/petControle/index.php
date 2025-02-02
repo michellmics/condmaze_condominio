@@ -201,11 +201,11 @@
                                                         <tr>                                                       
                                                             <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
                                                             <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PET_DCPATHFOTO'])); ?></td>
+                                                         
          
                                                             <td style="cursor: pointer;">
                                                             <a class="pe-3" href="#">
-                                                                <img src="<?= htmlspecialchars(strtoupper($item['PET_DCPATHFOTO'])); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                                <img src="<?= htmlspecialchars($item['PET_DCPATHFOTO']); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
                                                             </td>
                                                             
