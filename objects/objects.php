@@ -1408,17 +1408,19 @@
             }          
         }
 
-        public function getHashImgInfo($PEM_DCRACA, $PET_DCCOR, $PEM_DCTIPO) 
+        public function getHashImgInfo($PEM_DCRACA = "", $PET_DCCOR = "", $PEM_DCTIPO = "") 
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
 
             $PEM_DCRACA = "%".$PEM_DCRACA."%";  // Adiciona o % antes de associar ao bind
+            $PET_DCCOR = "%".$PET_DCCOR."%";  // Adiciona o % antes de associar ao bind
+            $PEM_DCTIPO = "%".$PEM_DCTIPO."%";  // Adiciona o % antes de associar ao bind
             
             try{           
                 $sql = "SELECT * FROM PEM_PETMORADOR WHERE 
-                PEM_DCTIPO = :PEM_DCTIPO AND 
-                PET_DCCOR = :PET_DCCOR AND (PEM_DCRACA LIKE :PEM_DCRACA)";
+                PEM_DCTIPO LIKE :PEM_DCTIPO AND 
+                PET_DCCOR LIKE :PET_DCCOR AND (PEM_DCRACA LIKE :PEM_DCRACA)";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':PEM_DCTIPO', $PEM_DCTIPO, PDO::PARAM_STR);

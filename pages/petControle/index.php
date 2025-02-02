@@ -204,6 +204,7 @@ function mostrarImagem(src) {
                                                 <option value="CAO">CÃO</option>
                                                 <option value="GATO">GATO</option>
                                                 <option value="PASSARO">PÁSSARO</option>
+                                                <option value="">TODOS</option>
                                             </select>
                                             <select class="form-control" id="cor" name="cor" required style="width: 120px;">
                                                 <option value="" disabled selected>COR</option>
@@ -211,7 +212,7 @@ function mostrarImagem(src) {
                                                 <option value="BRANCO">BRANCO</option>
                                                 <option value="CARAMELO">CARAMELO</option>
                                                 <option value="CINZA">CINZA</option>
-                                                <option value="OUTROS">OUTROS</option>
+                                                <option value="">TODOS</option>
                                             </select>
                                         </div>
                                         <div class="mt-3">
