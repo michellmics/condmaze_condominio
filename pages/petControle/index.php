@@ -199,20 +199,17 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
                                                         <tr>                                                       
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>
-                                                         
-         
-                                                            <td style="cursor: pointer;">
+                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
+                                                            <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>                                                        
+                                                            <td style="cursor: pointer; vertical-align: middle;">
                                                             <a class="pe-3" href="#">
                                                                 <img src="<?= htmlspecialchars($item['PET_DCPATHFOTO']); ?>" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
-                                                            </td>
-                                                            
+                                                            </td>                                                            
                                                             <td style="cursor: pointer;">
                                                                 <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
-                                                                   style="cursor: pointer; font-size: 24px;" 
+                                                                   style="cursor: pointer; font-size: 24px; vertical-align: middle;" 
                                                                    onclick="confirmDelete(event, 
                                                                        '<?php echo htmlspecialchars($item['PEM_IDPETMORADOR'], ENT_QUOTES, 'UTF-8'); ?>')">
                                                                 </i>
