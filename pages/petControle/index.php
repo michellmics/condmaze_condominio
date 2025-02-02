@@ -198,15 +198,10 @@
                                                 </thead> 
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
-
-                                                        <?php
-                                                                $date = new DateTime($item['CON_DTINSERT']);
-                                                                $DATA = $date->format('d/m/Y H:i');
-                                                        ?>
                                                         <tr>                                                       
                                                             <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
                                                             <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PET_DCFOTO'])); ?></td>
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PET_DCPATHFOTO'])); ?></td>
                                                             <td style="cursor: pointer;">
                                                                 <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
