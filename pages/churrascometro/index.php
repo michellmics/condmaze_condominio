@@ -120,11 +120,11 @@
                                             </div>
                                             <div class="col-3 mb-3">
                                                 <label for="qtdehomem" class="form-label">Fator C. Homem</label>
-                                                <input disable class="form-control" id="consumohomem" value="500g" type="number" name="consumohomem">
+                                                <input disable class="form-control" id="consumohomem" value="500g" type="text" name="consumohomem">
                                             </div>
                                             <div class="col-3 mb-3">
                                                 <label for="qtdemulher" class="form-label">Fator C. Mulher</label>
-                                                <input disable class="form-control" id="consumomulher" value="350g" type="number" name="consumomulher">
+                                                <input disable class="form-control" id="consumomulher" value="350g" type="text" name="consumomulher">
                                             </div>
                                         </div>
 
