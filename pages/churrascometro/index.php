@@ -137,12 +137,12 @@
                                                 <input readonly class="form-control" id="carnecalculada" type="number" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
                                             </div>
                                             <div class="col-3 mb-3">
-                                                <label for="custototal" class="form-label">Custo Total do Evento</label>
+                                                <label for="custototal" class="form-label">Custo TotaL</label>
                                                 <input readonly class="form-control" id="custototal" type="text" name="custototal" style="background-color:rgb(5, 89, 158); color: white;">
                                             </div>
                                             <div class="col-3 mb-3">
-                                                <label for="custoporpessoa" class="form-label">&nbsp;</label>
-                                                <button type="submit" class="btn btn-success">Salvar</button>
+                                                <label for="custoporpessoa" class="form-label">Salvar?</label>
+                                                <button type="submit" class="btn btn-success">OK</button>
                                             </div>
                                         </div>
                                         <div class="row">
