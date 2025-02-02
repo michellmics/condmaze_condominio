@@ -26,7 +26,9 @@
 
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
                                     <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>                                                           
-                                    <?php endif; ?>         
+                                    <?php endif; ?>      
+                                    
+                                    <a href="../petControle/index.php" class="dropdown-item">Pets</a>                                                           
                                     
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                                     <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>
