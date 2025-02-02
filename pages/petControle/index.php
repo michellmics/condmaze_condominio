@@ -256,7 +256,7 @@
 
     <script>
 function confirmDelete(event, id) {
-    //console.log(id);  // Verifica se o id está correto
+    console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário de Pets',
         text: "Tem certeza que deseja exluir o pet?",
