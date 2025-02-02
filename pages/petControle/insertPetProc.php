@@ -5,58 +5,23 @@ error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 class registerPet extends SITE_ADMIN
 {
-    function getImageHashPerceptual($imagePath) {
-        // Carrega a imagem
-        $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem JPEG
+    function calculateColorHistogram($imagePath) {
+        $image = imagecreatefromjpeg($imagePath); // ou imagecreatefrompng, dependendo do formato
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $histogram = [];
     
-        if (!$img) {
-            die("Erro ao carregar a imagem.");
-        }
-    
-        // Redimensiona para 8x8 pixels para reduzir a complexidade
-        $img = imagescale($img, 8, 8);  
-        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
-    
-        $pixels = [];
-        for ($y = 0; $y < 8; $y++) {
-            for ($x = 0; $x < 8; $x++) {
-                $rgb = imagecolorat($img, $x, $y);
-                $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
-                $pixels[$y][$x] = $gray;
+        for ($x = 0; $x < $width; $x++) {
+            for ($y = 0; $y < $height; $y++) {
+                $rgb = imagecolorat($image, $x, $y);
+                $colors = imagecolorsforindex($image, $rgb);
+                $color = sprintf('%02X%02X%02X', $colors['red'], $colors['green'], $colors['blue']);
+                $histogram[$color] = ($histogram[$color] ?? 0) + 1;
             }
         }
     
-        // Debug: Exibe todos os valores dos pixels
-        echo "<pre>";
-        var_dump($pixels);
-        echo "</pre>";
-    
-        // Calcula a média de todos os pixels
-        $totalPixelValue = 0;
-        $numPixels = 0;
-        foreach ($pixels as $row) {
-            foreach ($row as $pixel) {
-                $totalPixelValue += $pixel;
-                $numPixels++;
-            }
-        }
-    
-        // Calcula a média dos pixels
-        $averagePixelValue = $totalPixelValue / $numPixels;
-    
-        // Gera um hash binário baseado na comparação dos pixels com a média
-        $hash = '';
-        foreach ($pixels as $row) {
-            foreach ($row as $pixel) {
-                $hash .= ($pixel >= $averagePixelValue) ? '1' : '0';
-            }
-        }
-    
-        // Debug: Exibe o hash gerado
-        echo "Hash gerado: " . $hash . "<br>";
-    
-        imagedestroy($img);
-        return $hash;
+        imagedestroy($image);
+        return $histogram;
     }
     
     
@@ -166,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Se o upload e redimensionamento forem bem-sucedidos, insere as informações no banco
     $petAddInfo = new registerPet();
-    $imageHash = $petAddInfo->getImageHashPerceptual($foto_path);
+    $imageHash = $petAddInfo->calculateColorHistogram($foto_path);
     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
 }
 
