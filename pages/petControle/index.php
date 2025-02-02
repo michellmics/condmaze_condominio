@@ -96,8 +96,8 @@
                                <div class="card-body text-center">
                                    <h4 class="header-title">Meus Pets</h4>
                                    <p class="text-muted font-14">
-                                       Viu um animalzinho perdido? Verifique aqui se ele pode ser de um morador e o ajude a encontrar o lar :).
-                                       A precisão dependerá da foto enviada e dos registros no sistema.
+                                   🐾 Encontrou um Pet Perdido?
+                                   Verifique se ele pode ser de um morador do condomínio e ajude a devolver ao lar! 😊 A precisão da correspondência depende da qualidade da foto enviada e dos registros no sistema.
                                    </p>
 
                                    <form action="pet_img_proc.php" method="POST" enctype="multipart/form-data">
