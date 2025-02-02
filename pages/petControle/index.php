@@ -255,7 +255,8 @@ function mostrarImagem(src) {
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
-                                                    <tr>                                                        
+                                                    <tr>     
+                                                        <th></th>                                                   
                                                         <th>NOME</th>
                                                         <th>TIPO</th>
                                                         <th>FOTO</th>
@@ -264,7 +265,8 @@ function mostrarImagem(src) {
                                                 </thead> 
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
-                                                        <tr>                                                       
+                                                        <tr> 
+                                                            <td> <i class="fas fa-cat"></i> </td>                                                
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
                                                             <td style="cursor: pointer; vertical-align: middle;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>                                                        
                                                             <td style="cursor: pointer; vertical-align: middle;">
