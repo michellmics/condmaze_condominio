@@ -110,19 +110,19 @@
                 <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
 
                                         <div class="row">
-                                            <div class="col-6 mb-3">
+                                            <div class="col-3 mb-3">
                                                 <label for="qtdehomem" class="form-label">Qtde Homens</label>
                                                 <input class="form-control" id="qtdehomem" type="number" name="qtdehomem">
                                             </div>
-                                            <div class="col-6 mb-3">
+                                            <div class="col-3 mb-3">
                                                 <label for="qtdemulher" class="form-label">Qtde Mulheres</label>
                                                 <input class="form-control" id="qtdemulher" type="number" name="qtdemulher">
                                             </div>
-                                            <div class="col-6 mb-3">
+                                            <div class="col-3 mb-3">
                                                 <label for="qtdehomem" class="form-label">Fator C. Homem</label>
                                                 <input class="form-control" id="consumohomem" type="number" name="consumohomem">
                                             </div>
-                                            <div class="col-6 mb-3">
+                                            <div class="col-3 mb-3">
                                                 <label for="qtdemulher" class="form-label">Fator C. Mulher</label>
                                                 <input class="form-control" id="consumomulher" type="number" name="consumomulher">
                                             </div>
