@@ -188,49 +188,6 @@ function mostrarImagem(src) {
                            <div class="card shadow-lg rounded-lg">
                                <div class="card-body text-center">
                                    <h4 class="header-title">Meus Pets</h4>
-                                   <p class="text-muted font-14">
-                                   🐾 Encontrou um Pet Perdido?
-                                   Verifique se ele pode ser de um morador do condomínio e ajude a devolver ao lar! 😊 A precisão da correspondência depende da qualidade da foto enviada e dos registros no sistema.
-                                   </p>
-
-                                   <form id="formProcurar" enctype="multipart/form-data">
-                                        <div class="d-flex gap-2 align-items-center">
-                                            <input name="arquivo" id="arquivo" type="file" accept="image/*" class="form-control" />
-
-                                            <select class="form-control" id="tipo" name="tipo" required style="width: 130px;">
-                                                <option value="" disabled selected>TIPO</option>
-                                                <option value="CAO">CÃO</option>
-                                                <option value="GATO">GATO</option>
-                                                <option value="PASSARO">PÁSSARO</option>
-                                            </select>
-                                        </div>
-                                        <div class="mt-3">
-                                            <button type="submit" class="btn btn-primary">Procurar</button>
-                                        </div>
-                                    </form>
-                               </div>
-
-                               <script>
-                                    document.getElementById("formProcurar").addEventListener("submit", function(event) {
-                                        event.preventDefault();
-                                    
-                                        var formData = new FormData(this);
-                                    
-                                        fetch("pet_img_proc.php", {
-                                            method: "POST",
-                                            body: formData
-                                        })
-                                        .then(response => response.text()) 
-                                        .then(data => {
-                                            document.getElementById("resultadoPesquisa").innerHTML = data;
-                                            var myModal = new bootstrap.Modal(document.getElementById("modalAnimais"));
-                                            myModal.show();
-                                        })
-                                        .catch(error => console.error("Erro na requisição:", error));
-                                    });
-                                </script>
-
-
                                <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title"></h4>
