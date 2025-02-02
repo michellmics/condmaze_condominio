@@ -151,33 +151,33 @@
 
 
                                         <div id="formulario-itens">
-    <div class="row linha-item" style="background-color:#f3f1f1;">
-        <div class="col-9" style="padding-bottom: 5px;">
-            <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
-            <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
-        </div>
-        <div class="col-3" style="padding-bottom: 5px;">
-            <label class="form-label" for="validationTooltip01">Carne?</label><br>
-            <input type="checkbox" id="carneCheckbox0" name="carneCheckbox[]" data-switch="bool"/>
-            <label for="carneCheckbox0" data-on-label="SIM" data-off-label="NÃO"></label>
-        </div>
-        <div class="row linha-item">
-            <div class="col-4" style="padding-bottom: 5px;">
-                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Quantidade</label>
-                <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
-            </div>
-            <div class="col-4" style="padding-bottom: 5px;">
-                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Unitário</label>
-                <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
-            </div>
-            <div class="col-4" style="padding-bottom: 5px;">
-                <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Total</label>
-                <input type="text" class="form-control valortotal" name="valortotal[]" readonly>
-            </div>
-        </div>
-    </div>
-</div>
-
+                                            <div class="row linha-item" style="background-color:#f3f1f1;">
+                                                <div class="col-9" style="padding-bottom: 5px;">
+                                                    <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
+                                                    <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
+                                                </div>
+                                                <div class="col-3" style="padding-bottom: 5px;">
+                                                    <label class="form-label" for="validationTooltip01">Carne?</label><br>
+                                                    <input type="checkbox" id="carneCheckbox0" name="carneCheckbox[]" data-switch="bool"/>
+                                                    <label for="carneCheckbox0" data-on-label="SIM" data-off-label="NÃO"></label>
+                                                </div>
+                                                <div class="row linha-item">
+                                                    <div class="col-4" style="padding-bottom: 5px;">
+                                                        <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Quantidade</label>
+                                                        <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
+                                                    </div>
+                                                    <div class="col-4" style="padding-bottom: 5px;">
+                                                        <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Unitário</label>
+                                                        <input type="number" class="form-control valorunitario" name="valorunitario[]" step="0.01" min="0" onchange="calcularValorTotal(this)">
+                                                    </div>
+                                                    <div class="col-4" style="padding-bottom: 5px;">
+                                                        <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Valor Total</label>
+                                                        <input type="text" class="form-control valortotal" name="valortotal[]" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Salvar</button>                                 </div>
+</form>
 <!-- Botão para adicionar nova linha -->
 <button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
 
