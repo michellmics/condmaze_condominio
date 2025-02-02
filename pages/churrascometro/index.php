@@ -141,7 +141,7 @@
                                                 <input readonly class="form-control" id="custototal" type="text" name="custototal" style="background-color:rgb(5, 89, 158); color: white;">
                                             </div>
                                             <div class="col-3 mb-3">
-                                                <label for="custoporpessoa" class="form-label">Salvar?</label>
+                                                <label for="custoporpessoa" class="form-label">Salvar os dados?</label>
                                                 <button type="submit" class="btn btn-success">OK</button>
                                             </div>
                                         </div>
