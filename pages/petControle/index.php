@@ -255,65 +255,83 @@
   <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function () {
-    console.log("jQuery carregado");
+    <script>
 
-    $("#botao").on("click", function(event) {
-      console.log("Botão clicado");
 
-      // Previne o envio do formulário
-      event.preventDefault();
-
-      const isValid = validarFormulario();
-      if (!isValid) {
-        return;
+       function confirmAndSubmit(event) {       
+        event.preventDefault(); // Impede o envio padrão do formulário
+        Swal.fire({
+          title: 'Formulário de Pets',
+          text: "Têm certeza que deseja cadastrar o Pet?",
+          showDenyButton: true,
+          confirmButtonText: 'CONFIRMAR',
+          denyButtonText: `CANCELAR`,
+          confirmButtonColor: "#536de6",
+          denyButtonColor: "#ff5b5b",
+          width: '400px', // Largura do alerta
+          icon: 'warning',
+          customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Capturar os dados do formulário
+            var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
+            // Fazer a requisição AJAX
+            $.ajax({
+              url: "insertPetProc.php", // URL para processamento
+              type: "POST",
+              data: formData,
+              processData: false, // Impede o jQuery de processar os dados
+              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
+              success: function (response) {
+                Swal.fire({
+              title: 'Atenção',
+              text: `${response}`,
+              icon: 'success',
+              width: '400px', // Largura do alerta
+              confirmButtonColor: "#536de6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            }).then(() => {
+                  // Redirecionar ou atualizar a página, se necessário
+                   window.location.href = "index.php";
+                });
+              },
+              error: function (xhr, status, error) {
+                Swal.fire({
+              title: 'Erro!',
+              text: 'Erro ao atualizar o convidado.'.error,
+              icon: 'error',
+              width: '400px', // Largura do alerta
+              confirmButtonColor: "#536de6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            });
+              },
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+          }
+        });
       }
-
-      // Exibe o SweetAlert
-      Swal.fire({
-        title: 'Formulário de Pets',
-        text: "Têm certeza que deseja cadastrar o Pet?",
-        showDenyButton: true,
-        confirmButtonText: 'CONFIRMAR',
-        denyButtonText: 'CANCELAR',
-        confirmButtonColor: "#536de6",
-        denyButtonColor: "#ff5b5b",
-        icon: 'warning',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          var formData = new FormData($("#form")[0]);
-          $.ajax({
-            url: "insertPetProc.php",
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-              Swal.fire({
-                title: 'Sucesso',
-                text: response,
-                icon: 'success',
-              }).then(() => {
-                window.location.href = "index.php";  // Redireciona após sucesso
-              });
-            },
-            error: function(xhr, status, error) {
-              Swal.fire({
-                title: 'Erro!',
-                text: 'Erro ao cadastrar o pet.',
-                icon: 'error',
-              });
-            }
-          });
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
-        }
+      // Associar a função ao botão de submit
+      $(document).ready(function () {
+        $("#botao").on("click", confirmAndSubmit);
       });
-    });
-  });
-</script>
+</script> 
 <style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
