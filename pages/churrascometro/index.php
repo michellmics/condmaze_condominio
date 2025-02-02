@@ -104,35 +104,21 @@
                                         Asadasdasdas
                                     </p>
                                     <div class="tab-content">
-                                        <div class="col-sm-5">
-                                            
+                                        <div class="col-sm-5">                                            
                                         </div>
 
+                <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
 
-                                        <form method="POST" action="salvar.php">
-        <div id="inputs-container">
-            <input type="text" name="racas[]" class="form-control" placeholder="Informe a raça" required><br>
-        </div>
-        
-        <!-- Botão para adicionar novos campos -->
-        <button type="button" onclick="addInput()">Adicionar mais raças</button><br><br>
-
-        <button type="submit">Salvar</button>
-    </form>
-
-                                        <script>
-        // Função para adicionar novos campos de input
-        function addInput() {
-            var newInput = document.createElement("input");
-            newInput.type = "text";
-            newInput.name = "racas[]";  // Nome do campo (um array para armazenar múltiplos valores)
-            newInput.classList.add("form-control");
-            newInput.placeholder = "Informe a raça";
-            document.getElementById("inputs-container").appendChild(newInput);
-        }
-    </script>
+                                            <div class="mb-3">
+                                                <label for="example-number" class="form-label">Number</label>
+                                                <input class="form-control" id="example-number" type="number" name="number">
+                                            </div>
 
 
+
+
+
+               <!-- Ini formulario--></form>
                                     </div> <!-- end tab-content-->
 
                                 </div> <!-- end card body-->
