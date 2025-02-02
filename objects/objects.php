@@ -586,7 +586,7 @@
             }
 
             try {
-                $sql = "INSERT INTO LOG_LOGSISTEMA 
+                $sql = "INSERT INTO PEM_PETMORADOR 
                         (USU_IDUSUARIO, PEM_DCNOME, PEM_DCRACA, PEM_DCTIPO, PET_DCPATHFOTO, PEM_DCHASHBIN) 
                         VALUES (:USU_IDUSUARIO, :PEM_DCNOME, :PEM_DCRACA, :PEM_DCTIPO, :PET_DCPATHFOTO, :PEM_DCHASHBIN)";
 
