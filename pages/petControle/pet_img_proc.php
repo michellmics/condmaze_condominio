@@ -14,8 +14,6 @@ function calculateColorHistogram($imagePath) {
     $extensao = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
     switch ($extensao) {
         case 'jpeg':
-            $image = imagecreatefromjpeg($imagePath);
-            break;
         case 'jpg':
             $image = imagecreatefromjpeg($imagePath);
             break;
@@ -90,77 +88,71 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Carrega a imagem conforme sua extensão
-    switch ($extensao) {
-        case 'jpeg':
-        case 'jpg':
-            $imagem = imagecreatefromjpeg($foto['tmp_name']);
-            break;
-        case 'png':
-            $imagem = imagecreatefrompng($foto['tmp_name']);
-            break;
-        case 'gif':
-            $imagem = imagecreatefromgif($foto['tmp_name']);
-            break;
-        default:
-            echo "Tipo de arquivo inválido.";
-            exit;
+    // Cria um arquivo temporário para armazenar a imagem
+    $tempImagePath = '/path/to/temp/directory/' . uniqid('image_', true) . '.' . $extensao;
+    if (!move_uploaded_file($foto['tmp_name'], $tempImagePath)) {
+        echo "Erro ao mover o arquivo para o diretório temporário.";
+        exit;
     }
-}
 
-if (!$imagem) {
-    echo "Erro ao carregar a imagem.";
-    exit;
-}
-
-// Corrigindo a linha que chama a função calculateColorHistogram
-$hash1 = calculateColorHistogram($foto['tmp_name']);  // Passando o caminho correto da imagem
-
-$imagensSemelhantes = [];
-
-foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
-    $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
-    $distance = calculateChiSquaredDistance($hash1, $hash);  // Calcula a distância de Hamming
-
-    // Ajuste o limiar conforme necessário
-    if ($distance < 15) {  // Se a distância for menor que 35, considera como semelhante
-        // Se a imagem for similar, adiciona as informações no array
-        $imagensSemelhantes[] = [
-            'nome' => $imgInfo['PEM_DCNOME'],
-            'apartamento' => "194",  // Ajuste conforme necessário
-            'tutor' => "TUTOR",  // Ajuste conforme necessário
-            'raca' => $imgInfo['PEM_DCRACA'],
-            'img' => $imgInfo['PET_DCPATHFOTO']
-        ];    
+    // Chama a função passando o caminho do arquivo temporário
+    try {
+        $hash1 = calculateColorHistogram($tempImagePath);  // Gerando o hash perceptual da imagem recebida
+    } catch (Exception $e) {
+        echo "Erro ao processar a imagem: " . $e->getMessage();
+        exit;
     }
-}
- 
-// Exibindo as imagens semelhantes encontradas
-if (!empty($imagensSemelhantes)) {
-    echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'>
-            <thead>
-                <tr>
-                    <th>NOME</th>
-                    <th>RAÇA</th>
-                    <th>APTO</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>";
-    foreach ($imagensSemelhantes as $imagem) {
-        echo "<tr>";      
-        echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
-        echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['raca']."-".$distance)) . "</td>";
-        echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
-        echo "<td style='cursor: pointer; vertical-align: middle;'>
-                <a class='pe-3' href='#' data-bs-toggle='modal' data-bs-target='#imagemModal' onclick='mostrarImagem(\"" . htmlspecialchars($imagem['img']) . "\")'>
-                    <img src='" . htmlspecialchars($imagem['img']) . "' class='avatar-sm rounded-circle' alt='Imagem do pet'>
-                </a>
-              </td>";
-        echo "</tr>";
+
+    // Remove o arquivo temporário após o processamento
+    unlink($tempImagePath);
+
+    // Continuar com o processamento das imagens
+    $imagensSemelhantes = [];
+
+    foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
+        $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
+        $distance = calculateChiSquaredDistance($hash1, $hash);  // Calcula a distância de Hamming
+
+        // Ajuste o limiar conforme necessário
+        if ($distance < 15) {  // Se a distância for menor que 35, considera como semelhante
+            // Se a imagem for similar, adiciona as informações no array
+            $imagensSemelhantes[] = [
+                'nome' => $imgInfo['PEM_DCNOME'],
+                'apartamento' => "194",  // Ajuste conforme necessário
+                'tutor' => "TUTOR",  // Ajuste conforme necessário
+                'raca' => $imgInfo['PEM_DCRACA'],
+                'img' => $imgInfo['PET_DCPATHFOTO']
+            ];    
+        }
     }
-    echo "</tbody></table>";
-} else {
-    echo "Nenhuma imagem semelhante encontrada.";
+
+    // Exibindo as imagens semelhantes encontradas
+    if (!empty($imagensSemelhantes)) {
+        echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'>
+                <thead>
+                    <tr>
+                        <th>NOME</th>
+                        <th>RAÇA</th>
+                        <th>APTO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>";
+        foreach ($imagensSemelhantes as $imagem) {
+            echo "<tr>";      
+            echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['nome'])) . "</td>";
+            echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['raca']."-".$distance)) . "</td>";
+            echo "<td style='cursor: pointer; vertical-align: middle;'>" . htmlspecialchars(strtoupper($imagem['apartamento'])) . "</td>";
+            echo "<td style='cursor: pointer; vertical-align: middle;'>
+                    <a class='pe-3' href='#' data-bs-toggle='modal' data-bs-target='#imagemModal' onclick='mostrarImagem(\"" . htmlspecialchars($imagem['img']) . "\")'>
+                        <img src='" . htmlspecialchars($imagem['img']) . "' class='avatar-sm rounded-circle' alt='Imagem do pet'>
+                    </a>
+                  </td>";
+            echo "</tr>";
+        }
+        echo "</tbody></table>";
+    } else {
+        echo "Nenhuma imagem semelhante encontrada.";
+    }
 }
 ?>
