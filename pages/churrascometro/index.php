@@ -152,9 +152,13 @@
 
                                             <div id="formulario-itens">
                                                 <div class="row" class="linha-item">
-                                                    <div class="col-12 mb-3">
+                                                    <div class="col-9 mb-3">
                                                         <label for="descricao" class="form-label">Descrição do Item</label>
                                                         <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
+                                                    </div>
+                                                    <div class="col-3 mb-3">
+                                                        <label for="quantidade" class="form-label">Quantidade</label>
+                                                        <input type="number" class="form-control quantidade" name="quantidade[]" step="1" min="0" onchange="calcularValorTotal(this)">
                                                     </div>
                                                     <div class="row" class="linha-item">
                                                     <div class="col-3 mb-3">
