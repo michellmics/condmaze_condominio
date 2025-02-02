@@ -3,8 +3,9 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
-function getImageHashGD($imageResource) {
-    $img = $imageResource; // Agora, usa o recurso de imagem diretamente
+// Função para gerar o hash perceptual da imagem
+function getImageHashPerceptual($imageResource) {
+    $img = $imageResource;
     $img = imagescale($img, 8, 8); // Redimensiona para 8x8
     imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
 
@@ -27,14 +28,13 @@ function getImageHashGD($imageResource) {
     return $hash;
 }
 
+// Função para calcular a distância de Hamming entre dois hashes
 function hammingDistance($hash1, $hash2) {
     return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
 }
 
-
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
-    
     // Recebe os dados do formulário e os converte para maiúsculas
     $foto = $_FILES['arquivo'];
     $tipo = $_POST['tipo'];
@@ -66,41 +66,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Tipo de arquivo inválido.";
             exit;
     }
-
-
 }
- 
+
 if (!$imagem) {
     echo "Erro ao carregar a imagem.";
     exit;
 }
-$hash1 = getImageHashGD($imagem);
+
+$hash1 = getImageHashPerceptual($imagem);  // Gerando o hash perceptual da imagem recebida
 
 $imagensSemelhantes = [];
 
-
-
 foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
-    $distance = hammingDistance($hash1, $hash); 
+    $distance = hammingDistance($hash1, $hash);  // Calcula a distância de Hamming
 
     echo "Distância entre " . $hash1 . " e " . $hash . " = " . $distance . "<br>"; 
 
     // Ajuste o limiar conforme necessário
-    if ($distance < 35) { 
+    if ($distance < 35) {  // Se a distância for menor que 35, considera como semelhante
         // Se a imagem for similar, adiciona as informações no array
         $imagensSemelhantes[] = [
             'nome' => $imgInfo['PEM_DCNOME'],
-            'apartamento' => "194",
-            'tutor' => "TUTOR",
+            'apartamento' => "194",  // Ajuste conforme necessário
+            'tutor' => "TUTOR",  // Ajuste conforme necessário
             'raca' => $imgInfo['PEM_DCRACA'],
             'img' => $imgInfo['PET_DCPATHFOTO']
-
         ];
     }
 }
-
-
 
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
@@ -130,10 +124,4 @@ if (!empty($imagensSemelhantes)) {
 } else {
     echo "Nenhuma imagem semelhante encontrada.";
 }
-
-
-echo "</tbody></table>";
-
-
-
 ?>
