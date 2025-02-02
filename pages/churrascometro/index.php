@@ -182,9 +182,9 @@
 <button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
 
 <script>
+    let index = 1;  // Variável para controlar os índices dos novos checkboxes
     // Função para adicionar uma nova linha de formulário
     function adicionarItem() {
-    let index = 1;  // Variável para controlar os índices dos novos checkboxes
     const formularioItens = document.getElementById('formulario-itens');
     const novaLinha = document.createElement('div');
     novaLinha.classList.add('row', 'linha-item');
