@@ -199,7 +199,7 @@ function mostrarImagem(src) {
 
                                             <select class="form-control" id="tipo" name="tipo" required style="width: 130px;">
                                                 <option value="" disabled selected>TIPO</option>
-                                                <option value="CACHORRO">CÃO</option>
+                                                <option value="CAO">CÃO</option>
                                                 <option value="GATO">GATO</option>
                                                 <option value="PASSARO">PÁSSARO</option>
                                             </select>

@@ -42,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getHashImgInfo($tipo);  
+    var_dump($siteAdmin->ARRAY_HASHIMGINFO);
+    exit;
 
     // Verifica se o arquivo enviado é uma imagem
     $tipos_aceitos = ['jpeg', 'jpg', 'png', 'gif'];
@@ -78,7 +80,7 @@ $hash1 = getImageHashGD($imagem);
 
 $imagensSemelhantes = [];
 
-var_dump($siteAdmin->ARRAY_HASHIMGINFO);
+
 
 foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     $hash = $imgInfo['PEM_DCHASHBIN']; // O hash da imagem
