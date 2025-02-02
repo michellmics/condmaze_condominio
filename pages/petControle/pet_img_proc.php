@@ -70,7 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
  
-// Exemplo de comparação
+if (!$imagem) {
+    echo "Erro ao carregar a imagem.";
+    exit;
+}
 $hash1 = getImageHashGD($imagem);
 
 $imagensSemelhantes = [];
