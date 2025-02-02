@@ -33,6 +33,7 @@
         public $WHATSAPP_TOKEN;
         public $WHATSAPP_SID;
         public $ARRAY_UPLOADREPORTINFO;
+        public $ARRAY_PETSINFO;
         public $configPath;
 
 
@@ -283,6 +284,24 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getPetsInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                                FROM PEM_PETMORADOR
+                                ORDER BY PEM_DCNOME ASC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_PETSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          

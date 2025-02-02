@@ -13,7 +13,7 @@
       }
     }   
 
-    $siteAdmin->getUploadedReportInfo();
+    
     
 ?>
 
@@ -64,11 +64,10 @@
 		<!-- End Top bar -->
 
 		<!-- Menu Nav Area -->
-		<?php include '../../src/menu_nav.php'; ?>
+		<?php include '../../src/menu_nav.php'; ?>        
 		<!-- End Menu Nav -->
-            <?php
-                $siteAdmin->getListaInfo($userid);
-            ?>
+         
+        <?php $siteAdmin->getPetsInfo($userid); ?>
 
         <div class="content-page">
             <div class="content">
@@ -142,24 +141,22 @@
                                                     </tr>
                                                 </thead> 
                                                 <tbody>
-                                                    <?php foreach ($siteAdmin->ARRAY_UPLOADREPORTINFO as $item): ?>
+                                                    <?php foreach ($siteAdmin->ARRAY_PETSINFO as $item): ?>
 
                                                         <?php
                                                                 $date = new DateTime($item['CON_DTINSERT']);
                                                                 $DATA = $date->format('d/m/Y H:i');
                                                         ?>
                                                         <tr>                                                       
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars($DATA); ?></td>
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCMES_COMPETENCIA_USUARIO'])); ?></td>
-                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['CON_DCANO_COMPETENCIA_USUARIO'])); ?></td>
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PET_DCFOTO'])); ?></td>
                                                             <td style="cursor: pointer;">
                                                                 <i class="mdi mdi-delete" 
                                                                    title="Excluir encomenda" 
                                                                    style="cursor: pointer; font-size: 24px;" 
                                                                    onclick="confirmDelete(event, 
-                                                                       '<?php echo htmlspecialchars($item['CON_DCMES_COMPETENCIA_USUARIO'], ENT_QUOTES, 'UTF-8'); ?>', 
-                                                                       '<?php echo htmlspecialchars($item['CON_DCANO_COMPETENCIA_USUARIO'], ENT_QUOTES, 'UTF-8'); ?>'
-                                                                   )">
+                                                                       '<?php echo htmlspecialchars($item['PEM_IDPETMORADOR'], ENT_QUOTES, 'UTF-8'); ?>')">
                                                                 </i>
                                                             </td>
                                                         </tr>
