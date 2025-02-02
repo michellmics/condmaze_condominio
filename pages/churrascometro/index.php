@@ -158,8 +158,8 @@
         </div>
         <div class="col-3" style="padding-bottom: 5px;">
             <label class="form-label" for="validationTooltip01">Carne?</label><br>
-            <input type="checkbox" id="status" name="status" data-switch="bool"/>
-            <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
+            <input type="checkbox" id="carneCheckbox" name="carneCheckbox" data-switch="bool"/>
+            <label for="carneCheckbox" data-on-label="SIM" data-off-label="NÃO"></label>
         </div>
         <div class="row linha-item">
             <div class="col-4" style="padding-bottom: 5px;">
@@ -197,7 +197,7 @@
         </div>
 <div class="col-3" style="padding-bottom: 5px;">
     <label class="form-label" for="carneCheckbox">Carne?</label><br>
-    <input type="checkbox" name="status[]" id="carneCheckbox" data-switch="bool"/>
+    <input type="checkbox" name="status[]" carneCheckbox data-switch="bool"/>
     <label for="carneCheckbox" data-on-label="SIM" data-off-label="NÃO"></label>
 </div>
         <div class="row linha-item">
