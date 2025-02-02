@@ -201,7 +201,7 @@
                                                         <tr>                                                       
                                                             <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCNOME'])); ?></td>
                                                             <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PEM_DCTIPO'])); ?></td>
-                                                            
+                                                            <td style="cursor: pointer;"><?= htmlspecialchars(strtoupper($item['PET_DCPATHFOTO'])); ?></td>
          
                                                             <td style="cursor: pointer;">
                                                             <a class="pe-3" href="#">
