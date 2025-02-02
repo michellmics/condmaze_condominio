@@ -88,13 +88,13 @@
                                 <!-- Nome -->
                                 <div class="mb-3">
                                     <label for="nome" class="form-label">NOME DO PET</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                    <input type="text" class="form-control" id="nome" name="nome" style="text-transform: uppercase;" required>
                                 </div>
 
                                 <!-- Raça -->
                                 <div class="mb-3">
                                     <label for="raca" class="form-label">RAÇA</label>
-                                    <input type="text" class="form-control" id="raca" name="raca" required>
+                                    <input type="text" class="form-control" id="raca" name="raca" style="text-transform: uppercase;" required>
                                 </div>
 
                                 <!-- Tipo -->
@@ -197,7 +197,7 @@ function mostrarImagem(src) {
                                    <form id="formProcurar" enctype="multipart/form-data">
                                         <div class="d-flex gap-2 align-items-center">
                                         <label for="raca" class="form-label">RAÇA</label>
-                                        <input type="text" class="form-control" id="raca" name="raca" >
+                                        <input type="text" class="form-control" id="raca" name="raca" style="text-transform: uppercase;">
 
                                             <select class="form-control" id="tipo" name="tipo" required style="width: 100px;">
                                                 <option value="" disabled selected>TIPO</option>
