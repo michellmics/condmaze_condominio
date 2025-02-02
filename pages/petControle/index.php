@@ -255,7 +255,7 @@
     <!-- SWEETALERT 2 -->   
 
     <script>
-function confirmDelete(event, mes, ano) {
+function confirmDelete(event, id) {
     //console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário de Pets',
@@ -281,8 +281,7 @@ function confirmDelete(event, mes, ano) {
                 url: "deletePetProc.php", // URL para processamento
                 type: "POST",
                         data: { 
-                        mes: mes, 
-                        ano: ano 
+                        id: id
                     },
                 success: function (response) {
                     Swal.fire({
