@@ -116,10 +116,10 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>                                                        
-                                                        <th>Nome</th>
-                                                        <th>Bloco</th>
-                                                        <th>Apto</th>
-                                                        <th>Telefone</th>   
+                                                        <th>NOME</th>
+                                                        <th>BLOCO</th>
+                                                        <th>APTO</th>
+                                                        <th>TELEFONE</th>   
                                                         <th></th>                                                     
                                                     </tr>
                                                 </thead> 

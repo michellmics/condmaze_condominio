@@ -111,9 +111,9 @@
                                         <table class="table table-centered mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Nome</th>
+                                                    <th>NOME</th>
                                                     <th>CPF / RG</th>
-                                                    <th>Ativo?</th>
+                                                    <th>ATIVO?</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
