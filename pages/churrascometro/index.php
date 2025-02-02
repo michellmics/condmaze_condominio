@@ -146,7 +146,8 @@
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
                                                 <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
-                                            <div class="col-3 mb-3">
+                                            <div class="col-4 mb-3">
+                                                <label for="custoporpessoa" class="form-label">GUARDAR OS DADOS?</label>
                                                 <button type="submit" class="btn btn-success">Salvar</button>
                                             </div>
 
