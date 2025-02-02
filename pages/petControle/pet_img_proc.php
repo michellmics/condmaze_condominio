@@ -96,6 +96,14 @@ foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
     }
 }
 
+echo "Hash da imagem enviada: " . $hash1 . "<br>";
+
+foreach ($siteAdmin->ARRAY_HASHIMGINFO as $imgInfo) {
+    echo "Hash armazenado: " . $imgInfo['PEM_DCHASHBIN'] . "<br>";
+}
+
+exit();
+
 // Exibindo as imagens semelhantes encontradas
 if (!empty($imagensSemelhantes)) {
     echo "<table id='basic-datatable' class='table table-striped dt-responsive nowrap w-100'>
