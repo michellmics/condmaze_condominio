@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mb-3">
-                                                <label for="custoporpessoa" class="form-label">Carne Necessária</label>
+                                                <label for="custoporpessoa" class="form-label">CUSTO POR PESSOA</label>
                                                 <input class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>
                                         </div>
