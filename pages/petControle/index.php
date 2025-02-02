@@ -98,7 +98,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                <label for="cor" class="form-label">COR</label>
+                                    <label for="cor" class="form-label">COR</label>
                                     <select class="form-control" id="cor" name="cor" required style="width: 120px;">
                                         <option value="" disabled selected>COR</option>
                                         <option value="PRETO">PRETO</option>
@@ -107,7 +107,7 @@
                                         <option value="CINZA">CINZA</option>
                                         <option value="">TODOS</option>
                                     </select>
-                                    </div>
+                                </div>
 
                                 <!-- Tipo -->
                                 <div class="mb-3">
