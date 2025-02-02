@@ -217,6 +217,7 @@
         </div>
     `;
     formularioItens.appendChild(novaLinha);
+    index++;  // Incrementa o índice para o próximo checkbox
 }
 
 
