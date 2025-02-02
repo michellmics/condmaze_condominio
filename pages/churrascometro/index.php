@@ -89,7 +89,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Auditoria</h4>
+                                <h4 class="page-title">Churrascômetro</h4>
                             </div>
                         </div>
                     </div>
@@ -99,9 +99,9 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Registro de Ações </h4>
+                                    <h4 class="header-title">Organização de Evento </h4>
                                     <p class="text-muted font-14">
-                                        Aqui são listados todas as atividades realizadas no sistema.
+                                        Asadasdasdas
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5">
