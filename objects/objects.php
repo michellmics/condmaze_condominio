@@ -579,7 +579,7 @@
             }
         }
 
-        public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO)
+        public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO, $PET_DCCOR)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
@@ -588,8 +588,8 @@
 
             try {
                 $sql = "INSERT INTO PEM_PETMORADOR 
-                        (USU_IDUSUARIO, PEM_DCNOME, PEM_DCRACA, PEM_DCTIPO, PET_DCPATHFOTO) 
-                        VALUES (:USU_IDUSUARIO, :PEM_DCNOME, :PEM_DCRACA, :PEM_DCTIPO, :PET_DCPATHFOTO)";
+                        (USU_IDUSUARIO, PEM_DCNOME, PEM_DCRACA, PEM_DCTIPO, PET_DCPATHFOTO, PET_DCCOR) 
+                        VALUES (:USU_IDUSUARIO, :PEM_DCNOME, :PEM_DCRACA, :PEM_DCTIPO, :PET_DCPATHFOTO, :PET_DCCOR)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -598,7 +598,8 @@
                 $stmt->bindParam(':PEM_DCNOME', $PEM_DCNOME, PDO::PARAM_STR);
                 $stmt->bindParam(':PEM_DCRACA', $PEM_DCRACA, PDO::PARAM_STR);
                 $stmt->bindParam(':PEM_DCTIPO', $PEM_DCTIPO, PDO::PARAM_STR);
-                $stmt->bindParam(':PET_DCPATHFOTO', $PET_DCPATHFOTO, PDO::PARAM_STR);
+                $stmt->bindParam(':PET_DCPATHFOTO', $PET_DCPATHFOTO, PDO::PARAM_STR);  
+                $stmt->bindParam(':PET_DCCOR', $PET_DCCOR, PDO::PARAM_STR);
             
                 $stmt->execute();
            

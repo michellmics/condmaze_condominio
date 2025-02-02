@@ -7,7 +7,7 @@ include_once "../../objects/objects.php";
 class registerPet extends SITE_ADMIN
 {
     // Função para inserir o pet no banco de dados
-    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path)
+    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $cor)
     {
         try {
             if (!$this->pdo) {
@@ -15,7 +15,7 @@ class registerPet extends SITE_ADMIN
             }
 
             // Insere as informações do pet, incluindo o histograma de cores
-            $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path);
+            $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path, $cor);
 
             //--------------------LOG----------------------//
             $LOG_DCTIPO = "PET";
@@ -39,10 +39,11 @@ class registerPet extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recebe os dados do formulário e os converte para maiúsculas
     $nome = strtoupper($_POST['nome']);
-    $idMorador = strtoupper($_POST['idmorador']);
+    $idMorador = $_POST['idmorador'];
     $raca = strtoupper($_POST['raca']);
     $apartamento = $_POST['apartamento'];
     $tipo = $_POST['tipo'];
+    $cor = $_POST['cor'];
 
     // Processa a foto
     $foto = $_FILES['foto'];
@@ -98,6 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Calcula o histograma de cores e insere as informações no banco
     $petAddInfo = new registerPet();
-     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path);
+     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $cor);
 }
 ?>
