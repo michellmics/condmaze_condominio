@@ -180,7 +180,7 @@
                                             </div>
                                         </div>
 <!-- Botão para adicionar nova linha -->
-<button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button>
+<button class="btn btn-primary" type="button" onclick="adicionarItem()">Adicionar Item</button><button type="submit" class="btn btn-success">OK</button>
                                     </form>
 
 
