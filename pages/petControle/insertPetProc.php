@@ -34,29 +34,36 @@ class registerPet extends SITE_ADMIN
     }
 
     function getImageHashGD($imagePath) {
-        $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem
+        $img = imagecreatefromjpeg($imagePath);
         if (!$img) {
-            echo "Erro ao carregar a imagem.";
+            echo "Erro ao carregar a imagem.\n";
             return null;
         }
-        
-        $img = imagescale($img, 64, 64); // Redimensiona para 64x64
-        imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
-        
+    
+        // Redimensionar para 64x64 para ter uma maior variedade de pixels
+        $img = imagescale($img, 64, 64);
+        imagefilter($img, IMG_FILTER_GRAYSCALE);  // Converter para escala de cinza
+    
         $pixels = [];
         for ($y = 0; $y < 64; $y++) {
             for ($x = 0; $x < 64; $x++) {
-                $rgb = imagecolorat($img, $x, $y);
-                $gray = ($rgb >> 16) & 0xFF; // Pega o valor do vermelho (imagem em tons de cinza)
+                $rgb = imagecolorat($img, $x, $y); // Pega a cor de cada pixel
+                $gray = ($rgb >> 16) & 0xFF;  // Pega a intensidade de cinza
                 $pixels[] = $gray;
             }
         }
+    
+        // Verificar se os valores dos pixels estão variados
+        echo "Primeiros 20 Pixels: " . implode(", ", array_slice($pixels, 0, 20)) . "\n";
     
         // Ordena os pixels e pega a mediana
         sort($pixels);
         $median = $pixels[count($pixels) / 2];
     
-        // Gera um hash baseado na mediana
+        // Verificar a mediana
+        echo "Mediana: $median\n";
+    
+        // Gera o hash baseado na comparação com a mediana
         $hash = '';
         foreach ($pixels as $pixel) {
             $hash .= ($pixel >= $median) ? '1' : '0';
@@ -65,6 +72,7 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
+    
     
     
     
