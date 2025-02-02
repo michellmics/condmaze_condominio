@@ -388,7 +388,7 @@ function mostrarImagem(src) {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
                 htmlContainer: 'swal-text',
-                confirmButton: 'swal-confirm-btn'
+                confirmButton: 'swal-confirm-btn' 
               }
             }).then(() => {
                   // Redirecionar ou atualizar a página, se necessário
