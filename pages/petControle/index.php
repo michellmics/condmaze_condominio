@@ -92,9 +92,9 @@
 
                     <div class="d-flex justify-content-center mt-4">
                        <div class="col-md-6">
-                       <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
                            <div class="card shadow-lg rounded-lg">
                                <div class="card-body text-center">
+                               <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
                                    <h4 class="header-title">Pets</h4>
                                    <p class="text-muted font-14">
                                        Viu um animalzinho perdido? Verifique aqui se ele pode ser de um morador e o ajude a encontrar o lar :).
