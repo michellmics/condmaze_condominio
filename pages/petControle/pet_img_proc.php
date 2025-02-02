@@ -3,29 +3,24 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 include_once "../../objects/objects.php";
 
-function getPerceptualHash($imageResource) {
-    // Verifica se a variável passada é um recurso de imagem
-    if (is_resource($imageResource)) {
-        $img = $imageResource;
-    } else {
-        // Caso não seja um recurso, tenta carregar a imagem do caminho
-        $extensao = pathinfo($imageResource, PATHINFO_EXTENSION);
-
-        switch (strtolower($extensao)) {
-            case 'jpeg':
-            case 'jpg':
-                $img = imagecreatefromjpeg($imageResource);
-                break;
-            case 'png':
-                $img = imagecreatefrompng($imageResource);
-                break;
-            case 'gif':
-                $img = imagecreatefromgif($imageResource);
-                break;
-            default:
-                echo "Formato de imagem não suportado.\n";
-                return null;
-        }
+function getImageHashGD($imagePath) {
+    $extensao = pathinfo($imagePath, PATHINFO_EXTENSION);
+    
+    // Tenta carregar a imagem de acordo com a extensão
+    switch (strtolower($extensao)) {
+        case 'jpeg':
+        case 'jpg':
+            $img = imagecreatefromjpeg($imagePath);
+            break;
+        case 'png':
+            $img = imagecreatefrompng($imagePath);
+            break;
+        case 'gif':
+            $img = imagecreatefromgif($imagePath);
+            break;
+        default:
+            echo "Formato de imagem não suportado.\n";
+            return null;
     }
 
     if (!$img) {
@@ -33,35 +28,32 @@ function getPerceptualHash($imageResource) {
         return null;
     }
 
-    // Redimensiona a imagem para 32x32 para capturar detalhes suficientes
-    $img = imagescale($img, 32, 32);
-    imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para escala de cinza
+    // Redimensiona e aplica a conversão para escala de cinza
+    $img = imagescale($img, 64, 64);
+    imagefilter($img, IMG_FILTER_GRAYSCALE);
 
     $pixels = [];
-    for ($y = 0; $y < 32; $y++) {
-        for ($x = 0; $x < 32; $x++) {
+    for ($y = 0; $y < 64; $y++) {
+        for ($x = 0; $x < 64; $x++) {
             $rgb = imagecolorat($img, $x, $y);
-            $gray = ($rgb >> 16) & 0xFF; // Extrai o valor de cinza
+            $gray = ($rgb >> 16) & 0xFF;  // Intensidade de cinza
             $pixels[] = $gray;
         }
     }
 
-    // Ordena os pixels e pega a mediana
-    sort($pixels);
-    $median = $pixels[count($pixels) / 2];
+    // Calcula a média dos pixels
+    $avg = array_sum($pixels) / count($pixels);
+    echo "Média: $avg\n";
 
-    // Gera o hash com base na comparação dos pixels com a mediana
+    // Gera o hash comparando com a média
     $hash = '';
     foreach ($pixels as $pixel) {
-        $hash .= ($pixel >= $median) ? '1' : '0';
+        $hash .= ($pixel >= $avg) ? '1' : '0';
     }
 
     imagedestroy($img);
     return $hash;
 }
-
-
-
 
 function hammingDistance($hash1, $hash2) {
     return count(array_diff_assoc(str_split($hash1), str_split($hash2)));
@@ -110,7 +102,7 @@ if (!$imagem) {
     echo "Erro ao carregar a imagem.";
     exit;
 }
-$hash1 = getPerceptualHash($imagem);
+$hash1 = getImageHashGD($imagem);
 
 $imagensSemelhantes = [];
 
