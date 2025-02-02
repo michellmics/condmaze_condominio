@@ -259,7 +259,7 @@ function confirmDelete(event, id) {
     console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário de Pets',
-        text: "Tem certeza que deseja exluir o pet?",
+        text: "Tem certeza que deseja excluir o pet?",  // Correção do erro de digitação
         showDenyButton: true,
         confirmButtonText: 'CONFIRMAR',
         denyButtonText: `CANCELAR`,
@@ -280,9 +280,9 @@ function confirmDelete(event, id) {
             $.ajax({
                 url: "deletePetProc.php", // URL para processamento
                 type: "POST",
-                        data: { 
-                        id: id
-                    },
+                data: { 
+                    id: id
+                },
                 success: function (response) {
                     Swal.fire({
                         title: 'Atenção',
@@ -317,11 +317,11 @@ function confirmDelete(event, id) {
                     });
                 }
             });
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
         }
     });
 }
+
+
 
 $(document).ready(function () {
     // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
