@@ -3,39 +3,13 @@ ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 
 include_once "../../objects/objects.php";
-
 class registerPet extends SITE_ADMIN
 {
-    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
-    {
-        try {
-            // Cria conexão com o banco de dados
-            if (!$this->pdo) {
-                $this->conexao();
-            }
-
-                $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path, $imageHash);
-                
-                //--------------------LOG----------------------//
-                $LOG_DCTIPO = "PET";
-                $LOG_DCMSG = "Pet registrado no sistema para o apartamento $apartamento.";
-                $LOG_DCUSUARIO = "MORADOR";
-                $LOG_DCCODIGO = "N/A";
-                $LOG_DCAPARTAMENTO = $apartamento;
-                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
-                //--------------------LOG----------------------//
-                
-                echo "Pet registrado com sucesso.";
-
- 
-        } catch (PDOException $e) {  
-            echo "Erro ao cadastrar o Pet."; 
-        } 
-    }
-
-    function getImageHashGD($imagePath) {
-        $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem
-        $img = imagescale($img, 8, 8); // Redimensiona para 32x32
+    // Método para gerar o hash perceptual
+    function getImageHashPerceptual($imagePath) {
+        // Carrega a imagem
+        $img = imagecreatefromjpeg($imagePath);  // Carrega a imagem JPEG
+        $img = imagescale($img, 8, 8);  // Redimensiona para 8x8 pixels
         imagefilter($img, IMG_FILTER_GRAYSCALE); // Converte para tons de cinza
         
         $pixels = [];
@@ -46,8 +20,8 @@ class registerPet extends SITE_ADMIN
                 $pixels[] = $gray;
             }
         }
-    
-        // Ordena os pixels e pega a mediana
+
+        // Calcula a mediana dos pixels
         sort($pixels);
         $median = $pixels[count($pixels) / 2];
     
@@ -60,7 +34,43 @@ class registerPet extends SITE_ADMIN
         imagedestroy($img);
         return $hash;
     }
-    
+
+    // Método para comparar dois hashes perceptuais
+    function compareHashes($hash1, $hash2) {
+        $distance = 0;
+        for ($i = 0; $i < strlen($hash1); $i++) {
+            if ($hash1[$i] != $hash2[$i]) {
+                $distance++;
+            }
+        }
+        return $distance;
+    }
+
+    public function insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash)
+    {
+        try {
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            // Insere as informações do pet, incluindo o hash da imagem
+            $codigo = $this->insertPetInfo($idMorador, $nome, $raca, $tipo, $foto_path, $imageHash);
+            
+            //--------------------LOG----------------------//
+            $LOG_DCTIPO = "PET";
+            $LOG_DCMSG = "Pet registrado no sistema para o apartamento $apartamento.";
+            $LOG_DCUSUARIO = "MORADOR";
+            $LOG_DCCODIGO = "N/A";
+            $LOG_DCAPARTAMENTO = $apartamento;
+            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+            //--------------------LOG----------------------//
+            
+            echo "Pet registrado com sucesso.";
+
+        } catch (PDOException $e) {
+            echo "Erro ao cadastrar o Pet.";
+        }
+    }
 }
 
 // Processa a requisição POST
@@ -120,8 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Cria uma nova imagem com a nova largura e altura
     $imagem_redimensionada = imagescale($imagem, $nova_largura, $nova_altura);
 
-
-
     // Salva a imagem redimensionada no diretório
     switch ($extensao) {
         case 'jpeg':
@@ -142,7 +150,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Se o upload e redimensionamento forem bem-sucedidos, insere as informações no banco
     $petAddInfo = new registerPet();
-    $imageHash = $petAddInfo->getImageHashGD($foto_path);
+    $imageHash = $petAddInfo->getImageHashPerceptual($foto_path);
     $petAddInfo->insertPet($idMorador, $nome, $raca, $tipo, $apartamento, $foto_path, $imageHash); 
 }
+
 ?>
