@@ -1412,6 +1412,8 @@
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
+
+            $PEM_DCRACA = "%".$PEM_DCRACA."%";  // Adiciona o % antes de associar ao bind
             
             try{           
                 $sql = "SELECT * FROM PEM_PETMORADOR WHERE 
@@ -1421,7 +1423,7 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':PEM_DCTIPO', $PEM_DCTIPO, PDO::PARAM_STR);
                 $stmt->bindParam(':PET_DCCOR', $PET_DCCOR, PDO::PARAM_STR);
-                $stmt->bindParam(':PEM_DCRACA', "%".$PEM_DCRACA."%", PDO::PARAM_STR);
+                $stmt->bindParam(':PEM_DCRACA', $PEM_DCRACA, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_HASHIMGINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
