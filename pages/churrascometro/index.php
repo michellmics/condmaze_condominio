@@ -179,7 +179,7 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                                             </div>
                                             <div class="col-4 mb-3">
                                                 <label for="custototal" class="form-label">Custo Total do Evento</label> 
-                                                <input readonly class="form-control" id="custototal" type="text" value="<?php echo "R$".$custoTotal; ?>" name="custototal" style="background-color:rgb(255, 255, 255); color:rgb(85, 84, 84); font-weight: bold; font-size: 14px;">
+                                                <input readonly class="form-control" id="custototal" type="text" value="<?php echo "R$".$custoTotal; ?>" name="custototal" style="background-color:rgb(255, 255, 255); color:rgb(85, 84, 84); font-weight: bold; font-size: 18px;">
                                             </div>
                                         </div>
                                         <div class="row">
