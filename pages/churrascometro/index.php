@@ -153,7 +153,7 @@
                                                 <input readonly class="form-control" id="carnecalculada" type="number" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
                                             </div>
                                             <div class="col-4 mb-3">
-                                                <label for="custototal" class="form-label">Custo Total</label>
+                                                <label for="custototal" class="form-label">Custo Total do Evento</label>
                                                 <input readonly class="form-control" id="custototal" type="text" name="custototal" style="background-color:rgb(5, 89, 158); color: white;">
                                             </div>
                                         </div>
