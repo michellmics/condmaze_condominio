@@ -84,10 +84,13 @@
                 $carneNecessaria = $carneNecessariaMulher + $carneNecessariaHomem;
             }
 
-            $carneCalculada = 0;       
+            $carneCalculada = 0;  
+            $custoTotal = 0;         
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
             {
-                if($item["LEV_DCTIPO"] == "1"){$carneCalculada += $item["LEV_DCQTDE"];}           
+                if($item["LEV_DCTIPO"] == "1"){$carneCalculada += $item["LEV_DCQTDE"];}  
+                $custoTotal += $item["LEV_DCVALOR_TOTAL"];
+
             }
 
             if($carneNecessaria < $carneCalculada) 
@@ -175,14 +178,14 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                                                 <input readonly class="form-control" id="carnecalculada" type="text" value="<?php echo $carneCalculada."Kg"; ?>" name="carnecalculada" style="<?php echo $formatCarneCalculada; ?>; color: white;">
                                             </div>
                                             <div class="col-4 mb-3">
-                                                <label for="custototal" class="form-label">Custo Total do Evento</label>
-                                                <input readonly class="form-control" id="custototal" type="text" name="custototal" style="background-color:rgb(255, 255, 255); color:rgb(85, 84, 84); font-weight: bold; font-size: 18px;">
+                                                <label for="custototal" class="form-label">Custo Total do Evento</label> 
+                                                <input readonly class="form-control" id="custototal" type="text" value="<?php echo "R$".$custoTotal; ?>" name="custototal" style="background-color:rgb(255, 255, 255); color:rgb(85, 84, 84); font-weight: bold; font-size: 14px;">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mb-3">
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
-                                                <input readonly class="form-control" id="custoporpessoa" type="number" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
+                                                <input readonly class="form-control" id="custoporpessoa" type="text" value="<?php $custP =  $custoTotal/($siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"] + $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"]); echo $custP; ?> name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
                                             </div>                                         
                                         </div>
                                         <div class="row">
