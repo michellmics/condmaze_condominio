@@ -108,6 +108,9 @@
                                         </div>
 
                 <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" action="churras_proc.php" enctype="multipart/form-data" novalidate>
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
+                                                    <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $userid; ?>"/>
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
 
                                         <div class="row">
                                             <div class="col-3 mb-3">

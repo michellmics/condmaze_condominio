@@ -1,16 +1,18 @@
 <?php
+ini_set('display_errors', 1);  // Habilita a exibição de erros
+error_reporting(E_ALL);        // Reporta todos os erros
+include_once "../../objects/objects.php";
+
+$siteAdmin = new SITE_ADMIN();  
 
 // Capturar os valores do formulário
 $qtde_homens = $_POST['qtdehomem'] ?? 0;
 $qtde_mulheres = $_POST['qtdemulher'] ?? 0;
-$carne_necessaria = $_POST['carnenecessaria'] ?? 0;
-$carne_calculada = $_POST['carnecalculada'] ?? 0;
-$custo_total = $_POST['custototal'] ?? 0;
-$custo_por_pessoa = $_POST['custoporpessoa'] ?? 0;
+$idmorador = $_POST['idmorador'] ?? 0;
 
-var_dump($_POST['descricao']);
-die();
+$siteAdmin->insertChurrasEventoInfo($idmorador, $qtde_homens, $qtde_mulheres);
 
+/*
 // Inserir os itens da lista
 if (!empty($_POST['descricao'])) {
     for ($i = 0; $i < count($_POST['descricao']); $i++) {
@@ -23,5 +25,5 @@ if (!empty($_POST['descricao'])) {
     }
 }
 
-
+*/
 ?>

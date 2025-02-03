@@ -418,6 +418,37 @@
 
         }
 
+        public function insertChurrasEventoInfo($USU_IDUSUARIO, $LEU_DCCONVIDADO_HOMEM, $LEU_DCCONVIDADO_MULHER)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            
+                // Query de inserção
+                $sql = "INSERT INTO LEU_LISTAEVENTO_USUARIO (USU_IDUSUARIO, LEU_DCCONVIDADO_HOMEM, LEU_DCCONVIDADO_MULHER)
+                          VALUES (:USU_IDUSUARIO, :LEU_DCCONVIDADO_HOMEM, :LEU_DCCONVIDADO_MULHER)";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
+                $stmt->bindValue(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindValue(':LEU_DCCONVIDADO_HOMEM', $LEU_DCCONVIDADO_HOMEM, PDO::PARAM_STR);
+                $stmt->bindValue(':LEU_DCCONVIDADO_MULHER', $LEU_DCCONVIDADO_MULHER, PDO::PARAM_STR);
+
+
+            
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    //return "Erro ao inserir os dados: " . $stmt->error;
+                } else {
+                    //return "Registro inserido com sucesso!";
+                }
+            
+        }
+        
         public function insertConciliacaoInfoDespesa($ARRAY_DADOS)
         {       
             // Verifica se a conexão já foi estabelecida
