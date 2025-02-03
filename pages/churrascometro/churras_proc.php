@@ -28,5 +28,6 @@ if (!empty($_POST['descricao'])) {
     }
 }
 
+echo "Os itens do churrasco foram cadastrados com sucesso."
 
 ?>

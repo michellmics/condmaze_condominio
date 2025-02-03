@@ -154,7 +154,7 @@
                                         <div id="formulario-itens">
                                             <div class="row linha-item" style="background-color:#f3f1f1;">
                                                 <div class="col-9" style="padding-bottom: 5px;">
-                                                    <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
+                                                    <label for="valorunitario" class="form-label" style="font-size: 12px; margin-bottom: 2px; text-transform: uppercase;">Descrição do Item</label>
                                                     <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
                                                 </div>
                                                 <div class="col-3" style="padding-bottom: 5px;">
@@ -195,7 +195,7 @@
     novaLinha.innerHTML = `
         <div style="background-color:rgb(255, 255, 255);">&nbsp;</div>
         <div class="col-9" style="padding-bottom: 5px;">
-            <label for="descricao" class="form-label" style="font-size: 12px; margin-bottom: 2px;">Descrição do Item</label>
+            <label for="descricao" class="form-label" style="font-size: 12px; margin-bottom: 2px; text-transform: uppercase;">Descrição do Item</label>
             <input type="text" class="form-control descricao" name="descricao[]" placeholder="Descrição do Item">
         </div>
         <div class="col-3" style="padding-bottom: 5px;">
