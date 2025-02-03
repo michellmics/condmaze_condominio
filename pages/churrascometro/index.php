@@ -185,7 +185,7 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                                         <div class="row">
                                             <div class="col-12 mb-3">
                                                 <label for="custoporpessoa" class="form-label">VALOR A PAGAR POR PESSOA</label>
-                                                <input readonly class="form-control" id="custoporpessoa" type="text" value="<?php $custP =  round($custoTotal/($siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"] + $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"]),2); echo $custP; ?>" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000;">
+                                                <input readonly class="form-control" id="custoporpessoa" type="text" value="<?php $custP =  round($custoTotal/($siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"] + $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"]),2); echo "R$".$custP; ?>" name="custoporpessoa" style="background-color:rgb(112, 241, 86); color: #000000; font-weight: bold; font-size: 24px;">
                                             </div>                                         
                                         </div>
                                         <div class="row">
