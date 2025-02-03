@@ -87,7 +87,7 @@
          
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
             {
-                echo $item["LEV_DCTIPO"];          
+                if($item["LEV_DCTIPO"] == "1"){$carneCalculada += (int)  $item["LEV_DCQTDE"];}             
             }
            
 
