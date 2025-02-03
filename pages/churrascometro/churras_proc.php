@@ -12,6 +12,8 @@ $idmorador = $_POST['idmorador'] ?? 0;
 
 $siteAdmin->insertChurrasEventoInfo($idmorador, $qtde_homens, $qtde_mulheres);
 
+echo "Cadastrado com sucesso.";
+
 /*
 // Inserir os itens da lista
 if (!empty($_POST['descricao'])) {
