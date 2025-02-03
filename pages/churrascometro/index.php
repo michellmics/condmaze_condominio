@@ -81,10 +81,7 @@
             $carneNecessariaHomem = $siteAdmin->ARRAY_LISTAEVENTOSINFO["LEU_DCCONVIDADO_HOMEM"] * 0.500;
             $carneNecessaria = $carneNecessariaMulher + $carneNecessariaHomem;
 
-            $carneCalculada = 0;
-
-            var_dump($siteAdmin->ARRAY_LISTAEVENTOSINFO);
-         
+            $carneCalculada = 0;       
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
             {
                 if($item["LEV_DCTIPO"] == "1"){$carneCalculada += (int)  $item["LEV_DCQTDE"];}             
