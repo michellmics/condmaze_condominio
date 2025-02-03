@@ -83,11 +83,11 @@
 
             $carneCalculada = 0;
 
-            var_dump($siteAdmin->ARRAY_LISTAEVENTOSINFO);
+            
          
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
             {
-               echo $item["LEV_DCQTDE"];              
+                var_dump($siteAdmin->ARRAY_LISTAEVENTOSINFO);            
             }
            
 
