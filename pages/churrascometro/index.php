@@ -13,8 +13,7 @@
       }
     }   
     
-
-    $siteAdmin->getLogInfo();
+    $siteAdmin->getLogInfo(); 
     
 ?>
 
@@ -69,6 +68,19 @@
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
+
+        <?php 
+            $metodo = "insert";
+            $siteAdmin->getListEventById(); 
+            if(count($siteAdmin->ARRAY_LISTAEVENTOSINFO) > 0)
+            {
+                $metodo = "update";   
+            }       
+
+            var_dump($siteAdmin->ARRAY_LISTAEVENTOSINFO);
+            die();
+        
+        ?>
 
         <div class="content-page">
             <div class="content">
