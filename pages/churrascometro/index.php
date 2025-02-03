@@ -87,8 +87,7 @@
             $carneCalculada = 0;       
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
             {
-                if($item["LEV_DCTIPO"] == "1"){$carneCalculada += $item["LEV_DCQTDE"];}    
-                echo $carneCalculada."-";          
+                if($item["LEV_DCTIPO"] == "1"){$carneCalculada += $item["LEV_DCQTDE"];}           
             }
            
 
@@ -163,7 +162,7 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                                             </div>
                                             <div class="col-4 mb-3">
                                                 <label for="qtdemulher" class="form-label">Carne Calculada</label> 
-                                                <input readonly class="form-control" id="carnecalculada" type="number" value="<?php echo $$carneCalculada."Kg"; ?>" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
+                                                <input readonly class="form-control" id="carnecalculada" type="text" value="<?php echo $$carneCalculada."Kg"; ?>" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
                                             </div>
                                             <div class="col-4 mb-3">
                                                 <label for="custototal" class="form-label">Custo Total do Evento</label>
