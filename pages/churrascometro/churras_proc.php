@@ -12,9 +12,8 @@ $idmorador = $_POST['idmorador'] ?? 0;
 
 $siteAdmin->insertChurrasEventoInfo($idmorador, $qtde_homens, $qtde_mulheres);
 
-echo "Cadastrado com sucesso.";
 
-/*
+
 // Inserir os itens da lista
 if (!empty($_POST['descricao'])) {
     for ($i = 0; $i < count($_POST['descricao']); $i++) {
@@ -24,8 +23,10 @@ if (!empty($_POST['descricao'])) {
         $valor_unitario = $_POST['valorunitario'][$i] ?? 0;
         $valor_total = $_POST['valortotal'][$i] ?? 0;
 
+        $siteAdmin->insertChurrasEventoItensInfo($idmorador, $descricao, $carne, $quantidade, $valor_unitario, $valor_total);
+
     }
 }
 
-*/
+
 ?>

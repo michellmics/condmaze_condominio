@@ -448,6 +448,40 @@
                 }
             
         }
+
+        public function insertChurrasEventoItensInfo($USU_IDUSUARIO, $LEV_DCPRODUTO, $LEV_DCTIPO, $LEV_DCQTDE, $LEV_DCVALOR, $LEV_DCVALOR_TOTAL)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            
+                // Query de inserção
+                $sql = "INSERT INTO LEV_LISTA_EVENTO (USU_IDUSUARIO, LEV_DCPRODUTO, LEV_DCTIPO, LEV_DCQTDE, LEV_DCVALOR, LEV_DCVALOR_TOTAL)
+                          VALUES (:USU_IDUSUARIO, :LEV_DCPRODUTO, :LEV_DCTIPO, :LEV_DCQTDE, :LEV_DCVALOR, :LEV_DCVALOR_TOTAL)";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
+                $stmt->bindValue(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindValue(':LEV_DCPRODUTO', $LEV_DCPRODUTO, PDO::PARAM_STR);
+                $stmt->bindValue(':LEV_DCTIPO', $LEV_DCTIPO, PDO::PARAM_STR);
+                $stmt->bindValue(':LEV_DCQTDE', $LEV_DCQTDE, PDO::PARAM_STR);
+                $stmt->bindValue(':LEV_DCVALOR', $LEV_DCVALOR, PDO::PARAM_STR);
+                $stmt->bindValue(':LEV_DCVALOR_TOTAL', $LEV_DCVALOR_TOTAL, PDO::PARAM_STR);
+
+
+            
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    //return "Erro ao inserir os dados: " . $stmt->error;
+                } else {
+                    //return "Registro inserido com sucesso!";
+                }
+            
+        }
         
         public function insertConciliacaoInfoDespesa($ARRAY_DADOS)
         {       
