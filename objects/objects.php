@@ -470,41 +470,22 @@
             
         }
 
-        public function insertChurrasEventoItensInfo($USU_IDUSUARIO, $LEV_DCPRODUTO, $LEV_DCTIPO, $LEV_DCQTDE, $LEV_DCVALOR, $LEV_DCVALOR_TOTAL, $LEV_IDLISTA_EVENTO = 0, $metodo)
+        public function insertChurrasEventoItensInfo($USU_IDUSUARIO, $LEV_DCPRODUTO, $LEV_DCTIPO, $LEV_DCQTDE, $LEV_DCVALOR, $LEV_DCVALOR_TOTAL)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
                 $this->conexao();
             }
             
-                if($metodo == "insert")
-                {
-                    $sql = "INSERT INTO LEV_LISTA_EVENTO (USU_IDUSUARIO, LEV_DCPRODUTO, LEV_DCTIPO, LEV_DCQTDE, LEV_DCVALOR, LEV_DCVALOR_TOTAL)
+                // Query de inserção
+                $sql = "INSERT INTO LEV_LISTA_EVENTO (USU_IDUSUARIO, LEV_DCPRODUTO, LEV_DCTIPO, LEV_DCQTDE, LEV_DCVALOR, LEV_DCVALOR_TOTAL)
                           VALUES (:USU_IDUSUARIO, :LEV_DCPRODUTO, :LEV_DCTIPO, :LEV_DCQTDE, :LEV_DCVALOR, :LEV_DCVALOR_TOTAL)";
-                          
-                            $stmt = $this->pdo->prepare($sql);
-                            if (!$stmt) {
-                                die("Erro ao preparar a consulta: " . $conn->error);
-                            }   
-                }
-                if($metodo == "update")
-                {
-                    $sql = "UPDATE LEV_LISTA_EVENTOSET 
-                                USU_IDUSUARIO = :USU_IDUSUARIO, 
-                                LEV_DCPRODUTO = :LEV_DCPRODUTO, 
-                                LEV_DCTIPO = :LEV_DCTIPO, 
-                                LEV_DCQTDE = :LEV_DCQTDE, 
-                                LEV_DCVALOR = :LEV_DCVALOR, 
-                                LEV_DCVALOR_TOTAL = :LEV_DCVALOR_TOTAL
-                            WHERE LEV_IDLISTA_EVENTO = :LEV_IDLISTA_EVENTO;)";
 
-                    $stmt = $this->pdo->prepare($sql);
-                    if (!$stmt) {
-                        die("Erro ao preparar a consulta: " . $conn->error);
-                    }   
-                    $stmt->bindValue(':LEV_IDLISTA_EVENTO', $LEV_IDLISTA_EVENTO, PDO::PARAM_STR);
-                }
-         
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
                 $stmt->bindValue(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->bindValue(':LEV_DCPRODUTO', $LEV_DCPRODUTO, PDO::PARAM_STR);
                 $stmt->bindValue(':LEV_DCTIPO', $LEV_DCTIPO, PDO::PARAM_STR);
