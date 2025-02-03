@@ -35,6 +35,7 @@
         public $ARRAY_UPLOADREPORTINFO;
         public $ARRAY_PETSINFO;
         public $ARRAY_HASHIMGINFO;
+        public $ARRAY_LISTAEVENTOSINFO;
         public $configPath;
 
 
@@ -370,6 +371,26 @@
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getListEventById($USU_IDUSUARIO) 
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                    FROM LEV_LISTA_EVENTO LLE
+                    INNER JOIN LEU_LISTAEVENTO_USUARIO LEU ON (LEU.USU_IDUSUARIO = LLE.USU_IDUSUARIO)
+                    WHERE LLE.USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_LISTAEVENTOSINFO = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
