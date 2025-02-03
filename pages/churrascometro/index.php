@@ -83,11 +83,11 @@
 
             $carneCalculada = 0;
 
-            
+            var_dump($siteAdmin->ARRAY_LISTAEVENTOSINFO);
          
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
             {
-                var_dump($siteAdmin->ARRAY_LISTAEVENTOSINFO);            
+                if($item["LEV_DCTIPO"] == "1"){$carneCalculada =  $carneCalculada += (float) $item["LEV_DCQTDE"];}       
             }
            
 
