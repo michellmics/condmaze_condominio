@@ -71,7 +71,7 @@
 
         <?php 
             $metodo = "insert";
-            $siteAdmin->getListEventById(); 
+            $siteAdmin->getListEventById($userid); 
             if(count($siteAdmin->ARRAY_LISTAEVENTOSINFO) > 0)
             {
                 $metodo = "update";   
