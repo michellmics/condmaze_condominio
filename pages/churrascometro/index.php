@@ -146,7 +146,7 @@
                                         <div class="row">
                                             <div class="col-4 mb-3">
                                                 <label for="qtdehomem" class="form-label">Carne Necessária</label> 
-                                                <input readonly class="form-control" id="carnenecessaria" type="number" value="<?php echo $carneNecessaria; ?>" name="carnenecessaria" style="background-color:rgb(10, 10, 10); color: white;">
+                                                <input readonly class="form-control" id="carnenecessaria" type="number" value="<?php echo $carneNecessaria."Kg"; ?>" name="carnenecessaria" style="background-color:rgb(10, 10, 10); color: white;">
                                             </div>
                                             <div class="col-4 mb-3">
                                                 <label for="qtdemulher" class="form-label">Carne Calculada</label>
