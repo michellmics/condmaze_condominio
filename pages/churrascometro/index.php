@@ -77,8 +77,8 @@
                 $metodo = "update";   
             }       
 
-            $carneNecessariaMulher = $siteAdmin->ARRAY_LISTAEVENTOSINFO["LEU_DCCONVIDADO_MULHER"] * 0.350;
-            $carneNecessariaHomem = $siteAdmin->ARRAY_LISTAEVENTOSINFO["LEU_DCCONVIDADO_HOMEM"] * 0.500;
+            $carneNecessariaMulher = $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"] * 0.350;
+            $carneNecessariaHomem = $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"] * 0.500;
             $carneNecessaria = $carneNecessariaMulher + $carneNecessariaHomem;
 
             $carneCalculada = 0;       
