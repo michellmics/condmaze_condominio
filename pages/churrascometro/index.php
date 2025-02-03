@@ -148,6 +148,7 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                 <!-- Ini formulario--><form class="needs-validation" id="form" name="form" role="form" method="POST" action="churras_proc.php" enctype="multipart/form-data" novalidate>
                                                     <!-- CAMPOS COMO VARIAVEIS -->
                                                     <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $userid; ?>"/>
+                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
                                                     <!-- CAMPOS COMO VARIAVEIS -->
 
                                         <div class="row">
