@@ -77,9 +77,12 @@
                 $metodo = "update";   
             }       
 
-            $carneNecessariaMulher = $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"] * 0.350;
-            $carneNecessariaHomem = $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"] * 0.500;
-            $carneNecessaria = $carneNecessariaMulher + $carneNecessariaHomem;
+            if(isset($siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"]))
+            {
+                $carneNecessariaMulher = $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"] * 0.350;
+                $carneNecessariaHomem = $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"] * 0.500;
+                $carneNecessaria = $carneNecessariaMulher + $carneNecessariaHomem;
+            }
 
             $carneCalculada = 0;       
             foreach($siteAdmin->ARRAY_LISTAEVENTOSINFO as $item)
@@ -137,11 +140,11 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                                         <div class="row">
                                             <div class="col-3 mb-3">
                                                 <label for="qtdehomem" class="form-label">Qtde Homens</label>
-                                                <input class="form-control" id="qtdehomem" type="number" value="<?php echo $siteAdmin->ARRAY_LISTAEVENTOSINFO["LEU_DCCONVIDADO_HOMEM"]; ?>" name="qtdehomem"  step="1" min="0">
+                                                <input class="form-control" id="qtdehomem" type="number" value="<?php echo $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_HOMEM"]; ?>" name="qtdehomem"  step="1" min="0">
                                             </div>
                                             <div class="col-3 mb-3">
                                                 <label for="qtdemulher" class="form-label">Qtde Mulheres</label>
-                                                <input class="form-control" id="qtdemulher" value="<?php echo $siteAdmin->ARRAY_LISTAEVENTOSINFO["LEU_DCCONVIDADO_MULHER"]; ?>" type="number" name="qtdemulher"  step="1" min="0">
+                                                <input class="form-control" id="qtdemulher" value="<?php echo $siteAdmin->ARRAY_LISTAEVENTOSINFO[0]["LEU_DCCONVIDADO_MULHER"]; ?>" type="number" name="qtdemulher"  step="1" min="0">
                                             </div>
                                             <div class="col-3 mb-3">
                                                 <label for="qtdehomem" class="form-label">Fator C. Homem</label>
