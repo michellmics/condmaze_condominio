@@ -114,7 +114,9 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Organização de Evento </h4>
                                     <p class="text-muted font-14">
-                                        Asadasdasdas
+                                    🔥 Organize seu churrasco de forma fácil! 🥩🎉
+
+Para tornar a organização do seu churrasco ainda mais simples, usamos uma calculadora especial! 🧮✨ Basta preencher os campos abaixo e obter uma estimativa dos custos para o seu evento. 🍖
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5">                                            
