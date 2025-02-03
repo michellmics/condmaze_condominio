@@ -89,6 +89,16 @@
             {
                 if($item["LEV_DCTIPO"] == "1"){$carneCalculada += $item["LEV_DCQTDE"];}           
             }
+
+            if($carneNecessaria < $carneCalculada) 
+            {
+                $formatCarneCalculada = "background-color:#0059ff";
+            }
+            else
+            {
+                $formatCarneCalculada = "background-color:red";
+            }
+             
            
 
         ?>
@@ -162,7 +172,7 @@ Para tornar a organização do seu churrasco ainda mais simples, usamos uma calc
                                             </div>
                                             <div class="col-4 mb-3">
                                                 <label for="qtdemulher" class="form-label">Carne Calculada</label> 
-                                                <input readonly class="form-control" id="carnecalculada" type="text" value="<?php echo $carneCalculada."Kg"; ?>" name="carnecalculada" style="background-color:rgb(56, 4, 71); color: white;">
+                                                <input readonly class="form-control" id="carnecalculada" type="text" value="<?php echo $carneCalculada."Kg"; ?>" name="carnecalculada" style="<?php echo $formatCarneCalculada; ?>; color: white;">
                                             </div>
                                             <div class="col-4 mb-3">
                                                 <label for="custototal" class="form-label">Custo Total do Evento</label>
