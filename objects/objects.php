@@ -390,7 +390,7 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->execute();
-                $this->ARRAY_LISTAEVENTOSINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+                $this->ARRAY_LISTAEVENTOSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
