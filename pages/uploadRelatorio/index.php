@@ -15,6 +15,9 @@
     }   
 
     $siteAdmin->getUploadedReportInfo();
+
+    var_dump($siteAdmin->ARRAY_UPLOADREPORTINFO);
+    die();
     
 ?>
 
