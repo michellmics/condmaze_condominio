@@ -326,7 +326,7 @@
                 $sql = "SELECT DISTINCT
                         sub.MAX_DTINSERT AS CON_DTINSERT, 
                         sub.CON_DCMES_COMPETENCIA_USUARIO, 
-                        sub.CON_DCANO_COMPETENCIA_USUARIO
+                        sub.CON_DCANO_COMPETENCIA_USUARIO 
                     FROM (
                         SELECT 
                             CON_DCMES_COMPETENCIA_USUARIO, 
