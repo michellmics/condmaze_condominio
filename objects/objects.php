@@ -46,7 +46,7 @@
 
         function conexao()
         {
-/*
+
             if (!file_exists($this->configPath)) {
               die("Erro: Arquivo de configuração não encontrado.");
            }
@@ -65,7 +65,7 @@
             $this->WHATSAPP_TOKEN = $configContent['WHATSAPP']['token'];
             $this->WHATSAPP_SID = $configContent['WHATSAPP']['sid'];
 
-*/		
+		
             	$host = $_ENV['ENV_BD_HOST'];
             	$dbname = $_ENV['ENV_BD_DATABASE'];
             	$user = $_ENV['ENV_BD_USER'];
