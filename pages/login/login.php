@@ -1,8 +1,5 @@
 <?php
-session_start();
-//header("Cache-Control: no-cache, no-store, must-revalidate");
-//header("Pragma: no-cache");
-//header("Expires: 0");
+session_start(); 
 
 include_once "../../objects/objects.php";
 
@@ -25,7 +22,7 @@ class LoginSystem extends SITE_ADMIN
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['USU_DCSENHA'])) {
-                // Configura a sessão
+
                 $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
                 $_SESSION['user_name'] = $user['USU_DCNOME'];
                 $_SESSION['user_email'] = $user['USU_DCEMAIL'];
