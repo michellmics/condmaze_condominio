@@ -46,26 +46,6 @@
 
         function conexao()
         {
-/*
-            if (!file_exists($this->configPath)) {
-              die("Erro: Arquivo de configuração não encontrado.");
-           }
-
-            $configContent = parse_ini_file($this->configPath, true);  // true para usar seções
-
-            if (!$configContent) {
-                die("Erro: Não foi possível ler o arquivo de configuração.");
-            }
-
-            $cpanelUser = $configContent['CPANEL']['usuario'];
-            $host = $configContent['DATA DB']['host'];
-            $dbname = $cpanelUser . "_" . $configContent['DATA DB']['dbname'];
-            $user = $cpanelUser . "_" . $configContent['DATA DB']['user'];
-            $pass = $configContent['DATA DB']['pass'];
-            $this->WHATSAPP_TOKEN = $configContent['WHATSAPP']['token'];
-            $this->WHATSAPP_SID = $configContent['WHATSAPP']['sid'];
-
-*/		
             	$host = $_ENV['ENV_BD_HOST'];
             	$dbname = $_ENV['ENV_BD_DATABASE'];
             	$user = $_ENV['ENV_BD_USER'];
