@@ -1,7 +1,9 @@
 <?php
-
-ini_set('display_errors', 1);  // Habilita a exibição de erros
-error_reporting(E_ALL);        // Reporta todos os erros
+session_start();
+if (isset($_SESSION['user_id'])) { 
+    header('Location: ../inicial/index.php');
+    exit;
+}
 include_once "../../objects/objects.php";
 
 $siteAdmin = new SITE_ADMIN();

@@ -1,14 +1,10 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-include_once "../../objects/objects.php";
-
 session_start();
-define('SESSION_TIMEOUT', 43200); // 12 horas
+//header("Cache-Control: no-cache, no-store, must-revalidate");
+//header("Pragma: no-cache");
+//header("Expires: 0");
 
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
+include_once "../../objects/objects.php";
 
 class LoginSystem extends SITE_ADMIN
 {
