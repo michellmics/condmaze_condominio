@@ -46,7 +46,7 @@
 
         function conexao()
         {
-
+/*
             if (!file_exists($this->configPath)) {
               die("Erro: Arquivo de configuração não encontrado.");
            }
@@ -65,14 +65,14 @@
             $this->WHATSAPP_TOKEN = $configContent['WHATSAPP']['token'];
             $this->WHATSAPP_SID = $configContent['WHATSAPP']['sid'];
 
-/*		
+*/		
             	$host = $_ENV['ENV_BD_HOST'];
             	$dbname = $_ENV['ENV_BD_DATABASE'];
             	$user = $_ENV['ENV_BD_USER'];
             	$pass = $_ENV['ENV_BD_PASS'];
             	$this->WHATSAPP_TOKEN = $_ENV['ENV_WHATSAPP_TOKEN'];
             	$this->WHATSAPP_SID =  $_ENV['ENV_WHATSAPP_SID'];
-*/		
+		
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
