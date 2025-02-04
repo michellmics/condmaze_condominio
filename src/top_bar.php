@@ -7,6 +7,7 @@
     $host = $_SERVER['HTTP_HOST'];
     $baseUrl = $protocol . "://" . $host;
     $siteUrl = $baseUrl;
+    $webmailUrl = $baseUrl . "/api//";
 
 	if (!isset($_SESSION['user_id'])) 
 	{
