@@ -46,13 +46,13 @@
             $configPath = '../../config.cfg';
 
             if (!file_exists($this->configPath)) {
-                die("Erro: Arquivo de configuração não encontrado.");
+                die("Erro: Arquivo de configuração não pencontrado.");
             }
 
             $configContent = parse_ini_file($this->configPath, true);  // true para usar seções
 
             if (!$configContent) {
-                die("Erro: Não foi possível ler o arquivo de configuração.");
+                die("Erro: Não foi possível ler op arquivo de configuração.");
             }
 
             $host = $configContent['DATA DB']['host'];
