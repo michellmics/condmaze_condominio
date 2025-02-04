@@ -593,7 +593,7 @@
     
         // Abra o pop-up automaticamente após 1,5 segundos
         window.onload = function() {
-            setTimeout(openPopup, 1500);
+            setTimeout(openPopup, 1500); 
         };
     </script>
 
