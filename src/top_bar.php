@@ -3,8 +3,6 @@
         session_start();
     }
 
-	define('SESSION_TIMEOUT', 43200); // 12 horas
-
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
     $host = $_SERVER['HTTP_HOST'];
     $baseUrl = $protocol . "://" . $host;
