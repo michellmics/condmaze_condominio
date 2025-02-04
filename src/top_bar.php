@@ -1,5 +1,5 @@
 <?php
-
+/*
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
     $host = $_SERVER['HTTP_HOST'];
     $baseUrl = $protocol . "://" . $host;
@@ -22,7 +22,7 @@
 	  header("Location: $siteUrl");
 	  exit();
 	}
-
+*/
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
 	$nomeSession =  substr(strtoupper($_SESSION['user_name']),0,21)."..."; 
