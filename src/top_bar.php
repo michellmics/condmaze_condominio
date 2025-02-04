@@ -1,6 +1,14 @@
 <?php
-	session_start(); 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
 	define('SESSION_TIMEOUT', 43200); // 12 horas
+
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+    $host = $_SERVER['HTTP_HOST'];
+    $baseUrl = $protocol . "://" . $host;
+    $siteUrl = $baseUrl;
 
 	if (!isset($_SESSION['user_id'])) 
 	{
@@ -25,10 +33,7 @@
     $nivelAcesso = strtoupper($_SESSION['user_nivelacesso']);
 	$userid = $_SESSION['user_id'];
 
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
-    $host = $_SERVER['HTTP_HOST'];
-    $baseUrl = $protocol . "://" . $host;
-    $siteUrl = $baseUrl;
+
 ?>
 
 
