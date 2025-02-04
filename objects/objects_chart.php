@@ -13,29 +13,14 @@
         public $ARRAY_DESPESATABLEINFO;
         public $configPath;
 
-
-        function __construct() {
-            // Usando __DIR__ para obter o diretório atual e construir o caminho relativo
-            $this->configPath = __DIR__ . '/../../config.cfg';
-        }
-
         function conexao()
         {
-            if (!file_exists($this->configPath)) {
-                die("Erro: Arquivo de configuração não encontrado.");
-            }
-
-            $configContent = parse_ini_file($this->configPath, true);  // true para usar seções
-
-            if (!$configContent) {
-                die("Erro: Não foi possível ler o arquivo de configuração.");
-            }
-
-            $cpanelUser = $configContent['CPANEL']['usuario'];
-            $host = $configContent['DATA DB']['host'];
-            $dbname = $cpanelUser . "_" . $configContent['DATA DB']['dbname'];
-            $user = $cpanelUser . "_" . $configContent['DATA DB']['user'];
-            $pass = $configContent['DATA DB']['pass'];
+            $host = $_ENV['ENV_BD_HOST'];
+            $dbname = $_ENV['ENV_BD_DATABASE'];
+            $user = $_ENV['ENV_BD_USER'];
+            $pass = $_ENV['ENV_BD_PASS'];
+            $this->WHATSAPP_TOKEN = $_ENV['ENV_WHATSAPP_TOKEN'];
+            $this->WHATSAPP_SID =  $_ENV['ENV_WHATSAPP_SID'];
 
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
