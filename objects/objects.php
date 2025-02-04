@@ -1,9 +1,9 @@
 <?php
 
 
-    include '../../phpMailer/src/PHPMailer.php';
-    include '../../phpMailer/src/SMTP.php';
-    include '../../phpMailer/src/Exception.php'; 
+    //include '../../phpMailer/src/PHPMailer.php';
+    //include '../../phpMailer/src/SMTP.php';
+    //include '../../phpMailer/src/Exception.php'; 
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -39,17 +39,18 @@
         public $configPath;
 
 
-
+/*
         function __construct() {
             // Usando __DIR__ para obter o diretório atual e construir o caminho relativo
             $this->configPath = __DIR__ . '/../../config.cfg';
         }
-
+*/
         function conexao()
         {
+		/*
             if (!file_exists($this->configPath)) {
-                die("Erro: Arquivo de configuração não encontrado.");
-            }
+              die("Erro: Arquivo de configuração não encontrado.");
+           }
 
             $configContent = parse_ini_file($this->configPath, true);  // true para usar seções
 
@@ -64,7 +65,15 @@
             $pass = $configContent['DATA DB']['pass'];
             $this->WHATSAPP_TOKEN = $configContent['WHATSAPP']['token'];
             $this->WHATSAPP_SID = $configContent['WHATSAPP']['sid'];
-
+*/
+		
+            	$host = $_ENV['ENV_BD_HOST'];
+            	$dbname = $_ENV['ENV_BD_DATABASE'];
+            	$user = $_ENV['ENV_BD_USER'];
+            	$pass = $_ENV['ENV_BD_PASS'];
+            	$this->WHATSAPP_TOKEN = $_ENV['ENV_WHATSAPP_TOKEN'];
+            	$this->WHATSAPP_SID =  $_ENV['ENV_WHATSAPP_SID'];
+		
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
