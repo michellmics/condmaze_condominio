@@ -181,7 +181,7 @@ $host = $_SERVER['HTTP_HOST'];
                 <div class="my-auto">
                     <!-- title-->
                     <h4 class="mt-0">Acesso ao Sistema</h4>
-                    <p class="text-muted mb-4">Utilize o número do apartamento e a senha</p>
+                    <p class="text-muted mb-4">Utilize o número do apartamento e a senha $</p>
 
                     <!-- form -->
                     <form id="loginForm">
