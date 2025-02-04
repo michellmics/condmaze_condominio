@@ -11,8 +11,7 @@
 
 	if (!isset($_SESSION['user_id'])) 
 	{
-	  //header("Location: $siteUrl");
-      echo "lascouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu";
+	  header("Location: $siteUrl");
 	  exit();
 	}
 
