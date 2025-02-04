@@ -24,13 +24,13 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>                                                           
                                     <?php endif; ?>      
                                     
                                     <a href="../petControle/index.php" class="dropdown-item">Meus Pets</a>                                                           
                                     
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>
                                     <?php endif; ?>    
                                                                         
@@ -41,10 +41,10 @@
                                     <i class="uil-box"></i>Salão de Festas <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../listaConvidados/index.php" class="dropdown-item">Minha lista de convidados</a>
                                     <?php endif; ?> 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <?php if ($nivelAcesso == 'DEV'): ?>
                                     <a href="../churrascometro/index.php" class="dropdown-item">Churrascômetro</a>
                                     <?php endif; ?> 
                                 </div>
@@ -55,7 +55,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../encomendas/index.php" class="dropdown-item">Encomendas</a>
                                     <?php endif; ?> 
 
@@ -69,23 +69,23 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
                                     <?php endif; ?> 
 
-                                    <?php if ($nivelAcesso == 'SINDICO'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../auditoria/index.php" class="dropdown-item">Auditoria</a>
                                     <?php endif; ?> 
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../agenda/index.php" class="dropdown-item">Agenda</a>
                                     <?php endif; ?>
 
-                                    <?php if ($nivelAcesso == 'SINDICO'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../uploadRelatorio/index.php" class="dropdown-item">Enviar Arquivo</a>
                                     <?php endif; ?>
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="<?php echo $webmailUrl; ?>" target="_blank" class="dropdown-item">Webmail</a>
                                     <?php endif; ?>
                                 </div>
