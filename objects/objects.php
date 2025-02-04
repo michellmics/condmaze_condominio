@@ -323,19 +323,22 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT 
-                            CON_DTINSERT, 
+                $sql = "SELECT DISTINCT
+                        sub.MAX_DTINSERT AS CON_DTINSERT, 
+                        sub.CON_DCMES_COMPETENCIA_USUARIO, 
+                        sub.CON_DCANO_COMPETENCIA_USUARIO
+                    FROM (
+                        SELECT 
                             CON_DCMES_COMPETENCIA_USUARIO, 
-                            CON_DCANO_COMPETENCIA_USUARIO
-                        FROM CON_CONCILIACAO cc
-                        WHERE CON_DTINSERT = (
-                            SELECT MAX(CON_DTINSERT) 
-                            FROM CON_CONCILIACAO 
-                            WHERE CON_DCMES_COMPETENCIA_USUARIO = cc.CON_DCMES_COMPETENCIA_USUARIO
-                            AND CON_DCANO_COMPETENCIA_USUARIO = cc.CON_DCANO_COMPETENCIA_USUARIO
-                        )
-                        GROUP BY CON_DCANO_COMPETENCIA_USUARIO, CON_DCMES_COMPETENCIA_USUARIO
-                        ORDER BY CON_DTINSERT DESC;";
+                            CON_DCANO_COMPETENCIA_USUARIO, 
+                            MAX(CON_DTINSERT) AS MAX_DTINSERT
+                        FROM CON_CONCILIACAO
+                        GROUP BY CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO
+                    ) sub
+                    ORDER BY sub.CON_DCANO_COMPETENCIA_USUARIO DESC, 
+                             FIELD(sub.CON_DCMES_COMPETENCIA_USUARIO, 
+                                   'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
+                                   'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro');";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
