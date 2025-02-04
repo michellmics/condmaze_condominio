@@ -5,21 +5,17 @@
         session_start();
     }
 
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
-    $host = $_SERVER['HTTP_HOST'];
-    $baseUrl = $protocol . "://" . $host;
-    $webmailUrl = $baseUrl . "/api//";
+   // $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+   // $host = $_SERVER['HTTP_HOST'];
+    //$baseUrl = $protocol . "://" . $host;
+    //$webmailUrl = $baseUrl . "/api//";
 
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getPopupImagePublish(); 
     $siteAdmin->getParameterInfo();
-    $siteAdmin->getListaMensagensSugestoesInfo();
-
-    
-
-    
+    $siteAdmin->getListaMensagensSugestoesInfo();     
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -47,8 +43,6 @@
         {
             $publiImageLink = "";
         }
-
-
 ?>
 
 
