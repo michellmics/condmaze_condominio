@@ -2,6 +2,13 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+
+    $levelUser = strtoupper($_SESSION['user_nivelacesso']);
+    if (in_array($levelUser, ["MORADOR", "SINDICO", "DEV"])) {
+        header("Location: ../erros/auth.php");
+        exit();
+    }
+
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
