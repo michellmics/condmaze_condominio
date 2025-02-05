@@ -86,7 +86,7 @@
                     </div>
                     <!-- end page title -->
 
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center align-items-center vh-100">
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <img src="../../assets/images/svg/file-searching.svg" height="90" alt="File not found Image">
