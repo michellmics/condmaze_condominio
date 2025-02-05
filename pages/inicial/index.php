@@ -325,7 +325,7 @@
                                             <b>Nome:</b> Udisson - Empresa Samekh<br>
                                             <br>
                                             <b>Síndico(a):</b> Michelle Silva<br>
-                                            <b>Telefone:</b> 19 98346-6755<br>
+                                            <b>Telefone:</b> 19 99000-8428<br>
                                             <b>E-mail:</b> sindico@prqdashortensias.com.br<br>
                                             <br>
                                             <b>Subsindico(a):</b> *********<br>
