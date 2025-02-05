@@ -62,11 +62,7 @@
 		<?php include '../../src/top_bar.php'; ?>
 
         <!-- ========== Topbar End ========== -->
-
-		<!-- Menu Nav Area -->
-		<?php include '../../src/menu_nav.php'; ?>
-		<!-- End Menu Nav -->
-        
+       
 
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
@@ -91,7 +87,7 @@
                     <!-- end page title -->
 
                     <div class="row justify-content-center">
-                        <div class="col-lg-4">
+                        <div class="col-lg-12">
                             <div class="text-center">
                                 <img src="../../assets/images/svg/file-searching.svg" height="90" alt="File not found Image">
 
