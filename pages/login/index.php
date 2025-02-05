@@ -1,5 +1,9 @@
 <?php
+ini_set('session.gc_maxlifetime', 43200);
+ini_set('session.cookie_lifetime', 43200);
+session_set_cookie_params(43200);
 session_start();
+
 if (isset($_SESSION['user_id'])) { 
     header('Location: ../inicial/index.php');
     exit;
