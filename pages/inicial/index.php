@@ -161,6 +161,7 @@
             <!-- content -->
              
             		<!--  Pop-up publicidade-->
+                    <?php if ($publiImageLink != null) {?>
                     <div id="promoPopup" style="display: none;">
                         <div class="popup-content">
                             <button class="close-btn" onclick="closePopup()">×</button>
@@ -169,6 +170,7 @@
                             </a>
                         </div>
                     </div>
+                    <?php } ?>
 		            <!--  Pop-up publicidade-->
 
                       <!-- Start Content-->
