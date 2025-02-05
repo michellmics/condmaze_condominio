@@ -198,70 +198,8 @@ function mostrarImagem(src) {
                     <div class="d-flex justify-content-center mt-4">
                        <div class="col-md-6">
                            <div class="card shadow-lg rounded-lg">
-                               <div class="card-body text-center">
-                                   <h4 class="header-title">Meus Pets</h4>
-                                   <p class="text-muted font-14">
-                                   🐾 Encontrou um Pet Perdido?
-                                   Verifique se ele pode ser de um morador do condomínio e ajude a devolver ao lar! 😊
-                                   </p>
-
-   
-                                        <div class="d-flex gap-2 align-items-center">
-                                        <label for="raca" class="form-label">RAÇA</label>
-                                        <input type="text" class="form-control" id="raca" maxlength="15" name="raca" style="text-transform: uppercase;">
-
-                                            <select class="form-control" id="tipo" name="tipo" required style="width: 100px;">
-                                                <option value="" disabled selected>TIPO</option>
-                                                <option value="CAO">CÃO</option>
-                                                <option value="GATO">GATO</option>
-                                                <option value="PASSARO">PÁSSARO</option>
-                                                <option value="">TODOS</option>
-                                            </select>
-                                            <select class="form-control" id="cor" name="cor" required style="width: 120px;">
-                                                <option value="" disabled selected>COR</option>
-                                                <option value="PRETO">PRETO</option>
-                                                <option value="BRANCO">BRANCO</option>
-                                                <option value="CARAMELO">CARAMELO</option>
-                                                <option value="CINZA">CINZA</option>
-                                                <option value="">TODOS</option>
-                                            </select>
-                                        </div>
-                                        <div class="mt-3">
-                                            <button type="submit" class="btn btn-primary">Procurar</button>
-                                        </div>
-                                    </form>
-                               </div>
-
-                               <script>
-                                    document.getElementById("formProcurar").addEventListener("submit", function(event) {
-                                        event.preventDefault();
-                                    
-                                        var formData = new FormData(this);
-                                    
-                                        fetch("pet_img_proc.php", {
-                                            method: "POST",
-                                            body: formData
-                                        })
-                                        .then(response => response.text()) 
-                                        .then(data => {
-                                            document.getElementById("resultadoPesquisa").innerHTML = data;
-                                            var myModal = new bootstrap.Modal(document.getElementById("modalAnimais"));
-                                            myModal.show();
-                                        })
-                                        .catch(error => console.error("Erro na requisição:", error));
-                                    });
-                                </script>
-
-
-                               <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title"></h4>
-                                    <p class="text-muted font-14">
-                                    </p>
-                                    <div class="tab-content">
-                                        <div class="col-sm-5">  
-                                        
-                                        <div class="row justify-content-center align-items-center vh-100">
+                               
+                           <div class="row justify-content-center align-items-center vh-100">
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <img src="../../assets/images/svg/file-searching.svg" height="90" alt="File not found Image">
@@ -274,17 +212,6 @@ function mostrarImagem(src) {
                             </div> <!-- end /.text-center-->
                         </div> <!-- end col-->
                     </div>
-
-
-                                        </div>
-                                    </div> <!-- end tab-content-->
-
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-
-
-
-
 
                            </div>
                        </div>
