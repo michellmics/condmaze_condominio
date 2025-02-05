@@ -1,8 +1,4 @@
 <?php
-// Configuração para exibir erros (remova em produção)
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 
 // Inclua aqui o arquivo de configuração ou conexão com o banco de dados, se necessário
