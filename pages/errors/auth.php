@@ -22,13 +22,16 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Error 404 | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title><?php echo $nomeCondominio; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="" name="description" />
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+
+    <!-- Plugin css -->
+    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
@@ -80,13 +83,8 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                                        <li class="breadcrumb-item active">404 Error</li>
-                                    </ol>
                                 </div>
-                                <h4 class="page-title">404 Error</h4>
+                                <h4 class="page-title">401 Erro</h4>
                             </div>
                         </div>
                     </div>
@@ -101,7 +99,7 @@
                                 <h4 class="text-uppercase text-danger mt-3">Acesso não autorizado</h4>
                                 <p class="text-muted mt-3">Você não tem permissão para acessar esta sessão. Se você acredita que isso é um erro, entre em contato com o suporte.</p>
 
-                                <a class="btn btn-info mt-3" href="index.html"><i class="mdi mdi-reply"></i> Return Home</a>
+                                <a class="btn btn-info mt-3" href="../inicial/index.php"><i class="mdi mdi-reply"></i> Retornar</a>
                             </div> <!-- end /.text-center-->
                         </div> <!-- end col-->
                     </div>
