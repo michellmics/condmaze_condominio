@@ -197,9 +197,7 @@ function mostrarImagem(src) {
 
                     <div class="d-flex justify-content-center mt-4">
                        <div class="col-md-6">
-                           <div class="card shadow-lg rounded-lg">
-                               
-                           <div class="row justify-content-center align-items-center vh-100">
+                       <div class="row justify-content-center align-items-center vh-100">
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <img src="../../assets/images/svg/file-searching.svg" height="90" alt="File not found Image">
@@ -212,8 +210,6 @@ function mostrarImagem(src) {
                             </div> <!-- end /.text-center-->
                         </div> <!-- end col-->
                     </div>
-
-                           </div>
                        </div>
                     </div>
 
