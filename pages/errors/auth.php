@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
-                                <div class="page-title-right">
+                                <div class="page-title-center">
                                 </div>
                                 <h4 class="page-title">401 Erro</h4>
                             </div>
