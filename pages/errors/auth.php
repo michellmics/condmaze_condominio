@@ -104,11 +104,6 @@
                 </div> <!-- container -->
 
             </div> <!-- content -->
-
-            <!-- Footer Start -->
-		    <?php include '../../src/footer_nav.php'; ?>
-            <!-- end Footer -->
-
         </div>
 
         <!-- ============================================================== -->
