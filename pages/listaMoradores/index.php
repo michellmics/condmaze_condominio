@@ -4,7 +4,7 @@
     }
 
     $levelUser = strtoupper($_SESSION['user_nivelacesso']);
-    if (in_array($levelUser, ["MORADOR", "SINDICO", "DEV"])) {
+    if (!in_array($levelUser, ["MORADOR", "SINDICO", "DEV"])) {
         header("Location: ../errors/index.php");
         exit();
     }
