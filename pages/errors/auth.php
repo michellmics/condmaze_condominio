@@ -97,11 +97,9 @@
                             <div class="text-center">
                                 <img src="../../assets/images/svg/file-searching.svg" height="90" alt="File not found Image">
 
-                                <h1 class="text-error mt-4">404</h1>
-                                <h4 class="text-uppercase text-danger mt-3">Page Not Found</h4>
-                                <p class="text-muted mt-3">It's looking like you may have taken a wrong turn. Don't worry... it
-                                    happens to the best of us. Here's a
-                                    little tip that might help you get back on track.</p>
+                                <h1 class="text-error mt-4">401</h1>
+                                <h4 class="text-uppercase text-danger mt-3">Acesso não autorizado</h4>
+                                <p class="text-muted mt-3">Você não tem permissão para acessar esta sessão. Se você acredita que isso é um erro, entre em contato com o suporte.</p>
 
                                 <a class="btn btn-info mt-3" href="index.html"><i class="mdi mdi-reply"></i> Return Home</a>
                             </div> <!-- end /.text-center-->
