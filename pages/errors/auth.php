@@ -72,7 +72,7 @@
             <div class="content">
 
                 <!-- Start Content-->
-                <div class="container-fluid">
+                <div >
 
                     <!-- start page title -->
                     <div class="row">
