@@ -273,7 +273,7 @@
 
                     <div class="mb-3">
                         <label for="observacao" class="form-label">Observacao</label>
-                        <input class="form-control" type="text" id="observacao" name="observacao" required="" maxlength="50" placeholder="Digite algo que ajude a identificar o pacote">
+                        <input class="form-control" type="text" id="observacao" name="observacao" required="" maxlength="50" placeholder="Digite algo que ajude a identificar o pacote" style="text-transform: uppercase;">
                     </div>
 
                     <div class="mb-3 text-center">
