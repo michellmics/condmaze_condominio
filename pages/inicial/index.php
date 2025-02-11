@@ -332,6 +332,7 @@
                                             <b>Síndico(a):</b> Michelle Silva<br>
                                             <b>Telefone:</b> 19 99000-8428<br>
                                             <b>E-mail:</b> sindico@prqdashortensias.com.br<br>
+                                            <b>E-mail Conselho:</b> conselhofiscalhortensias@gmail.com<br>
                                             <br>
                                             <b>Subsindico(a):</b> *********<br>
                                             <b>Telefone:</b> *********<br>
