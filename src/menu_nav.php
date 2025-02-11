@@ -77,7 +77,7 @@
                                     <a href="../auditoria/index.php" class="dropdown-item">Auditoria</a>
                                     <?php endif; ?> 
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO'): ?>
+                                    <?php if ($nivelAcesso == 'DEV' || $nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../agenda/index.php" class="dropdown-item">Agenda</a>
                                     <?php endif; ?>
 
