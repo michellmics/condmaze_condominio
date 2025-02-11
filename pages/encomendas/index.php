@@ -117,13 +117,14 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th>DISPONIVEL?</th>
+                                                        <th>DT ENTRADA</th>
                                                         <th>ID</th>
                                                         <th>AP</th>
                                                         <th>NOME</th>
                                                         <th>DT ENTRADA</th>
                                                         <th>DT ENTREGA</th>
-                                                        <th>OBS</th>                                    
+                                                        <th>OBS</th>
+                                                        <th>DISPONIVEL?</th>
                                                         <th>ENTREGUE?</th> 
                                                         <th></th> 
                                                     </tr>
@@ -165,7 +166,14 @@
                                                         
                                                     ?>
                                                     <tr>
-                                                    <td class="align-middle">
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>         
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+
+                                                        <td class="align-middle">
                                                             <!-- Switch -->
                                                             <div>
                                                                 <input 
@@ -185,14 +193,6 @@
                                                                 </label>
                                                             </div>
                                                         </td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-
-
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
