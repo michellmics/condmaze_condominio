@@ -233,7 +233,8 @@
                 $sql = "SELECT ENC.ENC_IDENCOMENDA, USU.USU_DCNOME, USU.USU_DCAPARTAMENTO, ENC.ENC_STENCOMENDA, ENC.ENC_DTENTREGA_PORTARIA, ENC.ENC_DTENTREGA_MORADOR, ENC.ENC_DCOBSERVACAO, ENC.ENC_STENTREGA_MORADOR
                         FROM ENC_ENCOMENDA ENC 
                         INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = ENC.USU_IDUSUARIO)
-                        ORDER BY ENC_DTENTREGA_PORTARIA DESC";
+                        ORDER BY ENC_DTENTREGA_PORTARIA DESC
+                        LIMIT 100";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
