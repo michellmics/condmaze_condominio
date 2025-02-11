@@ -291,44 +291,6 @@
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
-
-                     
-                <!-- <div class="row">
-                        <div class="col-lg-12">
-                        <div class="card">
-                            <div class="d-flex card-header justify-content-between align-items-center">
-                                <h4 class="header-title">Top 10 Despesas</h4>
-                                <a href="javascript:void(0);" class="btn btn-sm btn-light">Export <i class="mdi mdi-download ms-1"></i></a>
-                            </div>
-                            <div class="card-body pt-0">
-                                
-                                    <div class="table-responsive">
-                                        <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>Descrição / Fornecedor</th>
-                                                    <th>Valor</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>R$</td>
-                                                    </tr>
-                                               
-                                            </tbody>
-                                        </table>
-                                    </div> 
-                                </div>
-                            </div> 
-                        </div> 
-                    </div> -->
-               
-                    
-
-
-
                 </div>
                 <!-- container -->
 
@@ -340,11 +302,6 @@
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
-
-
-
- 
-
 
 		<!-- Menu Nav Area -->
 		<?php include '../../src/footer_nav.php'; ?>
