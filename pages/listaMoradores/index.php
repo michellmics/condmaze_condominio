@@ -137,7 +137,12 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LISTAMORADORESINFO as $item): ?>
                                                         <tr>    
-                                                        <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>                                                     
+                                                        <?php if ($nivelAcesso == 'SINDICO'): ?>
+                                                        <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertMorador.php?apartamento=<?= $item['USU_DCAPARTAMENTO']; ?>'"><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>   
+                                                        <?php endif; ?>      
+                                                        <?php if ($nivelAcesso != 'SINDICO'): ?>
+                                                        <td class="align-middle" style="cursor: pointer;" ><i class="ri-list-unordered" style="color:rgb(3, 71, 116); font-size: 18px;"></i></td>   
+                                                        <?php endif; ?>                                                
                                                         <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,12)); ?></td>
                                                         <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                         <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='convidadosByMorador.php?userId=<?= $item['USU_IDUSUARIO']; ?>'"><?= htmlspecialchars($item['USU_DCBLOCO']); ?></td>                                                        
