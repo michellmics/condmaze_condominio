@@ -68,7 +68,6 @@
                                     <i class="uil uil-tachometer-fast"></i>Administração <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-components">
-
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../dashboard/index.php" class="dropdown-item">Indicadores</a>
                                     <?php endif; ?> 
@@ -83,10 +82,6 @@
 
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../uploadRelatorio/index.php" class="dropdown-item">Enviar Arquivo</a>
-                                    <?php endif; ?>
-
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO'): ?>
-                                    <a href="<?php echo $webmailUrl; ?>" target="_blank" class="dropdown-item">Webmail</a>
                                     <?php endif; ?>
                                 </div>
                             </li>
