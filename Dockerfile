@@ -13,6 +13,13 @@ RUN chown -R www-data:www-data /app && \
 # Habilita módulos do Apache
 RUN a2enmod rewrite
 
+# Configura o Apache para servir a pasta /app
+RUN echo "DocumentRoot /app" > /etc/apache2/sites-available/000-default.conf && \
+    echo "<Directory /app>" >> /etc/apache2/sites-available/000-default.conf && \
+    echo "    AllowOverride All" >> /etc/apache2/sites-available/000-default.conf && \
+    echo "    Require all granted" >> /etc/apache2/sites-available/000-default.conf && \
+    echo "</Directory>" >> /etc/apache2/sites-available/000-default.conf
+
 # Expõe a porta 80
 EXPOSE 80
 
