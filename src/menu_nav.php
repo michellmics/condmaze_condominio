@@ -83,6 +83,10 @@
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO'): ?>
                                     <a href="../uploadRelatorio/index.php" class="dropdown-item">Enviar Arquivo</a>
                                     <?php endif; ?>
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO'): ?>
+                                    <a href="../informacoesUteis/index.php" class="dropdown-item">Informações Úteis</a>
+                                    <?php endif; ?>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
