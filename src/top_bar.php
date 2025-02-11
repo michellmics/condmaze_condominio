@@ -104,7 +104,7 @@
                             <img src="../../img/logo_128x128.png" width="41px" height="41px" alt="small logo" style="height: 41px; width: 41px;">
                             </span>
                         </a>
-
+ 
                         <!-- Logo Dark -->
                         <a href="../inicial/index.php" class="logo-dark">
                             <span class="logo-lg">

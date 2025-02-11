@@ -204,7 +204,7 @@ $host = $_SERVER['HTTP_HOST'];
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox-signin">
                                 <label class="form-check-label" for="checkbox-signin">Manter Conectado?</label>
-                            </div>
+                            </div> 
                         </div>
                         <div class="mb-3">
                           <!--   <a href="app_hortensias.apk" download class="btn btn-link">Download App (Android)</a> -->
