@@ -2,6 +2,10 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == NULL) {
+        header("Location: ../login/index.php");
+        exit();
+    }
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  

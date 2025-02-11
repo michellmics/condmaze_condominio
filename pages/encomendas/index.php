@@ -4,7 +4,7 @@
     }
 
     if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == NULL) {
-        header("Location: ../login/login.php");
+        header("Location: ../login/index.php");
         exit();
     }
 
