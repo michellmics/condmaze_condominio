@@ -506,6 +506,8 @@ $(document).ready(function () {
                 const nome = td.getAttribute('nome');
                 const telefone = td.getAttribute('telefone');
 
+                console.log("telefone");
+
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {
                     method: 'POST',
