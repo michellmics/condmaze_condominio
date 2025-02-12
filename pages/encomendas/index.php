@@ -18,7 +18,17 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
-    $saldoWhatsapp = 2 * $siteAdmin->whatsappSaldo();
+    $saldoWhatsapp = $siteAdmin->whatsappSaldo();
+    
+    if($saldoWhatsapp != false)
+    {
+        $saldoWhatsapp = 2 * $saldoWhatsapp ;
+    }
+    else
+        {
+            $saldoWhatsapp = "Serviço Inativo";
+        }
+    
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
