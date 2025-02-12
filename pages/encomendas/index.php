@@ -114,7 +114,10 @@
                                     status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
                                     </p>
                                     <p class="text-muted font-14">
-                                    Seu saldo para envios de mensagem por Whatsapp: $<?php echo $saldoWhatsapp; ?>
+                                    <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
+    <span>Seu saldo para envios de mensagem por WhatsApp: 
+        <strong style="color: #25D366;">$<?php echo number_format($saldoWhatsapp, 2, ',', '.'); ?></strong>
+    </span>
                                     </p>
 
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Cadastrar Pacote</button>
