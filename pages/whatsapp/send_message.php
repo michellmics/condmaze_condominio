@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
-        $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to.";
+        $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to. (MSG: $message)";
         $LOG_DCUSUARIO = "SISTEMA";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
-        $LOG_DCMSG = "Serviço de notificação por Whatsapp apresentou um erro.";
+        $LOG_DCMSG = "Serviço de notificação por Whatsapp apresentou um erro. (MSG: $message)";
         $LOG_DCUSUARIO = "SISTEMA";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
