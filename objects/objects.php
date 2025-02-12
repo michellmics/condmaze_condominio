@@ -50,8 +50,8 @@
             	$dbname = $_ENV['ENV_BD_DATABASE'];
             	$user = $_ENV['ENV_BD_USER'];
             	$pass = $_ENV['ENV_BD_PASS'];
-            	$this->WHATSAPP_TOKEN = $_ENV['ENV_WHATSAPP_TOKEN'];
-            	$this->WHATSAPP_SID =  $_ENV['ENV_WHATSAPP_SID'];
+            	//$this->WHATSAPP_TOKEN = $_ENV['ENV_WHATSAPP_TOKEN'];
+            	//$this->WHATSAPP_SID = $_ENV['ENV_WHATSAPP_SID'];
 		
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
@@ -176,10 +176,25 @@
         
         public function whatsappSaldo()
         {
-            $accountSid = $this->WHATSAPP_SID;
-            $authToken = $this->WHATSAPP_TOKEN;
+            $this->getParameterInfo();
 
+            $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
+        
+            foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+                if (isset($parametros[$item['CFG_DCPARAMETRO']])) {
+                    $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR'];
+                }
+            }
+
+            $authToken = $parametros['WHATSAPP_TOKEN'];
+            $accountSid = $parametros['WHATSAPP_SID'];
+            $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
             $url = "https://api.twilio.com/2010-04-01/Accounts/$accountSid/Balance.json";
+
+            if($statusWhatsapp != "ATIVO")
+            {
+                return false;
+            }
 
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

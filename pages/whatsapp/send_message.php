@@ -13,13 +13,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefone = $data['telefone'] ?? null;
     $message = $data['message'] ?? null;
 
-    // Suas credenciais do Twilio
-    $sid = $siteAdmin->WHATSAPP_SID; // Substitua pelo seu Account SID
-    $token = $siteAdmin->WHATSAPP_TOKEN; // Substitua pelo seu Auth Token
-    $twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
+    $siteAdmin->getParameterInfo();
 
-    // Número de destino e mensagem
-    $to = "whatsapp:+55$telefone"; // Substitua pelo número de destino (inclua o código do país)
+    $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
+
+    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+        if (isset($parametros[$item['CFG_DCPARAMETRO']])) {
+            $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR'];
+        }
+    }
+    
+    // Suas credenciais do Twilio
+    $twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
+    $token = $parametros['WHATSAPP_TOKEN'];
+    $sid = $parametros['WHATSAPP_SID'];
+    $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
+    $to = "whatsapp:+55$telefone";
+
+    if($statusWhatsapp != "ATIVO")
+    {
+        //--------------------LOG----------------------//
+        $LOG_DCTIPO = "NOTIFICAÇÃO";
+        $LOG_DCMSG = "Serviço de notificação por Whatsapp está desativado.";
+        $LOG_DCUSUARIO = "SISTEMA";
+        $LOG_DCCODIGO = "N/A";
+        $LOG_DCAPARTAMENTO = "";
+        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        //--------------------LOG----------------------//
+
+        exit();
+    }
+
+ 
 
     // Enviar mensagem via Twilio
     try {
@@ -33,8 +58,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]
         );
 
+        //--------------------LOG----------------------//
+        $LOG_DCTIPO = "NOTIFICAÇÃO";
+        $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to.";
+        $LOG_DCUSUARIO = "SISTEMA";
+        $LOG_DCCODIGO = "N/A";
+        $LOG_DCAPARTAMENTO = "";
+        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        //--------------------LOG----------------------//
+
         echo json_encode(['success' => 'Notificação enviada ao Whatsapp do morador.']);
     } catch (Exception $e) {
+
+        //--------------------LOG----------------------//
+        $LOG_DCTIPO = "NOTIFICAÇÃO";
+        $LOG_DCMSG = "Serviço de notificação por Whatsapp apresentou um erro.";
+        $LOG_DCUSUARIO = "SISTEMA";
+        $LOG_DCCODIGO = "N/A";
+        $LOG_DCAPARTAMENTO = "";
+        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        //--------------------LOG----------------------//
+
         echo json_encode(['error' => 'Notificação por Whatsapp apresentou um erro.']);
     }
 }
