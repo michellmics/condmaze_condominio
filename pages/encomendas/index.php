@@ -176,7 +176,7 @@
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                         <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
-                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
+                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
 
