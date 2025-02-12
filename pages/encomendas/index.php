@@ -19,9 +19,6 @@
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
     $saldoWhatsapp = $siteAdmin->whatsappSaldo();
-
-var_dump($saldoWhatsapp);
-die();
     
     if ($saldoWhatsapp == "INATIVO") {
         $saldoWhatsapp = "Serviço Inativo";
