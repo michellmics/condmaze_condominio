@@ -7,16 +7,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $data['id'] ?? null;
     $status = $data['status'] ?? null;
     $nome = $data['nome'] ?? null;
+    $telefone = $data['telefone'] ?? null;
 
     $nome = ucwords(strtolower($nome));
 
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
-        $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status);
+        $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status, $telefone);
         if($status == "DISPONIVEL")
         {
             $msg = "Olá *$nome*, sua entrega está disponível para retirada na portaria do *Condomínio Parque das Hortênsias.*";
-            $telefone = "11982734350";
+           // $telefone = "11982734350";
             $result = $siteAdmin->whatsapp($msg,$telefone);
         }
         echo json_encode(['success' => $result]);

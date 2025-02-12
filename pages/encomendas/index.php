@@ -126,10 +126,11 @@
                                                         <th>ID</th>
                                                         <th>AP</th>
                                                         <th>NOME</th>
+                                                        <th>TELEFONE</th> 
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
                                                         <th>DISPONIVEL?</th>
-                                                        <th>ENTREGUE?</th> 
+                                                        <th>ENTREGUE?</th>                                                         
                                                         <th></th> 
                                                     </tr>
                                                 </thead>
@@ -140,6 +141,7 @@
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
                                                         $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
                                                         $nome = $item['USU_DCNOME'];
+                                                        $telefone = $item['USU_DCTELEFONE'];
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
@@ -173,7 +175,8 @@
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>         
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
 
@@ -501,6 +504,7 @@ $(document).ready(function () {
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
                 const td = document.querySelector('td[nome]');
                 const nome = td.getAttribute('nome');
+                const telefone = td.getAttribute('telefone');
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {
@@ -508,7 +512,7 @@ $(document).ready(function () {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ id, status, nome })
+                    body: JSON.stringify({ id, status, nome, telefone })
                 })
                 .then(response => response.json())
                 .then(data => {
