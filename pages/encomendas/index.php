@@ -20,10 +20,9 @@
     $siteAdmin->getEncomendaPortariaInfo();
     $saldoWhatsapp = $siteAdmin->whatsappSaldo();
 
-    var_dump($saldoWhatsapp);
-    die();
+
     
-    if ($saldoWhatsapp === "INATIVO") {
+    if ($saldoWhatsapp == "INATIVO") {
         $saldoWhatsapp = "Serviço Inativo";
     } else {
         if (is_numeric($saldoWhatsapp)) {
@@ -34,6 +33,9 @@
             $saldoWhatsapp = "Valor inválido";
         }
     }
+
+    var_dump($saldoWhatsapp);
+    die();
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {

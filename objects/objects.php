@@ -193,7 +193,7 @@
 
             if($statusWhatsapp != "ATIVO")
             {
-                return "Serviço Inativo";
+                return "INATIVO";
             }
 
             $ch = curl_init($url);
