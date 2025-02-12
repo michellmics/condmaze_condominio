@@ -34,9 +34,6 @@
         }
     }
 
-    var_dump($saldoWhatsapp);
-    die();
-
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
           $nomeCondominio = $item['CFG_DCVALOR']; 
