@@ -174,6 +174,23 @@
             curl_close($ch);
         }
         
+        public function whatsappSaldo()
+        {
+            $accountSid = $this->WHATSAPP_SID;
+            $authToken = $this->WHATSAPP_TOKEN;
+
+            $url = "https://api.twilio.com/2010-04-01/Accounts/$accountSid/Balance.json";
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_USERPWD, "$accountSid:$authToken");
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            return $data['balance'];
+        }
+
         public function stmtToArray($stmtFunction)
 		{		
 			$stmtFunction_array = array();							

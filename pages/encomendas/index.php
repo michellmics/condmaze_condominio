@@ -13,6 +13,7 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
+    $saldoWhatsapp =  $siteAdmin->whatsappSaldo();
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -111,6 +112,9 @@
                                     Nesta seção, você pode controlar o recebimento de encomendas do condomínio. Ao receber uma encomenda, cadastre o item no sistema e 
                                     marque o status <b>DISPONÍVEL</b> como <b>SIM</b>, indicando que está pronta para retirada. O morador, por sua vez, deve marcar o 
                                     status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
+                                    </p>
+                                    <p class="text-muted font-14">
+                                    Seu saldo para envios de mensagem por Whatsapp: $<?php echo $saldoWhatsapp; ?>
                                     </p>
 
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Cadastrar Pacote</button>
