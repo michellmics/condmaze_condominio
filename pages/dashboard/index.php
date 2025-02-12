@@ -8,6 +8,11 @@
         exit();
     }
 
+    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE", "MORADOR"])) {
+        header("Location: ../errors/index.php");
+        exit();
+      }
+
 	include_once "../../objects/objects.php";
 	include_once '../../objects/objects_chart.php'; 
 

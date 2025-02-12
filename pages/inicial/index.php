@@ -354,7 +354,7 @@
                             </div> <!-- end card -->
                         </div><!-- end col-->
 
-                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">

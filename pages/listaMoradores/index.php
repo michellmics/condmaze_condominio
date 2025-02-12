@@ -7,7 +7,7 @@
         exit();
     }
 
-    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["MORADOR", "SINDICO", "DEV", "PORTARIA"])) {
+    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE", "PORTARIA"])) {
         header("Location: ../errors/index.php");
         exit();
     }

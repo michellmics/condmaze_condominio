@@ -8,6 +8,11 @@
         exit();
     }
 
+    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE", "PORTARIA"])) {
+        header("Location: ../errors/index.php");
+        exit();
+      }
+
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
