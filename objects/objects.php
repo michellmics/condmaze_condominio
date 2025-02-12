@@ -140,7 +140,7 @@
         public function whatsapp($msg,$telefone)
         {
             // URL do script que processa os dados
-            $url = 'https://prqdashortensias.com.br/pages/whatsapp/send_message.php';
+            $url = 'https://parquedashortensias.codemaze.com.br/pages/whatsapp/send_message.php';
 
             // Dados que serão enviados no POST
             $data = [
