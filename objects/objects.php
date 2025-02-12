@@ -181,7 +181,7 @@
             $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
         
             foreach ($this->ARRAY_PARAMETERINFO as $item) {
-                if (isset($parametros[$item['CFG_DCPARAMETRO']])) {
+                if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
                     $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR'];
                 }
             }
