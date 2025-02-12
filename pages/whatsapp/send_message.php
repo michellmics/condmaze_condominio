@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
     $to = "whatsapp:+55$telefone";
-
+/*
     if($statusWhatsapp != "ATIVO")
     {
         //--------------------LOG----------------------//
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         exit();
     }
-
+*/
  
 
     // Enviar mensagem via Twilio
