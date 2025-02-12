@@ -13,7 +13,7 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
-    $saldoWhatsapp =  $siteAdmin->whatsappSaldo();
+    $saldoWhatsapp = 2 . $siteAdmin->whatsappSaldo();
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
