@@ -88,7 +88,7 @@
                                     <a href="../informacoesUteis/index.php" class="dropdown-item">Informações Úteis</a>
                                     <?php endif; ?>
 
-                                    <?php if ($nivelAcesso == 'SUPORTE'): ?>
+                                    <?php if ($nivelAcesso == 'SUPORTE' || $nivelAcesso == 'SINDICO'): ?>
                                     <a href="../configuracoes/index.php" class="dropdown-item">Configurações</a>
                                     <?php endif; ?>
                                 </div>
