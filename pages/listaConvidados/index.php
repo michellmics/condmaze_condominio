@@ -129,6 +129,12 @@
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
+                                                    
+                                                    <?php
+                                                    $statusCheckedButton = "";
+                                                    if($item['USU_IDUSUARIO'] != $userid){$statusCheckedButton = "disabled";}
+                                                    ?>
+
                                                     <tr>
                                                         <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
                                                         <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
@@ -137,6 +143,7 @@
                                                             <div>
                                                                 <input 
                                                                     type="checkbox" 
+                                                                    <?php echo $statusCheckedButton; ?>
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
                                                                     data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
