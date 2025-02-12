@@ -186,7 +186,7 @@
                 }
             }
 
-            return $this->ARRAY_PARAMETERINFO;
+            return $parametros;
 
             $authToken = $parametros['WHATSAPP_TOKEN'];
             $accountSid = $parametros['WHATSAPP_SID'];
