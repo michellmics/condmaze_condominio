@@ -16,7 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status, $telefone);
         if($status == "DISPONIVEL")
         {
-            $msg = "Olá *$nome*, sua entrega com ID *$id* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias.*";
+            $msg = "Olá *$nome*, sua entrega com ID *$id* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias.*
+                    \nAo chegar na portaria, acesse o link abaixo para liberar a retirada.\n\n
+                    link aqui.";
            // $telefone = "11982734350";
             $result = $siteAdmin->whatsapp($msg,$telefone);
         }
