@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $LOG_DCUSUARIO = "SISTEMA";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
-        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
 
         exit();
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $LOG_DCUSUARIO = "SISTEMA";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
-        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
 
         echo json_encode(['success' => 'Notificação enviada ao Whatsapp do morador.']);
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $LOG_DCUSUARIO = "SISTEMA";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
-        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
 
         echo json_encode(['error' => 'Notificação por Whatsapp apresentou um erro.']);
