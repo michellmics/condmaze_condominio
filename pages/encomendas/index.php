@@ -116,7 +116,7 @@
                                     <?php if ($nivelAcesso == 'SINDICO'): ?>
                                     <p class="text-muted font-14">
                                     <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
-                                    <span>Seu saldo para envios de mensagem por WhatsApp: 
+                                    <span>Síndico(a), seu saldo para envios de mensagem por WhatsApp é: 
                                         <strong style="color: #25D366;">$<?php echo number_format($saldoWhatsapp, 2, ',', '.'); ?></strong>
                                     </span>
                                     </p>
