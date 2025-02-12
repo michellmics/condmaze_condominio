@@ -503,8 +503,9 @@ $(document).ready(function () {
                 const id = this.getAttribute('data-id');
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
                 const td = document.querySelector('td[nome]');
+                const tdTelefone = document.querySelector('td[telefone]');
                 const nome = td.getAttribute('nome');
-                const telefone = td.getAttribute('telefone');
+                const telefone = tdTelefone.getAttribute('telefone');
 
                 console.log("telefone");
 
