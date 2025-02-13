@@ -263,10 +263,10 @@
                     <!-- end row-->
                 </div> <!-- container -->
 
-                
-		<!-- Menu Nav Area -->
-		<?php include '../../src/footer_nav.php'; ?>
-		<!-- End Menu Nav -->
+            </div>  
+		    <!-- Menu Nav Area -->
+		    <?php include '../../src/footer_nav.php'; ?>
+		    <!-- End Menu Nav -->
         </div>
 
         <!-- ============================================================== -->
