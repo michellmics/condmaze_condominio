@@ -286,7 +286,7 @@
                                                             data-bs-target="#scrollable-modal"
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>">
-                                                        <i class="fa-solid fa-newspaper me-2 text-primary"></i> 
+                                                        <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
                                                         <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
                                                     </button>
                                                 <?php endforeach; ?>
