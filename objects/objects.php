@@ -1284,7 +1284,7 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':ENC_IDENCOMENDA', $ENC_IDENCOMENDA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 
-                $stmt->execute();     
+                $stmt->execute();    
 
                                 //--------------------LOG----------------------//
                                 $LOG_DCTIPO = "ENCOMENDA";
