@@ -141,7 +141,7 @@
                                         <div class="row mb-3">
                                             <div class="col-lg-8">
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
-                                                    <div id="snow-editor" style="height: 300px;">
+                                                    <div style="height: 300px;" id="artigo">
                                                         Texto aqui
                                                     </div>
                                                 </div>
