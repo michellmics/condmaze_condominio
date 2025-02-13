@@ -147,6 +147,7 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
+                                                        <th></th> <!-- Coluna para o botão "+" -->
                                                         <th>DT ENTRADA</th>
                                                         <th>ID</th>
                                                         <th>AP</th>
@@ -197,6 +198,7 @@
                                                         
                                                     ?>
                                                     <tr>
+                                                        <td class="details-control"></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
