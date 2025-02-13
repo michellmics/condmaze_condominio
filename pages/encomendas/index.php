@@ -318,6 +318,47 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<script>
+    $(document).ready(function() {
+        var table = $('#basic-datatable').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: 0
+                }
+            },
+            columnDefs: [
+                { className: 'dt-control', orderable: false, targets: 0 }
+            ],
+            order: [[1, 'desc']]
+        });
+
+        // Ao clicar no "+", mostra detalhes escondidos
+        $('#basic-datatable tbody').on('click', 'td.dt-control', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
+
+            if (row.child.isShown()) {
+                row.child.hide();
+                tr.removeClass('shown');
+            } else {
+                row.child(format(row.data())).show();
+                tr.addClass('shown');
+            }
+        });
+
+        // Função que exibe detalhes adicionais
+        function format(d) {
+            return '<table class="table table-bordered" style="width:100%;">' +
+                '<tr><td><b>ID:</b></td><td>' + d[2] + '</td></tr>' +
+                '<tr><td><b>Nome:</b></td><td>' + d[4] + '</td></tr>' +
+                '<tr><td><b>Telefone:</b></td><td>' + d[5] + '</td></tr>' +
+                '<tr><td><b>Observação:</b></td><td>' + d[7] + '</td></tr>' +
+                '<tr><td><b>Data de Entrega:</b></td><td>' + d[6] + '</td></tr>' +
+            '</table>';
+        }
+    });
+</script>
 
    <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
