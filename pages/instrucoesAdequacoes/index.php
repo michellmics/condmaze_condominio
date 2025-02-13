@@ -130,7 +130,7 @@
                                             <!-- Campo ordem 2 -->
                                             <div class="position-relative col-lg-2">
                                                 <label class="form-label" for="ordem">Ordem de Exibição</label>
-                                                <input id="ordem" name="ordem" type="number" class="form-control" 
+                                                <input id="ordem" name="ordem" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
                                                        maxlength="2" 
                                                        oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" 
@@ -191,7 +191,7 @@
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    form.action = "proc.php"; // Define a ação do formulário
+                    form.action = "insertArtigoProc.php"; // Define a ação do formulário
                     form.submit(); // Envia o formulário
                 }
             });
