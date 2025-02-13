@@ -269,9 +269,9 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> INSTRUÇÕES / ADEQUAÇÕES</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
                                     <p class="text-muted font-14">
-                                        Anotações e arquivos úteis
+                                    Aqui você encontra comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio.
                                     </p>
 
                                     <div class="tab-content">
