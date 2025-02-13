@@ -24,7 +24,7 @@
         if (!isset($_POST['hash'])) {
             $message = "Erro: Nenhum código de liberação encontrado.";
             $messageType = "error";
-        } else {
+        } else { 
             $HASH = $_POST['hash'];
             $userInfo = $siteAdmin->getUserInfoEncomenda($HASH);
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
