@@ -1298,7 +1298,14 @@
                 return ["success" => "Encomenda atualizada com sucesso."];
 
             } catch (PDOException $e) {
-                // Captura e retorna o erro
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "ENCOMENDA";
+                $LOG_DCMSG = $e->getMessage();
+                $LOG_DCUSUARIO = "MORADOR";
+                $LOG_DCCODIGO = $ENC_IDENCOMENDA;
+                $LOG_DCAPARTAMENTO = "";
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+                //--------------------LOG----------------------//
                 return ["error" => $e->getMessage()];
             }
         }
