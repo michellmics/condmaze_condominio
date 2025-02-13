@@ -38,12 +38,6 @@
         public $ARRAY_LISTAEVENTOSINFO;
         public $configPath;
 
-
-        function __construct() {
-            // Usando __DIR__ para obter o diretório atual e construir o caminho relativo
-            $this->configPath = __DIR__ . '/../../config.cfg';
-        }
-
         function conexao()
         {
             	$host = $_ENV['ENV_BD_HOST'];
