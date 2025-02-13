@@ -531,9 +531,9 @@ $(document).ready(function () {
                 const td = document.querySelector('td[nome]');
                 const tdTelefone = document.querySelector('td[telefone]');
                 const nome = td.getAttribute('nome');
-                const telefone = tdTelefone.getAttribute('telefone');
-                const hash = td.getAttribute('hash');
-                const hash = tdTelefone.getAttribute('hash');
+                const telefone = tdTelefone.getAttribute('telefone');            
+                const tdHash = document.querySelector('td[hash]');
+                const hash = tdHash.getAttribute('hash');
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {
