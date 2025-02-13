@@ -280,7 +280,7 @@
 
                                             <div class="list-group">
                                                 <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
-                                                    <button type="button" class="list-group-item list-group-item-action"><?= htmlspecialchars($item['INA_DCTITULO']); ?></button>
+                                                    <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#scrollable-modal"><?= htmlspecialchars($item['INA_DCTITULO']); ?></button>
                                                 <?php endforeach; ?>
                                             </div>
 
@@ -296,6 +296,45 @@
                         </div><!-- end col-->
                     </div>
                     <!-- end row-->
+
+
+
+<!-- Scrollable modal -->
+<button  type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#scrollable-modal">Scrollable Modal</button>
+<div class="modal fade" id="scrollable-modal" tabindex="-1" role="dialog" aria-labelledby="scrollableModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="scrollableModalTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+                TESTEEE
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <div class="row">
                     <div class="col-xl-6">
