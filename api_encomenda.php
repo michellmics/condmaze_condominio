@@ -4,12 +4,13 @@
 	include_once "objects/objects.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
-    if(!isset($_POST['hash'])){echo "error"; die();}
-
-    $HASH = $_POST['hash'] ?? null;
-
     $siteAdmin = new SITE_ADMIN();
+
+    if(!isset($_GET['hash'])){echo "error"; die();}
+
+    $HASH = $_GET['hash'];
+
+    
 
     $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
