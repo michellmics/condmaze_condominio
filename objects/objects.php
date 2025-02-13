@@ -41,8 +41,10 @@
         {
             	$host = $_ENV['ENV_BD_HOST'];
             	$dbname = $_ENV['ENV_BD_DATABASE']; 
-            	$user = $_ENV['ENV_BD_USER'];
-            	$pass = $_ENV['ENV_BD_PASS'];
+            	//$user = $_ENV['ENV_BD_USER'];
+                $user = "root";
+            	//$pass = $_ENV['ENV_BD_PASS'];
+                $pass = "FpKx5ITcePKDSImzmOmN1RIZmoI1lVvJ7VyY4SkJVs2TksdhMY1uBS5DKJUUcVnF";
 		
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
