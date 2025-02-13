@@ -59,6 +59,7 @@
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
@@ -280,11 +281,12 @@
 
                                             <div class="list-group">
                                                 <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
-                                                    <i class="mdi mdi-star"></i><button type="button" class="list-group-item list-group-item-action" 
+                                                    <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal"
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>">
+                                                        <i class="fa-solid fa-newspaper me-2 text-primary"></i> 
                                                         <?= htmlspecialchars($item['INA_DCTITULO']); ?>
                                                     </button>
                                                 <?php endforeach; ?>
