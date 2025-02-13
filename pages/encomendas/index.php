@@ -147,9 +147,7 @@
                                                         <th>TELEFONE</th> 
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
-                                                        <th>DISPONIVEL?</th>
-                                                        <th>ENTREGUE?</th>                                                         
-                                                        <th></th> 
+                                                
                                                     </tr>
                                                 </thead>
                                                 <tbody>
