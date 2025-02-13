@@ -145,7 +145,7 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>        
-                                                        <th>DT ENTRADA</th>
+                                                    <!-- <th>DT ENTRADA</th> -->
                                                         <th>ID</th>
                                                         <th>AP</th>
                                                         <th>NOME</th>
@@ -194,15 +194,15 @@
                                                         
                                                         
                                                     ?>
-                                                     <tr>    
-                                                        <td class="align-middle" ><?= htmlspecialchars($dataPortaria); ?></td>
-                                                        <td class="align-middle" ><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                        <td class="align-middle" ><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
+                                                    <tr>    
+                                                        <!--<td class="align-middle" style="font-size: 12px;"><?= //htmlspecialchars($dataPortaria); ?></td> -->
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
-                                                        <td class="align-middle" ><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td class="align-middle" ><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" ></td> 
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
