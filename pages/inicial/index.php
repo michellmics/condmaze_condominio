@@ -280,7 +280,7 @@
 
                                             <div class="list-group">
                                                 <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
-                                                    <button type="button" class="list-group-item list-group-item-action" 
+                                                    <i class="mdi mdi-star"></i><button type="button" class="list-group-item list-group-item-action" 
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal"
                                                             data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
@@ -315,7 +315,7 @@
                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
