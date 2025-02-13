@@ -79,7 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fileUrl = null;
     }
 
-
+    echo $fileUrl;
+    exit();
 
 
     $titulo = $_POST['titulo'];
