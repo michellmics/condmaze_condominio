@@ -163,9 +163,9 @@
 
             // Verificar erros
             if (curl_errno($ch)) {
-                echo 'Erro no cURL: ' . curl_error($ch);
+                //echo 'Erro no cURL: ' . curl_error($ch);
             } else {
-                echo 'Resposta do servidor: ' . $response;
+                //echo 'Resposta do servidor: ' . $response;
             }
 
             // Fechar o cURL
