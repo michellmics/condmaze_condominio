@@ -146,19 +146,110 @@
                                                         <th>NOME</th>
                                                         <th>TELEFONE</th> 
                                                         <th>DT ENTREGA</th>
-                                                        
-                                                
+                                                        <th>OBS</th>
+                                                        <th>DISPONIVEL?</th>
+                                                        <th>ENTREGUE?</th>                                                         
+                                                        <th></th> 
+                                                        <th></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
+                                                    <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
+                                                    <?php
+                                                        $statusEnt = $item['ENC_STENTREGA_MORADOR'];
+                                                        $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
+                                                        $nome = $item['USU_DCNOME'];
+                                                        $telefone = $item['USU_DCTELEFONE'];                                                       
+
+                                                        if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
+                                                            || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                        }
+                                                        else
+                                                            {
+                                                                $fieldPortaria = "";
+                                                            }
+
+                                                        if($item['ENC_STENTREGA_MORADOR'] == "ENTREGUE") 
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                            $fieldMorador = "disabled";                                                            
+                                                        }
+                                                        else
+                                                            {
+                                                                $fieldMorador = "";
+                                                            }
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                        $dataPortaria = $date->format('d/m/Y H:i');
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_MORADOR']);
+                                                        $dataMorador = $date->format('d/m/Y H:i');
+                                                        
+                                                        
+                                                    ?>
+                                                    <tr>    
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
+                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldMorador); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch1<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldPortaria); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch1<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <?php 
+                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
+                                                                {
+                                                                    echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
+                                                                }
+                                                            ?>
+                                                        </td>
                                                     </tr>
+                                                 <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end preview-->
