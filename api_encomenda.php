@@ -29,9 +29,7 @@
             $userInfo = $siteAdmin->getUserInfoEncomenda($HASH); 
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
-            var_dump($userInfo);
-
-
+            
             if (isset($userInfo['USU_DCTELEFONE'])) {
                 $telefone = $userInfo['USU_DCTELEFONE'];
                 $encomendaId = $userInfo['ENC_IDENCOMENDA'];
