@@ -779,10 +779,12 @@
             $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';                    
             $codigo = substr(str_shuffle($caracteres), 0, 5);
 
+            $ENC_DCHASHENTREGA = password_hash($codigo . $USU_IDUSUARIO, PASSWORD_BCRYPT);
+
             try {
                 $sql = "INSERT INTO ENC_ENCOMENDA 
-                        (ENC_IDENCOMENDA, ENC_DCOBSERVACAO, USU_IDUSUARIO, ENC_DTENTREGA_PORTARIA, ENC_STENCOMENDA) 
-                        VALUES (:ENC_IDENCOMENDA, :ENC_DCOBSERVACAO, :USU_IDUSUARIO, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA)";
+                        (ENC_IDENCOMENDA, ENC_DCOBSERVACAO, USU_IDUSUARIO, ENC_DTENTREGA_PORTARIA, ENC_STENCOMENDA, ENC_DCHASHENTREGA) 
+                        VALUES (:ENC_IDENCOMENDA, :ENC_DCOBSERVACAO, :USU_IDUSUARIO, :ENC_DTENTREGA_PORTARIA, :ENC_STENCOMENDA, :ENC_DCHASHENTREGA)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -792,6 +794,7 @@
                 $stmt->bindParam(':ENC_DTENTREGA_PORTARIA', $DATA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENCOMENDA', $ENC_STENCOMENDA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_IDENCOMENDA', $codigo, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
             
                 $stmt->execute();
 
