@@ -228,14 +228,7 @@
 </script>
 
 
-<script>
-    // Inicializando o Quill editor
-    var quill = new Quill('#snow-editor', {
-        theme: 'snow',
-        placeholder: 'Digite o conteúdo aqui...',
-        // Configurações adicionais que você desejar
-    });
-</script>
+
 
 
     <!-- Vendor js -->
