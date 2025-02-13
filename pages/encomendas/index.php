@@ -160,16 +160,49 @@
                                                 <tbody>
 
                                                 <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
-                                
-                                                    <tr>    
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
+                                                    <?php
+                                                        $statusEnt = $item['ENC_STENTREGA_MORADOR'];
+                                                        $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
+                                                        $nome = $item['USU_DCNOME'];
+                                                        $telefone = $item['USU_DCTELEFONE'];                                                       
+
+                                                        if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
+                                                            || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                        }
+                                                        else
+                                                            {
+                                                                $fieldPortaria = "";
+                                                            }
+
+                                                        if($item['ENC_STENTREGA_MORADOR'] == "ENTREGUE") 
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                            $fieldMorador = "disabled";                                                            
+                                                        }
+                                                        else
+                                                            {
+                                                                $fieldMorador = "";
+                                                            }
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                        $dataPortaria = $date->format('d/m/Y H:i');
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_MORADOR']);
+                                                        $dataMorador = $date->format('d/m/Y H:i');
+                                                        
+                                                        
+                                                    ?>
+                                                     <tr>    
+                                                        <td class="align-middle" ><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td class="align-middle" ><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" ><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
+                                                        <td class="align-middle" ><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" ><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" ></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
