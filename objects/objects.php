@@ -1303,6 +1303,40 @@
             }
         }
 
+        public function updateCheckboxEncomendasMoradorByApi($ENC_DCHASHENTREGA)
+        {
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            $ENC_STENTREGA_MORADOR = "A RETIRAR";
+
+            try
+            {         
+                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
+                $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 
+                $stmt->execute();     
+
+                                //--------------------LOG----------------------//
+                                $LOG_DCTIPO = "ENCOMENDA";
+                                $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR através de link enviando pelo Whatsapp.";
+                                $LOG_DCUSUARIO = "MORADOR";
+                                $LOG_DCCODIGO = $ENC_IDENCOMENDA;
+                                $LOG_DCAPARTAMENTO = "";
+                                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+                                //--------------------LOG----------------------//
+
+                return "1";
+
+            } catch (PDOException $e) {
+                return "0";
+                //return ["error" => $e->getMessage()];
+            }
+        }
+
         public function insertUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_DCTELEFONE)
         {       
             // Verifica se a conexão já foi estabelecida
