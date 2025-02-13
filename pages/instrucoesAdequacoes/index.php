@@ -60,6 +60,16 @@
 <!-- Icons css -->
 <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+<!-- SWEETALERT -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 --> 
+<!-- SweetAlert2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+<!-- ######################################################## --> 
+
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
@@ -172,37 +182,6 @@
         <!-- ============================================================== -->
     </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
-        
-        switches.forEach(switchElem => {
-            switchElem.addEventListener('change', function () {
-                const id = this.getAttribute('data-id');
-                const status = this.checked ? 'ATIVO' : 'INATIVO';
-
-                // Envia a alteração para o servidor
-                fetch('updateStatusCheckbox.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ id, status })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.success) {
-                        alert('Erro ao atualizar o status!');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    alert('Erro ao comunicar com o servidor.');
-                });
-            });
-        });
-    });
-</script>
 
 
     <!-- Vendor js -->
