@@ -60,6 +60,8 @@
 <!-- Icons css -->
 <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
@@ -141,7 +143,7 @@
                                         <div class="row mb-3">
                                             <div class="col-lg-8">
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
-                                                    <div style="height: 300px;" id="artigo">
+                                                    <div style="height: 300px;" id="snow-editor">
                                                         Texto aqui
                                                     </div>
                                                 </div>
@@ -149,7 +151,7 @@
                                         </div>
                                                                
                                             <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
-                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                             
+                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
                                        
                                     </form>
                                     </div> <!-- end tab-content -->
@@ -173,36 +175,32 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
-        
-        switches.forEach(switchElem => {
-            switchElem.addEventListener('change', function () {
-                const id = this.getAttribute('data-id');
-                const status = this.checked ? 'ATIVO' : 'INATIVO';
+    document.getElementById("botao").addEventListener("click", function() {
+        let form = document.getElementById("form");
 
-                // Envia a alteração para o servidor
-                fetch('updateStatusCheckbox.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ id, status })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.success) {
-                        alert('Erro ao atualizar o status!');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    alert('Erro ao comunicar com o servidor.');
-                });
+        if (form.checkValidity()) {
+            // Exibe o alerta de confirmação
+            Swal.fire({
+                title: "Tem certeza?",
+                text: "Você deseja salvar os dados?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sim, salvar!",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.action = "proc.php"; // Define a ação do formulário
+                    form.submit(); // Envia o formulário
+                }
             });
-        });
+        } else {
+            form.classList.add("was-validated"); // Exibe os erros de validação
+        }
     });
 </script>
+
 
 
     <!-- Vendor js -->
