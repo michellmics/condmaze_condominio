@@ -30,8 +30,7 @@
     
     $prestadoresAll = $siteAdmin->getAllPrestadores();
 
-    var_dump($prestadoresAll);
-    die();
+
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRACARIA");
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
@@ -45,6 +44,9 @@
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("ARCONDICIONADO");
     $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
+
+    var_dump($GESSO);
+    die();
 
 ?>
 
