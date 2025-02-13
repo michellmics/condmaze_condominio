@@ -52,22 +52,6 @@
             } 
         }
 
-        public function getAvaliacoesByCategoria($PDS_DCCATEGORIA)
-        {          
-                // Verifica se a conexão já foi estabelecida
-                if(!$this->pdo){$this->conexao();}
-            
-            try{           
-                $sql = "SELECT DISTINCT(PDS_DCNOME), PDS_IDPRESTADOR_SERVICO, PDS_DCTELEFONE, PDS_DCCIDADE FROM VW_AVALIACAO_PRESTADOR WHERE PDS_DCCATEGORIA = :PDS_DCCATEGORIA";
-
-                $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
-                $stmt->execute();
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                return ["error" => $e->getMessage()];
-            }       
-        }
         public function getAvaliacoesByPrestador($PDS_IDPRESTADOR_SERVICO)
         {          
                 // Verifica se a conexão já foi estabelecida
@@ -94,6 +78,23 @@
                 $sql = "SELECT PDS_DCNOME, PDS_IDPRESTADOR_SERVICO, PDS_DCCATEGORIA FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
 
                 $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
+
+        public function getAvaliacoesByCategoria($PDS_DCCATEGORIA)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT DISTINCT(PDS_DCNOME), PDS_IDPRESTADOR_SERVICO, PDS_DCTELEFONE, PDS_DCCIDADE FROM VW_AVALIACAO_PRESTADOR WHERE PDS_DCCATEGORIA = :PDS_DCCATEGORIA";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
