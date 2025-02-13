@@ -15,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
         $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status, $telefone);
-       // if($status == "DISPONIVEL")
-       // {
+        if($status == "DISPONIVEL")
+        {
             $link = "https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hash";
             $msg = "Olá *$nome*, sua entrega com ID *$id* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias.*
                     \nAo chegar na portaria, acesse o link abaixo para liberar a retirada.\n\n$link";
             $result = $siteAdmin->whatsapp($msg,$telefone);
-        //}
+        }
         echo json_encode(['success' => $result]);
 
     } else {

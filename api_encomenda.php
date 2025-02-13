@@ -135,7 +135,7 @@
         <?php if ($showButton): ?>
             <form method="POST">
                 <input type="hidden" name="hash" value="<?= htmlspecialchars($HASH) ?>">
-                <button type="submit" class="btn">Liberar Encomenda</button>
+                <button type="submit" class="btn">Retirar a Encomenda</button>
             </form>
         <?php endif; ?>
     </div>
