@@ -96,8 +96,8 @@
 <style> 
 /* Azul quando está desligado (OFF) */
     input[type="checkbox"][data-switch="success"] + label {
-        background-color:rgb(8, 8, 8) !important; /* Azul */
-        border-color:rgb(0, 0, 0) !important;
+        background-color:rgb(24, 19, 68) !important; /* Azul */
+        border-color:rgb(24, 19, 68) !important;
         color: white !important;
     }
 
