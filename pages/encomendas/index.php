@@ -55,6 +55,10 @@
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -142,40 +146,121 @@
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
-                                        <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
+                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                                <thead>
+                                                    <tr>        
+                                                        <th>DT ENTRADA</th>
+                                                        <th>ID</th>
+                                                        <th>AP</th>
+                                                        <th>NOME</th>
+                                                        <th>TELEFONE</th> 
+                                                        <th>DT ENTREGA</th>
+                                                        <th>OBS</th>
+                                                        <th>DISPONIVEL?</th>
+                                                        <th>ENTREGUE?</th>                                                         
+                                                        <th></th> 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
 
+                                                <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
+                                                    <?php
+                                                        $statusEnt = $item['ENC_STENTREGA_MORADOR'];
+                                                        $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
+                                                        $nome = $item['USU_DCNOME'];
+                                                        $telefone = $item['USU_DCTELEFONE'];                                                       
 
-    <tbody>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            <td>$170,750</td>
-        </tr>
-    </tbody>
-</table>
+                                                        if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
+                                                            || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                        }
+                                                        else
+                                                            {
+                                                                $fieldPortaria = "";
+                                                            }
 
-                   
+                                                        if($item['ENC_STENTREGA_MORADOR'] == "ENTREGUE") 
+                                                        {
+                                                            $fieldPortaria = "disabled";
+                                                            $fieldMorador = "disabled";                                                            
+                                                        }
+                                                        else
+                                                            {
+                                                                $fieldMorador = "";
+                                                            }
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                        $dataPortaria = $date->format('d/m/Y H:i');
+
+                                                        $date = new DateTime($item['ENC_DTENTREGA_MORADOR']);
+                                                        $dataMorador = $date->format('d/m/Y H:i');
+                                                        
+                                                        
+                                                    ?>
+                                                    <tr>    
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
+                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldMorador); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch1<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldPortaria); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch1<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <?php 
+                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
+                                                                {
+                                                                    echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
+                                                                }
+                                                            ?>
+                                                        </td>
+                                                    </tr>
+                                                 <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
 
@@ -514,31 +599,31 @@ $(document).ready(function () {
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
 
-    <!-- Daterangepicker js -->
-    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
-    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!-- Code Highlight js -->
+    <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
+    <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
+    <script src="../../assets/js/hyper-syntax.js"></script>
 
-    <!-- Apex Charts js -->
-    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
 
-    <!-- Vector Map js -->
-    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
-    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
-    <!-- Dashboard App js -->
-    <script src="../../assets/js/pages/demo.dashboard.js"></script>
+    <!-- Datatable Demo Aapp js -->
+    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-
-
-    <!-- Datatables js -->
-    <script src="assets/vendor/datatables.net/js/dataTables.min.js"></script>
-    <script src="assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <!-- Datatable Init js -->
-    <script src="assets/js/pages/demo.datatable-init.js"></script>
 
 </body>
 
