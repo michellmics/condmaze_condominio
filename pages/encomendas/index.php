@@ -146,7 +146,7 @@
                                                         <th>NOME</th>
                                                         <th>TELEFONE</th> 
                                                         <th>DT ENTREGA</th>
-                                                        <th>OBS</th>
+                                                        
                                                 
                                                     </tr>
                                                 </thead>
