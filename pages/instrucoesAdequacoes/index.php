@@ -146,7 +146,7 @@
                                                     <!-- Editor Quill -->
                                                     <div style="height: 300px;" id="snow-editor"></div>
                                                     <!-- Campo oculto para armazenar o conteúdo -->
-                                                    <input type="hidden" name="artigo" id="artigo">
+                                                    <textarea type="hidden" id="artigo" name="artigo"></textarea>
                                                 </div>
                                             </div>
                                         </div>
