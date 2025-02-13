@@ -55,10 +55,6 @@
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -82,6 +78,7 @@
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
+
 </head>
 
 <body>
@@ -105,7 +102,6 @@
             </div>
             <!-- content -->
 
-
                 <!-- Start Content-->
                 <div class="container-fluid">
 
@@ -114,14 +110,15 @@
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
+                                
                                 </div>
-                                <h4 class="page-title">Encomendas</h4>
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
 
                     <div class="row">
+
                     <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
@@ -267,22 +264,60 @@
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div>
-                    </div> <!-- end row-->
-
+                    <!-- end row-->
                 </div> <!-- container -->
-
-            </div> <!-- content -->
-
-            <?php include '../../src/footer_nav.php'; ?>
-
+		<!-- Menu Nav Area -->
+		<?php include '../../src/footer_nav.php'; ?>
+		<!-- End Menu Nav -->
         </div>
 
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
 
-
     </div>
+    <!-- END wrapper -->
+
+
+<!-- cadastrar pacote modal-->
+<div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <a href="index.html" class="text-success">
+                        <span>Cadastro de Pacote</span>
+                    </a>
+                </div>
+
+                <form class="needs-validation" novalidate id="form" role="form" method="POST">
+
+                    <div class="mb-3">
+                        <label for="apartamento" class="form-label">Apartamento</label>
+                        <input class="form-control" type="number" name="apartamento" id="apartamento" maxlength="4" required="" placeholder="Digite o número do apartamento">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="observacao" class="form-label">Observacao</label>
+                        <input class="form-control" type="text" id="observacao" name="observacao" required="" maxlength="50" placeholder="Digite algo que ajude a identificar o pacote" style="text-transform: uppercase;">
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" id="botao" type="button">Cadastrar Pacote</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+   
+
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
@@ -304,25 +339,14 @@
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
 
+
     <!-- Datatables js -->
-    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
-
-    <!-- Datatable Demo Aapp js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
-
-
+    <script src="assets/vendor/datatables.net/js/dataTables.min.js"></script>
+    <script src="assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <!-- Datatable Init js -->
+    <script src="assets/js/pages/demo.datatable-init.js"></script>
 
 </body>
 
