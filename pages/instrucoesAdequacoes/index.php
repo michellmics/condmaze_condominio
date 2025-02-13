@@ -140,8 +140,7 @@
                                                 <label class="form-label" for="ordem">Ordem de Exibição</label>
                                                 <input id="ordem" name="ordem" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
-                                                       maxlength="2" 
-                                                       oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" 
+                                                       maxlength="2"                                                        
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha a ordem.</div>

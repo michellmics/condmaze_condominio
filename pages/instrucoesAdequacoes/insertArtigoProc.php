@@ -29,7 +29,7 @@ class registerArtigo extends SITE_ADMIN
                     {
                         $result = $this->insertArtigoInfo($titulo, $ordem, $artigo);
                         
-                        /*                     
+                        /*                      
                         //--------------------LOG----------------------//
                         $LOG_DCTIPO = "NOVO CADASTRO";
                         $LOG_DCMSG = "O usuário $nome foi cadastrado com sucesso com credenciais de $nivel.";
