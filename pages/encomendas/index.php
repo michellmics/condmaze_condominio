@@ -166,7 +166,7 @@
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
                                                         $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
                                                         $nome = $item['USU_DCNOME'];
-                                                        $telefone = $item['USU_DCTELEFONE'];
+                                                        $telefone = $item['USU_DCTELEFONE'];                                                       
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
@@ -204,6 +204,7 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
@@ -531,8 +532,8 @@ $(document).ready(function () {
                 const tdTelefone = document.querySelector('td[telefone]');
                 const nome = td.getAttribute('nome');
                 const telefone = tdTelefone.getAttribute('telefone');
-
-                console.log("telefone");
+                const hash = td.getAttribute('hash');
+                const hash = tdTelefone.getAttribute('hash');
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {
@@ -540,7 +541,7 @@ $(document).ready(function () {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ id, status, nome, telefone })
+                    body: JSON.stringify({ id, status, nome, telefone, hash })
                 })
                 .then(response => response.json())
                 .then(data => {
