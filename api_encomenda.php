@@ -26,7 +26,7 @@
             $messageType = "error";
         } else { 
             $HASH = $_POST['hash'];
-            $userInfo = $siteAdmin->getUserInfoEncomenda($HASH);
+            $userInfo = $siteAdmin->getUserInfoEncomenda($HASH); 
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
             var_dump($userInfo);

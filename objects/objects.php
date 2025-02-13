@@ -1369,7 +1369,7 @@
                         'ENC_IDENCOMENDA' => $result['ENC_IDENCOMENDA'],
                         'USU_DCNOME' => $result['USU_DCNOME']
                     ];
-                } else {
+                } else { 
                     return "0";
                 }
             } catch (PDOException $e) {
