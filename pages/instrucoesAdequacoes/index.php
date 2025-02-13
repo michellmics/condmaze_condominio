@@ -125,7 +125,7 @@
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha o título.</div>
                                             </div>
-                                    
+
                                             <!-- Campo Ordem -->
                                             <div class="position-relative col-lg-2">
                                                 <label class="form-label" for="ordem">Ordem de Exibição</label>
@@ -134,7 +134,7 @@
                                                 <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
                                             </div>                                            
                                         </div>
-                                    
+
                                         <!-- Campo de Upload -->
                                         <div class="row mb-3">
                                             <div class="col-lg-6">
@@ -143,7 +143,7 @@
                                                 <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
                                             </div>
                                         </div>
-                                    
+
                                         <!-- Editor Quill -->
                                         <div class="row mb-3">
                                             <div class="col-lg-8">
@@ -153,38 +153,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    
+
                                         <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
                                         <button class="btn btn-primary col-lg-1" type="submit" id="botao" name="botao">Salvar</button>                                          
                                     </form>
-                                    
-                                    <script>
-                                        document.getElementById('arquivo').addEventListener('change', function(event) {
-                                            const file = event.target.files[0];
-                                        
-                                            if (file) {
-                                                const formData = new FormData();
-                                                formData.append('arquivo', file);
-                                            
-                                                fetch('upload.php', {
-                                                    method: 'POST',
-                                                    body: formData
-                                                })
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    if (data.success) {
-                                                        const quill = new Quill('#snow-editor', { theme: 'snow' });
-                                                        const link = `<a href="${data.file_url}" target="_blank">${file.name}</a>`;
-                                                        quill.clipboard.dangerouslyPasteHTML(quill.getLength(), link);
-                                                    } else {
-                                                        alert('Erro ao fazer upload do arquivo.');
-                                                    }
-                                                })
-                                                .catch(error => console.error('Erro:', error));
-                                            }
-                                        });
-                                    </script>
-
                                     </div> <!-- end tab-content -->
 
                                 </div> <!-- end card body-->
