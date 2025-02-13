@@ -3,7 +3,7 @@
 
 class registerArtigo extends SITE_ADMIN
 {
-    public function insertUser($titulo, $ordem, $artigo, $metodo)
+    public function insertArtigo($titulo, $ordem, $artigo, $metodo)
     {
         try {
             // Cria conexão com o banco de dados
