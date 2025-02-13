@@ -98,15 +98,7 @@
 		<!-- End Menu Nav -->
 
         <div class="content-page">
-            <div class="content">
-                <!-- Start Content-->
-                <div class="container-fluid">
-                </div>
-                <!-- container -->
-            </div>
-            <!-- content -->
-
-                <!-- Start Content-->
+            <div class="content">             
                 <div class="container-fluid">
 
                     <!-- start page title -->
@@ -123,7 +115,7 @@
 
                     <div class="row">
 
-                    <div class="col-lg-12">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Controle de Encomendas</h4>
@@ -208,7 +200,55 @@
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
                                                         <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
 
-                                                        
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldMorador); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch1<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldPortaria); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch1<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <?php 
+                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
+                                                                {
+                                                                    echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
+                                                                }
+                                                            ?>
+                                                        </td>
                                                     </tr>
                                                  <?php endforeach; ?>
                                                 </tbody>
