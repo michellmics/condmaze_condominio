@@ -287,7 +287,7 @@
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>">
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
-                                                        <?= htmlspecialchars(substr(ucwords(strtolower($item['INA_DCTITULO']))),0,25); ?>
+                                                        <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
                                                     </button>
                                                 <?php endforeach; ?>
                                             </div>
@@ -317,7 +317,7 @@
                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
