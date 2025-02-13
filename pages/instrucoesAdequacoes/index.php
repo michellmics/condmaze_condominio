@@ -47,6 +47,7 @@
 <link href="../../assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
 <link href="../../assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
 <link href="../../assets/vendor/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
 <!-- Theme Config Js -->
 <script src="../../assets/js/hyper-config.js"></script>
@@ -145,7 +146,7 @@
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
                                                     <!-- Editor Quill -->
                                                     <div style="height: 300px;" id="snow-editor"></div>
-                                                    <!-- Campo oculto para armazenar o conteúdo -->
+                                                    texto vai aqui
                                                     <textarea type="hidden" id="artigo" name="artigo"></textarea>
                                                 </div>
                                             </div>
@@ -178,7 +179,12 @@
     <script>
     document.getElementById("botao").addEventListener("click", function() {
         let form = document.getElementById("form");
-        let formData = new FormData(form); // Cria um FormData com os dados do formulário
+
+        // Pega o conteúdo do editor e define no campo 'artigo'
+        let artigoContent = quill.root.innerHTML; // Pega o conteúdo do Quill
+        document.getElementById("artigo").value = artigoContent;  // Define no campo hidden ou textarea
+
+        let formData = new FormData(form);
 
         // Verifica a validade do formulário
         if (form.checkValidity()) {
@@ -223,6 +229,14 @@
 </script>
 
 
+<script>
+    // Inicializando o Quill editor
+    var quill = new Quill('#snow-editor', {
+        theme: 'snow',
+        placeholder: 'Digite o conteúdo aqui...',
+        // Configurações adicionais que você desejar
+    });
+</script>
 
 
     <!-- Vendor js -->
