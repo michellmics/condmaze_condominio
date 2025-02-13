@@ -178,7 +178,9 @@
     <script>
     document.getElementById("botao").addEventListener("click", function() {
         let form = document.getElementById("form");
+        let formData = new FormData(form); // Cria um FormData com os dados do formulário
 
+        // Verifica a validade do formulário
         if (form.checkValidity()) {
             // Exibe o alerta de confirmação
             Swal.fire({
@@ -192,8 +194,26 @@
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    form.action = "insertArtigoProc.php"; // Define a ação do formulário
-                    form.submit(); // Envia o formulário
+                    // Envia os dados via AJAX
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "insertArtigoProc.php", true);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            // Resposta do servidor
+                            let response = xhr.responseText;
+
+                            // Exibe a resposta no SweetAlert
+                            Swal.fire({
+                                title: 'Sucesso!',
+                                text: response, // Mostra a resposta do servidor
+                                icon: 'success'
+                            }).then(() => {
+                                // Você pode realizar ações adicionais após o sucesso, como limpar o formulário ou redirecionar
+                                form.reset();
+                            });
+                        }
+                    };
+                    xhr.send(formData); // Envia os dados do formulário
                 }
             });
         } else {
@@ -201,6 +221,7 @@
         }
     });
 </script>
+
 
 
 
