@@ -1,4 +1,5 @@
 <?php
+
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -7,7 +8,7 @@
         exit();
     }
 
-    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE","MORADOR"])) {
+    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])) {
         header("Location: ../errors/index.php");
         exit();
     }
@@ -36,29 +37,28 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
-    <!-- Datatables css -->
-    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+<!-- App favicon -->
+<link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
-    <!-- Plugin css -->
-    <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
-    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
+<!-- SimpleMDE css -->
+<link href="../../assets/vendor/simplemde/simplemde.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- Theme Config Js -->
-    <script src="../../assets/js/hyper-config.js"></script>
+<!-- Quill css -->
+<link href="../../assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/vendor/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
 
-    <!-- Vendor css -->
-    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+<!-- Theme Config Js -->
+<script src="../../assets/js/hyper-config.js"></script>
 
-    <!-- App css -->
-    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+<!-- Vendor css -->
+<link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- Icons css -->
-    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+<!-- App css -->
+<link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+<!-- Icons css -->
+<link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
@@ -77,10 +77,6 @@
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
-            <?php
-                $siteAdmin->getListaInfo($userid);
-            ?>
-
         <div class="content-page">
             <div class="content">
                 <!-- Start Content-->
@@ -100,7 +96,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Minha Lista de Convidados</h4>
+                                <h4 class="page-title">Instruções e Adequações</h4>
                             </div>
                         </div>
                     </div>
@@ -110,55 +106,54 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Convidados </h4>
+                                    <h4 class="header-title">Informativo aos Moradores </h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os convidados cadastrados. Lembre-se, somente convidados <b>ativos</b> estarão visiveis para a portaria.
+                                        Os artigos cadastrados aqui são publicados na seção inicial do sistema..
                                     </p>
                                     <div class="tab-content">
-                                    <div class="col-sm-5">
-                                            <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
-                                        </div>
-                                        <div class="tab-pane show active" id="basic-datatable-preview">                                            
-                                        <table class="table table-centered mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>NOME</th>
-                                                    <th>CPF / RG</th>
-                                                    <th>ATIVO?</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
-                                                    
-                                                    <tr>
-                                                        <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
-                                                        <td class="align-middle" style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
-                                                        <td class="align-middle">
-                                                            <!-- Switch -->
-                                                            <div>
-                                                                <input 
-                                                                    type="checkbox"            
-                                                                    id="switch<?= $index; ?>" 
-                                                                    data-switch="success" 
-                                                                    data-id="<?= $item['LIS_IDLISTACONVIDADOS']; ?>" 
-                                                                    <?= $item['LIS_STSTATUS'] === 'ATIVO' ? 'checked' : ''; ?> 
-                                                                    onclick="event.stopPropagation();"
-                                                                />
-                                                                <label 
-                                                                    for="switch<?= $index; ?>" 
-                                                                    data-on-label="Sim" 
-                                                                    data-off-label="Não" 
-                                                                    class="mb-0 d-block">
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            </tbody>
-                                        </table>
+                                    <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
+                                        <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
+                                            <!-- Campo Título 1 -->
+                                            <div class="position-relative col-lg-6">
+                                                <label class="form-label" for="titulo">Título</label>
+                                                <input id="titulo" name="titulo" type="text" class="form-control" 
+                                                       style="text-transform: uppercase;" 
+                                                       maxlength="28" 
+                                                       oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" 
+                                                       required/>
+                                                <div class="valid-tooltip">Validado!</div>
+                                                <div class="invalid-tooltip">Por favor, preencha o título.</div>
+                                            </div>
 
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
+                                            <!-- Campo ordem 2 -->
+                                            <div class="position-relative col-lg-2">
+                                                <label class="form-label" for="ordem">Ordem de Exibição</label>
+                                                <input id="ordem" name="ordem" type="number" class="form-control" 
+                                                       style="text-transform: uppercase;" 
+                                                       maxlength="2" 
+                                                       oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" 
+                                                       required/>
+                                                <div class="valid-tooltip">Validado!</div>
+                                                <div class="invalid-tooltip">Por favor, preencha a ordem.</div>
+                                            </div>                                            
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-lg-8">
+                                                <div class="tab-pane show active" id="hint-emoji-preview">
+                                                    <div id="snow-editor" style="height: 300px;">
+                                                        Texto aqui
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                               
+                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
+                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                             
+                                       
+                                    </form>
+                                    </div> <!-- end tab-content -->
+
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
@@ -213,40 +208,25 @@
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
 
-    <!-- Daterangepicker js -->
-    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
-    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!-- Code Highlight js -->
+    <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
+    <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
+    <script src="../../assets/js/hyper-syntax.js"></script>
 
-    <!-- Apex Charts js -->
-    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <!-- Quill Editor js -->
+    <script src="../../assets/vendor/quill/quill.js"></script>
 
-    <!-- Vector Map js -->
-    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
-    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
-    <!-- Dashboard App js -->
-    <script src="../../assets/js/pages/demo.dashboard.js"></script>
+    <!-- Quill Demo js -->
+    <script src="../../assets/js/pages/demo.quilljs.js"></script>
+
+    <!-- Simplemde Editor js -->
+    <script src="../../assets/vendor/simplemde/simplemde.min.js"></script>
+
+    <!-- Simplemde Demo js -->
+    <script src="../../assets/js/pages/demo.simplemde.js"></script>
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-
-    <!-- Datatables js -->
-    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
-
-    <!-- Datatable Demo Aapp js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
 
 
 
