@@ -277,7 +277,15 @@
                                             <div class="table-responsive-sm">
 
 
-                                            Nenhum conteúdo publicado
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action active">
+                                                    Paypal Payment Gateway
+                                                </a>
+                                                <a href="#" class="list-group-item list-group-item-action">Google Drive</a>
+                                                <button type="button" class="list-group-item list-group-item-action">Facebook Messenger</button>
+                                                <button type="button" class="list-group-item list-group-item-action">Apple Technology Company</button>
+                                                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Intercom Support System</a>
+                                            </div>
 
 
 
