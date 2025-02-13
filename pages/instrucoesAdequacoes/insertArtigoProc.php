@@ -81,8 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ordem = $_POST['ordem'];
     $artigo = $_POST['artigo'];
 
+    echo  $artigo;
+    
  
-     $registerArtigo = new registerArtigo();
-     $registerArtigo->insertArtigo($titulo, $ordem, $nome, $artigo);
+     //$registerArtigo = new registerArtigo();
+     //$registerArtigo->insertArtigo($titulo, $ordem, $nome, $artigo);
  }
  ?>

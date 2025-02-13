@@ -143,9 +143,10 @@
                                         <div class="row mb-3">
                                             <div class="col-lg-8">
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
-                                                    <div style="height: 300px;" id="snow-editor">
-                                                        Texto aqui
-                                                    </div>
+                                                    <!-- Editor Quill -->
+                                                    <div style="height: 300px;" id="snow-editor"></div>
+                                                    <!-- Campo oculto para armazenar o conteúdo -->
+                                                    <input type="hidden" name="artigo" id="artigo">
                                                 </div>
                                             </div>
                                         </div>
