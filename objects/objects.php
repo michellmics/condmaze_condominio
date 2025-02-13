@@ -41,7 +41,8 @@
         {
             	$host = $_ENV['ENV_BD_HOST'];
             	$dbname = $_ENV['ENV_BD_DATABASE']; 
-            	$user = $_ENV['ENV_BD_USER'];
+            	//$user = $_ENV['ENV_BD_USER'];
+                $user = "teste_hhahahaha";
             	$pass = $_ENV['ENV_BD_PASS'];
 		
             try {
