@@ -92,7 +92,18 @@
 	<!-- PWA MOBILE CONF -->
 
 </head>
+<!-- estilo para os botões de entrega e disponivel -->
+<style> 
+    input[type="checkbox"][data-switch="success"] + label {
+        background-color: #dc3545; /* Vermelho quando OFF */
+        border-color: #dc3545;
+    }
 
+    input[type="checkbox"][data-switch="success"]:checked + label {
+        background-color: #28a745 !important; /* Verde quando ON */
+        border-color: #28a745 !important;
+    }
+</style>
 <body>
     <!-- Begin page -->
     <div class="wrapper">
