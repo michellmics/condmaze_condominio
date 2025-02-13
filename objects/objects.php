@@ -1344,7 +1344,7 @@
             }
         }
 
-        public function getUserInfoEncomenda($ENC_DCHASHENTREGA)
+        public function getUserInfoEncomenda($ENC_DCHASHENTREGA) 
         {          
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
