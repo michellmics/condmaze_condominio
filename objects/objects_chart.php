@@ -19,8 +19,6 @@
             $dbname = $_ENV['ENV_BD_DATABASE'];
             $user = $_ENV['ENV_BD_USER'];
             $pass = $_ENV['ENV_BD_PASS'];
-            $this->WHATSAPP_TOKEN = $_ENV['ENV_WHATSAPP_TOKEN'];
-            $this->WHATSAPP_SID =  $_ENV['ENV_WHATSAPP_SID'];
 
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
