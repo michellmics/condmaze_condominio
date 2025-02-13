@@ -280,7 +280,11 @@
 
                                             <div class="list-group">
                                                 <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
-                                                    <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#scrollable-modal"><?= htmlspecialchars($item['INA_DCTITULO']); ?></button>
+                                                    <button type="button" class="list-group-item list-group-item-action" 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#scrollable-modal">
+                                                        <?= htmlspecialchars($item['INA_DCTITULO']); ?>
+                                                    </button>
                                                 <?php endforeach; ?>
                                             </div>
 
@@ -297,7 +301,13 @@
                     </div>
                     <!-- end row-->
 
-
+<script>
+    document.querySelectorAll('.list-group-item').forEach(button => {
+    button.addEventListener('click', function() {
+        document.getElementById('scrollableModalTitle').textContent = this.textContent;
+    });
+});
+</script>
 
 <!-- Scrollable modal -->
 <button  type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#scrollable-modal">Scrollable Modal</button>
