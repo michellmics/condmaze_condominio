@@ -117,50 +117,80 @@
                                     </p>
                                     <div class="tab-content">
                                     <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-                                        <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
+    <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
+        <!-- CAMPOS COMO VARIAVEIS -->
+        <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
+        <!-- CAMPOS COMO VARIAVEIS -->
 
-                                                    <!-- CAMPOS COMO VARIAVEIS -->
-                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
-                                                    <!-- CAMPOS COMO VARIAVEIS -->
+        <!-- Campo Título 1 -->
+        <div class="position-relative col-lg-6">
+            <label class="form-label" for="titulo">Título</label>
+            <input id="titulo" name="titulo" type="text" class="form-control" 
+                   style="text-transform: uppercase;" 
+                   maxlength="28" 
+                   required/>
+            <div class="valid-tooltip">Validado!</div>
+            <div class="invalid-tooltip">Por favor, preencha o título.</div>
+        </div>
 
-                                            <!-- Campo Título 1 -->
-                                            <div class="position-relative col-lg-6">
-                                                <label class="form-label" for="titulo">Título</label>
-                                                <input id="titulo" name="titulo" type="text" class="form-control" 
-                                                       style="text-transform: uppercase;" 
-                                                       maxlength="28" 
-                                                       required/>
-                                                <div class="valid-tooltip">Validado!</div>
-                                                <div class="invalid-tooltip">Por favor, preencha o título.</div>
-                                            </div>
+        <!-- Campo Ordem 2 -->
+        <div class="position-relative col-lg-2">
+            <label class="form-label" for="ordem">Ordem de Exibição</label>
+            <input id="ordem" name="ordem" type="text" class="form-control" 
+                   style="text-transform: uppercase;" 
+                   maxlength="2" 
+                   pattern="[0-9]+"                                                                                                            
+                   required/>
+            <div class="valid-tooltip">Validado!</div>
+            <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
+        </div>                                            
+    </div>
 
-                                            <!-- Campo ordem 2 -->
-                                            <div class="position-relative col-lg-2">
-                                                <label class="form-label" for="ordem">Ordem de Exibição</label>
-                                                <input id="ordem" name="ordem" type="text" class="form-control" 
-                                                       style="text-transform: uppercase;" 
-                                                       maxlength="2" 
-                                                       pattern="[0-9]+"                                                                                                            
-                                                       required/>
-                                                <div class="valid-tooltip">Validado!</div>
-                                                <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
-                                            </div>                                            
-                                        </div>
+    <!-- Campo de Upload -->
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <label class="form-label" for="arquivo">Anexar Arquivo</label>
+            <input id="arquivo" name="arquivo" type="file" class="form-control" onchange="handleFileUpload(event)">
+            <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
+        </div>
+    </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-lg-8">
-                                                <div class="tab-pane show active" id="hint-emoji-preview">
-                                                    <!-- Editor Quill -->
-                                                    <div style="height: 300px;" id="snow-editor"></div>
-                                                    <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                               
-                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
-                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
-                                       
-                                    </form>
+    <!-- Editor Quill com link do arquivo -->
+    <div class="row mb-3">
+        <div class="col-lg-8">
+            <div class="tab-pane show active" id="hint-emoji-preview">
+                <div style="height: 300px;" id="snow-editor"></div>
+                <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
+                <!-- Link para Download -->
+                <p class="mt-2">
+                    <strong>Arquivo:</strong> 
+                    <a id="file-link" href="#" target="_blank" style="display: none; color: blue;">Baixar Arquivo</a>
+                </p>
+            </div>
+        </div>
+    </div>
+                           
+    <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
+    <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
+</form>
+
+<script>
+    function handleFileUpload(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+
+        if (file) {
+            // Simulando o upload e gerando um link temporário
+            const fileURL = URL.createObjectURL(file);
+            const fileLink = document.getElementById("file-link");
+
+            fileLink.href = fileURL;
+            fileLink.textContent = file.name;
+            fileLink.style.display = "inline"; // Exibe o link
+        }
+    }
+</script>
+
                                     </div> <!-- end tab-content -->
 
                                 </div> <!-- end card body-->
