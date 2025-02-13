@@ -32,7 +32,7 @@
             var_dump($userInfo);
 
 
-            if ($response != "0") {
+            if (isset($userInfo['USU_DCTELEFONE'])) {
                 $telefone = $userInfo['USU_DCTELEFONE'];
                 $encomendaId = $userInfo['ENC_IDENCOMENDA'];
                 $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
