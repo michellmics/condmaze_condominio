@@ -117,45 +117,58 @@
                                     </p>
                                     <div class="tab-content">
                                     <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-                                        <div class="row mb-3">
-                                            <!-- Campo Título -->
+                                        <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
+
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
+                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
+
+                                            <!-- Campo Título 1 -->
                                             <div class="position-relative col-lg-6">
                                                 <label class="form-label" for="titulo">Título</label>
-                                                <input id="titulo" name="titulo" type="text" class="form-control" style="text-transform: uppercase;" maxlength="28" required/>
+                                                <input id="titulo" name="titulo" type="text" class="form-control" 
+                                                       style="text-transform: uppercase;" 
+                                                       maxlength="28" 
+                                                       required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha o título.</div>
                                             </div>
 
-                                            <!-- Campo Ordem -->
+                                            <!-- Campo ordem 2 -->
                                             <div class="position-relative col-lg-2">
                                                 <label class="form-label" for="ordem">Ordem de Exibição</label>
-                                                <input id="ordem" name="ordem" type="text" class="form-control" style="text-transform: uppercase;" maxlength="2" pattern="[0-9]+" required/>
+                                                <input id="ordem" name="ordem" type="text" class="form-control" 
+                                                       style="text-transform: uppercase;" 
+                                                       maxlength="2" 
+                                                       pattern="[0-9]+"                                                                                                            
+                                                       required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
                                             </div>                                            
                                         </div>
 
-                                        <!-- Campo de Upload -->
-                                        <div class="row mb-3">
-                                            <div class="col-lg-6">
-                                                <label class="form-label" for="arquivo">Anexar Arquivo</label>
-                                                <input id="arquivo" name="arquivo" type="file" class="form-control">
-                                                <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
+                                            <!-- Campo de Upload -->
+                                            <div class="row mb-3">
+                                                <div class="col-lg-6">
+                                                    <label class="form-label" for="arquivo">Anexar Arquivo</label>
+                                                    <input id="arquivo" name="arquivo" type="file" class="form-control">
+                                                    <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Editor Quill -->
                                         <div class="row mb-3">
                                             <div class="col-lg-8">
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
+                                                    <!-- Editor Quill -->
                                                     <div style="height: 300px;" id="snow-editor"></div>
                                                     <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
-                                        <button class="btn btn-primary col-lg-1" type="submit" id="botao" name="botao">Salvar</button>                                          
+                                                               
+                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
+                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
+                                       
                                     </form>
                                     </div> <!-- end tab-content -->
 
