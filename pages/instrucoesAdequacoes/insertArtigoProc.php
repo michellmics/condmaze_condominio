@@ -27,8 +27,7 @@ class registerArtigo extends SITE_ADMIN
                 {
                     if($metodo == "insert")
                     {
-                        $passHash = password_hash($senha, PASSWORD_DEFAULT);
-                        $result = $this->insertUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone);
+                        $result = $this->insertArtigoInfo($titulo, $ordem, $artigo);
                         
                         /*                     
                         //--------------------LOG----------------------//
@@ -43,7 +42,7 @@ class registerArtigo extends SITE_ADMIN
                     }
                     if($metodo == "update")
                     {
-                            $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $telefone);
+                            $result = $this->updateArtigoInfo($titulo, $ordem, $artigo);
                             echo "Morador atualizado com sucesso."; 
                     }
                     

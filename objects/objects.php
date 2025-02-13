@@ -456,6 +456,41 @@
 
         }
 
+        public function insertArtigoInfo($INA_DCTITULO, $INA_DCORDEM, $INA_DCTEXT)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            $now = new DateTime(); 
+            $INA_DTDATA_INSERT = $now->format('Y-m-d H:i:s');
+            $INA_STSTATUS = "PUBLICADO";
+            
+                // Query de inserção
+                $sql = "INSERT INTO INA_INSTRUCOES_ADEQUACOES (INA_DCTITULO, INA_DCORDEM, INA_DCTEXT, INA_STSTATUS, INA_DTDATA_INSERT)
+                          VALUES (:INA_DCTITULO, :INA_DCORDEM, :INA_DCTEXT, :INA_STSTATUS, :INA_DTDATA_INSERT)";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
+                $stmt->bindValue(':INA_DCTITULO', $INA_DCTITULO, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DCORDEM', $INA_DCORDEM, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DCTEXT', $INA_DCTEXT, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_STSTATUS', $INA_STSTATUS, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DTDATA_INSERT', $INA_DTDATA_INSERT, PDO::PARAM_STR);
+
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    return "Erro ao inserir os dados: " . $stmt->error;
+                } else {
+                    return "Registro inserido com sucesso!";
+                }
+            
+        }
+
         public function insertChurrasEventoInfo($USU_IDUSUARIO, $LEU_DCCONVIDADO_HOMEM, $LEU_DCCONVIDADO_MULHER)
         {       
             // Verifica se a conexão já foi estabelecida
