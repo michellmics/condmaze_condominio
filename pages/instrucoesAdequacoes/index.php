@@ -138,10 +138,10 @@
                                             <!-- Campo ordem 2 -->
                                             <div class="position-relative col-lg-2">
                                                 <label class="form-label" for="ordem">Ordem de Exibição</label>
-                                                <input id="ordem" name="ordem" type="number" class="form-control" 
+                                                <input id="ordem" name="ordem" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
                                                        maxlength="2" 
-                                                       min="1" max="99"                                                       
+                                                       pattern="[0-9]+"                                                                                                            
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha a ordem.</div>
