@@ -36,7 +36,6 @@
         public $ARRAY_PETSINFO;
         public $ARRAY_HASHIMGINFO;
         public $ARRAY_LISTAEVENTOSINFO;
-        public $configPath;
 
         function conexao()
         {
