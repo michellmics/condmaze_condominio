@@ -287,7 +287,7 @@
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>">
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
-                                                        <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
+                                                        <?= htmlspecialchars(substr(ucwords(strtolower($item['INA_DCTITULO']))),0,25); ?>
                                                     </button>
                                                 <?php endforeach; ?>
                                             </div>
