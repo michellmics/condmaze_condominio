@@ -36,6 +36,7 @@
         public $ARRAY_PETSINFO;
         public $ARRAY_HASHIMGINFO;
         public $ARRAY_LISTAEVENTOSINFO;
+        public $ARRAY_ARTIGOSINFO;
 
         function conexao()
         {
@@ -617,6 +618,25 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_MENSAGENSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getArtigosInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                                FROM INA_INSTRUCOES_ADEQUACOES
+                                ORDER BY INA_DCORDEM ASC
+                                LIMIT 20";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_ARTIGOSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          

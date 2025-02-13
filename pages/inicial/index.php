@@ -11,7 +11,8 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getPopupImagePublish(); 
     $siteAdmin->getParameterInfo();
-    $siteAdmin->getListaMensagensSugestoesInfo();     
+    $siteAdmin->getListaMensagensSugestoesInfo();  
+    $siteAdmin->getArtigosInfo();    
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -278,13 +279,9 @@
 
 
                                             <div class="list-group">
-                                                <a href="#" class="list-group-item list-group-item-action active">
-                                                    Paypal Payment Gateway
-                                                </a>
-                                                <a href="#" class="list-group-item list-group-item-action">Google Drive</a>
-                                                <button type="button" class="list-group-item list-group-item-action">Facebook Messenger</button>
-                                                <button type="button" class="list-group-item list-group-item-action">Apple Technology Company</button>
-                                                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Intercom Support System</a>
+                                                <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
+                                                    <button type="button" class="list-group-item list-group-item-action"><?= htmlspecialchars($item['INA_DCTITULO']); ?></button>
+                                                <?php endforeach; ?>
                                             </div>
 
 
