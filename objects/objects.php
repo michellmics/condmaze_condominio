@@ -1337,6 +1337,39 @@
             }
         }
 
+        public function getUserInfoEncomenda($ENC_DCHASHENTREGA)
+        {          
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+        
+            try {           
+                $sql = "SELECT USU.USU_DCTELEFONE, ENC.ENC_IDENCOMENDA, USU.USU_DCNOME
+                        FROM ENC_ENCOMENDA ENC
+                        INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = ENC.USU_IDUSUARIO)
+                        WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
+                $stmt->execute();
+        
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($result) 
+                {                    
+                    return [
+                        'USU_DCTELEFONE' => $result['USU_DCTELEFONE'],
+                        'ENC_IDENCOMENDA' => $result['ENC_IDENCOMENDA'],
+                        'USU_DCNOME' => $result['USU_DCNOME']
+                    ];
+                } else {
+                    return "0";
+                }
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function insertUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_DCTELEFONE)
         {       
             // Verifica se a conexão já foi estabelecida

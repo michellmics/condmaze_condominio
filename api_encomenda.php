@@ -14,9 +14,19 @@
             $messageType = "error";
         } else {
             $HASH = $_GET['hash'];
+            
+            $userInfo = $siteAdmin->getUserInfoEncomenda($HASH);
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
-            if ($response == "1") {
+            $telefone = $userInfo['USU_DCTELEFONE'];
+            $encomendaId = $userInfo['ENC_IDENCOMENDA'];
+            $usuarioNome = $userInfo['USU_DCNOME'];
+
+            if ($response != "0") 
+            {
+                $msg = "Olá $usuarioNome, a encomenda com ID $encomendaId foi liberada com sucesso.";
+                $result = $siteAdmin->whatsapp($msg,$telefone);
+
                 $message = "Uhull!!! Encomenda liberada com sucesso!";
                 $messageType = "success";
             } else {
