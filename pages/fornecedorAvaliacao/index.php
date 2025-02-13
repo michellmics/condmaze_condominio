@@ -45,7 +45,7 @@
     $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
 
-    var_dump($GESSO);
+    var_dump($prestadoresAll);
     die();
 
 ?>
