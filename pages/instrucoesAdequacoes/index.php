@@ -146,8 +146,7 @@
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
                                                     <!-- Editor Quill -->
                                                     <div style="height: 300px;" id="snow-editor"></div>
-                                                    texto vai aqui
-                                                    <textarea type="hidden" id="artigo" name="artigo"></textarea>
+                                                    <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
                                                 </div>
                                             </div>
                                         </div>
