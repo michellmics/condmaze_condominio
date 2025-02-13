@@ -457,7 +457,7 @@
 
         }
 
-        public function insertArtigoInfo($INA_DCTITULO, $INA_DCORDEM, $INA_DCTEXT)
+        public function insertArtigoInfo($INA_DCTITULO, $INA_DCORDEM, $INA_DCTEXT, $INA_DCFILEURL)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
@@ -469,8 +469,8 @@
             $INA_STSTATUS = "NÃO PUBLICADO";
             
                 // Query de inserção
-                $sql = "INSERT INTO INA_INSTRUCOES_ADEQUACOES (INA_DCTITULO, INA_DCORDEM, INA_DCTEXT, INA_STSTATUS, INA_DTDATA_INSERT)
-                          VALUES (:INA_DCTITULO, :INA_DCORDEM, :INA_DCTEXT, :INA_STSTATUS, :INA_DTDATA_INSERT)";
+                $sql = "INSERT INTO INA_INSTRUCOES_ADEQUACOES (INA_DCTITULO, INA_DCORDEM, INA_DCTEXT, INA_STSTATUS, INA_DTDATA_INSERT, INA_DCFILEURL)
+                          VALUES (:INA_DCTITULO, :INA_DCORDEM, :INA_DCTEXT, :INA_STSTATUS, :INA_DTDATA_INSERT, :INA_DCFILEURL)";
 
                 // Preparar a consulta
                 $stmt = $this->pdo->prepare($sql);
@@ -481,7 +481,8 @@
                 $stmt->bindValue(':INA_DCORDEM', $INA_DCORDEM, PDO::PARAM_STR);
                 $stmt->bindValue(':INA_DCTEXT', $INA_DCTEXT, PDO::PARAM_STR);
                 $stmt->bindValue(':INA_STSTATUS', $INA_STSTATUS, PDO::PARAM_STR);
-                $stmt->bindValue(':INA_DTDATA_INSERT', $INA_DTDATA_INSERT, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DTDATA_INSERT', $INA_DTDATA_INSERT, PDO::PARAM_STR); 
+                $stmt->bindValue(':INA_DCFILEURL', $INA_DCFILEURL, PDO::PARAM_STR);
 
                 // Executar a consulta
                 if (!$stmt->execute()) {

@@ -3,7 +3,7 @@
 
 class registerArtigo extends SITE_ADMIN
 {
-    public function insertArtigo($titulo, $ordem, $artigo, $metodo)
+    public function insertArtigo($titulo, $ordem, $artigo, $metodo, $fileUrl)
     {
         try {
             // Cria conexão com o banco de dados
@@ -27,7 +27,7 @@ class registerArtigo extends SITE_ADMIN
                 {
                     if($metodo == "insert")
                     {
-                        $result = $this->insertArtigoInfo($titulo, $ordem, $artigo);
+                        $result = $this->insertArtigoInfo($titulo, $ordem, $artigo, $fileUrl);
                         
                         /*                      
                         //--------------------LOG----------------------//
@@ -55,12 +55,39 @@ class registerArtigo extends SITE_ADMIN
 
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Diretório de upload
+    $uploadDir = 'uploads/';
+    
+    // Verifica se a pasta existe, se não, cria
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+    
+    // Verifica se o arquivo foi enviado
+    if (!empty($_FILES['arquivo']['name'])) {
+        $fileName = basename($_FILES['arquivo']['name']);
+        $filePath = $uploadDir . $fileName;
+    
+        // Move o arquivo para a pasta de uploads
+        if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $filePath)) {
+            $fileUrl = $filePath;
+        } else {
+            $fileUrl = null;
+        }
+    } else {
+        $fileUrl = null;
+    }
+
+
+
+
     $titulo = $_POST['titulo'];
     $ordem = $_POST['ordem'];
     $artigo = $_POST['artigo'];   
     $metodo = $_POST['metodo']; 
  
      $registerArtigo = new registerArtigo();
-     $registerArtigo->insertArtigo($titulo, $ordem, $artigo, $metodo);
+     $registerArtigo->insertArtigo($titulo, $ordem, $artigo, $metodo, $fileUrl);
  }
  ?>
