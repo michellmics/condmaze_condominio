@@ -1322,9 +1322,9 @@
 
                                 //--------------------LOG----------------------//
                                 $LOG_DCTIPO = "ENCOMENDA";
-                                $LOG_DCMSG = "Encomenda com id $ENC_IDENCOMENDA foi alterada seu status para $ENC_STENTREGA_MORADOR através de link enviando pelo Whatsapp.";
-                                $LOG_DCUSUARIO = "MORADOR";
-                                $LOG_DCCODIGO = $ENC_IDENCOMENDA;
+                                $LOG_DCMSG = "Encomenda com hash $ENC_DCHASHENTREGA foi alterada seu status para $ENC_STENTREGA_MORADOR através de link enviando pelo Whatsapp.";
+                                $LOG_DCUSUARIO = "SISTEMA";
+                                $LOG_DCCODIGO = "N/A";
                                 $LOG_DCAPARTAMENTO = "";
                                 $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
                                 //--------------------LOG----------------------//
