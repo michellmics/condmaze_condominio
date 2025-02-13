@@ -197,7 +197,7 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
+                                                        
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
@@ -240,6 +240,7 @@
                                                                 </label>
                                                             </div>
                                                         </td>
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
                                                         <td class="align-middle">
                                                             <?php 
                                                                 if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
