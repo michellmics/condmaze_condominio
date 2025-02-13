@@ -66,8 +66,7 @@
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
-                //return ["error" => $e->getMessage()];
-                return "Deu Ruim";
+                return ["error" => $e->getMessage()];
             }       
         }
         public function getAvaliacoesByPrestador($PDS_IDPRESTADOR_SERVICO)
