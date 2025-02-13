@@ -129,7 +129,6 @@
                                                 <input id="titulo" name="titulo" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
                                                        maxlength="28" 
-                                                       oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" 
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha o título.</div>

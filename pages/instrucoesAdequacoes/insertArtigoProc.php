@@ -17,10 +17,10 @@ class registerArtigo extends SITE_ADMIN
             $stmt->bindParam(':INA_DCTITULO', $titulo, PDO::PARAM_STR);
             $stmt->execute();
 
-            $titulo = $stmt->fetch(PDO::FETCH_ASSOC);
+            $tituloValid = $stmt->fetch(PDO::FETCH_ASSOC);
             
             // Se o artigo for encontrado 
-            if (isset($titulo['INA_DCTITULO']) && $metodo == "insert") {
+            if (isset($tituloValid['INA_DCTITULO']) && $metodo == "insert") {
                 echo "Já existe um artigo com o mesmo título."; 
                 exit();
             } else 

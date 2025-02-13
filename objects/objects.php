@@ -465,7 +465,7 @@
 
             $now = new DateTime(); 
             $INA_DTDATA_INSERT = $now->format('Y-m-d H:i:s');
-            $INA_STSTATUS = "PUBLICADO";
+            $INA_STSTATUS = "NÃO PUBLICADO";
             
                 // Query de inserção
                 $sql = "INSERT INTO INA_INSTRUCOES_ADEQUACOES (INA_DCTITULO, INA_DCORDEM, INA_DCTEXT, INA_STSTATUS, INA_DTDATA_INSERT)
