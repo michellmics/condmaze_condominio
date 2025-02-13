@@ -24,7 +24,7 @@
 
             if ($response != "0") 
             {
-                $msg = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
+                //$msg = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
                 $result = $siteAdmin->whatsapp($msg,$telefone);
 
                 $message = "Uhull!!! Encomenda liberada com sucesso!";
