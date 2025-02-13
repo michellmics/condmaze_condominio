@@ -5,32 +5,43 @@
 
     $message = ""; // Variável para armazenar a mensagem de erro ou sucesso
     $messageType = ""; // Variável para armazenar o tipo da mensagem (sucesso ou erro)
+    $showButton = false; // Indica se o botão deve ser exibido
+    $HASH = ""; // Armazena o hash para ser enviado no POST
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $siteAdmin = new SITE_ADMIN();
-
         if (!isset($_GET['hash'])) {
             $message = "Erro: Parâmetro 'hash' não encontrado.";
             $messageType = "error";
         } else {
             $HASH = $_GET['hash'];
-            
+            $showButton = true; // Mostra o botão para confirmar a liberação
+        }
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $siteAdmin = new SITE_ADMIN();
+
+        if (!isset($_POST['hash'])) {
+            $message = "Erro: Nenhum código de liberação encontrado.";
+            $messageType = "error";
+        } else {
+            $HASH = $_POST['hash'];
             $userInfo = $siteAdmin->getUserInfoEncomenda($HASH);
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
-            $telefone = $userInfo['USU_DCTELEFONE'];
-            $encomendaId = $userInfo['ENC_IDENCOMENDA'];
-            $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
+            if ($response != "0") {
+                $telefone = $userInfo['USU_DCTELEFONE'];
+                $encomendaId = $userInfo['ENC_IDENCOMENDA'];
+                $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
 
-            if ($response != "0") 
-            {
                 $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
-                $result = $siteAdmin->whatsapp($messageWhats,$telefone);
+                $siteAdmin->whatsapp($messageWhats, $telefone);
 
                 $message = "Uhull!!! Encomenda liberada com sucesso!";
                 $messageType = "success";
+                $showButton = false; // Oculta o botão após liberação
             } else {
-                $message = "Ah não!!! Houve um erro durante a liberação! Dirija-se a portaria.";
+                $message = "Ah não!!! Houve um erro durante a liberação! Dirija-se à portaria.";
                 $messageType = "error";
             }
         }
@@ -58,7 +69,6 @@
     <link rel="manifest" href="/manifest.json">
 
     <style>
-        /* Estilos gerais */
         body {
             font-family: Arial, sans-serif;
             background-color: #f7f7f7;
@@ -72,47 +82,62 @@
 
         .container {
             width: 80%;
-            margin: 50px auto;
+            max-width: 400px;
             text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilo das mensagens */
         .message {
-            padding: 20px;
-            margin: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
             border-radius: 5px;
             font-size: 16px;
             color: #fff;
-            display: inline-block;
-            width: 60%;
-            box-sizing: border-box;
         }
 
-        /* Mensagem de sucesso */
         .message.success {
-            background-color: #4CAF50; /* Verde */
+            background-color: #4CAF50;
         }
 
-        /* Mensagem de erro */
         .message.error {
-            background-color: #f44336; /* Vermelho */
+            background-color: #f44336;
         }
 
-        /* Estilo de borda e sombreamento */
-        .message.success, .message.error {
-            border: 1px solid #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            width: 100%;
+            text-transform: uppercase;
         }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <?php
-        if ($message != "") {
-            echo "<div class='message $messageType'>$message</div>";
-        }
-        ?>
+        <?php if ($message != ""): ?>
+            <div class="message <?= $messageType ?>"><?= $message ?></div>
+        <?php endif; ?>
+
+        <?php if ($showButton): ?>
+            <form method="POST">
+                <input type="hidden" name="hash" value="<?= htmlspecialchars($HASH) ?>">
+                <button type="submit" class="btn">Liberar Encomenda</button>
+            </form>
+        <?php endif; ?>
     </div>
 
 </body>
