@@ -144,7 +144,7 @@
                                                        pattern="[0-9]+"                                                                                                            
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
-                                                <div class="invalid-tooltip">Por favor, preencha a ordem.</div>
+                                                <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
                                             </div>                                            
                                         </div>
 
