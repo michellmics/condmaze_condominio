@@ -94,15 +94,26 @@
 </head>
 <!-- estilo para os botões de entrega e disponivel -->
 <style> 
+/* Azul quando está desligado (OFF) */
     input[type="checkbox"][data-switch="success"] + label {
-        background-color: #dc3545; /* Vermelho quando OFF */
-        border-color: #dc3545;
+        background-color:rgb(228, 253, 0) !important; /* Azul */
+        border-color:rgb(255, 238, 0) !important;
     }
 
+    /* Verde quando ativado (ON) */
     input[type="checkbox"][data-switch="success"]:checked + label {
-        background-color: #28a745 !important; /* Verde quando ON */
+        background-color: #28a745 !important; /* Verde */
         border-color: #28a745 !important;
     }
+
+    /* Cinza quando está desativado (readonly ou disabled) */
+    input[type="checkbox"][data-switch="success"]:disabled + label {
+        background-color: #6c757d !important; /* Cinza */
+        border-color: #6c757d !important;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
 </style>
 <body>
     <!-- Begin page -->
