@@ -618,6 +618,8 @@ $(document).ready(function () {
     <script src="assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
     <script src="assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <!-- Datatable Init js -->
+    <script src="assets/js/pages/demo.datatable-init.js"></script>
 
 </body>
 
