@@ -23,7 +23,9 @@
           $nomeCondominio = $item['CFG_DCVALOR']; 
           break; 
       }
-    }   
+    }  
+    
+    $metodo = "insert";
     
 ?>
 
@@ -116,6 +118,11 @@
                                     <div class="tab-content">
                                     <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
                                         <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
+
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
+                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
+                                                    <!-- CAMPOS COMO VARIAVEIS -->
+
                                             <!-- Campo Título 1 -->
                                             <div class="position-relative col-lg-6">
                                                 <label class="form-label" for="titulo">Título</label>
