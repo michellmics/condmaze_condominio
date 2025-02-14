@@ -57,7 +57,7 @@ class registerArtigo extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Diretório de upload
-    $uploadDir = '/var/www/html/pages/instrucoesAdequacoes/';
+    $uploadDir = '/var/www/html/pages/instrucoesAdequacoes/uploads/';
     
     // Verifica se a pasta existe, se não, cria
     if (!is_dir($uploadDir)) {
