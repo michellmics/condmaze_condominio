@@ -153,6 +153,10 @@
                                 <div class="page-title-right">
                                     <form class="d-flex">
                                         <div class="input-group">
+                                            <div class="col-sm-5">
+                                                <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Usuário</a>
+                                            </div>
+
                                             <!-- Combobox para selecionar o mês -->
                                             <select class="form-control form-control-light" id="data-mes" name="data-mes">
                                                 <option value="" disabled selected>Selecione o mês</option>
