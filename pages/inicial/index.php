@@ -315,6 +315,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body" id="modal-body-content">
+            <div id="modal-file-link"></div>
                
             </div>
             <div class="modal-footer">
@@ -329,6 +330,17 @@ document.querySelectorAll('.list-group-item').forEach(button => {
     button.addEventListener('click', function() {
         document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
         document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
+
+                // Recebe o arquivo (se houver) e cria o link de download
+                var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arquivo
+
+                if (fileUrl) {
+                    // Cria o link para download
+                    var downloadLink = '<a href="/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Arquivo</a>';
+                    document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
+                } else {
+                    document.getElementById('modal-file-link').innerHTML = '<p>Nenhum arquivo disponível para download.</p>';
+                }
     });
 });
 </script>
