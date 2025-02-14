@@ -343,7 +343,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
 
                 if (fileUrl) {
                     // Cria o link para download
-                    var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
+                    var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
                     document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
                 } else {
                     document.getElementById('modal-file-link').innerHTML = '<p>Nenhum arquivo disponível para download.</p>';
