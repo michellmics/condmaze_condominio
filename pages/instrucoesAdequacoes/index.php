@@ -105,7 +105,7 @@ ini_set('max_execution_time', '300');
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Instruções e Adequações</h4>
+                                <h4 class="page-title">Procedimentos e Comunicados</h4>
                             </div>
                         </div>
                     </div>

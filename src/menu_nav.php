@@ -84,12 +84,12 @@
                                     <a href="../uploadRelatorio/index.php" class="dropdown-item">Enviar Arquivo</a>
                                     <?php endif; ?>
 
-                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
+                                    <?php if ($nivelAcesso == 'SUPORTE'): ?>
                                     <a href="../informacoesUteis/index.php" class="dropdown-item">Informações Úteis</a>
                                     <?php endif; ?>
 
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
-                                    <a href="../instrucoesAdequacoes/index.php" class="dropdown-item">Instruções e Adequações</a>
+                                    <a href="../instrucoesAdequacoes/index.php" class="dropdown-item">Procedimento e Comunicados</a>
                                     <?php endif; ?>
                                 </div>
                             </li>
