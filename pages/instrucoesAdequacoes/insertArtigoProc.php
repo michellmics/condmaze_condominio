@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_FILES['arquivo']['name'])) {
         $fileName = basename($_FILES['arquivo']['name']);
         $filePath = $uploadDir . $fileName;
+        $fileSize = $_FILES['arquivo']['size'];
 
             // Verifica se o arquivo excede o tamanho permitido
             if ($fileSize > $maxFileSize) {
