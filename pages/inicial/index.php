@@ -285,7 +285,7 @@
                                                             data-bs-target="#scrollable-modal"
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
-                                                            data-file="<?= $item['INA_DCFILEURL']; ?>"> <!-- Aqui passa o arquivo para o modal -->
+                                                            data-file="<?= $item['arquivo']; ?>"> <!-- Aqui passa o arquivo para o modal -->
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
                                                         <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
                                                     </button>
@@ -324,27 +324,25 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
 <script>
-    // Quando o modal for mostrado, insere o título, conteúdo e link para o arquivo
-    $('#scrollable-modal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Botão que abriu o modal
-        var title = button.data('title'); // Título do artigo
-        var content = button.data('content'); // Conteúdo do artigo
-        var fileUrl = button.data('file'); // URL do arquivo para download
-
+document.querySelectorAll('.list-group-item').forEach(button => {
+    button.addEventListener('click', function() {
         // Atualiza o título e o conteúdo do modal
-        var modal = $(this);
-        modal.find('.modal-title').text(title);
-        modal.find('#modal-content').html(content);
+        document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
+        document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
 
-        // Adiciona o link de download se o arquivo existir
+        // Recebe o arquivo (se houver) e cria o link de download
+        var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arquivo
+
         if (fileUrl) {
-            modal.find('#modal-file-link').html('<a href="/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Arquivo</a>');
+            // Cria o link para download
+            var downloadLink = '<a href="/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Arquivo</a>';
+            document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
         } else {
-            modal.find('#modal-file-link').html('<p>Nenhum arquivo disponível para download.</p>');
+            document.getElementById('modal-file-link').innerHTML = '<p>Nenhum arquivo disponível para download.</p>';
         }
     });
+});
 </script>
 
                            
