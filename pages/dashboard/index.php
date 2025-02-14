@@ -153,13 +153,14 @@
                                 <div class="page-title-right">
                                     <form class="d-flex">
                                         <div class="input-group">
-                                            <div class="col-sm-5">
-                                                <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Usuário</a>
+                                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
+                                            <div class="col-sm-4">
+                                                <a href="../pages/uploadRelatorio/index.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Processar Arquivo</a>
                                             </div>
-
+                                            <?php endif; ?>
                                             <!-- Combobox para selecionar o mês -->
                                             <select class="form-control form-control-light" id="data-mes" name="data-mes">
-                                                <option value="" disabled selected>Selecione o mês</option>
+                                                <option value="" disabled selected>Mês</option>
                                                 <option value="janeiro">Janeiro</option>
                                                 <option value="fevereiro02">Fevereiro</option>
                                                 <option value="março">Março</option>
@@ -176,7 +177,7 @@
 
                                             <!-- Combobox para selecionar o ano -->
                                             <select class="form-control form-control-light ms-2" id="data-ano" name="data-ano">
-                                                <option value="" disabled selected>Selecione o ano</option>
+                                                <option value="" disabled selected>Ano</option>
                                                 <?php
                                                 // Gerar anos dinamicamente
                                                 $currentYear = date("Y");
