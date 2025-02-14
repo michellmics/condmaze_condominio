@@ -287,8 +287,8 @@
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
                                                             data-file="<?php
 
-                                                                 $file = substr($item['INA_DCFILEURL'],41);
-                                                                 echo $file;
+                                                                $file = basename($item['INA_DCFILEURL']);
+                                                                echo $file;
                                                                  
                                                                  ?>"> <!-- Aqui passa o arquivo para o modal -->
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
