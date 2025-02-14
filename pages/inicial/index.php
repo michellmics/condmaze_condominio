@@ -278,19 +278,20 @@
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
 
-
                                             <div class="list-group">
                                                 <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
                                                     <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal"
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
-                                                            data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>">
+                                                            data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
+                                                            data-file="<?= $item['INA_DCFILEURL']; ?>"> <!-- Aqui passa o arquivo para o modal -->
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
                                                         <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
                                                     </button>
                                                 <?php endforeach; ?>
                                             </div>
+
 
 
 
@@ -323,13 +324,27 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
 <script>
-document.querySelectorAll('.list-group-item').forEach(button => {
-    button.addEventListener('click', function() {
-        document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
-        document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
+    // Quando o modal for mostrado, insere o título, conteúdo e link para o arquivo
+    $('#scrollable-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Botão que abriu o modal
+        var title = button.data('title'); // Título do artigo
+        var content = button.data('content'); // Conteúdo do artigo
+        var fileUrl = button.data('file'); // URL do arquivo para download
+
+        // Atualiza o título e o conteúdo do modal
+        var modal = $(this);
+        modal.find('.modal-title').text(title);
+        modal.find('#modal-content').html(content);
+
+        // Adiciona o link de download se o arquivo existir
+        if (fileUrl) {
+            modal.find('#modal-file-link').html('<a href="/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Arquivo</a>');
+        } else {
+            modal.find('#modal-file-link').html('<p>Nenhum arquivo disponível para download.</p>');
+        }
     });
-});
 </script>
 
                            
