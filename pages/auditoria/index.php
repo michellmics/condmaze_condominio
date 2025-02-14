@@ -124,26 +124,23 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
+                                                        <th>DATA</th>
                                                         <th>USUÁRIO</th>
                                                         <th>APTO</th>
                                                         <th>TIPO</th>
                                                         <th>COD</th>
-                                                        <th>MSG</th>
-                                                        <th>DATA</th>
+                                                        <th>MSG</th>                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
                                                         <tr>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_IDLOG']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
                                                             <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word;" class="align-middle"><?= htmlspecialchars($item['LOG_DCMSG']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
-
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
