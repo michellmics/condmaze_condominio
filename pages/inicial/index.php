@@ -285,7 +285,12 @@
                                                             data-bs-target="#scrollable-modal"
                                                             data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
-                                                            data-file="<?= $item['INA_DCFILEURL']; ?>"> <!-- Aqui passa o arquivo para o modal -->
+                                                            data-file="<?php
+
+                                                                 $file = substr($item['INA_DCFILEURL'],41);
+                                                                 echo $file;
+                                                                 
+                                                                 ?>"> <!-- Aqui passa o arquivo para o modal -->
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
                                                         <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
                                                     </button>
@@ -334,10 +339,11 @@ document.querySelectorAll('.list-group-item').forEach(button => {
 
                 // Recebe o arquivo (se houver) e cria o link de download
                 var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arquivo
+                
 
                 if (fileUrl) {
                     // Cria o link para download
-                    var downloadLink = '<a href="/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Arquivo</a>';
+                    var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
                     document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
                 } else {
                     document.getElementById('modal-file-link').innerHTML = '<p>Nenhum arquivo disponível para download.</p>';
