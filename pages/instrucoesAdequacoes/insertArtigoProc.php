@@ -78,11 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $filePath = $uploadDir . $fileName;
         $fileSize = $_FILES['arquivo']['size'];
 
-        if ($_FILES['arquivo']['error'] !== UPLOAD_ERR_OK) {
-            echo "Erro no upload: " . $_FILES['arquivo']['error'];
-            exit;
-        }
-        
             // Verifica se o arquivo excede o tamanho permitido
             if ($fileSize > $maxFileSize) {
                 echo "Erro: O arquivo excede o limite de 10MB.";
