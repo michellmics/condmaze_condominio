@@ -5,4 +5,5 @@ services:
     build: .
     ports:
       - "8081:80"
-
+    volumes:
+      - uploads:/var/www/html/pages/instrucoesAdequacoes/uploads
