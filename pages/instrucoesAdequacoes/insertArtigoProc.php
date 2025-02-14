@@ -63,11 +63,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
+
+    // Define o limite de tamanho do arquivo (10MB)
+    $maxFileSize = 10 * 1024 * 1024; // 10MB
     
     // Verifica se o arquivo foi enviado
     if (!empty($_FILES['arquivo']['name'])) {
         $fileName = basename($_FILES['arquivo']['name']);
         $filePath = $uploadDir . $fileName;
+
+            // Verifica se o arquivo excede o tamanho permitido
+            if ($fileSize > $maxFileSize) {
+                echo "Erro: O arquivo excede o limite de 10MB.";
+                exit();
+            }
+
+            // Obtém o título do arquivo e remove os espaços
+            $tituloFile = $_POST['titulo']; // Considerando que o título vem de um campo no formulário
+            $tituloFormatado = str_replace(' ', '_', $tituloFile); // Substitui os espaços por underscores
+            
+            // Cria o nome do arquivo com o timestamp e o título formatado
+            $timestamp = time(); // Obtém o timestamp atual
+            $fileName = $timestamp . '_' . $tituloFormatado . '.' . pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION); // Adiciona a extensão do arquivo
+
+            $filePath = $uploadDir . $fileName;
     
         // Move o arquivo para a pasta de uploads
         if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $filePath)) {
