@@ -30,7 +30,7 @@ class LoginSystem extends SITE_ADMIN
                 
                 if($user['USU_DCAPARTAMENTO'] == '1000')
                 {
-                    $ipAcessoClient = $_SERVER['REMOTE_ADDR'];
+                    $ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
 
                     $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = :IP_PORTARIA";
                     $stmt = $this->pdo->prepare($sql);
@@ -38,7 +38,14 @@ class LoginSystem extends SITE_ADMIN
                     $stmt->execute();
                     $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                    echo json_encode(["success" => false, "message" => "Credenciais de portaria! $ipPortaria"]);
+                    if ($ipPortaria) {
+                        echo json_encode(["success" => false, "message" => "Credenciais de portaria!". $ipPortaria['CFG_DCVALOR']]);
+                    } else {
+                        // IP não encontrado
+                        echo "IP não encontrado na configuração.";
+                    }
+
+                    echo json_encode(["success" => false, "message" => "Credenciais de portaria!" . $ipPortaria['CFG_DCVALOR']]);
                     exit();
                 }
                 
