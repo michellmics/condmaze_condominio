@@ -4,6 +4,9 @@ FROM php:8.0-apache
 # Instala extensões PHP necessárias
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Instala extensões PHP para imagem
+RUN apt-get update && apt-get install -y php8.1-gd
+
 # Copia os arquivos do repositório para a pasta do Apache
 COPY . /var/www/html/
 
