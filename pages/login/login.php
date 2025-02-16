@@ -23,6 +23,14 @@ class LoginSystem extends SITE_ADMIN
 
             if ($user && password_verify($password, $user['USU_DCSENHA'])) {
 
+                $ipAcessoClient = $_SERVER['REMOTE_ADDR'];
+                if($user['USU_DCAPARTAMENTO'] == '1000')
+                {
+                    echo json_encode(["success" => false, "message" => "Credenciais de portaria!"]);
+                    exit();
+                }
+                
+
                 $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
                 $_SESSION['user_name'] = $user['USU_DCNOME'];
                 $_SESSION['user_email'] = $user['USU_DCEMAIL'];
