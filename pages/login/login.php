@@ -40,13 +40,13 @@ class LoginSystem extends SITE_ADMIN
 
                     if ($ipPortaria) {
                         echo json_encode(["success" => false, "message" => "Credenciais de portaria!". $ipPortaria['CFG_DCVALOR']]);
+                        exit();
                     } else {
                         // IP não encontrado
                         echo "IP não encontrado na configuração.";
-                    }
-
-                    echo json_encode(["success" => false, "message" => "Credenciais de portaria!" . $ipPortaria['CFG_DCVALOR']]);
-                    exit();
+                        exit();
+                    }                    
+                    
                 }
                 
 
