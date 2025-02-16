@@ -144,7 +144,8 @@ ini_set('max_execution_time', '300');
                                                 <input id="ordem" name="ordem" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
                                                        maxlength="2" 
-                                                       pattern="[0-9]+"                                                                                                            
+                                                       pattern="[0-9]+"  
+                                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')"                                                                                                          
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
