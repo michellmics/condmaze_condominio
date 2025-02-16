@@ -201,8 +201,9 @@
                                 <div class="card-body">
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Entregas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
-                                    Os pacotes marcados como SIM na coluna <b>RETIRAR?</b> da tabela abaixo, devem ser retirados na portaria dentro de um prazo máximo de 30 minutos.
-                                    O pacote só será liberado pela portaria se o status da coluna <b>RETIRAR?</b> estiver marcado como <b>SIM</b>.
+                                    Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
+                                    O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.
+
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
@@ -412,10 +413,6 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <b>E-mail:</b> sindico@prqdashortensias.com.br<br>
                                             <b>E-mail Conselho:</b> conselhofiscalhortensias@gmail.com<br>
                                             <br>
-                                            <b>Subsindico(a):</b> *********<br>
-                                            <b>Telefone:</b> *********<br>
-                                            <b>E-mail:</b> subsindico@prqdashortensias.com.br<br>
-                                            <br>
                                             <b>Administradora:</b> Puiatti<br>
                                             <b>E-mail:</b> contato@puiatti.com.br<br>
                                             <b>Atend. Whatsapp:</b> (19) 99909-0561<br>
@@ -440,8 +437,8 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                     <p class="text-muted font-14">
                                         Compartilhe sua sugestão ou reclamação!
                                         Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
-                                        <br><b>Atenção:</b> Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens. <br>  
-                                        As mensagens enviadas por meio deste formulário serão visíveis para todos os moradores.                                  
+                                        <br><b>Atenção:</b> Os recados aqui publicados <strong>não são </strong>moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens. <br>  
+                                        <strong>As mensagens enviadas anônimamente por meio deste formulário serão visíveis para todos os moradores. </strong>                                 
                                     </p>
 
                                     <div class="tab-content">
