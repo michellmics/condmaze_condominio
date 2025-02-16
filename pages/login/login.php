@@ -1,4 +1,8 @@
 <?php
+$ipAcessoClient = $_SERVER['REMOTE_ADDR'];
+echo $ipAcessoClient;
+die();
+
 session_start(); 
 
 include_once "../../objects/objects.php";
