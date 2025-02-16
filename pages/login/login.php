@@ -18,15 +18,22 @@ class LoginSystem extends SITE_ADMIN
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':apartamento', $apartamento, PDO::PARAM_STR);
             $stmt->execute();
-
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['USU_DCSENHA'])) {
 
-                $ipAcessoClient = $_SERVER['REMOTE_ADDR'];
+                
                 if($user['USU_DCAPARTAMENTO'] == '1000')
                 {
-                    echo json_encode(["success" => false, "message" => "Credenciais de portaria!"]);
+                    $ipAcessoClient = $_SERVER['REMOTE_ADDR'];
+
+                    $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = :IP_PORTARIA";
+                    $stmt = $this->pdo->prepare($sql);
+                    $stmt->bindParam(':IP_PORTARIA', $ipAcessoClient, PDO::PARAM_STR);
+                    $stmt->execute();
+                    $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    echo json_encode(["success" => false, "message" => "Credenciais de portaria! $ipPortaria"]);
                     exit();
                 }
                 
