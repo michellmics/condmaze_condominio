@@ -1,6 +1,7 @@
 <?php
-$ipAcessoClient = $_SERVER['REMOTE_ADDR'];
-echo $ipAcessoClient;
+echo "<pre>";
+var_dump($_SERVER);
+echo "</pre>";
 die();
 
 session_start(); 
