@@ -8,13 +8,20 @@ if (session_status() === PHP_SESSION_NONE) {
     $siteAdmin->getParameterInfo();
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
-      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
-          $nomeCondominio = $item['CFG_DCVALOR']; 
-          break; 
-      }
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$nomeCondominio = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$qtdeUnidades = $item['CFG_DCVALOR'];} 
+
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$email = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$whatsStatus = $item['CFG_DCVALOR'];} 
+
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$whatsSender = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$whatsSid = $item['CFG_DCVALOR'];} 
+
+      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$whatsToken = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$ipPortaria = $item['CFG_DCVALOR'];} 
+
     }   
-       
-    
+           
 ?>
 
 <!DOCTYPE html>
@@ -111,14 +118,14 @@ if (session_status() === PHP_SESSION_NONE) {
                                               
                                               <?php 
                                               $fields = [
-                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "28"],
-                                                  "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4"],
-                                                  "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50"],
-                                                  "whatsStatus" => ["label" => "Whatsapp Status", "pattern" => "^[0-9]*$", "maxlength" => "10"],
-                                                  "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => "^\d{11}$", "maxlength" => "11"],
-                                                  "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50"],
-                                                  "whatsToken" => ["label" => "Whatsapp Token", "pattern" => "^\d{11}$", "maxlength" => "11"],
-                                                  "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "15"]
+                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "28", "value" => "$nomeCondominio"],
+                                                  "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4", "value" => "$qtdeUnidades"],
+                                                  "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50", "value" => "$email"],
+                                                  "whatsStatus" => ["label" => "Whatsapp Status", "pattern" => "^[0-9]*$", "maxlength" => "10", "value" => "$whatsStatus"],
+                                                  "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => "^\d{11}$", "maxlength" => "11", "value" => "$whatsSender"],
+                                                  "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50", "value" => "$whatsSid"],
+                                                  "whatsToken" => ["label" => "Whatsapp Token", "pattern" => "^\d{11}$", "maxlength" => "11", "value" => "$whatsToken"],
+                                                  "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "15", "value" => "$ipPortaria"]
                                               ];
                                               
                                               foreach ($fields as $id => $data) : ?>
