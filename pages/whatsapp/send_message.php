@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
             $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR'];
         }
-    }
+    } 
     
     // Suas credenciais do Twilio
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
