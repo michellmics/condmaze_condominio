@@ -4,7 +4,7 @@ require __DIR__ . '/twilio/src/Twilio/autoload.php';
 
 use Twilio\Rest\Client;
 
-$sid = 'US27bf524c9b23155b1dd29788b65d0d08'; // Coloque manualmente o SID da conta Twilio
+$sid = 'AC1ed2b3fc066e9d0ccfc1126b94283b44'; // Coloque manualmente o SID da conta Twilio
 $token = '67c680df0b9006f769848d7799323326'; // Coloque manualmente o Auth Token
 $client = new Client($sid, $token);
 
