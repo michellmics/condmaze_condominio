@@ -133,7 +133,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                       <div class="col-8 col-md-10">
                                                           <label class="form-label" for="<?= $id; ?>"><?= $data['label']; ?></label>
                                                           <input 
-                                                              value="<?php echo "teste"; ?>" 
+                                                              value="<?php $data['value']; ?>" 
                                                               id="<?= $id; ?>" 
                                                               name="<?= $id; ?>" 
                                                               type="text" 
