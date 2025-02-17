@@ -1,9 +1,11 @@
 <?php
+    
+    
     $ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
     $checkPortaria = new SITE_ADMIN();  
     $resultPortCheck = $checkPortaria->getValidPortariaInfo($ipAcessoClient);
 
-    if($resultPortCheck != 1)
+    if($resultPortCheck != 1 && $user['USU_DCNIVEL'] == "PORTARIA")
     {
         session_start();
         session_unset();  
