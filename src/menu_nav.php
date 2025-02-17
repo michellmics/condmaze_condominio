@@ -87,6 +87,10 @@
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                     <a href="../instrucoesAdequacoes/index.php" class="dropdown-item">Procedimento e Comunicados</a>
                                     <?php endif; ?>
+                                    
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
+                                    <a href="../configuracoes/index.php" class="dropdown-item">Configurações</a>
+                                    <?php endif; ?>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
