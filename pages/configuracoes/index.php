@@ -199,7 +199,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                             title: 'Sucesso!',
                                                             text: result.message
                                                         });
-                                                        location.reload();
+                                                        
                                                     } else {
                                                         Swal.fire({
                                                             icon: 'error',
