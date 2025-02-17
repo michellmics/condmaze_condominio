@@ -186,7 +186,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     return;
                                                 }
                                               
-                                                fetch("updateproc.php", {
+                                                fetch("updateConfigProc.php", {
                                                     method: "POST",
                                                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                                                     body: `campo=${encodeURIComponent(inputId)}&valor=${encodeURIComponent(inputValue)}`
@@ -211,7 +211,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     Swal.fire({
                                                         icon: 'error',
                                                         title: 'Erro!',
-                                                        text: 'Erro ao atualizar. Verifique o console para mais detalhes.'
+                                                        text: 'Erro ao atualizar.'
                                                     });
                                                     console.error("Erro:", error);
                                                 });
