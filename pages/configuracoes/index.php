@@ -21,8 +21,11 @@ if (session_status() === PHP_SESSION_NONE) {
       if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$ipPortaria = $item['CFG_DCVALOR'];} 
 
     }   
-           
+    var_dump($item);
+    die();    
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" data-layout="topnav">
