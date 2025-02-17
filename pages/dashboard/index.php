@@ -152,48 +152,48 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <form class="d-flex">
-                                        <div class="input-group">
-                                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
+                                    <div class="input-group d-flex align-items-center gap-2">
+                                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                             <div class="col-sm-4">
-                                                <a href="../pages/uploadRelatorio/index.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Processar Arquivo</a>
+                                                <a href="../pages/uploadRelatorio/index.php" class="btn btn-danger"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
                                             </div>
-                                            <?php endif; ?>
-                                            <!-- Combobox para selecionar o mês -->
-                                            <select class="form-control form-control-light" id="data-mes" name="data-mes">
-                                                <option value="" disabled selected>Mês</option>
-                                                <option value="janeiro">Janeiro</option>
-                                                <option value="fevereiro02">Fevereiro</option>
-                                                <option value="março">Março</option>
-                                                <option value="abril">Abril</option>
-                                                <option value="maio">Maio</option>
-                                                <option value="junho">Junho</option>
-                                                <option value="julho">Julho</option>
-                                                <option value="agosto">Agosto</option>
-                                                <option value="setembro">Setembro</option>
-                                                <option value="outubro">Outubro</option>
-                                                <option value="novembro">Novembro</option>
-                                                <option value="dezembro">Dezembro</option>
-                                            </select>
-
-                                            <!-- Combobox para selecionar o ano -->
-                                            <select class="form-control form-control-light ms-2" id="data-ano" name="data-ano">
-                                                <option value="" disabled selected>Ano</option>
-                                                <?php
-                                                // Gerar anos dinamicamente
-                                                $currentYear = date("Y");
-                                                $startYear = $currentYear - 2; // Define um intervalo de 10 anos anteriores
-                                                $endYear = $currentYear + 10; // Define um intervalo de 10 anos futuros
-
-                                                for ($year = $startYear; $year <= $endYear; $year++) {
-                                                    echo "<option value='$year'>$year</option>";
-                                                }
-                                                ?>
-                                            </select>
-
-                                            <span class="input-group-text bg-primary border-primary text-white" style="cursor: pointer;" id="calendar-icon">
+                                        <?php endif; ?>
+                                        
+                                        <!-- Combobox para selecionar o mês -->
+                                        <select class="form-control form-control-light" id="data-mes" name="data-mes">
+                                            <option value="" disabled selected>Mês</option>
+                                            <option value="janeiro">Janeiro</option>
+                                            <option value="fevereiro02">Fevereiro</option>
+                                            <option value="março">Março</option>
+                                            <option value="abril">Abril</option>
+                                            <option value="maio">Maio</option>
+                                            <option value="junho">Junho</option>
+                                            <option value="julho">Julho</option>
+                                            <option value="agosto">Agosto</option>
+                                            <option value="setembro">Setembro</option>
+                                            <option value="outubro">Outubro</option>
+                                            <option value="novembro">Novembro</option>
+                                            <option value="dezembro">Dezembro</option>
+                                        </select>
+                                        
+                                        <!-- Combobox para selecionar o ano -->
+                                        <select class="form-control form-control-light" id="data-ano" name="data-ano">
+                                            <option value="" disabled selected>Ano</option>
+                                            <?php
+                                            $currentYear = date("Y");
+                                            $startYear = $currentYear - 2;
+                                            $endYear = $currentYear + 10;
+                                            for ($year = $startYear; $year <= $endYear; $year++) {
+                                                echo "<option value='$year'>$year</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                        
+                                        <span class="input-group-text bg-primary border-primary text-white" style="cursor: pointer;" id="calendar-icon">
                                             <i class="mdi mdi-send font-12"></i>
-                                            </span>
-                                        </div>
+                                        </span>
+                                    </div>
+
                                     </form>
                                         <script>
                                             // Captura o evento de clique no ícone do calendário
