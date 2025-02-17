@@ -5,7 +5,7 @@
     $checkPortaria = new SITE_ADMIN();  
     $resultPortCheck = $checkPortaria->getValidPortariaInfo($ipAcessoClient);
 
-    if($resultPortCheck != 1 && $user['USU_DCNIVEL'] == "PORTARIA")
+    if($resultPortCheck != 1 && $_SESSION['user_nivelacesso'] == "PORTARIA")
     {
         session_start();
         session_unset();  
