@@ -143,7 +143,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                               
                                               foreach ($fields as $id => $data) : ?>
                                                   <div class="row g-2 align-items-end mb-3">
-                                                      <div class="col-8 col-md-10">
+                                                      <div class="col-8 col-md-12">
                                                           <label class="form-label" for="<?= $id; ?>"><?= $data['label']; ?></label>
                                                           <input 
                                                               value="<?php echo $data['value']; ?>" 
@@ -168,7 +168,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                           <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($data['label']); ?> corretamente.</div>
                                                       </div>
                                                       <div class="col-4 col-md-2 d-flex align-items-end">
-                                                          <button type="button" class="btn btn-danger w-70 update-btn" data-input="<?= $id; ?>">EDIT</button>
+                                                          <button type="button" class="btn btn-warning w-70 update-btn" data-input="<?= $id; ?>">EDIT</button>
                                                       </div>
                                                   </div>
                                               <?php endforeach; ?>
