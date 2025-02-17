@@ -27,7 +27,7 @@ class LoginSystem extends SITE_ADMIN
                 {
                     $ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
 
-                    $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = IP_PORTARIA";
+                    $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = 'IP_PORTARIA'";
                     $stmt = $this->pdo->prepare($sql);
                     $stmt->execute();
                     $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
