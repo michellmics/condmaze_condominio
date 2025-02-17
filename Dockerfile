@@ -15,8 +15,8 @@ RUN chown -R www-data:www-data /var/www/html && \
 RUN a2enmod rewrite
 
 # Adicionando configurações diretamente no php.ini
-RUN echo "upload_max_filesize = 10M" >> /usr/local/etc/php/php.ini && \
-    echo "post_max_size = 10M" >> /usr/local/etc/php/php.ini
+RUN echo "upload_max_filesize = 15M" >> /usr/local/etc/php/php.ini && \
+    echo "post_max_size = 15M" >> /usr/local/etc/php/php.ini
 
 # Configura o Apache para servir a pasta /var/www/html
 RUN echo "DocumentRoot /var/www/html" > /etc/apache2/sites-available/000-default.conf && \
