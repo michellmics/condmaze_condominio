@@ -14,11 +14,11 @@ if (session_status() === PHP_SESSION_NONE) {
       if (trim($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS')) {$email = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_STATUS')) {$whatsStatus = $item['CFG_DCVALOR'];} 
 
-      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_STATUS_SENDER')) {$whatsSender = $item['CFG_DCVALOR'];}
+      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_SENDER')) {$whatsSender = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_SID')) {$whatsSid = $item['CFG_DCVALOR'];} 
 
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN')) {$whatsToken = $item['CFG_DCVALOR'];}
-      if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];}  
 
     }   
 
