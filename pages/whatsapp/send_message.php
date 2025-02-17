@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Suas credenciais do Twilio
-    $twilioNumber = 'whatsapp:+15557337654'; // Número do Twilio Sandbox
+    $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
+    $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; // Número do Twilio Sandbox
     $token = $parametros['WHATSAPP_TOKEN'];
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
