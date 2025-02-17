@@ -35,10 +35,10 @@ $message = $client->messages->create(
         'template' => [
             'name' => 'prq_hortensias_condominio_encomenda', // Nome do template aprovado
             'parameters' => [
-                ['type' => 'text', 'text' => $nome],          // usuario_nome = Carlos
-                ['type' => 'text', 'text' => $codigo],         // id_entrega = 123456
+                ['type' => 'text', 'text' => "Michell Duarte"],          // usuario_nome = Carlos
+                ['type' => 'text', 'text' => "123456"],         // id_entrega = 123456
                 ['type' => 'text', 'text' => 'Condomínio Parque das Hortênsias'], // condominio_nome = Residencial Alpha
-                ['type' => 'text', 'text' => $link] // link_liberar_entrega
+                ['type' => 'text', 'text' => "https://codemaze.com.br"] // link_liberar_entrega
             ]
         ]
     ]
