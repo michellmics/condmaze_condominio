@@ -106,95 +106,72 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </p>
 
                                     <div class="tab-content">
-                                        <div class="tab-pane show active" id="tooltips-validation-preview">
-                                            <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-                                                                                            
-                                                  <div class="position-relative mb-3">
-                                                    <label class="form-label" for="nomeCondominio">Nome do Condomínio</label>
-                                                    <input value="<?php echo "teste"; ?>" id="nomeCondominio" name="nomeCondominio" type="text" class="form-control" id="inputWarning" placeholder="" maxlength="28" required/>
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                        Por favor, preencha o nome do condominio.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="qtdeUnidades">Quantidade de Unidades</label>
-                                                    <input value="<?php echo "teste"; ?>" id="qtdeUnidades" name="qtdeUnidades" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="4" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha a quantidade de unidades.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="email">E-mail para Notificações</label>
-                                                    <input value="<?php echo "teste"; ?>" id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha o E-mail.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="whatsStatus">Whatsapp Status</label>
-                                                    <input value="<?php echo "teste"; ?>" id="whatsStatus" name="whatsStatus" type="text" class="form-control" placeholder="" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha o Whatsapp Status.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="whatsSender">Whatsapp Telelefone Sender</label>
-                                                    <input value="<?php echo "teste"; ?>" id="whatsSender" name="whatsSender" type="text" class="form-control" placeholder="" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha o Telelefone Sender.
-                                                    </div>
-                                                </div>
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="whatsSid">Whatsapp SID</label>
-                                                    <input value="<?php echo "teste"; ?>" id="whatsSid" name="whatsSid" type="text" class="form-control" placeholder="" required />
-                                                    <div class="valid-tooltip"> 
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha o Whatsapp SID.
-                                                    </div>
-                                                </div> 
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label">Whatsapp Token</label>
-                                                    <input value="<?php echo "teste"; ?>" id="whatsToken" name="whatsToken" type="text" class="form-control" placeholder="Ex.: 11982734359" pattern="^\d{11}$"  minlength="11" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, preencha o Whatsapp Token.
-                                                    </div>
-                                                </div> 
-                                                <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip02">Endereço IP PC Portaria</label>
-                                                    <input value="<?php echo "teste"; ?>" id="ipPortaria" name="ipPortaria" type="text" class="form-control" placeholder="" required />
-                                                    <div class="valid-tooltip">
-                                                        Validado!
-                                                    </div>
-                                                    <div class="invalid-tooltip">
-                                                    Por favor, Endereço IP do PC Portaria.
-                                                    </div>
-                                                </div>                
-                                                <br>
+                                      <div class="tab-pane show active" id="tooltips-validation-preview">
+                                          <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
 
-                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
-                                            </form>
-                                        </div> <!-- end preview-->                                        
-                                    </div> <!-- end tab-content-->
+                                              <?php 
+                                              $fields = [
+                                                  "nomeCondominio" => "Nome do Condomínio",
+                                                  "qtdeUnidades" => "Quantidade de Unidades",
+                                                  "email" => "E-mail para Notificações",
+                                                  "whatsStatus" => "Whatsapp Status",
+                                                  "whatsSender" => "Whatsapp Telefone Sender",
+                                                  "whatsSid" => "Whatsapp SID",
+                                                  "whatsToken" => "Whatsapp Token",
+                                                  "ipPortaria" => "Endereço IP PC Portaria"
+                                              ];
+
+                                              foreach ($fields as $id => $label) : ?>
+                                                  <div class="row g-2 align-items-center mb-3">
+                                                      <div class="col-8 col-md-10">
+                                                          <label class="form-label" for="<?= $id; ?>"><?= $label; ?></label>
+                                                          <input value="<?php echo "teste"; ?>" id="<?= $id; ?>" name="<?= $id; ?>" type="text" class="form-control" required />
+                                                          <div class="valid-tooltip">Validado!</div>
+                                                          <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($label); ?>.</div>
+                                                      </div>
+                                                      <div class="col-4 col-md-2">
+                                                          <button type="button" class="btn btn-primary w-100 update-btn" data-input="<?= $id; ?>">Update</button>
+                                                      </div>
+                                                  </div>
+                                              <?php endforeach; ?>
+                                              
+                                              <br>
+                                              <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
+                                              
+                                          </form>
+                                      </div> <!-- end preview-->                                        
+                                  </div> <!-- end tab-content-->
+                                              
+                                  <script>
+                                  document.addEventListener("DOMContentLoaded", function() {
+                                      document.querySelectorAll(".update-btn").forEach(button => {
+                                          button.addEventListener("click", function() {
+                                              let inputId = this.getAttribute("data-input");
+                                              let inputValue = document.getElementById(inputId).value;
+                                          
+                                              if (inputValue.trim() === "") {
+                                                  alert("Por favor, preencha o campo antes de atualizar.");
+                                                  return;
+                                              }
+                                            
+                                              fetch("update.php", {
+                                                  method: "POST",
+                                                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                                  body: `campo=${inputId}&valor=${encodeURIComponent(inputValue)}`
+                                              })
+                                              .then(response => response.text())
+                                              .then(result => {
+                                                  alert("Atualização feita com sucesso!");
+                                              })
+                                              .catch(error => {
+                                                  alert("Erro ao atualizar.");
+                                                  console.error("Erro:", error);
+                                              });
+                                          });
+                                      });
+                                  });
+                                  </script>
+
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
@@ -222,158 +199,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
     <!-- END wrapper -->
 
-   <!-- ######################################################## --> 
-    <!-- SWEETALERT 2 -->   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
 
-        function validarFormulario() {
-            const nome = document.querySelector('input[name="nome"]').value.trim();
-            const email = document.querySelector('input[name="email"]').value.trim();
-            const bloco = document.querySelector('input[name="bloco"]').value.trim();
-            const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
-            const senha = document.querySelector('input[name="senha"]').value.trim();
-            const telefone = document.querySelector('input[name="telefone"]').value.trim();
-            const metodo = document.querySelector('input[name="metodo"]').value.trim();
-
-            if (telefone.length !== 11) {
-                alert('O número de telefone deve ter exatamente 11 dígitos.');
-                return false;
-            }
-
-            if(metodo != "update")
-            {
-              if (!nome || !email || !bloco || !apartamento || !senha || !telefone) {
-                  alert("Todos os campos devem ser preenchidos.");
-                  return false;
-              }
-              return true;
-            }
-            if(metodo == "update")
-            {
-              if (!nome || !email || !bloco || !apartamento || !telefone) {
-                  alert("Todos os campos devem ser preenchidos.");
-                  return false;
-              }
-              return true;
-            }
-        }
-
-
-
-       function confirmAndSubmit(event) {
-       
-        const isValid = validarFormulario();
-        const metodo = document.querySelector('input[name="metodo"]').value.trim();
-
-        let msgBox = "";
-
-        if(metodo == 'insert')
-        {
-          msgBox = "Têm certeza que deseja inserir o morador?";
-        }
-        else
-          {
-            msgBox = "Têm certeza que deseja atualizar o morador?";
-          }
-
-        if (!isValid) {
-            return;
-        }
-
-        event.preventDefault(); // Impede o envio padrão do formulário
-        Swal.fire({
-          title: 'Formulário de Moradores',
-          text: msgBox,
-          showDenyButton: true,
-          confirmButtonText: 'CONFIRMAR',
-          denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#536de6",
-          denyButtonColor: "#ff5b5b",
-          width: '400px', // Largura do alerta
-          icon: 'warning',
-          customClass: {
-            title: 'swal-title', // Classe para o título
-            content: 'swal-content', // Classe para o conteúdo (texto)
-            confirmButton: 'swal-confirm-btn',
-            denyButton: 'swal-deny-btn',
-            htmlContainer: 'swal-text'
-          }
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Capturar os dados do formulário
-            var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
-            // Fazer a requisição AJAX
-            $.ajax({
-              url: "insertMoradorProc.php", // URL para processamento
-              type: "POST",
-              data: formData,
-              processData: false, // Impede o jQuery de processar os dados
-              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
-              success: function (response) {
-                Swal.fire({
-              title: 'Atenção',
-              text: `${response}`,
-              icon: 'success',
-              width: '400px', // Largura do alerta
-              confirmButtonColor: "#536de6",
-              customClass: {
-                title: 'swal-title', // Aplicando a mesma classe do título
-                content: 'swal-content', // Aplicando a mesma classe do texto
-                htmlContainer: 'swal-text',
-                confirmButton: 'swal-confirm-btn'
-              }
-            }).then(() => {
-                  // Redirecionar ou atualizar a página, se necessário
-                   window.location.href = "index.php";
-                });
-              },
-              error: function (xhr, status, error) {
-                Swal.fire({
-              title: 'Erro!',
-              text: 'Erro ao atualizar o convidado.'.error,
-              icon: 'error',
-              width: '400px', // Largura do alerta
-              confirmButtonColor: "#536de6",
-              customClass: {
-                title: 'swal-title', // Aplicando a mesma classe do título
-                content: 'swal-content', // Aplicando a mesma classe do texto
-                htmlContainer: 'swal-text',
-                confirmButton: 'swal-confirm-btn'
-              }
-            });
-              },
-            });
-          } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
-          }
-        });
-      }
-      // Associar a função ao botão de submit
-      $(document).ready(function () {
-        $("#botao").on("click", confirmAndSubmit);
-      });
-</script> 
-<style>
-  /* Estilos para aumentar o tamanho da fonte */
-  .swal-title {
-    font-size: 25px !important; /* Tamanho maior para o título */
-  }
-
-  .swal-text {
-    font-size: 16px !important; /* Tamanho maior para o conteúdo */
-  }
-
-  /* Aumentar o tamanho dos textos dos botões */
-  .swal-confirm-btn,
-  .swal-deny-btn,
-  .swal-cancel-btn {
-    font-size: 16px !important; /* Tamanho maior para os textos dos botões */
-    padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
-  }
-</style>
-<!-- ######################################################## --> 
-<!-- SWEETALERT 2 -->   
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
