@@ -6,6 +6,7 @@ include_once "../../objects/objects.php";
 $siteAdmin = new SITE_ADMIN();  
 $siteAdmin->conexao();
 $siteAdmin->getParameterInfo();
+use Twilio\Rest\Client;
 
 $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
 
