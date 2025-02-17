@@ -131,7 +131,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                               
                                               <?php 
                                               $fields = [
-                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "30", "value" => $nomeCondominio],
+                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "50", "value" => $nomeCondominio],
                                                   "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4", "value" => $qtdeUnidades],
                                                   "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50", "value" => $email],
                                                   "whatsStatus" => ["label" => "Whatsapp Status (ATIVO INATIVO)", "pattern" => "^[0-9]*$", "maxlength" => "10", "value" => $whatsStatus],
