@@ -4,6 +4,8 @@ ini_set('session.cookie_lifetime', 43200);
 session_set_cookie_params(43200);
 session_start();
 
+$ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
+
 if (isset($_SESSION['user_id'])) { 
     header('Location: ../inicial/index.php');
     exit;
@@ -275,7 +277,7 @@ $host = $_SERVER['HTTP_HOST'];
                 </script>
                 <!-- Footer-->
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Não têm uma conta? Entre em contato com o síndico.</p>
+                    <p class="text-muted">Seu endereço IP: <strong><?php echo $ipAcessoClient ?></strong></p>
                 </footer>
 
             </div> <!-- end .card-body -->
