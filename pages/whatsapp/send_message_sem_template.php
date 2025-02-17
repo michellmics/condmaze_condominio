@@ -11,9 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
     $telefone = $data['telefone'] ?? null;
-    $nome = $data['nome'] ?? null;
-    $codigo = $data['codigo'] ?? null;
-    $link = $data['link'] ?? null;
+    $message = $data['message'] ?? null;
 
     $siteAdmin->getParameterInfo();
 
@@ -26,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Suas credenciais do Twilio
-    $twilioNumber = 'whatsapp:+15557337654'; // Número do Twilio Sandbox
+    $twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
     $token = $parametros['WHATSAPP_TOKEN'];
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
@@ -50,21 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $client = new Client($sid, $token);
 
-        // Usando o template aprovado
         $message = $client->messages->create(
-            $to, // Número de destino com WhatsApp
+            $to,
             [
-                'from' => $twilioNumber, // Número Twilio
-                'body' => 'Mensagem personaliada se não for usar template',
-                'template' => [
-                    'name' => 'prq_hortensias_condominio_encomenda', // Nome do template aprovado
-                    'parameters' => [
-                        ['type' => 'text', 'text' => $nome],          // usuario_nome = Carlos
-                        ['type' => 'text', 'text' => $codigo],         // id_entrega = 123456
-                        ['type' => 'text', 'text' => 'Condomínio Parque das Hortênsias'], // condominio_nome = Residencial Alpha
-                        ['type' => 'text', 'text' => $link] // link_liberar_entrega
-                    ]
-                ]
+                'from' => $twilioNumber,
+                'body' => $message,
             ]
         );
 
