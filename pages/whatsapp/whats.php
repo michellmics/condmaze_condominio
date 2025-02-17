@@ -17,7 +17,7 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
 }
 
 // Suas credenciais do Twilio
-$twilioNumber = 'whatsapp:+15557337654'; // Número do Twilio Sandbox
+$twilioNumber = 'whatsapp:+5519990175759'; // Número do Twilio Sandbox
 $token = $parametros['WHATSAPP_TOKEN'];
 $sid = $parametros['WHATSAPP_SID'];
 $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
