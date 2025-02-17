@@ -1,7 +1,18 @@
 <?php
+
 if (session_status() === PHP_SESSION_NONE) {
-  session_start();
+    session_start();
 }
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == NULL) {
+    header("Location: ../login/index.php");
+    exit();
+}
+
+if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])) {
+    header("Location: ../errors/index.php");
+    exit();
+}
+
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
