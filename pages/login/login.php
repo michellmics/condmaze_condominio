@@ -53,10 +53,12 @@ class LoginSystem extends SITE_ADMIN
                         $stmt->execute();
 
                         $this->insertLogInfo("LOGIN", "Usuário {$user['USU_DCNOME']} logado com sucesso.", $user['USU_DCNOME'], $user['USU_DCAPARTAMENTO']);
+
                         echo json_encode(["success" => true, "token" => $token]);
+                        exit();
 
                     } else {
-                        echo "Acesso não prmitido para o nível de Portaria! Verifique seu endereço IP.";
+                        echo json_encode(["success" => false, "message" => "Acesso não prmitido para o nível de Portaria! Verifique seu endereço IP."]);
                         exit();
                     }                    
                     
