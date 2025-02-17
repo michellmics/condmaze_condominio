@@ -143,7 +143,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                               
                                               foreach ($fields as $id => $data) : ?>
                                                   <div class="row g-2 align-items-end mb-3">
-                                                      <div class="col-8 col-md-12">
+                                                      <div class="col-8 col-md-10">
                                                           <label class="form-label" for="<?= $id; ?>"><?= $data['label']; ?></label>
                                                           <input 
                                                               value="<?php echo $data['value']; ?>" 
