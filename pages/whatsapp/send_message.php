@@ -67,10 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ]
             ]
         );
-        echo $message->sid;
+        $resultWhatsTwilioSender =  $message->sid;
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
-        $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to. (MSG: $message)";
+        $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to. (MSG: $message - $resultWhatsTwilioSender)";
         $LOG_DCUSUARIO = "SISTEMA";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
