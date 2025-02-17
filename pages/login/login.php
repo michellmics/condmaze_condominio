@@ -20,9 +20,8 @@ class LoginSystem extends SITE_ADMIN
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($user && password_verify($password, $user['USU_DCSENHA'])) {
-
-                
+            if ($user && password_verify($password, $user['USU_DCSENHA'])) 
+            {                
                 if($user['USU_DCAPARTAMENTO'] == '1000') //barrar acesso a portaria baseado no ip.
                 {
                     $ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
@@ -58,35 +57,40 @@ class LoginSystem extends SITE_ADMIN
                         exit();
 
                     } else {
+                        $_SESSION = [];
+                        session_destroy();
                         echo json_encode(["success" => false, "message" => "Acesso não prmitido para o nível de Portaria! Verifique seu endereço IP."]);
-                        exit();
                     }                    
                     
                 }
                 
+                if($user['USU_DCAPARTAMENTO'] != '1000') //barrar acesso a portaria baseado no ip.
+                {
 
-                $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
-                $_SESSION['user_name'] = $user['USU_DCNOME'];
-                $_SESSION['user_email'] = $user['USU_DCEMAIL'];
-                $_SESSION['user_apartamento'] = $user['USU_DCAPARTAMENTO'];
-                $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
-                $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
-                $_SESSION['last_activity'] = time();
+                    $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
+                    $_SESSION['user_name'] = $user['USU_DCNOME'];
+                    $_SESSION['user_email'] = $user['USU_DCEMAIL'];
+                    $_SESSION['user_apartamento'] = $user['USU_DCAPARTAMENTO'];
+                    $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
+                    $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
+                    $_SESSION['last_activity'] = time();
 
-                // Gera o token
-                $token = $this->gerarToken($user['USU_IDUSUARIO']);
+                    // Gera o token
+                    $token = $this->gerarToken($user['USU_IDUSUARIO']);
 
-                // Atualiza o token no banco
-                $sql = "UPDATE USU_USUARIO SET USU_DCTOKEN = :USU_DCTOKEN WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
-                $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':USU_DCTOKEN', $token, PDO::PARAM_STR);
-                $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
-                $stmt->execute();
+                    // Atualiza o token no banco
+                    $sql = "UPDATE USU_USUARIO SET USU_DCTOKEN = :USU_DCTOKEN WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
+                    $stmt = $this->pdo->prepare($sql);
+                    $stmt->bindParam(':USU_DCTOKEN', $token, PDO::PARAM_STR);
+                    $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
+                    $stmt->execute();
 
-                // Log de sucesso
-                $this->insertLogInfo("LOGIN", "Usuário {$user['USU_DCNOME']} logado com sucesso.", $user['USU_DCNOME'], $user['USU_DCAPARTAMENTO']);
+                    // Log de sucesso
+                    $this->insertLogInfo("LOGIN", "Usuário {$user['USU_DCNOME']} logado com sucesso.", $user['USU_DCNOME'], $user['USU_DCAPARTAMENTO']);
 
-                echo json_encode(["success" => true, "token" => $token]);
+                    echo json_encode(["success" => true, "token" => $token]);
+                }
+                
             } else {
                 // Log de falha
                 $this->insertLogInfo("LOGIN FAILED", "Usuário ou senha incorretos.", "N/A", $apartamento);
