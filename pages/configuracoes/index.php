@@ -21,8 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
       if ($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA') {$ipPortaria = $item['CFG_DCVALOR'];} 
 
     }   
-    var_dump($whatsToken);
-    die();    
+
 ?>
 
 
@@ -121,14 +120,14 @@ if (session_status() === PHP_SESSION_NONE) {
                                               
                                               <?php 
                                               $fields = [
-                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "28", "value" => "$nomeCondominio"],
-                                                  "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4", "value" => "$qtdeUnidades"],
-                                                  "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50", "value" => "$email"],
-                                                  "whatsStatus" => ["label" => "Whatsapp Status", "pattern" => "^[0-9]*$", "maxlength" => "10", "value" => "$whatsStatus"],
-                                                  "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => "^\d{11}$", "maxlength" => "11", "value" => "$whatsSender"],
-                                                  "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50", "value" => "$whatsSid"],
-                                                  "whatsToken" => ["label" => "Whatsapp Token", "pattern" => "^\d{11}$", "maxlength" => "11", "value" => "$whatsToken"],
-                                                  "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "15", "value" => "$ipPortaria"]
+                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "28", "value" => $nomeCondominio],
+                                                  "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4", "value" => $qtdeUnidades],
+                                                  "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50", "value" => $email],
+                                                  "whatsStatus" => ["label" => "Whatsapp Status", "pattern" => "^[0-9]*$", "maxlength" => "10", "value" => $whatsStatus],
+                                                  "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => "^\d{11}$", "maxlength" => "11", "value" => $whatsSender],
+                                                  "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50", "value" => $whatsSid],
+                                                  "whatsToken" => ["label" => "Whatsapp Token", "pattern" => "^\d{11}$", "maxlength" => "11", "value" => $whatsToken],
+                                                  "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "15", "value" => $ipPortaria]
                                               ];
                                               
                                               foreach ($fields as $id => $data) : ?>
