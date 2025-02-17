@@ -157,7 +157,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                           <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($data['label']); ?> corretamente.</div>
                                                       </div>
                                                       <div class="col-4 col-md-2 d-flex align-items-end">
-                                                          <button type="button" class="btn btn-primary w-100 update-btn" data-input="<?= $id; ?>">Update</button>
+                                                          <button type="button" class="btn btn-danger w-70 update-btn" data-input="<?= $id; ?>">EDIT</button>
                                                       </div>
                                                   </div>
                                               <?php endforeach; ?>
