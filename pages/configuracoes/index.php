@@ -108,39 +108,58 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <div class="tab-content">
                                       <div class="tab-pane show active" id="tooltips-validation-preview">
                                           <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-
+                                              
                                               <?php 
                                               $fields = [
-                                                  "nomeCondominio" => "Nome do Condomínio",
-                                                  "qtdeUnidades" => "Quantidade de Unidades",
-                                                  "email" => "E-mail para Notificações",
-                                                  "whatsStatus" => "Whatsapp Status",
-                                                  "whatsSender" => "Whatsapp Telefone Sender",
-                                                  "whatsSid" => "Whatsapp SID",
-                                                  "whatsToken" => "Whatsapp Token",
-                                                  "ipPortaria" => "Endereço IP PC Portaria"
+                                                  "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "28"],
+                                                  "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4"],
+                                                  "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50"],
+                                                  "whatsStatus" => ["label" => "Whatsapp Status", "pattern" => "^[0-9]*$", "maxlength" => "10"],
+                                                  "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => "^\d{11}$", "maxlength" => "11"],
+                                                  "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50"],
+                                                  "whatsToken" => ["label" => "Whatsapp Token", "pattern" => "^\d{11}$", "maxlength" => "11"],
+                                                  "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "15"]
                                               ];
-
-                                              foreach ($fields as $id => $label) : ?>
+                                              
+                                              foreach ($fields as $id => $data) : ?>
                                                   <div class="row g-2 align-items-end mb-3">
                                                       <div class="col-8 col-md-10">
-                                                          <label class="form-label" for="<?= $id; ?>"><?= $label; ?></label>
-                                                          <input value="<?php echo "teste"; ?>" id="<?= $id; ?>" name="<?= $id; ?>" type="text" class="form-control" required />
+                                                          <label class="form-label" for="<?= $id; ?>"><?= $data['label']; ?></label>
+                                                          <input 
+                                                              value="<?php echo "teste"; ?>" 
+                                                              id="<?= $id; ?>" 
+                                                              name="<?= $id; ?>" 
+                                                              type="text" 
+                                                              class="form-control"
+                                                              pattern="<?= $data['pattern']; ?>" 
+                                                              maxlength="<?= $data['maxlength']; ?>" 
+                                                              oninput="
+                                                                  <?php if ($id === 'whatsSender' || $id === 'whatsToken') : ?>
+                                                                      this.value = this.value.replace(/[^0-9]/g, '');
+                                                                  <?php elseif ($id === 'qtdeUnidades') : ?>
+                                                                      this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);
+                                                                  <?php elseif ($id === 'ipPortaria') : ?>
+                                                                      this.value = this.value.replace(/[^0-9.]/g, '');
+                                                                  <?php endif; ?>
+                                                              " 
+                                                              required 
+                                                          />
                                                           <div class="valid-tooltip">Validado!</div>
-                                                          <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($label); ?>.</div>
+                                                          <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($data['label']); ?> corretamente.</div>
                                                       </div>
-                                                      <div class="col-4 col-md-2">
+                                                      <div class="col-4 col-md-2 d-flex align-items-end">
                                                           <button type="button" class="btn btn-primary w-100 update-btn" data-input="<?= $id; ?>">Update</button>
                                                       </div>
                                                   </div>
                                               <?php endforeach; ?>
-                                              
+                                                                  
                                               <br>
                                               <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
-                                              
+                                                                  
                                           </form>
                                       </div> <!-- end preview-->                                        
                                   </div> <!-- end tab-content-->
+
                                               
                                   <script>
                                   document.addEventListener("DOMContentLoaded", function() {
