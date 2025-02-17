@@ -11,14 +11,14 @@ if (session_status() === PHP_SESSION_NONE) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$nomeCondominio = $item['CFG_DCVALOR'];}
       if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$qtdeUnidades = $item['CFG_DCVALOR'];} 
 
-      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$email = $item['CFG_DCVALOR'];}
-      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$whatsStatus = $item['CFG_DCVALOR'];} 
+      if ($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS') {$email = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_STATUS') {$whatsStatus = $item['CFG_DCVALOR'];} 
 
-      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$whatsSender = $item['CFG_DCVALOR'];}
-      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$whatsSid = $item['CFG_DCVALOR'];} 
+      if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_STATUS_SENDER') {$whatsSender = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_SID') {$whatsSid = $item['CFG_DCVALOR'];} 
 
-      if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {$whatsToken = $item['CFG_DCVALOR'];}
-      if ($item['CFG_DCPARAMETRO'] == 'QTDE_APARTAMENTOS') {$ipPortaria = $item['CFG_DCVALOR'];} 
+      if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN') {$whatsToken = $item['CFG_DCVALOR'];}
+      if ($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA') {$ipPortaria = $item['CFG_DCVALOR'];} 
 
     }   
     var_dump($item);
