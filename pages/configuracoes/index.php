@@ -122,7 +122,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                               ];
 
                                               foreach ($fields as $id => $label) : ?>
-                                                  <div class="row g-2 align-items-center mb-3">
+                                                  <div class="row g-2 align-items-end mb-3">
                                                       <div class="col-8 col-md-10">
                                                           <label class="form-label" for="<?= $id; ?>"><?= $label; ?></label>
                                                           <input value="<?php echo "teste"; ?>" id="<?= $id; ?>" name="<?= $id; ?>" type="text" class="form-control" required />
