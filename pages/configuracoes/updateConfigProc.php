@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
 
-        echo json_encode(["status" => "success", "message" => "$result"]);
+        echo json_encode(["status" => "success", "message" => $result]);
     } else {
 
         //--------------------LOG----------------------//
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
 
-        echo json_encode(["status" => "error", "message" => "Faiou"]);
+        echo json_encode(["status" => "error", "message" => $result]);
     }
 } else {
     echo json_encode(["status" => "error", "message" => "Método inválido."]);

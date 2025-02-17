@@ -1320,10 +1320,10 @@
                 
             
                 // Retorna uma mensagem de sucesso (opcional)
-                return ["success" => "Configuração atualizada com sucesso."];
+                return "Configuração atualizada com sucesso.";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return ["error" => "Atualização falhou."];
+                return "A tentativa de atualização falhou.";
             }
         }
 
