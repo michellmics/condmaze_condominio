@@ -32,7 +32,6 @@ class LoginSystem extends SITE_ADMIN
                     $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if ($ipPortaria['CFG_DCVALOR'] == $ipAcessoClient || $ipAcessoClient == "*") {
-                        echo json_encode(["success" => false, "message" => "Credenciais de portaria!". $ipPortaria['CFG_DCVALOR']]);
                        
                         $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
                         $_SESSION['user_name'] = $user['USU_DCNOME'];
@@ -54,7 +53,6 @@ class LoginSystem extends SITE_ADMIN
                         $this->insertLogInfo("LOGIN", "Usuário {$user['USU_DCNOME']} logado com sucesso.", $user['USU_DCNOME'], $user['USU_DCAPARTAMENTO']);
 
                         echo json_encode(["success" => true, "token" => $token]);
-                        exit();
 
                     } else {
                         $_SESSION = [];
