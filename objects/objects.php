@@ -1299,6 +1299,34 @@
             }
         }
 
+        public function updateConfigInfo($CFG_DCPARAMETRO, $CFG_DCVALOR)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "UPDATE CFG_CONFIGURACAO 
+                        SET CFG_DCVALOR = :CFG_DCVALOR
+                        WHERE CFG_DCPARAMETRO = :CFG_DCPARAMETRO";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':CFG_DCVALOR', $CFG_DCVALOR, PDO::PARAM_STR);
+                $stmt->bindParam(':CFG_DCPARAMETRO', $CFG_DCPARAMETRO, PDO::PARAM_STR);                
+                $stmt->execute();
+                
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Configuração atualizada com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => "Atualização falhou."];
+            }
+        }
+
         public function notifyEmail($SUBJECT, $MSG, $HOST)
         {
             $this->getParameterInfo();

@@ -171,34 +171,55 @@ if (session_status() === PHP_SESSION_NONE) {
 
                                               
                                   <script>
-                                  document.addEventListener("DOMContentLoaded", function() {
-                                      document.querySelectorAll(".update-btn").forEach(button => {
-                                          button.addEventListener("click", function() {
-                                              let inputId = this.getAttribute("data-input");
-                                              let inputValue = document.getElementById(inputId).value;
-                                          
-                                              if (inputValue.trim() === "") {
-                                                  alert("Por favor, preencha o campo antes de atualizar.");
-                                                  return;
-                                              }
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        document.querySelectorAll(".update-btn").forEach(button => {
+                                            button.addEventListener("click", function() {
+                                                let inputId = this.getAttribute("data-input");
+                                                let inputValue = document.getElementById(inputId).value;
                                             
-                                              fetch("update.php", {
-                                                  method: "POST",
-                                                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                                                  body: `campo=${inputId}&valor=${encodeURIComponent(inputValue)}`
-                                              })
-                                              .then(response => response.text())
-                                              .then(result => {
-                                                  alert("Atualização feita com sucesso!");
-                                              })
-                                              .catch(error => {
-                                                  alert("Erro ao atualizar.");
-                                                  console.error("Erro:", error);
-                                              });
-                                          });
-                                      });
-                                  });
-                                  </script>
+                                                if (inputValue.trim() === "") {
+                                                    Swal.fire({
+                                                        icon: 'warning',
+                                                        title: 'Atenção',
+                                                        text: 'Por favor, preencha o campo antes de atualizar.'
+                                                    });
+                                                    return;
+                                                }
+                                              
+                                                fetch("updateproc.php", {
+                                                    method: "POST",
+                                                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                                    body: `campo=${encodeURIComponent(inputId)}&valor=${encodeURIComponent(inputValue)}`
+                                                })
+                                                .then(response => response.json())
+                                                .then(result => {
+                                                    if (result.status === "success") {
+                                                        Swal.fire({
+                                                            icon: 'success',
+                                                            title: 'Sucesso!',
+                                                            text: result.message
+                                                        });
+                                                    } else {
+                                                        Swal.fire({
+                                                            icon: 'error',
+                                                            title: 'Erro!',
+                                                            text: result.message
+                                                        });
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Erro!',
+                                                        text: 'Erro ao atualizar. Verifique o console para mais detalhes.'
+                                                    });
+                                                    console.error("Erro:", error);
+                                                });
+                                            });
+                                        });
+                                    });
+                                    </script>
+
 
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
