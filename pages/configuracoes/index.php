@@ -21,7 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
       if ($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA') {$ipPortaria = $item['CFG_DCVALOR'];} 
 
     }   
-    var_dump($item);
+    var_dump($whatsToken);
     die();    
 ?>
 
