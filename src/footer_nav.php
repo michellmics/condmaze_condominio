@@ -1,3 +1,17 @@
+<?php
+$ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
+$checkPortaria = new SITE_ADMIN();  
+$resultPortCheck = $checkPortaria->getValidPortariaInfo($ipAcessoClient);
+
+if($resultPortCheck != 1)
+{
+    header("Location: ../login/index.php");
+    exit();
+}
+
+?>
+
+
 <style>
         html, body {
         height: 100%; /* Garante que a altura da página seja de 100% da janela */
@@ -87,3 +101,5 @@
         modal.show();
     }
 </script>
+
+

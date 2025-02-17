@@ -324,6 +324,31 @@
             }          
         }
 
+        public function getValidPortariaInfo($ipAcessoClient)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = 'IP_PORTARIA'";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($ipPortaria['CFG_DCVALOR'] == $ipAcessoClient || $ipPortaria['CFG_DCVALOR'] == "*") {
+                    return 1;
+                }
+                else
+                    {
+                        return 0;
+                    }
+
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function getPetsInfoById($USU_IDUSUARIO)
         {          
                 // Verifica se a conexão já foi estabelecida

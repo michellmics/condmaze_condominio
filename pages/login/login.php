@@ -31,7 +31,7 @@ class LoginSystem extends SITE_ADMIN
                     $stmt->execute();
                     $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                    if ($ipPortaria['CFG_DCVALOR'] == $ipAcessoClient || $ipAcessoClient == "*") {
+                    if ($ipPortaria['CFG_DCVALOR'] == $ipAcessoClient || $ipPortaria['CFG_DCVALOR'] == "*") {
                        
                         $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
                         $_SESSION['user_name'] = $user['USU_DCNOME'];
