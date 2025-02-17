@@ -44,6 +44,10 @@ $message = $client->messages->create(
     ]
 );
 $resultWhatsTwilioSender =  $message->sid;
-var_dump($resultWhatsTwilioSender);
+$message_sid = $resultWhatsTwilioSender; // O SID retornado
+$message = $client->messages($message_sid)->fetch();
+
+echo "Status da mensagem: " . $message->status;
+
 
 ?>
