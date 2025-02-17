@@ -1,9 +1,4 @@
 <?php
-echo "<pre>";
-var_dump($_SERVER);
-echo "</pre>";
-die();
-
 session_start(); 
 
 include_once "../../objects/objects.php";
@@ -28,22 +23,40 @@ class LoginSystem extends SITE_ADMIN
             if ($user && password_verify($password, $user['USU_DCSENHA'])) {
 
                 
-                if($user['USU_DCAPARTAMENTO'] == '1000')
+                if($user['USU_DCAPARTAMENTO'] == '1000') //barrar acesso a portaria baseado no ip.
                 {
                     $ipAcessoClient = $_SERVER['HTTP_X_REAL_IP'];
 
-                    $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = :IP_PORTARIA";
+                    $sql = "SELECT CFG_DCVALOR FROM CFG_CONFIGURACAO WHERE CFG_DCPARAMETRO = IP_PORTARIA";
                     $stmt = $this->pdo->prepare($sql);
-                    $stmt->bindParam(':IP_PORTARIA', $ipAcessoClient, PDO::PARAM_STR);
                     $stmt->execute();
                     $ipPortaria = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                    if ($ipPortaria) {
+                    if ($ipPortaria['CFG_DCVALOR'] == $ipAcessoClient || $ipAcessoClient == "*") {
                         echo json_encode(["success" => false, "message" => "Credenciais de portaria!". $ipPortaria['CFG_DCVALOR']]);
-                        exit();
+                       
+                        $_SESSION['user_id'] = $user['USU_IDUSUARIO'];
+                        $_SESSION['user_name'] = $user['USU_DCNOME'];
+                        $_SESSION['user_email'] = $user['USU_DCEMAIL'];
+                        $_SESSION['user_apartamento'] = $user['USU_DCAPARTAMENTO'];
+                        $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
+                        $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
+                        $_SESSION['last_activity'] = time();
+
+                        $token = $this->gerarToken($user['USU_IDUSUARIO']);
+
+                        // Atualiza o token no banco
+                        $sql = "UPDATE USU_USUARIO SET USU_DCTOKEN = :USU_DCTOKEN WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
+                        $stmt = $this->pdo->prepare($sql);
+                        $stmt->bindParam(':USU_DCTOKEN', $token, PDO::PARAM_STR);
+                        $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
+                        $stmt->execute();
+
+                        $this->insertLogInfo("LOGIN", "Usuário {$user['USU_DCNOME']} logado com sucesso.", $user['USU_DCNOME'], $user['USU_DCAPARTAMENTO']);
+                        echo json_encode(["success" => true, "token" => $token]);
+
                     } else {
-                        // IP não encontrado
-                        echo "IP não encontrado na configuração.";
+                        echo "Acesso não prmitido para o nível de Portaria! Verifique seu endereço IP.";
                         exit();
                     }                    
                     
