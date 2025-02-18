@@ -18,19 +18,14 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
-    $saldoWhatsapp = $siteAdmin->whatsappSaldo();
-    
-    if ($saldoWhatsapp == "INATIVO") {
-        $saldoWhatsapp = "Serviço Inativo";
-    } else {
-        if (is_numeric($saldoWhatsapp)) {
-            $saldoWhatsapp = 2 * (float) $saldoWhatsapp;
-            $saldoWhatsapp = number_format($saldoWhatsapp, 2, ',', '.');
-            $saldoWhatsapp = "$ " . $saldoWhatsapp; 
-        } else {
-            $saldoWhatsapp = "Valor inválido";
+  
+
+    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+        if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOTAL_MSG') {
+            $saldoWhatsapp = $item['CFG_DCVALOR']; 
+            break; 
         }
-    }
+      }   
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -158,7 +153,7 @@
                                     <p class="text-muted font-14">
                                     <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
                                     <span>Síndico(a), seu saldo para envios de mensagem por WhatsApp é: 
-                                        <strong style="color: #25D366;"><?php echo $saldoWhatsapp; ?></strong>
+                                        <strong style="color: #25D366;"><?php echo "$saldoWhatsapp créditos"; ?></strong>
                                     </span>
                                     </p>
                                     <?php endif; ?>      

@@ -18,15 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $siteAdmin->getParameterInfo();
 
-    $parametros = ['WHATSAPP_SENDER' => null, 'WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null, 'NOME_CONDOMINIO' => null];
-
+    $parametros = ['TELEFONE_SINDICO' => null, 'WHATSAPP_TOTAL_MSG' => null, 'WHATSAPP_SENDER' => null, 'WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null, 'NOME_CONDOMINIO' => null];
+    
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
             $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR']; 
         }
     } 
     
-    // Suas credenciais do Twilio
+    $whatsappTotalMsgDisponivel = $parametros['WHATSAPP_TOTAL_MSG'];
+    $TelefoneSindico = $parametros['TELEFONE_SINDICO'];
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
     $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; 
     $token = $parametros['WHATSAPP_TOKEN'];
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
     $condominioNome = $parametros['NOME_CONDOMINIO'];
     $to = "whatsapp:+55$telefone";
- 
+
     if($statusWhatsapp != "ATIVO")
     {
         //--------------------LOG----------------------//
@@ -49,7 +50,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+    if($whatsappTotalMsgDisponivel == 0)
+    {
+        //--------------------LOG----------------------//
+        $LOG_DCTIPO = "NOTIFICAÇÃO";
+        $LOG_DCMSG = "Serviço de notificação por Whatsapp está desativado por falta de créditos.";
+        $LOG_DCUSUARIO = $nome;
+        $LOG_DCCODIGO = "N/A";
+        $LOG_DCAPARTAMENTO = "N/A";
+        $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+        //--------------------LOG----------------------//
+        
+        $reposta = "sem credito";
+    }
+
         $client = new Client($sid, $token);
+
+        if($resposta == "sem credito")
+        {
+            $body = "O sistema CONDOmaze instalado no $condominioNome está sem créditos para envio de notificações pelo Whatsapp. Contate a Codemaze para inserir novos créditos.";
+            $template = "prq_hortensias_condominio_falta_credito";
+        }
 
         if($resposta == "disponivel")
         {
@@ -95,6 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $LOG_DCAPARTAMENTO = "N/A";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
+
+        $whatsappTotalMsgDisponivel = $whatsappTotalMsgDisponivel - 1;
+        $siteAdmin->updateCreditoWhatsappInfo($whatsappTotalMsgDisponivel);
 
         echo json_encode(['success' => 'Notificação enviada ao Whatsapp do morador.']);
 
