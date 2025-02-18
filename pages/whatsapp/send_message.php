@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $parametros['WHATSAPP_TOKEN'];
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
+    $condominioNome = $parametros['NOME_CONDOMINIO'];
     $to = "whatsapp:+55$telefone";
  
     if($statusWhatsapp != "ATIVO")
@@ -56,7 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $to, // Número de destino com WhatsApp
             [
                 'from' => $twilioNumber, // Número Twilio
-                'body' => 'Mensagem personaliada se não for usar template',
+                'body' => "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria do {{condominio_nome}}.                    
+                Ao chegar na portaria, acesse o link abaixo para liberar a retirada.
+                $link",
                 'template' => [
                     'name' => 'prq_hortensias_condominio_encomenda', // Nome do template aprovado
                     'parameters' => [
