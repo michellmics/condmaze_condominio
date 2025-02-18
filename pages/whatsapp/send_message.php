@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } 
     
     $whatsappTotalMsgDisponivel = $parametros['WHATSAPP_TOTAL_MSG'];
-    $TelefoneSindico = $parametros['TELEFONE_SINDICO'];
+    $telefoneSindico = $parametros['TELEFONE_SINDICO'];
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
     $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; 
     $token = $parametros['WHATSAPP_TOKEN'];
@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         {
             $body = "O sistema CONDOmaze instalado no $condominioNome está sem créditos para envio de notificações pelo Whatsapp. Contate a Codemaze para inserir novos créditos.";
             $template = "prq_hortensias_condominio_falta_credito";
+            $to = "whatsapp:+55$telefoneSindico";
         }
 
         if($resposta == "disponivel")
