@@ -130,7 +130,7 @@
             return base64_encode(json_encode($dados) . "." . hash_hmac('sha256', json_encode($dados), $chaveSecreta));
         }
 
-        public function whatsapp($nome, $link = "", $telefone, $id, $resposta)
+        public function whatsapp($nome, $telefone, $id, $resposta, $link = "")
         {
             // URL do script que processa os dados
             $url = 'https://parquedashortensias.codemaze.com.br/pages/whatsapp/send_message.php';

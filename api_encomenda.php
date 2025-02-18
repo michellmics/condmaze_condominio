@@ -36,8 +36,7 @@
                 $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
 
                 $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
-                $siteAdmin->whatsapp($usuarioNome, "", $telefone,$encomendaId,"liberar");
-                
+                $siteAdmin->whatsapp($usuarioNome, $telefone,$encomendaId,"liberar", "");
 
                 $message = "Uhull!!! Encomenda liberada com sucesso!";
                 $messageType = "success";

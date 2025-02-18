@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $link = "https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hash";
             $msg = "Olá *$nome*, sua entrega com ID *$id* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias.*
                     \nAo chegar na portaria, acesse o link abaixo para liberar a retirada.\n\n$link";
-            $result = $siteAdmin->whatsapp($nome, $link, $telefone, $id, "disponivel");
+            $result = $siteAdmin->whatsapp($nome, $telefone, $id, "disponivel", $link);
         }
         echo json_encode(['success' => $result]);
 
