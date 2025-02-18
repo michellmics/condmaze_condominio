@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $siteAdmin->getParameterInfo();
 
-    $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
+    $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null, 'NOME_CONDOMINIO' => null];
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $to, // Número de destino com WhatsApp
             [
                 'from' => $twilioNumber, // Número Twilio
-                'body' => "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria d $condominioNome.                    
+                'body' => "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria do $condominioNome.                    
                 Ao chegar na portaria, acesse o link abaixo para liberar a retirada.
                 $link",
                 'template' => [
