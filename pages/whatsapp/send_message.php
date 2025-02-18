@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } 
     
-    $whatsappTotalMsgDisponivel = $parametros['WHATSAPP_TOTAL_MSG'];
+    $whatsappTotalMsgDisponivel = (int)$parametros['WHATSAPP_TOTAL_MSG'];
     $telefoneSindico = $parametros['TELEFONE_SINDICO'];
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
     $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; 
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    if($whatsappTotalMsgDisponivel == "0")
+    if($whatsappTotalMsgDisponivel == 0)
     {
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
         
-        $reposta = "sem credito";
+        $resposta = "sem credito";
     }
 
         $client = new Client($sid, $token);
