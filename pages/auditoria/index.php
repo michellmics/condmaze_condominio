@@ -125,7 +125,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>DATA</th>
-                                                        <th>USUÁRIO</th>
+                                                        <th>USUÁRIO / NÍVEL</th>
                                                         <th>APTO</th>
                                                         <th>TIPO</th>
                                                         <th>COD</th>
