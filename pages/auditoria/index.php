@@ -140,7 +140,10 @@
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
-                                                            <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word;" class="align-middle"><?= htmlspecialchars($item['LOG_DCMSG']); ?></td>
+                                                            <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word;" class="align-middle">
+                                                                <?= nl2br(htmlspecialchars($item['LOG_DCMSG'])); ?>
+                                                            </td>
+                                                                
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
