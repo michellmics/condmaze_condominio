@@ -1710,7 +1710,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM LOG_LOGSISTEMA ORDER BY LOG_DTLOG DESC";
+                $sql = "SELECT * FROM LOG_LOGSISTEMA ORDER BY LOG_DTLOG ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
