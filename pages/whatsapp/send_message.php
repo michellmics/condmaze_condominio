@@ -48,8 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Enviar mensagem via Twilio
-    try {
         $client = new Client($sid, $token);
 
         // Usando o template aprovado
@@ -65,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'parameters' => [
                         ['type' => 'text', 'text' => $nome],          // usuario_nome = Carlos
                         ['type' => 'text', 'text' => $codigo],         // id_entrega = 123456
-                        ['type' => 'text', 'text' => 'Condomínio Parque das Hortênsias'], // condominio_nome = Residencial Alpha
+                        ['type' => 'text', 'text' => $condominioNome], // condominio_nome = Residencial Alpha
                         ['type' => 'text', 'text' => $link] // link_liberar_entrega
                     ]
                 ]
@@ -82,18 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //--------------------LOG----------------------//
 
         echo json_encode(['success' => 'Notificação enviada ao Whatsapp do morador.']);
-    } catch (Exception $e) {
 
-        //--------------------LOG----------------------//
-        $LOG_DCTIPO = "NOTIFICAÇÃO";
-        $LOG_DCMSG = "Serviço de notificação por Whatsapp apresentou um erro. (MSG: $message)";
-        $LOG_DCUSUARIO = "WHATSAPP";
-        $LOG_DCCODIGO = "N/A";
-        $LOG_DCAPARTAMENTO = "";
-        $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
-        //--------------------LOG----------------------//
-
-        echo json_encode(['error' => 'Notificação por Whatsapp apresentou um erro.']);
-    }
 }
 ?>
