@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
-            $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR'];
+            $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR']; 
         }
     } 
     
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
     $to = "whatsapp:+55$telefone";
-
+ 
     if($statusWhatsapp != "ATIVO")
     {
         //--------------------LOG----------------------//
