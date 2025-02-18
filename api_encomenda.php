@@ -3,10 +3,10 @@
     error_reporting(E_ALL);        
     include_once "objects/objects.php";
 
-    $message = ""; // Variável para armazenar a mensagem de erro ou sucesso
-    $messageType = ""; // Variável para armazenar o tipo da mensagem (sucesso ou erro)
-    $showButton = false; // Indica se o botão deve ser exibido
-    $HASH = ""; // Armazena o hash para ser enviado no POST
+    $message = ""; 
+    $messageType = ""; 
+    $showButton = false; 
+    $HASH = ""; 
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (!isset($_GET['hash'])) {
@@ -14,7 +14,7 @@
             $messageType = "error";
         } else {
             $HASH = $_GET['hash'];
-            $showButton = true; // Mostra o botão para confirmar a liberação
+            $showButton = true; 
         }
     }
 
@@ -36,11 +36,12 @@
                 $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
 
                 $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
-                $siteAdmin->whatsapp($messageWhats, $telefone);
+                $siteAdmin->whatsapp($usuarioNome, "", $telefone,$encomendaId,"liberar");
+                
 
                 $message = "Uhull!!! Encomenda liberada com sucesso!";
                 $messageType = "success";
-                $showButton = false; // Oculta o botão após liberação
+                $showButton = false; 
             } else {
                 $message = "Ah não!!! Houve um erro durante a liberação! Dirija-se à portaria.";
                 $messageType = "error";

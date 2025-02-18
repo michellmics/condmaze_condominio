@@ -137,35 +137,6 @@
                     <?php echo "BL: " . $blocoSession . " APTO: " . $apartamentoSession; ?><span style="font-size: 10px; color:rgb(138, 235, 241);"><?php echo $nivelAcesso; ?></span>
                 </ul>
                 </a>
-
-
-                    
-<!--
-                    <li class="dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none nav-user px-4" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <span class="account-user-avatar">
-                                <img src="../../assets/images/users/avatar_generico.jpg" alt="user-image" width="32" class="rounded-circle">
-                            </span>
-                            <span class="d-lg-flex flex-column gap-1 d-none">
-                                <h5 class="my-0"><?php //echo $nomeSessionShort; ?></h5>
-                                <h6 class="my-0 fw-normal"><?php //echo $usuariologado; ?></h6> 
-                                <h6 class="my-0 fw-normal"><?php //echo $nivelAcesso; ?></h6> 
-                            </span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
-
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <i class="mdi mdi-account-circle me-1"></i>
-                                <span>Minha Conta</span>
-                            </a>
-
-
-                            <a href="../logoff/index.php" class="dropdown-item">
-                                <i class="mdi mdi-logout me-1"></i>
-                                <span>Sair</span>
-                            </a>
-                        </div>
-                    </li> -->
                 </ul>
             </div>
         </div>

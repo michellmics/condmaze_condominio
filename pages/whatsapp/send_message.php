@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $data['nome'] ?? null;
     $codigo = $data['codigo'] ?? null;
     $link = $data['link'] ?? null;
+    $resposta = $data['resposta'] ?? null;
 
     $siteAdmin->getParameterInfo();
 
@@ -50,16 +51,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $client = new Client($sid, $token);
 
+        if($resposta == "disponivel")
+        {
+            $body = "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria do $condominioNome.                    
+                Ao chegar na portaria, acesse o link para liberar a retirada. $link";
+            $template = "prq_hortensias_condominio_encomenda";
+        }
+        if($resposta == "liberar")
+        {
+            $body = "Olá *$nome*, a encomenda com ID *$codigo* foi liberada com sucesso.";
+            $template = "prq_hortensias_condominio_encomenda_liberada";
+        }
+    
+
         // Usando o template aprovado
         $message = $client->messages->create(
             $to, // Número de destino com WhatsApp
             [
                 'from' => $twilioNumber, // Número Twilio
-                'body' => "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria do $condominioNome.                    
-                Ao chegar na portaria, acesse o link abaixo para liberar a retirada.
-                $link",
+                'body' => $body,
                 'template' => [
-                    'name' => 'prq_hortensias_condominio_encomenda', // Nome do template aprovado
+                    'name' => $template, // Nome do template aprovado
                     'parameters' => [
                         ['type' => 'text', 'text' => $nome],          // usuario_nome = Carlos
                         ['type' => 'text', 'text' => $codigo],         // id_entrega = 123456
