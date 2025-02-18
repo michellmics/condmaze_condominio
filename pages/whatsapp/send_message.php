@@ -88,8 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resultWhatsTwilioSender =  $message->sid;
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
-        $LOG_DCMSG = "Notificação por Whatsapp enviada com sucesso para o número fsdf. texto: $body";
-        $LOG_DCUSUARIO = $nome;
+        $LOG_DCMSG = "Notificação por Whatsapp enviada com sucesso para o número $to. texto: asdasd";
+        $LOG_DCUSUARIO = strtoupper($nome);
         $LOG_DCCODIGO = $codigo;
         $LOG_DCAPARTAMENTO = "N/A";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
