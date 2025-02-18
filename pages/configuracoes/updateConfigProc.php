@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($campo == "whatsSid"){$campo = "WHATSAPP_SID";}
         if($campo == "whatsToken"){$campo = "WHATSAPP_TOKEN";}
         if($campo == "ipPortaria"){$campo = "IP_PORTARIA";}
+        if($campo == "whatsSindico"){$campo = "TELEFONE_SINDICO";}
 
         $result = $siteAdmin->updateConfigInfo($campo, $valor);   
         
