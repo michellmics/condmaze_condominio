@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if($resposta == "disponivel")
         {
-            $body = "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria do $condominioNome. Ao chegar na portaria, acesse o link para liberar a retirada. $link";
+            $body = "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria do $condominioNome. Ao chegar na portaria, acesse o link para liberar a sua retirada. $link";
             $template = "prq_hortensias_condominio_encomenda";
         }
         if($resposta == "liberar")
