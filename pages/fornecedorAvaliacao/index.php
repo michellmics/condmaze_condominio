@@ -173,7 +173,7 @@
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
-                                                        <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
+                                                        fdgdfgd<div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                         <?php if ($nivelAcesso == 'SINDICO'): ?>
                                                             <i class="mdi mdi-delete" title="Excluir Prestador" style="cursor: pointer; font-size: 24px;" onclick="confirmDeletePrestador(event, '<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO'], ENT_QUOTES, 'UTF-8'); ?>')"></i>                                                            
                                                         <?php endif; ?>
@@ -191,7 +191,7 @@
                                                                 {
                                                             ?>
                                                                     &nbsp;&nbsp;&nbsp;<strong><?= substr(htmlspecialchars($comentario_prestador['USU_DCNOME']),0,20)."..."; ?></strong>                                                                    
-                                                                    <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'>dfsdfsdf</span>";}?>                                                                 
+                                                                    <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
                                                                     <br>
                                                                     &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?>
                                                                     
