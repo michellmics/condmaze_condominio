@@ -137,10 +137,10 @@
 
             // Dados que serão enviados no POST
             $data = [
-                'telefone' => "$nome", 
-                'link' => "$link",
-                'telefone' => "$telefone", 
-                'codigo' => "$id"
+                'nome' => $nome, 
+                'link' => $link,
+                'telefone' => $telefone, 
+                'codigo' => $id
             ];
 
             // Inicializar o cURL
