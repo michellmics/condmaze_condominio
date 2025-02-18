@@ -119,7 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //--------------------LOG----------------------//
 
         $whatsappTotalMsgDisponivel = $whatsappTotalMsgDisponivel - 1;
-        $siteAdmin->updateCreditoWhatsappInfo($whatsappTotalMsgDisponivel);
+        if($whatsappTotalMsgDisponivel >= 0)
+        {
+            $siteAdmin->updateCreditoWhatsappInfo($whatsappTotalMsgDisponivel);
+        }
 
         echo json_encode(['success' => 'Notificação enviada ao Whatsapp do morador.']);
 
