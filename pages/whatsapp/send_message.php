@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } 
     
-    $whatsappTotalMsgDisponivel = $parametros['WHATSAPP_TOTAL_MSG'];
+    $whatsappTotalMsgDisponivel = (int)$parametros['WHATSAPP_TOTAL_MSG'];
     $telefoneSindico = $parametros['TELEFONE_SINDICO'];
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
     $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; 
