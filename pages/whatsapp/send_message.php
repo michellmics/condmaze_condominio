@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $LOG_DCMSG = "Serviço de notificação por Whatsapp está desativado.";
         $LOG_DCUSUARIO = "WHATSAPP";
         $LOG_DCCODIGO = "N/A";
-        $LOG_DCAPARTAMENTO = "";
+        $LOG_DCAPARTAMENTO = "N/A";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
 
@@ -88,9 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resultWhatsTwilioSender =  $message->sid;
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
-        $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to. (MSG: $message - $resultWhatsTwilioSender)";
-        $LOG_DCUSUARIO = $nome;
-        $LOG_DCCODIGO = $codigo;
+        $LOG_DCMSG = "Notificação por Whatsapp enviada com sucesso para o número";
+        $LOG_DCUSUARIO = "435345";
+        $LOG_DCCODIGO = "345435";
         $LOG_DCAPARTAMENTO = "N/A";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
         //--------------------LOG----------------------//
