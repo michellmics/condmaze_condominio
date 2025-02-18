@@ -29,7 +29,8 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_SID')) {$whatsSid = $item['CFG_DCVALOR'];} 
 
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN')) {$whatsToken = $item['CFG_DCVALOR'];}
-      if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];}  
+      if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'TELEFONE_SINDICO')) {$whatsSindico = $item['CFG_DCVALOR'];}   
 
     }   
 
