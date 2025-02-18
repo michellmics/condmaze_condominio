@@ -58,10 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if($resposta == "liberar")
         {
-            $body = "Olá *$nome*, a encomenda com ID *$codigo* foi liberada com sucesso.";
+            $body = "Olá *$nome*, a encomenda com ID *$codigo* foi *liberada* com sucesso.";
             $template = "prq_hortensias_condominio_encomenda_liberada";
         }
-    
+        if($resposta == "entregue")
+        {
+            $body = "Olá *$nome*, a encomenda com ID *$codigo* foi *entregue* com sucesso.";
+            $template = "prq_hortensias_condominio_encomenda_entregue";
+        }
+ 
 
         // Usando o template aprovado
         $message = $client->messages->create(

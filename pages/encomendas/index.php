@@ -590,6 +590,10 @@ $(document).ready(function () {
             switchElem.addEventListener('change', function () {
                 const id = this.getAttribute('data-id1');
                 const status = this.checked ? 'ENTREGUE' : 'PENDENTE';
+                const td = document.querySelector('td[nome]');
+                const tdTelefone = document.querySelector('td[telefone]');
+                const nome = td.getAttribute('nome');
+                const telefone = tdTelefone.getAttribute('telefone');       
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxEntregar.php', {
@@ -597,7 +601,7 @@ $(document).ready(function () {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ id, status })
+                    body: JSON.stringify({ id, status, nome, telefone })
                 })
                 .then(response => response.json())
                 .then(data => {

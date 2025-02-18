@@ -7,4 +7,4 @@ services:
       - "8081:80"
     volumes:
       - uploads:/var/www/html/pages/instrucoesAdequacoes/uploads
-      - petsImg:/var/www/html/pages/petControle/PETS_IMG 
+      - petsImg:/var/www/html/pages/petControle/PETS_IMG  
