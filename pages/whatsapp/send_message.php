@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $siteAdmin->getParameterInfo();
 
-    $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null, 'NOME_CONDOMINIO' => null];
+    $parametros = ['WHATSAPP_SENDER' => null, 'WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null, 'NOME_CONDOMINIO' => null];
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Suas credenciais do Twilio
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
-    $twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
+    $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; 
     $token = $parametros['WHATSAPP_TOKEN'];
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
