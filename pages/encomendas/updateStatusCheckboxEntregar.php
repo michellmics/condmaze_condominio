@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $result = $siteAdmin->whatsapp($nome, $telefone, $id, "entregue", "");
         }
 
-        echo json_encode(['success' => $result]);
+        echo json_encode(['success' => true, 'message' => 'Status atualizado.']);
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);
     }
