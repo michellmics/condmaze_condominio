@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Suas credenciais do Twilio
     $twilioNumberFoneSender = $parametros['WHATSAPP_SENDER'];
-    $twilioNumber = "whatsapp:+$twilioNumberFoneSender"; // Número do Twilio Sandbox
+    $twilioNumber = 'whatsapp:+14155238886'; // Número do Twilio Sandbox
     $token = $parametros['WHATSAPP_TOKEN'];
     $sid = $parametros['WHATSAPP_SID'];
     $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
         $LOG_DCMSG = "Serviço de notificação por Whatsapp está desativado.";
-        $LOG_DCUSUARIO = "SISTEMA";
+        $LOG_DCUSUARIO = "WHATSAPP";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
         $LOG_DCMSG = "Notificação por Whatsapp enviado com sucesso para o número $to. (MSG: $message - $resultWhatsTwilioSender)";
-        $LOG_DCUSUARIO = "SISTEMA";
+        $LOG_DCUSUARIO = "WHATSAPP";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //--------------------LOG----------------------//
         $LOG_DCTIPO = "NOTIFICAÇÃO";
         $LOG_DCMSG = "Serviço de notificação por Whatsapp apresentou um erro. (MSG: $message)";
-        $LOG_DCUSUARIO = "SISTEMA";
+        $LOG_DCUSUARIO = "WHATSAPP";
         $LOG_DCCODIGO = "N/A";
         $LOG_DCAPARTAMENTO = "";
         $siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
