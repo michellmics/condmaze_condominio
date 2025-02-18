@@ -141,7 +141,7 @@
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
                                                             <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;" class="align-middle">
-                                                                <?= nl2br(wordwrap(htmlspecialchars($item['LOG_DCMSG']), 30, "\n", true)); ?>
+                                                                <?= nl2br(wordwrap(htmlspecialchars($item['LOG_DCMSG']), 50, "\n", true)); ?>
                                                             </td>
                                                                 
                                                         </tr>
