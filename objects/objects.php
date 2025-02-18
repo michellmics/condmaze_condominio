@@ -760,7 +760,7 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
-            $now = new DateTime(); 
+            $now = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
             $DATA = $now->format('Y-m-d H:i:s');
 
             try {
