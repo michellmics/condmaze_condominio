@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $to, // Número de destino com WhatsApp
             [
                 'from' => $twilioNumber, // Número Twilio
-                'body' => "Ol $nome, sua entrega com ID $codigo está disponível para retirada na portaria do {{condominio_nome}}.                    
+                'body' => "Olá $nome, sua entrega com ID $codigo está disponível para retirada na portaria d $condominioNome.                    
                 Ao chegar na portaria, acesse o link abaixo para liberar a retirada.
                 $link",
                 'template' => [
