@@ -28,7 +28,9 @@
                                     <a href="../listaMoradores/index.php" class="dropdown-item">Lista de Moradores</a>                                                           
                                     <?php endif; ?>      
                                     
-                                    <a href="../petControle/index.php" class="dropdown-item">Meus Pets</a>                                                           
+                                    <?php if ($nivelAcesso == 'DEV'): ?>
+                                    <a href="../petControle/index.php" class="dropdown-item">Meus Pets</a>  
+                                    <?php endif; ?>                                                         
                                     
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                     <a href="../fornecedorAvaliacao/index.php" class="dropdown-item">Aval. Prestadores</a>
