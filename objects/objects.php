@@ -1220,6 +1220,30 @@
             }
         }
 
+        public function deleteArtigoInfo($INA_IDINSTRUCOES_ADEQUACOES)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM INA_INSTRUCOES_ADEQUACOES WHERE INA_IDINSTRUCOES_ADEQUACOES = :INA_IDINSTRUCOES_ADEQUACOES";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Artigo deletado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function deletePetInfo($PEM_IDPETMORADOR)
         {       
             // Verifica se a conexão já foi estabelecida

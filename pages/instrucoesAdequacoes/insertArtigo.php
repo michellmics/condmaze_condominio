@@ -193,7 +193,7 @@ ini_set('max_execution_time', '300');
                                             </div>
                                         </div>
                                                                
-                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
+                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Voltar</button>             
                                             <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
                                        
                                     </form>
