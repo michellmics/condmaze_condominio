@@ -181,10 +181,21 @@
                                                             || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
                                                         {
                                                             $fieldPortaria = "disabled";
+                                                            $whatsColor = "#484b49";
+                                                            $linkWhats = "#";
                                                         }
                                                         else
                                                             {
                                                                 $fieldPortaria = "";
+                                                                $whatsColor = "#30ec6f";
+                                                                $telefone = '+55' . $item['USU_DCTELEFONE']; 
+                                                                $nomeWhats = $item['USU_DCNOME'];
+                                                                $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/pages/login/index.php";
+                                                                $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
+        
+                                                                $mensagem = "Olá $nomeWhats,\nSua entrega está disponível para retirada.\n\nLocal: Condomínio Parque das Hortênsias.\nID da Encomenda: $idEncomendaWhats\n\nAo chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.\nLiberar Entrega: $linkEncomendaWhats";   
+                                                                $mensagem_codificada = urlencode($mensagem);
+                                                                $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
                                                             }
 
                                                         if($item['ENC_STENTREGA_MORADOR'] == "ENTREGUE") 
@@ -201,19 +212,7 @@
                                                         $dataPortaria = $date->format('d/m/Y H:i');
 
                                                         $date = new DateTime($item['ENC_DTENTREGA_MORADOR']);
-                                                        $dataMorador = $date->format('d/m/Y H:i');
-
-                                                        $telefone = '+55' . $item['USU_DCTELEFONE']; 
-                                                        $nomeWhats = $item['USU_DCNOME'];
-                                                        $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/pages/login/index.php";
-                                                        $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
-
-                                                        $mensagem = "Olá $nomeWhats,\nSua entrega está disponível para retirada 📦.\n\nLocal: Condomínio Parque das Hortênsias.📌\nID da Encomenda: $idEncomendaWhats\n\nAo chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.\nLiberar Entrega: $linkEncomendaWhats";   
-
-
-
-                                                        $mensagem_codificada = urlencode($mensagem);
-                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";                                                        
+                                                        $dataMorador = $date->format('d/m/Y H:i');                                                                                                             
                                                         
                                                     ?>
                                                     <tr>    
@@ -224,7 +223,7 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;"><a href=<?= htmlspecialchars($linkWhats); ?> target="_blank"> <i class="fab fa-whatsapp" style="font-size: 24px; color: #25D366;"></i></a></td> 
+                                                        <td class="align-middle" style="font-size: 12px;"><a href=<?= htmlspecialchars($linkWhats); ?> target="_blank"> <i class="fab fa-whatsapp" style="font-size: 24px; color: <?php echo $whatsColor; ?>;"></i></a></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
