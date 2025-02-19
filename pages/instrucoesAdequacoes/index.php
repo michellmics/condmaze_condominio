@@ -132,7 +132,6 @@
                                                     <tr>    
                                                         <th>ORDEM</th>                 
                                                         <th>TÍTULO</th>
-                                                        <th>ORDEM</th>
                                                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                                         <th></th>   
                                                         <th></th> 
