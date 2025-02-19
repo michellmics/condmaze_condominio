@@ -101,7 +101,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Auditoria</h4>
+                                <h4 class="page-title">Informativos</h4>
                             </div>
                         </div>
                     </div>
@@ -112,12 +112,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Procedimentos / Comunicados </h4>
-                                    <div class="col-sm-5">
-                                            <a href="insertArtigo.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>
-                                        </div>
+
                                     <p class="text-muted font-14">
                                         Aqui são listados todas os procedimentos e comunicados que são visiveis na página inicial.
                                     </p>
+                                    <div class="col-sm-5">
+                                            <a href="insertArtigo.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>
+                                        </div>
                                     <div class="tab-content">
                                         <div class="col-sm-5">
                                             
@@ -131,17 +132,19 @@
                                                         <th>TÍTULO</th>
                                                         <th>ORDEM</th>
                                                         <th>STATUS</th>
-                                                        <th></th>                                                      
+                                                        <th></th>   
+                                                        <th></th>                                                     
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>
                                                         <tr>
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DTDATA_INSERT']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCTITULO']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_STSTATUS']); ?></td>
-                                                            <td class="align-middle">APAGAR</td>                                                               
+                                                            <td class="align-middle"><a href="sua_url_aqui" class="text-warning"><i class="fas fa-edit"></i></a></td>       
+                                                            <td class="align-middle"><a href="sua_url_aqui" class="text-danger"><i class="fas fa-trash"></i></a></td>                                                       
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
