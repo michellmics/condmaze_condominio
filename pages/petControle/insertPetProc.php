@@ -1,6 +1,6 @@
 <?php
 include_once "../../objects/objects.php";
-include_once "../../WideImage/WideImage.php";
+include_once "../../wideimage/WideImage.php";
 
 class registerPet extends SITE_ADMIN
 {
