@@ -285,6 +285,12 @@ $host = $_SERVER['HTTP_HOST'];
             </div> <!-- end .card-body -->
         </div>
 
+        <div class="auth-fluid">
+        <video autoplay muted class="video-bg">
+            <source src="../../img/hort_film.mp4" type="video/mp4">
+        </video>
+    </div>
+
     </div>
 
     <script>
