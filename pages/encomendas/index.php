@@ -225,6 +225,7 @@ Sua entrega está disponível para retirada.
 
 Ao chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.
 *Liberar Entrega*: $linkEncomendaWhats";  
+$mensagem2 = urlencode(str_replace(['*'], ['%2A'], $mensagem2));
 
                                                         $mensagem_codificada = urlencode($mensagem);
                                                         $linkWhats = "https://wa.me/$telefone?text=$mensagem2";                                                        
