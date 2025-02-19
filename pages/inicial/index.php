@@ -386,20 +386,12 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <div class="table-responsive-sm">
                                             
                                             <b>Grupo para comunicação</b><br>
-                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Link para o grupo</a><br>
+                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Entrar no Grupo</a><br>
                                             <br>
                                             <b>Horários Permitidos para Reformas</b><br>
                                             <b>Segunda a sexta:</b> 08h ás 17h<br>
                                             <b>Sábado:</b> 08h ás 12h<br>
                                             <b>Domingos e Feriados:</b> Não é permitido reforma<br>
-                                            <br>
-                                            <b>Horários da Piscina</b><br>
-                                            <b>Terça a sexta:</b> 10h ás 22h<br>
-                                            <b>Segundas:</b> Fechada para manutenção<br>
-                                            <br>
-                                            <b>Horários Salão de Festas</b><br>
-                                            <b>Segunda a Domingo:</b> 10h ás 00h<br>
-                                            <b>Valor do Aluguel:</b> R$60,00<br>
                                             <br>
                                             <b>Portaria</b><br>
                                             <b>Telefone:</b> 19 99593-9865<br>
@@ -417,10 +409,6 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <b>E-mail:</b> contato@puiatti.com.br<br>
                                             <b>Atend. Whatsapp:</b> (19) 99909-0561<br>
                                             <b>Telefones de contato:</b> (19)3238-8710 | (19)3238-9520<br>
-
-
-
-
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
