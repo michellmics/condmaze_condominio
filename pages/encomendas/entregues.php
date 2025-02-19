@@ -143,8 +143,11 @@
                                     <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
 
                                     </p>
-                                    <?php endif; ?>                                        
-                                    <br><br>
+                                    <?php endif; ?>  
+                                    
+                                    <button class="btn btn-success col-lg-1" onclick="window.history.back()" type="button">Voltar</button>                                 
+                                    <br><br>                                      
+                                    
  
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
