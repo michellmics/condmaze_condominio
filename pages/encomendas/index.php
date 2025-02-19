@@ -217,18 +217,10 @@
                                                                     Ao chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.
                                                                     \nLiberar Entrega: $linkEncomendaWhats";   
 
-$mensagem2 = "Olá *$nomeWhats*,
-Sua entrega está disponível para retirada.
 
-*Local*: Condomínio Parque das Hortênsias.
-*ID da Encomenda*: $idEncomendaWhats
-
-Ao chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.
-*Liberar Entrega*: $linkEncomendaWhats";  
-$mensagem2 = urlencode(str_replace(['*'], ['%2A'], $mensagem2));
 
                                                         $mensagem_codificada = urlencode($mensagem);
-                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem2";                                                        
+                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";                                                        
                                                         
                                                     ?>
                                                     <tr>    
