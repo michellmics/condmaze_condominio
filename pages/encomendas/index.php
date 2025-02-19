@@ -150,7 +150,7 @@
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal">Pacotes Entregues</button>
                                     <button type="button" class="btn btn-success float-end" onclick="location.reload()">Refresh</button>                                    
                                     <br><br>
-
+ 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
