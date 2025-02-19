@@ -1,5 +1,5 @@
 <?php
-include_once 'objetos.php'; 
+include_once "../../objects/objects.php";
 
 class RecSystem extends SITE_ADMIN
 {
@@ -58,7 +58,7 @@ class RecSystem extends SITE_ADMIN
                 $stmt->execute();
 
                 // Enviar o link de redefinição
-                $link = "https://prqdashortensias.com.br/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
+                $link = "https://parquedashortensias.codemaze.com.br/pages/login/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
                 $mensagem = "Clique no link para redefinir sua senha: $link";
                 $assunto = "Condomínio Parque das Hortênsias - Recuperação de senha";
 
