@@ -200,7 +200,7 @@ $host = $_SERVER['HTTP_HOST'];
                             <input class="form-control" type="number" id="apartamento" required="" placeholder="Digite o número do apartamento" name="apartamento" autocomplete="apartamento">
                         </div>
                         <div class="mb-3">
-                            <a href="pages-recoverpw-2.html" class="text-muted float-end"><small>Esqueceu sua senha?</small></a>
+                            <a href="recuperar_senha.php" class="text-muted float-end"><small>Esqueceu sua senha?</small></a>
                             <label for="password" class="form-label">Senha</label>
                             <input class="form-control" type="password" required="" id="password" placeholder="Digite sua senha" name="password" autocomplete="current-password">
                         </div>
