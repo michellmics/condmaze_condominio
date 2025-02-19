@@ -1,11 +1,3 @@
-<?php
-if (function_exists('gd_info')) {
-    echo "GD está habilitado!";
-} else {
-    echo "GD não está disponível.";
-}
-die();
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
