@@ -1813,7 +1813,7 @@
                 return ["error" => $e->getMessage()];
             }          
         }
-
+/*
         public function getArtigosInfo() 
         {          
                 // Verifica se a conexão já foi estabelecida
@@ -1829,7 +1829,7 @@
                 return ["error" => $e->getMessage()];
             }          
         }
-
+*/
         public function getHashImgInfo($PEM_DCRACA = "", $PET_DCCOR = "", $PEM_DCTIPO = "") 
         {          
                 // Verifica se a conexão já foi estabelecida
