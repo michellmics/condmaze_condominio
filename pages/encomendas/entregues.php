@@ -17,7 +17,7 @@
 	
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getParameterInfo();
-    $siteAdmin->getEncomendaPortariaInfo();
+    $siteAdmin->getEncomendaPortariaEntreguesInfo();
   
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -136,19 +136,14 @@
                                 <div class="card-body">
                                     <h4 class="header-title">Controle de Encomendas</h4>
                                     <p class="text-muted font-14">
-                                    Nesta seção, você pode controlar o recebimento de encomendas do condomínio. Ao receber uma encomenda, cadastre o item no sistema e 
-                                    marque o status <b>DISPONÍVEL</b> como <b>SIM</b>, indicando que está pronta para retirada. O morador, por sua vez, deve marcar o 
-                                    status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
+                                    Relação das encomendas já entregues pela portaria.
                                     </p>
                                     <?php if ($nivelAcesso == 'SINDICO'): ?>
                                     <p class="text-muted font-14">
                                     <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
 
                                     </p>
-                                    <?php endif; ?>      
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Cadastrar </button>
-                                    <button type="button" class="btn btn-primary" onclick="window.location.href='entregues.php';">Entregues</button>
-                                    <button type="button" class="btn btn-success float-end" onclick="location.reload()">Refresh</button>                                    
+                                    <?php endif; ?>                                        
                                     <br><br>
  
                                     <div class="tab-content">
@@ -163,11 +158,6 @@
                                                         <th>TELEFONE</th> 
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
-                                                        <th></th> 
-                                                        <th>DISPONIVEL?</th>
-                                                        <th>ENTREGUE?</th>                                                         
-                                                        <th></th> 
-                                                        <th></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -176,45 +166,7 @@
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
                                                         $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
                                                         $nome = $item['USU_DCNOME'];
-                                                        $telefone = $item['USU_DCTELEFONE']; 
-                                                        
-                                                        if($item['ENC_STENCOMENDA'] == "DISPONIVEL")
-                                                        {
-                                                            $whatsColor = "#30ec6f";
-                                                            $telefone = '+55' . $item['USU_DCTELEFONE']; 
-                                                            $nomeWhats = $item['USU_DCNOME'];
-                                                            $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/pages/login/index.php";
-                                                            $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
-    
-                                                            $mensagem = "Olá $nomeWhats,\nSua entrega está disponível para retirada.\n\nLocal: Condomínio Parque das Hortênsias.\nID da Encomenda: $idEncomendaWhats\n\nAo chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.\nLiberar Entrega: $linkEncomendaWhats";   
-                                                            $mensagem_codificada = urlencode($mensagem);
-                                                            $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
-                                                        }
-                                                        else
-                                                        {
-                                                            $whatsColor = "#484b49";
-                                                            $linkWhats = "";
-                                                        }
-
-                                                        if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
-                                                            || $item['ENC_STENCOMENDA'] != "DISPONIVEL")
-                                                        {
-                                                            $fieldPortaria = "disabled";
-                                                        }
-                                                        else
-                                                            {
-                                                                $fieldPortaria = "";                                                                
-                                                            }
-
-                                                        if($item['ENC_STENTREGA_MORADOR'] == "ENTREGUE") 
-                                                        {
-                                                            $fieldPortaria = "disabled";
-                                                            $fieldMorador = "disabled";                                                            
-                                                        }
-                                                        else
-                                                            {
-                                                                $fieldMorador = "";
-                                                            }
+                                                        $telefone = $item['USU_DCTELEFONE'];                                                       
 
                                                         $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
                                                         $dataPortaria = $date->format('d/m/Y H:i');
@@ -231,62 +183,6 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;">
-                                                            <a <?= empty($linkWhats) ? 'style="pointer-events: none; cursor: default;"' : 'href="'.htmlspecialchars($linkWhats).'" target="_blank"' ?>>
-                                                                <i class="fab fa-whatsapp" style="font-size: 24px; color: <?= $whatsColor; ?>;"></i>
-                                                            </a>
-                                                        </td>
-
-                                                        <td class="align-middle">
-                                                            <!-- Switch -->
-                                                            <div>
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    id="switch<?= $index; ?>" 
-                                                                    data-switch="success" 
-                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
-                                                                    onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($fieldMorador); ?>
-                                                                />
-                                                                <label 
-                                                                    for="switch<?= $index; ?>" 
-                                                                    data-on-label="Sim" 
-                                                                    data-off-label="Não" 
-                                                                    class="mb-0 d-block">
-                                                                </label>
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="align-middle">
-                                                            <!-- Switch -->
-                                                            <div>
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    id="switch1<?= $index; ?>" 
-                                                                    data-switch="success" 
-                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
-                                                                    onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($fieldPortaria); ?>
-                                                                />
-                                                                <label 
-                                                                    for="switch1<?= $index; ?>" 
-                                                                    data-on-label="Sim" 
-                                                                    data-off-label="Não" 
-                                                                    class="mb-0 d-block">
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
-                                                        <td class="align-middle">
-                                                            <?php 
-                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
-                                                                {
-                                                                    echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
-                                                                }
-                                                            ?>
-                                                        </td>
                                                     </tr>
                                                  <?php endforeach; ?>
                                                 </tbody>
