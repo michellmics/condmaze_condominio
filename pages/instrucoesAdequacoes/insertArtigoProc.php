@@ -8,7 +8,7 @@ ini_set('max_execution_time', '300');
 
 class registerArtigo extends SITE_ADMIN
 {
-    public function insertArtigo($titulo, $ordem, $artigo, $metodo, $fileUrl)
+    public function insertArtigo($titulo, $ordem, $artigo, $metodo, $fileUrl, $id)
     {
         try {
             // Cria conexão com o banco de dados
@@ -48,7 +48,7 @@ class registerArtigo extends SITE_ADMIN
                     }
                     if($metodo == "update")
                     {
-                            $result = $this->updateArtigoInfo($titulo, $ordem, $artigo);
+                            $result = $this->updateArtigoInfo($titulo, $ordem, $artigo, $id);
                             echo "Morador atualizado com sucesso."; 
                     }
                     
@@ -110,8 +110,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ordem = $_POST['ordem'];
     $artigo = $_POST['artigo'];   
     $metodo = $_POST['metodo']; 
+    $id = $_POST['id']; 
  
      $registerArtigo = new registerArtigo();
-     $registerArtigo->insertArtigo($titulo, $ordem, $artigo, $metodo, $fileUrl);
+     $registerArtigo->insertArtigo($titulo, $ordem, $artigo, $metodo, $fileUrl, $id);
  }
  ?>

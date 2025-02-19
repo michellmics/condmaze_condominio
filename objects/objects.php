@@ -588,6 +588,39 @@
             
         }
 
+        public function updateArtigoInfo($INA_DCTITULO, $INA_DCORDEM, $INA_DCTEXT, $INA_IDINSTRUCOES_ADEQUACOES)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+           
+                // Query de inserção
+                $sql = "UPDATE  INA_INSTRUCOES_ADEQUACOES SET
+                INA_DCTITULO = :INA_DCTITULO,
+                INA_DCORDEM = :INA_DCORDEM,
+                INA_DCTEXT = :INA_DCTEXT,
+                WHERE INA_IDINSTRUCOES_ADEQUACOES = :INA_IDINSTRUCOES_ADEQUACOES";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
+                $stmt->bindValue(':INA_DCTITULO', $INA_DCTITULO, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DCORDEM', $INA_DCORDEM, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DCTEXT', $INA_DCTEXT, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
+
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    return "Erro ao atualizar os dados: " . $stmt->error;
+                } else {
+                    return "Registro atualizado com sucesso!";
+                }
+            
+        }
+
         public function insertChurrasEventoInfo($USU_IDUSUARIO, $LEU_DCCONVIDADO_HOMEM, $LEU_DCCONVIDADO_MULHER)
         {       
             // Verifica se a conexão já foi estabelecida

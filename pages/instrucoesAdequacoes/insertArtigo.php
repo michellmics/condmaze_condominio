@@ -35,6 +35,7 @@ ini_set('max_execution_time', '300');
     $ordem = "";
     $testo = "";
     $fileUrl = "";
+    $id = "";
 
     if(isset($_GET['id']))
     {
@@ -42,7 +43,7 @@ ini_set('max_execution_time', '300');
       $siteAdmin->getArtigosInfoById($id);
       $titulo = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCTITULO"];
       $ordem = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCORDEM"];
-      $testo = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCTEXT"];
+      $texto = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCTEXT"];
       $fileUrl = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCFILEURL"];
 
       $metodo = "update";
@@ -141,7 +142,8 @@ ini_set('max_execution_time', '300');
                                         <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
 
                                                     <!-- CAMPOS COMO VARIAVEIS -->
-                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
+                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>   
+                                                    <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"/>                                                  
                                                     <!-- CAMPOS COMO VARIAVEIS -->
 
                                             <!-- Campo Título 1 -->
@@ -184,8 +186,8 @@ ini_set('max_execution_time', '300');
                                             <div class="col-lg-8">
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
                                                     <!-- Editor Quill -->
-                                                    <div style="height: 300px;" id="snow-editor"></div>
-                                                    <textarea hidden type="hidden" id="artigo" name="artigo"><?php echo $texto; ?></textarea>
+                                                    <div style="height: 300px;" id="snow-editor">eee</div>
+                                                    <textarea hidden type="hidden" id="artigo" name="artigo"><?php echo $texto; ?></textarea>de
                                                 </div>
                                             </div>
                                         </div>
