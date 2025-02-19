@@ -44,8 +44,12 @@ $host = $_SERVER['HTTP_HOST'];
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Condmaze Gestão Condominal" name="description" />
     <meta content="Coderthemes" name="author" />
+    <link rel="icon" href="../../img_pwa/logo_icon.ico" type="image/x-icon">
+    <!-- PWA MOBILE CONF -->
+	<?php include '../../src/pwa_conf.php'; ?>
+	<!-- PWA MOBILE CONF -->
 
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
@@ -59,9 +63,7 @@ $host = $_SERVER['HTTP_HOST'];
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
-	<!-- PWA MOBILE CONF -->
-	<?php include '../../src/pwa_conf.php'; ?>
-	<!-- PWA MOBILE CONF -->
+
      
 </head>
 
