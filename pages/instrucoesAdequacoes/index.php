@@ -26,6 +26,7 @@
     }   
     
 
+
     $siteAdmin->getArtigosInfo();
     
 ?>
@@ -142,7 +143,7 @@
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DTDATA_INSERT']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?></td>
-                                                            <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php" class="text-warning"><i class="fas fa-edit"></i></a></td>       
+                                                            <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php?id=<?php echo $item['INA_IDINSTRUCOES_ADEQUACOES']; ?>" class="text-warning"><i class="fas fa-edit"></i></a></td>       
                                                             <td class="align-middle"><a href="sua_url_aqui" class="text-danger"><i class="fas fa-trash"></i></a></td>                                                       
                                                         </tr>
                                                     <?php endforeach; ?>
