@@ -192,7 +192,7 @@
                                                         else
                                                         {
                                                             $whatsColor = "#484b49";
-                                                            $linkWhats = "#";
+                                                            $linkWhats = "";
                                                         }
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
@@ -230,7 +230,11 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;"><a href=<?= htmlspecialchars($linkWhats); ?> target="_blank"> <i class="fab fa-whatsapp" style="font-size: 24px; color: <?php echo $whatsColor; ?>;"></i></a></td> 
+                                                        <td class="align-middle" style="font-size: 12px;">
+                                                            <a <?= empty($linkWhats) ? 'style="pointer-events: none; cursor: default;"' : 'href="'.htmlspecialchars($linkWhats).'" target="_self"' ?>>
+                                                                <i class="fab fa-whatsapp" style="font-size: 24px; color: <?= $whatsColor; ?>;"></i>
+                                                            </a>
+                                                        </td>
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
