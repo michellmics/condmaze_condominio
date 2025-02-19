@@ -178,10 +178,9 @@ ini_set('max_execution_time', '300');
                                                 <div class="col-lg-6">
                                                     <label class="form-label" for="arquivo">Anexar Arquivo</label>
                                                     <?php if (!empty($fileUrl)): ?>
-    <p>Arquivo atual: <a href="<?php echo $fileUrl; ?>" target="_blank">Baixar / Visualizar</a></p>
-<?php endif; ?>
-
-<input id="arquivo" name="arquivo" type="file" class="form-control">
+                                                    <p>Arquivo atual: <a href="<?php echo $fileUrl; ?>" target="_blank">Baixar / Visualizar</a></p>
+                                                    <?php endif; ?>                                                                                                        
+                                                    <input id="arquivo" name="arquivo" type="file" class="form-control">
 
                                                     <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
                                                 </div>

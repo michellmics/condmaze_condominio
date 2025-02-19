@@ -116,7 +116,7 @@
                                     <h4 class="header-title">Procedimentos / Comunicados </h4>
 
                                     <p class="text-muted font-14">
-                                        Aqui são listados todas os procedimentos e comunicados que são visiveis na página inicial.
+                                        Aqui são listados alguns procedimentos e comunicados disponibilizados pela gestão do condomínio.
                                     </p>
                                     <div class="col-sm-5">
                                             <a href="insertArtigo.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>

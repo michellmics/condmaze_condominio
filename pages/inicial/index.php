@@ -272,7 +272,7 @@
 
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
                                     <p class="text-muted font-14">
-                                    Aqui você encontra comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio.
+                                    Aqui você encontra comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
                                     </p>
 
                                     <div class="tab-content">
