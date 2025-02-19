@@ -30,7 +30,11 @@ ini_set('max_execution_time', '300');
     }  
     
     $metodo = "insert";
-    //if edição de artigo
+    
+    $titulo = "";
+    $ordem = "";
+    $testo = "";
+    $fileUrl = "";
 
     if(isset($_GET['id']))
     {
