@@ -593,13 +593,15 @@
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
                 $this->conexao();
-            }          
+            }        
+            
+            if($INA_DCFILEURL == "")
+            {
                 // Query de inserção
                 $sql = "UPDATE  INA_INSTRUCOES_ADEQUACOES SET
                 INA_DCTITULO = :INA_DCTITULO,
                 INA_DCORDEM = :INA_DCORDEM,
-                INA_DCTEXT = :INA_DCTEXT,
-                INA_DCFILEURL = :INA_DCFILEURL
+                INA_DCTEXT = :INA_DCTEXT
                 WHERE INA_IDINSTRUCOES_ADEQUACOES = :INA_IDINSTRUCOES_ADEQUACOES";
 
                 // Preparar a consulta
@@ -610,8 +612,29 @@
                 $stmt->bindValue(':INA_DCTITULO', $INA_DCTITULO, PDO::PARAM_STR);
                 $stmt->bindValue(':INA_DCORDEM', $INA_DCORDEM, PDO::PARAM_STR);
                 $stmt->bindValue(':INA_DCTEXT', $INA_DCTEXT, PDO::PARAM_STR);
-                $stmt->bindValue(':INA_DCFILEURL', $INA_DCFILEURL, PDO::PARAM_STR);
                 $stmt->bindValue(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
+            }
+            else
+                {
+                    // Query de inserção
+                    $sql = "UPDATE  INA_INSTRUCOES_ADEQUACOES SET
+                    INA_DCTITULO = :INA_DCTITULO,
+                    INA_DCORDEM = :INA_DCORDEM,
+                    INA_DCTEXT = :INA_DCTEXT,
+                    INA_DCFILEURL = :INA_DCFILEURL
+                    WHERE INA_IDINSTRUCOES_ADEQUACOES = :INA_IDINSTRUCOES_ADEQUACOES";
+
+                    // Preparar a consulta
+                    $stmt = $this->pdo->prepare($sql);
+                    if (!$stmt) {
+                        die("Erro ao preparar a consulta: " . $conn->error);
+                    }            
+                    $stmt->bindValue(':INA_DCTITULO', $INA_DCTITULO, PDO::PARAM_STR);
+                    $stmt->bindValue(':INA_DCORDEM', $INA_DCORDEM, PDO::PARAM_STR);
+                    $stmt->bindValue(':INA_DCTEXT', $INA_DCTEXT, PDO::PARAM_STR);
+                    $stmt->bindValue(':INA_DCFILEURL', $INA_DCFILEURL, PDO::PARAM_STR);
+                    $stmt->bindValue(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
+                }
 
                 // Executar a consulta
                 if (!$stmt->execute()) {
