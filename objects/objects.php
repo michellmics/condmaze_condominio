@@ -1825,7 +1825,7 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
                 $stmt->execute();
-                $this->ARRAY_ARTIGOSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $this->ARRAY_ARTIGOSINFO = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
