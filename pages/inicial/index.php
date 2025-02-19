@@ -284,7 +284,7 @@
                                                     <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal"
-                                                            data-title="<?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>"
+                                                            data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
                                                             data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
                                                             data-file="<?php
 
