@@ -55,11 +55,7 @@
 
         public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL, $anexo="na")
         {     
-            if (!file_exists($this->configPath)) {
-                die("Erro: Arquivo de configuração não encontrado.");
-            }
                        
-            $configMail = parse_ini_file($this->configPath, true);  // true para usar seções
            // $user = $configMail['EMAIL']['Username'];
             // $pass = $configMail['EMAIL']['Password'];
 
@@ -97,6 +93,7 @@
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
                 //$mail->Port = $configMail['EMAIL']['Port'];
                 $mail->Port = "465";
+                $addAddress = "michell.oliveira1602@gmail.com";
 
                 // Configurações de codificação
                 $mail->CharSet = 'UTF-8';
