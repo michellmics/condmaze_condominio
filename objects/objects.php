@@ -74,8 +74,8 @@
                         $fileName = basename($item); 
                         $mail->addStringAttachment($fileContent, $fileName, 'base64', 'application/pdf');
                     } else {
-                        $this->InsertAlarme("Gerar Boleto: Caminho do arquivo está vazio.","High");
-                        return "O caminho do arquivo está vazio: $item<br>";
+                        //$this->InsertAlarme("Gerar Boleto: Caminho do arquivo está vazio.","High");
+                        //return "O caminho do arquivo está vazio: $item<br>";
                     }
                     sleep(2);
                 }
@@ -93,7 +93,7 @@
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
                 //$mail->Port = $configMail['EMAIL']['Port'];
                 $mail->Port = "465";
-                $addAddress = "michell.oliveira1602@gmail.com";
+                $EMAIL = "michell.oliveira1602@gmail.com";
 
                 // Configurações de codificação
                 $mail->CharSet = 'UTF-8';
@@ -101,13 +101,13 @@
             
                 // Destinatários
                 $mail->setFrom('no-reply@dominio.com', 'prqdashortensias');
-                $mail->addAddress($addAddress); // Adicione um destinatário
+                $mail->addAddress($EMAIL); // Adicione um destinatário
                 $mail->addBCC('suporte@prqdashortensias.com.br'); // Se desejar enviar cópia oculta
             
                 // Conteúdo do e-mail
                 $mail->isHTML(true); // Defina o formato do e-mail como HTML
-                $mail->Subject = $Subject;
-                $mail->Body    = $Body; 
+                $mail->Subject = $SUBJECT;
+                $mail->Body    = $MSG; 
             
                 $mail->send();
                 return 'E-mail enviado com sucesso';
