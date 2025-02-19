@@ -19,21 +19,12 @@
     $siteAdmin->getParameterInfo();
     $siteAdmin->getEncomendaPortariaInfo();
   
-
-    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
-        if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOTAL_MSG') {
-            $saldoWhatsapp = $item['CFG_DCVALOR']; 
-            break; 
-        }
-      }   
-
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
           $nomeCondominio = $item['CFG_DCVALOR']; 
           break; 
       }
     }   
-    
 
 ?>
 
@@ -173,6 +164,7 @@
                                                         <th>TELEFONE</th> 
                                                         <th>DT ENTREGA</th>
                                                         <th>OBS</th>
+                                                        <th></th> 
                                                         <th>DISPONIVEL?</th>
                                                         <th>ENTREGUE?</th>                                                         
                                                         <th></th> 
@@ -212,6 +204,15 @@
 
                                                         $date = new DateTime($item['ENC_DTENTREGA_MORADOR']);
                                                         $dataMorador = $date->format('d/m/Y H:i');
+
+                                                        $telefone = '+55' . $item['USU_DCTELEFONE']; 
+                                                        $nomeWhats = $item['USU_DCNOME'];
+                                                        $hashWhats = $item['ENC_DCHASHENTREGA'];
+                                                        $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hashWhats";
+                                                        $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
+                                                        $mensagem = "Olá $nomeWhats, sua entrega com ID $idEncomendaWhats está disponível para retirada na portaria do Condomínio Parque das Hortênsias. Ao chegar na portaria, acesse o link para liberar a entrega da sua encomenda. $linkEncomendaWhats";                                                                                                               
+                                                        $mensagem_codificada = urlencode($mensagem);
+                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
                                                         
                                                         
                                                     ?>
@@ -223,7 +224,7 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        
+                                                        <td class="align-middle" style="font-size: 12px;"><a href=<?= htmlspecialchars($linkWhats); ?> target="_blank">Link</a></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
