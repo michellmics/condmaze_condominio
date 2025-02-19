@@ -186,8 +186,8 @@ ini_set('max_execution_time', '300');
                                             <div class="col-lg-8">
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
                                                     <!-- Editor Quill -->
-                                                    <div style="height: 300px;" id="snow-editor">eee</div>
-                                                    <textarea hidden type="hidden" id="artigo" name="artigo"><?php echo $texto; ?></textarea>de
+                                                    <div style="height: 300px;" id="snow-editor"><?php echo $texto; ?></div>
+                                                    <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
                                                 </div>
                                             </div>
                                         </div>
