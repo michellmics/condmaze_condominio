@@ -53,23 +53,71 @@
             } 
         }
 
-        public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL)
-        {
-            $this->getParameterInfo();
+        public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL, $anexo="na")
+        {     
+            if (!file_exists($this->configPath)) {
+                die("Erro: Arquivo de configuração não encontrado.");
+            }
+                       
+            $configMail = parse_ini_file($this->configPath, true);  // true para usar seções
+           // $user = $configMail['EMAIL']['Username'];
+            // $pass = $configMail['EMAIL']['Password'];
 
-            // Configurações do e-mail
-            $to = $EMAIL; 
-            $subject = "$SUBJECT";
-            $body = "$MSG\n";
+            $user = "suporte@codemaze.com.br";
+            $pass = "Mi479585!";
 
-            // Adiciona cabeçalhos para o e-mail
-            $headers = "From: no-reply@prqdashortensias.com.br\r\n";
-            $headers .= "Reply-To: no-reply@prqdashortensias.com.br\r\n";
-            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Define a codificação como UTF-8
-            $headers .= "MIME-Version: 1.0\r\n";
+            $mail = new PHPMailer(true);
+
+            if($anexo != "na")
+            {
+                foreach ($anexo as $item) 
+                {
+                    if (!empty($item)) 
+                    { 
+                        $fileContent = file_get_contents($item); 
+                        $fileName = basename($item); 
+                        $mail->addStringAttachment($fileContent, $fileName, 'base64', 'application/pdf');
+                    } else {
+                        $this->InsertAlarme("Gerar Boleto: Caminho do arquivo está vazio.","High");
+                        return "O caminho do arquivo está vazio: $item<br>";
+                    }
+                    sleep(2);
+                }
+            }
+           
+
+            try {
+                //Configurações do servidor
+                $mail->isSMTP(); 
+                //$mail->Host = $configMail['EMAIL']['Host'];
+                $mail->Host = "smtp.hostinger.com";
+                $mail->SMTPAuth = true; 
+                $mail->Username = $user;
+                $mail->Password = $pass;
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+                //$mail->Port = $configMail['EMAIL']['Port'];
+                $mail->Port = "465";
+
+                // Configurações de codificação
+                $mail->CharSet = 'UTF-8';
+                $mail->Encoding = 'base64';
             
-            $result = mail($to, $subject, $body, $headers);   
-            return $result;     
+                // Destinatários
+                $mail->setFrom('no-reply@dominio.com', 'prqdashortensias');
+                $mail->addAddress($addAddress); // Adicione um destinatário
+                $mail->addBCC('suporte@prqdashortensias.com.br'); // Se desejar enviar cópia oculta
+            
+                // Conteúdo do e-mail
+                $mail->isHTML(true); // Defina o formato do e-mail como HTML
+                $mail->Subject = $Subject;
+                $mail->Body    = $Body; 
+            
+                $mail->send();
+                return 'E-mail enviado com sucesso';
+            } catch (Exception $e) {
+                $this->InsertAlarme("Erro ao enviar e-mail. $mail->ErrorInfo","High");
+                return "Erro ao enviar e-mail: {$mail->ErrorInfo}";
+            }            
         }
 
         public function getAvaliacoesByPrestador($PDS_IDPRESTADOR_SERVICO)
