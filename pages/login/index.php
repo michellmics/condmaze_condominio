@@ -156,6 +156,34 @@ $host = $_SERVER['HTTP_HOST'];
             border-radius: 5px;
         }
     </style>
+<style>
+    .video-bg {
+    position: absolute;
+    top: 0;
+    left: -0%;
+    transform: translateX(-7%);
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Esconder o vídeo em telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .video-bg {
+        display: none;
+    }
+}
+
+/* Ajuste para iPad Pro */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait),
+       (min-width: 834px) and (max-width: 1194px) and (orientation: portrait),
+       (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape),
+       (min-width: 834px) and (max-width: 1194px) and (orientation: landscape) {
+    .video-bg {
+        transform: translateX(-24%);
+    }
+}
+</style>
 
 <body class="authentication-bg pb-0">
 
