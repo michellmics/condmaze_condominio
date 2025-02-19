@@ -1,6 +1,5 @@
 <?php
 include_once "../../objects/objects.php";
-include_once "../../WideImage/WideImage.php";
 
 class registerPet extends SITE_ADMIN
 {
@@ -74,20 +73,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-   
-
-    // Carrega a imagem
-    $image = WideImage::load($foto_path);
-    
-    // Define a nova largura e calcula a altura proporcional
+    // Redimensiona a imagem
+    list($largura_original, $altura_original) = getimagesize($foto_path);
     $nova_largura = 500;
-    $nova_altura = intval(($nova_largura / $image->getWidth()) * $image->getHeight());
-    
-    // Redimensiona a imagem mantendo a proporção
-    $image = $image->resize($nova_largura, $nova_altura);
-    
-    // Salva a imagem no mesmo caminho, mantendo o formato original
-    $image->saveToFile($foto_path);
+    $nova_altura = intval(($nova_largura / $largura_original) * $altura_original);
+
+    $imagem_redimensionada = imagecreatetruecolor($nova_largura, $nova_altura);
+    $imagem_original = imagecreatefromstring(file_get_contents($foto_path));
+    imagecopyresampled($imagem_redimensionada, $imagem_original, 0, 0, 0, 0, $nova_largura, $nova_altura, $largura_original, $altura_original);
+
+    // Salva a imagem redimensionada
+    switch ($extensao) {
+        case 'jpeg':
+        case 'jpg':
+            imagejpeg($imagem_redimensionada, $foto_path, 90); // 90% de qualidade
+            break;
+        case 'png':
+            imagepng($imagem_redimensionada, $foto_path, 9); // 9 é o nível de compressão (0-9)
+            break;
+        case 'gif':
+            imagegif($imagem_redimensionada, $foto_path);
+            break;
+    }
+
+    // Libera a memória
+    imagedestroy($imagem_original);
+    imagedestroy($imagem_redimensionada);
 
     // Calcula o histograma de cores e insere as informações no banco
     $petAddInfo = new registerPet();
