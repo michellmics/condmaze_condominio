@@ -48,7 +48,7 @@ class registerArtigo extends SITE_ADMIN
                     }
                     if($metodo == "update")
                     {
-                            $result = $this->updateArtigoInfo($titulo, $ordem, $artigo, $id);
+                            $result = $this->updateArtigoInfo($titulo, $ordem, $artigo, $fileUrl, $id);
                             echo "Morador atualizado com sucesso."; 
                     }
                     
