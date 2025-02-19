@@ -210,7 +210,7 @@
                                                         $hashWhats = $item['ENC_DCHASHENTREGA'];
                                                         $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hashWhats";
                                                         $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
-                                                        $mensagem = "Olá $nomeWhats, sua entrega com ID $idEncomendaWhats está disponível para retirada na portaria do Condomínio Parque das Hortênsias. Ao chegar na portaria, acesse o link para liberar a entrega da sua encomenda. $linkEncomendaWhats";                                                                                                               
+                                                        $mensagem = "Olá *$nomeWhats*, \n\nsua entrega com ID *$idEncomendaWhats* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias*. \nAo chegar na portaria, acesse o link para liberar a entrega da sua encomenda. \n\n$linkEncomendaWhats";                                                                                                               
                                                         $mensagem_codificada = urlencode($mensagem);
                                                         $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
                                                         
