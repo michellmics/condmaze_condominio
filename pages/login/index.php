@@ -315,7 +315,7 @@ $host = $_SERVER['HTTP_HOST'];
 
         <div class="auth-fluid">
         <video autoplay muted class="video-bg">
-            <source src="../../img/hort_film.mp4" type="video/mp4">
+            <source src="../../img/hort_film2.mp4" type="video/mp4">
         </video>
     </div>
 
