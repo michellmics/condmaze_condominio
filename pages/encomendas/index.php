@@ -212,7 +212,7 @@
                                                         $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
                                                         $mensagem = "Olá *$nomeWhats*, \n\nsua entrega com ID *$idEncomendaWhats* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias*. \nAo chegar na portaria, acesse o link para liberar a entrega da sua encomenda. \n\n$linkEncomendaWhats";                                                                                                               
                                                         $mensagem_codificada = urlencode($mensagem);
-                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
+                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem";
                                                         
                                                         
                                                     ?>
@@ -224,7 +224,7 @@
                                                         <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;"><a href=<?= htmlspecialchars($linkWhats); ?> target="_blank">Link</a></td> 
+                                                        <td class="align-middle" style="font-size: 12px;"><a href=<?= htmlspecialchars($linkWhats); ?> target="_blank"> <i class="fab fa-whatsapp" style="font-size: 24px; color: #25D366;"></i></a></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
