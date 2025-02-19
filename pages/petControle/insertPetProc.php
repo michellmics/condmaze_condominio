@@ -76,18 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    
 
-    // Carrega a imagem
-    $image = WideImage::load($foto_path);
+    $image = new Imagick($foto_path);
     
-    // Define a nova largura e calcula a altura proporcional
-    $nova_largura = 500;
-    $nova_altura = intval(($nova_largura / $image->getWidth()) * $image->getHeight());
+    // Redimensiona mantendo a proporção
+    $image->thumbnailImage(500, 0); // Define apenas a largura, mantendo a altura proporcional
     
-    // Redimensiona a imagem mantendo a proporção
-    $image = $image->resize($nova_largura, $nova_altura);
+    // Salva a imagem
+    $image->writeImage($foto_path);
     
-    // Salva a imagem no mesmo caminho, mantendo o formato original
-    $image->saveToFile($foto_path);
+    // Libera a memória
+    $image->clear();
+    $image->destroy();
 
     // Calcula o histograma de cores e insere as informações no banco
     $petAddInfo = new registerPet();
