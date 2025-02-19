@@ -172,6 +172,8 @@
         
         public function whatsappSaldo()
         {
+            if(!$this->pdo){$this->conexao();}
+            
             $this->getParameterInfo();
 
             $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
