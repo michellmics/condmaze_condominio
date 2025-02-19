@@ -293,7 +293,7 @@
                                                                  
                                                                  ?>"> <!-- Aqui passa o arquivo para o modal -->
                                                         <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
-                                                        <?= htmlspecialchars(ucwords(strtolower($item['INA_DCTITULO']))); ?>
+                                                        <?= htmlspecialchars($item['INA_DCTITULO']); ?>
                                                     </button>
                                                 <?php endforeach; ?>
                                             </div>
