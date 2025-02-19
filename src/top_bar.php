@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
-                <a style="cursor: pointer;" onclick="window.location.href='https://prqdashortensias.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'">
+                <a style="cursor: pointer;" onclick="window.location.href='https://parquedashortensias.codemaze.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'">
                 <?php endif; ?> 
                 <ul class="topbar-menu d-flex align-items-center gap-3" style="font-size: 12px;">
                     <?php echo $nomeSession; ?>
