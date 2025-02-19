@@ -47,6 +47,7 @@
     <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
@@ -131,7 +132,6 @@
                                                         <th>DATA</th>
                                                         <th>TÍTULO</th>
                                                         <th>ORDEM</th>
-                                                        <th>STATUS</th>
                                                         <th></th>   
                                                         <th></th>                                                     
                                                     </tr>
@@ -142,8 +142,7 @@
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DTDATA_INSERT']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_STSTATUS']); ?></td>
-                                                            <td class="align-middle"><a href="sua_url_aqui" class="text-warning"><i class="fas fa-edit"></i></a></td>       
+                                                            <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php" class="text-warning"><i class="fas fa-edit"></i></a></td>       
                                                             <td class="align-middle"><a href="sua_url_aqui" class="text-danger"><i class="fas fa-trash"></i></a></td>                                                       
                                                         </tr>
                                                     <?php endforeach; ?>

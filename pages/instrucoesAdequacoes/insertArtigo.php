@@ -30,6 +30,19 @@ ini_set('max_execution_time', '300');
     }  
     
     $metodo = "insert";
+    //if edição de artigo
+
+    if(isset($_GET['id']))
+    {
+      $id = $_GET['id'];
+      $siteAdmin->getArtigosInfoById($id);
+      $titulo = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCTITULO"];
+      $ordem = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCORDEM"];
+      $testo = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCTEXT"];
+      $fileUrl = $siteAdmin->ARRAY_ARTIGOSINFO["INA_DCFILEURL"];
+
+      $metodo = "update";
+    }
     
 ?>
 
@@ -133,6 +146,7 @@ ini_set('max_execution_time', '300');
                                                 <input id="titulo" name="titulo" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
                                                        maxlength="28" 
+                                                       value = "<?php echo $titulo; ?>"
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha o título.</div>
@@ -144,7 +158,8 @@ ini_set('max_execution_time', '300');
                                                 <input id="ordem" name="ordem" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
                                                        maxlength="2" 
-                                                       pattern="[0-9]+"  
+                                                       pattern="[0-9]+"
+                                                       value = "<?php echo $ordem; ?>"
                                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"                                                                                                          
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
@@ -156,7 +171,7 @@ ini_set('max_execution_time', '300');
                                             <div class="row mb-3">
                                                 <div class="col-lg-6">
                                                     <label class="form-label" for="arquivo">Anexar Arquivo</label>
-                                                    <input id="arquivo" name="arquivo" type="file" class="form-control">
+                                                    <input id="arquivo" name="arquivo" type="file" value = "<?php echo $fileurl; ?>" class="form-control">
                                                     <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
                                                 </div>
                                             </div>
@@ -166,7 +181,7 @@ ini_set('max_execution_time', '300');
                                                 <div class="tab-pane show active" id="hint-emoji-preview">
                                                     <!-- Editor Quill -->
                                                     <div style="height: 300px;" id="snow-editor"></div>
-                                                    <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
+                                                    <textarea hidden type="hidden" id="artigo" name="artigo"><?php echo $texto; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
