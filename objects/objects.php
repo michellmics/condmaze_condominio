@@ -785,7 +785,7 @@
                 $sql = "SELECT *
                                 FROM INA_INSTRUCOES_ADEQUACOES
                                 ORDER BY INA_DCORDEM ASC
-                                LIMIT 20";
+                                LIMIT 10";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
