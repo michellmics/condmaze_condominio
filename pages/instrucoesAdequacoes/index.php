@@ -1,9 +1,4 @@
 <?php
-ini_set('upload_max_filesize', '50M');
-ini_set('post_max_size', '50M');
-ini_set('memory_limit', '256M');
-ini_set('max_execution_time', '300');
-
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -17,6 +12,7 @@ ini_set('max_execution_time', '300');
         exit();
     }
 
+    
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
@@ -27,9 +23,10 @@ ini_set('max_execution_time', '300');
           $nomeCondominio = $item['CFG_DCVALOR']; 
           break; 
       }
-    }  
+    }   
     
-    $metodo = "insert";
+
+    $siteAdmin->getArtigosInfo();
     
 ?>
 
@@ -43,31 +40,29 @@ ini_set('max_execution_time', '300');
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
-<!-- App favicon -->
-<link rel="shortcut icon" href="../../assets/images/favicon.ico">
+    <!-- Datatables css -->
+    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
-<!-- SimpleMDE css -->
-<link href="../../assets/vendor/simplemde/simplemde.min.css" rel="stylesheet" type="text/css" />
+    <!-- Plugin css -->
+    <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
 
-<!-- Quill css -->
-<link href="../../assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
-<link href="../../assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
-<link href="../../assets/vendor/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <!-- Theme Config Js -->
+    <script src="../../assets/js/hyper-config.js"></script>
 
-<!-- Theme Config Js -->
-<script src="../../assets/js/hyper-config.js"></script>
+    <!-- Vendor css -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
 
-<!-- Vendor css -->
-<link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+    <!-- App css -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
-<!-- App css -->
-<link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
-
-<!-- Icons css -->
-<link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Icons css -->
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
@@ -86,6 +81,7 @@ ini_set('max_execution_time', '300');
 		<!-- Menu Nav Area -->
 		<?php include '../../src/menu_nav.php'; ?>
 		<!-- End Menu Nav -->
+
         <div class="content-page">
             <div class="content">
                 <!-- Start Content-->
@@ -105,7 +101,7 @@ ini_set('max_execution_time', '300');
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Procedimentos e Comunicados</h4>
+                                <h4 class="page-title">Auditoria</h4>
                             </div>
                         </div>
                     </div>
@@ -115,67 +111,42 @@ ini_set('max_execution_time', '300');
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Informativo aos Moradores </h4>
+                                    <h4 class="header-title">Registro de Ações </h4>
                                     <p class="text-muted font-14">
-                                        Os artigos cadastrados aqui são publicados na seção inicial do sistema..
+                                        Aqui são listados todas as atividades realizadas no sistema.
                                     </p>
                                     <div class="tab-content">
-                                    <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-                                        <div class="row mb-3"> <!-- Adicionando margem entre as linhas -->
-
-                                                    <!-- CAMPOS COMO VARIAVEIS -->
-                                                    <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
-                                                    <!-- CAMPOS COMO VARIAVEIS -->
-
-                                            <!-- Campo Título 1 -->
-                                            <div class="position-relative col-lg-6">
-                                                <label class="form-label" for="titulo">Título</label>
-                                                <input id="titulo" name="titulo" type="text" class="form-control" 
-                                                       style="text-transform: uppercase;" 
-                                                       maxlength="28" 
-                                                       required/>
-                                                <div class="valid-tooltip">Validado!</div>
-                                                <div class="invalid-tooltip">Por favor, preencha o título.</div>
-                                            </div>
-
-                                            <!-- Campo ordem 2 -->
-                                            <div class="position-relative col-lg-2">
-                                                <label class="form-label" for="ordem">Ordem de Exibição</label>
-                                                <input id="ordem" name="ordem" type="text" class="form-control" 
-                                                       style="text-transform: uppercase;" 
-                                                       maxlength="2" 
-                                                       pattern="[0-9]+"  
-                                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')"                                                                                                          
-                                                       required/>
-                                                <div class="valid-tooltip">Validado!</div>
-                                                <div class="invalid-tooltip">Por favor, preencha a ordem (somente números)</div>
-                                            </div>                                            
+                                        <div class="col-sm-5">
+                                            
                                         </div>
+                                        <br>
+                                        <div class="tab-pane show active" id="basic-datatable-preview">
+                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>DATA</th>
+                                                        <th>TÍTULO</th>
+                                                        <th>ORDEM</th>
+                                                        <th>STATUS</th>
+                                                        <th></th>                                                      
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>
+                                                        <tr>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DTDATA_INSERT']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCTITULO']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_STSTATUS']); ?></td>
+                                                            <td class="align-middle">APAGAR</td>                                                               
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- end preview-->
 
-                                            <!-- Campo de Upload -->
-                                            <div class="row mb-3">
-                                                <div class="col-lg-6">
-                                                    <label class="form-label" for="arquivo">Anexar Arquivo</label>
-                                                    <input id="arquivo" name="arquivo" type="file" class="form-control">
-                                                    <small class="text-muted">Formatos permitidos: PDF, DOCX, JPG, PNG</small>
-                                                </div>
-                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-lg-8">
-                                                <div class="tab-pane show active" id="hint-emoji-preview">
-                                                    <!-- Editor Quill -->
-                                                    <div style="height: 300px;" id="snow-editor"></div>
-                                                    <textarea hidden type="hidden" id="artigo" name="artigo"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                               
-                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Cancelar</button>             
-                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
-                                       
-                                    </form>
-                                    </div> <!-- end tab-content -->
+                                    </div> <!-- end tab-content-->
 
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
@@ -193,88 +164,78 @@ ini_set('max_execution_time', '300');
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
+
+
     </div>
-
     <script>
-    document.getElementById("botao").addEventListener("click", function() {
-        let form = document.getElementById("form");
-
-        // Pega o conteúdo do editor e define no campo 'artigo'
-        let artigoContent = quill.root.innerHTML; // Pega o conteúdo do Quill
-        document.getElementById("artigo").value = artigoContent;  // Define no campo hidden ou textarea
-
-        let formData = new FormData(form);
-
-        // Verifica a validade do formulário
-        if (form.checkValidity()) {
-            // Exibe o alerta de confirmação
-            Swal.fire({
-                title: "Tem certeza?",
-                text: "Você deseja salvar os dados?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Sim, salvar!",
-                cancelButtonText: "Cancelar"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Envia os dados via AJAX
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", "insertArtigoProc.php", true);
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            // Resposta do servidor
-                            let response = xhr.responseText;
-
-                            // Exibe a resposta no SweetAlert
-                            Swal.fire({
-                                title: 'Sucesso!',
-                                text: response, // Mostra a resposta do servidor
-                                icon: 'success'
-                            }).then(() => {
-                                // Você pode realizar ações adicionais após o sucesso, como limpar o formulário ou redirecionar
-                                form.reset();
-                            });
-                        }
-                    };
-                    xhr.send(formData); // Envia os dados do formulário
+        $(document).ready(function () {
+            $('#basic-datatable').DataTable({
+                pageLength: 50, // Exibe 50 linhas por padrão
+                lengthMenu: [10, 25, 50, 100], // Opções para alterar o número de linhas exibidas
+                responsive: true, // Tabela responsiva
+                order: [[6, 'desc']], // Ordena pela coluna "DATA" (índice 6)
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' // Tradução para português
                 }
             });
-        } else {
-            form.classList.add("was-validated"); // Exibe os erros de validação
-        }
-    });
-</script>
-
-
-
-
+        });
+    </script>
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
 
-    <!-- Code Highlight js -->
-    <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
-    <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
-    <script src="../../assets/js/hyper-syntax.js"></script>
+    <!-- Daterangepicker js -->
+    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
 
-    <!-- Quill Editor js -->
-    <script src="../../assets/vendor/quill/quill.js"></script>
+    <!-- Apex Charts js -->
+    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
 
-    <!-- Quill Demo js -->
-    <script src="../../assets/js/pages/demo.quilljs.js"></script>
-
-    <!-- Simplemde Editor js -->
-    <script src="../../assets/vendor/simplemde/simplemde.min.js"></script>
-
-    <!-- Simplemde Demo js -->
-    <script src="../../assets/js/pages/demo.simplemde.js"></script>
+    <!-- Vector Map js -->
+    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
+    <!-- Dashboard App js -->
+    <script src="../../assets/js/pages/demo.dashboard.js"></script>
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
 
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
 
+    <!-- Datatable Demo Aapp js -->
+    <script src="../../assets/js/pages/demo.datatable-init-auditoria.js?ver=<?php echo time(); ?>"></script>
+
+<script>
+$(document).ready(function () {
+    var table = $('#basic-datatable').DataTable();
+    table.destroy(); // Destrói a instância existente antes de criar outra
+
+    $('#basic-datatable').DataTable({
+        pageLength: 50, 
+        lengthMenu: [10, 25, 50, 100], 
+        responsive: true, 
+        order: [[0, 'desc']], 
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+        }
+    });
+});
+
+</script>
 
 </body>
 

@@ -1814,6 +1814,22 @@
             }          
         }
 
+        public function getArtigosInfo() 
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM INA_INSTRUCOES_ADEQUACOES ORDER BY INA_DTDATA_INSERT DESC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_ARTIGOSINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function getHashImgInfo($PEM_DCRACA = "", $PET_DCCOR = "", $PEM_DCTIPO = "") 
         {          
                 // Verifica se a conexão já foi estabelecida
