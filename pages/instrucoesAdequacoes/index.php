@@ -147,7 +147,11 @@
 
                                                             <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?> 
                                                             <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php?id=<?php echo $item['INA_IDINSTRUCOES_ADEQUACOES']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
-                                                            <td class="align-middle"><a class="text-danger"><i class="mdi mdi-delete" title="Excluir artigo" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['INA_IDINSTRUCOES_ADEQUACOES'], ENT_QUOTES, 'UTF-8') . '\')"></i></td>    
+                                                            <td class="align-middle">
+                                                                <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['INA_IDINSTRUCOES_ADEQUACOES'], ENT_QUOTES, 'UTF-8'); ?>')">
+                                                                    <i class="mdi mdi-delete" title="Excluir artigo" style="cursor: pointer; font-size: 24px;"></i>
+                                                                </a>
+                                                            </td>
                                                             <?php endif; ?>
 
                                                         </tr>
@@ -243,7 +247,7 @@ function confirmDelete(event, id) {
                 error: function (xhr, status, error) {
                     Swal.fire({
                         title: 'Erro!',
-                        text: 'Erro ao excluir a avaliação.',
+                        text: 'Erro ao excluir o artigo.',
                         icon: 'error',
                         width: '400px', // Largura do alerta
                         confirmButtonColor: "#536de6",
