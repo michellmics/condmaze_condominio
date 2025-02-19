@@ -37,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -143,9 +143,7 @@
                                     <?php if ($nivelAcesso == 'SINDICO'): ?>
                                     <p class="text-muted font-14">
                                     <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
-                                    <span>Síndico(a), seu saldo para envios de mensagem por WhatsApp é: 
-                                        <strong style="color: #25D366;"><?php echo "$saldoWhatsapp créditos"; ?></strong>
-                                    </span>
+
                                     </p>
                                     <?php endif; ?>      
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signup-modal">Cadastrar Pacote</button>
@@ -208,7 +206,7 @@
                                                         $telefone = '+55' . $item['USU_DCTELEFONE']; 
                                                         $nomeWhats = $item['USU_DCNOME'];
                                                         $hashWhats = $item['ENC_DCHASHENTREGA'];
-                                                        $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hashWhats";
+                                                        $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br";
                                                         $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
                                                         $mensagem = "Olá *$nomeWhats*, \n\nsua entrega com ID *$idEncomendaWhats* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias*. \nAo chegar na portaria, acesse o link para liberar a entrega da sua encomenda. \n\n$linkEncomendaWhats";                                                                                                               
                                                         $mensagem_codificada = urlencode($mensagem);
