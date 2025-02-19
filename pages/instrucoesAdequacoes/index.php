@@ -111,9 +111,12 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Registro de Ações </h4>
+                                    <h4 class="header-title">Procedimentos / Comunicados </h4>
+                                    <div class="col-sm-5">
+                                            <a href="insertArtigo.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>
+                                        </div>
                                     <p class="text-muted font-14">
-                                        Aqui são listados todas as atividades realizadas no sistema.
+                                        Aqui são listados todas os procedimentos e comunicados que são visiveis na página inicial.
                                     </p>
                                     <div class="tab-content">
                                         <div class="col-sm-5">

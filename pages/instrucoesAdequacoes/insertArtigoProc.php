@@ -32,6 +32,7 @@ class registerArtigo extends SITE_ADMIN
                 {
                     if($metodo == "insert")
                     {
+                        $titulo = strtoupper($titulo);
                         $result = $this->insertArtigoInfo($titulo, $ordem, $artigo, $fileUrl);
                         
                         /*                      
