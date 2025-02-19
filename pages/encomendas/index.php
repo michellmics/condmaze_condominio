@@ -207,16 +207,27 @@
                                                         $nomeWhats = $item['USU_DCNOME'];
                                                         $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/pages/login/index.php";
                                                         $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
-                                                        $mensagem = "Olá $nomeWhats, \n\nsua entrega está disponível para retirada.\n\n
+
+                                                        $mensagem = "Olá $nomeWhats, \n\n
+                                                                    
+                                                                    Sua entrega está disponível para retirada.\n\n
                                                                     Local: Condomínio Parque das Hortênsias.\n
                                                                     ID da Encomenda: $idEncomendaWhats\n\n
 
                                                                     Ao chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.
                                                                     \nLiberar Entrega: $linkEncomendaWhats";   
-                                                                                                                                                                                
+
+$mensagem2 = "Olá *$nomeWhats*,
+Sua entrega está disponível para retirada.
+
+*Local*: Condomínio Parque das Hortênsias.
+*ID da Encomenda*: $idEncomendaWhats
+
+Ao chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.
+*Liberar Entrega*: $linkEncomendaWhats";  
+
                                                         $mensagem_codificada = urlencode($mensagem);
-                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
-                                                        
+                                                        $linkWhats = "https://wa.me/$telefone?text=$mensagem2";                                                        
                                                         
                                                     ?>
                                                     <tr>    
