@@ -389,8 +389,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             
                                             <!-- inicio barra -->
                                             
-                                            <p style="font-size: 9px;">CONSERTO DA PISCINA DA AREA COMUM DO APARTAMENTO</p>
-                                            <?php $teste = "75%";?>
+                                            <p style="font-size: 9px; margin-bottom: 2px;">CONSERTO DA PISCINA DA AREA COMUM DO APARTAMENTO</p>                                            
                                             <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                                                      role="progressbar" 
@@ -400,6 +399,8 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                      style="width: 75%;">
                                                 </div>
                                             </div>
+
+                                            <?php $teste = "75%";?>
 
                                         
 
