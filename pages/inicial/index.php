@@ -393,11 +393,11 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>  
 
                                                 <?php
-                                                    if($item["EPE_DCEVOL"] < 20) {
+                                                    if($item["EPE_DCEVOL"] < 30) {
                                                         $color = "color:rgb(253, 89, 39)";
                                                         $bg = "danger";
                                                     }
-                                                    if($item["EPE_DCEVOL"] >= 20 && $item["EPE_DCEVOL"] < 50) {
+                                                    if($item["EPE_DCEVOL"] >= 30 && $item["EPE_DCEVOL"] < 50) {
                                                         $color = "color:rgb(158, 148, 1)";
                                                         $bg = "warning";
                                                     }
@@ -409,6 +409,17 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                         $color = "color:rgb(15, 185, 9)";
                                                         $bg = "success";
                                                     }
+                                                    
+                                                    $data_atual = new DateTime();
+                                                    $data_item = new DateTime($item["EPE_DCEVOL"]);
+                                                    $diferenca = $data_atual->diff($data_item);
+
+                                                    if ($diferenca->days <= 5 && $data_atual > $data_item) { 
+                                                        $atualizado = "RECEM ATUALIZADO";
+                                                    } else {
+                                                        $atualizado = "";
+                                                    }
+
                                                 ?>
                                             
                                             <!-- inicio barra -->
@@ -423,7 +434,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                          style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
                                                     </div>
                                                 </div>
-                                                <p style="color:rgb(74, 105, 161); font-size: 9px; margin-top: 2px;">RECEM ATUALIZADO</p>                                            
+                                                <p style="color:rgb(74, 105, 161); font-size: 9px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
 
                                                 
 
