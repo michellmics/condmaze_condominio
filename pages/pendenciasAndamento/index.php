@@ -121,7 +121,7 @@
                                         Aqui são listados os principais projetos ou pendências no qual o síndico(a) está atuando.
                                     </p>
                                     <div class="col-sm-5">
-                                            <a href="insertArtigo.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Pendência</a>
+                                            <a href="insertPendencia.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Pendência</a>
                                         </div>
                                     <div class="tab-content">
                                         <div class="col-sm-5">

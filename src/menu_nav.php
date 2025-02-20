@@ -85,6 +85,10 @@
                                     <?php if ($nivelAcesso == 'SUPORTE'): ?>
                                     <a href="../informacoesUteis/index.php" class="dropdown-item">Informações Úteis</a>
                                     <?php endif; ?>
+
+                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
+                                    <a href="../pendenciasAndamento/index.php" class="dropdown-item">Evolução / Pendências</a>
+                                    <?php endif; ?>                                    
                                     
                                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                     <a href="../configuracoes/index.php" class="dropdown-item">Configurações</a>
