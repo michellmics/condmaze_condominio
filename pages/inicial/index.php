@@ -358,22 +358,23 @@ document.querySelectorAll('.list-group-item').forEach(button => {
 
 
 
-    <!-- start page title -->
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box">
-                <!-- Alinhamento flexbox para título e botões -->
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
-                    <h4 class="page-title mb-3 mb-md-0">Avaliação de Prestadores de Serviço</h4>
-                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end" style="margin-bottom: 10px;">
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
-                    </div>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="avaliar-modal-label">Avaliação de Prestadores de Serviço</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Conteúdo do modal aqui...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
-    <!-- end page title -->
+</div>
 
 
 
