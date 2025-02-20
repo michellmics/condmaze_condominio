@@ -439,24 +439,25 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                 <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
 
                                                 
-
-                                                <!-- Modal Pendencias Evolução-->
-                                                <div class="modal fade" id="pendencia-modal" tabindex="-1" aria-labelledby="pendencia-modal-label" aria-hidden="true">
-                                                    <div class="modal-dialog">
+                                                <!-- Scrollable modal -->
+                                                <div class="modal fade" id="pendencia-modal" tabindex="-1" role="dialog" aria-labelledby="scrollableModalTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="pendencia-modal-label">Última Atualização</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                                                <h5 class="modal-title" id="scrollableModalTitle">Modal title</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <?php echo $item["EPE_DCEVOL"]."%"; ?>.
+                                                            <div id="modal-body-content"></div> <!-- Conteúdo do artigo -->
+                                                            <div id="modal-file-link"></div> <!-- Link para download do arquivo -->
+                                                                                                
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
                                                 
                                             <!-- Fim barra -->
 
