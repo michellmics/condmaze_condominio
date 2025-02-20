@@ -387,14 +387,10 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
                                             
-                                            dados aqui
-
+                                            <p>dados aqui</p>
                                             <div class="progress col-xl-10">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
                                             </div>
-                                            <span class="position-absolute" style="right: 0; top: 50%; transform: translate(100%, -50%); font-weight: bold; color: black;">
-                                                75%
-                                            </span>
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
