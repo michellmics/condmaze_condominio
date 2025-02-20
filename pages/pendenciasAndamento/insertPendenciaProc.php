@@ -44,12 +44,12 @@ class registerPendencia extends SITE_ADMIN
                         $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                         //--------------------LOG----------------------//
                         */  
-                        echo "Artigo cadastrado com sucesso."; 
+                        echo "Pendência cadastrada com sucesso."; 
                     }
                     if($metodo == "update")
                     {
                             $result = $this->updatePendenciaInfo($titulo, $evol, $obs, $id);
-                            echo "Morador atualizado com sucesso."; 
+                            echo "Pendência atualizada com sucesso."; 
                     }
                     
                 }

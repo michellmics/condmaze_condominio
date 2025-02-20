@@ -158,7 +158,7 @@ ini_set('max_execution_time', '300');
                                                 <div class="invalid-tooltip">Por favor, preencha o título.</div>
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div class="position-relative col-lg-6">
                                                 <label for="evol" class="form-label">Evolução</label>
                                                 <input type="text" id="evol" name="evol" data-plugin="range-slider" data-type="single" data-grid="true" data-min="10" data-max="100" data-from="<?php echo $evol ?>" /> 
                                             </div>   
@@ -252,7 +252,8 @@ ini_set('max_execution_time', '300');
 
 
 
-
+    <!-- Rateit Cemo  js -->
+    <script src="../../assets/js/ui/component.rating.js"></script>
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
