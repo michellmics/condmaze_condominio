@@ -251,7 +251,9 @@ ini_set('max_execution_time', '300');
 </script>
 
 
-
+    <!-- Rateit js -->
+    <script src="../../assets/vendor/jquery.rateit/scripts/jquery.rateit.min.js"></script>
+    
     <!-- Rateit Cemo  js -->
     <script src="../../assets/js/ui/component.rating.js"></script>
 

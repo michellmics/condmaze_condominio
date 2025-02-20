@@ -722,7 +722,7 @@
                 }            
                 $stmt->bindValue(':EPE_DCTITULO', $EPE_DCTITULO, PDO::PARAM_STR);
                 $stmt->bindValue(':EPE_DCEVOL', $EPE_DCEVOL, PDO::PARAM_STR);
-                $stmt->bindValue(':INA_DCEPE_DCOBSTEXT', $INA_DCEPE_DCOBSTEXT, PDO::PARAM_STR);
+                $stmt->bindValue(':EPE_DCOBS', $EPE_DCOBS, PDO::PARAM_STR);
                 $stmt->bindValue(':EPE_IDEVOLUCAO_PENDENCIA', $EPE_IDEVOLUCAO_PENDENCIA, PDO::PARAM_STR);
 
                 // Executar a consulta
