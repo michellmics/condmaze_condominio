@@ -154,12 +154,10 @@ class insertMsg extends SITE_ADMIN
                 "puto" => "❤️"
             ];
             
-            // Mensagem a ser verificada
-            $mensagem = "Essa porra é uma merda! Eu sou um idiota por ter dito isso.";
-            
+           
             // Substituir as palavras ofensivas por ❤️
             foreach ($palavroes as $palavra => $emoji) {
-                $mensagem = str_ireplace($palavra, $emoji, $mensagem);
+                $mensagem = str_ireplace($palavra, $emoji, $msg);
             }
 
 
