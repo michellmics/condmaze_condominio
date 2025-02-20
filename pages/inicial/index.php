@@ -390,8 +390,11 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             dados aqui
 
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
                                             </div>
+                                            <span class="position-absolute w-100 text-center" style="z-index: 1; color: black; font-weight: bold;">
+                                                75%
+                                            </span>
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
