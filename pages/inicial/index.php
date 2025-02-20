@@ -358,23 +358,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="avaliar-modal-label">Avaliação de Prestadores de Serviço</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-                Conteúdo do modal aqui...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 
@@ -403,9 +387,10 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
                                             
+                                            <!-- inicio barra -->
                                             
-                                            
-                                            <p>dados aqui</p>
+                                            <p>dados aqui</p> 
+                                            <?php $teste = "75%";?>
                                             <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                                                      role="progressbar" 
@@ -415,8 +400,26 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                      style="width: 75%;">
                                                 </div>
                                             </div>
-                                            
 
+                                            <!-- Modal Pendencias Evolução-->
+                                            <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="avaliar-modal-label">Última Atualização</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <?php echo $teste; ?>.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Fim barra -->
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
