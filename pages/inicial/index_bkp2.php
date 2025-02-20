@@ -371,10 +371,8 @@ document.querySelectorAll('.list-group-item').forEach(button => {
 
 
 
-                <div class="row">
-
-
-                        <div class="col-xl-6">
+                    <div class="row">
+                    <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
 
@@ -387,11 +385,30 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
                                             
-                                            dados aqui
-
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                                            </div>
+                                            <b>Grupo para comunicação</b><br>
+                                            <b>Whatsapp:</b> <a href="https://chat.whatsapp.com/H5F4cf2NQvc9CsL4jcVlof" target="_blank">Entrar no Grupo</a><br>
+                                            <br>
+                                            <b>Horários Permitidos para Reformas</b><br>
+                                            <b>Segunda a sexta:</b> 08h ás 17h<br>
+                                            <b>Sábado:</b> 08h ás 12h<br>
+                                            <b>Domingos e Feriados:</b> Não é permitido reforma<br>
+                                            <br>
+                                            <b>Portaria</b><br>
+                                            <b>Telefone:</b> 19 99593-9865<br>
+                                            <b>E-mail:</b> portaria@prqdashortensias.com.br<br>
+                                            <br>
+                                            <b>Zelador</b><br>
+                                            <b>Nome:</b> Udisson - Empresa Samekh<br>
+                                            <br>
+                                            <b>Síndico(a):</b> Michelle Silva<br>
+                                            <b>Telefone:</b> 19 99000-8428<br>
+                                            <b>E-mail:</b> sindico@prqdashortensias.com.br<br>
+                                            <b>E-mail Conselho:</b> conselhofiscalhortensias@gmail.com<br>
+                                            <br>
+                                            <b>Administradora:</b> Puiatti<br>
+                                            <b>E-mail:</b> contato@puiatti.com.br<br>
+                                            <b>Atend. Whatsapp:</b> (19) 99909-0561<br>
+                                            <b>Telefones de contato:</b> (19)3238-8710 | (19)3238-9520<br>
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
