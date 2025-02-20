@@ -418,8 +418,8 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#scrollable-modal" 
                                                     style="cursor: pointer; margin-bottom: 5px;"
-                                                    data-title="Titulo"
-                                                    data-content="Conteudo"
+                                                    data-title="<?php echo $item["EPE_DCTITULO"]; ?>"
+                                                    data-content="<?php echo $item["EPE_DCOBS"]; ?>"
                                                     >
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
                                                          role="progressbar" 

@@ -251,12 +251,6 @@ ini_set('max_execution_time', '300');
 </script>
 
 
-    <!-- Rateit js -->
-    <script src="../../assets/vendor/jquery.rateit/scripts/jquery.rateit.min.js"></script>
-    
-    <!-- Rateit Cemo  js -->
-    <script src="../../assets/js/ui/component.rating.js"></script>
-
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
 
@@ -279,6 +273,16 @@ ini_set('max_execution_time', '300');
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
+
+    <!-- Plgins only -->
+    <script src="../../assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="../../assets/js/ui/component.range-slider.js"></script>
+
+    <!-- Rateit js -->
+    <script src="../../assets/vendor/jquery.rateit/scripts/jquery.rateit.min.js"></script>
+
+    <!-- Rateit Cemo  js -->
+    <script src="../../assets/js/ui/component.rating.js"></script>
 
 
 
