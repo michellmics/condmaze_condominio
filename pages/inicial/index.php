@@ -13,6 +13,9 @@
     $siteAdmin->getParameterInfo();
     $siteAdmin->getListaMensagensSugestoesInfo();  
     $siteAdmin->getArtigosInfoInicial();   
+    $siteAdmin->getPendenciasInfo();     
+
+    
 
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
@@ -387,42 +390,46 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                         <div class="tab-pane show active" id="basic-example-preview">
                                             <div class="table-responsive-sm">
                                             
+                                            <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>  
+                                            
                                             <!-- inicio barra -->
                                             
-                                            <p style="font-size: 10px; margin-bottom: 2px;">25/01/2025 -  <span style="color: red; font-weight: bold;">75%</span> : CONSERTO DA PISCINA DA AREA COMUM DO APARTAMENTO</p>                                            
-                                            <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
-                                                     role="progressbar" 
-                                                     aria-valuenow="75" 
-                                                     aria-valuemin="0" 
-                                                     aria-valuemax="100" 
-                                                     style="width: 75%;">
+                                                <p style="font-size: 10px; margin-bottom: 2px;">25/01/2025 -  <span style="color: red; font-weight: bold;">75%</span> : CONSERTO DA PISCINA DA AREA COMUM DO APARTAMENTO</p>                                            
+                                                <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                                         role="progressbar" 
+                                                         aria-valuenow="75" 
+                                                         aria-valuemin="0" 
+                                                         aria-valuemax="100" 
+                                                         style="width: 75%;">
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <?php $teste = "75%";?>
-
-                                        
-
-                                            <!-- Modal Pendencias Evolução-->
-                                            <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="avaliar-modal-label">Última Atualização</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <?php echo $teste; ?>.
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                
+                                                <?php $teste = "75%";?>
+                                                
+                                                
+                                                
+                                                <!-- Modal Pendencias Evolução-->
+                                                <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="avaliar-modal-label">Última Atualização</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <?php echo $teste; ?>.
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             
                                             <!-- Fim barra -->
+                                            <?php endforeach; ?>
+
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->

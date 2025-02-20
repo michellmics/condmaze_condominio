@@ -37,6 +37,7 @@
         public $ARRAY_HASHIMGINFO;
         public $ARRAY_LISTAEVENTOSINFO;
         public $ARRAY_ARTIGOSINFO;
+        public $ARRAY_PENDENCIAINFO;
 
         function conexao()
         {
@@ -1060,6 +1061,23 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_POPUPPUBLISHINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getPendenciasInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM EPE_EVOLUCAO_PENDENCIA
+                       ORDER BY EPE_DTLASTUPDATE DESC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_PENDENCIAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
