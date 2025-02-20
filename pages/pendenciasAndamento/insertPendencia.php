@@ -151,27 +151,17 @@ ini_set('max_execution_time', '300');
                                                 <label class="form-label" for="titulo">Título</label>
                                                 <input id="titulo" name="titulo" type="text" class="form-control" 
                                                        style="text-transform: uppercase;" 
-                                                       maxlength="28" 
+                                                       maxlength="40" 
                                                        value = "<?php echo $titulo; ?>"
                                                        required/>
                                                 <div class="valid-tooltip">Validado!</div>
                                                 <div class="invalid-tooltip">Por favor, preencha o título.</div>
                                             </div>
 
-                                            <!-- Campo ordem 2 -->
-                                            <div class="position-relative col-lg-2">
-                                                <label class="form-label" for="evol">Evolução</label>
-                                                <input id="evol" name="evol" type="text" class="form-control" 
-                                                       style="text-transform: uppercase;" 
-                                                       maxlength="2" 
-                                                       pattern="[0-9]+"
-                                                       value = "<?php echo $evol; ?>"
-                                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')"                                                                                                          
-                                                       required/>
-                                                <div class="valid-tooltip">Validado!</div>
-                                                <div class="invalid-tooltip">Por favor, preencha a evolução</div>
-                                            </div>                                            
-                                        </div>
+                                            <div class="mb-3">
+                                                <label for="evol" class="form-label">Evolução</label>
+                                                <input type="text" id="evol" name="evol" data-plugin="range-slider" data-type="single" data-grid="true" data-min="10" data-max="100" data-from="<?php echo $evol ?>" /> 
+                                            </div>   
 
     
                                         <div class="row mb-3">

@@ -413,7 +413,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             
                                             <!-- inicio barra -->
                                             
-                                                <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
+                                                <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
                                                 <div class="progress col-xl-10" 
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#scrollable-modal" 
