@@ -574,6 +574,40 @@
 
         }
 
+        public function insertPendenciaInfo($EPE_DCTITULO, $EPE_DCEVOL, $EPE_DCOBS)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            $now = new DateTime(); 
+            $EPE_DTLASTUPDATE = $now->format('Y-m-d H:i:s');
+            
+                // Query de inserção
+                $sql = "INSERT INTO EPE_EVOLUCAO_PENDENCIA (EPE_DCTITULO, EPE_DCEVOL, EPE_DCOBS, EPE_DTLASTUPDATE)
+                          VALUES (:EPE_DCTITULO, :EPE_DCEVOL, :EPE_DCOBS, :EPE_DTLASTUPDATE)";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
+                $stmt->bindValue(':EPE_DCTITULO', $EPE_DCTITULO, PDO::PARAM_STR);
+                $stmt->bindValue(':EPE_DCEVOL', $EPE_DCEVOL, PDO::PARAM_STR);
+                $stmt->bindValue(':EPE_DCOBS', $EPE_DCOBS, PDO::PARAM_STR);   
+                $stmt->bindValue(':EPE_DTLASTUPDATE', $EPE_DTLASTUPDATE, PDO::PARAM_STR); 
+      
+
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    return "Erro ao inserir os dados: " . $stmt->error;
+                } else {
+                    return "Registro inserido com sucesso!";
+                }
+            
+        }
+
         public function insertArtigoInfo($INA_DCTITULO, $INA_DCORDEM, $INA_DCTEXT, $INA_DCFILEURL)
         {       
             // Verifica se a conexão já foi estabelecida
@@ -657,6 +691,39 @@
                     $stmt->bindValue(':INA_DCFILEURL', $INA_DCFILEURL, PDO::PARAM_STR);
                     $stmt->bindValue(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
                 }
+
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    return "Erro ao atualizar os dados: " . $stmt->error;
+                } else {
+                    return "Registro atualizado com sucesso!";
+                }
+            
+        }
+
+        public function updatePendenciaInfo($EPE_DCTITULO, $EPE_DCEVOL, $EPE_DCOBS, $EPE_IDEVOLUCAO_PENDENCIA)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }                    
+
+                // Query de inserção
+                $sql = "UPDATE  EPE_EVOLUCAO_PENDENCIA SET
+                EPE_DCTITULO = :EPE_DCTITULO,
+                EPE_DCEVOL = :EPE_DCEVOL,
+                EPE_DCOBS = :EPE_DCOBS
+                WHERE EPE_IDEVOLUCAO_PENDENCIA = :EPE_IDEVOLUCAO_PENDENCIA";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }            
+                $stmt->bindValue(':EPE_DCTITULO', $EPE_DCTITULO, PDO::PARAM_STR);
+                $stmt->bindValue(':EPE_DCEVOL', $EPE_DCEVOL, PDO::PARAM_STR);
+                $stmt->bindValue(':INA_DCEPE_DCOBSTEXT', $INA_DCEPE_DCOBSTEXT, PDO::PARAM_STR);
+                $stmt->bindValue(':EPE_IDEVOLUCAO_PENDENCIA', $EPE_IDEVOLUCAO_PENDENCIA, PDO::PARAM_STR);
 
                 // Executar a consulta
                 if (!$stmt->execute()) {
@@ -1296,6 +1363,30 @@
             
                 // Retorna uma mensagem de sucesso (opcional)
                 return ["success" => "Artigo deletado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+        public function deletePendenciaInfo($INA_IDINSTRUCOES_ADEQUACOES)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM EPE_EVOLUCAO_PENDENCIA WHERE EPE_IDEVOLUCAO_PENDENCIA = :EPE_IDEVOLUCAO_PENDENCIA";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':EPE_IDEVOLUCAO_PENDENCIA', $EPE_IDEVOLUCAO_PENDENCIA, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Pendência deletada com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];
@@ -1965,6 +2056,23 @@
                 $stmt->bindParam(':INA_IDINSTRUCOES_ADEQUACOES', $INA_IDINSTRUCOES_ADEQUACOES, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_ARTIGOSINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getPendenciaInfoById($EPE_IDEVOLUCAO_PENDENCIA) 
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM EPE_EVOLUCAO_PENDENCIA WHERE EPE_IDEVOLUCAO_PENDENCIA = :EPE_IDEVOLUCAO_PENDENCIA";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':EPE_IDEVOLUCAO_PENDENCIA', $EPE_IDEVOLUCAO_PENDENCIA, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_PENDENCIAINFO = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
