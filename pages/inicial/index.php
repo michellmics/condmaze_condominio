@@ -411,7 +411,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                     }
                                                     
                                                     $data_atual = new DateTime();
-                                                    $data_item = new DateTime($item["EPE_DCEVOL"]);
+                                                    $data_item = new DateTime($item["EPE_DTLASTUPDATE"]);
                                                     $diferenca = $data_atual->diff($data_item);
 
                                                     if ($diferenca->days <= 5 && $data_atual > $data_item) { 
