@@ -176,8 +176,10 @@ ini_set('max_execution_time', '300');
                                             </div>
                                         </div>
                                                                
-                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Voltar</button>             
-                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
+                                            <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>  
+                                        </div>                                        
                                        
                                     </form>
                                     </div> <!-- end tab-content -->
