@@ -420,12 +420,14 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                         $atualizado = "";
                                                     }
 
+                                                    $data_formatada = $data_item->format('d/m/y');
+
                                                 ?>
                                             
                                             <!-- inicio barra -->
                                             
-                                                <p style="font-size: 11px; margin-bottom: 2px;"><?php echo $item["EPE_DTLASTUPDATE"]; ?> -  <span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
-                                                <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer; margin-bottom: 5px;">
+                                                <p style="font-size: 11px; margin-bottom: 2px;"><?php echo $data_formatada; ?> -  <span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
+                                                <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#pendencia-modal" style="cursor: pointer; margin-bottom: 5px;">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
                                                          role="progressbar" 
                                                          aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
@@ -439,11 +441,11 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                 
 
                                                 <!-- Modal Pendencias Evolução-->
-                                                <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
+                                                <div class="modal fade" id="pendencia-modal" tabindex="-1" aria-labelledby="pendencia-modal-label" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="avaliar-modal-label">Última Atualização</h5>
+                                                                <h5 class="modal-title" id="pendencia-modal-label">Última Atualização</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                                                             </div>
                                                             <div class="modal-body">
