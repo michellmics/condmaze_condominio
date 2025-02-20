@@ -140,7 +140,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>
+                                                    <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>
                                                         <tr>
                                                             <td class="align-middle"><?= htmlspecialchars($item['EPE_DCTITULO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars(strtoupper($item['EPE_DCEVOL'])); ?></td>
