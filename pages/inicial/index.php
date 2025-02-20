@@ -420,13 +420,13 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                         $atualizado = "";
                                                     }
 
-                                                    $data_formatada = $data_item->format('d/m/y');
+                                                   
 
                                                 ?>
                                             
                                             <!-- inicio barra -->
                                             
-                                                <p style="font-size: 11px; margin-bottom: 2px;"><?php echo $data_formatada; ?> -  <span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
+                                                <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
                                                 <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#pendencia-modal" style="cursor: pointer; margin-bottom: 5px;">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
                                                          role="progressbar" 
