@@ -404,11 +404,11 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                          style="width: 75%;">
                                                     </div>
                                                 </div>
-                                                
+
                                                 <?php $teste = "75%";?>
+
                                                 
-                                                
-                                                
+
                                                 <!-- Modal Pendencias Evolução-->
                                                 <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -426,7 +426,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            
+                                                <br><br>
                                             <!-- Fim barra -->
                                             <?php endforeach; ?>
 
