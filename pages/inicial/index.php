@@ -345,7 +345,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                 var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arquivo
                 
 
-                if (fileUrl != null) {
+                if (fileUrl) {
                     // Cria o link para download
                     var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
                     document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
@@ -445,7 +445,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                         <script>
 document.addEventListener("DOMContentLoaded", function () {
     var modal = document.getElementById("scrollable-modal");
-    fileUrl = null;
+    
 
     modal.addEventListener("show.bs.modal", function (event) {
         var triggerElement = event.relatedTarget; // Elemento que acionou o modal
@@ -455,6 +455,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Pegando os atributos do botão clicado
         var title = triggerElement.getAttribute("data-title");
         var content = triggerElement.getAttribute("data-content");
+        document.getElementById('modal-file-link').innerHTML = '<p>Nenhum arquivo disponível para download.</p>';
 
         // Inserindo os valores no modal
         if (modalTitle) {
