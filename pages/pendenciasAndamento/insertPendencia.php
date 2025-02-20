@@ -214,7 +214,7 @@ ini_set('max_execution_time', '300');
 
         // Pega o conteúdo do editor e define no campo 'artigo'
         let obs = quill.root.innerHTML; // Pega o conteúdo do Quill
-        document.getElementById("artigo").value = obs;  // Define no campo hidden ou textarea
+        document.getElementById("obs").value = obs;  // Define no campo hidden ou textarea
 
         let formData = new FormData(form);
 
