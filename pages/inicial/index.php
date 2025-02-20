@@ -394,18 +394,18 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             
                                             <!-- inicio barra -->
                                             
-                                                <p style="font-size: 10px; margin-bottom: 2px;">25/01/25 -  <span style="color: red; font-weight: bold;">75%</span> CONSERTO DA PISCINA DA AREA COMUM.</p>                                            
+                                                <p style="font-size: 10px; margin-bottom: 2px;">25/01/25 -  <span style="color: red; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
                                                 <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                                                          role="progressbar" 
-                                                         aria-valuenow="75" 
+                                                         aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
                                                          aria-valuemin="0" 
                                                          aria-valuemax="100" 
-                                                         style="width: 75%;">
+                                                         style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
                                                     </div>
                                                 </div>
 
-                                                <?php $teste = "75%";?>
+                                                
 
                                                 
 
@@ -418,7 +418,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <?php echo $teste; ?>.
+                                                                <?php echo $item["EPE_DCEVOL"]."%"; ?>.
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -426,7 +426,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <br><br>
+                                                <br>
                                             <!-- Fim barra -->
                                             <?php endforeach; ?>
 
