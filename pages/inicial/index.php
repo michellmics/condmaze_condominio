@@ -403,13 +403,19 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <div class="table-responsive-sm">
                                             
                                             
-                                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">
-                                            <p>dados aqui</p>
-                                            <div class="progress col-xl-10">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                                            </div>
-                                            </button>
                                             
+                                            <p>dados aqui</p>
+                                            <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                                     role="progressbar" 
+                                                     aria-valuenow="75" 
+                                                     aria-valuemin="0" 
+                                                     aria-valuemax="100" 
+                                                     style="width: 75%;">
+                                                </div>
+                                            </div>
+                                            
+
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
