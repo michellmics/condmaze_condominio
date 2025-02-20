@@ -404,6 +404,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                          style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
                                                     </div>
                                                 </div>
+                                                <p style="color: blue; font-size: 8px; margin-top: 2px;">Novidade</p>
 
                                                 
 
