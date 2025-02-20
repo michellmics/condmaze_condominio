@@ -148,7 +148,7 @@
                                                             <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/pendenciasAndamento/insertPendencia.php?id=<?php echo $item['EPE_IDEVOLUCAO_PENDENCIA']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
                                                             <td class="align-middle">
                                                                 <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['EPE_IDEVOLUCAO_PENDENCIA'], ENT_QUOTES, 'UTF-8'); ?>')">
-                                                                    <i class="mdi mdi-delete" title="Excluir artigo" style="cursor: pointer; font-size: 24px;"></i>
+                                                                    <i class="mdi mdi-delete" title="Excluir pendência" style="cursor: pointer; font-size: 24px;"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>

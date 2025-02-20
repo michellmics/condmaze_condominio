@@ -1369,7 +1369,7 @@
             }
         }
 
-        public function deletePendenciaInfo($INA_IDINSTRUCOES_ADEQUACOES)
+        public function deletePendenciaInfo($EPE_IDEVOLUCAO_PENDENCIA)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
