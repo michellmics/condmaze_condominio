@@ -424,7 +424,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             
                                             <!-- inicio barra -->
                                             
-                                                <p style="font-size: 11px; margin-bottom: 2px;">25/01/25 -  <span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
+                                                <p style="font-size: 11px; margin-bottom: 2px;"><?php echo $item["EPE_DTLASTUPDATE"]; ?> -  <span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
                                                 <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer; margin-bottom: 5px;">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
                                                          role="progressbar" 
@@ -434,7 +434,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                          style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
                                                     </div>
                                                 </div>
-                                                <p style="color:rgb(74, 105, 161); font-size: 9px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
+                                                <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
 
                                                 
 
