@@ -391,12 +391,31 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <div class="table-responsive-sm">
                                             
                                             <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>  
+
+                                                <?php
+                                                    if($item["EPE_DCEVOL"] < 20) {
+                                                        $color = "color:rgb(253, 89, 39)";
+                                                        $bg = "danger";
+                                                    }
+                                                    if($item["EPE_DCEVOL"] >= 20 && $item["EPE_DCEVOL"] < 50) {
+                                                        $color = "color:rgb(158, 148, 1)";
+                                                        $bg = "warning";
+                                                    }
+                                                    if($item["EPE_DCEVOL"] >= 50 && $item["EPE_DCEVOL"] < 80) {
+                                                        $color = "color:rgb(69, 93, 230)";
+                                                        $bg = "primary";
+                                                    }
+                                                    if($item["EPE_DCEVOL"] >= 80) {
+                                                        $color = "color:rgb(15, 185, 9)";
+                                                        $bg = "success";
+                                                    }
+                                                ?>
                                             
                                             <!-- inicio barra -->
                                             
-                                                <p style="font-size: 11px; margin-bottom: 2px;">25/01/25 -  <span style="color: red; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
+                                                <p style="font-size: 11px; margin-bottom: 2px;">25/01/25 -  <span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
                                                 <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer; margin-bottom: 5px;">
-                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
                                                          role="progressbar" 
                                                          aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
                                                          aria-valuemin="0" 
@@ -404,9 +423,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                          style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
                                                     </div>
                                                 </div>
-                                                <p style="color: blue; font-size: 9px; margin-top: 2px;">NOVIDADE</p>
-
-                                                
+                                                <p style="color:rgb(74, 105, 161); font-size: 9px; margin-top: 2px;">RECEM ATUALIZADO</p>                                            
 
                                                 
 
@@ -429,6 +446,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                 </div>
                                                 
                                             <!-- Fim barra -->
+
                                             <?php endforeach; ?>
 
 
