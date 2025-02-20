@@ -381,9 +381,9 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Informações Úteis</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Andamento da Pendências</h4>
                                     <p class="text-muted font-14">
-                                        Dados relevantes para ficar por dentro do que acontece no condomínio.
+                                       Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solitações e projetos mais relevantes.
                                     </p>
 
                                     <div class="tab-content">
