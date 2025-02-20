@@ -389,7 +389,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             
                                             <!-- inicio barra -->
                                             
-                                            <p style="font-size: 10px; margin-bottom: 2px;">25/01/2025 - 75% : CONSERTO DA PISCINA DA AREA COMUM DO APARTAMENTO</p>                                            
+                                            <p style="font-size: 10px; margin-bottom: 2px;">25/01/2025 -  <span style="color: red; font-weight: bold;">75%</span> : CONSERTO DA PISCINA DA AREA COMUM DO APARTAMENTO</p>                                            
                                             <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#avaliar-modal" style="cursor: pointer;">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                                                      role="progressbar" 
