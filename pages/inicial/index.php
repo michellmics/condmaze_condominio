@@ -399,7 +399,11 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                      aria-valuemax="100" 
                                                      style="width: 75%;">
                                                 </div>
-                                            </div>22
+                                            </div>
+                                            <span class="progress-text" style="position: absolute; top: 50%; left: 75%; transform: translate(-50%, -50%); font-weight: bold; color: black;">
+                                                22
+                                            </span>
+                                        
 
                                             <!-- Modal Pendencias Evolução-->
                                             <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
