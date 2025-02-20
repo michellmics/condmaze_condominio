@@ -442,6 +442,32 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                             </div> <!-- end card -->
                         </div><!-- end col-->
 
+                        <script>
+document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById("scrollable-modal");
+
+    modal.addEventListener("show.bs.modal", function (event) {
+        var triggerElement = event.relatedTarget; // Elemento que acionou o modal
+        var modalTitle = modal.querySelector(".modal-title");
+        var modalBodyContent = modal.querySelector("#modal-body-content");
+
+        // Pegando os atributos do botão clicado
+        var title = triggerElement.getAttribute("data-title");
+        var content = triggerElement.getAttribute("data-content");
+
+        // Inserindo os valores no modal
+        if (modalTitle) {
+            modalTitle.textContent = title;
+        }
+        if (modalBodyContent) {
+            modalBodyContent.textContent = content;
+        }
+    });
+});
+</script>
+
+
+
                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
                         <div class="col-xl-6">
                             <div class="card">
