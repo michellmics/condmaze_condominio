@@ -155,19 +155,14 @@ class insertMsg extends SITE_ADMIN
             ];
             
            
-            // Substituir as palavras ofensivas por ❤️
             foreach ($palavroes as $palavra => $emoji) {
-                $mensagem = str_ireplace($palavra, $emoji, $msg);
+                $msg = str_ireplace($palavra, $emoji, $msg);
             }
+            
 
 
 
-
-
-
-
-
-            $result = $this->gravarMensagemSugestao($mensagem);
+            $result = $this->gravarMensagemSugestao($msg);
 
             echo "Mensagem enviada com sucesso.";                                  
                    
