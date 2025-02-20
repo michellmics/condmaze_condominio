@@ -398,8 +398,8 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                      aria-valuemin="0" 
                                                      aria-valuemax="100" 
                                                      style="width: 75%;">
-                                                </div>22
-                                            </div>
+                                                </div>
+                                            </div>22
 
                                             <!-- Modal Pendencias Evolução-->
                                             <div class="modal fade" id="avaliar-modal" tabindex="-1" aria-labelledby="avaliar-modal-label" aria-hidden="true">
