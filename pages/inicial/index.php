@@ -361,19 +361,6 @@ document.querySelectorAll('.list-group-item').forEach(button => {
 
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
                 <div class="row">
 
 
@@ -427,7 +414,7 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                             <!-- inicio barra -->
                                             
                                                 <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> CONSERTO DA PISCINA DA AREA COMUM DO AP</p>                                            
-                                                <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#pendencia-modal" style="cursor: pointer; margin-bottom: 5px;">
+                                                <div class="progress col-xl-10" data-bs-toggle="modal" data-bs-target="#scrollable-modal" style="cursor: pointer; margin-bottom: 5px;">
                                                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
                                                          role="progressbar" 
                                                          aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
@@ -437,46 +424,10 @@ document.querySelectorAll('.list-group-item').forEach(button => {
                                                     </div>
                                                 </div>
                                                 <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
-
-                                                
-                                                <!-- Scrollable modal -->
-                                                <div class="modal fade" id="pendencia-modal" tabindex="-1" role="dialog" aria-labelledby="scrollableModalTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="scrollableModalTitle">Modal title</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                            <div id="modal-body-content"></div> <!-- Conteúdo do artigo -->
-                                                            <div id="modal-file-link"></div> <!-- Link para download do arquivo -->
-                                                                                                
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                                                            </div>
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div><!-- /.modal -->
-                                                
+                                               
                                             <!-- Fim barra -->
 
                                             <?php endforeach; ?>
-
-                                            <script>
-document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById("pendencia-modal");
-
-    modal.addEventListener("hidden.bs.modal", function () {
-        document.body.classList.remove("modal-open");
-        var backdrop = document.querySelector(".modal-backdrop");
-        if (backdrop) {
-            backdrop.remove();
-        }
-    });
-});
-</script>
-
 
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
