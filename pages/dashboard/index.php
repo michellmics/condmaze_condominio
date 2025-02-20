@@ -155,7 +155,7 @@
                                     <div class="input-group d-flex align-items-center gap-2">
                                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                             <div class="col-sm-4">
-                                                <a href="../pages/uploadRelatorio/index.php" class="btn btn-danger"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
+                                                <a href="../uploadRelatorio/index.php" class="btn btn-danger"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
                                             </div>
                                         <?php endif; ?>
                                         
