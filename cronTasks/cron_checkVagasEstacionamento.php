@@ -3,31 +3,37 @@
 ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
-$host = $_SERVER['HTTP_HOST'];
-
 include_once "../objects/objects.php";
 
 $siteAdmin = new SITE_ADMIN();  
 
 $siteAdmin->getParameterInfo();
+
 foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
     if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
         $nomeCondominio = $item['CFG_DCVALOR']; 
-        break; 
     }
 
     if ($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS') {
         $EMAIL = $item['CFG_DCVALOR']; 
-        break; 
     }
 
     if ($item['CFG_DCPARAMETRO'] == 'ESTACIONAMENTO_VISITANTES_TOLERANCIA') {
         $toleranciaEstacionamento = $item['CFG_DCVALOR']; 
-        break; 
     } 
 
   } 
+
+if(!$toleranciaEstacionamento || !$nomeCondominio)
+{
+  $ASSUNTO = "ATENÇÃO: Alerta de Veículo Irregular DESATIVADO.";
+  $MSG = "O alerta de veículo irregular não está operando. Por favor, contate a Codemaze para suporte.";
+  $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+
+  $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
+ 
+  die();
+}
 
 // Função para calcular a diferença de tempo entre agora e o 'entry_time'
 function checkForAlarm($entry_time) {
@@ -47,14 +53,12 @@ $json_file = '../pages/ctrlVagasVisitante/vagas/slots.json';
 // Lê o arquivo JSON
 $slots = json_decode(file_get_contents($json_file), true); 
 
-if(!$toleranciaEstacionamento || !$nomeCondominio || (count($slots) < 1))
+if(!$slots)
 {
   $ASSUNTO = "ATENÇÃO: Alerta de Veículo Irregular DESATIVADO.";
-  $MSG = "O alerta de veículo irregular não está operando. Por favor, contate a Codemaze para suporte.";
+  $MSG = "O alerta de veículo irregular não está operando pois não encontrou o arquivo de vagas. Por favor, contate a Codemaze para suporte.";
   $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
-
-  $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
- 
+  $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA"); 
   die();
 }
 
