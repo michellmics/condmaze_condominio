@@ -59,9 +59,9 @@ file_put_contents($json_file, json_encode($slots, JSON_PRETTY_PRINT));
 echo "Arquivo JSON atualizado com sucesso.";
 */
 
-include __DIR__ .'../../phpMailer/src/PHPMailer.php';
-include __DIR__ .'../../phpMailer/src/SMTP.php';
-include __DIR__ .'../../phpMailer/src/Exception.php'; 
+include '../phpMailer/src/PHPMailer.php';
+include '../phpMailer/src/SMTP.php';
+include '../phpMailer/src/Exception.php'; 
 
 $mail = new PHPMailer(true);
 
