@@ -6,7 +6,7 @@ error_reporting(E_ALL);        // Reporta todos os erros
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
 $host = $_SERVER['HTTP_HOST'];
 
-include_once "../objects/objects.php";
+require "../objects/objects.php";
 $siteAdmin = new SITE_ADMIN();  
 
 /*
