@@ -1,9 +1,9 @@
 <?php
 
 
-include __DIR__ . '/../phpMailer/src/PHPMailer.php';
-include __DIR__ . '/../phpMailer/src/SMTP.php';
-include __DIR__ . '/../phpMailer/src/Exception.php';
+include '/var/www/html/phpMailer/src/PHPMailer.php';
+include '/var/www/html/phpMailer/src/SMTP.php';
+include '/var/www/html/phpMailer/src/Exception.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
