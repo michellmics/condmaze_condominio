@@ -110,12 +110,12 @@
                 $mail->Subject = $SUBJECT;
                 $mail->Body    = $MSG; 
             
-                $mail->send();
-                return 'E-mail enviado com sucesso';
+                return $mail->send();
+                //return 'E-mail enviado com sucesso';
             } catch (Exception $e) {
                 //$this->InsertAlarme("Erro ao enviar e-mail. $mail->ErrorInfo","High");
-                //return "Erro ao enviar e-mail: {$mail->ErrorInfo}";
-                return "Deu ruim";
+                return "Erro ao enviar e-mail: {$mail->ErrorInfo}";
+                //return "Deu ruim";
             }            
         }
 

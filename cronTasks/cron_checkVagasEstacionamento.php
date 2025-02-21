@@ -41,8 +41,12 @@ foreach ($slots as $id => $slot) {
 
         $ASSUNTO = "ALERTA DE VEÍCULO IRREGULAR";
         $MSG = "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes a mais de 48h.";
-        $sendMailResult = $siteAdmin->notifyEmail($ASSUNTO, $MSG, $host);
+        $EMAIL = "suporte@codemaze.com.br";
+        $sendMailResult = $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+
         var_dump($sendMailResult);
+
+        die();
    // }
 }
 
