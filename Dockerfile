@@ -11,6 +11,13 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
 
+# instala a crontab e o vim
+RUN apt-get update && apt-get install -y vim && apt-get install -y cron
+
+# Copia o arquivo de crontab para o usuário root e configura
+COPY crontab.txt /var/spool/cron/crontabs/root
+RUN chmod 600 /var/spool/cron/crontabs/root
+
 # Habilita o módulo de reescrita do Apache
 RUN a2enmod rewrite
 
