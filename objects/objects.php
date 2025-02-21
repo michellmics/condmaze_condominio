@@ -56,67 +56,38 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
 
         public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL, $anexo="na")
         {     
-                       
-           // $user = $configMail['EMAIL']['Username'];
-            // $pass = $configMail['EMAIL']['Password'];
+
+            $mail = new PHPMailer(true);
 
             $user = "suporte@codemaze.com.br";
             $pass = "Mi479585!";
 
-            $mail = new PHPMailer(true);
-
-            if($anexo != "na")
-            {
-                foreach ($anexo as $item) 
-                {
-                    if (!empty($item)) 
-                    { 
-                        $fileContent = file_get_contents($item); 
-                        $fileName = basename($item); 
-                        $mail->addStringAttachment($fileContent, $fileName, 'base64', 'application/pdf');
-                    } else {
-                        //$this->InsertAlarme("Gerar Boleto: Caminho do arquivo está vazio.","High");
-                        //return "O caminho do arquivo está vazio: $item<br>";
-                    }
-                    sleep(2);
-                }
-            }
-           
-
             try {
-                //Configurações do servidor
-                $mail->isSMTP(); 
-                //$mail->Host = $configMail['EMAIL']['Host'];
-                $mail->Host = "smtp.hostinger.com";
-                $mail->SMTPAuth = true; 
-                $mail->Username = $user;
-                $mail->Password = $pass;
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-                //$mail->Port = $configMail['EMAIL']['Port'];
-                $mail->Port = "465";
-                $EMAIL = "michell.oliveira1602@gmail.com";
-
-                // Configurações de codificação
-                $mail->CharSet = 'UTF-8';
-                $mail->Encoding = 'base64';
             
-                // Destinatários
-                $mail->setFrom('no-reply@dominio.com', 'prqdashortensias');
-                $mail->addAddress($EMAIL); // Adicione um destinatário
-                $mail->addBCC('suporte@prqdashortensias.com.br'); // Se desejar enviar cópia oculta
+                $mail->isSMTP();
+                $mail->Host = 'smtp.hostinger.com'; 
+                $mail->SMTPAuth = true;
+                $mail->Username = $user ;
+                $mail->Password = $pass; 
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // ou PHPMailer::ENCRYPTION_SMTPS
+                $mail->Port = 587; // Porta para STARTTLS (ou 465 para SMTPS)
             
-                // Conteúdo do e-mail
-                $mail->isHTML(true); // Defina o formato do e-mail como HTML
+                // Remetente e destinatário
+                $mail->setFrom('suporte@codemaze.com.br', 'Seu Nome');
+                $mail->addAddress('suporte@codemaze.com.br'); //destinatario
+            
+              
+                $mail->isHTML(true);
                 $mail->Subject = $SUBJECT;
-                $mail->Body    = $MSG; 
+                $mail->Body    = $MSG;
+                $mail->AltBody = $MSG;
             
-                return $mail->send();
-                //return 'E-mail enviado com sucesso';
+                $mail->send();
+                echo 'E-mail enviado com sucesso!';
             } catch (Exception $e) {
-                //$this->InsertAlarme("Erro ao enviar e-mail. $mail->ErrorInfo","High");
-                return "Erro ao enviar e-mail: {$mail->ErrorInfo}";
-                //return "Deu ruim";
-            }            
+                echo "Erro ao enviar e-mail: {$mail->ErrorInfo}";
+            }
+               
         }
 
         public function getAvaliacoesByPrestador($PDS_IDPRESTADOR_SERVICO)
