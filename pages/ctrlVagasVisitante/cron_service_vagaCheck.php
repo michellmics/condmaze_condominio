@@ -89,7 +89,7 @@ foreach ($slots as $id => $slot) {
         $apartamentoI = $slot['apartment'] ?? 'Desconhecido';
 
         $ASSUNTO = "ATENÇÃO: Alerta de Veículo Irregular - $nomeCondominio";
-        $MSG = "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes há mais de $toleranciaEstacionamento horas.";
+        $MSG = "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes há mais de $toleranciaEstacionamento dias.";
         
         $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
         $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
