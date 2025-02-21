@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
 
-include_once __DIR__ . "/../../objects/objects.php";
+include_once "/var/www/html/objects/objects.php";
 
 $siteAdmin = new SITE_ADMIN();  
 
