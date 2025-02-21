@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $MSG = "Olá $nome,
             A portaria do $nomeCondominio acaba de liberar para retirada uma encomenda que chegou para você!<br>
             Para retirar, acesse o portal <strong>https://prqdashortênsias.com.br.</strong><br>
-            Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
+            Na seção <strong>Encomendas Disponíveis Para Retirada</strong> Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
             
             Atenciosamente,<br>
             $nomeCondominio <br>
