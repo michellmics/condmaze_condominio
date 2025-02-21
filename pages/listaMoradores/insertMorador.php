@@ -217,7 +217,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                 <?php endif; ?> 
                                                 <br>
 
-                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Cancelar</button>             
+                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
                                                 <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>
                                             </form>
                                         </div> <!-- end preview-->                                        
