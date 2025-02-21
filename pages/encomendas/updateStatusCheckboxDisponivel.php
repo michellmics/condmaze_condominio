@@ -13,9 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nome = ucwords(strtolower($nome));
 
+    $siteAdmin = new SITE_ADMIN();
+    $siteAdmin->getParameterInfo();
+    
+    foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+        if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+            $nomeCondominio = $item['CFG_DCVALOR']; 
+            break; 
+        }
+    }  
 
-    if ($id && $status) {
-        $siteAdmin = new SITE_ADMIN();
+
+    if ($id && $status) {        
         $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status);
         if($status == "DISPONIVEL")
         {
