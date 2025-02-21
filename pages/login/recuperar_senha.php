@@ -37,7 +37,7 @@
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="https://www.prqdashortensias.com.br" target="_self"><img src="https://www.prqdashortensias.com.br/img/logo_site_small.png"></img></a>
+        <a href="https://www.prqdashortensias.com.br" target="_self"><img src="https://parquedashortensias.codemaze.com.br/img/logo_site_small.png"></img></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Recuperação de senha</p>
