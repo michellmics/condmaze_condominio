@@ -1,9 +1,9 @@
 <?php
 
 
-include '/var/www/html/phpMailer/src/PHPMailer.php';
-include '/var/www/html/phpMailer/src/SMTP.php';
-include '/var/www/html/phpMailer/src/Exception.php';
+    include '../../phpMailer/src/PHPMailer.php';
+    include '../../phpMailer/src/SMTP.php';
+    include '../../phpMailer/src/Exception.php'; 
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
