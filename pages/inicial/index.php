@@ -463,7 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (modalBodyContent) {
             //modalBodyContent.textContent = content;
-            modalBody.innerHTML = content;
+            modalBodyContent.innerHTML = content;
         }
     });
 });
@@ -505,7 +505,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                             <a class="pe-3" href="#">
                                                                 <img src="../../img/anonimo.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
-                                                            <div class="w-100 overflow-hidden">                                                              
+                                                            <div class="w-100 overflow-hidden">  
+                                                                
+                                                                <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['REC_IDRECLAMACAO'], ENT_QUOTES, 'UTF-8'); ?>')">
+                                                                    <i class="mdi mdi-delete" title="Excluir Reclamação" style="cursor: pointer; font-size: 24px;"></i>
+                                                                </a>
+
                                                                 <?php     
                                                                     $data = new DateTime($item['REC_DTDATA']);
                                                                     $dataFormatada = $data->format('d/m/Y H:i:s');
@@ -712,6 +717,102 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(openPopup, 1500); 
         };
     </script>
+
+        <!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+
+    <script>
+function confirmDelete(event, id) {
+    console.log(id);  // Verifica se o id está correto
+    Swal.fire({
+        title: 'Formulário de Comentários',
+        text: "Tem certeza que deseja exluir o comentário?",
+        showDenyButton: true,
+        confirmButtonText: 'CONFIRMAR',
+        denyButtonText: `CANCELAR`,
+        confirmButtonColor: "#536de6",
+        denyButtonColor: "#ff5b5b",
+        width: '400px', // Largura do alerta
+        icon: 'warning',
+        customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Fazer a requisição AJAX
+            $.ajax({
+                url: "deleteReclamacaoProc.php", // URL para processamento
+                type: "POST",
+                data: { id: id },  // Enviando o ID via POST
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Atenção',
+                        text: `${response}`,
+                        icon: 'success',
+                        width: '400px', // Largura do alerta
+                        confirmButtonColor: "#536de6",
+                        customClass: {
+                            title: 'swal-title', // Aplicando a mesma classe do título
+                            content: 'swal-content', // Aplicando a mesma classe do texto
+                            htmlContainer: 'swal-text',
+                            confirmButton: 'swal-confirm-btn'
+                        }
+                    }).then(() => {
+                        // Redirecionar ou atualizar a página, se necessário
+                        window.location.href = "index.php";
+                    });
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Erro ao excluir o pendência.',
+                        icon: 'error',
+                        width: '400px', // Largura do alerta
+                        confirmButtonColor: "#536de6",
+                        customClass: {
+                            title: 'swal-title', // Aplicando a mesma classe do título
+                            content: 'swal-content', // Aplicando a mesma classe do texto
+                            htmlContainer: 'swal-text',
+                            confirmButton: 'swal-confirm-btn'
+                        }
+                    });
+                }
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+        }
+    });
+}
+
+$(document).ready(function () {
+    // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
+});
+</script>
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 25px !important; /* Tamanho maior para o título */
+  }
+
+  .swal-text {
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 16px !important; /* Tamanho maior para os textos dos botões */
+    padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>

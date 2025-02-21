@@ -1393,6 +1393,30 @@
             }
         }
 
+        public function deleteReclamacaoInfo($REC_IDRECLAMACAO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM REC_RECLAMACAO WHERE REC_IDRECLAMACAO = :REC_IDRECLAMACAO";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':REC_IDRECLAMACAO', $REC_IDRECLAMACAO, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Reclamação deletada com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function deletePetInfo($PEM_IDPETMORADOR)
         {       
             // Verifica se a conexão já foi estabelecida
