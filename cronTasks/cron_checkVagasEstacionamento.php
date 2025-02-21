@@ -29,7 +29,7 @@ $slots = json_decode(file_get_contents($json_file), true);
 // Itera sobre os slots
 foreach ($slots as $id => $slot) {
     // Verifica se há um tempo de entrada
-    if (!empty($slot['entry_time']) && checkForAlarm($slot['entry_time'])) {
+   // if (!empty($slot['entry_time']) && checkForAlarm($slot['entry_time'])) {
         // Se a diferença for maior que 48h, define o 'alarm' como 'alarmed'
         $slots[$id]['alarm'] = 'alarmed';
 
@@ -43,7 +43,7 @@ foreach ($slots as $id => $slot) {
         $MSG = "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes a mais de 48h.";
         $sendMailResult = $siteAdmin->notifyEmail($ASSUNTO, $MSG, $host);
         var_dump($sendMailResult);
-    }
+   // }
 }
 
 // Salva as alterações no arquivo JSON
