@@ -10,12 +10,24 @@ include_once "../objects/objects.php";
 
 $siteAdmin = new SITE_ADMIN();  
 
-$ASSUNTO = "ALERTA DE VEÍCULO IRREGULAR";
-$MSG = "O veículo modelo  com placa  sob responsabilidade do apartamento  está no estacionamento de visitantes a mais de 48h.";
-$EMAIL = "suporte@codemaze.com.br";
-$sendMailResult = $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+$siteAdmin->getParameterInfo();
+foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+    if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+        $nomeCondominio = $item['CFG_DCVALOR']; 
+        break; 
+    }
 
-die();
+    if ($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS') {
+        $EMAIL = $item['CFG_DCVALOR']; 
+        break; 
+    }
+
+    if ($item['CFG_DCPARAMETRO'] == 'ESTACIONAMENTO_VISITANTES_TOLERANCIA') {
+        $toleranciaEstacionamento = $item['CFG_DCVALOR']; 
+        break; 
+    } 
+
+  } 
 
 // Função para calcular a diferença de tempo entre agora e o 'entry_time'
 function checkForAlarm($entry_time) {
@@ -26,7 +38,7 @@ function checkForAlarm($entry_time) {
     $interval = $current_time->diff($entry_time);
 
     // Verifica se a diferença é maior que 24 horas
-    return $interval->days > 2;
+    return $interval->days > $toleranciaEstacionamento;
 }
 
 // Caminho do arquivo JSON
@@ -35,6 +47,18 @@ $json_file = '../pages/ctrlVagasVisitante/vagas/slots.json';
 // Lê o arquivo JSON
 $slots = json_decode(file_get_contents($json_file), true); 
 
+if(!$toleranciaEstacionamento || !$nomeCondominio || (count($slots) < 1))
+{
+  $ASSUNTO = "ATENÇÃO: Alerta de Veículo Irregular DESATIVADO.";
+  $MSG = "O alerta de veículo irregular não está operando. Por favor, contate a Codemaze para suporte.";
+  $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+
+  $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
+ 
+  die();
+}
+
+$contadorVeiculo = 0;
 // Itera sobre os slots
 foreach ($slots as $id => $slot) {
     // Verifica se há um tempo de entrada
@@ -48,24 +72,18 @@ foreach ($slots as $id => $slot) {
         $placaI = $slot['plate']; 
         $apartamentoI = $slot['apartment'];
 
-        $ASSUNTO = "ALERTA DE VEÍCULO IRREGULAR";
+        $ASSUNTO = "ATENÇÃO: Alerta de Veículo Irregular - $nomeCondominio";
         $MSG = "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes a mais de 48h.";
-        $EMAIL = "suporte@codemaze.com.br";
-        $sendMailResult = $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+        $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+        $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
 
-        var_dump($sendMailResult);
-
-        die();
+        $contadorVeiculo++;
     }
 }
 
-// Salva as alterações no arquivo JSON
 file_put_contents($json_file, json_encode($slots, JSON_PRETTY_PRINT));
-
+$MSG = "A rotina de verificação de veículos irregulares no estacionamento de visitantes, terminou a checagem com sucesso. Encontrado $contadorVeiculo veículos irregulares.";
+$siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
 echo "Arquivo JSON atualizado com sucesso.";
-
-
-
-
 
 ?>

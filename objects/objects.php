@@ -73,8 +73,8 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $mail->Port = 587; // Porta para STARTTLS (ou 465 para SMTPS)
             
                 // Remetente e destinatário
-                $mail->setFrom('suporte@codemaze.com.br', 'Seu Nome');
-                $mail->addAddress('suporte@codemaze.com.br'); //destinatario
+                $mail->setFrom('suporte@codemaze.com.br', 'Suporte Codemaze');
+                $mail->addAddress($MSG); //destinatario
             
               
                 $mail->isHTML(true);
