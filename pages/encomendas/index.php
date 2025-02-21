@@ -225,7 +225,7 @@
                                                         
                                                     ?>
                                                     <tr>    
-                                                        <td hidden class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCEMAIL']); ?></td>
+                                                        <td hidden class="align-middle" email="<?= htmlspecialchars($item['USU_DCEMAIL']); ?>"style="font-size: 12px;"></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
