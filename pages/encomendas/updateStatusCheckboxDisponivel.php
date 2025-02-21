@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
             
             Atenciosamente,<br>
-            $nomeCondominio";
+            $nomeCondominio <br>
+            Rua dos Estudantes, 505 - Hortolândia/SP CEP 13186-170<br>
+            <a href='prqdashortensias.com.br'>prqdashortensias.com.br</a>";
 
             $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
         }
