@@ -1,9 +1,9 @@
 <?php
 
 
-    include '../phpMailer/src/PHPMailer.php';
-    include '../phpMailer/src/SMTP.php';
-    include '../phpMailer/src/Exception.php'; 
+include realpath(__DIR__ . '/../phpMailer/src/PHPMailer.php');
+include realpath(__DIR__ . '/../phpMailer/src/SMTP.php');
+include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
