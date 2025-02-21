@@ -210,20 +210,20 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     </div>
                                                 </div> 
                                                
-                                                <h6 class="font-15 mt-3">Nível de Acesso</h6>
+                                                <h6 class="font-15 mt-3">Nível de Acesso </h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline form-radio-info mb-2">
-                                                        <input <?php echo $$nivelButton; ?> value="MORADOR" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelMorador)){echo $nivelMorador;} ?>>
+                                                        <input <?php echo $nivelButton; ?> value="MORADOR" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelMorador)){echo $nivelMorador;} ?>>
                                                         <label class="form-check-label" for="customRadio3">Morador</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-warning mb-2">
-                                                        <input <?php echo $$nivelButton; ?> value="PORTARIA" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelPortaria)){echo $nivelPortaria;} ?>>
+                                                        <input <?php echo $nivelButton; ?> value="PORTARIA" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelPortaria)){echo $nivelPortaria;} ?>>
                                                         <label class="form-check-label" for="customRadio4">Portaria</label>
                                                     </div>
                                                     <div class="form-check form-check-inline form-radio-danger mb-2">
-                                                        <input <?php echo $$nivelButton; ?> value="SINDICO" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelSindico)){echo $nivelSindico;} ?>>
+                                                        <input <?php echo $nivelButton; ?> value="SINDICO" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelSindico)){echo $nivelSindico;} ?>>
                                                         <label class="form-check-label" for="customRadio4">Síndico</label>
-                                                    </div>
+                                                    </div> 
                                                 </div>
                                                 
                                                 <br>
