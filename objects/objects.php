@@ -72,6 +72,9 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // ou PHPMailer::ENCRYPTION_SMTPS
                 $mail->Port = 587; // Porta para STARTTLS (ou 465 para SMTPS)
             
+                // Definir charset para UTF-8
+                $mail->CharSet = 'UTF-8';
+
                 // Remetente e destinatário
                 $mail->setFrom('suporte@codemaze.com.br', 'Suporte Codemaze');
                 $mail->addAddress($EMAIL); //destinatario
