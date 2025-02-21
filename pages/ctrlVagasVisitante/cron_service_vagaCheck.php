@@ -1,16 +1,11 @@
 <?php
 
 
-// IP autorizado
-$ipAutorizado = '10.0.2.3';
-$ipCliente = $_SERVER['REMOTE_ADDR'];
+$secure_token = $_ENV['ENV_GETSERVICE_TOKEN'];
 
-var_dump($_SERVER);
-die();
-
-if ($ipCliente !== $ipAutorizado) {
-    echo "Acesso não autorizado. $ipCliente";
-    exit;
+if (!isset($_GET['token']) || $_GET['token'] !== $secure_token) {
+    http_response_code(403);
+    die("Acesso negado!");
 }
 
 include_once "../../objects/objects.php";
