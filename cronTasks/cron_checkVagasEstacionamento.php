@@ -2,14 +2,14 @@
 
 ini_set('display_errors', 1);  // Habilita a exibição de erros
 error_reporting(E_ALL);        // Reporta todos os erros
-/*
+
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
 $host = $_SERVER['HTTP_HOST'];
 
 include_once "../objects/objects.php";
 $siteAdmin = new SITE_ADMIN();  
 
-
+/*
 
 // Função para calcular a diferença de tempo entre agora e o 'entry_time'
 function checkForAlarm($entry_time) {
@@ -59,12 +59,7 @@ file_put_contents($json_file, json_encode($slots, JSON_PRETTY_PRINT));
 echo "Arquivo JSON atualizado com sucesso.";
 */
 
-include '../phpMailer/src/PHPMailer.php';
-include '../phpMailer/src/SMTP.php';
-include '../phpMailer/src/Exception.php'; 
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true);
 
