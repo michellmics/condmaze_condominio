@@ -176,7 +176,8 @@
                                                         $statusEnt = $item['ENC_STENTREGA_MORADOR'];
                                                         $obs = substr($item['ENC_DCOBSERVACAO'],0,13);
                                                         $nome = $item['USU_DCNOME'];
-                                                        $telefone = $item['USU_DCTELEFONE']; 
+                                                        $telefone = $item['USU_DCTELEFONE'];   
+                                                        $email = $item['USU_DCEMAIL'];                                                      
                                                         
                                                         if($item['ENC_STENCOMENDA'] == "DISPONIVEL")
                                                         {
@@ -224,6 +225,7 @@
                                                         
                                                     ?>
                                                     <tr>    
+                                                        <td hidden class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCEMAIL']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
@@ -564,6 +566,8 @@ $(document).ready(function () {
                 const telefone = tdTelefone.getAttribute('telefone');            
                 const tdHash = document.querySelector('td[hash]');
                 const hash = tdHash.getAttribute('hash');
+                const tdEmail = document.querySelector('td[email]');
+                const email = tdEmail.getAttribute('email');
 
                 // Envia a alteração para o servidor
                 fetch('updateStatusCheckboxDisponivel.php', {

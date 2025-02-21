@@ -9,18 +9,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $data['nome'] ?? null;
     $telefone = $data['telefone'] ?? null;
     $hash = $data['hash'] ?? null;
+    $EMAIL = $data['email'] ?? null;
 
     $nome = ucwords(strtolower($nome));
+
 
     if ($id && $status) {
         $siteAdmin = new SITE_ADMIN();
         $result = $siteAdmin->updateCheckboxEncomendasDisponivelMorador($id, $status);
         if($status == "DISPONIVEL")
         {
-            $link = "https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hash";
-            $msg = "Olá *$nome*, sua entrega com ID *$id* está disponível para retirada na portaria do *Condomínio Parque das Hortênsias.*
-                    \nAo chegar na portaria, acesse o link abaixo para liberar a retirada.\n\n$link";
-            //$result = $siteAdmin->whatsapp($nome, $telefone, $id, "disponivel", $link);
+            $ASSUNTO = "NOVA ENCOMENDA: Uhuuul Chegou uma encomenda para Você. - $nomeCondominio";
+            $MSG = "Olá $nome,
+            A portaria do $nomeCondominio acaba de liberar para retirada uma encomenda que chegou para você!<br>
+            Para retirar, acesse o portal <strong>https://prqdashortênsias.com.br.</strong><br>
+            Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
+            
+            Atenciosamente,<br>
+            $nomeCondominio";
+
+            $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
         }
         echo json_encode(['success' => $result]);
 
