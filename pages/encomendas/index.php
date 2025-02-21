@@ -575,7 +575,7 @@ $(document).ready(function () {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ id, status, nome, telefone, hash })
+                    body: JSON.stringify({ id, status, nome, telefone, hash, email })
                 })
                 .then(response => response.json())
                 .then(data => {
