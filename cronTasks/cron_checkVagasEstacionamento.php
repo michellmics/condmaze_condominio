@@ -27,7 +27,7 @@ $json_file = '../pages/ctrlVagasVisitante/vagas/slots.json';
 $slots = json_decode(file_get_contents($json_file), true); 
 
 // Itera sobre os slots
-foreach ($slots as $id => $slot) {
+//foreach ($slots as $id => $slot) {
     // Verifica se há um tempo de entrada
    // if (!empty($slot['entry_time']) && checkForAlarm($slot['entry_time'])) {
         // Se a diferença for maior que 48h, define o 'alarm' como 'alarmed'
@@ -46,9 +46,9 @@ foreach ($slots as $id => $slot) {
 
         var_dump($sendMailResult);
 
-        die();
+        //die();
    // }
-}
+//}
 
 // Salva as alterações no arquivo JSON
 file_put_contents($json_file, json_encode($slots, JSON_PRETTY_PRINT));
