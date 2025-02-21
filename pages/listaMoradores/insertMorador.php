@@ -123,7 +123,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                     <?php 
                       if ($nivelAcesso != 'SINDICO' && $nivelAcesso != 'SUPORTE') {
-                          $nivelButton = "disabled";
+                          $nivelButton = "";
                       }
                       else
                         {
