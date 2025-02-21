@@ -1,7 +1,14 @@
 <?php
 
-ini_set('display_errors', 1);  // Habilita a exibição de erros
-error_reporting(E_ALL);        // Reporta todos os erros
+// IP autorizado
+$ipAutorizado = '103.199.184.230';
+// Verifica o IP do cliente
+$ipCliente = $_SERVER['REMOTE_ADDR'];
+
+if ($ipCliente !== $ipAutorizado) {
+    echo "Acesso não autorizado.";
+    exit;
+}
 
 include_once "../../objects/objects.php";
 
