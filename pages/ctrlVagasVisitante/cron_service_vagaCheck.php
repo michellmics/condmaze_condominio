@@ -6,7 +6,7 @@ $ipAutorizado = '103.199.184.230';
 $ipCliente = $_SERVER['REMOTE_ADDR'];
 
 if ($ipCliente !== $ipAutorizado) {
-    echo "Acesso não autorizado.";
+    echo "Acesso não autorizado. $ipCliente";
     exit;
 }
 
