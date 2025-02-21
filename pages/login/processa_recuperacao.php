@@ -59,12 +59,12 @@ class RecSystem extends SITE_ADMIN
 
                 // Enviar o link de redefinição
                 $link = "https://parquedashortensias.codemaze.com.br/pages/login/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
-                $mensagem = "Clique no link para redefinir sua senha: $link";
-                $assunto = "Condomínio Parque das Hortênsias - Recuperação de senha";
-                $email = "michell.oliveira1602@gmail.com";
+                $MSG = "Clique no link para redefinir sua senha: $link";
+                $ASSUNTO = "Condomínio Parque das Hortênsias - Recuperação de senha";
+                $EMAIL = $email;
 
-                $resultSendEmail = $this->notifyUsuarioEmail($assunto,$mensagem,$email);
-                echo "Um link de recuperação foi enviado para seu e-mail.$resultSendEmail"; 
+                $resultSendEmail = $this->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+                echo "Um link de recuperação foi enviado para seu e-mail."; 
                 
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "REC SENHA";
