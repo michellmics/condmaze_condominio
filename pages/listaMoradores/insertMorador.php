@@ -1,7 +1,18 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-  session_start();
-}
+    ob_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == NULL) {
+        header("Location: ../login/index.php");
+        exit();
+    }
+
+    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE", "MORADOR"])) {
+        header("Location: ../errors/index.php");
+        exit();
+    }
+
 	include_once "../../objects/objects.php";
 	
     $siteAdmin = new SITE_ADMIN();  
@@ -33,6 +44,8 @@ if (session_status() === PHP_SESSION_NONE) {
           $nivelMorador = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'MORADOR') ? 'checked' : '';
           $nivelSindico = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'SINDICO') ? 'checked' : '';
           $nivelPortaria = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'PORTARIA') ? 'checked' : '';
+
+          
     
           $metodo = "update";
         }
@@ -120,18 +133,6 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                     </div>
                     <!-- end page title -->
-
-                    <?php 
-                      if ($nivelAcesso != 'SINDICO' && $nivelAcesso != 'SUPORTE') {
-                          $nivelButton = "";
-                      }
-                      else
-                        {
-                          $nivelButton = "";
-                        }
-                      
-                    ?>
-
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
@@ -209,23 +210,24 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     Por favor, preencha a senha de acesso.
                                                     </div>
                                                 </div> 
-                                               
-                                                <h6 class="font-15 mt-3">Nível de Acesso </h6>
-                                                <div class="mt-2">
-                                                    <div class="form-check form-check-inline form-radio-info mb-2">
-                                                        <input <?php echo $nivelButton; ?> value="MORADOR" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelMorador)){echo $nivelMorador;} ?>>
-                                                        <label class="form-check-label" for="customRadio3">Morador</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline form-radio-warning mb-2">
-                                                        <input <?php echo $nivelButton; ?> value="PORTARIA" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelPortaria)){echo $nivelPortaria;} ?>>
-                                                        <label class="form-check-label" for="customRadio4">Portaria</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline form-radio-danger mb-2">
-                                                        <input <?php echo $nivelButton; ?> value="SINDICO" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelSindico)){echo $nivelSindico;} ?>>
-                                                        <label class="form-check-label" for="customRadio4">Síndico</label>
-                                                    </div> 
-                                                </div>
-                                                
+
+                                                <?php if ($nivelAcesso != 'SINDICO'): ?>
+                                                  <h6 class="font-15 mt-3">Nível de Acesso </h6>
+                                                  <div class="mt-2">                                                      
+                                                      <div class="form-check form-check-inline form-radio-info mb-2">
+                                                          <input <?php echo $nivelButton; ?> value="MORADOR" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelMorador)){echo $nivelMorador;} ?>>
+                                                          <label class="form-check-label" for="customRadio3">Morador</label>
+                                                      </div>
+                                                      <div class="form-check form-check-inline form-radio-warning mb-2">
+                                                          <input <?php echo $nivelButton; ?> value="PORTARIA" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelPortaria)){echo $nivelPortaria;} ?>>
+                                                          <label class="form-check-label" for="customRadio4">Portaria</label>
+                                                      </div>
+                                                      <div class="form-check form-check-inline form-radio-danger mb-2">
+                                                          <input <?php echo $nivelButton; ?> value="SINDICO" type="radio" id="nivel" name="nivel" class="form-check-input" <?php if(isset($nivelSindico)){echo $nivelSindico;} ?>>
+                                                          <label class="form-check-label" for="customRadio4">Síndico</label>
+                                                      </div> 
+                                                  </div>
+                                                  <?php endif; ?> 
                                                 <br>
 
                                                 <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
@@ -363,7 +365,7 @@ if (session_status() === PHP_SESSION_NONE) {
               }
             }).then(() => {
                   // Redirecionar ou atualizar a página, se necessário
-                   window.location.href = "index.php";
+                   window.location.href = "../inicial/index.php";
                 });
               },
               error: function (xhr, status, error) {

@@ -87,6 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $bloco = $_POST['bloco'];
     $apartamento = $_POST['apartamento'];
     $nivel = $_POST['nivel'];
+    if(!isset($_POST['nivel'])){$nivel = "MORADOR";}
+
     $telefone = $_POST['telefone'];
     $metodo = $_POST['metodo']; 
  
