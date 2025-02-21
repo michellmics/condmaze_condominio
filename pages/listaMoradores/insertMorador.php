@@ -198,6 +198,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                     Por favor, preencha a senha de acesso.
                                                     </div>
                                                 </div> 
+                                                <?php if ($nivelAcesso == 'SINDICO'): ?>
                                                 <h6 class="font-15 mt-3">Nível de Acesso</h6>
                                                 <div class="mt-2">
                                                     <div class="form-check form-check-inline form-radio-info mb-2">
@@ -213,6 +214,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                                         <label class="form-check-label" for="customRadio4">Síndico</label>
                                                     </div>
                                                 </div>
+                                                <?php endif; ?> 
                                                 <br>
 
                                                 <button class="btn btn-danger" onclick="window.history.back()" type="button">Cancelar</button>             
