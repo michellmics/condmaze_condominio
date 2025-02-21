@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y vim && apt-get install -y cron
 COPY crontab.txt /var/spool/cron/crontabs/root
 RUN chmod 600 /var/spool/cron/crontabs/root
 
+# instala sockets para o email funcionar
+RUN docker-php-ext-install sockets
+
 # Habilita o módulo de reescrita do Apache
 RUN a2enmod rewrite
 
