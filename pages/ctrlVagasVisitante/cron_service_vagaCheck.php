@@ -1,11 +1,11 @@
 <?php
 
+
 // IP autorizado
 $ipAutorizado = '10.0.2.3';
-// Verifica o IP do cliente
 $ipCliente = $_SERVER['REMOTE_ADDR'];
 
-echo $ipCliente;
+var_dump($_SERVER);
 die();
 
 if ($ipCliente !== $ipAutorizado) {
