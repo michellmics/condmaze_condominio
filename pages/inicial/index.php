@@ -462,7 +462,8 @@ document.addEventListener("DOMContentLoaded", function () {
             modalTitle.textContent = title;
         }
         if (modalBodyContent) {
-            modalBodyContent.textContent = content;
+            //modalBodyContent.textContent = content;
+            modalBody.innerHTML = content;
         }
     });
 });
