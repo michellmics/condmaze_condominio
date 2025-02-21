@@ -38,5 +38,5 @@ RUN echo "DocumentRoot /var/www/html" > /etc/apache2/sites-available/000-default
 # Expõe a porta 80
 EXPOSE 80
 
-# Inicia o Apache
-CMD ["apache2-foreground"]
+# Inicia o cron e o Apache
+CMD service cron start && apache2-foreground
