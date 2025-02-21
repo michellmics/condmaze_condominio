@@ -74,7 +74,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             
                 // Remetente e destinatário
                 $mail->setFrom('suporte@codemaze.com.br', 'Suporte Codemaze');
-                $mail->addAddress($MSG); //destinatario
+                $mail->addAddress($EMAIL); //destinatario
             
               
                 $mail->isHTML(true);

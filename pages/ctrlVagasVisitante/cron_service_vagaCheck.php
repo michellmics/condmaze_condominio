@@ -1,15 +1,5 @@
 <?php
 
-// IP autorizado
-$ipAutorizado = '10.0.2.3';
-// Verifica o IP do cliente
-$ipCliente = $_SERVER['REMOTE_ADDR'];
-
-if ($ipCliente !== $ipAutorizado) {
-    echo "Acesso não autorizado. $ipCliente";
-    exit;
-}
-
 include_once "../../objects/objects.php";
 
 $siteAdmin = new SITE_ADMIN();  
