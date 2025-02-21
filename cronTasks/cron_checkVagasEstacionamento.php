@@ -5,7 +5,7 @@ error_reporting(E_ALL);        // Reporta todos os erros
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
 $host = $_SERVER['HTTP_HOST'];
 
-include_once "../../objects/objects.php";
+include_once "../objects/objects.php";
 $siteAdmin = new SITE_ADMIN();  
 
 // Função para calcular a diferença de tempo entre agora e o 'entry_time'
@@ -21,7 +21,7 @@ function checkForAlarm($entry_time) {
 }
 
 // Caminho do arquivo JSON
-$json_file = 'slots.json';
+$json_file = '../pages/ctrlVagasVisitante/slots.json';
 
 // Lê o arquivo JSON
 $slots = json_decode(file_get_contents($json_file), true); 
@@ -41,7 +41,8 @@ foreach ($slots as $id => $slot) {
 
         $ASSUNTO = "ALERTA DE VEÍCULO IRREGULAR";
         $MSG = "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes a mais de 48h.";
-        $siteAdmin->notifyEmail($ASSUNTO, $MSG, $host);
+        $sendMailResult = $siteAdmin->notifyEmail($ASSUNTO, $MSG, $host);
+        var_dump($sendMailResult);
     }
 }
 

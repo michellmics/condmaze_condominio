@@ -1699,7 +1699,8 @@
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Define a codificação como UTF-8
             $headers .= "MIME-Version: 1.0\r\n";
             
-            mail($to, $subject, $body, $headers);        
+            $result = mail($to, $subject, $body, $headers); 
+            return $result;      
         }
 
         public function updateCheckboxConvidados($LIS_IDLISTACONVIDADOS, $LIS_STSTATUS)
