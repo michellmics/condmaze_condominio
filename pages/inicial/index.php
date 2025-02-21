@@ -13,7 +13,7 @@
     $siteAdmin->getParameterInfo();
     $siteAdmin->getListaMensagensSugestoesInfo();  
     $siteAdmin->getArtigosInfoInicial();   
-    $siteAdmin->getPendenciasInfo();     
+    $siteAdmin->getPendenciasInicialInfo();     
 
     
 

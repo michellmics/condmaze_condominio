@@ -1124,6 +1124,23 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }          
         }
 
+        public function getPendenciasInicialInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM EPE_EVOLUCAO_PENDENCIA
+                       ORDER BY EPE_DTLASTUPDATE DESC LIMIT 30";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_PENDENCIAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function getFooterPublish()
         {          
                 // Verifica se a conexão já foi estabelecida
