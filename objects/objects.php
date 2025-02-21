@@ -76,8 +76,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $mail->CharSet = 'UTF-8';
 
                 // Remetente e destinatário
-                //$mail->setFrom('suporte@codemaze.com.br', 'Suporte Codemaze');
-                $mail->setFrom('no-reply@prqdashortensias.com.br', 'Condomínio Parque das Hortênsias');
+                $mail->setFrom('suporte@codemaze.com.br', 'Condomínio Parque das Hortênsias');
                 $mail->addAddress($EMAIL); //destinatario
             
               
