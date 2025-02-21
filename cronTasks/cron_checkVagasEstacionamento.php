@@ -7,9 +7,10 @@ $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https"
 $host = $_SERVER['HTTP_HOST'];
 
 include_once "../objects/objects.php";
+
 $siteAdmin = new SITE_ADMIN();  
 
-/*
+
 
 // Função para calcular a diferença de tempo entre agora e o 'entry_time'
 function checkForAlarm($entry_time) {
@@ -57,36 +58,8 @@ $slots = json_decode(file_get_contents($json_file), true);
 file_put_contents($json_file, json_encode($slots, JSON_PRETTY_PRINT));
 
 echo "Arquivo JSON atualizado com sucesso.";
-*/
 
 
 
-$mail = new PHPMailer(true);
-
-try {
-    // Configurações do servidor SMTP
-    $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com'; // Servidor SMTP da Hostinger
-    $mail->SMTPAuth = true;
-    $mail->Username = 'suporte@codemaze.com.br'; // Seu e-mail completo
-    $mail->Password = 'Mi479585!'; // Senha do seu e-mail
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // ou PHPMailer::ENCRYPTION_SMTPS
-    $mail->Port = 587; // Porta para STARTTLS (ou 465 para SMTPS)
-
-    // Remetente e destinatário
-    $mail->setFrom('suporte@codemaze.com.br', 'Seu Nome');
-    $mail->addAddress('suporte@codemaze.com.br');
-
-    // Conteúdo do e-mail
-    $mail->isHTML(true);
-    $mail->Subject = 'Teste de e-mail';
-    $mail->Body    = 'Este é um teste de envio de e-mail via SMTP da Hostinger.';
-    $mail->AltBody = 'Este é um teste de envio de e-mail via SMTP da Hostinger.';
-
-    $mail->send();
-    echo 'E-mail enviado com sucesso!';
-} catch (Exception $e) {
-    echo "Erro ao enviar e-mail: {$mail->ErrorInfo}";
-}
 
 ?>
