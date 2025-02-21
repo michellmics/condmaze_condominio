@@ -211,7 +211,7 @@
                                                     </div>
                                                 </div> 
 
-                                                <?php if ($nivelAcesso != 'SINDICO'): ?>
+                                                <?php if ($nivelAcesso != 'SINDICO' && $nivelAcesso != 'SUPORTE'): ?>
                                                   <h6 class="font-15 mt-3">Nível de Acesso </h6>
                                                   <div class="mt-2">                                                      
                                                       <div class="form-check form-check-inline form-radio-info mb-2">
