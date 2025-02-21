@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vehicle_model = strtoupper($data['vehicle_model']);
     $entry_time = $data['entry_time'];
 
-    $slots = json_decode(file_get_contents('slots.json'), true);
+    $slots = json_decode(file_get_contents('vagas/slots.json'), true);
 
     if (isset($slots[$id])) {
         if (empty($plate)) {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
         }
 
-        file_put_contents('slots.json', json_encode($slots, JSON_PRETTY_PRINT));
+        file_put_contents('vagas/slots.json', json_encode($slots, JSON_PRETTY_PRINT));
         echo json_encode(['success' => true]);
     } else {
         http_response_code(404);

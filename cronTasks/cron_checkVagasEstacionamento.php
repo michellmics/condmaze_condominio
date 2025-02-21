@@ -21,7 +21,7 @@ function checkForAlarm($entry_time) {
 }
 
 // Caminho do arquivo JSON
-$json_file = '../pages/ctrlVagasVisitante/slots.json';
+$json_file = '../pages/ctrlVagasVisitante/vagas/slots.json';
 
 // Lê o arquivo JSON
 $slots = json_decode(file_get_contents($json_file), true); 

@@ -291,7 +291,7 @@
             
                 <div class="parking-lot">
                   <?php
-                    $slots = json_decode(file_get_contents('slots.json'), true);
+                    $slots = json_decode(file_get_contents('vagas/slots.json'), true);
 
                     foreach ($slots as $id => $slot) {
                         $irregular="";

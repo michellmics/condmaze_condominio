@@ -1,6 +1,6 @@
 <?php
 // Caminho do arquivo JSON com os dados das vagas
-$jsonFile = 'slots.json';
+$jsonFile = 'vagas/slots.json';
 
 // Verifica se a solicitação é do tipo POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
