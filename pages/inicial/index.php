@@ -506,10 +506,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                                                 <img src="../../img/anonimo.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                             </a>
                                                             <div class="w-100 overflow-hidden">  
-                                                                
-                                                                <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['REC_IDRECLAMACAO'], ENT_QUOTES, 'UTF-8'); ?>')">
-                                                                    <i class="mdi mdi-delete" title="Excluir Reclamação" style="cursor: pointer; font-size: 24px;"></i>
-                                                                </a>
+                                                                <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
+                                                                    <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['REC_IDRECLAMACAO'], ENT_QUOTES, 'UTF-8'); ?>')">
+                                                                        <i class="mdi mdi-delete" title="Excluir Reclamação" style="cursor: pointer; font-size: 24px;"></i>
+                                                                    </a>
+                                                                <?php endif; ?> 
 
                                                                 <?php     
                                                                     $data = new DateTime($item['REC_DTDATA']);
