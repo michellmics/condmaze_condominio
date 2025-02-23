@@ -17,15 +17,15 @@ var colors = ["#fa6767"],
         },
         colors: colors = dataColors ? dataColors.split(",") : colors,
         series: [{
-            name: "STOCK ABC",
+            name: "SALDO",
             data: series.monthDataSeries1.prices
         }],
         title: {
-            text: "Fundamental Analysis of Stocks",
+            text: "Saldo do fundo de reserva",
             align: "left"
         },
         subtitle: {
-            text: "Price Movements",
+            text: "Últimos 12 meses",
             align: "left"
         },
         labels: series.monthDataSeries1.dates,
