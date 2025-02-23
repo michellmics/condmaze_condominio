@@ -34,8 +34,18 @@
 	<?php include '../../src/headMeta.php'; ?>
 	<!-- HEAD META BASIC LOAD -->
 
+    <!-- Theme Config Js -->
+    <script src="../../assets/js/hyper-config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
