@@ -126,18 +126,18 @@
                                                                 $color = "color:rgb(15, 185, 9)";
                                                                 $bg = "success";
                                                             }
-                                                        
+
                                                             $data_atual = new DateTime();
                                                             $data_item = new DateTime($item["EPE_DTLASTUPDATE"]);
                                                             $diferenca = $data_atual->diff($data_item);
-                                                        
+
                                                             if ($diferenca->days <= 5 && $data_atual > $data_item) { 
                                                                 $atualizado = "RECEM ATUALIZADO";
                                                             } else {
                                                                 $atualizado = "";
                                                             }
                                                         ?>
-    
+
                                                         <!-- inicio barra -->                                            
                                                         <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
                                                         <div class="progress col-xl-10" 
@@ -165,11 +165,11 @@
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
                             </div><!-- end col-->
-                                                        
+
                             <script>
                                     document.addEventListener("DOMContentLoaded", function () {
                                         var modal = document.getElementById("scrollable-modal");
-                                    
+
                                     
                                         modal.addEventListener("show.bs.modal", function (event) {
                                             var triggerElement = event.relatedTarget; // Elemento que acionou o modal
@@ -218,7 +218,7 @@
                                                                     echo $file;
 
                                                                      ?>"> <!-- Aqui passa o arquivo para o modal -->
-                                                            <i class="fa-solid fa-newspaper me-2 text-danger"></i> 
+                                                            <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>
                                                             <?= htmlspecialchars($item['INA_DCTITULO']); ?>
                                                         </button>
                                                     <?php endforeach; ?>
