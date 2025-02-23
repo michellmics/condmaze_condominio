@@ -17,7 +17,7 @@ var colors = ["#fa6767"],
         },
         colors: colors = dataColors ? dataColors.split(",") : colors,
         series: [{
-            name: "STOCK ABC",
+            name: "STOCK ABddC",
             data: series.monthDataSeries1.prices
         }],
         title: {
