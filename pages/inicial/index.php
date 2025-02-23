@@ -165,7 +165,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
                                     <p class="text-muted font-14">
                                     Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
                                     </p>
@@ -228,7 +228,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Andamento das Pendências</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Andamento das Pendências</h4>
                                     <p class="text-muted font-14">
                                        Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.
                                     </p>
@@ -323,7 +323,7 @@
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
+                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
                                         <p class="text-muted font-14">
                                             Compartilhe sua sugestão ou reclamação!
                                             Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
