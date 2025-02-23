@@ -258,7 +258,7 @@
                     </script>
                     
                     <div class="row">
-                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
+                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
@@ -325,111 +325,40 @@
                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
                             <div class="col-xl-6">
                                 <div class="card-body">
-                                <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
-                                <p class="text-muted font-14">
-                                Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
-                                </p>
-                                <div class="tab-content">
-                                    <div class="tab-pane show active" id="basic-example-preview">
-                                        <div class="table-responsive-sm">
-                                            <div class="list-group">
-                                                <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
-                                                    <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
-                                                            data-bs-toggle="modal" 
-                                                            data-bs-target="#scrollable-modal"
-                                                            data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
-                                                            data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
-                                                            data-file="<?php
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
+                                    <p class="text-muted font-14">
+                                    Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
+                                    </p>
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+                                                <div class="list-group">
+                                                    <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
+                                                        <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#scrollable-modal"
+                                                                data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
+                                                                data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
+                                                                data-file="<?php
 
-                                                                $file = basename($item['INA_DCFILEURL']);
-                                                                echo $file;
-                                                
-                                                                 ?>"> <!-- Aqui passa o arquivo para o modal -->
-                                                        <i class="ri-book-line ri-1x" style="color:rgb(0, 151, 197); margin-right: 8px;"></i>
-                                                        <?= htmlspecialchars($item['INA_DCTITULO']); ?>
-                                                    </button>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        </div> <!-- end table-responsive-->
-                                    </div> <!-- end preview-->
-                                </div> <!-- end tab-content-->
+                                                                    $file = basename($item['INA_DCFILEURL']);
+                                                                    echo $file;
+                                                    
+                                                                     ?>"> <!-- Aqui passa o arquivo para o modal -->
+                                                            <i class="ri-book-line ri-1x" style="color:rgb(0, 151, 197); margin-right: 8px;"></i>
+                                                            <?= htmlspecialchars($item['INA_DCTITULO']); ?>
+                                                        </button>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
                             </div><!-- end col-->
                         <?php endif; ?> 
                     </div>
 
 
-                    <div class="row">
-                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
-                        <div class="col-xl-6">
-                        </div><!-- end col-->
-                        <?php endif; ?>  
-
-                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
-                                        <p class="text-muted font-14">
-                                            Compartilhe sua sugestão ou reclamação!
-                                            Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
-                                            <br><b>Atenção:</b> Os recados aqui publicados <strong>não são </strong>moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens. <br>  
-                                            <strong>As mensagens enviadas anônimamente por meio deste formulário serão visíveis para todos os moradores. </strong>                                 
-                                        </p>                            
-                                        <div class="tab-content">
-                                            <div class="tab-pane show active" id="basic-example-preview">
-                                                <div class="table-responsive-sm">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
-                                                            <form class="needs-validation" novalidate id="form" role="form" method="POST">
-                                                            <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
-                                                            <div class="text-end">
-                                                                <div class="btn-group mb-2">
-                                                                </div>
-                                                                <div class="btn-group mb-2 ms-2">
-                                                                    <button type="button" class="btn btn-primary btn-sm" id="botao">Enviar</button>
-                                                                </div>
-                                                            </div>
-                                                            </form>
-
-                                                            <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
-                                                            <div class="d-flex align-items-start mt-3">
-                                                                <a class="pe-3" href="#">
-                                                                    <img src="../../img/anonimo.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
-                                                                </a>
-                                                                <div class="w-100 overflow-hidden">  
-                                                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
-                                                                        <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['REC_IDRECLAMACAO'], ENT_QUOTES, 'UTF-8'); ?>')">
-                                                                            <i class="mdi mdi-delete" title="Excluir Reclamação" style="cursor: pointer; font-size: 24px;"></i>
-                                                                        </a>
-                                                                    <?php endif; ?> 
-
-                                                                    <?php     
-                                                                        $data = new DateTime($item['REC_DTDATA']);
-                                                                        $dataFormatada = $data->format('d/m/Y H:i:s');
-                                                                    ?>
-
-                                                                    <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>                                                                    
-                                                                    <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>                                                                       
-                                                                </div>                                                            
-                                                            </div>
-                                                            <?php endforeach; ?>
-                                                            <div class="text-center mt-2">
-                                                                <a href="javascript:void(0);" class="text-danger"></a>
-                                                            </div>
-                                                        </div> <!-- end card-body-->
-                                                    </div>
-                                                    <!-- end card-->
-                                                </div> <!-- end table-responsive-->
-                                            </div> <!-- end preview-->
-                                        </div> <!-- end tab-content-->
-                                    </div> <!-- end card body-->
-                                </div> <!-- end card -->
-                            </div><!-- end col-->
-                        <?php endif; ?> 
-                    </div>
-                    <!-- end row-->
 
                 </div><!-- FIM CONTEUDO CONTAINER -->                
             </div>
