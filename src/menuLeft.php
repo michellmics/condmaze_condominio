@@ -37,7 +37,7 @@
                 <div class="leftbar-user">
                     <a href="pages-profile.html">
                         <img src="../../assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name mt-2">Dominic Keller</span>
+                        <span class="leftbar-user-name mt-2"><?php echo $nomeSession; ?></span>
                     </a>
                 </div>
 
