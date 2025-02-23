@@ -339,15 +339,11 @@
                     <!-- end row-->
 
                     <div class="row">
-                        <div class="col-xl-6">
-
-                        </div><!-- end col-->
-                        
                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
+                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
                                         <p class="text-muted font-14">
                                             Compartilhe sua sugestão ou reclamação!
                                             Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
