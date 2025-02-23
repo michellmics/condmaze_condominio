@@ -34,6 +34,9 @@
 	<?php include '../../src/headMeta.php'; ?>
 	<!-- HEAD META BASIC LOAD -->
 
+    <!-- Icons css -->
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -334,6 +337,8 @@
 <script src="../../assets/js/pages/demo.datatable-init.js"></script>
 <!-- SWEETALERT 2 -->   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- App js -->
+<script src="../../assets/js/app.min.js"></script>
 
 
 <!-- SWEETALERT 2 -->   
