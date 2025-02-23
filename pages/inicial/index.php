@@ -239,7 +239,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Encomendas Disponíveis Para Retirada</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Encomendas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
                                     Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
                                     O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.
@@ -335,6 +335,77 @@
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
+                    </div>
+                    <!-- end row-->
+
+                    <div class="row">
+                        <div class="col-xl-6">
+
+                        </div><!-- end col-->
+                        
+                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
+                                        <p class="text-muted font-14">
+                                            Compartilhe sua sugestão ou reclamação!
+                                            Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
+                                            <br><b>Atenção:</b> Os recados aqui publicados <strong>não são </strong>moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens. <br>  
+                                            <strong>As mensagens enviadas anônimamente por meio deste formulário serão visíveis para todos os moradores. </strong>                                 
+                                        </p>                            
+                                        <div class="tab-content">
+                                            <div class="tab-pane show active" id="basic-example-preview">
+                                                <div class="table-responsive-sm">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
+                                                            <form class="needs-validation" novalidate id="form" role="form" method="POST">
+                                                            <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
+                                                            <div class="text-end">
+                                                                <div class="btn-group mb-2">
+                                                                </div>
+                                                                <div class="btn-group mb-2 ms-2">
+                                                                    <button type="button" class="btn btn-primary btn-sm" id="botao">Enviar</button>
+                                                                </div>
+                                                            </div>
+                                                            </form>
+
+                                                            <?php foreach ($siteAdmin->ARRAY_MENSAGENSINFO as $index => $item): ?>
+                                                            <div class="d-flex align-items-start mt-3">
+                                                                <a class="pe-3" href="#">
+                                                                    <img src="../../img/anonimo.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+                                                                </a>
+                                                                <div class="w-100 overflow-hidden">  
+                                                                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
+                                                                        <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['REC_IDRECLAMACAO'], ENT_QUOTES, 'UTF-8'); ?>')">
+                                                                            <i class="mdi mdi-delete" title="Excluir Reclamação" style="cursor: pointer; font-size: 24px;"></i>
+                                                                        </a>
+                                                                    <?php endif; ?> 
+
+                                                                    <?php     
+                                                                        $data = new DateTime($item['REC_DTDATA']);
+                                                                        $dataFormatada = $data->format('d/m/Y H:i:s');
+                                                                    ?>
+
+                                                                    <h5 class="mt-0"><?= htmlspecialchars($dataFormatada); ?></h5>                                                                    
+                                                                    <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>                                                                       
+                                                                </div>                                                            
+                                                            </div>
+                                                            <?php endforeach; ?>
+                                                            <div class="text-center mt-2">
+                                                                <a href="javascript:void(0);" class="text-danger"></a>
+                                                            </div>
+                                                        </div> <!-- end card-body-->
+                                                    </div>
+                                                    <!-- end card-->
+                                                </div> <!-- end table-responsive-->
+                                            </div> <!-- end preview-->
+                                        </div> <!-- end tab-content-->
+                                    </div> <!-- end card body-->
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+                        <?php endif; ?> 
                     </div>
                     <!-- end row-->
 
