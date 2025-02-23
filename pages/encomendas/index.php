@@ -263,10 +263,10 @@
                 </div><!-- FIM CONTEUDO CONTAINER -->                
             </div>
             <!-- content -->
-	    <?php include '../../src/modalTermos.php'; ?>
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
+	        <?php include '../../src/modalTermos.php'; ?>
+            <!-- FOOTER -->
+	        <?php include '../../src/footerNav.php'; ?>
+	        <!-- FOOTER --> 
         </div>
     </div>
     <!-- END wrapper -->
@@ -336,14 +336,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
+<!-- SWEETALERT 2 -->   
 
-
-
-
-   <!-- ######################################################## --> 
-    <!-- SWEETALERT 2 -->   
-
-    <script>
+<script>
 function confirmDelete(event, id) {
     console.log(id);  // Verifica se o id está correto
     Swal.fire({
@@ -432,21 +427,9 @@ $(document).ready(function () {
     padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
 </style>
-<!-- ######################################################## --> 
-<!-- SWEETALERT 2 -->   
 
-
-
-
-
-
-     
-
-      <!-- ######################################################## --> 
-    <!-- SWEETALERT 2 -->   
-    <script src="../../js/jquery-3.5.1.min.js"></script>
-    <script>
-
+<script src="../../js/jquery-3.5.1.min.js"></script>
+<script>
       function confirmAndSubmit(event) {
 
         event.preventDefault(); // Impede o envio padrão do formulário
@@ -540,10 +523,8 @@ $(document).ready(function () {
     padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
 </style>
-<!-- ######################################################## --> 
-<!-- SWEETALERT 2 --> 
 
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
         
@@ -582,8 +563,7 @@ $(document).ready(function () {
             });
         });
     });
-    </script>
-
+</script>
 <script> 
     document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
@@ -619,88 +599,7 @@ $(document).ready(function () {
             });
         });
     });
-    </script>
-	
-
-
-    <script>
-      function confirmAndSubmit(event) {
-
-        event.preventDefault(); // Impede o envio padrão do formulário
-        Swal.fire({
-          title: 'Envio de Sugestão ou Reclamação',
-          text: "Tem certeza que deseja enviar a mensagem?",
-          showDenyButton: true,
-          confirmButtonText: 'CONFIRMAR',
-          denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#536de6",
-          denyButtonColor: "#ff5b5b",
-          width: '400px', // Largura do alerta
-          icon: 'warning',
-          customClass: {
-            title: 'swal-title', // Classe para o título
-            content: 'swal-content', // Classe para o conteúdo (texto)
-            confirmButton: 'swal-confirm-btn',
-            denyButton: 'swal-deny-btn',
-            htmlContainer: 'swal-text'
-          }
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Capturar os dados do formulário
-            var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
-            // Fazer a requisição AJAX
-            $.ajax({
-              url: "sendMsgProc.php", // URL para processamento
-              type: "POST",
-              data: formData,
-              processData: false, // Impede o jQuery de processar os dados
-              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
-              success: function (response) {
-                Swal.fire({
-              title: 'Atenção',
-              text: `${response}`,
-              icon: 'success',
-              width: '400px', // Largura do alerta
-              confirmButtonColor: "#536de6",
-              customClass: {
-                title: 'swal-title', // Aplicando a mesma classe do título
-                content: 'swal-content', // Aplicando a mesma classe do texto
-                htmlContainer: 'swal-text',
-                confirmButton: 'swal-confirm-btn'
-              }
-            }).then(() => {
-                  // Redirecionar ou atualizar a página, se necessário
-                   window.location.href = "index.php";
-                });
-              },
-              error: function (xhr, status, error) {
-                Swal.fire({
-              title: 'Erro!',
-              text: 'Erro ao atualizar o convidado.'.error,
-              icon: 'error',
-              width: '400px', // Largura do alerta
-              confirmButtonColor: "#536de6",
-              customClass: {
-                title: 'swal-title', // Aplicando a mesma classe do título
-                content: 'swal-content', // Aplicando a mesma classe do texto
-                htmlContainer: 'swal-text',
-                confirmButton: 'swal-confirm-btn'
-              }
-            });
-              },
-            });
-          } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
-          }
-        });
-      }
-      // Associar a função ao botão de submit
-      $(document).ready(function () {
-        $("#botao").on("click", confirmAndSubmit);
-      });
-    </script> 
-    <!-- SWEETALERT 2 --> 
-
+    </script>	
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
@@ -732,109 +631,5 @@ $(document).ready(function () {
             });
         });
     </script>
-
-    <script>
-        function confirmDelete(event, id) {
-            console.log(id);  // Verifica se o id está correto
-            Swal.fire({
-                title: 'Formulário de Comentários',
-                text: "Tem certeza que deseja exluir o comentário?",
-                showDenyButton: true,
-                confirmButtonText: 'CONFIRMAR',
-                denyButtonText: `CANCELAR`,
-                confirmButtonColor: "#536de6",
-                denyButtonColor: "#ff5b5b",
-                width: '400px', // Largura do alerta
-                icon: 'warning',
-                customClass: {
-                    title: 'swal-title', // Classe para o título
-                    content: 'swal-content', // Classe para o conteúdo (texto)
-                    confirmButton: 'swal-confirm-btn',
-                    denyButton: 'swal-deny-btn',
-                    htmlContainer: 'swal-text'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Fazer a requisição AJAX
-                    $.ajax({
-                        url: "deleteReclamacaoProc.php", // URL para processamento
-                        type: "POST",
-                        data: { id: id },  // Enviando o ID via POST
-                        success: function (response) {
-                            Swal.fire({
-                                title: 'Atenção',
-                                text: `${response}`,
-                                icon: 'success',
-                                width: '400px', // Largura do alerta
-                                confirmButtonColor: "#536de6",
-                                customClass: {
-                                    title: 'swal-title', // Aplicando a mesma classe do título
-                                    content: 'swal-content', // Aplicando a mesma classe do texto
-                                    htmlContainer: 'swal-text',
-                                    confirmButton: 'swal-confirm-btn'
-                                }
-                            }).then(() => {
-                                // Redirecionar ou atualizar a página, se necessário
-                                window.location.href = "index.php";
-                            });
-                        },
-                        error: function (xhr, status, error) {
-                            Swal.fire({
-                                title: 'Erro!',
-                                text: 'Erro ao excluir o pendência.',
-                                icon: 'error',
-                                width: '400px', // Largura do alerta
-                                confirmButtonColor: "#536de6",
-                                customClass: {
-                                    title: 'swal-title', // Aplicando a mesma classe do título
-                                    content: 'swal-content', // Aplicando a mesma classe do texto
-                                    htmlContainer: 'swal-text',
-                                    confirmButton: 'swal-confirm-btn'
-                                }
-                            });
-                        }
-                    });
-                } else if (result.dismiss === Swal.DismissReason.cancel) {
-                    Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
-                }
-            });
-        }
-
-        $(document).ready(function () {
-            // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
-        });
-    
-    </script>
-
-    <!-- Controle do pop-up de promoção -->
-    <script>
-        // Função para abrir o pop-up
-        function openPopup() {
-            document.getElementById('promoPopup').style.display = 'flex';
-        }
-    
-        // Função para fechar o pop-up
-        function closePopup() {
-            document.getElementById('promoPopup').style.display = 'none';
-        }
-    
-        // Fecha o pop-up ao clicar fora do quadrante
-        document.addEventListener('click', function(event) {
-            const popup = document.getElementById('promoPopup');
-            const popupContent = document.querySelector('.popup-content');
-            
-            if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
-                closePopup();
-            }
-        });
-    
-        // Abra o pop-up automaticamente após 1,5 segundos
-        window.onload = function() {
-            setTimeout(openPopup, 1500); 
-        };
-    </script>
- 
-
 </body>
-
 </html>
