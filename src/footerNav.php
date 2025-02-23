@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
+                <script>document.write(new Date().getFullYear())</script> © O2 Innova
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
                     <a href="#" onclick="abrirTermos()">Termo de Privacidade</a>
-                    <a href="#" target="_blank">| <b>O2 Innova</b> |</a>  
+                    <a href="#" onclick="abrirTermos()">Nível: <?php echo $nivelAcesso; ?></a>                    
                 </div>
             </div>
         </div>
