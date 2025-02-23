@@ -46,7 +46,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true">
 <head>
     <!-- HEAD META BASIC LOAD-->
 	<?php include '../../src/headMeta.php'; ?>
