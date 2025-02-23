@@ -1,21 +1,21 @@
 {
-  "name": "Hortênsias",
-  "short_name": "Hortênsias",
-  "description": "Aplicação PWA para Hortênsias",
-  "start_url": "https://prqdashortensias.com.br/pages/login/index.php",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "icons": [
-    {
-      "src": "img_pwa/logo_icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "img_pwa/logo_icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
+    "name": "Hortênsias",
+    "short_name": "Hortênsias",
+    "description": "Aplicação PWA para Hortênsias",
+    "start_url": "https://parquedashortensias.codemaze.com.br/pages/login/index.php",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "img_pwa/logo_icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "img_pwa/logo_icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }

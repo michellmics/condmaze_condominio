@@ -144,7 +144,7 @@
     <div class="wrapper">
 
 		<!-- Top bar Area -->
-		<?php include '../../src/top_bar.php'; ?>
+		<?php include '../../src/topBar.php'; ?>
         <!-- Inclui o modal do termo -->
         <?php 
             $termoCheck = $siteAdmin->checkTermoPrivacidade($userid); 
@@ -156,7 +156,7 @@
         <?php $siteAdmin->getEncomendaMoradorInfo($userid);?>
 
 		<!-- Menu Nav Area -->
-		<?php include '../../src/menu_nav.php'; ?>
+		<?php include '../../src/menuLeft.php'; ?>
 		<!-- End Menu Nav -->
 
         <div class="content-page">
@@ -543,11 +543,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
  
-
+		<!-- Menu Nav Area -->
+		<?php include '../../src/modalTermos.php'; ?>
+		<!-- End Menu Nav -->
 
 		<!-- Menu Nav Area -->
-		<?php include '../../src/footer_nav.php'; ?>
+		<?php include '../../src/footerNav.php'; ?>
 		<!-- End Menu Nav -->
+
+
+
         </div>
 
         <!-- ============================================================== -->
@@ -555,6 +560,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <!-- ============================================================== -->
 
     </div>
+
+        <!-- Menu Nav Area -->
+		<?php include '../../src/layoutConfig.php'; ?>
+		<!-- End Menu Nav -->
+
     <!-- END wrapper -->
      
 
