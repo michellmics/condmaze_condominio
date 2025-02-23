@@ -197,37 +197,15 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
-                                    <p class="text-muted font-14">
-                                    Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
-                                    </p>
-                                    <div class="tab-content">
-                                        <div class="tab-pane show active" id="basic-example-preview">
-                                            <div class="table-responsive-sm">
-                                                <div class="list-group">
-                                                    <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
-                                                        <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
-                                                                data-bs-toggle="modal" 
-                                                                data-bs-target="#scrollable-modal"
-                                                                data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
-                                                                data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
-                                                                data-file="<?php
-
-                                                                    $file = basename($item['INA_DCFILEURL']);
-                                                                    echo $file;
-
-                                                                     ?>"> <!-- Aqui passa o arquivo para o modal -->
-                                                            <i class="ri-book-line ri-1x" style="color:rgb(0, 151, 197); margin-right: 8px;"></i>
-                                                            <?= htmlspecialchars($item['INA_DCTITULO']); ?>
-                                                        </button>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                            </div> <!-- end table-responsive-->
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Evolução F. de Reserva</h4>
+                                        <div dir="ltr">
+                                            <div id="basic-area" class="apex-charts" data-colors="#fa6767"></div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body-->
+                                </div>
+                                <!-- end card -->
+                            </div>
                         </div><!-- end col-->
                     </div>
                     <!-- end row-->
