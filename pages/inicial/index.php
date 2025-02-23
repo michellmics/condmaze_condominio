@@ -143,7 +143,7 @@
                                                         <div class="progress col-xl-10" 
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal" 
-                                                            style="cursor: pointer; margin-bottom: 5px;"
+                                                            style="cursor: pointer; margin-bottom: 7px;"
                                                             data-title="<?php echo $item["EPE_DCTITULO"]; ?>"
                                                             data-content="<?php echo $item["EPE_DCOBS"]; ?>"
                                                             >
