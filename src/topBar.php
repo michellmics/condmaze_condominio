@@ -178,9 +178,8 @@
                             <div class=" dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Bem Vindo(a)</h6>
                             </div>
-
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">
+                            <a style="cursor: pointer;" onclick="window.location.href='https://parquedashortensias.codemaze.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'" class="dropdown-item">
                                 <i class="mdi mdi-account-circle me-1"></i>
                                 <span>Minha Conta</span>
                             </a>
@@ -192,7 +191,7 @@
                             </a>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">
+                            <a href="../logoff/index.php" class="dropdown-item">
                                 <i class="mdi mdi-lifebuoy me-1"></i>
                                 <span>Logout</span>
                             </a>
