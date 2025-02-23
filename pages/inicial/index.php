@@ -98,69 +98,102 @@
                     <!-- end page title -->
                     
                     <div class="row">
-                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                         <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Encomendas Disponíveis Para Retirada</h4>
-                                    <p class="text-muted font-14">
-                                    Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
-                                    O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Andamento das Pendências</h4>
+                                        <p class="text-muted font-14">
+                                           Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.
+                                        </p>
+                                        <div class="tab-content">
+                                            <div class="tab-pane show active" id="basic-example-preview">
+                                                <div class="table-responsive-sm">                                            
+                                                    <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>
+                                                        <?php
+                                                            if($item["EPE_DCEVOL"] < 30) {
+                                                                $color = "color:rgb(253, 89, 39)";
+                                                                $bg = "danger";
+                                                            }
+                                                            if($item["EPE_DCEVOL"] >= 30 && $item["EPE_DCEVOL"] < 50) {
+                                                                $color = "color:rgb(158, 148, 1)";
+                                                                $bg = "warning";
+                                                            }
+                                                            if($item["EPE_DCEVOL"] >= 50 && $item["EPE_DCEVOL"] < 80) {
+                                                                $color = "color:rgb(69, 93, 230)";
+                                                                $bg = "primary";
+                                                            }
+                                                            if($item["EPE_DCEVOL"] >= 80) {
+                                                                $color = "color:rgb(15, 185, 9)";
+                                                                $bg = "success";
+                                                            }
+                                                        
+                                                            $data_atual = new DateTime();
+                                                            $data_item = new DateTime($item["EPE_DTLASTUPDATE"]);
+                                                            $diferenca = $data_atual->diff($data_item);
+                                                        
+                                                            if ($diferenca->days <= 5 && $data_atual > $data_item) { 
+                                                                $atualizado = "RECEM ATUALIZADO";
+                                                            } else {
+                                                                $atualizado = "";
+                                                            }
+                                                        ?>
+    
+                                                        <!-- inicio barra -->                                            
+                                                        <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
+                                                        <div class="progress col-xl-10" 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#scrollable-modal" 
+                                                            style="cursor: pointer; margin-bottom: 5px;"
+                                                            data-title="<?php echo $item["EPE_DCTITULO"]; ?>"
+                                                            data-content="<?php echo $item["EPE_DCOBS"]; ?>"
+                                                            >
+                                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
+                                                                 role="progressbar" 
+                                                                 aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
+                                                                 aria-valuemin="0" 
+                                                                 aria-valuemax="100" 
+                                                                 style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
+                                                            </div>
+                                                        </div>
+                                                        <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
+                                                        
+                                                    <!-- Fim barra -->
+                                                    <?php endforeach; ?>
+                                                </div> <!-- end table-responsive-->
+                                            </div> <!-- end preview-->
+                                        </div> <!-- end tab-content-->
+                                    </div> <!-- end card body-->
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+                                                        
+                            <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        var modal = document.getElementById("scrollable-modal");
+                                    
+                                    
+                                        modal.addEventListener("show.bs.modal", function (event) {
+                                            var triggerElement = event.relatedTarget; // Elemento que acionou o modal
+                                            var modalTitle = modal.querySelector(".modal-title");
+                                            var modalBodyContent = modal.querySelector("#modal-body-content");
+                                        
+                                            // Pegando os atributos do botão clicado
+                                            var title = triggerElement.getAttribute("data-title");
+                                            var content = triggerElement.getAttribute("data-content");
+                                            document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
+                                        
+                                            // Inserindo os valores no modal
+                                            if (modalTitle) {
+                                                modalTitle.textContent = title;
+                                            }
+                                            if (modalBodyContent) {
+                                                //modalBodyContent.textContent = content;
+                                                modalBodyContent.innerHTML = content;
+                                            }
+                                        });
+                                    });
+                            </script>
 
-                                    </p>
-                                    <div class="tab-content">
-                                        <div class="tab-pane show active" id="basic-example-preview">
-                                            <div class="table-responsive-sm">
-                                                <table class="table table-centered mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>AP</th>
-                                                            <th>ENTRADA</th>
-                                                            <th>RETIRAR?</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>                                                  
-                                                        <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
-                                                            <tr>
-                                                                <?php
-                                                                    $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
-                                                                    $dataEntrega = $date->format('d/m/Y H:i');
-                                                                ?>
-                                                                <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                                <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                                <td style="font-size: 12px;"><?= htmlspecialchars($dataEntrega); ?></td>
-                                                                <td>
-                                                                    <!-- Switch -->
-                                                                    <div>
-                                                                        <input 
-                                                                            type="checkbox" 
-                                                                            id="switch<?= $index; ?>" 
-                                                                            data-switch="success" 
-                                                                            data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                            <?= $item['ENC_STENTREGA_MORADOR'] === 'A RETIRAR' ? 'checked' : ''; ?> 
-                                                                            onclick="event.stopPropagation();"
-                                                                        />
-                                                                        <label 
-                                                                            for="switch<?= $index; ?>" 
-                                                                            data-on-label="Sim" 
-                                                                            data-off-label="Não" 
-                                                                            class="mb-0 d-block">
-                                                                        </label>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
-                                            </div> <!-- end table-responsive-->
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
 
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
-                        <?php endif; ?>  
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
@@ -225,100 +258,70 @@
                     </script>
                     
                     <div class="row">
+                    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR'): ?>
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Andamento das Pendências</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Encomendas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
-                                       Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.
+                                    Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
+                                    O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.
+
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
-                                            <div class="table-responsive-sm">                                            
-                                                <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>
-                                                    <?php
-                                                        if($item["EPE_DCEVOL"] < 30) {
-                                                            $color = "color:rgb(253, 89, 39)";
-                                                            $bg = "danger";
-                                                        }
-                                                        if($item["EPE_DCEVOL"] >= 30 && $item["EPE_DCEVOL"] < 50) {
-                                                            $color = "color:rgb(158, 148, 1)";
-                                                            $bg = "warning";
-                                                        }
-                                                        if($item["EPE_DCEVOL"] >= 50 && $item["EPE_DCEVOL"] < 80) {
-                                                            $color = "color:rgb(69, 93, 230)";
-                                                            $bg = "primary";
-                                                        }
-                                                        if($item["EPE_DCEVOL"] >= 80) {
-                                                            $color = "color:rgb(15, 185, 9)";
-                                                            $bg = "success";
-                                                        }
-
-                                                        $data_atual = new DateTime();
-                                                        $data_item = new DateTime($item["EPE_DTLASTUPDATE"]);
-                                                        $diferenca = $data_atual->diff($data_item);
-
-                                                        if ($diferenca->days <= 5 && $data_atual > $data_item) { 
-                                                            $atualizado = "RECEM ATUALIZADO";
-                                                        } else {
-                                                            $atualizado = "";
-                                                        }
-                                                    ?>
-
-                                                    <!-- inicio barra -->                                            
-                                                    <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
-                                                    <div class="progress col-xl-10" 
-                                                        data-bs-toggle="modal" 
-                                                        data-bs-target="#scrollable-modal" 
-                                                        style="cursor: pointer; margin-bottom: 5px;"
-                                                        data-title="<?php echo $item["EPE_DCTITULO"]; ?>"
-                                                        data-content="<?php echo $item["EPE_DCOBS"]; ?>"
-                                                        >
-                                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
-                                                             role="progressbar" 
-                                                             aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
-                                                             aria-valuemin="0" 
-                                                             aria-valuemax="100" 
-                                                             style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
-                                                        </div>
-                                                    </div>
-                                                    <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
-                                                    
-                                                <!-- Fim barra -->
-                                                <?php endforeach; ?>
+                                            <div class="table-responsive-sm">
+                                                <table class="table table-centered mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>AP</th>
+                                                            <th>ENTRADA</th>
+                                                            <th>RETIRAR?</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>                                                  
+                                                        <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
+                                                            <tr>
+                                                                <?php
+                                                                    $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                                    $dataEntrega = $date->format('d/m/Y H:i');
+                                                                ?>
+                                                                <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                                <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                                <td style="font-size: 12px;"><?= htmlspecialchars($dataEntrega); ?></td>
+                                                                <td>
+                                                                    <!-- Switch -->
+                                                                    <div>
+                                                                        <input 
+                                                                            type="checkbox" 
+                                                                            id="switch<?= $index; ?>" 
+                                                                            data-switch="success" 
+                                                                            data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                            <?= $item['ENC_STENTREGA_MORADOR'] === 'A RETIRAR' ? 'checked' : ''; ?> 
+                                                                            onclick="event.stopPropagation();"
+                                                                        />
+                                                                        <label 
+                                                                            for="switch<?= $index; ?>" 
+                                                                            data-on-label="Sim" 
+                                                                            data-off-label="Não" 
+                                                                            class="mb-0 d-block">
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
                                             </div> <!-- end table-responsive-->
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
+
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
+                        <?php endif; ?>  
 
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function () {
-                                    var modal = document.getElementById("scrollable-modal");
-
-                                
-                                    modal.addEventListener("show.bs.modal", function (event) {
-                                        var triggerElement = event.relatedTarget; // Elemento que acionou o modal
-                                        var modalTitle = modal.querySelector(".modal-title");
-                                        var modalBodyContent = modal.querySelector("#modal-body-content");
-                                    
-                                        // Pegando os atributos do botão clicado
-                                        var title = triggerElement.getAttribute("data-title");
-                                        var content = triggerElement.getAttribute("data-content");
-                                        document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
-                                    
-                                        // Inserindo os valores no modal
-                                        if (modalTitle) {
-                                            modalTitle.textContent = title;
-                                        }
-                                        if (modalBodyContent) {
-                                            //modalBodyContent.textContent = content;
-                                            modalBodyContent.innerHTML = content;
-                                        }
-                                    });
-                                });
-                            </script>
                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
                             <div class="col-xl-6">
                                 <div class="card">
