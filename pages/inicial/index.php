@@ -218,7 +218,7 @@
                                                                     echo $file;
 
                                                                      ?>"> <!-- Aqui passa o arquivo para o modal -->
-                                                            <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>
+                                                            <i class="ri-book-line ri-1x" style="color:rgb(0, 151, 197); margin-right: 8px;"></i>
                                                             <?= htmlspecialchars($item['INA_DCTITULO']); ?>
                                                         </button>
                                                     <?php endforeach; ?>
