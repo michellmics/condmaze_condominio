@@ -257,6 +257,108 @@
                         });
                     </script>
                     
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(46, 0, 119);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i> Encomendas Disponíveis Para Retirada</h4>
+                                    <p class="text-muted font-14">
+                                    Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
+                                    O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.
+
+                                    </p>
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+                                                <table class="table table-centered mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>AP</th>
+                                                            <th>ENTRADA</th>
+                                                            <th>RETIRAR?</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>                                                  
+                                                        <?php foreach ($siteAdmin->ARRAY_ENCOMENDAINFO as $index => $item): ?>
+                                                            <tr>
+                                                                <?php
+                                                                    $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
+                                                                    $dataEntrega = $date->format('d/m/Y H:i');
+                                                                ?>
+                                                                <td style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                                <td style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                                <td style="font-size: 12px;"><?= htmlspecialchars($dataEntrega); ?></td>
+                                                                <td>
+                                                                    <!-- Switch -->
+                                                                    <div>
+                                                                        <input 
+                                                                            type="checkbox" 
+                                                                            id="switch<?= $index; ?>" 
+                                                                            data-switch="success" 
+                                                                            data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                            <?= $item['ENC_STENTREGA_MORADOR'] === 'A RETIRAR' ? 'checked' : ''; ?> 
+                                                                            onclick="event.stopPropagation();"
+                                                                        />
+                                                                        <label 
+                                                                            for="switch<?= $index; ?>" 
+                                                                            data-on-label="Sim" 
+                                                                            data-off-label="Não" 
+                                                                            class="mb-0 d-block">
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+                        </div><!-- end col-->
+
+
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
+                                    <p class="text-muted font-14">
+                                    Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
+                                    </p>
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-example-preview">
+                                            <div class="table-responsive-sm">
+                                                <div class="list-group">
+                                                    <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>                                            
+                                                        <button type="button" class="list-group-item list-group-item-action d-flex align-items-center"
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#scrollable-modal"
+                                                                data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
+                                                                data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
+                                                                data-file="<?php
+
+                                                                    $file = basename($item['INA_DCFILEURL']);
+                                                                    echo $file;
+
+                                                                     ?>"> <!-- Aqui passa o arquivo para o modal -->
+                                                            <i class="ri-book-line ri-1x" style="color:rgb(0, 151, 197); margin-right: 8px;"></i>
+                                                            <?= htmlspecialchars($item['INA_DCTITULO']); ?>
+                                                        </button>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div> <!-- end table-responsive-->
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+                        </div><!-- end col-->
+                    </div>
+                    <!-- end row-->
 
 
 
