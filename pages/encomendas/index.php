@@ -141,7 +141,6 @@
                                                         <th>DISPONIVEL?</th>
                                                         <th>ENTREGUE?</th>                                                         
                                                         <th></th> 
-                                                        <th></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
