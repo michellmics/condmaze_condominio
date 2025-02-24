@@ -74,7 +74,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* align-items: center; */
+      align-items: center; 
       cursor: pointer;
       transition: 0.3s ease-in-out;
       border-radius: 12px;
