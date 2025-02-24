@@ -115,8 +115,7 @@
                                     status <b>RETIRAR?</b> como <b>SIM</b> para liberar o botão <b>ENTREGUE?</b>, permitindo que a portaria confirme a entrega.
                                     </p>
                                     <?php if ($nivelAcesso == 'SINDICO'): ?>
-                                    <p class="text-muted font-14">
-                                    <i class="fa fa-whatsapp" style="color: #25D366; font-size: 20px; margin-right: 8px;"></i>
+                                    <p class="text-muted font-14">                                    
 
                                     </p>
                                     <?php endif; ?>      
