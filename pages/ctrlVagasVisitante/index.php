@@ -37,7 +37,7 @@
     /* Estilo do corpo */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
+      /* text-align: center; */
       /* background-color: #f4f7fa; */
       margin: 0;
       padding: 0;
@@ -54,7 +54,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 15px;
-      justify-content: center;
+      /* justify-content: center; */
       margin-top: 40px;
       padding: 0 15px;
     }
@@ -74,7 +74,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      /* align-items: center; */
       cursor: pointer;
       transition: 0.3s ease-in-out;
       border-radius: 12px;
