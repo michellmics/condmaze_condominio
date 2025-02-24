@@ -28,13 +28,13 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true">
+<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
     <!-- HEAD META BASIC LOAD-->
 	<?php include '../../src/headMeta.php'; ?>
 	<!-- HEAD META BASIC LOAD -->
 
-    <!-- Theme Config Js -->
+    <!-- Theme Config Js --> 
     <script src="../../assets/js/hyper-config.js"></script>
 
     <!-- Vendor css -->
