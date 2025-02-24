@@ -271,9 +271,10 @@
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div><!-- end row-->
+
                 </div><!-- FIM CONTEUDO CONTAINER -->                
-            </div>
-            <!-- content -->
+            </div><!-- FIM CONTENT -->
+
 	        <?php include '../../src/modalTermos.php'; ?>
             <!-- FOOTER -->
 	        <?php include '../../src/footerNav.php'; ?>
@@ -282,8 +283,8 @@
     </div>
     <!-- END wrapper -->
 
-<!-- cadastrar pacote modal-->
-<div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- cadastrar pacote modal-->
+    <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -315,44 +316,44 @@
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div><!-- /.modal -->
+                                                                
+    <!-- Layout Configuration -->	
+    <?php include '../../src/layoutConfig.php'; ?>
+    <!-- Vendor js -->
+    <script src="../../assets/js/vendor.min.js"></script>
+    <!-- App js -->
+    <script src="../../assets/js/app.min.js"></script>
+    <!-- Code Highlight js -->
+    <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
+    <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
+    <script src="../../assets/js/hyper-syntax.js"></script>
+    <!-- Datatables js -->
+    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+    <!-- Datatable Demo Aapp js -->
+    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- App js -->
+    <script src="../../assets/js/app.min.js"></script>
+                                                                
+                                                                
+    <!-- SWEETALERT 2 -->   
 
-<!-- Layout Configuration -->	
-<?php include '../../src/layoutConfig.php'; ?>
-<!-- Vendor js -->
-<script src="../../assets/js/vendor.min.js"></script>
-<!-- App js -->
-<script src="../../assets/js/app.min.js"></script>
-<!-- Code Highlight js -->
-<script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
-<script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
-<script src="../../assets/js/hyper-syntax.js"></script>
-<!-- Datatables js -->
-<script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-<script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-<script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
-<script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-<script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
-<script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
-<!-- Datatable Demo Aapp js -->
-<script src="../../assets/js/pages/demo.datatable-init.js"></script>
-<!-- SWEETALERT 2 -->   
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- App js -->
-<script src="../../assets/js/app.min.js"></script>
-
-
-<!-- SWEETALERT 2 -->   
-
-<script>
-function confirmDelete(event, id) {
+    <script>
+    function confirmDelete(event, id) {
     console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário Encomendas',
@@ -416,13 +417,13 @@ function confirmDelete(event, id) {
             Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
         }
     });
-}
+    }
 
-$(document).ready(function () {
-    // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
-});
-</script>
-<style>
+    $(document).ready(function () {
+        // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
+    });
+    </script>
+    <style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
     font-size: 25px !important; /* Tamanho maior para o título */
@@ -439,10 +440,10 @@ $(document).ready(function () {
     font-size: 16px !important; /* Tamanho maior para os textos dos botões */
     padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
-</style>
+    </style>
 
-<script src="../../js/jquery-3.5.1.min.js"></script>
-<script>
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <script>
       function confirmAndSubmit(event) {
 
         event.preventDefault(); // Impede o envio padrão do formulário
@@ -517,8 +518,8 @@ $(document).ready(function () {
       $(document).ready(function () {
         $("#botao").on("click", confirmAndSubmit);
       });
-</script> 
-<style>
+    </script> 
+    <style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
     font-size: 25px !important; /* Tamanho maior para o título */
@@ -535,9 +536,9 @@ $(document).ready(function () {
     font-size: 16px !important; /* Tamanho maior para os textos dos botões */
     padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
-</style>
+    </style>
 
-<script>
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
         
@@ -576,9 +577,9 @@ $(document).ready(function () {
             });
         });
     });
-</script>
-<script> 
-    document.addEventListener('DOMContentLoaded', function () {
+    </script>
+    <script> 
+        document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
         
         switches.forEach(switchElem => {
@@ -611,9 +612,9 @@ $(document).ready(function () {
                 });
             });
         });
-    });
-    </script>	
-    <script>
+        });
+        </script>	
+        <script>
         document.addEventListener('DOMContentLoaded', function () {
             const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
 
@@ -643,6 +644,6 @@ $(document).ready(function () {
                 });
             });
         });
-    </script>
+        </script>
 </body>
 </html>
