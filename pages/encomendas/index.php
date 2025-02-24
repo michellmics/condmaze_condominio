@@ -197,7 +197,7 @@
                                                         
                                                     ?>
                                                     <tr>    
-                                                        
+                                                        <td hidden class="align-middle" email="<?= htmlspecialchars($item['USU_DCEMAIL']); ?>"style="font-size: 12px;"></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
@@ -317,7 +317,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-                                                                
+
+
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
     <!-- Vendor js -->
@@ -328,6 +329,9 @@
     <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
     <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
     <script src="../../assets/js/hyper-syntax.js"></script>
+    
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Datatables js -->
     <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
@@ -344,12 +348,10 @@
     <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
     <!-- Datatable Demo Aapp js -->
     <script src="../../assets/js/pages/demo.datatable-init.js"></script>
-    <!-- SWEETALERT 2 -->   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-                                                                
-                                                                
+
+
     <!-- SWEETALERT 2 -->   
 
     <script>
