@@ -105,7 +105,7 @@ $host = $_SERVER['HTTP_HOST'];
 <body class="authentication-bg pb-0">
 
 <!-- MODAL TERMOS -->
-<?php include '../../preloader.php'; ?>
+<?php include '../../src/preloader.php'; ?>
 <!-- MODAL TERMOS -->
 
     <!-- Modal -->
