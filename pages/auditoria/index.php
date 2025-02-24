@@ -117,14 +117,27 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $count = 0; ?>
+                                                    <?php $count = 1; ?>
                                                     <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
+
+                                                        <?php 
+                                                            if($item['LOG_DCTIPO'] == "LOGIN") {$colorText = 'style="color: #ADFF2F;"';}
+                                                            if($item['LOG_DCTIPO'] == "ALERTA") {$colorText = 'style="color:rgb(255, 100, 11);"';}
+                                                            if($item['LOG_DCTIPO'] == "ENCOMENDA") {$colorText = 'style="color:rgb(47, 144, 255);"';}
+                                                            if($item['LOG_DCTIPO'] == "UPDATE") {$colorText = 'style="color:rgb(255, 100, 11);"';}
+                                                            if($item['LOG_DCTIPO'] == "REC SENHA") {$colorText = 'style="color:rgb(255, 100, 11);"';}
+                                                            if($item['LOG_DCTIPO'] == "LOGIN FAILED") {$colorText = 'style="color:rgb(233, 20, 20);"';}
+                                                            if($item['LOG_DCTIPO'] == "CONFIGURAÇÃO") {$colorText = 'style="color:rgb(255, 47, 47);"';}
+                                                            if($item['LOG_DCTIPO'] == "NOTIFICAÇÃO") {$colorText = 'style="color:rgb(47, 179, 255);"';}
+                                                            if($item['LOG_DCTIPO'] == "ERRO") {$colorText = 'style="color:rgb(255, 47, 47);"';}
+                                                        ?>                                                        
+
                                                         <tr>
-                                                            <td class="align-middle"><?= htmlspecialchars($count); //num da linha ?></td> 
+                                                            <td class="align-middle" ><?= htmlspecialchars($count); //num da linha ?></td> 
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
+                                                            <td class="align-middle" <?= htmlspecialchars($colorText); ?>><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
                                                             <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;" class="align-middle">
                                                                 <?= nl2br(wordwrap(htmlspecialchars($item['LOG_DCMSG']), 50, "\n", true)); ?>
@@ -154,7 +167,7 @@
                         pageLength: 50, // Exibe 50 linhas por padrão
                         lengthMenu: [10, 25, 50, 100], // Opções para alterar o número de linhas exibidas
                         responsive: true, // Tabela responsiva
-                        order: [[1, 'desc']], // Ordena pela coluna "DATA" (índice 6)
+                        order: [[2, 'desc']], // Ordena pela coluna "DATA" (índice 6)
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' // Tradução para português
                         }
@@ -221,10 +234,10 @@ $(document).ready(function () {
     table.destroy(); // Destrói a instância existente antes de criar outra
 
     $('#basic-datatable').DataTable({
-        pageLength: 50, 
+        pageLength: 50,  
         lengthMenu: [10, 25, 50, 100], 
         responsive: true, 
-        order: [[1, 'desc']], 
+        order: [[2, 'desc']], 
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
         }
