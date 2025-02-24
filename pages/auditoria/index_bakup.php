@@ -29,9 +29,17 @@
     $siteAdmin->getLogInfo();
     
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
+    <meta charset="utf-8" />
+    <title><?php echo $nomeCondominio; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -40,39 +48,65 @@
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
+    <!-- Plugin css -->
+    <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Theme Config Js -->
+    <script src="../../assets/js/hyper-config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- PWA MOBILE CONF -->
+	<?php include '../../src/pwa_conf.php'; ?>
+	<!-- PWA MOBILE CONF -->
+
 </head>
 
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
         <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+
+                <!-- Start Content-->
+                <div class="container-fluid">
 
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
-
                                 </div>
-                                <h4 class="page-title">Bem vindo(a)</h4>
+                                <h4 class="page-title">Auditoria</h4>
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
-                    
 
-                    
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -122,39 +156,35 @@
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
-                    </div> <!-- end row-->   
-                </div><!-- FIM CONTEUDO CONTAINER -->                
+                    </div> <!-- end row-->
 
-            <!-- content -->
+                </div> <!-- container -->
 
-            <script>
-                $(document).ready(function () {
-                    $('#basic-datatable').DataTable({
-                        pageLength: 50, // Exibe 50 linhas por padrão
-                        lengthMenu: [10, 25, 50, 100], // Opções para alterar o número de linhas exibidas
-                        responsive: true, // Tabela responsiva
-                        order: [[6, 'desc']], // Ordena pela coluna "DATA" (índice 6)
-                        language: {
-                            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' // Tradução para português
-                        }
-                    });
-                });
-            </script>
-    
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+            </div> <!-- content -->
 
-    <!-- END wrapper -->
+            <?php include '../../src/footer_nav.php'; ?>
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
+        </div>
 
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#basic-datatable').DataTable({
+                pageLength: 50, // Exibe 50 linhas por padrão
+                lengthMenu: [10, 25, 50, 100], // Opções para alterar o número de linhas exibidas
+                responsive: true, // Tabela responsiva
+                order: [[6, 'desc']], // Ordena pela coluna "DATA" (índice 6)
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' // Tradução para português
+                }
+            });
+        });
+    </script>
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
