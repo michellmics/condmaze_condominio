@@ -339,7 +339,7 @@
                     <!-- end row-->
 
                     <div class="row">
-                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
+                        <?php // if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'SUPORTE'): ?>
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -401,7 +401,7 @@
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
                             </div><!-- end col-->
-                        <?php endif; ?> 
+                        <?php //endif; ?> 
                     </div>
                     <!-- end row-->
 
