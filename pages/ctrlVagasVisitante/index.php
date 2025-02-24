@@ -114,7 +114,7 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      background-color: #f4f7fa;
+      background-color:rgb(5, 5, 5);
       margin: 0;
       padding: 0;
     }
