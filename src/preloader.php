@@ -1,11 +1,23 @@
-
-<!-- Preloader Wrapper -->
 <div id="preloader">
   <span class="loader"></span>
 </div>
 
 <style>
 /* Preloader container */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Fica acima de tudo */
+}
+
+/* Loader */
 .loader {
   width: 48px;
   height: 48px;
@@ -25,7 +37,7 @@
   animation: rotation 2s ease-in-out infinite alternate;
 }
 .loader::after {
-  border-color:rgb(56, 1, 82);
+  border-color: rgb(56, 1, 82);
   animation-direction: alternate-reverse;
 }
 
@@ -37,4 +49,4 @@
     transform: rotate(360deg);
   }
 } 
-</style>  
+</style>
