@@ -1,9 +1,12 @@
-
 <?php
-    if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == NULL) {
-        header("Location: ../login/index.php");
-        exit();
+    ob_start();
+    if (session_status() === PHP_SESSION_NONE) {
+      session_start();
     }
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == NULL) {
+      header("Location: ../login/index.php");
+      exit();
+  }
 
   if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE", "PORTARIA","MORADOR"])) {
     header("Location: ../errors/index.php");
@@ -22,8 +25,6 @@
           break; 
       }
     }   
-    
-
 ?>
 <html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
