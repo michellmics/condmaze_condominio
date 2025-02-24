@@ -189,70 +189,18 @@
                                                         
                                                     ?>
                                                     <tr>    
-                                                       <!-- <td hidden class="align-middle" email="<?= htmlspecialchars($item['USU_DCEMAIL']); ?>"style="font-size: 12px;"></td> -->
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
-                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
-                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;">
-                                                            <a <?= empty($linkWhats) ? 'style="pointer-events: none; cursor: default;"' : 'href="'.htmlspecialchars($linkWhats).'" target="_blank"' ?>>
-                                                                <i class="fab fa-whatsapp" style="font-size: 24px; color: <?= $whatsColor; ?>;"></i>
-                                                            </a>
-                                                        </td>
-
-                                                        <td class="align-middle">
-                                                            <!-- Switch -->
-                                                            <div>
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    id="switch<?= $index; ?>" 
-                                                                    data-switch="success" 
-                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
-                                                                    onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($fieldMorador); ?>
-                                                                />
-                                                                <label 
-                                                                    for="switch<?= $index; ?>" 
-                                                                    data-on-label="Sim" 
-                                                                    data-off-label="Não" 
-                                                                    class="mb-0 d-block">
-                                                                </label>
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="align-middle">
-                                                            <!-- Switch -->
-                                                            <div>
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    id="switch1<?= $index; ?>" 
-                                                                    data-switch="success" 
-                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
-                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
-                                                                    onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($fieldPortaria); ?>
-                                                                />
-                                                                <label 
-                                                                    for="switch1<?= $index; ?>" 
-                                                                    data-on-label="Sim" 
-                                                                    data-off-label="Não" 
-                                                                    class="mb-0 d-block">
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
-                                                        <td class="align-middle">
-                                                            <?php 
-                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
-                                                                {
-                                                                    echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
-                                                                }
-                                                            ?>
-                                                        </td>
+                                                        <td>DT ENTRADA</td>
+                                                        <td>ID</td>
+                                                        <td>AP</td>
+                                                        <td>NOME</td>
+                                                        <td>TELEFONE</td> 
+                                                        <td>DT ENTREGA</td>
+                                                        <td>OBS</td>
+                                                        <td></td> 
+                                                        <td>DISPONIVEL?</td>
+                                                        <td>ENTREGUE?</td>                                                         
+                                                        <td></td> 
+                                                      
                                                     </tr>
                                                  <?php endforeach; ?>
                                                 </tbody>
