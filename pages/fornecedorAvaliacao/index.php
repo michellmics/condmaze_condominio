@@ -82,8 +82,7 @@
     
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
-	<!-- PWA MOBILE CONF -->
-     
+	<!-- PWA MOBILE CONF -->     
 
 </head>
 <style>
@@ -129,7 +128,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleVidraca" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-window-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Vidraçarias</h4>
+                                    <h4 class="header-title" id="toggleVidraca" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-window-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -201,7 +200,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pedreiro</h4>
+                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Pedreiro</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -278,7 +277,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleGesso" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-brush-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Trabalhos com Gesso / Pintura</h4>
+                                    <h4 class="header-title" id="toggleGesso" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-brush-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Trabalhos com Gesso / Pintura</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -352,7 +351,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="togglePiso" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-grid-fill ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pisos / Laminados</h4>
+                                    <h4 class="header-title" id="togglePiso" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-grid-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Pisos / Laminados</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -429,7 +428,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="togglePizzaria" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-restaurant-2-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Pizzarias / Restaurantes / Padarias</h4>
+                                    <h4 class="header-title" id="togglePizzaria" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-restaurant-2-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Pizzarias / Restaurantes / Padarias</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -501,7 +500,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="toggleMecanica" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-car-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Mecânica / Lava-rápido</h4>
+                                    <h4 class="header-title" id="toggleMecanica" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-car-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Mecânica / Lava-rápido</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -578,7 +577,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleEletricista" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-flashlight-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Eletricista</h4>
+                                    <h4 class="header-title" id="toggleEletricista" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-flashlight-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Eletricista</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -650,7 +649,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="toggleAr" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-windy-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Ar Condicionado</h4>
+                                    <h4 class="header-title" id="toggleAr" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-windy-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Ar Condicionado</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -727,7 +726,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleMoveis" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-layout-2-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Móveis Planejados / Marceneiro</h4>
+                                    <h4 class="header-title" id="toggleMoveis" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-layout-2-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Móveis Planejados / Marceneiro</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -799,7 +798,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="toggleBar" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Bar / Pub</h4>
+                                    <h4 class="header-title" id="toggleBar" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Bar / Pub</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -876,7 +875,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleMarido" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-settings-2-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Marido de Aluguel</h4>
+                                    <h4 class="header-title" id="toggleMarido" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-settings-2-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Marido de Aluguel</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -948,7 +947,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="toggleOutros" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-stack-line ri-2x" style="color:rgb(46, 0, 119); margin-right: 8px;"></i>Outros Serviços</h4>
+                                    <h4 class="header-title" id="toggleOutros" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Outros Serviços</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
