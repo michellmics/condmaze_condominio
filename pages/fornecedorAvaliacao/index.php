@@ -58,10 +58,6 @@
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- Plugin css -->
-    <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
-    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
-
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
 
@@ -1706,27 +1702,12 @@ $(document).ready(function () {
 </script>
 
 
-
-
-
-
-
-	
-
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
-
-    <!-- Daterangepicker js -->
-    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
-    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
 
     <!-- Apex Charts js -->
     <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
 
-    <!-- Vector Map js -->
-    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
-    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
     <!-- Dashboard App js -->
     <script src="../../assets/js/pages/demo.dashboard.js"></script>
 
