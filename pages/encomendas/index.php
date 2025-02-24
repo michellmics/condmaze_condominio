@@ -343,11 +343,14 @@
 <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
 <!-- Datatable Demo Aapp js -->
 <script src="../../assets/js/pages/demo.datatable-init.js"></script>
-<!-- SWEETALERT 2 -->   
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- App js -->
 <script src="../../assets/js/app.min.js"></script>
 
+<script>
+    $(document).ready(function () {
+        $('#basic-datatable').DataTable(); // Substitua 'suaTabela' pelo ID correto
+    });
+</script>
 
 <!-- SWEETALERT 2 -->   
 
