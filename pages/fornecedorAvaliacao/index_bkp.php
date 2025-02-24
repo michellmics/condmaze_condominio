@@ -25,9 +25,12 @@
           $nomeCondominio = $item['CFG_DCVALOR']; 
           break; 
       }
-    }      
+    }  
+    
     
     $prestadoresAll = $siteAdmin->getAllPrestadores();
+
+
     
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRACARIA");
     $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
@@ -41,16 +44,21 @@
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("ARCONDICIONADO");
     $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
-<head>
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
+<html lang="en" data-layout="topnav">
 
-     <!-- Datatables css -->
+<head>
+    <meta charset="utf-8" />
+    <title><?php echo $nomeCondominio; ?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+
+    <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -88,8 +96,8 @@
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
      
-
 </head>
+
 <style>
     @media (max-width: 768px) {
         .rateit-mdi {
@@ -98,37 +106,49 @@
         }
     }
 </style>
+
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
         <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
 
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <!-- Alinhamento flexbox para título e botões -->
-                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
-                                    <h4 class="page-title mb-3 mb-md-0">Avaliação de Prestadores de Serviço</h4>
-                                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end" style="margin-bottom: 10px;">
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
-                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <!-- Alinhamento flexbox para título e botões -->
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                    <h4 class="page-title mb-3 mb-md-0">Avaliação de Prestadores de Serviço</h4>
+                    <div class="d-flex gap-2 flex-wrap justify-content-start justify-content-md-end" style="margin-bottom: 10px;">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastrar-modal">Adicionar Empresa</button>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#avaliar-modal">Avaliar Empresa</button>
                     </div>
-                    <!-- end page title -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
 
-                    
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
@@ -1028,20 +1048,22 @@
 
 
 
+ 
 
-                                                    
-                </div><!-- FIM CONTEUDO CONTAINER -->                
+                </div> <!-- container -->
 
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+            </div> <!-- content -->
 
-    </div><!-- END wrapper -->
+            <?php include '../../src/footer_nav.php'; ?>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
 
     <div id="cadastrar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -1711,7 +1733,13 @@ $(document).ready(function () {
 
 
 
-	
+
+
+
+
+
+
+
 
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
@@ -1747,7 +1775,6 @@ $(document).ready(function () {
     <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
 
 
-    
 
 </body>
 
