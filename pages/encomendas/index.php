@@ -34,9 +34,6 @@
 	<?php include '../../src/headMeta.php'; ?>
 	<!-- HEAD META BASIC LOAD -->
 
-    <!-- SWEETALERT 2 -->   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!-- Theme Config Js --> 
     <script src="../../assets/js/hyper-config.js"></script>
 
@@ -346,10 +343,10 @@
     <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
     <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
-    <!-- Datatable Demo Aapp js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
+    <!-- Datatable Demo Aapp js -->
+    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
 
 
     <!-- SWEETALERT 2 -->   
