@@ -272,23 +272,22 @@
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
 
-    <!-- Datatables js -->
-    <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Datatable Demo Aapp js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<!-- Inicialização -->
+<script>
+$(document).ready(function () {
+    console.log(typeof $.fn.DataTable); // Testando se o DataTables foi carregado
+    $('#basic-datatable').DataTable();
+});
+</script>
 
 
     <!-- SWEETALERT 2 -->   
