@@ -1,4 +1,3 @@
-
 <?php
     ob_start();
     if (session_status() === PHP_SESSION_NONE) {
@@ -29,12 +28,38 @@
     
 
 ?>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+
+<!DOCTYPE html>
+<html lang="en" data-layout="topnav">
+
 <head>
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
+    <meta charset="utf-8" />
+    <title><?php echo $nomeCondominio; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+
+     <!-- Plugin css -->
+    <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Theme Config Js -->
+    <script src="../../assets/js/hyper-config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- PWA MOBILE CONF -->
+	<?php include '../../src/pwa_conf.php'; ?>
+	<!-- PWA MOBILE CONF -->
 </head>
+
 <style>
     /* Estilo do corpo */
     body {
@@ -179,21 +204,29 @@
     }
   </style>
 <body>
-    <!-- Begin page --> 
+    <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
         <div class="content-page">
             <div class="content">
-                <!-- INICIO CONTEUDO CONTAINER -->
+                <!-- Start Content-->
                 <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
 
 
-                <div class="row">
+
+                    <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
@@ -202,35 +235,42 @@
                                         Nesta seção são listados todas as vagas de veículo destinada aos visitantes do condomínio.<br>
                                         O controle de entrada e saída é realizado pela portaria, podendo um veículo permanecer por no máximo 48h.
                                     </p>
-                                    <div class="tab-content">           
-                                        <div class="parking-lot">
-                                          <?php
-                                            $slots = json_decode(file_get_contents('vagas/slots.json'), true);
+                                    <div class="tab-content">
 
-                                            foreach ($slots as $id => $slot) {
-                                                $irregular="";
-                                                $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
-                                            
-                                                if($slot['alarm'] === 'alarmed')
-                                                {
-                                                    $statusClass = 'alert';
-                                                    $irregular = "IRREGULAR";
-                                                }                       
-                                                $displayText = $slot['status'] === 'occupied' 
-                                                    ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
-                                                      '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
-                                                      '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
-                                                      '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
-                                                    :  ($id > 40 ? 'Livre<br>Rotativa' : 'Livre');
-                                            
-                                                echo '<div class="slot-wrapper">
-                                                        <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
-                                                        <span class="slot-status">' . $irregular . '</span>
-                                                        <span class="slot-number">ID ' . $id . '</span>
-                                                      </div>';
-                                            }
-                                          ?>
-                                    </div>
+
+    		    
+            
+                <div class="parking-lot">
+                  <?php
+                    $slots = json_decode(file_get_contents('vagas/slots.json'), true);
+
+                    foreach ($slots as $id => $slot) {
+                        $irregular="";
+                        $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+
+                        if($slot['alarm'] === 'alarmed')
+                        {
+                            $statusClass = 'alert';
+                            $irregular = "IRREGULAR";
+                        } 
+                        
+                        
+                        
+                        $displayText = $slot['status'] === 'occupied' 
+                            ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
+                              '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
+                              '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
+                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
+                            :  ($id > 40 ? 'Livre<br>Rotativa' : 'Livre');
+                    
+                        echo '<div class="slot-wrapper">
+                                <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
+                                <span class="slot-status">' . $irregular . '</span>
+                                <span class="slot-number">ID ' . $id . '</span>
+                              </div>';
+                    }
+                  ?>
+                </div>
                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>        
                 <!-- Modal -->
                 <div class="modal" id="inputModal">
@@ -345,31 +385,62 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 
 
 
 
-                </div>
-                <!-- FIM CONTEUDO CONTAINER -->
-            </div>
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
+		
+
+
+
+ 
+
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/footer_nav.php'; ?>
+		<!-- End Menu Nav -->
         </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
     </div>
     <!-- END wrapper -->
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
+   
+
+
+
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
+
+    <!-- Daterangepicker js -->
+    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
+
+    <!-- Apex Charts js -->
+    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Vector Map js -->
+    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
+    <!-- Dashboard App js -->
+    <script src="../../assets/js/pages/demo.dashboard.js"></script>
+
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
+
+    <script>
+    // Função para realizar o refresh da página após 30 minutos
+    setInterval(function() {
+        location.reload(); // Recarrega a página
+    }, 300000); // 5 minutos em milissegundos 
+    </script>
+
 </body>
 
 </html>
