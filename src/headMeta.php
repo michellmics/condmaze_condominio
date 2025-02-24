@@ -5,7 +5,7 @@
 <meta content="Coderthemes" name="author" />
 
 <!-- jQuery  -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../assets/js/vendor/jquery/jquery.min.js"></script>
 <!-- App favicon -->
 <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 <!-- Theme Config Js -->
