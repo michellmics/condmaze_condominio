@@ -183,7 +183,7 @@
     .slot-number {
       margin-top: 10px;
       font-size: 14px;
-      color: #555;
+      color:rgb(94, 214, 250);
       font-weight: bold;
     }
     .slot-status {
