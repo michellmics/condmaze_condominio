@@ -60,55 +60,6 @@
 	<!-- PWA MOBILE CONF -->
 </head>
 
-<!-- pop-up promoção CSS -->
-<style>
-    #promoPopup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-
-    .popup-content {
-        position: relative;
-		background: transparent; /* Alterado para transparente */
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: none;
-        max-width: 90%;
-        max-height: 90%;
-        text-align: center;
-    }
-
-    .popup-content img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .close-btn {
-		top: -20px; /* Move o botão para cima da imagem */
-        right: -20px; /* Move o botão para a direita da imagem */
-        position: absolute;
-        background:rgb(0, 0, 0);
-        color: white;
-        border: none;
-        font-size: 20px;
-        padding: 5px 10px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-
-    .close-btn:hover {
-        background: #cc0000;
-    }
-</style>
-<!-- pop-up promoção CSS -->
 <style>
     /* Estilo do corpo */
     body {
@@ -145,7 +96,7 @@
     .slot {
       width: 150px;
       height: 150px;
-      border: 2px solid #ddd;
+      border: 1px solid #000; /* Borda preta e mais fina */
       background-color:rgb(33, 34, 34);
       display: flex;
       flex-direction: column;
@@ -183,7 +134,7 @@
     .slot-number {
       margin-top: 10px;
       font-size: 14px;
-      color:rgb(94, 214, 250);
+      color:rgb(185, 190, 192);
       font-weight: bold;
     }
     .slot-status {
