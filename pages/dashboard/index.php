@@ -97,7 +97,7 @@
                                 <div class="page-title-right">
 
                                 </div>
-                                <h4 class="page-title">Bem vindo(a)</h4>
+                                <h4 class="page-title">Indicadores</h4>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                                             });
                                         </script>
                                 </div>
-                                <h4 class="page-title">Indicadores - <?php echo ucwords($mesUsu)."/". $anoUsu; ?></h4> 
+                                <h4 class="page-title">Métrica Financeira Mensal - <?php echo ucwords($mesUsu)."/". $anoUsu; ?></h4> 
                             </div>
                         </div>
                     </div>
