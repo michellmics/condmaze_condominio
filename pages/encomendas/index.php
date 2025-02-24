@@ -30,7 +30,22 @@
 <!DOCTYPE html>
 <html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
-    
+    <!-- HEAD META BASIC LOAD-->
+	<?php include '../../src/headMeta.php'; ?>
+	<!-- HEAD META BASIC LOAD -->
+
+    <!-- Theme Config Js --> 
+    <script src="../../assets/js/hyper-config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -39,13 +54,6 @@
     <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
-
-    <!-- Icons css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <!-- estilo para os botões de entrega e disponivel -->
@@ -120,7 +128,7 @@
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
-                                                    <tr>      
+                                                    <tr>        
                                                         <th>DT ENTRADA</th>
                                                         <th>ID</th>
                                                         <th>AP</th>
@@ -189,18 +197,70 @@
                                                         
                                                     ?>
                                                     <tr>    
-                                                        <td>DT ENTRADA</td>
-                                                        <td>ID</td>
-                                                        <td>AP</td>
-                                                        <td>NOME</td>
-                                                        <td>TELEFONE</td> 
-                                                        <td>DT ENTREGA</td>
-                                                        <td>OBS</td>
-                                                        <td></td> 
-                                                        <td>DISPONIVEL?</td>
-                                                        <td>ENTREGUE?</td>                                                         
-                                                        <td></td> 
-                                                      
+                                                        <td hidden class="align-middle" email="<?= htmlspecialchars($item['USU_DCEMAIL']); ?>"style="font-size: 12px;"></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
+                                                        <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
+                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
+                                                        <td class="align-middle" style="font-size: 12px;">
+                                                            <a <?= empty($linkWhats) ? 'style="pointer-events: none; cursor: default;"' : 'href="'.htmlspecialchars($linkWhats).'" target="_blank"' ?>>
+                                                                <i class="fab fa-whatsapp" style="font-size: 24px; color: <?= $whatsColor; ?>;"></i>
+                                                            </a>
+                                                        </td>
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldMorador); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="align-middle">
+                                                            <!-- Switch -->
+                                                            <div>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    id="switch1<?= $index; ?>" 
+                                                                    data-switch="success" 
+                                                                    data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
+                                                                    onclick="event.stopPropagation();"
+                                                                    <?= htmlspecialchars($fieldPortaria); ?>
+                                                                />
+                                                                <label 
+                                                                    for="switch1<?= $index; ?>" 
+                                                                    data-on-label="Sim" 
+                                                                    data-off-label="Não" 
+                                                                    class="mb-0 d-block">
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
+                                                        <td class="align-middle">
+                                                            <?php 
+                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
+                                                                {
+                                                                    echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
+                                                                }
+                                                            ?>
+                                                        </td>
                                                     </tr>
                                                  <?php endforeach; ?>
                                                 </tbody>
@@ -211,10 +271,9 @@
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div><!-- end row-->
-
                 </div><!-- FIM CONTEUDO CONTAINER -->                
-            </div><!-- FIM CONTENT -->
-
+            </div>
+            <!-- content -->
 	        <?php include '../../src/modalTermos.php'; ?>
             <!-- FOOTER -->
 	        <?php include '../../src/footerNav.php'; ?>
@@ -223,8 +282,8 @@
     </div>
     <!-- END wrapper -->
 
-    <!-- cadastrar pacote modal-->
-    <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- cadastrar pacote modal-->
+<div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -256,44 +315,44 @@
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+</div><!-- /.modal -->
+
+<!-- Layout Configuration -->	
+<?php include '../../src/layoutConfig.php'; ?>
+<!-- Vendor js -->
+<script src="../../assets/js/vendor.min.js"></script>
+<!-- App js -->
+<script src="../../assets/js/app.min.js"></script>
+<!-- Code Highlight js -->
+<script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
+<script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
+<script src="../../assets/js/hyper-syntax.js"></script>
+<!-- Datatables js -->
+<script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+<script src="../../assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+<script src="../../assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../../assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+<script src="../../assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../../assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+<!-- Datatable Demo Aapp js -->
+<script src="../../assets/js/pages/demo.datatable-init.js"></script>
+<!-- SWEETALERT 2 -->   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- App js -->
+<script src="../../assets/js/app.min.js"></script>
 
 
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
+<!-- SWEETALERT 2 -->   
 
-    <!-- Vendor js -->
-    <script src="../../assets/js/vendor.min.js"></script>
-
-
-    <!-- Dashboard App js -->
-    <script src="../../assets/js/pages/demo.dashboard.js"></script>
-
-    <!-- App js -->
-    <script src="../../assets/js/app.min.js"></script>
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- DataTables CSS -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
-<!-- DataTables JS -->
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
-<!-- Inicialização -->
 <script>
-$(document).ready(function () {
-    console.log(typeof $.fn.DataTable); // Testando se o DataTables foi carregado
-    $('#basic-datatable').DataTable();
-});
-</script>
-
-
-    <!-- SWEETALERT 2 -->   
-
-    <script>
-    function confirmDelete(event, id) {
+function confirmDelete(event, id) {
     console.log(id);  // Verifica se o id está correto
     Swal.fire({
         title: 'Formulário Encomendas',
@@ -357,13 +416,13 @@ $(document).ready(function () {
             Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
         }
     });
-    }
+}
 
-    $(document).ready(function () {
-        // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
-    });
-    </script>
-    <style>
+$(document).ready(function () {
+    // Não é necessário associar a função ao botão de submit, pois ela já está sendo chamada no clique do ícone.
+});
+</script>
+<style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
     font-size: 25px !important; /* Tamanho maior para o título */
@@ -380,10 +439,10 @@ $(document).ready(function () {
     font-size: 16px !important; /* Tamanho maior para os textos dos botões */
     padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
-    </style>
+</style>
 
-    <script src="../../js/jquery-3.5.1.min.js"></script>
-    <script>
+<script src="../../js/jquery-3.5.1.min.js"></script>
+<script>
       function confirmAndSubmit(event) {
 
         event.preventDefault(); // Impede o envio padrão do formulário
@@ -458,8 +517,8 @@ $(document).ready(function () {
       $(document).ready(function () {
         $("#botao").on("click", confirmAndSubmit);
       });
-    </script> 
-    <style>
+</script> 
+<style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
     font-size: 25px !important; /* Tamanho maior para o título */
@@ -476,9 +535,9 @@ $(document).ready(function () {
     font-size: 16px !important; /* Tamanho maior para os textos dos botões */
     padding: 8px 8px !important; /* Aumenta o espaço ao redor do texto */
   }
-    </style>
+</style>
 
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
         
@@ -517,9 +576,9 @@ $(document).ready(function () {
             });
         });
     });
-    </script>
-    <script> 
-        document.addEventListener('DOMContentLoaded', function () {
+</script>
+<script> 
+    document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
         
         switches.forEach(switchElem => {
@@ -552,9 +611,9 @@ $(document).ready(function () {
                 });
             });
         });
-        });
-        </script>	
-        <script>
+    });
+    </script>	
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
 
@@ -584,6 +643,6 @@ $(document).ready(function () {
                 });
             });
         });
-        </script>
+    </script>
 </body>
 </html>
