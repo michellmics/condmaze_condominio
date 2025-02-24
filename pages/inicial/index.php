@@ -197,7 +197,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Evolução F. de Reserva</h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-money-dollar-box-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Evolução F. de Reserva</h4>
                                         <div dir="ltr">
                                             <div id="basic-area" class="apex-charts" data-colors="#8600b3"></div>
                                         </div>
