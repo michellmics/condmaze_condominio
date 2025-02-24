@@ -46,62 +46,106 @@
     }   
     
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
+    <meta charset="utf-8" />
+    <title><?php echo $nomeCondominio; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+
+    <!-- Plugin css -->
+    <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Theme Config Js -->
+    <script src="../../assets/js/hyper-config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+                                                        
+    <!-- Datatables css -->
+    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- PWA MOBILE CONF -->
+	<?php include '../../src/pwa_conf.php'; ?>
+	<!-- PWA MOBILE CONF -->
+                                               
+    <style>
+        @media (max-width: 768px) {
+            .page-title-box {
+                display: flex;
+                flex-direction: column; /* Alinha itens verticalmente */
+            }
+        
+            .page-title {
+                order: -1; /* Move o título para aparecer primeiro */
+                margin-bottom: 15px; /* Adiciona espaçamento inferior */
+            }
+        
+            .page-title-right {
+                display: flex !important;
+                flex-wrap: wrap; /* Permite quebra de linha */
+                margin-top: 10px; /* Adiciona espaçamento superior */
+            }
+        
+            .page-title-right select {
+                flex: 1 1 100%; /* Os selects ocupam toda a largura */
+                margin-bottom: 10px; /* Espaçamento inferior entre selects */
+            }
+        }
+    </style>
+   
+   
 </head>
-<style>
-    @media (max-width: 768px) {
-        .page-title-box {
-            display: flex;
-            flex-direction: column; /* Alinha itens verticalmente */
-        }
-    
-        .page-title {
-            order: -1; /* Move o título para aparecer primeiro */
-            margin-bottom: 15px; /* Adiciona espaçamento inferior */
-        }
-    
-        .page-title-right {
-            display: flex !important;
-            flex-wrap: wrap; /* Permite quebra de linha */
-            margin-top: 10px; /* Adiciona espaçamento superior */
-        }
-    
-        .page-title-right select {
-            flex: 1 1 100%; /* Os selects ocupam toda a largura */
-            margin-bottom: 10px; /* Espaçamento inferior entre selects */
-        }
-    }
-</style>
+
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
         <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
 
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <div class="page-title-right">
 
-                                </div>
-                                <h4 class="page-title">Bem vindo(a)</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
 
                     <div class="row">
                         <div class="col-12">
@@ -261,23 +305,60 @@
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
+                </div>
+                <!-- container -->
 
-
-
-                                                    
-                </div><!-- FIM CONTEUDO CONTAINER -->                
-
+            </div>
             <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
 
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/footer_nav.php'; ?>
+		<!-- End Menu Nav -->
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
     <!-- END wrapper -->
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
+   
+
+        <!-- Controle do pop-up de promoção -->
+        <script>
+            // Função para abrir o pop-up
+            function openPopup() {
+                document.getElementById('promoPopup').style.display = 'flex';
+            }
+        
+            // Função para fechar o pop-up
+            function closePopup() {
+                document.getElementById('promoPopup').style.display = 'none';
+            }
+        
+            // Fecha o pop-up ao clicar fora do quadrante
+            document.addEventListener('click', function(event) {
+                const popup = document.getElementById('promoPopup');
+                const popupContent = document.querySelector('.popup-content');
+
+                if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
+                    closePopup();
+                }
+            });
+        
+            // Abra o pop-up automaticamente após 1,5 segundos
+            window.onload = function() {
+                setTimeout(openPopup, 1500);
+            };
+        </script>
+
     <!-- Vendor js -->
     <script src="../../assets/js/vendor.min.js"></script>
 
@@ -312,6 +393,7 @@
     <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
     <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+
 </body>
 
 </html>
