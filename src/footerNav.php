@@ -6,8 +6,7 @@
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
-                    <a href="#" onclick="abrirTermos()">Termo de Privacidade</a>
-                    <a href="#" onclick="abrirTermos()">Nível: <?php echo $nivelAcesso; ?></a>                    
+                    <a href="#" onclick="abrirTermos()">Termo de Privacidade</a>                 
                 </div>
             </div>
         </div>

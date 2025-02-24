@@ -38,6 +38,7 @@
                     <a href="pages-profile.html">
                         <img src="../../assets/images/users/Hall.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name mt-2"><?php $nomeSession = ucwords(strtolower($nomeSession)); echo $nomeSession; ?></span>
+                        <span class="leftbar-user-name mt-2"><?php $nivelAcesso = ucwords(strtolower($nivelAcesso)); echo $nivelAcesso; ?></span>
                     </a>
                 </div>
 
