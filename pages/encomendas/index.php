@@ -30,20 +30,35 @@
 <!DOCTYPE html>
 <html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
-    <!-- Icons css -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- Theme Config Js -->
+    <script src="../../assets/js/hyper-config.js"></script>
+
+    <!-- Vendor CSS -->
+    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App CSS -->
+    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Datatables css -->
-    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <!-- Datatables CSS -->
+    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" />
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <!-- estilo para os botões de entrega e disponivel -->
@@ -309,15 +324,18 @@
 
 <!-- Layout Configuration -->	
 <?php include '../../src/layoutConfig.php'; ?>
-<!-- Vendor js -->
+<!-- Vendor JS -->
 <script src="../../assets/js/vendor.min.js"></script>
-<!-- App js -->
+
+<!-- App JS -->
 <script src="../../assets/js/app.min.js"></script>
-<!-- Code Highlight js -->
+
+<!-- Code Highlight -->
 <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
 <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
 <script src="../../assets/js/hyper-syntax.js"></script>
-<!-- Datatables js -->
+
+<!-- Datatables JS -->
 <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
 <script src="../../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
@@ -331,14 +349,14 @@
 <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
 <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
-<!-- Datatable Demo Aapp js -->
-<script src="../../assets/js/pages/demo.datatable-init.js"></script>
-<!-- App js -->
-<script src="../../assets/js/app.min.js"></script>
 
+<!-- Datatables Init -->
+<script src="../../assets/js/pages/demo.datatable-init.js"></script>
+
+<!-- Inicialização do Datatables -->
 <script>
     $(document).ready(function () {
-        $('#basic-datatable').DataTable(); // Substitua 'suaTabela' pelo ID correto
+        $('#basic-datatable').DataTable(); // Substitua 'basic-datatable' pelo ID correto da sua tabela
     });
 </script>
 
