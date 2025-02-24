@@ -69,7 +69,7 @@
     .slot {
       width: 150px;
       height: 150px;
-      border: 2px solid #ddd;
+      border: 1px solid #000; /* Borda preta e mais fina */
       /* background-color: #e0f7fa; */
       display: flex;
       flex-direction: column;
@@ -83,19 +83,19 @@
 
     /* Vaga livre */
     .slot.free {
-      background: linear-gradient(135deg,rgb(18, 100, 43),rgb(8, 105, 65));
+    background: linear-gradient(135deg,rgb(89, 2, 146),rgb(78, 29, 168));
       color: white;
     }
 
     /* Vaga ocupada */ 
     .slot.occupied {
-      background: linear-gradient(135deg,rgb(5, 84, 129),rgb(10, 193, 199));
+    background: linear-gradient(135deg,rgb(225, 0, 255),rgb(80, 1, 60));
       color: white;
     }
 
     /* Vaga irregular*/ 
     .slot.alert {
-      background: linear-gradient(135deg,rgb(252, 50, 0),rgb(167, 19, 19));
+    background: linear-gradient(135deg,rgb(252, 50, 0),rgb(167, 19, 19));
       color: white;
     }
 
@@ -382,6 +382,14 @@
     <script src="../../assets/js/vendor.min.js"></script>
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
+
+    <script>
+    // Função para realizar o refresh da página após 30 minutos
+    setInterval(function() {
+        location.reload(); // Recarrega a página
+    }, 300000); // 5 minutos em milissegundos 
+    </script>
+    
 </body>
 
 </html>
