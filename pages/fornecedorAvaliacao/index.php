@@ -160,7 +160,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="vidracaria<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -233,7 +233,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="pedreiro<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -309,7 +309,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="gesso<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -384,7 +384,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="piso<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -460,7 +460,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="pizzaria<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -533,7 +533,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="mecanica<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -609,7 +609,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="eletricista<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -682,7 +682,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="ar<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -758,7 +758,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="moveis<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -831,7 +831,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="bar<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -907,7 +907,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="marido<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
@@ -980,7 +980,7 @@
                                                             $formattedDate = date('d/m/Y', strtotime($data));
                                                         ?>
                                                     <div id="outros<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(181, 185, 187);">
+                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
                                                             <?php  
                                                                 if(isset($comentario_prestador['USU_DCNOME'])) 
                                                                 {
