@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8); /* Fundo levemente transparente */
+  background: rgba(0, 0, 0, 0.8); /* Fundo levemente transparente */
   display: flex;
   justify-content: center;
   align-items: center;

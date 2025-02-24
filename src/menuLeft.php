@@ -35,7 +35,7 @@
             <div class="h-100" id="leftside-menu-container" data-simplebar>
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
-                    <a href="pages-profile.html">
+                    <a style="cursor: pointer;" onclick="window.location.href='https://parquedashortensias.codemaze.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'" class="dropdown-item">
                         <img src="../../assets/images/users/Hall.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name mt-2"><?php $nomeSession = ucwords(strtolower($nomeSession)); echo $nomeSession; ?></span>
                         <span class="leftbar-user-name mt-2"><?php $nivelAcesso = ucwords(strtolower($nivelAcesso)); echo $nivelAcesso; ?></span>
