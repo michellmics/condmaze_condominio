@@ -320,103 +320,60 @@
     <script src="../../assets/js/app.min.js"></script>
 
     <script>
-      // Modal styles
-      const modal = document.getElementById('inputModal');
-      const plateInput = document.getElementById('plateInput');
-      const apartmentInput = document.getElementById('apartmentInput');
-      const modelInput = document.getElementById('modelInput');
-      let currentSlotId = null;
+    // Modal styles
+    const modal = document.getElementById('inputModal');
+    const plateInput = document.getElementById('plateInput');
+    const apartmentInput = document.getElementById('apartmentInput');
+    const modelInput = document.getElementById('modelInput');
+    let currentSlotId = null;
 
-      // Função para abrir o modal
-      function openModal(slotId) {
+    // Função para abrir o modal
+    function openModal(slotId) {
         currentSlotId = slotId;
         plateInput.value = '';
         apartmentInput.value = '';
         modelInput.value = '';
         modal.style.display = 'flex'; // Exibe o modal
-      }
+    }
 
-      // Função para fechar o modal
-      function closeModal() {
+    // Função para fechar o modal
+    function closeModal() {
         modal.style.display = 'none'; // Esconde o modal
         currentSlotId = null;
-      }
+    }
 
-      // Evento de clique nas vagas
-      document.querySelectorAll('.slot').forEach(slot => {
+    // Fechar o modal ao clicar fora dele
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal(); // Fecha o modal se o clique for fora dele
+        }
+    });
+
+    // Evento de clique nas vagas
+    document.querySelectorAll('.slot').forEach(slot => {
         slot.addEventListener('click', function() {
-          openModal(this.dataset.id); // Abre o modal com o id da vaga
+            openModal(this.dataset.id); // Abre o modal com o id da vaga
         });
-      });
+    });
 
-      // Botões de ação no modal
-      document.getElementById('cancelButton').addEventListener('click', closeModal);
+    // Botões de ação no modal
+    document.getElementById('cancelButton').addEventListener('click', closeModal);
 
-      document.getElementById('submitButton').addEventListener('click', () => {
-        const plate = plateInput.value.trim();
-        const apartment = apartmentInput.value.trim();
-        const model = modelInput.value.trim();
+    document.getElementById('submitButton').addEventListener('click', function() {
+        // Lógica para submeter os dados (exemplo de como fazer a captura dos dados)
+        console.log("Placa: " + plateInput.value);
+        console.log("Apartamento: " + apartmentInput.value);
+        console.log("Modelo: " + modelInput.value);
+        closeModal(); // Fecha o modal após o envio
+    });
 
-        if (!/^[A-Z0-9]{1,7}$/.test(plate)) {
-          alert("Placa inválida! Use apenas letras e números (máximo 7 caracteres).");
-          return;
-        }
+    document.getElementById('freeButton').addEventListener('click', function() {
+        // Lógica para liberar a vaga
+        console.log("Vaga liberada: " + currentSlotId);
+        closeModal(); // Fecha o modal após liberar a vaga
+    });
+</script>
 
-        if (!/^\d{1,5}$/.test(apartment)) {
-          alert("Apartamento inválido! Use apenas números (máximo 5 caracteres).");
-          return;
-        }
-
-        if (model.length === 0 || model.length > 10) {
-          alert("Modelo inválido! Máximo de 10 caracteres.");
-          return;
-        }
-
-        fetch('update_slot.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: currentSlotId,
-            plate: plate,
-            apartment: apartment,
-            vehicle_model: model,
-            entry_time: new Date().toLocaleString('pt-BR')
-          })
-        })
-        .then(() => {
-          closeModal();
-          location.reload();
-        });
-      });
-
-      document.getElementById('freeButton').addEventListener('click', () => {
-        if (confirm("Tem certeza de que deseja liberar esta vaga?")) {
-          fetch('update_slot.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: currentSlotId,
-              status: 'free',
-              plate: '',
-              apartment: '',
-              vehicle_model: '',
-              entry_time: ''
-            })
-          })
-          .then(() => {
-            closeModal();
-            location.reload();
-          });
-        }
-      });
-    </script>
-
-    <script>
-    // Função para realizar o refresh da página após 5 minutos
-    setInterval(function() {
-        location.reload(); // Recarrega a página
-    }, 300000); // 5 minutos em milissegundos 
-    </script>
 
 </body>
 </html>
