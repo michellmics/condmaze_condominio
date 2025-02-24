@@ -146,7 +146,7 @@
       width: 150px;
       height: 150px;
       border: 2px solid #ddd;
-      background-color: #e0f7fa;
+      background-color:rgb(33, 34, 34);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -159,13 +159,13 @@
 
     /* Vaga livre */
     .slot.free {
-      background: linear-gradient(135deg,rgb(18, 100, 43),rgb(8, 105, 65));
+      background: linear-gradient(135deg,rgb(89, 2, 146),rgb(78, 29, 168));
       color: white;
     }
 
     /* Vaga ocupada */ 
     .slot.occupied {
-      background: linear-gradient(135deg,rgb(5, 84, 129),rgb(10, 193, 199));
+      background: linear-gradient(135deg,rgb(225, 0, 255),rgb(80, 1, 60));
       color: white;
     }
 
@@ -202,7 +202,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(122, 120, 120, 0.3);
       justify-content: center;
       align-items: center;
     }
