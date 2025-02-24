@@ -35,8 +35,12 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
     }   
 
 ?>
+
+
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
     <meta charset="utf-8" />
     <title><?php echo $nomeCondominio; ?></title>
@@ -80,19 +84,30 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
-        <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
-                    <!-- start page title -->
 
-                                        <!-- start page title -->
-                                        <div class="row">
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
@@ -226,44 +241,48 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                     </div>
                     <!-- end row -->
 
-                                                    
-                </div><!-- FIM CONTEUDO CONTAINER -->                
+                </div> <!-- container -->
 
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+            </div> <!-- content -->
 
+
+
+ 
+
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/footer_nav.php'; ?>
+		<!-- End Menu Nav -->
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
     <!-- END wrapper -->
 
-	
-<!-- Layout Configuration -->	
-<?php include '../../src/layoutConfig.php'; ?>
-    
-<!-- Vendor js -->
-<script src="../../assets/js/vendor.min.js"></script>
 
-<!-- Daterangepicker js -->
-<script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
-<script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
 
-<!-- Apex Charts js -->
-<script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <!-- Vendor js -->
+    <script src="../../assets/js/vendor.min.js"></script>
 
-<!-- Vector Map js -->
-<script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
-<script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
-<script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
-<!-- Dashboard App js -->
-<script src="../../assets/js/pages/demo.dashboard.js"></script>
+    <!-- Daterangepicker js -->
+    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
 
-<!-- App js -->
-<script src="../../assets/js/app.min.js"></script>
+    <!-- Apex Charts js -->
+    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
 
+    <!-- Vector Map js -->
+    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
+    <!-- Dashboard App js -->
+    <script src="../../assets/js/pages/demo.dashboard.js"></script>
+
+    <!-- App js -->
+    <script src="../../assets/js/app.min.js"></script>
 
 </body>
 
