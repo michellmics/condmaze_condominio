@@ -118,7 +118,7 @@
  
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-datatable-preview">
-                                        <table class="table table-centered mb-0">
+                                            <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>      
                                                         <th>DT ENTRADA</th>
@@ -189,7 +189,7 @@
                                                         
                                                     ?>
                                                     <tr>    
-                                                        <td hidden class="align-middle" email="<?= htmlspecialchars($item['USU_DCEMAIL']); ?>"style="font-size: 12px;"></td>
+                                                       <!-- <td hidden class="align-middle" email="<?= htmlspecialchars($item['USU_DCEMAIL']); ?>"style="font-size: 12px;"></td> -->
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataPortaria); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
