@@ -71,6 +71,144 @@
                                         <div class="tab-content">
 
 
+
+<!-- -->
+<div class="parking-lot">
+                  <?php
+                    $slots = json_decode(file_get_contents('vagas/slots.json'), true);
+
+                    foreach ($slots as $id => $slot) {
+                        $irregular="";
+                        $statusClass = $slot['status'] === 'occupied' ? 'occupied' : 'free';
+
+                        if($slot['alarm'] === 'alarmed')
+                        {
+                            $statusClass = 'alert';
+                            $irregular = "IRREGULAR";
+                        }                       
+                        $displayText = $slot['status'] === 'occupied' 
+                            ? '<div><b>' . htmlspecialchars(strtoupper($slot['plate'])) . '</b></div>' . 
+                              '<div>' . htmlspecialchars(strtoupper($slot['vehicle_model'])) . '</div>' . 
+                              '<div>AP: ' . htmlspecialchars($slot['apartment']) . '</div>' . 
+                              '<div style="font-size: 10px; color:rgb(214, 214, 214);">' . htmlspecialchars($slot['entry_time']) . '</div>'
+                            :  ($id > 40 ? 'Livre<br>Rotativa' : 'Livre');
+                    
+                        echo '<div class="slot-wrapper">
+                                <div class="slot ' . $statusClass . '" data-id="' . $id . '">' . $displayText . '</div>
+                                <span class="slot-status">' . $irregular . '</span>
+                                <span class="slot-number">ID ' . $id . '</span>
+                              </div>';
+                    }
+                  ?>
+                </div>
+                <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>        
+                <!-- Modal -->
+                <div class="modal" id="inputModal">
+                  <div class="modal-content">
+                    <div class="modal-header">Preencha os dados do veículo</div>
+                    <input type="text" id="plateInput" maxlength="7" placeholder="Placa (máx. 7 caracteres)" oninput="this.value = this.value.toUpperCase()">
+                    <input type="text" id="apartmentInput" maxlength="5" placeholder="Apartamento (máx. 5 caracteres)" oninput="this.value = this.value.replace(/\D/g, '')">
+                    <input type="text" id="modelInput" maxlength="10" placeholder="Modelo do veículo (máx. 10 caracteres)" oninput="this.value = this.value.toUpperCase()">
+                    <div class="modal-footer">
+                      <button id="cancelButton" style="background-color:rgb(158, 22, 28); color: white; border: none; padding: 10px 20px; cursor: pointer;">Cancelar</button>
+                      <button id="submitButton" style="background-color:rgb(7, 77, 143); color: white; border: none; padding: 10px 20px; cursor: pointer;">Confirmar</button>
+                      <button id="freeButton" style="background-color:rgb(7, 143, 41); color: white; border: none; padding: 10px 20px; cursor: pointer;">Liberar Vaga</button>
+                    </div>
+                  </div>
+                </div>
+                <?php endif; ?> 
+                
+                <script>
+                  const modal = document.getElementById('inputModal');
+                  const plateInput = document.getElementById('plateInput');
+                  const apartmentInput = document.getElementById('apartmentInput');
+                  const modelInput = document.getElementById('modelInput');
+                  let currentSlotId = null;
+                
+                  // Abre o modal
+                  function openModal(slotId) {
+                    currentSlotId = slotId;
+                    plateInput.value = '';
+                    apartmentInput.value = '';
+                    modelInput.value = '';
+                    modal.style.display = 'flex';
+                  }
+              
+                  // Fecha o modal
+                  function closeModal() {
+                    modal.style.display = 'none';
+                    currentSlotId = null;
+                  }
+              
+                  document.querySelectorAll('.slot').forEach(slot => {
+                    slot.addEventListener('click', () => openModal(slot.dataset.id));
+                  });
+              
+                  document.getElementById('cancelButton').addEventListener('click', closeModal);
+              
+                  document.getElementById('submitButton').addEventListener('click', () => {
+                    const plate = plateInput.value.trim();
+                    const apartment = apartmentInput.value.trim();
+                    const model = modelInput.value.trim();
+
+                    if (!/^[A-Z0-9]{1,7}$/.test(plate)) {
+                      alert("Placa inválida! Use apenas letras e números (máximo 7 caracteres).");
+                      return;
+                    }
+                
+                    if (!/^\d{1,5}$/.test(apartment)) {
+                      alert("Apartamento inválido! Use apenas números (máximo 5 caracteres).");
+                      return;
+                    }
+                
+                    if (model.length === 0 || model.length > 10) {
+                      alert("Modelo inválido! Máximo de 10 caracteres.");
+                      return;
+                    }
+                
+                    fetch('update_slot.php', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        id: currentSlotId,
+                        plate: plate,
+                        apartment: apartment,
+                        vehicle_model: model,
+                        entry_time: new Date().toLocaleString('pt-BR')
+                      })
+                    })
+                    .then(() => {
+                      closeModal();
+                      location.reload();
+                    });
+                  });
+              
+                  document.getElementById('freeButton').addEventListener('click', () => {
+                    if (confirm("Tem certeza de que deseja liberar esta vaga?")) {
+                      fetch('update_slot.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          id: currentSlotId,
+                          status: 'free',
+                          plate: '',
+                          apartment: '',
+                          vehicle_model: '',
+                          entry_time: ''
+                        })
+                      })
+                      .then(() => {
+                        closeModal();
+                        location.reload();
+                      });
+                    }
+                  });
+                </script>
+
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
