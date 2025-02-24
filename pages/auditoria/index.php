@@ -107,7 +107,6 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
-                                                        <th></th>
                                                         <th>DATA</th>
                                                         <th>USUÁRIO / NÍVEL</th>
                                                         <th>APTO</th>
@@ -117,34 +116,35 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $count = 1; ?>
                                                     <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
 
                                                         <?php 
-                                                            if($item['LOG_DCTIPO'] == "LOGIN") {$colorText = 'style="color: #ADFF2F;"';}
-                                                            if($item['LOG_DCTIPO'] == "ALERTA") {$colorText = 'style="color:rgb(255, 100, 11);"';}
-                                                            if($item['LOG_DCTIPO'] == "ENCOMENDA") {$colorText = 'style="color:rgb(47, 144, 255);"';}
-                                                            if($item['LOG_DCTIPO'] == "UPDATE") {$colorText = 'style="color:rgb(255, 100, 11);"';}
-                                                            if($item['LOG_DCTIPO'] == "REC SENHA") {$colorText = 'style="color:rgb(255, 100, 11);"';}
-                                                            if($item['LOG_DCTIPO'] == "LOGIN FAILED") {$colorText = 'style="color:rgb(233, 20, 20);"';}
-                                                            if($item['LOG_DCTIPO'] == "CONFIGURAÇÃO") {$colorText = 'style="color:rgb(255, 47, 47);"';}
-                                                            if($item['LOG_DCTIPO'] == "NOTIFICAÇÃO") {$colorText = 'style="color:rgb(47, 179, 255);"';}
-                                                            if($item['LOG_DCTIPO'] == "ERRO") {$colorText = 'style="color:rgb(255, 47, 47);"';}
+                                                            $colors = [
+                                                                "LOGIN" => 'color: #ADFF2F;',
+                                                                "ALERTA" => 'color: rgb(255, 100, 11);',
+                                                                "ENCOMENDA" => 'color: rgb(47, 144, 255);',
+                                                                "UPDATE" => 'color: rgb(255, 100, 11);',
+                                                                "REC SENHA" => 'color: rgb(255, 100, 11);',
+                                                                "LOGIN FAILED" => 'color: rgb(233, 20, 20);',
+                                                                "CONFIGURAÇÃO" => 'color: rgb(255, 47, 47);',
+                                                                "NOTIFICAÇÃO" => 'color: rgb(47, 179, 255);',
+                                                                "ERRO" => 'color: rgb(255, 47, 47);'
+                                                            ];
+                                                            
+                                                            $colorText = isset($colors[$item['LOG_DCTIPO']]) ? 'style="' . $colors[$item['LOG_DCTIPO']] . '"' : '';
                                                         ?>                                                        
 
                                                         <tr>
-                                                            <td class="align-middle" ><?= htmlspecialchars($count); //num da linha ?></td> 
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
-                                                            <td class="align-middle" <?= htmlspecialchars($colorText); ?>><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
+                                                            <td class="align-middle" <?php echo $colorText; ?>><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCCODIGO']); ?></td>
                                                             <td style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;" class="align-middle">
                                                                 <?= nl2br(wordwrap(htmlspecialchars($item['LOG_DCMSG']), 50, "\n", true)); ?>
                                                             </td>
                                                                 
                                                         </tr>
-                                                        <?php $count++; ?>
                                                     <?php endforeach; ?>
                                                 </tbody>
                                             </table>
