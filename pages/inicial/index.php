@@ -406,9 +406,9 @@
                     <!-- end row-->
 
 
-
+                                                    
                 </div><!-- FIM CONTEUDO CONTAINER -->                
-            </div>
+
             <!-- content -->
         <!-- FOOTER -->
 	    <?php include '../../src/modalTermos.php'; ?>
@@ -416,8 +416,8 @@
         <!-- FOOTER -->
 	    <?php include '../../src/footerNav.php'; ?>
 	    <!-- FOOTER --> 
-        </div>
-    </div>
+       
+
     <!-- END wrapper -->
 
 	
@@ -460,9 +460,9 @@
             confirmButton: 'swal-confirm-btn',
             denyButton: 'swal-deny-btn',
             htmlContainer: 'swal-text'
-          }
+          } 
         }).then((result) => {
-          if (result.isConfirmed) {
+          if (result.isConfirmed) { 
             // Capturar os dados do formulário
             var formData = new FormData($("#form")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
