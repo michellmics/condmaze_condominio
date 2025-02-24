@@ -30,10 +30,12 @@
     $siteAdmin->getPendenciasInfo();
     
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <title><?php echo $nomeCondominio; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
@@ -69,20 +71,33 @@
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
+
 </head>
 
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
         <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+
+                <!-- Start Content-->
+                <div class="container-fluid">
 
                     <!-- start page title -->
                     <div class="row">
@@ -150,23 +165,19 @@
                         </div><!-- end col-->
                     </div> <!-- end row-->
 
-                    
+                </div> <!-- container -->
 
-                                                    
-                </div><!-- FIM CONTEUDO CONTAINER -->                
+            </div> <!-- content -->
 
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+            <?php include '../../src/footer_nav.php'; ?>
 
-    <!-- END wrapper -->
+        </div>
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
-    
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
     </div>
     <script>
         $(document).ready(function () {
@@ -332,7 +343,6 @@ $(document).ready(function () {
 });
 
 </script>
- 
 
 </body>
 

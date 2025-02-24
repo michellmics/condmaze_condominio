@@ -120,7 +120,7 @@
 
                                                         <?php 
                                                             $colors = [
-                                                                "LOGIN" => 'color: #ADFF2F;',
+                                                                "LOGIN" => 'color:rgb(116, 177, 25);',
                                                                 "ALERTA" => 'color: rgb(255, 100, 11);',
                                                                 "ENCOMENDA" => 'color: rgb(47, 144, 255);',
                                                                 "UPDATE" => 'color: rgb(255, 100, 11);',
