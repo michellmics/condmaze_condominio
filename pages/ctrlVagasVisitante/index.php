@@ -85,7 +85,7 @@
     /* Estilo do corpo */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
+      /* text-align: center; */
       /* background-color: #f4f7fa; */
       margin: 0;
       padding: 0;
@@ -117,7 +117,7 @@
     .slot {
       width: 150px;
       height: 150px;
-      border: 2px solid #ddd;
+      border: 1px solid #000; /* Borda preta e mais fina */
       /* background-color: #e0f7fa; */
       display: flex;
       flex-direction: column;
@@ -131,13 +131,13 @@
 
     /* Vaga livre */
     .slot.free {
-      background: linear-gradient(135deg,rgb(18, 100, 43),rgb(8, 105, 65));
+      background: linear-gradient(135deg,rgb(89, 2, 146),rgb(78, 29, 168));
       color: white;
     }
 
     /* Vaga ocupada */ 
     .slot.occupied {
-      background: linear-gradient(135deg,rgb(5, 84, 129),rgb(10, 193, 199));
+      background: linear-gradient(135deg,rgb(225, 0, 255),rgb(80, 1, 60));
       color: white;
     }
 
@@ -245,7 +245,7 @@
                                     <div class="page-title-right">
 
                                     </div>
-                                    <h4 class="page-title">Bem vindo(a)</h4>
+                                    <h4 class="page-title">Controle do Estacionamento de Visitantes</h4>
                                 </div>
                             </div>
                         </div>
@@ -253,8 +253,7 @@
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Controle do Estacionamento de Visitantes</h4>
-                                        <p class="text-muted font-14">
+                                       <p class="text-muted font-14">
                                         Nesta seção são listados todas as vagas de veículo destinada aos visitantes do condomínio.<br>
                                         O controle de entrada e saída é realizado pela portaria, podendo um veículo permanecer por no máximo 48h.
                                         </p>
