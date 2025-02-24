@@ -30,22 +30,6 @@
 <!DOCTYPE html>
 <html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
-    <!-- HEAD META BASIC LOAD-->
-	<?php include '../../src/headMeta.php'; ?>
-	<!-- HEAD META BASIC LOAD -->
-
-    <!-- Theme Config Js --> 
-    <script src="../../assets/js/hyper-config.js"></script>
-
-    <!-- Vendor css -->
-    <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- App css -->
-    <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
-
-    <!-- Icons css -->
-    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Datatables css -->
     <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
@@ -54,6 +38,13 @@
     <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- HEAD META BASIC LOAD-->
+	<?php include '../../src/headMeta.php'; ?>
+	<!-- HEAD META BASIC LOAD -->
+
+    <!-- Icons css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <!-- estilo para os botões de entrega e disponivel -->
@@ -321,14 +312,27 @@
 
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
-    <!-- Vendor js -->
-    <script src="../../assets/js/vendor.min.js"></script>
+
+        <!-- Vendor js -->
+        <script src="../../assets/js/vendor.min.js"></script>
+
+    <!-- Daterangepicker js -->
+    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
+                                                                
+    <!-- Apex Charts js -->
+    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+                                                                
+    <!-- Vector Map js -->
+    <script src="../../assets/vendor/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world-merc.js"></script>
+    <script src="../../assets/vendor/jsvectormap/maps/world.js"></script>
+    <!-- Dashboard App js -->
+    <script src="../../assets/js/pages/demo.dashboard.js"></script>
+                                                                
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-    <!-- Code Highlight js -->
-    <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
-    <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
-    <script src="../../assets/js/hyper-syntax.js"></script>
+                                                                
     <!-- Datatables js -->
     <script src="../../assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
@@ -343,10 +347,9 @@
     <script src="../../assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="../../assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
     <script src="../../assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
-    <!-- App js -->
-    <script src="../../assets/js/app.min.js"></script>
+                                                                
     <!-- Datatable Demo Aapp js -->
-    <script src="../../assets/js/pages/demo.datatable-init.js"></script>
+    <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
 
 
     <!-- SWEETALERT 2 -->   
