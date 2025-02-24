@@ -388,7 +388,7 @@
                                                                     <td><?= htmlspecialchars($item['REC_DCMSG']); ?></td>                                                                       
                                                                 </div>                                                            
                                                             </div>
-                                                            <?php endforeach; ?>
+                                                            <?php endforeach; ?> 
                                                             <div class="text-center mt-2">
                                                                 <a href="javascript:void(0);" class="text-danger"></a>
                                                             </div>
