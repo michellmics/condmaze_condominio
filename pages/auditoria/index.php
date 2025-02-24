@@ -167,7 +167,7 @@
                         pageLength: 50, // Exibe 50 linhas por padrão
                         lengthMenu: [10, 25, 50, 100], // Opções para alterar o número de linhas exibidas
                         responsive: true, // Tabela responsiva
-                        order: [[2, 'desc']], // Ordena pela coluna "DATA" (índice 6)
+                        order: [[1, 'desc']], // Ordena pela coluna "DATA" (índice 6)
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' // Tradução para português
                         }
@@ -237,7 +237,7 @@ $(document).ready(function () {
         pageLength: 50,  
         lengthMenu: [10, 25, 50, 100], 
         responsive: true, 
-        order: [[2, 'desc']], 
+        order: [[1, 'desc']], 
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
         }
