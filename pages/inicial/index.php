@@ -139,11 +139,11 @@
                                                         ?>
 
                                                         <!-- inicio barra -->                                            
-                                                        <p style="font-size: 11px; margin-bottom: 2px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
+                                                        <p style="font-size: 11px; margin-bottom: 3px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
                                                         <div class="progress col-xl-10" 
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal" 
-                                                            style="cursor: pointer; margin-bottom: 7px;"
+                                                            style="cursor: pointer; margin-bottom: 9px;"
                                                             data-title="<?php echo $item["EPE_DCTITULO"]; ?>"
                                                             data-content="<?php echo $item["EPE_DCOBS"]; ?>"
                                                             >
