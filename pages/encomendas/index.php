@@ -129,7 +129,6 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>      
-                                                        <th></th>  
                                                         <th>DT ENTRADA</th>
                                                         <th>ID</th>
                                                         <th>AP</th>
