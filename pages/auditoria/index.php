@@ -45,23 +45,17 @@
     <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
-
     <!-- Theme Config Js -->
     <script src="../../assets/js/hyper-config.js"></script>
-
     <!-- Vendor css -->
     <link href="../../assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
-
     <!-- App css -->
     <link href="../../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
-
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
     <!-- PWA MOBILE CONF -->
 	<?php include '../../src/pwa_conf.php'; ?>
 	<!-- PWA MOBILE CONF -->
@@ -88,7 +82,7 @@
                                 <div class="page-title-right">
 
                                 </div>
-                                <h4 class="page-title">Bem vindo(a)</h4>
+                                <h4 class="page-title">Auditoria</h4>
                             </div>
                         </div>
                     </div>
@@ -100,7 +94,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Registro de Ações </h4>
+                                    <h4 class="header-title">Registro de Eventos do Sistema </h4>
                                     <p class="text-muted font-14">
                                         Aqui são listados todas as atividades realizadas no sistema.
                                     </p>
@@ -113,6 +107,7 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>
+                                                        <th></th>
                                                         <th>DATA</th>
                                                         <th>USUÁRIO / NÍVEL</th>
                                                         <th>APTO</th>
@@ -122,8 +117,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php $count = 0; ?>
                                                     <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
                                                         <tr>
+                                                            <td class="align-middle"><?= htmlspecialchars($count); //num da linha ?></td> 
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
@@ -134,6 +131,7 @@
                                                             </td>
                                                                 
                                                         </tr>
+                                                        <?php $count++; ?>
                                                     <?php endforeach; ?>
                                                 </tbody>
                                             </table>
