@@ -57,7 +57,7 @@
                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                     <li class="side-nav-item">
                         <a href="../listaMoradores/index.php" class="side-nav-link">
-                            <i class="uil-comments-alt"></i>
+                            <i class="uil-notes"></i>
                             <span> Lista de Moradores </span>
                         </a>
                     </li>
@@ -67,7 +67,7 @@
                     <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                     <li class="side-nav-item">
                         <a href="../fornecedorAvaliacao/index.php" class="side-nav-link">
-                            <i class="uil-comments-alt"></i>
+                            <i class="uil-ruler"></i> 
                             <span> Avaliação de Prestadores </span>
                         </a>
                     </li>
@@ -84,7 +84,7 @@
 
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarCrm" aria-expanded="false" aria-controls="sidebarCrm" class="side-nav-link">
-                            <i class="uil uil-tachometer-fast"></i>
+                            <i class="uil-store-alt"></i>  
                             <span class="badge bg-danger text-white float-end">Novo</span>
                             <span> Salão de Festas </span>
                         </a>
@@ -128,7 +128,7 @@
 
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
-                            <i class="uil-envelope"></i>
+                            <i class="uil uil-tachometer-fast"></i> 
                             <span> Administração </span>
                             <span class="menu-arrow"></span>
                         </a>
