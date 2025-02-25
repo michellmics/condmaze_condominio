@@ -12,7 +12,7 @@ ini_set('max_execution_time', '300');
         exit();
     }
 
-    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])) {
+    if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE", "MORADOR"])) {
         header("Location: ../errors/index.php");
         exit();
     }
@@ -180,8 +180,10 @@ ini_set('max_execution_time', '300');
                                             </div>
                                         </div>
                                                                
-                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Voltar</button>             
-                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>                                          
+                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Voltar</button>
+                                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>              
+                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>   
+                                            <?php endif; ?>                                       
                                        
                                     </form>
                                     </div> <!-- end tab-content -->

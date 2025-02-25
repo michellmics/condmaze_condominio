@@ -77,7 +77,31 @@
 	    <!-- TOP BAR -->
         <!-- MENU LEFT -->
 	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+	    <!-- MENU LEFT -->     
+        <!-- MODAL -->
+        <?php include '../../src/modalScroll.php'; ?>
+	    <!-- MODAL -->   
+
+        <script>
+            document.querySelectorAll('.list-group-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
+                    document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
+                
+                            // Recebe o arquivo (se houver) e cria o link de download
+                            var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arqui
+                
+                            if (fileUrl) {
+                                // Cria o link para download
+                                var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
+                                document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
+                            } else {
+                                document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
+                            }
+                });
+            });
+        </script>
+
         <div class="content-page">
             <div class="content">                
                 <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
@@ -103,8 +127,10 @@
                                     <p class="text-muted font-14">
                                         Aqui são listados alguns procedimentos e comunicados disponibilizados pela gestão do condomínio.
                                     </p>
-                                    <div class="col-sm-5">
+                                        <div class="col-sm-5">
+                                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>  
                                             <a href="insertArtigo.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>
+                                            <?php endif; ?>  
                                         </div>
                                     <div class="tab-content">
                                         <div class="col-sm-5">
@@ -131,19 +157,31 @@
                                                             $dataFormatCad = $date->format('d/m/Y H:i');  
                                                         ?>
                                                         <tr>
-                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td> 
+                                                            <td class="align-middle" 
+                                                                style="cursor: pointer; color: rgb(0, 151, 197); text-decoration: underline;" 
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#scrollable-modal"
+                                                                data-title="<?= htmlspecialchars($item['INA_DCTITULO']); ?>"
+                                                                data-content="<?= htmlspecialchars($item['INA_DCTEXT']); ?>"
+                                                                data-file="<?php echo basename($item['INA_DCFILEURL']); ?>"
+                                                                onclick="openModal(this)">
+                                                                <?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?>
+                                                            </td> 
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?>º</td>   
                                                             <td class="align-middle"><?= htmlspecialchars($dataFormatCad); ?></td>                                                          
-
+                                                    
                                                             <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?> 
-                                                            <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php?id=<?php echo $item['INA_IDINSTRUCOES_ADEQUACOES']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
+                                                            <td class="align-middle">
+                                                                <a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php?id=<?= htmlspecialchars($item['INA_IDINSTRUCOES_ADEQUACOES'], ENT_QUOTES, 'UTF-8'); ?>" class="text-success">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </a>
+                                                            </td>       
                                                             <td class="align-middle">
                                                                 <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['INA_IDINSTRUCOES_ADEQUACOES'], ENT_QUOTES, 'UTF-8'); ?>')">
                                                                     <i class="mdi mdi-delete" title="Excluir artigo" style="cursor: pointer; font-size: 24px;"></i>
                                                                 </a>
                                                             </td>
                                                             <?php endif; ?>
-
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
