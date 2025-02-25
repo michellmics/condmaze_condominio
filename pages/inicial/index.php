@@ -112,8 +112,8 @@
                                                         <tr>
                                                             <th>ID</th>
                                                             <th><?php echo $translations['apartamento']; ?></th>
-                                                            <th><?php echo strupper($translations['entrada']); ?></th>
-                                                            <th><?php echo strupper($translations['Retirar']); ?></th>
+                                                            <th><?php echo $translations['entrada']; ?></th>
+                                                            <th><?php echo $translations['Retirar']; ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>                                                  
