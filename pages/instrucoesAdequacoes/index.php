@@ -132,7 +132,7 @@
                                                             $dataFormatCad = $date->format('d/m/Y H:i');  
                                                         ?>
                                                         <tr>
-                                                            <td><i class="fas fa-folder-open align-middle" style="font-size: 24px; color:rgb(161, 5, 175);"></i></td>
+                                                            <td><i class="fas fa-folder-open align-middle" style="font-size: 12px; color:rgb(161, 5, 175);"></i></td>
                                                             <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td> 
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?>º</td>   
                                                             <td class="align-middle"><?= htmlspecialchars($dataFormatCad); ?></td>                                                          
