@@ -115,7 +115,6 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>  
-                                                        <th></th>
                                                         <th>TÍTULO</th>  
                                                         <th>ORDEM</th>     
                                                         <th>DT CADASTRO</th>                                                                
@@ -132,7 +131,6 @@
                                                             $dataFormatCad = $date->format('d/m/Y H:i');  
                                                         ?>
                                                         <tr>
-                                                            <td><i class="fas fa-folder-open align-middle" style="font-size: 12px; color:rgb(161, 5, 175);"></i></td>
                                                             <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td> 
                                                             <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?>º</td>   
                                                             <td class="align-middle"><?= htmlspecialchars($dataFormatCad); ?></td>                                                          
