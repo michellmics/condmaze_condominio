@@ -118,7 +118,11 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_LOGINFO as $item): ?>
 
-                                                        <?php 
+                                                        <?php                                                             
+                                                     
+                                                            $date = new DateTime($item['LOG_DTLOG']);
+                                                            $dataFormatLog = $date->format('d/m/Y H:i');                                           
+
                                                             $colors = [
                                                                 "LOGIN" => 'color:rgb(116, 177, 25);',
                                                                 "ALERTA" => 'color: rgb(255, 100, 11);',
@@ -135,7 +139,7 @@
                                                         ?>                                                        
 
                                                         <tr>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['LOG_DTLOG']); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($dataFormatLog); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCUSUARIO']); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars($item['LOG_DCAPARTAMENTO']); ?></td>
                                                             <td class="align-middle" <?php echo $colorText; ?>><?= htmlspecialchars($item['LOG_DCTIPO']); ?></td>
