@@ -84,7 +84,7 @@
                         <div class="collapse" id="sidebarCrm">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="../listaMoradores/index.php">Lista de Convidados</a>
+                                    <a href="../listaConvidados/index.php">Lista de Convidados</a>
                                 </li>
                                 <li>
                                     <a href="#">Reserva de Data</a>
