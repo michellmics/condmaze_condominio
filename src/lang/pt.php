@@ -11,7 +11,7 @@ return [
     'termo_priva' => 'Termo de Privacidade',
 
     // Moradores
-    'lista_moradores' => 'Lista de Moradores',
+    'lista_moradores' => 'Lista de Moradoress',
     'moradores' => 'Moradores',
     'adicionar_morador' => 'Adicionar Morador',
     'lista_moradores_ini' => 'Nesta seção são listados todos os moradores do condomínio.',
