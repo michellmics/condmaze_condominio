@@ -108,7 +108,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Cadastro de Usuário</h4>
+                                <h4 class="page-title">Cadastro de Morador</h4>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Usuário</h4>
+                                    <h4 class="header-title">Morador / Portaria ou Síndico</h4>
                                     <p class="text-muted font-14">Nesta seção você pode cadastrar um novo usuário para ter acesso ao sistema.
                                     </p>
 
