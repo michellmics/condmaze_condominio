@@ -117,6 +117,7 @@
                     </li>
 
                     <!-- Notificações -->
+                     <!--
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="ri-notification-3-line font-22"></i>
@@ -137,7 +138,7 @@
                             </div>
 
                             <div class="px-2" style="max-height: 300px;" data-simplebar>
-                               <!-- item-->
+                             
                                 <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
                                         <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
@@ -160,17 +161,17 @@
                                 </div>
                             </div>
 
-                            <!-- All-->
+                            
                             <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item border-top border-light py-2">
                                 View All
                             </a>
 
                         </div>
                     </li>
-
+                    -->
                     <!-- Escurecer tema -->
                     <li class="d-none d-sm-inline-block">
-                        <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Theme Mode">
+                        <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Modo do Tema">
                             <i class="ri-moon-line font-22"></i>
                         </div>
                     </li>
