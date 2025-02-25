@@ -1001,7 +1001,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             $NOT_DTINSERT = $now->format('Y-m-d H:i:s');
 
             try {
-                $sql = "INSERT INTO NOT_NOTIFICACOES 
+                $sql = "INSERT INTO NOT_NOTIFICACOES  
                         (NOT_DCTITLE, NOT_DCMSG, NOT_DTINSERT) 
                         VALUES (:NOT_DCTITLE, :NOT_DCMSG, :NOT_DTINSERT)";
 

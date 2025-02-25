@@ -57,7 +57,7 @@ class LoginSystem extends SITE_ADMIN
 
                         echo json_encode(["success" => true, "token" => $token]);
 
-                    } else {
+                    } else { 
                         $_SESSION = [];
                         session_destroy();
                         echo json_encode(["success" => false, "message" => "Acesso não prmitido para o nível de Portaria! Verifique seu endereço IP."]);
