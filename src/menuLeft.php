@@ -153,9 +153,9 @@
                                 </li>
                                 <?php endif; ?>
 
-                                <?php if ($nivelAcesso == 'SUPORTE'): ?>
+                                <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../informacoesUteis/index.php">Informações Úteis</a>
+                                    <a href="../informacoesUteis/index.php">Proc. & Comunicados</a>
                                 </li>
                                 <?php endif; ?>
 
@@ -170,7 +170,7 @@
                                     <a href="../configuracoes/index.php">Configurações</a>
                                 </li>
                                 <?php endif; ?>
-                                
+
                             </ul>
                         </div>
                     </li>
