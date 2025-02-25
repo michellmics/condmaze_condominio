@@ -232,17 +232,16 @@ $host = $_SERVER['HTTP_HOST'];
         <style>
             .overlay-image {
                 position: absolute;
-                top: 50%;
                 right: 0;
+                top: 50%;
                 transform: translateY(-50%);
                 width: 200px; /* Ajuste conforme necessário */
                 height: auto;
-                z-index: 10; /* Certifique-se de que esteja acima das outras imagens */
-                opacity: 0.8; /* Ajuste para controle de transparência */
+                z-index: 10;
             }
         </style>
 
-        <img src="../../img/logo_128x32_white.png" class="overlay-image">
+        <img src="../../assets/images/condmaze.png" class="overlay-image">
     </div>
 
     <script>
