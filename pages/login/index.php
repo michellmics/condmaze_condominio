@@ -229,19 +229,6 @@ $host = $_SERVER['HTTP_HOST'];
             </div> <!-- end .card-body -->
         </div>
 
-        <style>
-            .overlay-image {
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 200px; /* Ajuste conforme necessário */
-                height: auto;
-                z-index: 10;
-            }
-        </style>
-
-        <img src="../../assets/images/condmaze.png" class="overlay-image">
     </div>
 
     <script>
