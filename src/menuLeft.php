@@ -58,7 +58,7 @@
                     <li class="side-nav-item">
                         <a href="../listaMoradores/index.php" class="side-nav-link">
                             <i class="uil-notes"></i>
-                            <span> Lista de Moradores </span>
+                            <span><?php echo $translations['lista_moradores']; ?> </span>
                         </a>
                     </li>
                     <?php endif; ?>

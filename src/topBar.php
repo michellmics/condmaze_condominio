@@ -20,12 +20,15 @@
     $nivelAcesso = strtoupper($_SESSION['user_nivelacesso']);
 	$userid = $_SESSION['user_id'];
 
-
+    // Carrega o dicionário
+    $translations = include '../../src/lang/pt.php'; 
 ?>
 
 <!-- MODAL TERMOS -->
 <?php include 'preloader.php'; ?>
 <!-- MODAL TERMOS -->
+
+
 
     <!-- ========== Topbar Start ========== -->
         <div class="navbar-custom">
