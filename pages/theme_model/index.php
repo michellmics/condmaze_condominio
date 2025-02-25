@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
     <!-- HEAD META BASIC LOAD-->
 	<?php include '../../src/headMeta.php'; ?>
@@ -17,23 +16,17 @@
 	    <?php include '../../src/menuLeft.php'; ?>
 	    <!-- MENU LEFT -->      
         <div class="content-page">
-            <div class="content">
-                <!-- INICIO CONTEUDO CONTAINER -->
-                <div class="container-fluid">
+            <div class="content">                
+                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+
+                  
+
+                    
 
 
 
+                </div><!-- FIM CONTEUDO CONTAINER -->               
 
-
-
-TESTE
-
-
-
-
-                </div>
-                <!-- FIM CONTEUDO CONTAINER -->
-            </div>
             <!-- content -->
         <!-- FOOTER -->
 	    <?php include '../../src/modalTermos.php'; ?>
@@ -41,17 +34,17 @@ TESTE
         <!-- FOOTER -->
 	    <?php include '../../src/footerNav.php'; ?>
 	    <!-- FOOTER --> 
-        </div>
-    </div>
+       
+
     <!-- END wrapper -->
 
 	
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
-    <!-- Vendor js -->
-    <script src="../../assets/js/vendor.min.js"></script>
-    <!-- App js -->
-    <script src="../../assets/js/app.min.js"></script>
+ 
+
+ 
+
 </body>
 
 </html>
