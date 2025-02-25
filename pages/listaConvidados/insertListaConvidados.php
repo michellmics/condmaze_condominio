@@ -45,9 +45,6 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
-
     <!-- Plugin css -->
     <link href="../../assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <link href="../../assets/vendor/jsvectormap/jsvectormap.min.css" rel="stylesheet" type="text/css">
@@ -66,6 +63,11 @@
 
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- PWA MOBILE CONF -->
+	<?php include '../../src/pwa_conf.php'; ?>
+	<!-- PWA MOBILE CONF -->
+
 </head>
 
 <body>
@@ -98,7 +100,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Cadastro de Convidado</h4>
-                                    <p class="text-muted font-14">Cadastre seu convidado aqui e <strong style="color: red;">lembre-se de ativá-lo para 
+                                    <p class="text-muted font-14">Cadastre seu convidado e <strong style="color:rgb(184, 2, 123);">lembre-se de ativá-lo para 
                                         garantir o acesso ao condomínio </strong> durante o uso do salão de festas.
                                     </p>
 
@@ -124,7 +126,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="position-relative mb-3">
-                                                    <label class="form-label" for="validationTooltip02">CPF ou RG</label>
+                                                    <label class="form-label" for="validationTooltip02">Num. Documento</label>
                                                     <input type="text" class="form-control" id="documento" value="<?php if(isset($documento)){echo $documento;} ?>" name="documento" placeholder="CPF ou RG" style="text-transform: uppercase;"  minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required>
                                                     <div class="valid-tooltip">
                                                         Validado!
@@ -138,12 +140,12 @@
                                                     <label class="form-label" for="validationTooltip01">Convidado Ativo?</label>
                                                     <br>
                                                     <!-- Bool Switch-->
-                                                    <input type="checkbox" id="status" name="status" <?php if(isset($status)){echo $status;} ?> data-switch="bool"/>
+                                                    <input type="checkbox" id="status" name="status" <?php if(isset($status)){echo $status;} ?> data-switch="success"/>
                                                     <label for="status" data-on-label="SIM" data-off-label="NÃO"></label>
                                                 </div>
  
 
-                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Cancelar</button>              
+                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>              
                                                 <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>
                                             </form>
                                         </div> <!-- end preview-->
