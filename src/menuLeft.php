@@ -155,7 +155,7 @@
 
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../informacoesUteis/index.php">Proc. & Comunicados</a>
+                                    <a href="../instrucoesAdequacoes/index.php">Proc. & Comunicados</a>
                                 </li>
                                 <?php endif; ?>
 
