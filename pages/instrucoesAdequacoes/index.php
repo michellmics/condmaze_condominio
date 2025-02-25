@@ -59,6 +59,7 @@
 
     <!-- Icons css -->
     <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -114,8 +115,10 @@
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
                                                     <tr>  
+                                                        <th><th>
                                                         <th>TÍTULO</th>  
-                                                        <th>ORDEM</th>                                                                    
+                                                        <th>ORDEM</th>     
+                                                        <th>DT CADASTRO</th>                                                                
                                                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                                         <th></th>   
                                                         <th></th> 
@@ -124,9 +127,15 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>
+                                                        <?php
+                                                            $date = new DateTime($item['INA_DTDATA_INSERT']);
+                                                            $dataFormatCad = $date->format('d/m/Y H:i');  
+                                                        ?>
                                                         <tr>
-                                                        <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?>º</td>                                                            
+                                                            <td><i class="fas fa-folder-open" style="font-size: 24px; color:rgb(161, 5, 175);"></i></td>
+                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td> 
+                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?>º</td>   
+                                                            <td class="align-middle"><?= htmlspecialchars($dataFormatCad); ?></td>                                                          
 
                                                             <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?> 
                                                             <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php?id=<?php echo $item['INA_IDINSTRUCOES_ADEQUACOES']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
@@ -310,7 +319,7 @@ $(document).ready(function () {
         pageLength: 50, 
         lengthMenu: [10, 25, 50, 100], 
         responsive: true, 
-        order: [[1, 'asc']], 
+        order: [[2, 'asc']], 
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
         }
