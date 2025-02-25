@@ -62,7 +62,7 @@ class LoginSystem extends SITE_ADMIN
                         session_destroy();
                         echo json_encode(["success" => false, "message" => "Acesso não prmitido para o nível de Portaria! Verifique seu endereço IP."]);
                     }                    
-                    
+                     
                 }
                 
                 if($user['USU_DCAPARTAMENTO'] != '1000') //barrar acesso a portaria baseado no ip.
