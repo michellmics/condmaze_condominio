@@ -19,9 +19,15 @@
 	$usuariologado =  "<b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
     $nivelAcesso = strtoupper($_SESSION['user_nivelacesso']);
 	$userid = $_SESSION['user_id'];
+    $lang = $_SESSION['lang'] ?? 'pt';
+
+    if (isset($_GET['lang'])) {
+        $lang = $_GET['lang'];
+        $_SESSION['lang'] = $lang;
+    }
 
     // Carrega o dicionário
-    $translations = include '../../src/lang/pt.php'; 
+    $translations = include "../../src/lang/$lang.php"; 
 ?>
 
 <!-- MODAL TERMOS -->
@@ -85,17 +91,25 @@
                         </div>
                     </li>
 
-                     <!-- idioma -->                      
+                    <!-- idioma -->                      
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="../../assets/images/flags/br.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
-                            <span class="align-middle d-none d-lg-inline-block">Português</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
+                            <img src="../../assets/images/flags/<?php echo $lang === 'pt' ? 'br' : 'us'; ?>.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                            <span class="align-middle d-none d-lg-inline-block">
+                                <?php echo $lang === 'pt' ? 'Português' : 'English'; ?>
+                            </span>
+                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="../../assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                            <!-- Português -->
+                            <a href="?lang=pt" class="dropdown-item">
+                                <img src="../../assets/images/flags/br.jpg" alt="user-image" class="me-1" height="12">
+                                <span class="align-middle">Português</span>
+                            </a>
+                            <!-- Inglês -->
+                            <a href="?lang=en" class="dropdown-item">
+                                <img src="../../assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12">
+                                <span class="align-middle">English</span>
                             </a>
                         </div>
                     </li>
