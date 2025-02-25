@@ -158,7 +158,7 @@ $host = $_SERVER['HTTP_HOST'];
                           <!--   <a href="app_hortensias.apk" download class="btn btn-link">Download App (Android)</a> -->
                         </div>
                         <div class="d-grid mb-0 text-center">
-                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
+                            <button class="btn btn-primary" style="background-color:rgb(194, 3, 92); border-color:rgb(107, 3, 52);" type="submit"><i class="mdi mdi-login"></i> Entrar </button>
                         </div>
                         <br><br>
                     </form>
