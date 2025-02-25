@@ -992,6 +992,32 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
+        public function insertNotificacaoFront($NOT_DCTITLE, $NOT_DCMSG)
+        {       
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            $now = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+            $NOT_DTINSERT = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "INSERT INTO NOT_NOTIFICACOES 
+                        (NOT_DCTITLE, NOT_DCMSG, NOT_DTINSERT) 
+                        VALUES (:NOT_DCTITLE, :NOT_DCMSG, :NOT_DTINSERT)";
+
+                $stmt = $this->pdo->prepare($sql);            
+                $stmt->bindParam(':NOT_DCTITLE', $NOT_DCTITLE, PDO::PARAM_STR);
+                $stmt->bindParam(':NOT_DCMSG', $NOT_DCMSG, PDO::PARAM_STR);
+                $stmt->bindParam(':NOT_DTINSERT', $NOT_DTINSERT, PDO::PARAM_STR);
+            
+                $stmt->execute();
+           
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO, $PET_DCCOR)
         {       
             // Verifica se a conexão já foi estabelecida

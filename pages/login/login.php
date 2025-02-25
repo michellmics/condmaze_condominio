@@ -52,6 +52,9 @@ class LoginSystem extends SITE_ADMIN
 
                         $this->insertLogInfo("LOGIN", "Usuário {$user['USU_DCNOME']} logado com sucesso.", $user['USU_DCNOME'], $user['USU_DCAPARTAMENTO']);
 
+                        //teste notificacao. deve ser apagado
+                        $this->insertNotificacaoFront("Titulo do Trem", "Mensagem do trem");
+
                         echo json_encode(["success" => true, "token" => $token]);
 
                     } else {
