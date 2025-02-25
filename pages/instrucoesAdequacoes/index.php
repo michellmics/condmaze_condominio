@@ -113,9 +113,9 @@
                                         <div class="tab-pane show active" id="basic-datatable-preview">
                                             <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                                                 <thead>
-                                                    <tr>    
-                                                        <th>ORDEM</th>                 
-                                                        <th>TÍTULO</th>
+                                                    <tr>  
+                                                        <th>TÍTULO</th>  
+                                                        <th>ORDEM</th>                                                                    
                                                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                                         <th></th>   
                                                         <th></th> 
@@ -125,8 +125,8 @@
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_ARTIGOSINFO as $item): ?>
                                                         <tr>
-                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td>
+                                                        <td class="align-middle"><?= htmlspecialchars(strtoupper($item['INA_DCTITULO'])); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars($item['INA_DCORDEM']); ?>º</td>                                                            
 
                                                             <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?> 
                                                             <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/insertArtigo.php?id=<?php echo $item['INA_IDINSTRUCOES_ADEQUACOES']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
