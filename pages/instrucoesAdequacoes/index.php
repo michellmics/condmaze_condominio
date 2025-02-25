@@ -194,21 +194,20 @@
     <?php include '../../src/layoutConfig.php'; ?>
 
     <script>
-        document.querySelectorAll('.list-group-item').forEach(button => {
-            button.addEventListener('click', function() {
+        document.querySelectorAll('td[data-bs-toggle="modal"]').forEach(item => {
+            item.addEventListener('click', function() {
                 document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
                 document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
             
-                        // Recebe o arquivo (se houver) e cria o link de download
-                        var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arqui
+                // Recebe o arquivo (se houver) e cria o link de download
+                var fileUrl = this.getAttribute('data-file');
             
-                        if (fileUrl) {
-                            // Cria o link para download
-                            var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
-                            document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
-                        } else {
-                            document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
-                        }
+                if (fileUrl) {
+                    var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
+                    document.getElementById('modal-file-link').innerHTML = downloadLink;
+                } else {
+                    document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
+                }
             });
         });
     </script>
