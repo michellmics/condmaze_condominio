@@ -319,7 +319,7 @@ $(document).ready(function () {
         pageLength: 50, 
         lengthMenu: [10, 25, 50, 100], 
         responsive: true, 
-        order: [[2, 'asc']], 
+        order: [[1, 'asc']], 
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
         }
