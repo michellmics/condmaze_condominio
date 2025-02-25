@@ -23,8 +23,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
     
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
     <meta charset="utf-8" />
     <title><?php echo $nomeCondominio; ?></title>
@@ -65,20 +67,31 @@ if (session_status() === PHP_SESSION_NONE) {
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT --> 
-        <?php
-                $siteAdmin->getListaInfoByMorador($userId);
-        ?>     
-        <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
 
-                  
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+            <?php
+                $siteAdmin->getListaInfoByMorador($userId);
+            ?>
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
@@ -150,24 +163,20 @@ if (session_status() === PHP_SESSION_NONE) {
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div> <!-- end row-->
-                    
-                </div><!-- FIM CONTEUDO CONTAINER -->               
 
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+                </div> <!-- container -->
 
-    <!-- END wrapper -->
+            </div> <!-- content -->
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
- 
+            <?php include '../../src/footer_nav.php'; ?>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
@@ -239,7 +248,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Datatable Demo Aapp js -->
     <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
 
- 
+
 
 </body>
 
