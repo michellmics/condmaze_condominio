@@ -204,10 +204,12 @@
                             </a>
 
                             <!-- item-->
+                             <!--
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="mdi mdi-account-edit me-1"></i>
                                 <span>Suporte</span>
                             </a>
+                            -->
 
                             <!-- item-->
                             <a href="../logoff/index.php" class="dropdown-item">
