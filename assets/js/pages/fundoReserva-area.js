@@ -20,14 +20,17 @@ var colors = ["#fa6767"],
             name: "SALDO",
             data: series.monthDataSeries1.prices
         }],
+        /*
         title: {
-            text: "Saldo do fundo de reserva",
+            text: "", //pode colocar um texto aqui (desc)
             align: "left"
         },
+        
         subtitle: {
-            text: "Últimos 12 meses",
+            text: "", //pode colocar um texto aqui (desc)
             align: "left"
         },
+        */
         labels: series.monthDataSeries1.dates,
         xaxis: {
             type: "datetime"

@@ -9,6 +9,7 @@ return [
     'voltar' => 'Voltar',
     'salvar' => 'Salvar',
     'novo' => 'Novo',
+    'enviar' => 'Send',
     'navegacao' => 'Navegação',
     'termo_priva' => 'Termo de Privacidade',
 

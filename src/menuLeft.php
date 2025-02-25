@@ -50,7 +50,7 @@
                     <li class="side-nav-item">
                         <a href="../inicial/index.php" class="side-nav-link">
                             <i class="uil-home-alt"></i>
-                            <span> Inicial </span>
+                            <span> <?php echo $translations['inicial']; ?> </span>
                         </a>
                     </li>
 
