@@ -22,8 +22,10 @@
     
     
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
     <meta charset="utf-8" />
     <title><?php echo $nomeCondominio; ?></title>
@@ -44,6 +46,14 @@
     <!-- Icons css -->
     <link href="../../../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- Datatables css -->
+    <link href="../../assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
     <!-- SWEETALERT -->
     <script src="../../js/sweetalert2@11.js"></script>
 
@@ -55,18 +65,27 @@
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
-        <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
 
-                     <!-- start page title -->
-                     <div class="row">
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>        
+		<!-- End Menu Nav -->
+
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+                    <!-- start page title -->
+                    <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
                                 <div class="page-title-right">
@@ -93,34 +112,38 @@
                         </div> <!-- end col-->
                     </div>
                        </div>
-                    </div>                 
-                </div><!-- FIM CONTEUDO CONTAINER -->               
+                    </div>
 
+                    <!-- end row -->
+
+                </div>
+                <!-- container -->
+
+            </div>
             <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
 
+            <?php include '../../src/footer_nav.php'; ?>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
     <!-- END wrapper -->
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
-     <!-- Vendor js -->
-     <script src="../../assets/js/vendor.min.js"></script>
-     <!-- Code Highlight js -->
+  
+
+    <!-- Vendor js -->
+    <script src="../../assets/js/vendor.min.js"></script>
+
+    <!-- Code Highlight js -->
     <script src="../../assets/vendor/highlightjs/highlight.pack.min.js"></script>
     <script src="../../assets/vendor/clipboard/clipboard.min.js"></script>
     <script src="../../assets/js/hyper-syntax.js"></script>
-    
+
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-
- 
 
 </body>
 
