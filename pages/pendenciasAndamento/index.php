@@ -126,10 +126,17 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>
+
+                                                        <?php
+                                                            $date = new DateTime($item['EPE_DTLASTUPDATE']);
+                                                            $dataFormatPend = $date->format('d/m/Y H:i');
+                                                        ?>
+
+
                                                         <tr>
                                                             <td class="align-middle"><?= htmlspecialchars($item['EPE_DCTITULO']); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['EPE_DCEVOL'])); ?></td>
-                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['EPE_DTLASTUPDATE'])); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars(strtoupper($item['EPE_DCEVOL'])); ?>%</td>
+                                                            <td class="align-middle"><?= htmlspecialchars($dataFormatPend); ?></td>
                                                             <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/pendenciasAndamento/insertPendencia.php?id=<?php echo $item['EPE_IDEVOLUCAO_PENDENCIA']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
                                                             <td class="align-middle">
                                                                 <a class="text-danger" onclick="confirmDelete(event, '<?= htmlspecialchars($item['EPE_IDEVOLUCAO_PENDENCIA'], ENT_QUOTES, 'UTF-8'); ?>')">
