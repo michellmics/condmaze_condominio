@@ -845,10 +845,10 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT *
-                                FROM INA_INSTRUCOES_ADEQUACOES
-                                ORDER BY INA_DCORDEM ASC
-                                LIMIT 10";
+                $sql = "SELECT * 
+                        FROM INA_INSTRUCOES_ADEQUACOES
+                        ORDER BY INA_DCORDEM ASC, INA_DTDATA_INSERT DESC
+                        LIMIT 10";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
