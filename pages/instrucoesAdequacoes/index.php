@@ -82,26 +82,6 @@
         <?php include '../../src/modalScroll.php'; ?>
 	    <!-- MODAL -->   
 
-        <script>
-            document.querySelectorAll('.list-group-item').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
-                    document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
-                
-                            // Recebe o arquivo (se houver) e cria o link de download
-                            var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arqui
-                
-                            if (fileUrl) {
-                                // Cria o link para download
-                                var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
-                                document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
-                            } else {
-                                document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
-                            }
-                });
-            });
-        </script>
-
         <div class="content-page">
             <div class="content">                
                 <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
@@ -212,6 +192,26 @@
 	
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
+
+    <script>
+        document.querySelectorAll('.list-group-item').forEach(button => {
+            button.addEventListener('click', function() {
+                document.getElementById('scrollableModalTitle').textContent = this.getAttribute('data-title');
+                document.getElementById('modal-body-content').innerHTML = this.getAttribute('data-content');
+            
+                        // Recebe o arquivo (se houver) e cria o link de download
+                        var fileUrl = this.getAttribute('data-file'); // Obtém o nome do arqui
+            
+                        if (fileUrl) {
+                            // Cria o link para download
+                            var downloadLink = '<a href="https://parquedashortensias.codemaze.com.br/pages/instrucoesAdequacoes/uploads/' + fileUrl + '" download class="btn btn-primary">Baixar Anexo</a>';
+                            document.getElementById('modal-file-link').innerHTML = downloadLink; // Insere o link no modal
+                        } else {
+                            document.getElementById('modal-file-link').innerHTML = '<p><br><br></p>';
+                        }
+            });
+        });
+    </script>
 
     <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
