@@ -969,9 +969,6 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             $now = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
             $DATA = $now->format('Y-m-d H:i:s');
 
-            //teste notificacao. deve ser apagado
-            $this->insertNotificacaoFront("Titulo do Trem", "Mensagem do trem");
-
             try {
                 $sql = "INSERT INTO LOG_LOGSISTEMA 
                         (LOG_DCTIPO, LOG_DCMSG, LOG_DCUSUARIO, LOG_DCAPARTAMENTO, LOG_DTLOG, LOG_DCCODIGO) 
