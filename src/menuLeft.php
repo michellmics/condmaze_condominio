@@ -45,7 +45,7 @@
                 <!--- Sidemenu -->
                 <ul class="side-nav">
 
-                    <li class="side-nav-title">Navegação</li>
+                    <li class="side-nav-title"><?php echo $translations['navegacao']; ?></li>
 
                     <li class="side-nav-item">
                         <a href="../inicial/index.php" class="side-nav-link">
@@ -68,7 +68,7 @@
                     <li class="side-nav-item">
                         <a href="../fornecedorAvaliacao/index.php" class="side-nav-link">
                             <i class="uil-ruler"></i> 
-                            <span> Avaliação de Prestadores </span>
+                            <span> <?php echo $translations['avaliacao_prestadores']; ?> </span>
                         </a>
                     </li>
                     <?php endif; ?>
@@ -85,14 +85,14 @@
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarCrm" aria-expanded="false" aria-controls="sidebarCrm" class="side-nav-link">
                             <i class="uil-store-alt"></i>  
-                            <span class="badge bg-danger text-white float-end">Novo</span>
-                            <span> Salão de Festas </span>
+                            <span class="badge bg-danger text-white float-end"><?php echo $translations['novo']; ?></span>
+                            <span> <?php echo $translations['salao_de_festas']; ?> </span>
                         </a>
                         <div class="collapse" id="sidebarCrm">
                             <ul class="side-nav-second-level">
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../listaConvidados/index.php">Lista de Convidados</a>
+                                    <a href="../listaConvidados/index.php"><?php echo $translations['lista_convidados']; ?></a>
                                 </li>
                                 <?php endif; ?>
 
@@ -108,19 +108,19 @@
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
                             <i class="uil-traffic-barrier"></i>
-                            <span> Portaria </span>
+                            <span> <?php echo $translations['portaria']; ?></span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="sidebarEcommerce">
                             <ul class="side-nav-second-level">
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../encomendas/index.php">Encomendas</a>
+                                    <a href="../encomendas/index.php"> <?php echo $translations['encomendas']; ?></a>
                                 </li>
                                 <?php endif; ?>
 
                                 <li>
-                                    <a href="../ctrlVagasVisitante/index.php">Vagas Estac. Visitantes</a>
+                                    <a href="../ctrlVagasVisitante/index.php"><?php echo $translations['vagas_estac']; ?></a>
                                 </li>
                             </ul>
                         </div>
@@ -129,7 +129,7 @@
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
                             <i class="uil uil-tachometer-fast"></i> 
-                            <span> Administração </span>
+                            <span> <?php echo $translations['administracao']; ?></span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="sidebarEmail">
@@ -137,13 +137,13 @@
 
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../dashboard/index.php">Indicadores</a>
+                                    <a href="../dashboard/index.php"><?php echo $translations['indicadores']; ?></a>
                                 </li>
                                 <?php endif; ?>
 
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../auditoria/index.php">Auditoria</a>
+                                    <a href="../auditoria/index.php"><?php echo $translations['auditoria']; ?></a>
                                 </li>
                                 <?php endif; ?>
 
@@ -155,19 +155,19 @@
 
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../instrucoesAdequacoes/index.php">Proc. & Comunicados</a>
+                                    <a href="../instrucoesAdequacoes/index.php"><?php echo $translations['proc_comunic']; ?></a>
                                 </li>
                                 <?php endif; ?>
 
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../pendenciasAndamento/index.php">Evolução Pendencias</a>
+                                    <a href="../pendenciasAndamento/index.php"><?php echo $translations['evolucao_pend']; ?></a>
                                 </li>
                                 <?php endif; ?>
 
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
-                                    <a href="../configuracoes/index.php">Configurações</a>
+                                    <a href="../configuracoes/index.php"><?php echo $translations['configuracoes']; ?></a> 
                                 </li>
                                 <?php endif; ?>
 
