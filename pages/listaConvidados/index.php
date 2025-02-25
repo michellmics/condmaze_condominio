@@ -72,7 +72,11 @@
 	    <!-- TOP BAR -->
         <!-- MENU LEFT -->
 	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+	    <!-- MENU LEFT -->     
+        <?php
+                $siteAdmin->getListaInfo($userid);
+        ?>
+
         <div class="content-page">
             <div class="content">                
                 <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
