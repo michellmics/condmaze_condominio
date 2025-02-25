@@ -80,6 +80,7 @@
                 </div>
 
                 <ul class="topbar-menu d-flex align-items-center gap-3">
+                    <!--
                     <li class="dropdown d-lg-none">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="ri-search-line font-22"></i>
@@ -89,7 +90,7 @@
                                 <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                             </form>
                         </div>
-                    </li>
+                    </li>--> 
 
                     <!-- idioma -->                      
                     <li class="dropdown">
@@ -117,7 +118,7 @@
                     </li>
 
                     <!-- Notificações -->
-                     <!--
+                    
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="ri-notification-3-line font-22"></i>
@@ -168,7 +169,7 @@
 
                         </div>
                     </li>
-                    -->
+                   
                     <!-- Escurecer tema -->
                     <li class="d-none d-sm-inline-block">
                         <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Modo do Tema">
