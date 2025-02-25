@@ -105,7 +105,7 @@
                                     <div class="tab-content">
                                         <?php if ($nivelAcesso == 'SINDICO'): ?>
                                         <div class="col-sm-5">
-                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Usuário</a>
+                                            <a href="insertMorador.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
                                         </div>
                                         <?php endif; ?> 
                                         <br>

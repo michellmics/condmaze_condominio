@@ -45,11 +45,18 @@
           $nivelSindico = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'SINDICO') ? 'checked' : '';
           $nivelPortaria = ($siteAdmin->ARRAY_USERINFOBYID["USU_DCNIVEL"] == 'PORTARIA') ? 'checked' : '';
 
+          
+    
           $metodo = "update";
         }
+
+        
+    
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
     <meta charset="utf-8" />
     <title><?php echo $nomeCondominio; ?></title>
@@ -76,7 +83,7 @@
 
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	  <!-- ######################################################## --> 
+	<!-- ######################################################## --> 
     <!-- SWEETALERT 2 --> 
     <!-- SweetAlert2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
@@ -85,22 +92,35 @@
     <!-- ######################################################## --> 
 
     <!-- PWA MOBILE CONF -->
-	  <?php include '../../src/pwa_conf.php'; ?>
-	  <!-- PWA MOBILE CONF -->
+	<?php include '../../src/pwa_conf.php'; ?>
+	<!-- PWA MOBILE CONF -->
+
 </head>
 
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
+
         <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+
+                <!-- Start Content-->
+                <div class="container-fluid">
 
                     <!-- start page title -->
                     <div class="row">
@@ -218,22 +238,30 @@
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
-                    </div>                     
-                </div><!-- FIM CONTEUDO CONTAINER -->                
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+                    </div>
+                    <!-- end row -->
 
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+
+
+ 
+
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/footer_nav.php'; ?>
+		<!-- End Menu Nav -->
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
     <!-- END wrapper -->
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
    <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -406,7 +434,6 @@
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
- 
 
 </body>
 
