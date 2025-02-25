@@ -217,7 +217,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedreiro<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -293,7 +293,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#gesso<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -368,7 +368,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#piso<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -444,7 +444,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pizzaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -517,7 +517,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#mecanica<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -593,7 +593,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#eletricista<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -666,7 +666,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ar<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -742,7 +742,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#moveis<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -815,7 +815,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bar<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -891,7 +891,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#marido<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
@@ -964,7 +964,7 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#outros<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        <div style="display: flex; flex-direction: column;">
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;">
                                                             <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
                                                             <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
                                                         </div>                                
