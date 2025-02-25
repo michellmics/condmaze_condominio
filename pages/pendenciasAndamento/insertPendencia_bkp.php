@@ -50,8 +50,10 @@ ini_set('max_execution_time', '300');
     }
     
 ?>
+
 <!DOCTYPE html>
-<html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
+<html lang="en" data-layout="topnav">
+
 <head>
     <meta charset="utf-8" />
     <title><?php echo $nomeCondominio; ?></title>
@@ -94,15 +96,26 @@ ini_set('max_execution_time', '300');
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- TOP BAR -->
-	    <?php include '../../src/topBar.php'; ?>
-	    <!-- TOP BAR -->
-        <!-- MENU LEFT -->
-	    <?php include '../../src/menuLeft.php'; ?>
-	    <!-- MENU LEFT -->      
+
+		<!-- Top bar Area -->
+		<?php include '../../src/top_bar.php'; ?>
+		<!-- End Top bar -->
+
+		<!-- Menu Nav Area -->
+		<?php include '../../src/menu_nav.php'; ?>
+		<!-- End Menu Nav -->
         <div class="content-page">
-            <div class="content">                
-                <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+                </div>
+                <!-- container -->
+            </div>
+            <!-- content -->
+
+
+                <!-- Start Content-->
+                <div class="container-fluid">
 
                     <!-- start page title -->
                     <div class="row">
@@ -174,24 +187,21 @@ ini_set('max_execution_time', '300');
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
-                    </div> <!-- end row-->                 
-                </div><!-- FIM CONTEUDO CONTAINER -->               
+                    </div> <!-- end row-->
 
-            <!-- content -->
-        <!-- FOOTER -->
-	    <?php include '../../src/modalTermos.php'; ?>
-	    <!-- FOOTER -->   
-        <!-- FOOTER -->
-	    <?php include '../../src/footerNav.php'; ?>
-	    <!-- FOOTER --> 
-       
+                </div> <!-- container -->
 
-    <!-- END wrapper -->
+            </div> <!-- content -->
 
-	
-    <!-- Layout Configuration -->	
-    <?php include '../../src/layoutConfig.php'; ?>
-    
+            <?php include '../../src/footer_nav.php'; ?>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+
     <script>
     document.getElementById("botao").addEventListener("click", function() {
         let form = document.getElementById("form");
@@ -277,6 +287,7 @@ ini_set('max_execution_time', '300');
 
     <!-- Rateit Cemo  js -->
     <script src="../../assets/js/ui/component.rating.js"></script>
+
 
 
 </body>
