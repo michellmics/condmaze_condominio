@@ -91,7 +91,7 @@
                                 <div class="page-title-right">
 
                                 </div>
-                                <h4 class="page-title">Bem vindo(a)</h4>
+                                <h4 class="page-title"><?php echo $translations['bem_vindo']; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -104,8 +104,7 @@
                                     <div class="card-body">
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Encomendas Disponíveis Para Retirada</h4>
                                     <p class="text-muted font-14">
-                                    Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
-                                    O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.
+                                    <?php echo $translations['texto_encomenda_inicial']; ?>
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
@@ -114,9 +113,9 @@
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>AP</th>
-                                                            <th>ENTRADA</th>
-                                                            <th>RETIRAR?</th>
+                                                            <th><?php echo $translations['apartamento']; ?></th>
+                                                            <th><?php echo strupper($translations['entrada']); ?></th>
+                                                            <th><?php echo strupper($translations['Retirar']); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>                                                  
@@ -168,7 +167,7 @@
                                     <div class="card-body">
                                         <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Andamento das Pendências</h4>
                                         <p class="text-muted font-14">
-                                           Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.
+                                        <?php echo $translations['andamento_pend_ini']; ?>
                                         </p>
                                         <div class="tab-content">
                                             <div class="tab-pane show active" id="basic-example-preview">
@@ -306,7 +305,7 @@
                                 <div class="card-body">
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> PROCEDIMENTOS / COMUNICADOS</h4>
                                     <p class="text-muted font-14">
-                                    Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio. Para ver todos os comunicados, <a href="../instrucoesAdequacoes/index.php">clique aqui.</a>
+                                    <?php echo $translations['proc_comunic_ini']; ?>
                                     </p>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-example-preview">
@@ -339,24 +338,21 @@
                                 <div class="card-body">
                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> Sugestões / Reclamações</h4>
                                    <p class="text-muted font-14">
-                                       Compartilhe sua sugestão ou reclamação!
-                                       Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
-                                       <br><b>Atenção:</b> Os recados aqui publicados <strong>não são </strong>moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens. <br>  
-                                       <strong>As mensagens enviadas anônimamente por meio deste formulário serão visíveis para todos os moradores. </strong>                                 
+                                    <?php echo $translations['sugest_reclam_ini']; ?>                                
                                    </p>                            
                                    <div class="tab-content">
                                        <div class="tab-pane show active" id="basic-example-preview">
                                            <div class="table-responsive-sm">
                                                <div class="card">
                                                    <div class="card-body">
-                                                       <h4 class="mt-0 mb-3">Deixe sua reclamação ou sugestão de forma anônima.</h4>
+                                                       <h4 class="mt-0 mb-3"><?php echo $translations['reclam_anonima']; ?></h4>
                                                        <form class="needs-validation" novalidate id="form" role="form" method="POST">
                                                        <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
                                                        <div class="text-end">
                                                            <div class="btn-group mb-2">
                                                            </div>
                                                            <div class="btn-group mb-2 ms-2">
-                                                               <button type="button" class="btn btn-primary btn-sm" id="botao">Enviar</button>
+                                                               <button type="button" class="btn btn-primary btn-sm" id="botao"><?php echo $translations['enviar']; ?></button>
                                                            </div>
                                                        </div>
                                                        </form>

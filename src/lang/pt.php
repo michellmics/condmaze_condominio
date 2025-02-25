@@ -22,7 +22,7 @@ return [
     // Informações de Contato
     'nome' => 'Nome',
     'telefone' => 'Telefone',
-    'apartamento' => 'Apt',
+    'apartamento' => 'APTO',
     'bloco' => 'Bloco',
 
     // Serviços e Áreas Comuns
@@ -34,7 +34,8 @@ return [
 
     // Encomendas
     'encomendas_disponíveis_retirada' => 'Encomendas Disponíveis Para Retirada',
-    'texto_encomenda_inicial' => 'Os pacotes marcados como SIM na coluna RETIRAR? da tabela abaixo devem ser retirados imediatamente na portaria. O pacote só será liberado pela portaria se o status da coluna RETIRAR? estiver marcado como SIM.',
+    'texto_encomenda_inicial' => 'Os pacotes marcados como <strong>SIM</strong> na coluna <strong>RETIRAR?</strong> da tabela abaixo devem ser retirados imediatamente na portaria.  
+                                    O pacote só será liberado pela portaria se o status da coluna <strong>RETIRAR?</strong> estiver marcado como <strong>SIM</strong>.',
     'entrada' => 'Entrada',
     'retirar' => 'Retirar',
     'encomendas' => 'Encomendas',
@@ -43,11 +44,11 @@ return [
     'andamento_pend' => 'Andamento das Pendências',
     'evolucao_pend' => 'Evolução Pendências',
     'evol_fundo_reserva' => 'Evolução F. de Reserva',
-    'andamento_pend_ini' => 'Aqui são atualizados pelo síndico(a), os status das pendências do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.',
+    'andamento_pend_ini' => 'Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.',
 
     // Comunicados e Procedimentos
     'proc_comunic' => 'Procedimentos & Comunicados',
-    'proc_comunic_ini' => 'Aqui você encontra o TOP 10 comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio.',
+    'proc_comunic_ini' => 'Aqui você encontra o <strong>TOP 10</strong> comunicados, procedimentos e dicas importantes para a harmonia e o bem-estar no condomínio.',
 
     // Sugestões e Reclamações
     'sugest_reclam' => 'Sugestões & Reclamações',
