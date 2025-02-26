@@ -549,112 +549,82 @@ $(document).ready(function () {
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
-        
-        switches.forEach(switchElem => {
-            switchElem.addEventListener('change', function () {
-                const id = this.getAttribute('data-id');
-                const idUser = this.getAttribute('data-idUser');                
-                const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
-                const td = document.querySelector('td[nome]');
-                const tdTelefone = document.querySelector('td[telefone]');
-                const nome = td.getAttribute('nome');
-                const telefone = tdTelefone.getAttribute('telefone');            
-                const tdHash = document.querySelector('td[hash]');
-                const hash = tdHash.getAttribute('hash');
-                const tdEmail = document.querySelector('td[email]');
-                const email = tdEmail.getAttribute('email');
+document.addEventListener('DOMContentLoaded', function () {
+    // Switch DISPONÍVEL
+    const switchesDisponivel = document.querySelectorAll('input[type="checkbox"][data-switch="disponivel"]');
 
-                // Envia a alteração para o servidor
-                fetch('updateStatusCheckboxDisponivel.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ id, status, nome, telefone, hash, email, idUser })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.success) {
-                        //alert('Erro ao atualizar o status!');
-                    }
-                    window.location.href = "index.php";
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    //alert('Erro ao comunicar com o servidor.');
-                });
-            });
+    switchesDisponivel.forEach(switchElem => {
+        switchElem.addEventListener('change', function () {
+            const id = this.getAttribute('data-id');
+            const idUser = this.getAttribute('data-idUser');                
+            const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
+            const tdHash = this.closest('tr').querySelector('td[hash]');
+            const hash = tdHash ? tdHash.getAttribute('hash') : '';
+
+            fetch('updateStatusCheckboxDisponivel.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, status, hash, idUser })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    console.error('Erro ao atualizar status');
+                }
+                window.location.href = "index.php";
+            })
+            .catch(error => console.error('Erro:', error));
         });
     });
-</script>
-<script> 
-    document.addEventListener('DOMContentLoaded', function () {
-        const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
-        
-        switches.forEach(switchElem => {
-            switchElem.addEventListener('change', function () {
-                const id = this.getAttribute('data-id1');
-                const status = this.checked ? 'ENTREGUE' : 'PENDENTE';
-                const td = document.querySelector('td[nome]');
-                const tdTelefone = document.querySelector('td[telefone]');
-                const nome = td.getAttribute('nome');
-                const telefone = tdTelefone.getAttribute('telefone');       
 
-                // Envia a alteração para o servidor
-                fetch('updateStatusCheckboxEntregar.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ id, status, nome, telefone })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.success) {
-                        //alert('Erro ao atualizar o status!');
-                    }
-                    window.location.href = "index.php";
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    // alert('Erro ao comunicar com o servidor.');
-                });
-            });
+    // Switch ENTREGUE
+    const switchesEntregue = document.querySelectorAll('input[type="checkbox"][data-switch="entregue"]');
+
+    switchesEntregue.forEach(switchElem => {
+        switchElem.addEventListener('change', function () {
+            const id = this.getAttribute('data-id1');
+            const status = this.checked ? 'ENTREGUE' : 'PENDENTE';
+
+            fetch('updateStatusCheckboxEntregar.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    console.error('Erro ao atualizar status');
+                }
+                window.location.href = "index.php";
+            })
+            .catch(error => console.error('Erro:', error));
         });
     });
-    </script>	
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const switches = document.querySelectorAll('input[type="checkbox"][data-switch="success"]');
 
-            switches.forEach(switchElem => {
-                switchElem.addEventListener('change', function () {
-                    const id = this.getAttribute('data-id');
-                    const status = this.checked ? 'A RETIRAR' : 'PENDENTE';
+    // Switch A RETIRAR
+    const switchesRetirar = document.querySelectorAll('input[type="checkbox"][data-switch="aretirar"]');
 
-                    // Envia a alteração para o servidor
-                    fetch('updateStatusCheckbox.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ id, status })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (!data.success) {
-                            alert('Erro ao atualizar o status!');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erro:', error);
-                        // alert('Erro ao comunicar com o servidor.');
-                    });
-                });
-            });
+    switchesRetirar.forEach(switchElem => {
+        switchElem.addEventListener('change', function () {
+            const id = this.getAttribute('data-id');
+            const status = this.checked ? 'A RETIRAR' : 'PENDENTE';
+
+            fetch('updateStatusCheckbox.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    console.error('Erro ao atualizar status');
+                }
+            })
+            .catch(error => console.error('Erro:', error));
         });
+    });
+});
+
     </script>
 </body>
 </html>
