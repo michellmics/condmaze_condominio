@@ -7,6 +7,6 @@
     $result = $chartValor->getFundoReservaFull();
     //var_dump($chartValor->ARRAY_FUNDORESERVA);
     echo json_encode($result);    
-
+ 
     
 ?>
