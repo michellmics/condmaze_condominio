@@ -1070,7 +1070,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             
             try{           
                 $sql = "SELECT * FROM USN_NOTIFICACAO
-                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO AND USN_STREMOVIDA = '0'";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
