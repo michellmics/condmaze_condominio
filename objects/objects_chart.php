@@ -346,7 +346,7 @@
                         ORDER BY FUR_DCANO DESC,
                                  FIELD(FUR_DCMES, 
                                        'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
-                                       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro') DESC 
+                                       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro') ASC 
                                        LIMIT 12;";
 
 
