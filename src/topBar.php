@@ -201,30 +201,31 @@
                                         .catch(error => console.error("Erro na requisição:", error));
                                     });
 
-                                        // Evento para limpar apenas UMA notificação
-                                        document.querySelectorAll(".noti-close-btn").forEach(btn => {
-                                            btn.addEventListener("click", function(event) {
-                                                event.stopPropagation(); // Evita que clique no botão acione outros eventos
-                                            
-                                                let idNotificacao = this.getAttribute("data-id");
-                                                let notiItem = this.closest(".notify-item"); // Pega o elemento da notificação
-                                            
-                                                fetch("../notificacoes/limparNotificacoesByid.php", {
-                                                    method: "POST",
-                                                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                                                    body: "id=" + encodeURIComponent(idNotificacao)
-                                                })
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    if (data.success) {
-                                                        notiItem.remove(); // Remove a notificação da interface
-                                                    } else {
-                                                        alert("Erro ao remover notificação: " + data.error);
-                                                    }
-                                                })
-                                                .catch(error => console.error("Erro:", error));
-                                            });
-                                        });
+                                    document.querySelector(".px-2").addEventListener("click", function(event) {
+                                    if (event.target.closest(".noti-close-btn")) {
+                                        event.stopPropagation(); // Evita que clique no botão acione outros eventos
+
+                                        let btn = event.target.closest(".noti-close-btn");
+                                        let idNotificacao = btn.getAttribute("data-id");
+                                        let notiItem = btn.closest(".notify-item");
+                                    
+                                        fetch("../notificacoes/limparNotificacoesByid.php", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                            body: "id=" + encodeURIComponent(idNotificacao)
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                notiItem.remove(); // Remove a notificação da interface
+                                            } else {
+                                                alert("Erro ao remover notificação: " + data.error); 
+                                            }
+                                        })
+                                        .catch(error => console.error("Erro:", error));
+                                    }
+                                });
+
                                 </script>
 
                                 <div class="text-center">
