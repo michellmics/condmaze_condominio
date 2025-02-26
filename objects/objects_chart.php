@@ -348,7 +348,8 @@
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
-                $ARRAY_FUNDORESERVA = $stmt->fetchColumn();
+               // $ARRAY_FUNDORESERVA = $stmt->fetchColumn();
+                $ARRAY_FUNDORESERVA = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 return $ARRAY_FUNDORESERVA;
 
