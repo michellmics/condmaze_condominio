@@ -144,7 +144,7 @@
                                         <h6 class="m-0 font-16 fw-semibold"> Notificações</h6>
                                     </div>
                                     <div class="col-auto">
-                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="<?= htmlspecialchars($userid); ?>">
+                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="352">
                                         <small>Limpar Todos</small>
                                     </a>
                                     </div>
