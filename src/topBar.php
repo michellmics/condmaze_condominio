@@ -1,4 +1,9 @@
 <?php
+error_reporting(E_ALL); // Mostra todos os erros e avisos
+ini_set('display_errors', 1); // Exibe os erros na tela
+ini_set('log_errors', 1); // Registra os erros no log do servidor
+ini_set('error_log', 'php_errors.log'); // Define um arquivo de log para erros
+
     if (session_status() === PHP_SESSION_NONE) {
         ini_set('session.gc_maxlifetime', 43200);
         ini_set('session.cookie_lifetime', 43200);
