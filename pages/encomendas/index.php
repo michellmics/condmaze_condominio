@@ -34,7 +34,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); 
-        if (isMobile && window.innerWidth < 768) { 
+        if (isMobile && window.innerWidth < 800) { 
             alert("Esta seção não está disponível para dispositivos móveis.");
             window.location.href = "../inicial/index.php"; 
         }
