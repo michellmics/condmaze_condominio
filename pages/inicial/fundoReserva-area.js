@@ -35,7 +35,7 @@ fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu scri
             },
             colors: ["#727cf5"],
             series: [{
-                name: "Fundo Reserva",
+                name: "Fundo Reserva (R$)",
                 data: valores
             }],
             legend: {
@@ -44,10 +44,18 @@ fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu scri
             xaxis: {
                 categories: categorias
             },
+            yaxis: {
+                labels: {
+                    formatter: function (value) {
+                        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                    }
+                }
+            },
             tooltip: {
-                fixed: {
-                    enabled: false,
-                    position: "topRight"
+                y: {
+                    formatter: function (value) {
+                        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                    }
                 }
             },
             grid: {
