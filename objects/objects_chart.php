@@ -346,7 +346,8 @@
                         ORDER BY FUR_DCANO DESC,
                                  FIELD(FUR_DCMES, 
                                        'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
-                                       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro') DESC;";
+                                       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro') DESC 
+                                       LIMIT 12;";
 
 
                 $stmt = $this->pdo->prepare($sql);
