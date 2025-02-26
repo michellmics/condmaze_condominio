@@ -186,7 +186,6 @@
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({ userid: userid }) // Envia o userid como JSON
-                                            alert("Erro ao limpar notificações: " + body);
                                         })
                                         .then(response => response.json())
                                         .then(data => {
