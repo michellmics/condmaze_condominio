@@ -31,14 +31,15 @@
 <html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
 <head>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (window.innerWidth < 768) { 
-                alert("Esta seção não está disponível para dispositivos móveis.");
-                window.location.href = "../inicial/index.php"; 
-            }
-        });
-    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); 
+        if (isMobile && window.innerWidth < 768) { 
+            alert("Esta seção não está disponível para dispositivos móveis.");
+            window.location.href = "../inicial/index.php"; 
+        }
+    });
+</script>
 
     <!-- HEAD META BASIC LOAD-->
 	<?php include '../../src/headMeta.php'; ?>
