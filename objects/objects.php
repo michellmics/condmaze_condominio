@@ -1124,7 +1124,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT NOT_DCTITLE, NOT_DCMSG, NOT_DTINSERT, USN.USN_STREMOVIDA FROM USN_NOTIFICACAO USN
+                $sql = "SELECT USN.USU_IDUSUARIO, NOT_DCTITLE, NOT_DCMSG, NOT_DTINSERT, USN.USN_STREMOVIDA FROM USN_NOTIFICACAO USN
                         INNER JOIN NOT_NOTIFICACOES NOF ON (NOF.NOT_IDNOTIFICACOES = USN.NOT_IDNOTIFICACOES)
                         WHERE USU_IDUSUARIO = :USU_IDUSUARIO AND USN_STREMOVIDA = '0'";
 

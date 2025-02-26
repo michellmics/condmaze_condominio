@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userid = $_POST['userid'];
 
      $deleteNotificacoes = new deleteNotiObj();
-     $result = $deleteNotificacoes->deleteNotificacoes("352");
+     $result = $deleteNotificacoes->deleteNotificacoes($userid);
      echo $result;
 
  }
