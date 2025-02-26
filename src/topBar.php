@@ -194,6 +194,7 @@
                                         .then(data => {
                                             if (data.success) {
                                                 document.querySelector(".px-2").innerHTML = "<p class='text-center text-muted'>Nenhuma notificação.</p>";
+                                                location.reload(); 
                                             } else {
                                                 alert("Erro ao limpar notificações: " + data.error);
                                             }
@@ -218,6 +219,7 @@
                                         .then(data => {
                                             if (data.success) {
                                                 notiItem.remove(); // Remove a notificação da interface
+                                                location.reload(); 
                                             } else {
                                                 alert("Erro ao remover notificação: " + data.error); 
                                             }
