@@ -15,7 +15,7 @@ class deleteNotiObj extends SITE_ADMIN
                 echo json_encode(["success" => true]);     
                 
         } catch (PDOException $e) {  
-            echo json_encode(["error" => true]);  
+            echo json_encode(["error" => $e]);  
         } 
     }
 }
