@@ -162,7 +162,7 @@
                                     <div class="card-body">
                                         
                                         <span class="float-end noti-close-btn text-muted" 
-                                              data-id="33">
+                                              data-id="<?php echo $notificacaoItem['USN_IDNOTIFICACAO']; ?>">
                                             <i class="mdi mdi-close"></i>
                                         </span>
                                         <div class="d-flex align-items-center">
