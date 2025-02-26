@@ -22,7 +22,9 @@ class deleteNotiObj extends SITE_ADMIN
 
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userid = $_POST['userid'];
+
+    $data = json_decode(file_get_contents("php://input"), true);
+    $userid = $data['userid'];
 
      $deleteNotificacoes = new deleteNotiObj();
      $result = $deleteNotificacoes->deleteNotificacoes($userid);
