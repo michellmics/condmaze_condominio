@@ -130,6 +130,8 @@
                         </div>
                     </li>
 
+                    <!-- Bootstrap CSS -->
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
                     <!-- Notificações -->
                     
                     <li class="dropdown notification-list">
@@ -182,21 +184,34 @@
                                     <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>
                                 </div>
                             </div>
-
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
                             <script>
                                 document.addEventListener("DOMContentLoaded", function () {
                                     var notificacaoModal = document.getElementById("notificacaoModal");
                                 
                                     notificacaoModal.addEventListener("show.bs.modal", function (event) {
                                         var triggerElement = event.relatedTarget; // Elemento que acionou o modal
-                                        var titulo = triggerElement.getAttribute("data-titulo");
-                                        var conteudo = triggerElement.getAttribute("data-conteudo");
                                     
-                                        document.getElementById("modalTitulo").textContent = titulo;
-                                        document.getElementById("modalConteudo").textContent = conteudo;
+                                        if (!triggerElement) {
+                                            console.error("Elemento de gatilho do modal não encontrado.");
+                                            return;
+                                        }
+                                    
+                                        var titulo = triggerElement.getAttribute("data-titulo") || "Sem título";
+                                        var conteudo = triggerElement.getAttribute("data-conteudo") || "Sem conteúdo";
+                                    
+                                        var modalTitulo = document.getElementById("modalTitulo");
+                                        var modalConteudo = document.getElementById("modalConteudo");
+                                    
+                                        if (modalTitulo && modalConteudo) {
+                                            modalTitulo.textContent = titulo;
+                                            modalConteudo.textContent = conteudo;
+                                        } else {
+                                            console.error("Elementos do modal não encontrados.");
+                                        }
                                     });
                                 });
-                                </script>
+                            </script>
 
                             <!-- Modal Notificação-->
                             <div class="modal fade" id="notificacaoModal" tabindex="-1" aria-labelledby="notificacaoModalLabel" aria-hidden="true">
