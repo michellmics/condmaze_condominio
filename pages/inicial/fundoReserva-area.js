@@ -2,14 +2,23 @@
 fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu script PHP
     .then(response => response.json())
     .then(data => {
-        // Processa os dados do JSON
-        let categorias = [];
-        let valores = [];
+        // Mapeia os meses para um formato numérico para garantir a ordenação correta
+        const mesesOrdem = {
+            "janeiro": 1, "fevereiro": 2, "março": 3, "abril": 4, "maio": 5, "junho": 6,
+            "julho": 7, "agosto": 8, "setembro": 9, "outubro": 10, "novembro": 11, "dezembro": 12
+        };
 
-        data.forEach(item => {
-            categorias.push(item.FUR_DCMES); // Obtém os meses
-            valores.push(parseFloat(item.FUR_DCVALUE)); // Converte os valores para número
+        // Ordena os dados corretamente por ano e mês
+        data.sort((a, b) => {
+            if (b.FUR_DCANO !== a.FUR_DCANO) {
+                return b.FUR_DCANO - a.FUR_DCANO; // Ano mais recente primeiro
+            }
+            return mesesOrdem[b.FUR_DCMES] - mesesOrdem[a.FUR_DCMES]; // Mês mais recente primeiro
         });
+
+        // Processa os dados ordenados
+        let categorias = data.map(item => `${item.FUR_DCMES}/${item.FUR_DCANO}`); // Mes/Ano
+        let valores = data.map(item => parseFloat(item.FUR_DCVALUE)); // Converte os valores para número
 
         // Configuração do gráfico
         let options = {
