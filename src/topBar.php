@@ -155,7 +155,7 @@
                                 <?php foreach ($notificacao->ARRAY_NOTIFICACAOFRONTINFO as $notificacaoItem) : ?>     
                                     <?php
                                         $date = new DateTime($notificacaoItem['NOT_DTINSERT']);
-                                        $dataFormatPend = $date->format('d/m/Y H:i');
+                                        $dataFormatPend = substr($date->format('d/m/Y H:i'),0,10);
                                     ?>                      
                                     <a href="javascript:void(0);" 
                                         class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
