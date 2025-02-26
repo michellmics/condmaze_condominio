@@ -158,10 +158,17 @@
                                                     <i class="mdi mdi-comment-account-outline"></i>
                                                 </div>
                                             </div>
+                                            
                                             <div class="flex-grow-1 text-truncate ms-2">
                                                 <h5 class="noti-item-title fw-semibold font-14">Datacorp <small class="fw-normal text-muted ms-1">1 min ago</small></h5>
                                                 <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
                                             </div>
+
+                                            <div class="flex-grow-1 text-truncate ms-2">
+                                                <h5 class="noti-item-title fw-semibold font-14">Datacorp <small class="fw-normal text-muted ms-1">1 min ago</small></h5>
+                                                <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </a>
