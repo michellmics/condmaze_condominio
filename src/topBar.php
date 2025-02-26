@@ -135,7 +135,7 @@
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="ri-notification-3-line font-22"></i>
-                            <span class="noti-icon-badge"></span>
+                            <span class="noti-icon-badge style=background-color: green;"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
                             <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border">
@@ -155,7 +155,7 @@
                                 <?php foreach ($notificacao->ARRAY_NOTIFICACAOFRONTINFO as $notificacaoItem) : ?>     
                                     <?php
                                         $date = new DateTime($notificacaoItem['NOT_DTINSERT']);
-                                        $dataFormatPend = substr($date->format('d/m/Y H:i'),0,10);
+                                        $dataFormatPend = $date->format('d/m/Y H:i');
                                     ?>                      
                                     <a href="javascript:void(0);" 
                                         class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
