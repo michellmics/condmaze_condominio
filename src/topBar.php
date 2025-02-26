@@ -168,7 +168,7 @@
                                                     <i class="mdi mdi-comment-account-outline"></i>
                                                 </div>
                                             </div>
-                                            <div class="flex-grow-1 text-truncate ms-2 nav-link" title="Modo do Tema">
+                                            <div class="flex-grow-1 text-truncate ms-2" title="Modo do Tema">
                                                 <h5 class="noti-item-title fw-semibold font-14"><?= htmlspecialchars($notificacaoItem['NOT_DCTITLE']); ?> <small class="fw-normal text-muted ms-1"><?= htmlspecialchars($dataFormatPend); ?></small></h5>
                                                 <small class="noti-item-subtitle text-muted"><?= htmlspecialchars($notificacaoItem['NOT_DCMSG']); ?></small>
                                             </div>
