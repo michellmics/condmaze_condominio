@@ -130,8 +130,6 @@
                         </div>
                     </li>
 
-                    <!-- Bootstrap CSS -->
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
                     <!-- Notificações -->
                     
                     <li class="dropdown notification-list">
@@ -156,11 +154,7 @@
                             <div class="px-2" style="max-height: 300px;" data-simplebar>  
                                 <?php foreach ($notificacao->ARRAY_NOTIFICACAOFRONTINFO as $notificacaoItem) : ?>                           
                                     <a href="javascript:void(0);" 
-                                        class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#notificacaoModal"
-                                        data-titulo="<?= htmlspecialchars($notificacaoItem['NOT_DCTITLE']); ?>"
-                                        data-conteudo="<?= htmlspecialchars($notificacaoItem['NOT_DCMSG']); ?>">
+                                        class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
                                         
                                         <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
@@ -184,50 +178,7 @@
                                     <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>
                                 </div>
                             </div>
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function () {
-                                    var notificacaoModal = document.getElementById("notificacaoModal");
-                                
-                                    notificacaoModal.addEventListener("show.bs.modal", function (event) {
-                                        var triggerElement = event.relatedTarget; // Elemento que acionou o modal
-                                    
-                                        if (!triggerElement) {
-                                            console.error("Elemento de gatilho do modal não encontrado.");
-                                            return;
-                                        }
-                                    
-                                        var titulo = triggerElement.getAttribute("data-titulo") || "Sem título";
-                                        var conteudo = triggerElement.getAttribute("data-conteudo") || "Sem conteúdo";
-                                    
-                                        var modalTitulo = document.getElementById("modalTitulo");
-                                        var modalConteudo = document.getElementById("modalConteudo");
-                                    
-                                        if (modalTitulo && modalConteudo) {
-                                            modalTitulo.textContent = titulo;
-                                            modalConteudo.textContent = conteudo;
-                                        } else {
-                                            console.error("Elementos do modal não encontrados.");
-                                        }
-                                    });
-                                });
-                            </script>
 
-                            <!-- Modal Notificação-->
-                            <div class="modal fade" id="notificacaoModal" tabindex="-1" aria-labelledby="notificacaoModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalTitulo"></h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body" id="modalConteudo"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            
                             <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item border-top border-light py-2">
                                 View All
                             </a>
