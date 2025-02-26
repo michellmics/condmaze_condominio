@@ -227,7 +227,7 @@
                                                                 <input 
                                                                     type="checkbox" 
                                                                     id="switch<?= $index; ?>" 
-                                                                    data-switch="success" 
+                                                                    data-switch="disponivel" 
                                                                     data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     data-idUser="<?= $userid; ?>" 
                                                                     <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
@@ -249,7 +249,7 @@
                                                                 <input 
                                                                     type="checkbox" 
                                                                     id="switch1<?= $index; ?>" 
-                                                                    data-switch="success" 
+                                                                    data-switch="entregue" 
                                                                     data-id1="<?= $item['ENC_IDENCOMENDA']; ?>" 
                                                                     <?= $item['ENC_STENTREGA_MORADOR'] === 'ENTREGUE' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
