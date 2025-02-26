@@ -12,10 +12,10 @@ class deleteNotiObj extends SITE_ADMIN
                 }
                
                 $result = $this->deleteNotificacoesbyUser($userid);
-                echo json_encode(["success" => true]);     
+                return json_encode(["success" => true]);     
                 
         } catch (PDOException $e) {  
-            echo json_encode(["error" => $e]);  
+            return json_encode(["error" => $e]);  
         } 
     }
 }
@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userid = $_POST['userid'];
 
      $deleteNotificacoes = new deleteNotiObj();
-     $deleteNotificacoes->deleteNotificacoes("352");
+     $result = $deleteNotificacoes->deleteNotificacoes($userid);
+     echo $result;
+
  }
  ?> 
