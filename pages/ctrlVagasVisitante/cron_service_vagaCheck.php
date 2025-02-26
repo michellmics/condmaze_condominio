@@ -96,7 +96,7 @@ foreach ($slots as $id => $slot) {
 
         //Notificação para o front
         //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
-        $siteAdmin->insertNotificacaoFront("Veiculo Irregular", "$MSG", "TODOS");
+        $siteAdmin->insertNotificacaoFront("Veiculo Irregular", "Estacionamento de Visitantes", "TODOS");
 
         $contadorVeiculo++;
     }

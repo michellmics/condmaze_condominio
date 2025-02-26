@@ -152,7 +152,11 @@
                             </div>
 
                             <div class="px-2" style="max-height: 300px;" data-simplebar>  
-                                <?php foreach ($notificacao->ARRAY_NOTIFICACAOFRONTINFO as $notificacaoItem) : ?>                           
+                                <?php foreach ($notificacao->ARRAY_NOTIFICACAOFRONTINFO as $notificacaoItem) : ?>     
+                                    <?php
+                                        $date = new DateTime($notificacaoItem['NOT_DTINSERT']);
+                                        $dataFormatPend = $date->format('d/m/Y H:i');
+                                    ?>                      
                                     <a href="javascript:void(0);" 
                                         class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
@@ -165,7 +169,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-semibold font-14"><?= htmlspecialchars($notificacaoItem['NOT_DCTITLE']); ?> <small class="fw-normal text-muted ms-1"><?= htmlspecialchars($notificacaoItem['NOT_DTINSERT']); ?></small></h5>
+                                                <h5 class="noti-item-title fw-semibold font-14"><?= htmlspecialchars($notificacaoItem['NOT_DCTITLE']); ?> <small class="fw-normal text-muted ms-1"><?= htmlspecialchars($dataFormatPend); ?></small></h5>
                                                 <small class="noti-item-subtitle text-muted"><?= htmlspecialchars($notificacaoItem['NOT_DCMSG']); ?></small>
                                             </div>
                                         </div>
@@ -178,10 +182,6 @@
                                     <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>
                                 </div>
                             </div>
-
-                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item border-top border-light py-2">
-                                View All
-                            </a>
 
                         </div>
                     </li>
