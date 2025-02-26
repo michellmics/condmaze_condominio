@@ -161,8 +161,7 @@
                                         class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
                                         
-                                        <span class="float-end noti-close-btn text-muted" 
-                                              >
+                                        <span class="float-end noti-close-btn text-muted">
                                             <i class="mdi mdi-close"></i>
                                         </span>
                                         <div class="d-flex align-items-center">
@@ -199,31 +198,6 @@
                                             }
                                         })
                                         .catch(error => console.error("Erro:", error));
-                                    });
-
-                                     // Evento para limpar apenas UMA notificação
-                                    document.querySelectorAll(".noti-close-btn").forEach(btn => {
-                                        btn.addEventListener("click", function(event) {
-                                            event.stopPropagation(); // Evita que clique no botão acione outros eventos
-                                        
-                                            let idNotificacao = this.getAttribute("data-id");
-                                            let notiItem = this.closest(".notify-item"); // Pega o elemento da notificação
-                                        
-                                            fetch("../notificacoes/limparNotificacoesByid.php", {
-                                                method: "POST",
-                                                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                                                body: "id=" + encodeURIComponent(idNotificacao)
-                                            })
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                if (data.success) {
-                                                    notiItem.remove(); // Remove a notificação da interface
-                                                } else {
-                                                    alert("Erro ao remover notificação: " + data.error);
-                                                }
-                                            })
-                                            .catch(error => console.error("Erro:", error));
-                                        });
                                     });
                                 </script>
 
