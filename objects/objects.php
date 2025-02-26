@@ -1011,12 +1011,47 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $stmt->bindParam(':NOT_DTINSERT', $NOT_DTINSERT, PDO::PARAM_STR);
             
                 $stmt->execute();
+
+            // Obtém o ID da última inserção
+            $NOT_IDNOTIFICACOES = $this->pdo->lastInsertId();
+
+            $this->insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES);
            
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];
             }
         }
+
+        public function insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES) 
+        {       
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+        
+            try {
+                $sql = "SELECT USU_IDUSUARIO FROM USU_USUARIO";
+                $stmt = $this->pdo->prepare($sql);                        
+                $stmt->execute();
+                $usuarios = $stmt->fetchAll(PDO::FETCH_COLUMN); 
+        
+                $sqlInsert = "INSERT INTO USN_NOTIFICACAO (USU_IDUSUARIO, NOT_IDNOTIFICACOES, USN_STLIDA, USN_STREMOVIDA) 
+                              VALUES (:USU_IDUSUARIO, :NOT_IDNOTIFICACOES, 0, 0)";
+                $stmtInsert = $this->pdo->prepare($sqlInsert);
+        
+                foreach ($usuarios as $USU_IDUSUARIO) {
+                    $stmtInsert->bindValue(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_INT);
+                    $stmtInsert->bindValue(':NOT_IDNOTIFICACOES', $NOT_IDNOTIFICACOES, PDO::PARAM_INT);
+                    $stmtInsert->execute();
+                }
+        
+                return ["success" => true];
+        
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }
+        }
+        
 
         public function insertPetInfo($USU_IDUSUARIO, $PEM_DCNOME, $PEM_DCRACA, $PEM_DCTIPO, $PET_DCPATHFOTO, $PET_DCCOR)
         {       
