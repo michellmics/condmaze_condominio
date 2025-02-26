@@ -26,6 +26,15 @@
         $_SESSION['lang'] = $lang;
     }
 
+    include_once "../../objects/objects.php";
+    $notificacao = new SITE_ADMIN();      
+    $notificacao->getNotificacaoByUsuarioFront($userid);
+
+    var_dump($notificacao->ARRAY_NOTIFICACAOFRONTINFO);
+    die();
+    
+
+
     // Carrega o dicionário
     $translations = include "../../src/lang/$lang.php"; 
 ?>

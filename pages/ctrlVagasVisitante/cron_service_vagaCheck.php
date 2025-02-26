@@ -95,6 +95,7 @@ foreach ($slots as $id => $slot) {
         $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
 
         //Notificação para o front
+        //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
         $siteAdmin->insertNotificacaoFront("Veiculo Irregular", "$MSG", "TODOS");
 
         $contadorVeiculo++;

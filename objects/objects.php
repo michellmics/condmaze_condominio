@@ -38,6 +38,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
         public $ARRAY_LISTAEVENTOSINFO;
         public $ARRAY_ARTIGOSINFO;
         public $ARRAY_PENDENCIAINFO;
+        public $ARRAY_NOTIFICACAOFRONTINFO;
 
         function conexao()
         {
@@ -1060,6 +1061,24 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }
+        }
+
+        public function getNotificacaoByUsuarioFront($USU_IDUSUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM USN_NOTIFICACAO
+                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_NOTIFICACAOFRONTINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
         }
         
 
