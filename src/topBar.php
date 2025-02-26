@@ -144,7 +144,7 @@
                                         <h6 class="m-0 font-16 fw-semibold"> Notificações</h6>
                                     </div>
                                     <div class="col-auto">
-                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="352">
+                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="<?= htmlspecialchars($userid); ?>">
                                         <small>Limpar Todos</small>
                                     </a>
                                     </div>
@@ -161,7 +161,8 @@
                                         class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
                                         
-                                        <span class="float-end noti-close-btn text-muted">
+                                        <span class="float-end noti-close-btn text-muted" 
+                                              data-id="<?= htmlspecialchars($notificacaoItem['USN_IDNOTIFICACAO']); ?>">
                                             <i class="mdi mdi-close"></i>
                                         </span>
                                         <div class="d-flex align-items-center">
@@ -179,8 +180,7 @@
                                 </a>
                                 <?php endforeach; ?>
                                 <script>
-                                    document.getElementById("limparNotificacoes").addEventListener("click", function() {
-                                        if (!confirm("Tem certeza que deseja apagar todas as notificações?")) return;
+                                    document.getElementById("limparNotificacoes").addEventListener("click", function() {                                       
                                     
                                         let userid = this.dataset.userid; // Forma alternativa de obter o atributo data-*
                                         console.log("Enviando userid:", userid); // Debug
@@ -192,8 +192,6 @@
                                         })
                                         .then(response => response.json())
                                         .then(data => {
-                                            console.log("Resposta do servidor:", data); // Debug
-                                        
                                             if (data.success) {
                                                 document.querySelector(".px-2").innerHTML = "<p class='text-center text-muted'>Nenhuma notificação.</p>";
                                             } else {
@@ -202,6 +200,31 @@
                                         })
                                         .catch(error => console.error("Erro na requisição:", error));
                                     });
+
+                                        // Evento para limpar apenas UMA notificação
+                                        document.querySelectorAll(".noti-close-btn").forEach(btn => {
+                                            btn.addEventListener("click", function(event) {
+                                                event.stopPropagation(); // Evita que clique no botão acione outros eventos
+                                            
+                                                let idNotificacao = this.getAttribute("data-id");
+                                                let notiItem = this.closest(".notify-item"); // Pega o elemento da notificação
+                                            
+                                                fetch("../notificacoes/limparNotificacoesByid.php", {
+                                                    method: "POST",
+                                                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                                    body: "id=" + encodeURIComponent(idNotificacao)
+                                                })
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    if (data.success) {
+                                                        notiItem.remove(); // Remove a notificação da interface
+                                                    } else {
+                                                        alert("Erro ao remover notificação: " + data.error);
+                                                    }
+                                                })
+                                                .catch(error => console.error("Erro:", error));
+                                            });
+                                        });
                                 </script>
 
                                 <div class="text-center">
