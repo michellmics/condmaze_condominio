@@ -218,8 +218,8 @@
                                         .then(response => response.json())
                                         .then(data => {
                                             if (data.success) {
-                                                notiItem.remove(); // Remove a notificação da interface
                                                 location.reload(); 
+                                                notiItem.remove(); // Remove a notificação da interface
                                             } else {
                                                 alert("Erro ao remover notificação: " + data.error); 
                                             }
