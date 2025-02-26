@@ -11,6 +11,7 @@
         public $ARRAY_RECEITAFULLINFO;
         public $ARRAY_PENDENCIAMESFULLINFO;
         public $ARRAY_DESPESATABLEINFO;
+        public $ARRAY_FUNDORESERVA;
         public $configPath;
 
         function conexao()
@@ -329,6 +330,27 @@
                 $PERCINADIMPLENTES = $stmt->fetchColumn();
 
                 return $PERCINADIMPLENTES ;
+
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }  
+
+        public function getFundoReservaFull()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+           
+            try{   
+                
+                $sql = "SELECT * FROM FUR_FUNDO_RESERVA";
+
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $ARRAY_FUNDORESERVA = $stmt->fetchColumn();
+
+                return $ARRAY_FUNDORESERVA;
 
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];

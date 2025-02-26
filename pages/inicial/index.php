@@ -424,7 +424,7 @@
     <script src="https://apexcharts.com/samples/assets/series1000.js"></script>
     <script src="https://apexcharts.com/samples/assets/github-data.js"></script>
     <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
-    <script src="../../assets/js/pages/fundoReserva-area.js"></script>  
+    <script src="fundoReserva-area.js"></script>  
 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
