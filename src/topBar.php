@@ -182,7 +182,7 @@
                                     
                                         let userid = this.getAttribute("data-userid"); // Obtém o userid do atributo
                                     
-                                        fetch("../notificacoes/limparNotificacoes.php", {
+                                        fetch("../pages/notificacoes/limparNotificacoes.php", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({ userid: userid }) // Envia o userid como JSON
