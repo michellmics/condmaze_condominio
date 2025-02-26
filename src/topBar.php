@@ -149,7 +149,12 @@
 
                             <div class="px-2" style="max-height: 300px;" data-simplebar>  
                                 <?php foreach ($notificacao->ARRAY_NOTIFICACAOFRONTINFO as $notificacaoItem) : ?>                           
-                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
+                                    <a href="javascript:void(0);" 
+                                        class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#notificacaoModal"
+                                        data-titulo="<?= htmlspecialchars($notificacaoItem['NOT_DCTITLE']); ?>"
+                                        data-conteudo="<?= htmlspecialchars($notificacaoItem['NOT_DCMSG']); ?>">
                                     <div class="card-body">
                                         
                                         <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
@@ -173,6 +178,20 @@
                                     <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>
                                 </div>
                             </div>
+
+                            <!-- Modal Notificação-->
+                            <div class="modal fade" id="notificacaoModal" tabindex="-1" aria-labelledby="notificacaoModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTitulo"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body" id="modalConteudo"></div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             
                             <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item border-top border-light py-2">
