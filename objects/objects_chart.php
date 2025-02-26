@@ -342,7 +342,11 @@
            
             try{   
                 
-                $sql = "SELECT * FROM FUR_FUNDO_RESERVA";
+                $sql = "SELECT * FROM FUR_FUNDO_RESERVA
+                        ORDER BY FUR_DCANO DESC,
+                                 FIELD(FUR_DCMES, 
+                                       'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
+                                       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro') DESC;";
 
 
                 $stmt = $this->pdo->prepare($sql);
