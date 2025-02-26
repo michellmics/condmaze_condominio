@@ -42,7 +42,11 @@
 <!-- MODAL TERMOS -->
 <?php include 'preloader.php'; ?>
 <!-- MODAL TERMOS -->
-
+<style>
+.modal-backdrop.show {
+    background-color: rgba(0, 0, 0, 0.8) !important; 
+}
+</style>
 
 
     <!-- ========== Topbar Start ========== -->
