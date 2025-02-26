@@ -30,8 +30,8 @@
     $notificacao = new SITE_ADMIN();      
     $notificacao->getNotificacaoByUsuarioFront($userid);
 
-    var_dump($notificacao->ARRAY_NOTIFICACAOFRONTINFO);
-    die();
+    //var_dump($notificacao->ARRAY_NOTIFICACAOFRONTINFO);
+    //die();
     
 
 
