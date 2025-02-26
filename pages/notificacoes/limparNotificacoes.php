@@ -12,7 +12,7 @@ class deleteNotiObj extends SITE_ADMIN
                 }
                
                 $result = $this->deleteNotificacoesbyUser($userid);
-                echo "Notificação excluída com sucesso.";      
+                echo json_encode(["success" => true]);     
                 
         } catch (PDOException $e) {  
             echo "Erro ao excluir a notificação."; 
