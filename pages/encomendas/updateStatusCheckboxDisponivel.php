@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $data['nome'] ?? null;
     $telefone = $data['telefone'] ?? null;
     $hash = $data['hash'] ?? null;
-    $EMAIL = $data['email'] ?? null;
+    $EMAIL = $data['email'] ?? null; 
+    $idUser = $data['idUser'] ?? null;
 
     $nome = ucwords(strtolower($nome));
 
@@ -40,6 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href='prqdashortensias.com.br'>prqdashortensias.com.br</a>";
 
             $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+
+            //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
+            $siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);
         }
         echo json_encode(['success' => $result]);
 

@@ -1063,6 +1063,61 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
+
+        public function insertNotificacaoFrontByUsuario($NOT_DCTITLE, $NOT_DCMSG, $USU_IDUSUARIO)
+        {       
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            $now = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
+            $NOT_DTINSERT = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "INSERT INTO NOT_NOTIFICACOES  
+                        (NOT_DCTITLE, NOT_DCMSG, NOT_DTINSERT) 
+                        VALUES (:NOT_DCTITLE, :NOT_DCMSG, :NOT_DTINSERT)";
+
+                $stmt = $this->pdo->prepare($sql);            
+                $stmt->bindParam(':NOT_DCTITLE', $NOT_DCTITLE, PDO::PARAM_STR);
+                $stmt->bindParam(':NOT_DCMSG', $NOT_DCMSG, PDO::PARAM_STR);
+                $stmt->bindParam(':NOT_DTINSERT', $NOT_DTINSERT, PDO::PARAM_STR);
+            
+                $stmt->execute();
+
+            // Obtém o ID da última inserção
+            $NOT_IDNOTIFICACOES = $this->pdo->lastInsertId();
+
+            $this->insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES, $USU_IDUSUARIO);
+           
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+        public function insertNotificacaoUsuarioFrontByusuario($NOT_IDNOTIFICACOES, $USU_IDUSUARIO) 
+        {       
+            if (!$this->pdo) {
+                $this->conexao();
+            }       
+            try{
+                $sqlInsert = "INSERT INTO USN_NOTIFICACAO (USU_IDUSUARIO, NOT_IDNOTIFICACOES, USN_STLIDA, USN_STREMOVIDA) 
+                              VALUES (:USU_IDUSUARIO, :NOT_IDNOTIFICACOES, 0, 0)";
+                $stmtInsert = $this->pdo->prepare($sqlInsert);       
+
+                $stmtInsert->bindValue(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_INT);
+                $stmtInsert->bindValue(':NOT_IDNOTIFICACOES', $NOT_IDNOTIFICACOES, PDO::PARAM_INT);
+                $stmtInsert->execute();
+
+        
+                return ["success" => true];
+        
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+
         public function getNotificacaoByUsuarioFront($USU_IDUSUARIO)
         {          
                 // Verifica se a conexão já foi estabelecida

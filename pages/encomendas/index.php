@@ -229,6 +229,7 @@
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="success" 
                                                                     data-id="<?= $item['ENC_IDENCOMENDA']; ?>" 
+                                                                    data-idUser="<?= $userid; ?>" 
                                                                     <?= $item['ENC_STENCOMENDA'] === 'DISPONIVEL' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
                                                                     <?= htmlspecialchars($fieldMorador); ?>
@@ -554,6 +555,7 @@ $(document).ready(function () {
         switches.forEach(switchElem => {
             switchElem.addEventListener('change', function () {
                 const id = this.getAttribute('data-id');
+                const idUser = this.getAttribute('data-idUser');                
                 const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
                 const td = document.querySelector('td[nome]');
                 const tdTelefone = document.querySelector('td[telefone]');
@@ -570,7 +572,7 @@ $(document).ready(function () {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ id, status, nome, telefone, hash, email })
+                    body: JSON.stringify({ id, status, nome, telefone, hash, email, idUser })
                 })
                 .then(response => response.json())
                 .then(data => {
