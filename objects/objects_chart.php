@@ -11,7 +11,6 @@
         public $ARRAY_RECEITAFULLINFO;
         public $ARRAY_PENDENCIAMESFULLINFO;
         public $ARRAY_DESPESATABLEINFO;
-        public $ARRAY_FUNDORESERVA;
         public $configPath;
 
         function conexao()
