@@ -95,7 +95,7 @@ foreach ($slots as $id => $slot) {
         $siteAdmin->insertLogInfo("ALERTA", $MSG, "SISTEMA");
 
         //Notificação para o front
-        $this->insertNotificacaoFront("Veiculo Irregular", "$MSG");
+        $this->insertNotificacaoFront("Veiculo Irregular", "$MSG", "TODOS");
 
         $contadorVeiculo++;
     }

@@ -992,7 +992,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
-        public function insertNotificacaoFront($NOT_DCTITLE, $NOT_DCMSG)
+        public function insertNotificacaoFront($NOT_DCTITLE, $NOT_DCMSG, $NIVEL)
         {       
             if (!$this->pdo) {
                 $this->conexao();
@@ -1015,7 +1015,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             // Obtém o ID da última inserção
             $NOT_IDNOTIFICACOES = $this->pdo->lastInsertId();
 
-            $this->insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES);
+            $this->insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES, $NIVEL);
            
             } catch (PDOException $e) {
                 // Captura e retorna o erro
@@ -1023,15 +1023,25 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
-        public function insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES) 
+        public function insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES, $NIVEL) 
         {       
             if (!$this->pdo) {
                 $this->conexao();
             }
-        
+       
             try {
-                $sql = "SELECT USU_IDUSUARIO FROM USU_USUARIO";
-                $stmt = $this->pdo->prepare($sql);                        
+                if($NIVEL == "TODOS") {
+
+                    $sql = "SELECT USU_IDUSUARIO FROM USU_USUARIO";
+                    $stmt = $this->pdo->prepare($sql);   
+                }
+                else 
+                    {
+                        $sql = "SELECT USU_IDUSUARIO FROM USU_USUARIO WHERE USU_DCNIVEL = :USU_DCNIVEL";
+                        $stmt = $this->pdo->prepare($sql);   
+                        $stmt->bindValue(':USU_DCNIVEL', $NIVEL, PDO::PARAM_INT);  
+                    }
+
                 $stmt->execute();
                 $usuarios = $stmt->fetchAll(PDO::FETCH_COLUMN); 
         
