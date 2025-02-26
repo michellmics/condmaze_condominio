@@ -1087,7 +1087,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             // Obtém o ID da última inserção
             $NOT_IDNOTIFICACOES = $this->pdo->lastInsertId();
 
-            $this->insertNotificacaoUsuarioFront($NOT_IDNOTIFICACOES, $USU_IDUSUARIO);
+            $this->insertNotificacaoUsuarioFrontByusuario($NOT_IDNOTIFICACOES, $USU_IDUSUARIO);
            
             } catch (PDOException $e) {
                 // Captura e retorna o erro
