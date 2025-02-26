@@ -147,8 +147,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-2" style="max-height: 300px;" data-simplebar>
-                             
+                            <div class="px-2" style="max-height: 300px;" data-simplebar>                             
                                 <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
                                         
@@ -164,7 +163,12 @@
                                                 <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
                                             </div>
                                         </div>
+                                    </div>
+                                </a>
 
+                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
+                                    <div class="card-body">
+                                        
                                         <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
@@ -177,8 +181,6 @@
                                                 <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </a>
 
