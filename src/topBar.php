@@ -182,7 +182,8 @@
                                     document.getElementById("limparNotificacoes").addEventListener("click", function() {
                                         if (!confirm("Tem certeza que deseja apagar todas as notificações?")) return;
                                     
-                                        let userid = this.getAttribute("data-userid"); // Obtém o userid do atributo
+                                        let userid = this.dataset.userid; // Forma alternativa de obter o atributo data-*
+                                        console.log("Enviando userid:", userid); // Debug
                                     
                                         fetch("../notificacoes/limparNotificacoes.php", {
                                             method: "POST",
@@ -191,13 +192,15 @@
                                         })
                                         .then(response => response.json())
                                         .then(data => {
+                                            console.log("Resposta do servidor:", data); // Debug
+                                        
                                             if (data.success) {
                                                 document.querySelector(".px-2").innerHTML = "<p class='text-center text-muted'>Nenhuma notificação.</p>";
                                             } else {
                                                 alert("Erro ao limpar notificações: " + data.error);
                                             }
                                         })
-                                        .catch(error => console.error("Erro:", error));
+                                        .catch(error => console.error("Erro na requisição:", error));
                                     });
                                 </script>
 
