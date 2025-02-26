@@ -144,9 +144,9 @@
                                         <h6 class="m-0 font-16 fw-semibold"> Notificações</h6>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="javascript: void(0);" class="text-dark text-decoration-underline">
-                                            <small>Limpar Todos</small>
-                                        </a>
+                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="<?= $userid ?>">
+                                        <small>Limpar Todos</small>
+                                    </a>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                                                     <i class="mdi mdi-comment-account-outline"></i>
                                                 </div>
                                             </div>
-                                            <div class="flex-grow-1 text-truncate ms-2" title="Modo do Tema">
+                                            <div class="flex-grow-1 text-truncate ms-2" title="<?= htmlspecialchars($notificacaoItem['NOT_DCMSG']); ?>">
                                                 <h5 class="noti-item-title fw-semibold font-14"><?= htmlspecialchars($notificacaoItem['NOT_DCTITLE']); ?> <small class="fw-normal text-muted ms-1"><?= htmlspecialchars($dataFormatPend); ?></small></h5>
                                                 <small class="noti-item-subtitle text-muted"><?= htmlspecialchars($notificacaoItem['NOT_DCMSG']); ?></small>
                                             </div>
@@ -176,7 +176,28 @@
                                     </div>
                                 </a>
                                 <?php endforeach; ?>
-
+                                <script>
+                                    document.getElementById("limparNotificacoes").addEventListener("click", function() {
+                                        if (!confirm("Tem certeza que deseja apagar todas as notificações?")) return;
+                                    
+                                        let userid = this.getAttribute("data-userid"); // Obtém o userid do atributo
+                                    
+                                        fetch("../notificacoes/limparNotificacoes.php", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/json" },
+                                            body: JSON.stringify({ userid: userid }) // Envia o userid como JSON
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                document.querySelector(".px-2").innerHTML = "<p class='text-center text-muted'>Nenhuma notificação.</p>";
+                                            } else {
+                                                alert("Erro ao limpar notificações: " + data.error);
+                                            }
+                                        })
+                                        .catch(error => console.error("Erro:", error));
+                                    });
+                                </script>
 
                                 <div class="text-center">
                                     <i class="mdi mdi-dots-circle mdi-spin text-muted h3 mt-0"></i>

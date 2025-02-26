@@ -1,0 +1,30 @@
+<?php
+	include_once "../../objects/objects.php";
+
+class deleteNotiObj extends SITE_ADMIN
+{
+    public function deleteNotificacoes($userid)
+    {
+        try {
+                // Cria conexão com o banco de dados
+                if (!$this->pdo) {
+                    $this->conexao();
+                }
+               
+                $result = $this->deleteNotificacoesbyUser($userid);
+                echo "Notificação excluída com sucesso.";      
+                
+        } catch (PDOException $e) {  
+            echo "Erro ao excluir a notificação."; 
+        } 
+    }
+}
+
+// Processa a requisição POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $userid = $_POST['userid'];
+
+     $deleteNotificacoes = new deleteNotiObj();
+     $deleteNotificacoes->deleteNotificacoes($userid);
+ }
+ ?>
