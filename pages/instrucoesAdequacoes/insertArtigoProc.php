@@ -44,12 +44,14 @@ class registerArtigo extends SITE_ADMIN
                         $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                         //--------------------LOG----------------------//
                         */  
+                        $this->insertNotificacaoFront("Sindico(a) Publicou!", $titulo, "TODOS");
                         echo "Artigo cadastrado com sucesso."; 
                     }
                     if($metodo == "update")
                     {
+                            $this->insertNotificacaoFront("Sindico(a) Atualizou!", $titulo, "TODOS");
                             $result = $this->updateArtigoInfo($titulo, $ordem, $artigo, $fileUrl, $id);
-                            echo "Morador atualizado com sucesso."; 
+                            echo "Artigo atualizado com sucesso."; 
                     }
                     
                 }

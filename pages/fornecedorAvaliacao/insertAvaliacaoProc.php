@@ -27,6 +27,7 @@ class registerAvaliacao extends SITE_ADMIN
                 } else 
                     {                  
                         $result = $this->insertAvaliacaoPrestadorInfo($idprestador, $comentario, $nota, $idmorador);
+                        $this->insertNotificacaoFront("Avaliação de Prestador", $comentario, "TODOS");
                         echo "Avaliação cadastrada com sucesso."; 
 
                     }                    

@@ -26,13 +26,14 @@ class registerPendencia extends SITE_ADMIN
             
             // Se o artigo for encontrado 
             if (isset($tituloValid['EPE_DCTITULO']) && $metodo == "insert") {
-                echo "Já existe um artigo com o mesmo título."; 
+                echo "Já existe uma pendência com o mesmo título."; 
                 exit();
             } else 
                 {
                     if($metodo == "insert")
                     {
                         $titulo = strtoupper($titulo);
+                        $this->insertNotificacaoFront("Nova Pendência", $titulo, "TODOS");
                         $result = $this->insertPendenciaInfo($titulo, $evol, $obs);
                         
                         /*                      
@@ -49,6 +50,7 @@ class registerPendencia extends SITE_ADMIN
                     if($metodo == "update")
                     {
                             $result = $this->updatePendenciaInfo($titulo, $evol, $obs, $id);
+                            $this->insertNotificacaoFront("Atualização Pendência", $titulo, "TODOS");
                             echo "Pendência atualizada com sucesso."; 
                     }
                     
