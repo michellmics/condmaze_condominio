@@ -179,6 +179,21 @@
                                 </div>
                             </div>
 
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    var notificacaoModal = document.getElementById("notificacaoModal");
+                                
+                                    notificacaoModal.addEventListener("show.bs.modal", function (event) {
+                                        var triggerElement = event.relatedTarget; // Elemento que acionou o modal
+                                        var titulo = triggerElement.getAttribute("data-titulo");
+                                        var conteudo = triggerElement.getAttribute("data-conteudo");
+                                    
+                                        document.getElementById("modalTitulo").textContent = titulo;
+                                        document.getElementById("modalConteudo").textContent = conteudo;
+                                    });
+                                });
+                                </script>
+
                             <!-- Modal Notificação-->
                             <div class="modal fade" id="notificacaoModal" tabindex="-1" aria-labelledby="notificacaoModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
