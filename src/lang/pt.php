@@ -44,7 +44,7 @@ return [
     // Pendências e Reservas
     'andamento_pend' => 'Andamento das Pendências',
     'evolucao_pend' => 'Evolução Pendências',
-    'evol_fundo_reserva' => 'Evolução F. de Reserva',
+    'evol_fundo_reserva' => 'Evolução F. de Reserva (R$)',
     'andamento_pend_ini' => 'Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.',
 
     // Comunicados e Procedimentos
