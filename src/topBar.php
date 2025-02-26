@@ -144,7 +144,7 @@
                                         <h6 class="m-0 font-16 fw-semibold"> Notificações</h6>
                                     </div>
                                     <div class="col-auto">
-                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="<?= $userid ?>">
+                                    <a href="javascript:void(0);" class="text-dark text-decoration-underline" id="limparNotificacoes" data-userid="<?= htmlspecialchars($userid); ?>">
                                         <small>Limpar Todos</small>
                                     </a>
                                     </div>
@@ -161,7 +161,10 @@
                                         class="dropdown-item p-0 notify-item card unread-noti shadow-none mb-2">
                                     <div class="card-body">
                                         
-                                        <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
+                                        <span class="float-end noti-close-btn text-muted" 
+                                              data-id="<?= htmlspecialchars($notificacaoItem['USN_IDNOTIFICACAO']); ?>">
+                                            <i class="mdi mdi-close"></i>
+                                        </span>
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon bg-primary">
@@ -196,6 +199,31 @@
                                             }
                                         })
                                         .catch(error => console.error("Erro:", error));
+                                    });
+
+                                     // Evento para limpar apenas UMA notificação
+                                    document.querySelectorAll(".noti-close-btn").forEach(btn => {
+                                        btn.addEventListener("click", function(event) {
+                                            event.stopPropagation(); // Evita que clique no botão acione outros eventos
+                                        
+                                            let idNotificacao = this.getAttribute("data-id");
+                                            let notiItem = this.closest(".notify-item"); // Pega o elemento da notificação
+                                        
+                                            fetch("../notificacoes/limparNotificacoesByid.php", {
+                                                method: "POST",
+                                                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                                body: "id=" + encodeURIComponent(idNotificacao)
+                                            })
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.success) {
+                                                    notiItem.remove(); // Remove a notificação da interface
+                                                } else {
+                                                    alert("Erro ao remover notificação: " + data.error);
+                                                }
+                                            })
+                                            .catch(error => console.error("Erro:", error));
+                                        });
                                     });
                                 </script>
 
