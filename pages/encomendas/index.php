@@ -619,7 +619,7 @@ $(document).ready(function () {
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    alert('Erro ao comunicar com o servidor.');
+                    // alert('Erro ao comunicar com o servidor.');
                 });
             });
         });
@@ -650,7 +650,7 @@ $(document).ready(function () {
                     })
                     .catch(error => {
                         console.error('Erro:', error);
-                        alert('Erro ao comunicar com o servidor.');
+                        // alert('Erro ao comunicar com o servidor.');
                     });
                 });
             });
