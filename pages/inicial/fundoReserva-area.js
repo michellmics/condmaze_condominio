@@ -8,7 +8,7 @@ fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu scri
             "julho": 7, "agosto": 8, "setembro": 9, "outubro": 10, "novembro": 11, "dezembro": 12
         };
 
-        // Ordena os dados corretamente por ano e mês
+        // Ordena os dados corretamente por ano e mês (mais recente primeiro)
         data.sort((a, b) => {
             if (b.FUR_DCANO !== a.FUR_DCANO) {
                 return b.FUR_DCANO - a.FUR_DCANO; // Ano mais recente primeiro
@@ -16,9 +16,9 @@ fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu scri
             return mesesOrdem[b.FUR_DCMES] - mesesOrdem[a.FUR_DCMES]; // Mês mais recente primeiro
         });
 
-        // Processa os dados ordenados
-        let categorias = data.map(item => `${item.FUR_DCMES}/${item.FUR_DCANO}`); // Mes/Ano
-        let valores = data.map(item => parseFloat(item.FUR_DCVALUE)); // Converte os valores para número
+        // 🔄 Inverte para exibir do mais antigo para o mais recente no gráfico
+        let categorias = data.map(item => `${item.FUR_DCMES}/${item.FUR_DCANO}`).reverse();
+        let valores = data.map(item => parseFloat(item.FUR_DCVALUE)).reverse();
 
         // Configuração do gráfico
         let options = {
