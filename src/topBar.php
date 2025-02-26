@@ -135,7 +135,9 @@
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="ri-notification-3-line font-22"></i>
-                            <span class="noti-icon-badge style=background-color: green;"></span>
+                            <?php if (count($notificacao->ARRAY_NOTIFICACAOFRONTINFO) > 0): ?>
+                            <span class="noti-icon-badge"></span>
+                            <?php endif; ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
                             <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border">
