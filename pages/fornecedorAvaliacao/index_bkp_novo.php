@@ -144,13 +144,10 @@
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        
-                                                        <div style="display: flex; flex-direction: column; color: #7091F5; width: 100%;">
-                                                            <img src="../publicidade/img/camp_o2hall.jpg" alt="Descrição da imagem" style="width: 100%; height: auto; max-height: 50px; object-fit: contain;">
-                                                        </div>
-                                                    
-
-
+                                                        <div style="display: flex; flex-direction: column; color: #7091F5;"> <!-- AQUI -->
+                                                            <strong><?= htmlspecialchars($item['PDS_DCNOME']); ?></strong>
+                                                            <span>Fone: <?= htmlspecialchars(preg_replace('/^(\d{2})(\d{5})(\d{4})$/', '$1-$2-$3', $item['PDS_DCTELEFONE'])); ?></span><span> <?= htmlspecialchars(mb_convert_case(mb_strtolower($item['PDS_DCCIDADE'], 'UTF-8'), MB_CASE_TITLE, 'UTF-8')); ?></span>
+                                                        </div>                                
                                                         <div class="rateit rateit-mdi" data-rateit-mode="font" data-rateit-icon="󰓒" data-rateit-value="<?= htmlspecialchars($NOTASAVG['AVG']); ?>" data-rateit-ispreset="true" data-rateit-readonly="true" style="margin-left: auto;"></div>
                                                         <?php if ($nivelAcesso == 'SINDICO'): ?>
                                                             <i class="mdi mdi-delete" title="Excluir Prestador" style="cursor: pointer; font-size: 24px;" onclick="confirmDeletePrestador(event, '<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO'], ENT_QUOTES, 'UTF-8'); ?>')"></i>                                                            
