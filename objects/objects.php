@@ -99,6 +99,15 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $mail->send();
                 echo 'E-mail enviado com sucesso!';
             } catch (Exception $e) {
+
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "ERRO";
+                $LOG_DCMSG = "tentativa de enviar notificação para o e-mail $EMAIL falhou. : $mail->ErrorInfo";
+                $LOG_DCUSUARIO = "SISTEMA";
+                $LOG_DCCODIGO = "N/A";
+                $LOG_DCAPARTAMENTO = "";
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+                //--------------------LOG----------------------//
                 echo "Erro ao enviar e-mail: {$mail->ErrorInfo}";
             }
                
