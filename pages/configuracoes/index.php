@@ -30,7 +30,12 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
 
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN')) {$whatsToken = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];} 
-      if (trim($item['CFG_DCPARAMETRO'] == 'TELEFONE_SINDICO')) {$whatsSindico = $item['CFG_DCVALOR'];}   
+      if (trim($item['CFG_DCPARAMETRO'] == 'TELEFONE_SINDICO')) {$whatsSindico = $item['CFG_DCVALOR'];} 
+      
+      if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PASS')) {$MAIL_SMTP_PASS = $item['CFG_DCVALOR'];}  
+      if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_USER')) {$MAIL_SMTP_USER = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PORT')) {$MAIL_SMTP_PORT = $item['CFG_DCVALOR'];}  
+      if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_HOST')) {$MAIL_SMTP_HOST = $item['CFG_DCVALOR'];}
 
     }   
 
@@ -125,6 +130,11 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                   "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => ".*", "maxlength" => "20", "value" => $whatsSender],
                                                   "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50", "value" => $whatsSid],
                                                   "whatsToken" => ["label" => "Whatsapp Token", "pattern" => ".*", "maxlength" => "50", "value" => $whatsToken],
+
+                                                  "EMAIL_SMTP_SENHA" => ["label" => "E-mail SMTP Senha", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_PASS],
+                                                  "EMAIL_SMTP_USUÁRIO" => ["label" => "E-mail SMTP Usuário", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_USER],
+                                                  "EMAIL_SMTP_PORTA" => ["label" => "E-mail SMTP Porta", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_PORT],
+                                                  "EMAIL_SMTP_HOST" => ["label" => "E-mail SMTP Host", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_HOST],
                                                   "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "50", "value" => $ipPortaria]
                                               ];
                                               

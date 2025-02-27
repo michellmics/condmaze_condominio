@@ -39,14 +39,21 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
         public $ARRAY_ARTIGOSINFO;
         public $ARRAY_PENDENCIAINFO;
         public $ARRAY_NOTIFICACAOFRONTINFO;
+        public $MAIL_SMTP_HOST;
+        public $MAIL_SMTP_PORT;
+        public $MAIL_SMTP_USER;
+        public $MAIL_SMTP_PASS;
+        public $NOME_CONDOMINIO;
 
         function conexao()
         {
+            
             	$host = $_ENV['ENV_BD_HOST'];
             	$dbname = $_ENV['ENV_BD_DATABASE']; 
             	$user = $_ENV['ENV_BD_USER'];
             	$pass = $_ENV['ENV_BD_PASS'];
-		
+          
+
             try {
                 $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -57,29 +64,32 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
 
         public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL, $anexo="na")
         {     
+            $this->getParameterInfo();
 
+            foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+                if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PASS')) {$this->MAIL_SMTP_PASS = $item['CFG_DCVALOR'];}  
+                if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_USER')) {$this->MAIL_SMTP_USER = $item['CFG_DCVALOR'];} 
+                if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PORT')) {$this->MAIL_SMTP_PORT = $item['CFG_DCVALOR'];}  
+                if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_HOST')) {$this->MAIL_SMTP_HOST = $item['CFG_DCVALOR'];}
+                if (trim($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO')) {$this->NOME_CONDOMINIO = $item['CFG_DCVALOR'];}     
+            }  
+            
             $mail = new PHPMailer(true);
-
-            $user = "suporte@codemaze.com.br";
-            $pass = "Mi479585!";
 
             try {
             
                 $mail->isSMTP();
-                $mail->Host = 'smtp.hostinger.com'; 
+                $mail->Host = $this->MAIL_SMTP_HOST; 
                 $mail->SMTPAuth = true;
-                $mail->Username = $user ;
-                $mail->Password = $pass; 
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // ou PHPMailer::ENCRYPTION_SMTPS
-                $mail->Port = 587; // Porta para STARTTLS (ou 465 para SMTPS)
+                $mail->Username = $this->MAIL_SMTP_USER;
+                $mail->Password = $this->MAIL_SMTP_PASS; 
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+                $mail->Port = $this->MAIL_SMTP_PORT; 
             
-                // Definir charset para UTF-8
                 $mail->CharSet = 'UTF-8';
 
-                // Remetente e destinatário
-                $mail->setFrom('suporte@codemaze.com.br', 'Condomínio Parque das Hortênsias');
-                $mail->addAddress($EMAIL); //destinatario
-            
+                $mail->setFrom($this->MAIL_SMTP_USER, $this->NOME_CONDOMINIO);
+                $mail->addAddress($EMAIL);             
               
                 $mail->isHTML(true);
                 $mail->Subject = $SUBJECT;
