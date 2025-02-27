@@ -1189,6 +1189,16 @@ $(document).ready(function () {
         }
     });
 
+    document.getElementById("toggleAcademia").addEventListener("click", function() {
+        var content = document.getElementById("empresaContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+
     document.getElementById("toggleVidraca").addEventListener("click", function() {
         var content = document.getElementById("vidracaContent");
         // Alterna a visibilidade do conteúdo
