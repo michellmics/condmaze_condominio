@@ -4,7 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "8081:80"
+      - "${ENV_APP_PORT}:80"
     volumes:
       - uploads:/var/www/html/pages/instrucoesAdequacoes/uploads
       - petsImg:/var/www/html/pages/petControle/PETS_IMG 
