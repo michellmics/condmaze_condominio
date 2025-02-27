@@ -160,12 +160,12 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Pedreiro</h4>
+                                    <h4 class="header-title" id="toggleFastfood" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Fast Food</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                    <div class="tab-pane show active" style="display: none;" id="pedreiroContent">
+                                    <div class="tab-pane show active" style="display: none;" id="fastfoodContent">
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
                                                 <?php foreach ($PEDREIRO as $item): 
@@ -173,7 +173,7 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedreiro<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fastfood<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
                                                                 <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
                                                                 style="max-width: 100%; height: auto; display: block;">
@@ -231,7 +231,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Pedreiro</h4>
+                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Material de Construção</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
@@ -1181,6 +1181,16 @@ $(document).ready(function () {
 <script>
     document.getElementById("toggleGesso").addEventListener("click", function() {
         var content = document.getElementById("empresaContent");
+        // Alterna a visibilidade do conteúdo
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block"; // Exibe o conteúdo
+        } else {
+            content.style.display = "none"; // Oculta o conteúdo
+        }
+    });
+
+    document.getElementById("toggleFastfood").addEventListener("click", function() {
+        var content = document.getElementById("fastfoodContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
