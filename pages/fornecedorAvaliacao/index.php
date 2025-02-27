@@ -140,12 +140,12 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                            <button class="accordion-button" onclick="window.open('https://exemplo.com', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
-                                                                <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
-                                                                    <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
-                                                                    style="max-width: 100%; height: auto; display: block;">
-                                                                </div>                                                                                                
-                                                            </button>
+                                                        <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
+                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
+                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
+                                                                style="max-width: 100%; height: auto; display: block;">
+                                                            </div>                                                                                                
+                                                        </button>
                                                     </h2>
                                                 </div>
                                                 <?php $aux++; ?>
