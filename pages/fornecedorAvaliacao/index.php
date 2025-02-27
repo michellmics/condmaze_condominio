@@ -138,7 +138,7 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
+                                                        <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 25%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
                                                                 <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
