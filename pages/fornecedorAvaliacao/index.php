@@ -146,7 +146,7 @@
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
                                                         
                                                         <div style="display: flex; flex-direction: column; color: #7091F5; width: 100%;">
-                                                            <img src="../publicidade/img/camp_o2hall.jpg" alt="Descrição da imagem" style="width: 100%; height: auto; max-height: 50px; object-fit: contain;">
+                                                            <img src="../../publicidade/img/camp_o2hall.jpg" alt="Descrição da imagem" style="width: 100%; height: auto; max-height: 50px; object-fit: contain;">
                                                         </div>
                                                     
 
