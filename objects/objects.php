@@ -66,7 +66,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
         {     
             $this->getParameterInfo();
 
-            foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+            foreach ($this->ARRAY_PARAMETERINFO as $item) {
                 if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PASS')) {$this->MAIL_SMTP_PASS = $item['CFG_DCVALOR'];}  
                 if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_USER')) {$this->MAIL_SMTP_USER = $item['CFG_DCVALOR'];} 
                 if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PORT')) {$this->MAIL_SMTP_PORT = $item['CFG_DCVALOR'];}  
