@@ -132,35 +132,26 @@
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                    <div class="accordion" id="accordionExample">
-    <?php $aux = 0 ?>
-    <?php foreach ($VIDRAÇARIA as $item): 
-        $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];                                                       
-    ?>
-    <div class="accordion-item">                                                    
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
-                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: black; padding: 10px; border-radius: 10px;">
-                    <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" style="max-width: 100%; height: auto; display: block; border-radius: 8px;">
-                    
-                    <!-- Ícones Like e WhatsApp -->
-                    <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 8px;">
-                        <!-- Coração (Like) -->
-                        <i class="ri-heart-line ri-2x" style="color: red; cursor: pointer;" onclick="toggleLike(this)"></i>
-                        
-                        <!-- WhatsApp (Compartilhar) -->
-                        <a href="https://wa.me/?text=Confira este serviço: <?php echo urlencode('camp_dzsports.png'); ?>" target="_blank">
-                            <i class="ri-whatsapp-line ri-2x" style="color: #25D366; cursor: pointer;"></i>
-                        </a>
-                    </div>
-                </div>                                                                                                  
-            </button>
-        </h2>
-    </div>
-    <?php $aux++; ?>
-    <?php endforeach; ?>
-</div>
-
+                                        <div class="tab-pane show active" style="display: none;" id="AcademiaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
+                                            <div class="accordion" id="accordionExample">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($VIDRAÇARIA as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];                                                       
+                                                ?>
+                                                <div class="accordion-item">                                                    
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                            <button class="accordion-button" onclick="window.open('https://exemplo.com', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
+                                                                <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
+                                                                    <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
+                                                                    style="max-width: 100%; height: auto; display: block;">
+                                                                </div>                                                                                                
+                                                            </button>
+                                                    </h2>
+                                                </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
