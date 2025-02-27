@@ -123,6 +123,76 @@
                     </div>
                     <!-- end page title -->
 
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">                                    
+                                    <h4 class="header-title" id="toggleAcademia" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-window-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Academias</h4>
+                                    <p class="text-muted font-14 mb-3"></p>
+                                    <div class="tab-content">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                    </div>
+                                        <div class="tab-pane show active" style="display: none;" id="AcademiaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
+                                            <div class="accordion" id="accordionExample">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($VIDRAÇARIA as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];                                                       
+                                                ?>
+                                                <div class="accordion-item">                                                    
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
+                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
+                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
+                                                                style="max-width: 100%; height: auto; display: block;">
+                                                            </div>                                                                                                
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Pedreiro</h4>
+                                    <p class="text-muted font-14 mb-3"></p>
+                                    <div class="tab-content">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                    </div>
+                                    <div class="tab-pane show active" style="display: none;" id="pedreiroContent">
+                                            <div class="accordion" id="accordionExample">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($PEDREIRO as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                ?>
+                                                <div class="accordion-item">                                                    
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedreiro<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
+                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
+                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
+                                                                style="max-width: 100%; height: auto; display: block;">
+                                                            </div>                                                                                                
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+
+
+                    </div>
+                    <!-- end row-->
                     
                     <div class="row">
                         <div class="col-xl-6">
