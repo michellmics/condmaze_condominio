@@ -41,10 +41,6 @@
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("ARCONDICIONADO");
     $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
-    $ACADEMIA = $siteAdmin->getAvaliacoesByCategoria("ACADEMIA");
-    $MERCADO = $siteAdmin->getAvaliacoesByCategoria("MERCADO");
-    $BARBEIRO = $siteAdmin->getAvaliacoesByCategoria("BARBEIRO");
-    $CORTINA = $siteAdmin->getAvaliacoesByCategoria("CORTINA");
 ?>
 
 <!DOCTYPE html>
@@ -132,20 +128,20 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleacademia" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-dumbbell-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Academias</h4>
+                                    <h4 class="header-title" id="toggleVidraca" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-window-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Vidraçarias</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
                                     </div>
-                                        <div class="tab-pane show active" style="display: none;" id="academiaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
+                                        <div class="tab-pane show active" style="display: none;" id="vidracaContent"> <!-- id="default-accordions-preview" Display none q esta dando problema nas estrelas --> 
                                             <div class="accordion" id="accordionExample">
                                                 <?php $aux = 0 ?>
-                                                <?php foreach ($ACADEMIA as $item): 
+                                                <?php foreach ($VIDRAÇARIA as $item): 
                                                     $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];                                                       
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
                                                                 <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
                                                                 style="max-width: 100%; height: auto; display: block;">
@@ -485,149 +481,6 @@
                     </div>
                     <!-- end row-->
 
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleMarido" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-scissors-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Barbearia</h4>
-                                    <p class="text-muted font-14 mb-3"></p>
-                                    <div class="tab-content">
-                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                    </div>
-                                        <div class="tab-pane show active" style="display: none;" id="maridoContent">
-                                            <div class="accordion" id="accordionExample">
-                                                <?php $aux = 0 ?>
-                                                <?php foreach ($BARBEARIA as $item): 
-                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];                                                        
-                                                ?>
-                                                <div class="accordion-item">                                                    
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#barbearia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
-                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
-                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
-                                                                style="max-width: 100%; height: auto; display: block;">
-                                                            </div>                                                                                                
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                                <?php $aux++; ?>
-                                            <?php endforeach; ?>
-                                            </div>
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title" id="toggleOutros" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-basket-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Mercado</h4>
-                                    <p class="text-muted font-14 mb-3"></p>
-                                    <div class="tab-content">
-                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                    </div>
-                                    <div class="tab-pane show active" style="display: none;" id="mercadoContent">
-                                            <div class="accordion" id="accordionExample">
-                                                <?php $aux = 0 ?>
-                                                <?php foreach ($MERCADO as $item): 
-                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
-                                                ?>
-                                                <div class="accordion-item">                                                    
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#mercado<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
-                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
-                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
-                                                                style="max-width: 100%; height: auto; display: block;">
-                                                            </div>                                                                                                
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                                <?php $aux++; ?>
-                                            <?php endforeach; ?>
-                                            </div>
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-
-                    </div>
-                    <!-- end row-->
-
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-body">                                    
-                                    <h4 class="header-title" id="toggleVidracaria" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-window-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Vidraçaria</h4>
-                                    <p class="text-muted font-14 mb-3"></p>
-                                    <div class="tab-content">
-                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                    </div>
-                                        <div class="tab-pane show active" style="display: none;" id="VidracariaContent">
-                                            <div class="accordion" id="accordionExample">
-                                                <?php $aux = 0 ?>
-                                                <?php foreach ($VIDRACARIA as $item): 
-                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];                                                        
-                                                ?>
-                                                <div class="accordion-item">                                                    
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
-                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
-                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
-                                                                style="max-width: 100%; height: auto; display: block;">
-                                                            </div>                                                                                                
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                                <?php $aux++; ?>
-                                            <?php endforeach; ?>
-                                            </div>
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title" id="toggleOutros" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-gallery-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Persianas / Cortinas</h4>
-                                    <p class="text-muted font-14 mb-3"></p>
-                                    <div class="tab-content">
-                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
-                                    </div>
-                                    <div class="tab-pane show active" style="display: none;" id="cortinaContent">
-                                            <div class="accordion" id="accordionExample">
-                                                <?php $aux = 0 ?>
-                                                <?php foreach ($CORTINA as $item): 
-                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
-                                                ?>
-                                                <div class="accordion-item">                                                    
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cortina<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">    
-                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
-                                                                <img src="../../publicidade/img/camp_dzsports.png" alt="Descrição da imagem" 
-                                                                style="max-width: 100%; height: auto; display: block;">
-                                                            </div>                                                                                                
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                                <?php $aux++; ?>
-                                            <?php endforeach; ?>
-                                            </div>
-                                        </div> <!-- end preview-->
-                                    </div> <!-- end tab-content-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-
-                    </div>
-                    <!-- end row-->
-
-                    
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
