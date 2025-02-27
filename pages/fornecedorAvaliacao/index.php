@@ -143,10 +143,10 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 55px;">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 40px;">
     
     <div style="flex: 1; display: flex; align-items: center;">
-        <img src="../../publicidade/img/camp_o2hall.jpg" alt="Descrição da imagem" style="width: 100%; height: 100%; max-height: 50px; object-fit: cover;">
+        <img src="../../publicidade/img/camp_o2hall2.jpg" alt="Descrição da imagem" style="width: 100%; height: 100%; max-height: 50px; object-fit: cover;">
     </div>
 
     <?php if ($nivelAcesso == 'SINDICO'): ?>
