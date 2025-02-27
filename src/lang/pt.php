@@ -27,7 +27,7 @@ return [
     'bloco' => 'Bloco',
 
     // Serviços e Áreas Comuns
-    'avaliacao_prestadores' => 'Avaliação de Prestadores',
+    'avaliacao_prestadores' => 'Nossos Parceiros',
     'salao_de_festas' => 'Salão de Festas',
     'portaria' => 'Portaria',
     'administracao' => 'Administração',
