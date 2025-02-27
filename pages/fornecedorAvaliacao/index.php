@@ -116,7 +116,7 @@
                             <div class="page-title-box">
                                 <!-- Alinhamento flexbox para título e botões -->
                                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
-                                    <h4 class="page-title mb-3 mb-md-0">Conheça nossos parceiros e aproveite benefícios exclusivos</h4>
+                                    <h4 class="page-title mb-3 mb-md-0">Parceiros e benefícios</h4>
                                 </div>
                             </div>
                         </div>
