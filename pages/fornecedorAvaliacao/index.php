@@ -145,7 +145,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%;">
     
-                                                        <div style="flex: 1; display: flex; align-items: center;">
+                                                        <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: black;">
                                                         <img src="../../publicidade/img/gifCamp.gif" alt="Descrição da imagem" 
                                                         style="max-width: 100%; height: auto; display: block;">
                                                         </div>
