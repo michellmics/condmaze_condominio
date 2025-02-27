@@ -1190,7 +1190,7 @@ $(document).ready(function () {
     });
 
     document.getElementById("toggleAcademia").addEventListener("click", function() {
-        var content = document.getElementById("empresaContent");
+        var content = document.getElementById("AcademiaContent");
         // Alterna a visibilidade do conteúdo
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block"; // Exibe o conteúdo
