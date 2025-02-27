@@ -143,19 +143,16 @@
                                                 ?>
                                                 <div class="accordion-item">                                                    
                                                     <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-                                                        
-                                                        <div style="display: flex; flex-direction: column; color: #7091F5; width: 100%;">
-                                                            <img src="../../publicidade/img/camp_o2hall.jpg" alt="Descrição da imagem" style="width: 100%; height: auto; max-height: 50px; object-fit: contain;">
-                                                        </div>
-                                                    
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0;">
+    
+    <div style="flex: 1; display: flex; align-items: center;">
+        <img src="../../publicidade/img/camp_o2hall.jpg" alt="Descrição da imagem" style="width: 100%; height: 100%; max-height: 50px; object-fit: cover;">
+    </div>
 
-
-                                                       
-                                                        <?php if ($nivelAcesso == 'SINDICO'): ?>
-                                                            <i class="mdi mdi-delete" title="Excluir Prestador" style="cursor: pointer; font-size: 24px;" onclick="confirmDeletePrestador(event, '<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO'], ENT_QUOTES, 'UTF-8'); ?>')"></i>                                                            
-                                                        <?php endif; ?>
-                                                    </button>
+    <?php if ($nivelAcesso == 'SINDICO'): ?>
+        <i class="mdi mdi-delete" title="Excluir Prestador" style="cursor: pointer; font-size: 24px; margin-right: 10px;" onclick="confirmDeletePrestador(event, '<?php echo htmlspecialchars($item['PDS_IDPRESTADOR_SERVICO'], ENT_QUOTES, 'UTF-8'); ?>')"></i>                                                            
+    <?php endif; ?>
+</button>
                                                     </h2>
                                                     <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
                                                         <?php 
