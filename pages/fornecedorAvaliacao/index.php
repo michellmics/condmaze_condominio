@@ -231,7 +231,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-bricks-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Material de Construção</h4>
+                                    <h4 class="header-title" id="togglePedreiro" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-tools-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i>Material de Construção</h4>
                                     <p class="text-muted font-14 mb-3"></p>
                                     <div class="tab-content">
                                     <div class="col-sm-5"  style="margin-bottom: 20px;">
