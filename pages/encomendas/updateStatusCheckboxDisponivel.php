@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Rua dos Estudantes, 505 - Hortolândia/SP CEP 13186-170<br>
             <a href='prqdashortensias.com.br'>prqdashortensias.com.br</a>";
 
-            $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+            $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, "suporte@codemaze.com.br");
 
             //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
             $siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);
