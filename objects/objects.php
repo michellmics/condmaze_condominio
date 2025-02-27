@@ -117,7 +117,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT PDS_DCNOME, PDS_IDPRESTADOR_SERVICO, PDS_DCCATEGORIA FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
+                $sql = "SELECT * FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
