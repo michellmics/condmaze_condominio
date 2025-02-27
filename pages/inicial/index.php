@@ -14,7 +14,6 @@
     }
 	
     $siteAdmin = new SITE_ADMIN();  
-    $siteAdmin->getPopupImagePublish(); 
     $siteAdmin->getParameterInfo();
     $siteAdmin->getListaMensagensSugestoesInfo();  
     $siteAdmin->getArtigosInfoInicial();   
