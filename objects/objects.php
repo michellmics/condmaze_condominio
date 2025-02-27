@@ -117,7 +117,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM PDS_PRESTADORE_SERVICO ORDER BY PDS_DCNOME ASC";
+                $sql = "SELECT * FROM PDS_PUBLICIDADE ORDER BY PDS_DCNOME_PRESTADOR ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
@@ -133,7 +133,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM VW_AVALIACAO_PRESTADOR WHERE PDS_DCCATEGORIA = :PDS_DCCATEGORIA";
+                $sql = "SELECT * FROM PDS_PUBLICIDADE WHERE PDS_DCCATEGORIA = :PDS_DCCATEGORIA";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
