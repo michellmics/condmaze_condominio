@@ -42,6 +42,7 @@
     $ELETRICISTA = $siteAdmin->getAvaliacoesByCategoria("ELETRICISTA");
     $AR_CONDICIONADO = $siteAdmin->getAvaliacoesByCategoria("ARCONDICIONADO");
     $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
+    $MATCONSTRUCAO = $siteAdmin->getAvaliacoesByCategoria("MATCONSTRUCAO");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
 ?>
 
