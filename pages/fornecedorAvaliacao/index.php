@@ -306,39 +306,6 @@
                                                         <?php endif; ?>
                                                     </button>
                                                     </h2>
-                                                    <?php foreach ($COMENTARIOS as $comentario_prestador): ?>
-                                                        <?php 
-                                                            $data = $comentario_prestador['APS_DTAVAL'];
-                                                            $formattedDate = date('d/m/Y', strtotime($data));
-                                                        ?>
-                                                    <div id="gesso<?php echo $aux; ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body" style="color:rgb(149, 153, 155);">
-                                                            <?php  
-                                                                if(isset($comentario_prestador['USU_DCNOME'])) 
-                                                                {
-                                                            ?>
-                                                                    &nbsp;&nbsp;&nbsp;<strong><?= substr(htmlspecialchars($comentario_prestador['USU_DCNOME']),0,20)."..."; ?></strong>                                                                    
-                                                                    <?php $nota = $comentario_prestador['APS_NMNOTA']; for($aux1 = 0; $aux1 < $nota; $aux1++){echo "<span class='text-success mdi mdi-star'></span>";}?>                                                                 
-                                                                    <br>
-                                                                    &nbsp;&nbsp;&nbsp;<strong><?= htmlspecialchars($formattedDate); ?></strong> - <?= htmlspecialchars("AP ".$comentario_prestador['USU_DCAPARTAMENTO'])." BL ".htmlspecialchars($comentario_prestador['USU_DCBLOCO']); ?>
-                                                                    
-                                                                    <?php
-                                                                        if ($comentario_prestador['USU_IDUSUARIO'] == $userid) {
-                                                                            echo '<i class="fas fa-trash-alt" style="cursor: pointer; color: red;" onclick="confirmDelete(event, ' . $comentario_prestador['APS_IDAVALIACAO_PRESTADOR'] . ')"></i><br>';
-                                                                        }
-                                                                    ?>
-                                                                    <br>
-                                                                    <?= htmlspecialchars($comentario_prestador['APS_DCCOMENTARIO']); ?>
-                                                            <?php
-                                                                }
-                                                                else
-                                                                    {
-                                                                        echo "Não há comentários.";
-                                                                    }
-                                                            ?>
-                                                        </div>
-                                                    </div>
-                                                    <?php endforeach; ?>
                                                 </div>
                                                 <?php $aux++; ?>
                                             <?php endforeach; ?>
