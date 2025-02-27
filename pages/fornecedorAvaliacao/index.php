@@ -144,6 +144,7 @@
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
+                                                        <style>.accordion-button::after {display: none !important;}</style>
                                                     </h2>
                                                 </div>
                                                 <?php $aux++; ?>
