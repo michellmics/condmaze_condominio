@@ -561,11 +561,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const status = this.checked ? 'DISPONIVEL' : 'INDISPONIVEL';
             const tdHash = this.closest('tr').querySelector('td[hash]');
             const hash = tdHash ? tdHash.getAttribute('hash') : '';
+            const tdEmail = this.closest('tr').querySelector('td[email]');
+            const email = tdEmail ? tdEmail.getAttribute('email') : '';
 
             fetch('updateStatusCheckboxDisponivel.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id, status, hash, idUser })
+                body: JSON.stringify({ id, status, hash, idUser, email })
             })
             .then(response => response.json())
             .then(data => {
