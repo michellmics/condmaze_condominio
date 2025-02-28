@@ -263,11 +263,11 @@
                                                                     class="mb-0 d-block">
                                                                 </label>
                                                             </div>
-                                                        </td>
+                                                        </td> 
                                                         <td class="align-middle" hash="<?= htmlspecialchars($item['ENC_DCHASHENTREGA']); ?>" style="font-size: 12px; display: none;"></td> 
-                                                        <td class="align-middle">
+                                                        <td class="align-middle"> 
                                                             <?php 
-                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE')
+                                                                if($item['ENC_STENTREGA_MORADOR'] != 'ENTREGUE' && $item['ENC_STENCOMENDA'] != 'DISPONIVEL')
                                                                 {
                                                                     echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
                                                                 }
