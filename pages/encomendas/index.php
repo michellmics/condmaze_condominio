@@ -569,19 +569,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id, status, hash, idUser, email })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (!data.success) {                    
-                    console.error('Erro ao atualizar status');
-                }
-            })
             .catch(error => console.error('Erro:', error))
             .finally(() => {
                 window.location.href = "index.php";
             });
         });
     });
-});
 
     // Switch ENTREGUE
     const switchesEntregue = document.querySelectorAll('input[type="checkbox"][data-switch="entregue"]');
@@ -596,14 +589,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id, status })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (!data.success) {
-                    console.error('Erro ao atualizar status');
-                }
+            .catch(error => console.error('Erro:', error))
+            .finally(() => {
                 window.location.href = "index.php";
-            })
-            .catch(error => console.error('Erro:', error));
+            });
         });
     });
 
@@ -620,17 +609,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id, status })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (!data.success) {
-                    console.error('Erro ao atualizar status');
-                }
-            })
-            .catch(error => console.error('Erro:', error));
+            .catch(error => console.error('Erro:', error))
+            .finally(() => {
+                window.location.href = "index.php";
+            });
         });
     });
-});
 
-    </script>
+});
+</script>
+
 </body>
 </html>
