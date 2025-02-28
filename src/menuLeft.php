@@ -85,7 +85,7 @@
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarCrm" aria-expanded="false" aria-controls="sidebarCrm" class="side-nav-link">
                             <i class="uil-store-alt"></i>  
-                            <span class="badge bg-danger text-white float-end"><?php echo $translations['novo']; ?></span>
+                            <span class="badge text-white float-end" style="background-color: #21feae; color: white;"><?php echo $translations['novo']; ?></span>
                             <span> <?php echo $translations['salao_de_festas']; ?> </span>
                         </a>
                         <div class="collapse" id="sidebarCrm">
