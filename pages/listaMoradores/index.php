@@ -88,7 +88,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Lista de Moradores</h4>
+                                <h4 class="page-title"><?php echo $translations['lista_moradores']; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -98,14 +98,14 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Moradores </h4>
+                                    <h4 class="header-title"><?php echo $translations['moradores']; ?></h4>
                                     <p class="text-muted font-14">
-                                        Nesta seção são listados todos os moradores do condomínio.
+                                    <?php echo $translations['lista_moradores_ini']; ?>
                                     </p>
                                     <div class="tab-content">
                                         <?php if ($nivelAcesso == 'SINDICO'): ?>
                                         <div class="col-sm-5">
-                                            <a href="insertMorador.php" class="btn mb-2" style="background-color: #aa2ed8; color: white;"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Morador</a>
+                                            <a href="insertMorador.php" class="btn mb-2" style="background-color: #aa2ed8; color: white;"><i class="mdi mdi-plus-circle me-2"></i> <?php echo $translations['adicionar_morador']; ?></a>
                                         </div>
                                         <?php endif; ?> 
                                         <br>
@@ -114,10 +114,10 @@
                                                 <thead>
                                                     <tr> 
                                                         <th></th>                                                        
-                                                        <th>NOME</th>
-                                                        <th>APTO</th>
-                                                        <th>BLOCO</th>                                                        
-                                                        <th>TELEFONE</th>                                                                                                               
+                                                        <th><?php echo $translations['nome']; ?></th>
+                                                        <th><?php echo $translations['apartamento']; ?></th>
+                                                        <th><?php echo $translations['bloco']; ?></th>                                                        
+                                                        <th><?php echo $translations['telefone']; ?></th>                                                                                                               
                                                     </tr>
                                                 </thead> 
                                                 <tbody>

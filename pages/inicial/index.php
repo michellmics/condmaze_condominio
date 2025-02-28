@@ -112,8 +112,8 @@
                                                                         />
                                                                         <label 
                                                                             for="switch<?= $index; ?>" 
-                                                                            data-on-label="Sim" 
-                                                                            data-off-label="Não" 
+                                                                            data-on-label="<?php echo $translations['sim']; ?>" 
+                                                                            data-off-label="<?php echo $translations['nao']; ?>" 
                                                                             class="mb-0 d-block">
                                                                         </label>
                                                                     </div>
@@ -318,7 +318,7 @@
                                                    <div class="card-body">
                                                        <h4 class="mt-0 mb-3"><?php echo $translations['reclam_anonima']; ?></h4>
                                                        <form class="needs-validation" novalidate id="form" role="form" method="POST">
-                                                       <textarea required class="form-control form-control-light mb-2" placeholder="Escreva aqui sua mensagem. (até 300 caracteres)" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
+                                                       <textarea required class="form-control form-control-light mb-2" placeholder="<?php echo $translations['msg_placeholder']; ?>" id="msg"  minlength="3" maxlength="300" name="msg" rows="5"></textarea>
                                                        <div class="text-end">
                                                            <div class="btn-group mb-2">
                                                            </div>

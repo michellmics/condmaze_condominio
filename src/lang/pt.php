@@ -12,6 +12,8 @@ return [
     'enviar' => 'Enviar',
     'navegacao' => 'Navegação',
     'termo_priva' => 'Termo de Privacidade',
+    'msg_placeholder' => 'Escreva aqui sua mensagem. (até 300 caracteres)',
+    
 
     // Moradores
     'lista_moradores' => 'Lista de Moradores',
