@@ -13,6 +13,8 @@ return [
     'navegacao' => 'Navegação',
     'termo_priva' => 'Termo de Privacidade',
     'msg_placeholder' => 'Escreva aqui sua mensagem. (até 300 caracteres)',
+    'sim' => 'Sim',
+    'nao' => 'Não',
     
 
     // Moradores
@@ -28,12 +30,16 @@ return [
     'apartamento' => 'APTO',
     'bloco' => 'Bloco',
 
+     // Informações de parceiros
+    'academias' => 'Academias',
+
     // Serviços e Áreas Comuns
     'avaliacao_prestadores' => 'Nossos Parceiros',
     'salao_de_festas' => 'Salão de Festas',
     'portaria' => 'Portaria',
     'administracao' => 'Administração',
     'vagas_estac' => 'Vagas Est. Visitantes',
+    'parceiro_beneficios' => 'Parceiros e benefícios',
 
     // Encomendas
     'encomendas_disponíveis_retirada' => 'Encomendas Disponíveis Para Retirada',
