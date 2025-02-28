@@ -5,47 +5,54 @@ return [
     'inicial' => 'Home',
     'minha_conta' => 'My Account',
     'suporte' => 'Support',
-    'sair' => 'Logout',
+    'sair' => 'Log Out',
     'voltar' => 'Back',
     'salvar' => 'Save',
     'novo' => 'New',
     'enviar' => 'Send',
     'navegacao' => 'Navigation',
-    'termo_priva' => 'Privacy Policy',
+    'termo_priva' => 'Privacy Terms',
+    'msg_placeholder' => 'Write your message here. (up to 300 characters)',
+    'sim' => 'Yes',
+    'nao' => 'No', 
 
     // Residents
-    'lista_moradores' => 'Resident List',
-    'lista_convidados' => 'Guest List',
+    'lista_moradores' => 'Residents List',
+    'lista_convidados' => 'Guests List',
     'moradores' => 'Residents',
     'adicionar_morador' => 'Add Resident',
-    'lista_moradores_ini' => 'This section lists all the condominium residents.',
+    'lista_moradores_ini' => 'This section lists all the residents of the condominium.',
 
     // Contact Information
     'nome' => 'Name',
     'telefone' => 'Phone',
-    'apartamento' => 'APT',
+    'apartamento' => 'Apartment',
     'bloco' => 'Block',
 
-    // Services and Common Areas
-    'avaliacao_prestadores' => 'Service Provider Evaluation',
-    'salao_de_festas' => 'Party Hall',
-    'portaria' => 'Reception',
-    'administracao' => 'Administration',
-    'vagas_estac' => 'Visitor Parking Spots',
+     // Partner Information
+    'academias' => 'Gyms',
 
-    // Deliveries
-    'encomendas_disponíveis_retirada' => 'Packages Available for Pickup',
-    'texto_encomenda_inicial' => 'Packages marked as <strong>YES</strong> in the <strong>PICK UP?</strong> column in the table below must be picked up immediately at the reception.  
-                                    The package will only be released if the status in the <strong>PICK UP?</strong> column is marked as <strong>YES</strong>.',
-    'entrada' => 'Entry',
+    // Services and Common Areas
+    'avaliacao_prestadores' => 'Our Partners',
+    'salao_de_festas' => 'Party Room',
+    'portaria' => 'Entrance',
+    'administracao' => 'Administration',
+    'vagas_estac' => 'Visitor Parking',
+    'parceiro_beneficios' => 'Partners and Benefits',
+
+    // Orders
+    'encomendas_disponíveis_retirada' => 'Orders Available for Pickup',
+    'texto_encomenda_inicial' => 'Packages marked as <strong>YES</strong> in the <strong>PICKUP?</strong> column in the table below must be picked up immediately at the entrance.  
+                                    The package will only be released by the entrance if the status in the <strong>PICKUP?</strong> column is marked as <strong>YES</strong>.',
+    'entrada' => 'Entrance',
     'retirar' => 'Pick Up',
-    'encomendas' => 'Packages',
+    'encomendas' => 'Orders',
 
     // Pending Issues and Reservations
-    'andamento_pend' => 'Pending Issues Progress',
-    'evolucao_pend' => 'Pending Issues Evolution',
-    'evol_fundo_reserva' => 'Reserve Fund Evolution',
-    'andamento_pend_ini' => 'The <strong>pending issues</strong> status in the condominium is updated by the administrator. Stay informed about the progress of requests and relevant projects.',
+    'andamento_pend' => 'Pending Status',
+    'evolucao_pend' => 'Pending Evolution',
+    'evol_fundo_reserva' => 'Reserve Fund Evolution (R$)',
+    'andamento_pend_ini' => 'Here, the condominium administrator updates the status of the <strong>pending issues</strong>. Stay informed about the progress of the most relevant requests and projects.',
 
     // Announcements and Procedures
     'proc_comunic' => 'Procedures & Announcements',
@@ -53,10 +60,9 @@ return [
 
     // Suggestions and Complaints
     'sugest_reclam' => 'Suggestions & Complaints',
-    'sugest_reclam_ini' => 'Share your suggestion or complaint!
-                                       Your opinion is important to help build a more harmonious and pleasant condominium for everyone.
-                                       <br><b>Attention:</b> The messages posted here <strong>are not</strong> moderated by the administrator. Therefore, let’s maintain respect and cordiality in our messages. <br>  
-                                       <strong>Messages sent anonymously through this form will be visible to all residents.</strong>',
+    'sugest_reclam_ini' => 'Share your suggestion or complaint! Your opinion is important to help us build a more harmonious and pleasant condominium for everyone.
+Attention: Messages published here are not moderated by the administrator. Therefore, let\'s keep respect and courtesy in our messages.
+Messages sent anonymously through this form will be visible to all residents.',
     'reclam_anonima' => 'Leave your complaint or suggestion anonymously.',
 
     // Others

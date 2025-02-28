@@ -1,66 +1,82 @@
 <?php
 return [
-    // Geral
-    'bem_vindo' => 'مرحبًا',
+    // General
+    'bem_vindo' => 'أهلاً وسهلاً',
     'inicial' => 'الرئيسية',
     'minha_conta' => 'حسابي',
     'suporte' => 'الدعم',
-    'sair' => 'خروج',
-    'voltar' => 'عودة',
+    'sair' => 'تسجيل الخروج',
+    'voltar' => 'العودة',
     'salvar' => 'حفظ',
     'novo' => 'جديد',
     'enviar' => 'إرسال',
     'navegacao' => 'التنقل',
     'termo_priva' => 'شروط الخصوصية',
+    'msg_placeholder' => 'اكتب رسالتك هنا. (حتى 300 حرف)',
+    'sim' => 'نعم',
+    'nao' => 'لا', 
 
-    // Moradores
-    'lista_moradores' => 'قائمة السكان',
+    // Residents
+    'lista_moradores' => 'قائمة المقيمين',
     'lista_convidados' => 'قائمة الضيوف',
-    'moradores' => 'السكان',
-    'adicionar_morador' => 'إضافة ساكن',
-    'lista_moradores_ini' => 'في هذا القسم يتم سرد جميع سكان المجمع السكني.',
+    'moradores' => 'المقيمين',
+    'adicionar_morador' => 'إضافة مقيم',
+    'lista_moradores_ini' => 'في هذا القسم يتم سرد جميع المقيمين في المجمع السكني.',
 
-    // Informações de Contato
+    // Contact Information
     'nome' => 'الاسم',
     'telefone' => 'الهاتف',
     'apartamento' => 'الشقة',
-    'bloco' => 'المبنى',
+    'bloco' => 'البلوك',
 
-    // Serviços e Áreas Comuns
-    'avaliacao_prestadores' => 'شركاؤنا',
-    'salao_de_festas' => 'قاعة الحفلات',
-    'portaria' => 'البوابة',
+     // Partner Information
+    'academias' => 'الصالات الرياضية',
+
+    // Services and Common Areas
+    'avaliacao_prestadores' => 'شركائنا',
+    'salao_de_festas' => 'قاعة الاحتفالات',
+    'portaria' => 'المدخل',
     'administracao' => 'الإدارة',
     'vagas_estac' => 'مواقف الزوار',
+    'parceiro_beneficios' => 'الشركاء والفوائد',
 
-    // Encomendas
-    'encomendas_disponíveis_retirada' => 'الطرود المتاحة للاستلام',
-    'texto_encomenda_inicial' => 'الطرود التي تم تحديدها على أنها <strong>نعم</strong> في عمود <strong>سحب؟</strong> يجب استلامها فورًا من البوابة.
-                                    لن يتم تسليم الطرد إلا إذا كان العمود <strong>سحب؟</strong> محددًا بـ<strong>نعم</strong>.',
-    'entrada' => 'الوصول',
-    'retirar' => 'سحب',
-    'encomendas' => 'الطرود',
+    // Orders
+    'encomendas_disponíveis_retirada' => 'الطلبات المتاحة للاستلام',
+    'texto_encomenda_inicial' => 'يجب استلام الطرود التي تم وضع علامة <strong>نعم</strong> في عمود <strong>هل يتم استلامها؟</strong> في الجدول أدناه على الفور من المدخل.  
+                                    سيتم الإفراج عن الطرد من المدخل فقط إذا كانت الحالة في عمود <strong>هل يتم استلامها؟</strong> علامة <strong>نعم</strong>.',
+    'entrada' => 'المدخل',
+    'retirar' => 'استلام',
+    'encomendas' => 'الطلبات',
 
-    // Pendências e Reservas
-    'andamento_pend' => 'متابعة القضايا المعلقة',
-    'evolucao_pend' => 'تطور القضايا المعلقة',
-    'evol_fundo_reserva' => 'تطور صندوق الاحتياط (ر.س)',
-    'andamento_pend_ini' => 'يتم هنا تحديث حالات <strong>القضايا المعلقة</strong> من قبل المدير. تابع تطورات الطلبات والمشاريع الأكثر أهمية.',
+    // Pending Issues and Reservations
+    'andamento_pend' => 'حالة الأمور المعلقة',
+    'evolucao_pend' => 'تطور الأمور المعلقة',
+    'evol_fundo_reserva' => 'تطور صندوق الاحتياطي (ريال برازيلي)',
+    'andamento_pend_ini' => 'هنا يقوم المدير بتحديث حالة <strong>المسائل المعلقة</strong>. ابق على اطلاع على تقدم الطلبات والمشاريع الأكثر أهمية.',
 
-    // Comunicados e Procedimentos
+    // Announcements and Procedures
     'proc_comunic' => 'الإجراءات والإعلانات',
-    'proc_comunic_ini' => 'هنا يمكنك العثور على <strong>أفضل 10</strong> إعلانات وإجراءات ونصائح مهمة لتعزيز الانسجام والرفاهية في المجمع السكني.',
+    'proc_comunic_ini' => 'هنا يمكنك العثور على <strong>أفضل 10</strong> إعلانات وإجراءات ونصائح مهمة من أجل التناغم والرفاهية في المجمع السكني.',
 
-    // Sugestões e Reclamações
+    // Suggestions and Complaints
     'sugest_reclam' => 'الاقتراحات والشكاوى',
-    'sugest_reclam_ini' => 'شارك اقتراحك أو شكواك! رأيك مهم لبناء مجتمع سكني أكثر انسجامًا وراحة للجميع.
-ملاحظة: الرسائل المنشورة هنا لا يتم الإشراف عليها من قبل المدير. لذا، دعونا نحافظ على الاحترام واللباقة في رسائلنا.
-الرسائل المرسلة بشكل مجهول عبر هذا النموذج ستكون مرئية لجميع السكان.',
+    'sugest_reclam_ini' => 'شارك اقتراحك أو شكواك! رأيك مهم لمساعدتنا في بناء مجمع سكني أكثر انسجامًا وراحة للجميع.
+انتبه: الرسائل المنشورة هنا غير خاضعة للإشراف من قبل المدير. لذا دعونا نحافظ على الاحترام والمجاملة في رسائلنا.
+الرسائل المرسلة بشكل مجهول من خلال هذا النموذج ستكون مرئية لجميع المقيمين.',
     'reclam_anonima' => 'اترك شكواك أو اقتراحك بشكل مجهول.',
 
-    // Outros
+    // Others
     'pesquisar' => 'بحث',
     'indicadores' => 'المؤشرات',
     'auditoria' => 'التدقيق',
     'configuracoes' => 'الإعدادات',
 ];
+
+
+
+
+
+
+
+
+
