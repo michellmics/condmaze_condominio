@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
 
             //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
-            $siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);
+            //$siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);
         }
         echo json_encode(['success' => $result]);
 
