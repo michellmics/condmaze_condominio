@@ -145,7 +145,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                     ],
 
                                                   "EMAIL_SMTP_SENHA" => ["label" => "E-mail SMTP Senha", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_PASS],
-                                                  "EMAIL_SMTP_USUÁRIO" => ["label" => "E-mail SMTP Usuário", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_USER],
+                                                  "EMAIL_SMTP_USUARIO" => ["label" => "E-mail SMTP Usuário", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_USER],
                                                   "EMAIL_SMTP_PORTA" => ["label" => "E-mail SMTP Porta", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_PORT],
                                                   "EMAIL_SMTP_HOST" => ["label" => "E-mail SMTP Host", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_HOST],
                                                   "ipPortaria" => ["label" => "Endereço IP PC Portaria", "pattern" => "^\d{1,3}(\.\d{1,3}){3}$", "maxlength" => "50", "value" => $ipPortaria]

@@ -108,10 +108,22 @@
                     <!-- idioma -->                      
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="../../assets/images/flags/<?php echo $lang === 'pt' ? 'br' : 'us'; ?>.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                        <img src="../../assets/images/flags/<?php 
+                                    echo ($lang === 'pt') ? 'br' : 
+                                         (($lang === 'en') ? 'us' : 
+                                         (($lang === 'es') ? 'es' : 
+                                         (($lang === 'ar') ? 'ar' : 'default'))); 
+                                ?>.jpg" 
+                                alt="user-image" class="me-0 me-sm-1" height="12">
                             <span class="align-middle d-none d-lg-inline-block">
-                                <?php echo $lang === 'pt' ? 'Português' : 'English'; ?>
+                                <?php 
+                                    echo ($lang === 'pt') ? 'Português' : 
+                                         (($lang === 'en') ? 'English' : 
+                                         (($lang === 'es') ? 'Español' : 
+                                         (($lang === 'ar') ? 'العربية' : 'Idioma')));
+                                ?>
                             </span>
+
                             <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
@@ -128,12 +140,12 @@
                             </a>
 
                             <a href="?lang=sp" class="dropdown-item">
-                                <img src="../../assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="../../assets/images/flags/sp.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Spanish</span>
                             </a>
 
                             <a href="?lang=ar" class="dropdown-item">
-                                <img src="../../assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="../../assets/images/flags/ar.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">العربية</span>
                             </a>
                             
