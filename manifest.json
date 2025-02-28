@@ -1,6 +1,6 @@
 {
-    "name": "Hortênsias",
-    "short_name": "Hortênsias",
+    "name": "O2 Hall",
+    "short_name": "O2 Hall",
     "description": "Aplicação PWA para Hortênsias",
     "start_url": "https://parquedashortensias.codemaze.com.br/pages/login/index.php",
     "display": "standalone",

@@ -3,7 +3,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../img_pwa/logo_icon.png">
 
 <!-- Configurações do PWA -->
-<meta name="apple-mobile-web-app-title" content="Hortênsias">
+<meta name="apple-mobile-web-app-title" content="O2 Hall">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#ffffff">
