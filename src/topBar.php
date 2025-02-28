@@ -111,7 +111,7 @@
                         <img src="../../assets/images/flags/<?php 
                                     echo ($lang === 'pt') ? 'br' : 
                                          (($lang === 'en') ? 'us' : 
-                                         (($lang === 'es') ? 'es' : 
+                                         (($lang === 'sp') ? 'sp' : 
                                          (($lang === 'ar') ? 'ar' : 'default'))); 
                                 ?>.jpg" 
                                 alt="user-image" class="me-0 me-sm-1" height="12">
@@ -119,7 +119,7 @@
                                 <?php 
                                     echo ($lang === 'pt') ? 'Português' : 
                                          (($lang === 'en') ? 'English' : 
-                                         (($lang === 'es') ? 'Español' : 
+                                         (($lang === 'sp') ? 'Español' : 
                                          (($lang === 'ar') ? 'العربية' : 'Idioma')));
                                 ?>
                             </span>
