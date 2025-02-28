@@ -271,7 +271,7 @@
                                                                 {
                                                                     echo '<i class="mdi mdi-delete" title="Excluir encomenda" style="cursor: pointer; font-size: 24px;" onclick="confirmDelete(event, \'' . htmlspecialchars($item['ENC_IDENCOMENDA'], ENT_QUOTES, 'UTF-8') . '\')"></i>';
                                                                 }
-                                                            ?>
+                                                            ?> 
                                                         </td>
                                                     </tr>
                                                  <?php endforeach; ?>
