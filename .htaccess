@@ -1,35 +1,20 @@
 RewriteEngine On
 
-# Reescreve URLs removendo o .php
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.+)$ $1.php [L,QSA]
+# Esconde .php das URLs
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L,QSA]
 
-# Impede o acesso direto ao .php pela URL digitada
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L]
-
-# Bloqueia acesso ao diretório objects
+# Bloqueia acesso ao diretório objects/
 RewriteRule ^objects/.*$ - [F,L]
 
-# Protege arquivos sensíveis
-<FilesMatch "\.(htaccess|htpasswd|ini|log|sh)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
-# Protege arquivos individuais
+# Bloqueia acesso ao próprio .htaccess
 <Files .htaccess>
     Order Allow,Deny
     Deny from all
 </Files>
 
-<Files objects/objects.php>
+# Bloqueia acesso a arquivos PHP específicos
+<FilesMatch "^(objects/objects\.php|objects/objects_chart\.php)$">
     Order Allow,Deny
     Deny from all
-</Files>
-
-<Files objects/objects_chart.php>
-    Order Allow,Deny
-    Deny from all
-</Files>
+</FilesMatch>
