@@ -112,7 +112,7 @@
                                                                         />
                                                                         <label 
                                                                             for="switch<?= $index; ?>" 
-                                                                            data-on-label="<?php echo $translations['sim']; ?>" 
+                                                                            data-on-label="<?php echo $translations['sim']; ?>"  
                                                                             data-off-label="<?php echo $translations['nao']; ?>" 
                                                                             class="mb-0 d-block">
                                                                         </label>

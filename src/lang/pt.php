@@ -14,7 +14,7 @@ return [
     'termo_priva' => 'Termo de Privacidade',
     'msg_placeholder' => 'Escreva aqui sua mensagem. (até 300 caracteres)',
     'sim' => 'Sim',
-    'nao' => 'Não',
+    'nao' => 'Não', 
     
 
     // Moradores
