@@ -572,11 +572,13 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 if (!data.success) {
-                    console.error('Erro ao atualizar status');
                     window.location.href = "index.php";
+                    console.error('Erro ao atualizar status');
+                    
                 }
                 window.location.href = "index.php";
             })
+            window.location.href = "index.php";
             .catch(error => console.error('Erro:', error));
         });
     });
