@@ -277,6 +277,7 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
+                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <div class="card-body">
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['proc_comunic']; ?></h4>
                                     <p class="text-muted font-14">
@@ -305,11 +306,13 @@
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
+                                <?php endif; ?>
                             </div> <!-- end card -->
                         </div><!-- end col-->
 
                         <div class="col-xl-6">
                             <div class="card">
+                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <div class="card-body">
                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['sugest_reclam']; ?></h4>
                                    <p class="text-muted font-14">
@@ -364,6 +367,7 @@
                                        </div> <!-- end preview-->
                                    </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
+                                <?php endforeach; ?>
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div>
