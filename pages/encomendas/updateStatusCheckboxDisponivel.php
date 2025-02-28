@@ -32,13 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ASSUNTO = "NOVA ENCOMENDA: Uhuuul Chegou uma encomenda para Você. - $nomeCondominio";
             $MSG = "Olá $nome,
             A portaria do $nomeCondominio acaba de liberar para retirada uma encomenda que chegou para você!<br>
-            Para retirar, acesse o portal <strong>https://prqdashortênsias.com.br.</strong><br>
-            Na seção <strong>Encomendas Disponíveis Para Retirada</strong> Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
+            Para retirar, acesse o portal na seção <strong>Encomendas Disponíveis Para Retirada</strong> Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
             
             Atenciosamente,<br>
-            $nomeCondominio <br>
-            Rua dos Estudantes, 505 - Hortolândia/SP CEP 13186-170<br>
-            <a href='prqdashortensias.com.br'>prqdashortensias.com.br</a>";
+            $nomeCondominio <br>";
 
             $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
 
