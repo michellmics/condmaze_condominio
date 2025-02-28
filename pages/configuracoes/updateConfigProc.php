@@ -24,6 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($campo == "whatsToken"){$campo = "WHATSAPP_TOKEN";}
         if($campo == "ipPortaria"){$campo = "IP_PORTARIA";}
         if($campo == "whatsSindico"){$campo = "TELEFONE_SINDICO";}
+        if($campo == "idioma"){$campo = "IDIOMA_APP";}
+        if($campo == "EMAIL_SMTP_SENHA"){$campo = "MAIL_SMTP_PASS";}
+        if($campo == "EMAIL_SMTP_USUARIO"){$campo = "MAIL_SMTP_USER";}
+        if($campo == "EMAIL_SMTP_PORTA"){$campo = "MAIL_SMTP_PORT";}
+        if($campo == "EMAIL_SMTP_HOST"){$campo = "MAIL_SMTP_HOST";}
 
         $result = $siteAdmin->updateConfigInfo($campo, $valor);   
         
