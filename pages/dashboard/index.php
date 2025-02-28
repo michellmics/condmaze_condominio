@@ -111,7 +111,7 @@
                                     <div class="input-group d-flex align-items-center gap-2">
                                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                             <div class="col-sm-4">
-                                                <a href="../uploadRelatorio/index.php" class="btn btn-danger"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
+                                                <a href="../uploadRelatorio/index.php" class="btn btn-danger" style="background-color: #aa2ed8; color: black;"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
                                             </div>
                                         <?php endif; ?>
                                         
@@ -139,13 +139,13 @@
                                             $currentYear = date("Y");
                                             $startYear = $currentYear - 2;
                                             $endYear = $currentYear + 10;
-                                            for ($year = $startYear; $year <= $endYear; $year++) {
+                                            for ($year = $startYear; $year <= $endYear; $year++) { 
                                                 echo "<option value='$year'>$year</option>";
                                             }
                                             ?>
                                         </select>
                                         
-                                        <span class="input-group-text bg-primary border-primary text-white" style="cursor: pointer;" id="calendar-icon">
+                                        <span class="input-group-text bg-primary border-primary text-white" style="cursor: pointer; background-color: #20fead;" id="calendar-icon">
                                             <i class="mdi mdi-send font-12"></i>
                                         </span>
                                     </div>

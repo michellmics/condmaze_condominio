@@ -180,9 +180,9 @@ ini_set('max_execution_time', '300');
                                             </div>
                                         </div>
                                                                
-                                            <button class="btn btn-danger col-lg-1" onclick="window.history.back()" type="button">Voltar</button>
+                                            <button class="btn btn-danger col-lg-1" style="background-color: #aa2ed8; color: black;" onclick="window.history.back()" type="button">Voltar</button>
                                             <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>              
-                                            <button class="btn btn-primary col-lg-1" type="button" id="botao" name="botao">Salvar</button>   
+                                            <button class="btn btn-primary col-lg-1" style="background-color: #20fead; color: black;" type="button" id="botao" name="botao">Salvar</button>   
                                             <?php endif; ?>                                       
                                        
                                     </form>

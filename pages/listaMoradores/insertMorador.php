@@ -210,8 +210,8 @@
                                                   <?php endif; ?> 
                                                 <br>
 
-                                                <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
-                                                <button class="btn btn-primary" type="button" id="botao" name="botao">Salvar</button>
+                                                <button class="btn btn-danger" style="background-color: #aa2ed8; color: black;" onclick="window.history.back()" type="button">Voltar</button>             
+                                                <button class="btn btn-primary" style="background-color: #21feae; color: black;" type="button" id="botao" name="botao">Salvar</button>
                                             </form>
                                         </div> <!-- end preview-->                                        
                                     </div> <!-- end tab-content-->

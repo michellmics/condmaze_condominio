@@ -103,7 +103,7 @@
                                     </p>
                                     <div class="tab-content">
                                     <div class="col-sm-5">
-                                            <a href="insertListaConvidados.php" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
+                                            <a href="insertListaConvidados.php" class="btn btn-danger mb-2" style="background-color: #aa2ed8; color: black;"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Convidado</a>
                                         </div>
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
                                         <table class="table table-centered mb-0">
