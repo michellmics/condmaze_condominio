@@ -115,8 +115,8 @@ if (session_status() === PHP_SESSION_NONE) {
                                             <tbody>
                                                 <?php foreach ($siteAdmin->ARRAY_LISTAINFO as $index => $item): ?>
                                                     <tr>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
-                                                        <td style="cursor: pointer;" onclick="window.location.href='insertListaConvidados.php?idconvidado=<?= $item['LIS_IDLISTACONVIDADOS']; ?>'"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
+                                                        <td style="cursor: pointer;"><?= htmlspecialchars($item['LIS_DCNOME']); ?></td>
+                                                        <td style="cursor: pointer;"><?= htmlspecialchars($item['LIS_DCDOCUMENTO']); ?></td>
                                                         <td>
                                                             <!-- Switch -->
                                                             <div>
