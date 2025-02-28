@@ -62,7 +62,7 @@
                                 <img src="../../img/logo_128x32_white.png" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="../../img/logo_128x128.png" alt="small logo">
+                                <img src="../../img/logo_41x41_small.png" alt="small logo">
                             </span>
                         </a>
 
