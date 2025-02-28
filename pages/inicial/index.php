@@ -134,6 +134,7 @@
                     
                     <div class="row">
                         <div class="col-xl-6">
+                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['andamento_pend']; ?></h4>
@@ -199,6 +200,7 @@
                                         </div> <!-- end tab-content-->
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
+                                <?php endif; ?>
                             </div><!-- end col-->
 
                             <script>
@@ -231,6 +233,7 @@
 
                         <div class="col-xl-6">
                             <div class="card">
+                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <div class="card-body">
                                     <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-bank-card-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['evol_fundo_reserva']; ?></h4>
                                         <div dir="ltr">
@@ -238,6 +241,7 @@
                                         </div>
                                     </div>
                                     <!-- end card body-->
+                                    <?php endif; ?>
                                 </div>
                                 <!-- end card -->
                             </div>
