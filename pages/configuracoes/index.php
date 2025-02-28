@@ -36,6 +36,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
       if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_USER')) {$MAIL_SMTP_USER = $item['CFG_DCVALOR'];} 
       if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_PORT')) {$MAIL_SMTP_PORT = $item['CFG_DCVALOR'];}  
       if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_HOST')) {$MAIL_SMTP_HOST = $item['CFG_DCVALOR'];}
+      if (trim($item['CFG_DCPARAMETRO'] == 'IDIOMA_APP')) {$IDIOMA_APP = $item['CFG_DCVALOR'];}
 
     }   
 
@@ -130,6 +131,18 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                   "whatsSender" => ["label" => "Whatsapp Telefone Sender", "pattern" => ".*", "maxlength" => "20", "value" => $whatsSender],
                                                   "whatsSid" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50", "value" => $whatsSid],
                                                   "whatsToken" => ["label" => "Whatsapp Token", "pattern" => ".*", "maxlength" => "50", "value" => $whatsToken],
+                                                    
+                                                    "idioma" => [
+                                                        "label" => "Idioma do App",
+                                                        "type" => "select",
+                                                        "options" => [
+                                                            "pt" => "Português",
+                                                            "en" => "English",
+                                                            "sp" => "Spanish",
+                                                            "ar" => "العربية" 
+                                                        ],
+                                                        "value" => $IDIOMA_APP
+                                                    ],
 
                                                   "EMAIL_SMTP_SENHA" => ["label" => "E-mail SMTP Senha", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_PASS],
                                                   "EMAIL_SMTP_USUÁRIO" => ["label" => "E-mail SMTP Usuário", "pattern" => ".*", "maxlength" => "50", "value" => $MAIL_SMTP_USER],
