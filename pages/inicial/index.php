@@ -323,7 +323,7 @@
                                                            <div class="btn-group mb-2">
                                                            </div>
                                                            <div class="btn-group mb-2 ms-2">
-                                                               <button type="button" class="btn btn-sm" id="botao" style="background-color: #21ffae; color: white;"><?php echo $translations['enviar']; ?></button>
+                                                               <button type="button" class="btn btn-sm" id="botao" style="background-color: #21ffae; color: black;"><?php echo $translations['enviar']; ?></button>
                                                            </div>
                                                        </div>
                                                        </form>

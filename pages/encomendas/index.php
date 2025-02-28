@@ -130,9 +130,9 @@
 
                                     </p>
                                     <?php endif; ?>      
-                                    <button type="button" class="btn btn-danger" style="background-color: #aa2ed8; color: black;" data-bs-toggle="modal" data-bs-target="#signup-modal">Cadastrar </button>
-                                    <button type="button" class="btn btn-primary" style="background-color: #20ffad; color: black;" onclick="window.location.href='entregues.php';">Entregues</button>
-                                    <button type="button" class="btn btn-success float-end" style="background-color: #20ffad; color: black;" onclick="location.reload()">Refresh</button>                                    
+                                    <button type="button" class="btn" style="background-color: #aa2ed8; color: white;" data-bs-toggle="modal" data-bs-target="#signup-modal">Cadastrar </button>
+                                    <button type="button" class="btn" style="background-color: #20ffad; color: black;" onclick="window.location.href='entregues.php';">Entregues</button>
+                                    <button type="button" class="btn float-end" style="background-color: #20ffad; color: black;" onclick="location.reload()">Refresh</button>                                    
                                     <br><br>
  
                                     <div class="tab-content">

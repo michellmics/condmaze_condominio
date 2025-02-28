@@ -111,7 +111,7 @@
                                     <div class="input-group d-flex align-items-center gap-2">
                                         <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                             <div class="col-sm-4">
-                                                <a href="../uploadRelatorio/index.php" class="btn btn-danger" style="background-color: #aa2ed8; color: black;"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
+                                                <a href="../uploadRelatorio/index.php" class="btn" style="background-color: #aa2ed8; color: white;"><i class="mdi mdi-plus-circle me-2"></i> Upload</a>
                                             </div>
                                         <?php endif; ?>
                                         

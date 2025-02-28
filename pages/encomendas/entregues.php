@@ -141,7 +141,7 @@
                                     </p>
                                     <?php endif; ?>  
                                     
-                                    <button class="btn btn-success col-lg-1" onclick="window.history.back()" type="button">Voltar</button>                                 
+                                    <button class="btn btn-success col-lg-1" style="background-color: #aa2ed8; color: white;" onclick="window.history.back()" type="button">Voltar</button>                                 
                                     <br><br>                                      
                                     
  

@@ -109,7 +109,7 @@
                                     </p>
                                         <div class="col-sm-5">
                                             <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>  
-                                            <a href="insertArtigo.php" class="btn btn-danger mb-2" style="background-color: #aa2ed8; color: black;"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>
+                                            <a href="insertArtigo.php" class="btn mb-2" style="background-color: #aa2ed8; color: white;"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Comunicado</a>
                                             <?php endif; ?>  
                                         </div>
                                     <div class="tab-content">
