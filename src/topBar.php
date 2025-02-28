@@ -249,7 +249,7 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <span class="account-user-avatar">
-                                <img src="../../assets/images/users/Hall.jpg" alt="user-image" width="32" class="rounded-circle">
+                                <img src="../../img_pwa/logo_icon.png" alt="user-image" width="32" class="rounded-circle">
                             </span>
                             <span class="d-lg-flex flex-column gap-1 d-none">
                                 <h5 class="my-0"><?php $nomeSession = ucwords(strtolower($nomeSession)); echo $nomeSession; ?></h5>
