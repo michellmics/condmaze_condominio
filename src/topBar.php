@@ -59,20 +59,20 @@
                         <!-- Logo light -->
                         <a href="../inicial/index.php" class="logo-light">
                             <span class="logo-lg">
-                                <img src="../../img/logo_128x32_white.png" alt="logo">
+                                <img src="../../img/logo_128x32_white.gif" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="../../img/logo_128x128.png" alt="small logo">
+                                <img src="../../img/logo_128x128.gif" alt="small logo">
                             </span>
                         </a>
 
                         <!-- Logo Dark -->
                         <a href="../inicial/index.php" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="../../img/logo_128x32_black.png" alt="dark logo">
+                                <img src="../../img/logo_128x32_black.gif" alt="dark logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="../../img/logo_41x41_small.png" alt="small logo">
+                                <img src="../../img/logo_41x41_small.gif" alt="small logo">
                             </span>
                         </a>
                     </div>

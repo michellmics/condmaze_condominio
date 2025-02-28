@@ -124,11 +124,11 @@ $host = $_SERVER['HTTP_HOST'];
 
                 <!-- Logo -->
                 <div class="auth-brand text-center text-lg-start">
-                    <a href="index.html" class="logo-dark">
-                        <span><img src="../../img/logo_128x32_white.png" width="162px" height="43px" alt="logo" style="height: 43px; width: 162px;"></span>
+                    <a href="#" class="logo-dark">
+                        <span><img src="../../img/logo_128x32_white.gif" width="162px" height="43px" alt="logo" style="height: 43px; width: 162px;"></span>
                     </a>
-                    <a href="index.html" class="logo-light">
-                        <span><img src="../../img/logo_128x32_white.png" alt="logo" height="22"></span>
+                    <a href="#" class="logo-light">
+                        <span><img src="../../img/logo_128x32_white.gif" alt="logo" width="162px" height="43px"></span>
                     </a>
                 </div>
 
