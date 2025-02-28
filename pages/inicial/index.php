@@ -73,7 +73,7 @@
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-briefcase-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> <?php echo $translations['encomendas_disponíveis_retirada']; ?></h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-briefcase-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['encomendas_disponíveis_retirada']; ?></h4>
                                     <p class="text-muted font-14">
                                     <?php echo $translations['texto_encomenda_inicial']; ?>
                                     </p>
@@ -136,7 +136,7 @@
                         <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> <?php echo $translations['andamento_pend']; ?></h4>
+                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['andamento_pend']; ?></h4>
                                         <p class="text-muted font-14">
                                         <?php echo $translations['andamento_pend_ini']; ?>
                                         </p>
@@ -232,7 +232,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-bank-card-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> <?php echo $translations['evol_fundo_reserva']; ?></h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-bank-card-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['evol_fundo_reserva']; ?></h4>
                                         <div dir="ltr">
                                             <div id="basic-area" class="apex-charts" data-colors="#FF004D"></div>
                                         </div>
@@ -274,7 +274,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> <?php echo $translations['proc_comunic']; ?></h4>
+                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class="ri-stack-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['proc_comunic']; ?></h4>
                                     <p class="text-muted font-14">
                                     <?php echo $translations['proc_comunic_ini']; ?>
                                     </p>
@@ -307,7 +307,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                   <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color:rgb(218, 5, 200); margin-right: 8px;"></i> <?php echo $translations['sugest_reclam']; ?></h4>
+                                   <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-mail-send-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['sugest_reclam']; ?></h4>
                                    <p class="text-muted font-14">
                                     <?php echo $translations['sugest_reclam_ini']; ?>                                
                                    </p>                            
