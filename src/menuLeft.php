@@ -36,7 +36,7 @@
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a style="cursor: pointer;" onclick="window.location.href='https://parquedashortensias.codemaze.com.br/pages/listaMoradores/insertMorador.php?apartamento=<?= $apartamentoSession; ?>'" class="dropdown-item">
-                        <img src="../../ima_pwa/logo_icon.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="../../img_pwa/logo_icon.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name mt-2"><?php $nomeSession = ucwords(strtolower($nomeSession)); echo $nomeSession; ?></span>
                         <span class="leftbar-user-name mt-2"><?php $nivelAcessoFormat = ucwords(strtolower($nivelAcesso)); echo $nivelAcessoFormat; ?></span>
                     </a>
