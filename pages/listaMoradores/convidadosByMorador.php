@@ -188,12 +188,12 @@ if (session_status() === PHP_SESSION_NONE) {
                 .then(response => response.json())
                 .then(data => {
                     if (!data.success) {
-                        alert('Erro ao atualizar o status!');
+                        //alert('Erro ao atualizar o status!');
                     }
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    alert('Erro ao comunicar com o servidor.');
+                    //alert('Erro ao comunicar com o servidor.');
                 });
             });
         });
