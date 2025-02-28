@@ -152,36 +152,46 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                               ];
                                               
                                               foreach ($fields as $id => $data) : ?>
-                                                  <div class="row g-2 align-items-end mb-3">
-                                                      <div class="col-8 col-md-10"> 
-                                                          <label class="form-label" for="<?= $id; ?>"><?= $data['label']; ?></label>
-                                                          <input 
-                                                              value="<?php echo $data['value']; ?>" 
-                                                              id="<?= $id; ?>" 
-                                                              name="<?= $id; ?>" 
-                                                              type="text" 
-                                                              class="form-control"
-                                                              pattern="<?= $data['pattern']; ?>" 
-                                                              maxlength="<?= $data['maxlength']; ?>" 
-                                                              oninput="
-                                                                  <?php if ($id === 'whatsSender' || $id === 'whatsToken') : ?>
-                                                                      this.value = this.value.replace(/[^0-9]/g, '');
-                                                                  <?php elseif ($id === 'qtdeUnidades') : ?>
-                                                                      this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);
-                                                                  <?php elseif ($id === 'ipPortaria') : ?>
-                                                                      this.value = this.value.replace(/[^0-9.]/g, '');
-                                                                  <?php endif; ?>
-                                                              " 
-                                                              required 
-                                                          />
-                                                          <div class="valid-tooltip">Validado!</div>
-                                                          <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($data['label']); ?> corretamente.</div>
-                                                      </div>
-                                                      <div class="col-4 col-md-2 d-flex align-items-end">
-                                                          <button type="button" class="btn btn-warning w-70 update-btn" data-input="<?= $id; ?>">EDIT</button>
-                                                      </div>
-                                                  </div>
-                                              <?php endforeach; ?>
+                                                <div class="row g-2 align-items-end mb-3">
+                                                    <div class="col-8 col-md-10">
+                                                        <label class="form-label" for="<?= $id; ?>"><?= $data['label']; ?></label>
+                                                        
+                                                        <?php if (isset($data['type']) && $data['type'] === 'select') : ?>
+                                                            <select id="<?= $id; ?>" name="<?= $id; ?>" class="form-control" required>
+                                                                <?php foreach ($data['options'] as $key => $option) : ?>
+                                                                    <option value="<?= $key; ?>" <?= ($data['value'] == $key) ? 'selected' : ''; ?>><?= $option; ?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        <?php else : ?>
+                                                            <input 
+                                                                value="<?= htmlspecialchars($data['value']); ?>" 
+                                                                id="<?= $id; ?>" 
+                                                                name="<?= $id; ?>" 
+                                                                type="text" 
+                                                                class="form-control"
+                                                                pattern="<?= isset($data['pattern']) ? $data['pattern'] : '.*'; ?>" 
+                                                                maxlength="<?= isset($data['maxlength']) ? $data['maxlength'] : '255'; ?>" 
+                                                                oninput="
+                                                                    <?php if ($id === 'whatsSender' || $id === 'whatsToken') : ?>
+                                                                        this.value = this.value.replace(/[^0-9]/g, '');
+                                                                    <?php elseif ($id === 'qtdeUnidades') : ?>
+                                                                        this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);
+                                                                    <?php elseif ($id === 'ipPortaria') : ?>
+                                                                        this.value = this.value.replace(/[^0-9.]/g, '');
+                                                                    <?php endif; ?>
+                                                                " 
+                                                                required 
+                                                            />
+                                                        <?php endif; ?>
+                                            
+                                                        <div class="valid-tooltip">Validado!</div>
+                                                        <div class="invalid-tooltip">Por favor, preencha o <?= strtolower($data['label']); ?> corretamente.</div>
+                                                    </div>
+                                                    <div class="col-4 col-md-2 d-flex align-items-end">
+                                                        <button type="button" class="btn btn-warning w-70 update-btn" data-input="<?= $id; ?>">EDIT</button>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
                                                                   
                                               <br>
                                               <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>             
