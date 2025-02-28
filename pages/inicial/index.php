@@ -367,8 +367,11 @@
                                        </div> <!-- end preview-->
                                    </div> <!-- end tab-content-->
                                 </div> <!-- end card body-->
-                                <?php endforeach; ?>
+                                <?php endif; ?>
                             </div> <!-- end card -->
+                            
+                            
+                            
                         </div><!-- end col-->
                     </div>
                     <!-- end row-->            
