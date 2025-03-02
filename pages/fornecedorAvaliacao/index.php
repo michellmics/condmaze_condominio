@@ -123,7 +123,7 @@
                     </div>
                     <!-- end page title -->
 
-                    <!-- start page promotion Full 800x200 PREMIUM row -->
+                    <!-- start page promotion Full 800x120 PREMIUM row -->
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
