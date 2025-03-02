@@ -30,14 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($status == "DISPONIVEL")
         {
             $ASSUNTO = "NOVA ENCOMENDA: Uhuuul Chegou uma encomenda para Você. - $nomeCondominio";
-            $MSG = "Olá $nome,
-            A portaria do $nomeCondominio acaba de liberar para retirada uma encomenda que chegou para você!<br>
-            Para retirar, acesse o portal na seção <strong>Encomendas Disponíveis Para Retirada</strong> Marque a opção <strong>RETIRAR</strong> como <strong>SIM</strong> e dirija-se a portaria.<br><br>
+            $MSG = "Olá *$nome*,
+            A portaria do $nomeCondominio acaba de liberar para retirada uma encomenda que chegou para você!
+            Para retirar, acesse o portal na seção *Encomendas Disponíveis Para Retirada* Marque a opção *RETIRAR* como *SIM* e dirija-se a portaria.
             
-            Atenciosamente,<br>
-            $nomeCondominio <br>";
+            Atenciosamente,
+            $nomeCondominio";
 
-            $siteAdmin->notifyUsuarioEmail($ASSUNTO, $MSG, $EMAIL);
+            $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
 
             //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
             //$siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);

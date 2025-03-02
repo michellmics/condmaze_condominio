@@ -62,6 +62,50 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             } 
         }
 
+        function whatsappApiSendMessage($msg, $telefone)
+        {
+            $this->getParameterInfo();  
+            foreach ($this->ARRAY_PARAMETERINFO as $item) {
+                if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN') {
+                    $token = $item['CFG_DCVALOR']; 
+                }
+                if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_INSTANCIA') {
+                    $instancia = $item['CFG_DCVALOR']; 
+                }
+                if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_ENDPOINT') {
+                    $endpoint = $item['CFG_DCVALOR']; 
+                }
+            } 
+
+            $telefoneDestino = "55$telefone";
+            
+            $url = "$endpoint/message/sendText/$instancia";
+
+            $headers = [
+                        "apikey: $token",
+                        "Content-Type: application/json"
+                        ];
+
+            $data = [
+                "number" => $telefoneDestino,
+                "text" => "$msg"
+            ];
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            return $response;
+
+        }
+
         public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL, $anexo="na")
         {     
             $this->getParameterInfo();
@@ -188,80 +232,6 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 "exp" => time() + (30 * 24 * 60 * 60) // Expira em 30 dias
             ];
             return base64_encode(json_encode($dados) . "." . hash_hmac('sha256', json_encode($dados), $chaveSecreta));
-        }
-
-        public function whatsapp($nome, $telefone, $id, $resposta, $link = "")
-        {
-            // URL do script que processa os dados
-            $url = 'https://parquedashortensias.codemaze.com.br/pages/whatsapp/send_message.php';
-
-            // Dados que serão enviados no POST
-            $data = [
-                'nome' => $nome, 
-                'link' => $link,
-                'telefone' => $telefone, 
-                'codigo' => $id,
-                'resposta' => $resposta
-            ];
-
-            // Inicializar o cURL
-            $ch = curl_init($url);
-
-            // Configurar opções do cURL
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Content-Type: application/json', // Informar que os dados estão em JSON
-                'Content-Length: ' . strlen(json_encode($data))
-            ]);
-
-            // Executar a solicitação
-            $response = curl_exec($ch);
-
-            // Verificar erros
-            if (curl_errno($ch)) {
-                //echo 'Erro no cURL: ' . curl_error($ch);
-            } else {
-                //echo 'Resposta do servidor: ' . $response;
-            }
-
-            // Fechar o cURL
-            curl_close($ch);
-        }
-        
-        public function whatsappSaldo()
-        {
-            if(!$this->pdo){$this->conexao();}
-            
-            $this->getParameterInfo();
-
-            $parametros = ['WHATSAPP_TOKEN' => null, 'WHATSAPP_SID' => null, 'WHATSAPP_STATUS' => null];
-        
-            foreach ($this->ARRAY_PARAMETERINFO as $item) {
-                if (array_key_exists($item['CFG_DCPARAMETRO'], $parametros)) {
-                    $parametros[$item['CFG_DCPARAMETRO']] = $item['CFG_DCVALOR'];
-                }
-            }
-
-            $authToken = $parametros['WHATSAPP_TOKEN'];
-            $accountSid = $parametros['WHATSAPP_SID'];
-            $statusWhatsapp = $parametros['WHATSAPP_STATUS'];
-            $url = "https://api.twilio.com/2010-04-01/Accounts/$accountSid/Balance.json";
-
-            if($statusWhatsapp != "ATIVO")
-            {
-                return "INATIVO";
-            }
-
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_USERPWD, "$accountSid:$authToken");
-
-            $response = curl_exec($ch);
-            curl_close($ch);
-            $data = json_decode($response, true);
-           // return $data['balance'];
         }
 
         public function stmtToArray($stmtFunction)
