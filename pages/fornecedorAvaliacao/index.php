@@ -127,9 +127,21 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">                                    
-                                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                        <img src="../../publicidade/img/teste.jpg"  
-                                        style="max-width: 100%; height: auto; display: block;">
+                                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: #000000;">
+                                        <img src="../../publicidade/img/teste.jpg" style="max-width: 100%; height: auto; display: block;">
+                                    </div>   
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                    </div> <!-- end row -->
+                    <!-- end page promotion Full row -->
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">                                    
+                                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: #000000;">
+                                        <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>" style="max-width: 100%; height: auto; display: block;">
                                     </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
