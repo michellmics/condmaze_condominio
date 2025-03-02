@@ -128,7 +128,6 @@
                             <div class="card">
                                 <div class="card-body">                                    
                                     <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: #000000;">
-                                        hshdfjashdjahsjdhsajhdjasd    
                                     <img src="../../publicidade/img/teste.jpg" style="max-width: 100%; height: auto; display: block;">
                                     </div>   
                                 </div> <!-- end card-body-->
