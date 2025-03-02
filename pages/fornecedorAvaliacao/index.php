@@ -123,49 +123,19 @@
                     </div>
                     <!-- end page title -->
 
-
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">                                    
-                                        testetetststs
+                                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
+                                        <img src="../../publicidade/img/teste.jpg"  
+                                        style="max-width: 100%; height: auto; display: block;">
+                                    </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div> <!-- end row -->
                     <!-- end page promotion Full row -->
-
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="avatar-lg">
-                                        <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle img-thumbnail">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        <h4 class="mt-1 mb-1 text-white">Michael Franklin</h4>
-                                        <p class="font-13 text-white-50"> Authorised Brand Seller
-                                        <ul class="mb-0 list-inline text-light">
-                                            <li class="list-inline-item me-3">
-                                                <h5 class="mb-1 text-white">$ 25,184</h5>
-                                                <p class="mb-0 font-13 text-white-50">Total Revenue</p>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <h5 class="mb-1 text-white">5482</h5>
-                                                <p class="mb-0 font-13 text-white-50">Number of Orders</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end col-->
-                    </div> <!-- end row -->
-                    <!-- end page promotion Full row -->
-
-
-
 
                     <div class="row">
                         <div class="col-xl-6">
