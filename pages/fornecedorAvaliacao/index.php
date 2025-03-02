@@ -129,10 +129,11 @@
                             <div class="card">
                                 <div class="card-body">                                    
                                         testetetststs
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                    <!-- end page promotion Full -->
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                    </div> <!-- end row -->
+                    <!-- end page promotion Full row -->
 
 
 
