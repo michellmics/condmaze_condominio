@@ -193,6 +193,52 @@
 
                     </div>
                     <!-- end row-->
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">                                    
+testetetststs
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title" id="toggleFastfood" style="display: flex; align-items: center; cursor: pointer;"><i class="ri-takeaway-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i>Fast Food</h4>
+                                    <p class="text-muted font-14 mb-3"></p>
+                                    <div class="tab-content">
+                                    <div class="col-sm-5"  style="margin-bottom: 20px;">
+                                    </div>
+                                    <div class="tab-pane show active" style="display: none;" id="fastfoodContent">
+                                            <div class="accordion" id="accordionExample">
+                                                <?php $aux = 0 ?>
+                                                <?php foreach ($FASTFOOD as $item): 
+                                                    $idPrestador = $item['PDS_IDPRESTADOR_SERVICO'];
+                                                ?>
+                                                <div class="accordion-item">                                                    
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#fastfood<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
+                                                            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
+                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                style="max-width: 100%; height: auto; display: block;">
+                                                            </div>                                                                                                
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <?php $aux++; ?>
+                                            <?php endforeach; ?>
+                                            </div>
+                                        </div> <!-- end preview-->
+                                    </div> <!-- end tab-content-->
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+
+
+                    </div>
+                    <!-- end row-->
                     
                     <div class="row">
                         <div class="col-xl-6">
