@@ -127,11 +127,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
-                                <div class="card-body">                                    
-                                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: #000000;">
-                                    <img src="../../publicidade/img/teste.jpg" style="max-width: 100%; height: auto; display: block;">
-                                    </div>   
-                                </div> <!-- end card-body-->
+                            <div class="card-body" style="padding: 0; margin: 0;">                                    
+                <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
+                    <img src="../../publicidade/img/teste.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                </div>   
+            </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
@@ -278,7 +278,6 @@
 
                     </div>
                     <!-- end row-->
-
                                         
                     <!-- start page promotion Full 800x100 row -->
                     <div class="row">
@@ -678,12 +677,7 @@
 
                     </div>
                     <!-- end row-->
-
-
-
-
-
-                                                    
+                                
                 </div><!-- FIM CONTEUDO CONTAINER -->                
 
             <!-- content -->
