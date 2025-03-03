@@ -64,6 +64,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
 
         function whatsappApiSendMessage($msg, $telefone)
         {
+            
             $this->getParameterInfo();  
             foreach ($this->ARRAY_PARAMETERINFO as $item) {
                 if ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN') {
@@ -77,32 +78,33 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 }
             } 
 
-            $curl = curl_init();
+            $telefoneDestino = "55$telefone";
             
-            curl_setopt_array($curl, array(
-              CURLOPT_URL => 'http://hoscc8g8owccks0cso444wo0.103.199.184.230.sslip.io/message/sendText/Parque das Hortências',
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '', 
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 0,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => 'POST',
-              CURLOPT_POSTFIELDS =>'{
-            "number":"5511982734350",
-            "text":"Olá, tudo beleza ai? *chupassss* essa *uvaaaaaaaaaaaaaa* segue o link https://prqdashortensias.com.br"
-            }',
-              CURLOPT_HTTPHEADER => array(
-                'apikey: D74EC16ECED1-4FE1-9585-D57248EE547A',
-                'Content-Type: application/json'
-              ),
-            ));
-            
-            $response = curl_exec($curl);
-            
-            curl_close($curl);
-            echo $response;
-            
+            $url = "$endpoint/message/sendText/$instancia";
+
+            $headers = [
+                        "apikey: $token",
+                        "Content-Type: application/json"
+                        ];
+
+            $data = [
+                "number" => "5511982734350",
+                "text" => "$msg"
+            ];
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            return $response;
+
         }
 
         public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL, $anexo="na")
