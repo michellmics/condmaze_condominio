@@ -16,7 +16,9 @@ class registerPendencia extends SITE_ADMIN
                 $this->conexao();
             }
 
-            foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+            $this->getParameterInfo();
+
+            foreach ($this->ARRAY_PARAMETERINFO as $item) {
                 if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
                     $nomeCondominio = $item['CFG_DCVALOR']; 
                 } elseif ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
