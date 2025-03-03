@@ -571,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error('Erro:', error))
             .finally(() => {
-                window.location.href = "index.php";
+               //window.location.href = "index.php";
             });
         });
     });
