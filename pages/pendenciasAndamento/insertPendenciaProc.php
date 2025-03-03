@@ -93,7 +93,7 @@ class registerPendencia extends SITE_ADMIN
                     
                 }
         } catch (PDOException $e) {  
-            echo "Erro ao cadastrar o pendência. $e"; 
+            echo "Erro ao cadastrar o pendência."; 
         } 
     }
 }

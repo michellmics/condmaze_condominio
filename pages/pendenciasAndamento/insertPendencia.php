@@ -148,7 +148,7 @@ ini_set('max_execution_time', '300');
                                             <div class="row mt-4 mb-3">
                                                 <div class="position-relative col-lg-6">
                                                     <label for="evol" class="form-label">Evolução(%)</label>
-                                                    <input type="text" id="evol" name="evol" data-plugin="range-slider" data-type="single" data-grid="true" data-min="10" data-max="100" data-from="<?php echo $evol ?>" /> 
+                                                    <input type="text" id="evol" name="evol" data-plugin="range-slider" data-type="single" data-grid="true" data-min="10" data-max="100" data-from="<?php echo $evol; ?>" /> 
                                                 </div>   
                                             </div>
 
@@ -192,19 +192,16 @@ ini_set('max_execution_time', '300');
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
     
-    <script>
+<script>
     document.getElementById("botao").addEventListener("click", function() {
         let form = document.getElementById("form");
 
-        // Pega o conteúdo do editor e define no campo 'artigo'
-        let obs = quill.root.innerHTML; // Pega o conteúdo do Quill
-        document.getElementById("obs").value = obs;  // Define no campo hidden ou textarea
+        let obs = quill.root.innerHTML; 
+        document.getElementById("obs").value = obs;  
 
         let formData = new FormData(form);
 
-        // Verifica a validade do formulário
         if (form.checkValidity()) {
-            // Exibe o alerta de confirmação
             Swal.fire({
                 title: "Tem certeza?",
                 text: "Você deseja salvar os dados?",
@@ -216,30 +213,27 @@ ini_set('max_execution_time', '300');
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Envia os dados via AJAX
                     let xhr = new XMLHttpRequest();
                     xhr.open("POST", "insertPendenciaProc.php", true);
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === 4 && xhr.status === 200) {
-                            // Resposta do servidor
                             let response = xhr.responseText;
 
-                            // Exibe a resposta no SweetAlert
                             Swal.fire({
                                 title: 'Sucesso!',
-                                text: response, // Mostra a resposta do servidor
+                                text: response, 
                                 icon: 'success'
                             }).then(() => {
-                                // Você pode realizar ações adicionais após o sucesso, como limpar o formulário ou redirecionar
                                 form.reset();
+                                window.history.back();
                             });
                         }
                     };
-                    xhr.send(formData); // Envia os dados do formulário
+                    xhr.send(formData); 
                 }
             });
         } else {
-            form.classList.add("was-validated"); // Exibe os erros de validação
+            form.classList.add("was-validated"); 
         }
     });
 </script>
