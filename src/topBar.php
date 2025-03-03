@@ -133,7 +133,7 @@
                                 <span class="align-middle">Português</span>
                             </a>
                             <!-- Inglês -->
-                             
+ <!--                            
                             <a href="?lang=en" class="dropdown-item">
                                 <img src="../../assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">English</span>
@@ -147,8 +147,8 @@
                             <a href="?lang=ar" class="dropdown-item">
                                 <img src="../../assets/images/flags/ar.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">العربية</span>
-                            </a>
-                            
+                          </a>
+ -->                             
                         </div>
                     </li>
 
