@@ -101,7 +101,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </p>
                                     <div class="tab-content">
                                     <div class="col-sm-5">
-                                    <button class="btn btn-danger" onclick="window.history.back()" type="button">Voltar</button>
+                                    <button class="btn" style="background-color: #aa2ed8; color: white;" onclick="window.history.back()" type="button">Voltar</button>
                                         </div>
                                         <div class="tab-pane show active" id="basic-datatable-preview">                                            
                                         <table class="table table-centered mb-0">

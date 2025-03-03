@@ -11,11 +11,3 @@ document.addEventListener("keydown", function(event) {
 document.addEventListener("contextmenu", function(event) {
     event.preventDefault();
 });
-
-let checkDevTools = setInterval(function() {
-    let before = window.outerHeight - window.innerHeight > 100 || window.outerWidth - window.innerWidth > 100;
-    
-    if (before) {
-        document.body.innerHTML = ""; 
-    }
-}, 1000);
