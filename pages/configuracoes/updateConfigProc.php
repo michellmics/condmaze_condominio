@@ -19,8 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($campo == "qtdeUnidades"){$campo = "QTDE_APARTAMENTOS";}
         if($campo == "email"){$campo = "EMAIL_ALERTAS";}
         if($campo == "whatsStatus"){$campo = "WHATSAPP_STATUS";}
-        if($campo == "whatsSender"){$campo = "WHATSAPP_SENDER";}
-        if($campo == "whatsSid"){$campo = "WHATSAPP_SID";}
+        if($campo == "whatsportaria"){$campo = "TELEFONE_PORTARIA";}
+        if($campo == "whatsEndpoint"){$campo = "WHATSAPP_ENDPOINT";} 
+        if($campo == "whatsInstancia"){$campo = "WHATSAPP_INSTANCIA";}
         if($campo == "whatsToken"){$campo = "WHATSAPP_TOKEN";}
         if($campo == "ipPortaria"){$campo = "IP_PORTARIA";}
         if($campo == "whatsSindico"){$campo = "TELEFONE_SINDICO";}
@@ -29,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($campo == "EMAIL_SMTP_USUARIO"){$campo = "MAIL_SMTP_USER";}
         if($campo == "EMAIL_SMTP_PORTA"){$campo = "MAIL_SMTP_PORT";}
         if($campo == "EMAIL_SMTP_HOST"){$campo = "MAIL_SMTP_HOST";}
+        if($campo == "dominio"){$campo = "DOMINIO";}
 
         $result = $siteAdmin->updateConfigInfo($campo, $valor);   
         
