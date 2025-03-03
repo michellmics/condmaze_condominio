@@ -128,6 +128,7 @@
                                                     <!-- CAMPOS COMO VARIAVEIS -->
                                                     <input type="hidden" id="metodo" name="metodo" value="<?php echo $metodo; ?>"/>
                                                     <input type="hidden" id="idmorador" name="idmorador" value="<?php echo $idmorador; ?>"/>
+                                                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                                                     <!-- CAMPOS COMO VARIAVEIS -->
                                             
                                                   <div class="position-relative mb-3">
