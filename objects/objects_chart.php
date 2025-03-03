@@ -263,13 +263,14 @@
                     ON 
                         TRUE
                     ORDER BY 
-                        PagamentosMensais.CON_DCANO_COMPETENCIA DESC, 
+                        PagamentosMensais.CON_DCANO_COMPETENCIA ASC, 
                         CASE PagamentosMensais.CON_DCMES_COMPETENCIA
                             WHEN 'Jan' THEN 1 WHEN 'Feb' THEN 2 WHEN 'Mar' THEN 3 WHEN 'Apr' THEN 4
                             WHEN 'May' THEN 5 WHEN 'Jun' THEN 6 WHEN 'Jul' THEN 7 WHEN 'Aug' THEN 8
                             WHEN 'Sep' THEN 9 WHEN 'Oct' THEN 10 WHEN 'Nov' THEN 11 WHEN 'Dec' THEN 12
-                        END DESC -- Ordenação correta do mês
-                    LIMIT 12;";
+                        END ASC -- Ordenação crescente do mês e do ano
+                    LIMIT 12;
+                    ";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
