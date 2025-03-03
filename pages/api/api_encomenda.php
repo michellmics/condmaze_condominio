@@ -19,14 +19,6 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $siteAdmin = new SITE_ADMIN();
 
-        $siteAdmin->getEncomendaPortariaInfo();
-        foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
-            if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
-                $nomeCondominio = $item['CFG_DCVALOR']; 
-                break; 
-            }
-        }  
-
         if (!isset($_POST['hash'])) {
             $message = "Erro: Nenhum código de liberação encontrado.";
             $messageType = "error";

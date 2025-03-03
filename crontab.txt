@@ -2,3 +2,4 @@
 
 ##verificação de veiculos estacionados de forma irregular nas vagas de visitante.
 0 */6 * * * curl -s https://parquedashortensias.codemaze.com.br/pages/ctrlVagasVisitante/cron_service_vagaCheck.php?token=7823645327643294789073204237642397498237423
+0 */3 * * * curl -s https://parquedashortensias.codemaze.com.br/pages/cron/checkWhats.php
