@@ -105,8 +105,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Cadastro de Convidado</h4>
-                                    <p class="text-muted font-14">Cadastre seu convidado e <strong style="color:rgb(197, 77, 157);">lembre-se de ativá-lo para 
-                                        garantir o acesso ao condomínio </strong> durante o uso do salão de festas.
+                                    <p class="text-muted font-14">Cadastre seu convidado e <spam style="color:rgb(197, 77, 157);">lembre-se de ativá-lo para 
+                                        garantir o acesso ao condomínio </spam> durante o uso do salão de festas.
                                     </p>
 
                                     <div class="tab-content">
@@ -150,8 +150,8 @@
                                                 </div>
  
 
-                                                <button class="btn btn-danger" style="background-color: #aa2ed8; color: white;" onclick="window.history.back()" type="button">Voltar</button>              
-                                                <button class="btn btn-primary" style="background-color: #21feae; color: black;" type="button" id="botao" name="botao">Salvar</button>
+                                                <button class="btn" style="background-color: #aa2ed8; color: white;" onclick="window.history.back()" type="button">Voltar</button>              
+                                                <button class="btn" style="background-color: #21feae; color: black;" type="button" id="botao" name="botao">Salvar</button>
                                             </form>
                                         </div> <!-- end preview-->
                                     </div> <!-- end tab-content-->
