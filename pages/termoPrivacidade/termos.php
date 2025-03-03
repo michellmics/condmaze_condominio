@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
                 <p><strong>Última atualização:</strong> 30/01/2025</p>
-                <p>A <strong>O2 Hall</strong> valoriza sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a LGPD.</p>
+                <p>A <strong>Codemaze</strong> valoriza sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a LGPD.</p>
 
                 <h5>1. Dados Coletados</h5>
                 <ul>
@@ -26,7 +26,7 @@
                 </ul>
 
                 <h5>3. Seus Direitos</h5>
-                <p>Você pode acessar, corrigir ou excluir seus dados conforme a LGPD. Entre em contato: <strong>suporte@O2hall.com</strong>.</p>
+                <p>Você pode acessar, corrigir ou excluir seus dados conforme a LGPD. Entre em contato: <strong>suporte@codemaze.com.br</strong>.</p>
 
                 <!-- Checkbox para aceitar os termos -->
                 <div class="form-check mt-3">

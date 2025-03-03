@@ -21,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
             $nomeCondominio = $item['CFG_DCVALOR']; 
         }
-        if ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
-            $dominio = $item['CFG_DCVALOR']; 
+        if ($item['CFG_DCPARAMETRO'] == 'DOMINIO' && !empty($item['CFG_DCVALOR'])) {
+            $dominio = $item['CFG_DCVALOR'];
         }
     }  
 
