@@ -104,6 +104,11 @@ ini_set('max_execution_time', '300');
             <div class="content">                
                 <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
 
+                <!-- Barra de progresso -->
+                <div id="progress-container" style="display: none; width: 100%; background: #aa2ed8; border-radius: 5px; margin-top: 10px;">
+                    <div id="progress-bar" style="width: 0%; height: 5px; background: #21ffae; border-radius: 5px;"></div>
+                </div>
+
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
@@ -191,11 +196,6 @@ ini_set('max_execution_time', '300');
 	
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
-
-<!-- Barra de progresso (inicialmente oculta) -->
-<div id="progress-container" style="display: none; width: 100%; background: #f3f3f3; border-radius: 5px; margin-top: 10px;">
-    <div id="progress-bar" style="width: 0%; height: 5px; background: #3085d6; border-radius: 5px;"></div>
-</div>
     
 <script>
     document.getElementById("botao").addEventListener("click", function() {
