@@ -134,7 +134,7 @@
 
 
                                                         <tr>
-                                                        <td class="align-middle"><?= htmlspecialchars(strtoupper($item['EPE_DCTITULO'])); ?></td>
+                                                            <td class="align-middle"><?= htmlspecialchars(mb_strtoupper($item['EPE_DCTITULO'], 'UTF-8')); ?></td>
                                                             <td class="align-middle"><?= htmlspecialchars(strtoupper($item['EPE_DCEVOL'])); ?>%</td>
                                                             <td class="align-middle"><?= htmlspecialchars($dataFormatPend); ?></td>
                                                             <td class="align-middle"><a href="https://parquedashortensias.codemaze.com.br/pages/pendenciasAndamento/insertPendencia.php?id=<?php echo $item['EPE_IDEVOLUCAO_PENDENCIA']; ?>" class="text-success"><i class="fas fa-edit"></i></a></td>       
