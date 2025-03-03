@@ -17,6 +17,8 @@ $status = 0;
 $MSG = "Olá, bom dia. Checagem de conexão com o Whatsapp concluída. *Operacional*";
 $response = $siteAdmin->whatsappApiSendMessage($MSG, $telefonePortaria);
 
+$response = json_decode($response, true);
+
 if (isset($response['status'])) {
     $status = $data['status']; // Captura apenas o status
 }
