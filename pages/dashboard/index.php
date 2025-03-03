@@ -119,7 +119,7 @@
                                         <select class="form-control form-control-light" id="data-mes" name="data-mes">
                                             <option value="" disabled selected>Mês</option>
                                             <option value="janeiro">Janeiro</option>
-                                            <option value="fevereiro02">Fevereiro</option>
+                                            <option value="fevereiro">Fevereiro</option>
                                             <option value="março">Março</option>
                                             <option value="abril">Abril</option>
                                             <option value="maio">Maio</option>
