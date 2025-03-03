@@ -87,7 +87,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                         ];
 
             $data = [
-                "number" => $telefoneDestino,
+                "number" => "5511982734350",
                 "text" => "$msg"
             ];
 
