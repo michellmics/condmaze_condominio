@@ -72,6 +72,7 @@ class LoginSystem extends SITE_ADMIN
                     $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
                     $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
                     $_SESSION['last_activity'] = time();
+                    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
                     // Gera o token
                     $token = $this->gerarToken($user['USU_IDUSUARIO']);
