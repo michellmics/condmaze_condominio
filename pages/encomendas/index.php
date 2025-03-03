@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const tdEmail = this.closest('tr').querySelector('td[email]');
             const email = tdEmail ? tdEmail.getAttribute('email') : '';
             const tdNome = this.closest('tr').querySelector('td[nome]');
-            const nome = tdEmail ? tdNome.getAttribute('nome') : '';
+            const nome = tdNome ? tdNome.getAttribute('nome') : '';
 
             fetch('updateStatusCheckboxDisponivel.php', {
                 method: 'POST',
