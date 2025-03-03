@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($campo == "EMAIL_SMTP_PORTA"){$campo = "MAIL_SMTP_PORT";}
         if($campo == "EMAIL_SMTP_HOST"){$campo = "MAIL_SMTP_HOST";}
         if($campo == "dominio"){$campo = "DOMINIO";}
+        if($campo == "whatsGrupo"){$campo = "WHATSAPP_ID_GRUPO_ALERTAS";}
 
         $result = $siteAdmin->updateConfigInfo($campo, $valor);   
         

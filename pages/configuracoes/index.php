@@ -29,6 +29,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_INSTANCIA')) {$whatsInstancia = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_ENDPOINT')) {$whatsEndpoint = $item['CFG_DCVALOR'];} 
       if (trim($item['CFG_DCPARAMETRO'] == 'TELEFONE_PORTARIA')) {$whatsportaria = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_ID_GRUPO_ALERTAS')) {$whatsGrupo = $item['CFG_DCVALOR'];} 
 
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN')) {$whatsToken = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];} 
@@ -135,6 +136,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                   "whatsEndpoint" => ["label" => "Whatsapp Endpoint", "pattern" => ".*", "maxlength" => "20", "value" => $whatsEndpoint],
                                                   "whatsInstancia" => ["label" => "Whatsapp Instância", "pattern" => ".*", "maxlength" => "50", "value" => $whatsInstancia],
                                                   "whatsToken" => ["label" => "Whatsapp Token", "pattern" => ".*", "maxlength" => "50", "value" => $whatsToken],
+                                                  "whatsGrupo" => ["label" => "Whatsapp ID Grupo Destino de Alertas", "pattern" => ".*", "maxlength" => "50", "value" => $whatsGrupo],
                                                     
                                                     "idioma" => [
                                                         "label" => "Idioma do App",
