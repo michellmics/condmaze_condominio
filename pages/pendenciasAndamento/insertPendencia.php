@@ -191,6 +191,11 @@ ini_set('max_execution_time', '300');
 	
     <!-- Layout Configuration -->	
     <?php include '../../src/layoutConfig.php'; ?>
+
+<!-- Barra de progresso (inicialmente oculta) -->
+<div id="progress-container" style="display: none; width: 100%; background: #f3f3f3; border-radius: 5px; margin-top: 10px;">
+    <div id="progress-bar" style="width: 0%; height: 5px; background: #3085d6; border-radius: 5px;"></div>
+</div>
     
 <script>
     document.getElementById("botao").addEventListener("click", function() {
@@ -215,21 +220,45 @@ ini_set('max_execution_time', '300');
                 if (result.isConfirmed) {
                     let xhr = new XMLHttpRequest();
                     xhr.open("POST", "insertPendenciaProc.php", true);
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            let response = xhr.responseText;
 
-                            Swal.fire({
-                                title: 'Sucesso!',
-                                text: response, 
-                                icon: 'success'
-                            }).then(() => {
-                                form.reset();
-                                window.history.back();
-                            });
+
+                    let progressContainer = document.getElementById("progress-container");
+                    let progressBar = document.getElementById("progress-bar");
+                    progressContainer.style.display = "block";
+                    progressBar.style.width = "0%";
+
+ 
+                    let progress = 0;
+                    let progressInterval = setInterval(() => {
+                        if (progress < 95) {
+                            progress += 5;
+                            progressBar.style.width = progress + "%";
+                        }
+                    }, 200);
+
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            clearInterval(progressInterval); 
+                            progressBar.style.width = "100%"; 
+
+                            setTimeout(() => {
+                                progressContainer.style.display = "none"; 
+                            }, 500);
+
+                            if (xhr.status === 200) {
+                                let response = xhr.responseText;
+                                Swal.fire({
+                                    title: 'Sucesso!',
+                                    text: response, 
+                                    icon: 'success'
+                                }).then(() => {
+                                    form.reset();
+                                    window.history.back();
+                                });
+                            }
                         }
                     };
-                    xhr.send(formData); 
+                    xhr.send(formData);
                 }
             });
         } else {
