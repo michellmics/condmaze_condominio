@@ -24,6 +24,8 @@ foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         $nomeCondominio = $item['CFG_DCVALOR']; 
     } elseif ($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS') {
         $EMAIL = $item['CFG_DCVALOR']; 
+    } elseif ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
+        $dominio = $item['CFG_DCVALOR']; 
     } elseif ($item['CFG_DCPARAMETRO'] == 'ESTACIONAMENTO_VISITANTES_TOLERANCIA') {
         $toleranciaEstacionamento = (int) $item['CFG_DCVALOR']; // Garante que seja um número
     }
@@ -98,6 +100,10 @@ foreach ($slots as $id => $slot) {
         //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
         $siteAdmin->insertNotificacaoFront("Veiculo Irregular", "Estacionamento de Visitantes", "PORTARIA");
         $siteAdmin->insertNotificacaoFront("Veiculo Irregular", "Estacionamento de Visitantes", "SINDICO");
+
+        $msgWhatsapp = "Olá Sindico(a),\n\n"
+        . "O veículo modelo $veiculoI com placa $placaI sob responsabilidade do apartamento $apartamentoI está no estacionamento de visitantes há mais de $toleranciaEstacionamento dias.";       
+        $siteAdmin->whatsappApiSendMessage($msgWhatsapp, $telefone);
 
         $contadorVeiculo++;
     }

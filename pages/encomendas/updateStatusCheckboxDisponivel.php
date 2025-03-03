@@ -17,14 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $siteAdmin = new SITE_ADMIN();
     $siteAdmin->getParameterInfo();
     
+
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
             $nomeCondominio = $item['CFG_DCVALOR']; 
+        } elseif ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
+            $dominio = $item['CFG_DCVALOR']; 
         }
-        if ($item['CFG_DCPARAMETRO'] == 'DOMINIO' && !empty($item['CFG_DCVALOR'])) {
-            $dominio = $item['CFG_DCVALOR'];
-        }
-    }  
+    }
 
 
     if ($id && $status) {        
