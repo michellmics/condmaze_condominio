@@ -63,7 +63,8 @@ class registerPendencia extends SITE_ADMIN
                         . "*Título:* `$titulo`\n"
                         . "*Evolução:* `$evol`%\n\n"
                         . "Para visualizar mais detalhes, acesse:\n\n"
-                        . "https://$dominio/pages/login/index.php";
+                        . "https://$dominio/pages/login/index.php\n\n\n"
+                        . "Codemaze - Sistema de Notificação";
                             
                            
                         $this->whatsappApiSendMessage($MSG, $grupoWhatsId);
