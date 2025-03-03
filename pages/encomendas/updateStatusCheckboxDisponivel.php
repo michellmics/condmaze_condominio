@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
         if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
             $nomeCondominio = $item['CFG_DCVALOR']; 
-            break; 
+        }
+        if ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
+            $dominio = $item['CFG_DCVALOR']; 
         }
     }  
 
@@ -33,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $MSG = "Olá *$nome*,\n\n"
         . "A portaria do *$nomeCondominio* acaba de *DISPONIBILIZAR* para retirada uma encomenda que chegou para você!\n\n"
         . "📦 *Código da Encomenda:* `$id`\n\n"
-        . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n"
-        . "🔗 https://parquedashortensias.codemaze.com.br/pages/api/api_encomenda.php?hash=$hash";
+        . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n\n"
+        . "https://$dominio/pages/api/api_encomenda.php?hash=$hash";
             
            
             $returnWhats = $siteAdmin->whatsappApiSendMessage($MSG, $telefone);

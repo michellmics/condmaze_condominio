@@ -24,6 +24,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
 
       if (trim($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS')) {$email = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_STATUS')) {$whatsStatus = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'DOMINIO')) {$dominio = $item['CFG_DCVALOR'];} 
 
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_INSTANCIA')) {$whatsInstancia = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_ENDPOINT')) {$whatsEndpoint = $item['CFG_DCVALOR'];} 
@@ -127,6 +128,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                   "nomeCondominio" => ["label" => "Nome do Condomínio", "pattern" => ".*", "maxlength" => "50", "value" => $nomeCondominio],
                                                   "qtdeUnidades" => ["label" => "Quantidade de Unidades", "pattern" => "^[0-9]{1,4}$", "maxlength" => "4", "value" => $qtdeUnidades],
                                                   "email" => ["label" => "E-mail para Notificações", "pattern" => ".*", "maxlength" => "50", "value" => $email],
+                                                  "dominio" => ["label" => "Domínio do Sistema (sem http ou https)", "pattern" => ".*", "maxlength" => "50", "value" => $dominio],
                                                   "whatsStatus" => ["label" => "Whatsapp Status (ATIVO INATIVO)", "pattern" => "^[0-9]*$", "maxlength" => "10", "value" => $whatsStatus],
                                                   "whatsSindico" => ["label" => "Whatsapp Telefone Síndico", "pattern" => ".*", "maxlength" => "20", "value" => $whatsSindico],
                                                   "whatsportaria" => ["label" => "Whatsapp Telefone Portaria", "pattern" => ".*", "maxlength" => "20", "value" => $whatsportaria],
@@ -178,8 +180,6 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                                         this.value = this.value.replace(/[^0-9]/g, '');
                                                                     <?php elseif ($id === 'qtdeUnidades') : ?>
                                                                         this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);
-                                                                    <?php elseif ($id === 'ipPortaria') : ?>
-                                                                        this.value = this.value.replace(/[^0-9.]/g, '');
                                                                     <?php endif; ?>
                                                                 " 
                                                                 required 
