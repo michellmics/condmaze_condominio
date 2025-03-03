@@ -1924,11 +1924,20 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $this->conexao();
             }
 
+            $sql = "SELECT * FROM ENC_ENCOMENDA WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA AND ENC_STENTREGA_MORADOR = 'ENTREGUE'";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
+            $stmt->execute();   
+
+            if ($stmt->fetch(PDO::FETCH_ASSOC)) {
+                return "Já retirado";
+            }
+
             $ENC_STENTREGA_MORADOR = "A RETIRAR";
 
             try
             {         
-                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA AND ENC_DTENTREGA_MORADOR != 'ENTREGUE'";
+                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 

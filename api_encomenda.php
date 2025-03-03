@@ -29,22 +29,32 @@
             $userInfo = $siteAdmin->getUserInfoEncomenda($HASH); 
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
-            
-            if (isset($userInfo['USU_DCTELEFONE'])) {
-                $telefone = $userInfo['USU_DCTELEFONE'];
-                $encomendaId = $userInfo['ENC_IDENCOMENDA'];
-                $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
+            if($response == "Já retirado")
+            {
 
-                $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
-                $siteAdmin->whatsappApiSendMessage($messageWhats, $telefone);
-
-                $message = "Uhull!!! Encomenda liberada com sucesso!";
-                $messageType = "success";
-                $showButton = false; 
-            } else {
-                $message = "Ah não!!! Houve um erro durante a liberação! Dirija-se à portaria.";
+                $message = "Erro: Esta encomenda já foi entregue pela portaria.";
                 $messageType = "error";
+                $showButton = false; 
             }
+            else
+                {
+                
+                    if (isset($userInfo['USU_DCTELEFONE'])) {
+                        $telefone = $userInfo['USU_DCTELEFONE'];
+                        $encomendaId = $userInfo['ENC_IDENCOMENDA'];
+                        $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
+
+                        $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
+                        $siteAdmin->whatsappApiSendMessage($messageWhats, $telefone);
+
+                        $message = "Uhull!!! Encomenda liberada com sucesso!";
+                        $messageType = "success";
+                        $showButton = false; 
+                    } else {
+                        $message = "Ah não!!! Houve um erro durante a liberação! Dirija-se à portaria.";
+                        $messageType = "error";
+                    }
+                }
         }
     }
 ?> 
