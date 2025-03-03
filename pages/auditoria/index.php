@@ -99,7 +99,7 @@
                                                         <th>APTO</th>
                                                         <th>TIPO</th>
                                                         <th>COD</th>
-                                                        <th>MSG</th>                                                        
+                                                        <th>MSG</th>                                                         
                                                     </tr>
                                                 </thead>
                                                 <tbody>
