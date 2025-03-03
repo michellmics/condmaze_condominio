@@ -187,7 +187,7 @@
                 },
                 annotations: {
                     yaxis: [{
-                        y: 10,  // Limiar no valor Y (ajuste conforme necessário)
+                        y: 10,  // Limiar no valor Y (ajuste conforme necessário )
                         borderColor: '#FF0000',  // Cor da linha (vermelho) 
                         label: {
                             text: 'Meta Inadimplência 10%',  // Texto da anotaçãooo
