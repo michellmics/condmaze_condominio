@@ -1455,30 +1455,6 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
-        public function deleteAvaliacaoPrestadorInfo($APS_IDAVALIACAO_PRESTADOR)
-        {       
-            // Verifica se a conexão já foi estabelecida
-            if (!$this->pdo) {
-                $this->conexao();
-            }
-
-            try {
-                $sql = "DELETE FROM APS_AVALIACAO_PRESTADOR WHERE APS_IDAVALIACAO_PRESTADOR = :APS_IDAVALIACAO_PRESTADOR";
-
-                $stmt = $this->pdo->prepare($sql);
-            
-                // Liga os parâmetros aos valores
-                $stmt->bindParam(':APS_IDAVALIACAO_PRESTADOR', $APS_IDAVALIACAO_PRESTADOR, PDO::PARAM_STR);
-                $stmt->execute();
-            
-                // Retorna uma mensagem de sucesso (opcional)
-                return ["success" => "Avaliação deletada com sucesso."];
-            } catch (PDOException $e) {
-                // Captura e retorna o erro
-                return ["error" => $e->getMessage()];
-            }
-        }
-
         public function deleteArtigoInfo($INA_IDINSTRUCOES_ADEQUACOES)
         {       
             // Verifica se a conexão já foi estabelecida
@@ -1575,36 +1551,6 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
-        public function deletePrestadorInfo($ID)
-        {       
-            // Verifica se a conexão já foi estabelecida
-            if (!$this->pdo) {
-                $this->conexao();
-            }
-
-            try {
-
-                $this->pdo->beginTransaction();
-
-                $sql = "DELETE FROM APS_AVALIACAO_PRESTADOR WHERE PDS_IDPRESTADOR_SERVICO = :ID";
-                $stmt = $this->pdo->prepare($sql);            
-                // Liga os parâmetros aos valores
-                $stmt->bindParam(':ID', $ID, PDO::PARAM_STR);
-                $stmt->execute();  
-
-                $sql = "DELETE FROM PDS_PRESTADORE_SERVICO WHERE PDS_IDPRESTADOR_SERVICO = :ID";
-                $stmt = $this->pdo->prepare($sql);            
-                // Liga os parâmetros aos valores
-                $stmt->bindParam(':ID', $ID, PDO::PARAM_STR);
-                $stmt->execute();                   
-                
-                $this->pdo->commit();
-
-            } catch (PDOException $e) {
-                $this->pdo->rollBack();
-                return ["error" => $e->getMessage()];
-            }
-        }
 
         public function deleteEncomenda($ENC_IDENCOMENDA)
         {       
@@ -1711,37 +1657,6 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             
                 // Retorna uma mensagem de sucesso (opcional)
                 return ["success" => "Avaliação cadastrada com sucesso."];
-            } catch (PDOException $e) {
-                // Captura e retorna o erro
-                return ["error" => $e->getMessage()];
-            }
-        }
-
-        public function insertEmpresaPrestadorInfo($PDS_DCNOME, $PDS_DCCATEGORIA, $PDS_DCTELEFONE, $PDS_DCCIDADE)
-        {       
-            // Verifica se a conexão já foi estabelecida
-            if (!$this->pdo) {
-                $this->conexao();
-            }
-
-
-            try {
-                $sql = "INSERT INTO PDS_PRESTADORE_SERVICO 
-                        (PDS_DCNOME, PDS_DCCATEGORIA, PDS_DCTELEFONE, PDS_DCCIDADE) 
-                        VALUES (:PDS_DCNOME, :PDS_DCCATEGORIA, :PDS_DCTELEFONE, :PDS_DCCIDADE)";
-
-                $stmt = $this->pdo->prepare($sql);
-            
-                // Liga os parâmetros aos valores
-                $stmt->bindParam(':PDS_DCNOME', $PDS_DCNOME, PDO::PARAM_STR);
-                $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
-                $stmt->bindParam(':PDS_DCTELEFONE', $PDS_DCTELEFONE, PDO::PARAM_STR);
-                $stmt->bindParam(':PDS_DCCIDADE', $PDS_DCCIDADE, PDO::PARAM_STR);                
-            
-                $stmt->execute();
-            
-                // Retorna uma mensagem de sucesso (opcional)
-                return ["success" => "Prestador de Serviço cadastrado com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];
