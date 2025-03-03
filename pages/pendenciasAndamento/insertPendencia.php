@@ -104,10 +104,21 @@ ini_set('max_execution_time', '300');
             <div class="content">                
                 <div class="container-fluid"><!-- INICIO CONTEUDO CONTAINER -->
 
-                <!-- Barra de progresso -->
-                <div id="progress-container" style="display: none; width: 100%; background: #aa2ed8; border-radius: 5px; margin-top: 10px;">
-                    <div id="progress-bar" style="width: 0%; height: 5px; background: #21ffae; border-radius: 5px;"></div>
-                </div>
+                    <!-- Ini Barra de progresso -->
+                    <div id="progress-overlay" style="display: none; 
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
+                        display: flex; justify-content: center; align-items: center;
+                        z-index: 9999;">
+                        <div id="progress-container" style="width: 50%; max-width: 400px; background: #aa2ed8; 
+                            border-radius: 10px; padding: 15px; text-align: center;">
+                            <p style="color: white; margin-bottom: 10px;">Carregando...</p>
+                            <div style="width: 100%; background: #444; border-radius: 5px; overflow: hidden;">
+                                <div id="progress-bar" style="width: 0%; height: 10px; background: #21ffae; transition: width 0.2s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIm Barra de progresso -->
 
                     <!-- start page title -->
                     <div class="row">
