@@ -1924,15 +1924,6 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $this->conexao();
             }
 
-            $sql = "SELECT * FROM ENC_ENCOMENDA WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA AND ENC_STENTREGA_MORADOR = 'ENTREGUE'";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
-            $stmt->execute();   
-
-            if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-                return "Já retirado";
-            }
-
             $ENC_STENTREGA_MORADOR = "A RETIRAR";
 
             try
@@ -1968,7 +1959,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         
             try {           
-                $sql = "SELECT USU.USU_DCTELEFONE, ENC.ENC_IDENCOMENDA, USU.USU_DCNOME
+                $sql = "SELECT USU.USU_DCTELEFONE, ENC.ENC_IDENCOMENDA, USU.USU_DCNOME, ENC.ENC_STENTREGA_MORADOR
                         FROM ENC_ENCOMENDA ENC
                         INNER JOIN USU_USUARIO USU ON (USU.USU_IDUSUARIO = ENC.USU_IDUSUARIO)
                         WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA";
@@ -1983,7 +1974,8 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                     return [
                         'USU_DCTELEFONE' => $result['USU_DCTELEFONE'],
                         'ENC_IDENCOMENDA' => $result['ENC_IDENCOMENDA'],
-                        'USU_DCNOME' => $result['USU_DCNOME']
+                        'USU_DCNOME' => $result['USU_DCNOME'],
+                        'ENC_STENTREGA_MORADOR' => $result['ENC_STENTREGA_MORADOR']
                     ];
                 } else { 
                     return "0";

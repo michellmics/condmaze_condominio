@@ -29,32 +29,41 @@
             $userInfo = $siteAdmin->getUserInfoEncomenda($HASH); 
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
-            if($response == "Já retirado")
+
+                
+            
+            
+            if (isset($userInfo['USU_DCTELEFONE'])) 
             {
 
-                $message = "Erro: Esta encomenda já foi entregue pela portaria.";
-                $messageType = "error";
-                $showButton = false; 
-            }
-            else
+                $telefone = $userInfo['USU_DCTELEFONE'];
+                $encomendaId = $userInfo['ENC_IDENCOMENDA'];
+                $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
+
+                if($userInfo['ENC_STENTREGA_MORADOR'] == "ENTREGUE")
                 {
-                
-                    if (isset($userInfo['USU_DCTELEFONE'])) {
-                        $telefone = $userInfo['USU_DCTELEFONE'];
-                        $encomendaId = $userInfo['ENC_IDENCOMENDA'];
-                        $usuarioNome = ucwords(strtolower($userInfo['USU_DCNOME']));
+                    $message = "Erro: Sua encomenda já foi entregue.";
+                    $messageType = "error";
+                    $showButton = false; 
 
-                        $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
-                        $siteAdmin->whatsappApiSendMessage($messageWhats, $telefone);
-
+                    $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* já foi entregue. Em caso de dúvidas, verifique com a portaria.";
+                    $siteAdmin->whatsappApiSendMessage($messageWhats, $telefone);
+                }
+                else
+                    {
                         $message = "Uhull!!! Encomenda liberada com sucesso!";
                         $messageType = "success";
                         $showButton = false; 
-                    } else {
-                        $message = "Ah não!!! Houve um erro durante a liberação! Dirija-se à portaria.";
-                        $messageType = "error";
+
+                        $messageWhats = "Olá *$usuarioNome*, a encomenda com ID *$encomendaId* foi liberada com sucesso.";
+                        $siteAdmin->whatsappApiSendMessage($messageWhats, $telefone);
                     }
-                }
+
+            } else {
+                $message = "Ah não!!! Houve um erro durante a liberação! Por favor, dirija-se à portaria.";
+                $messageType = "error";
+            }
+                
         }
     }
 ?> 
@@ -62,22 +71,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liberação de Encomenda</title>
-
-    <!-- Ícones do PWA -->
-    <link rel="icon" href="img_pwa/logo_icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="img_pwa/logo_icon.png">
-
-    <!-- Configurações do PWA -->
-    <meta name="apple-mobile-web-app-title" content="Hortênsias">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#ffffff">
-
-    <!-- Manifest JSON -->
-    <link rel="manifest" href="/manifest.json">
+    <!-- HEAD META BASIC LOAD-->
+	<?php include 'src/headMeta.php'; ?>
+	<!-- HEAD META BASIC LOAD -->
 
     <style>
         body {
