@@ -563,18 +563,32 @@ document.addEventListener('DOMContentLoaded', function () {
             const hash = tdHash ? tdHash.getAttribute('hash') : '';
             const tdEmail = this.closest('tr').querySelector('td[email]');
             const email = tdEmail ? tdEmail.getAttribute('email') : '';
+            const tdNome = this.closest('tr').querySelector('td[nome]');
+            const nome = tdNome ? tdNome.getAttribute('nome') : '';
 
             fetch('updateStatusCheckboxDisponivel.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id, status, hash, idUser, email })
+                body: JSON.stringify({ id, status, hash, idUser, email, nome })
             })
-            .catch(error => console.error('Erro:', error))
-            .finally(() => {
-               //window.location.href = "index.php";
-            });
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(data => {
+                console.log('Resposta do servidor:', data); // Exibe no console
+
+                // Exibe a resposta na tela (alert)
+                alert(`Status atualizado: ${data.message || 'Sucesso'}`);
+
+                // Se quiser exibir em um elemento na página:
+                const statusMessage = document.getElementById('statusMessage');
+                if (statusMessage) {
+                    statusMessage.textContent = `Status atualizado: ${data.message || 'Sucesso'}`;
+                }
+            })
+            .catch(error => console.error('Erro:', error));
         });
     });
+});
+
 
     // Switch ENTREGUE
     const switchesEntregue = document.querySelectorAll('input[type="checkbox"][data-switch="entregue"]');
