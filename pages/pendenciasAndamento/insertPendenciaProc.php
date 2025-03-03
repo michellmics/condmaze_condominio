@@ -67,7 +67,7 @@ class registerPendencia extends SITE_ADMIN
                         . "Codemaze - Sistema de Notificação";
                             
                            
-                        $this->whatsappApiSendMessage($MSG, $grupoWhatsId);
+                        $this->whatsappApiSendMessage($MSG, $grupoWhatsId, "grupo");
                          
                         echo "Pendência cadastrada com sucesso."; 
                     }
@@ -85,7 +85,7 @@ class registerPendencia extends SITE_ADMIN
                             . "https://$dominio/pages/login/index.php\n\n\n"
                             . "Codemaze - Sistema de Notificação";
 
-                            $this->whatsappApiSendMessage($MSG, $grupoWhatsId);
+                            $this->whatsappApiSendMessage($MSG, $grupoWhatsId, "grupo");
 
                             echo "Pendência atualizada com sucesso."; 
                     }

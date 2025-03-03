@@ -62,7 +62,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             } 
         }
 
-        function whatsappApiSendMessage($msg, $telefone)
+        function whatsappApiSendMessage($msg, $telefone, $target = "telefone")
         {
             
             $this->getParameterInfo();  
@@ -78,7 +78,14 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 }
             } 
 
-            $telefoneDestino = "55$telefone";
+            if($target == "telefone") 
+            {
+                $telefoneDestino = "55$telefone";
+            }
+            if($target == "grupo") 
+            {
+                $telefoneDestino = "$telefone";
+            }
             
             $url = "$endpoint/message/sendText/$instancia";
 
