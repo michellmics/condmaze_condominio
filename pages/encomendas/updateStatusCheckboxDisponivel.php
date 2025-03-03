@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      . "A portaria do *$nomeCondominio* acaba de *DISPONIBILIZAR* para retirada uma encomenda que chegou para você!\n\n"
      . "📦 *Código da Encomenda:* `$id`\n\n"
      . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n"
-     . "🔗 https://parquedashortensias.codemaze.com.br/api_encomenda.php?hash=$hash";
+     . "🔗 https://parquedashortensias.codemaze.com.br/pages/api/api_encomenda.php?hash=$hash";
             
 
             $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
