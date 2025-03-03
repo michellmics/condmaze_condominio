@@ -574,7 +574,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json()) // Converte a resposta para JSON
             .then(data => {
                 console.log('Resposta do servidor:', data); // Exibe no console
-
                 // Exibe a resposta na tela (alert)
                 alert(`Status atualizado: ${data.message || 'Sucesso'}`);
 

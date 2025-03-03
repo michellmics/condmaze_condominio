@@ -31,18 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         {
             $ASSUNTO = "NOVA ENCOMENDA: Uhuuul Chegou uma encomenda para Você. - $nomeCondominio";
             $MSG = "Olá *$nome*,\n\n"
-     . "A portaria do *$nomeCondominio* acaba de *DISPONIBILIZAR* para retirada uma encomenda que chegou para você!\n\n"
-     . "📦 *Código da Encomenda:* `$id`\n\n"
-     . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n"
-     . "🔗 https://parquedashortensias.codemaze.com.br/pages/api/api_encomenda.php?hash=$hash";
+        . "A portaria do *$nomeCondominio* acaba de *DISPONIBILIZAR* para retirada uma encomenda que chegou para você!\n\n"
+        . "📦 *Código da Encomenda:* `$id`\n\n"
+        . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n"
+        . "🔗 https://parquedashortensias.codemaze.com.br/pages/api/api_encomenda.php?hash=$hash";
             
-
-            $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
+           if($telefone =="")
+           {
+                $returnWhats = "O morador NÃO FOI notificado por Whatsapp. Não há telefone cadastrado.";
+           }
+           else
+                {
+                    $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
+                    $returnWhats = "O morador FOI notificado por Whatsapp com sucesso.";
+                }
+            
+                echo json_encode(['success' => $returnWhats]);
 
             //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
             //$siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);
         }
-        echo json_encode(['success' => $result]);
+        
 
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);
