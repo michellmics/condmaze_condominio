@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($status == "DISPONIVEL")
         {
             $ASSUNTO = "NOVA ENCOMENDA: Uhuuul Chegou uma encomenda para Você. - $nomeCondominio";
-            $MSG = "Olá *$nome*,
-            A portaria do $nomeCondominio acaba de liberar para retirada uma encomenda que chegou para você!
-            Para retirar, acesse o portal na seção *Encomendas Disponíveis Para Retirada* Marque a opção *RETIRAR* como *SIM* e dirija-se a portaria.
+            $MSG = "Olá *$nome*,\n\n"
+     . "A portaria do *$nomeCondominio* acaba de *DISPONIBILIZAR* para retirada uma encomenda que chegou para você!\n\n"
+     . "📦 *Código da Encomenda:* `$id`\n\n"
+     . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n"
+     . "🔗 [Clique aqui](https://parquedashortensias.codemaze.com.br/pages/encomendas/index.php)";
             
-            Atenciosamente,
-            $nomeCondominio";
 
             $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
 
