@@ -36,22 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         . "Para retirar, dirija-se à portaria e clique no link abaixo para liberar a encomenda:\n"
         . "🔗 https://parquedashortensias.codemaze.com.br/pages/api/api_encomenda.php?hash=$hash";
             
-           if($telefone =="")
-           {
-                $returnWhats = "O morador NÃO FOI notificado por Whatsapp. Não há telefone cadastrado.";
-           }
-           else
-                {
-                    $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
-                    $returnWhats = "O morador FOI notificado por Whatsapp com sucesso.";
-                }
-            
-                echo json_encode(['success' => $returnWhats]);
+           
+            $returnWhats = $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
 
             //nivel: TODOS, MORADOR, SINDICO OU PORTARIA
             //$siteAdmin->insertNotificacaoFrontByUsuario("Encomenda Chegou!", "Encomenda dísponivel na portaria", $idUser);
         }
-        
+        echo json_encode(['success' => "Notificação enviada"]);
 
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos.']);

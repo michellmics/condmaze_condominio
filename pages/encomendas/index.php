@@ -565,19 +565,21 @@ document.addEventListener('DOMContentLoaded', function () {
             const email = tdEmail ? tdEmail.getAttribute('email') : '';
             const tdNome = this.closest('tr').querySelector('td[nome]');
             const nome = tdNome ? tdNome.getAttribute('nome') : '';
+            const tdTelefone = this.closest('tr').querySelector('td[telefone]');
+            const telefone = tdTelefone ? tdTelefone.getAttribute('telefone') : '';
 
             fetch('updateStatusCheckboxDisponivel.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id, status, hash, idUser, email, nome })
+                body: JSON.stringify({ id, status, hash, idUser, email, nome, telefone })
             })
             .then(response => response.json()) // Converte a resposta para JSON
             .then(data => {
-                console.log('Resposta do servidor:', data); // Exibe no console
+
                 // Exibe a resposta na tela (alert)
                 alert(`Status atualizado: ${data.message || 'Sucesso'}`);
 
-            }) // **Fechei corretamente o .then**
+             }) // **Fechei corretamente o .then**
             .catch(error => console.error('Erro:', error))
             .finally(() => {
                //window.location.href = "index.php";
