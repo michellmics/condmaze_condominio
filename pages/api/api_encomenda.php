@@ -1,6 +1,4 @@
 <?php
-    ini_set('display_errors', 1);  
-    error_reporting(E_ALL);        
     include_once "../../objects/objects.php";
 
     $message = ""; 
@@ -21,6 +19,14 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $siteAdmin = new SITE_ADMIN();
 
+        $siteAdmin->getEncomendaPortariaInfo();
+        foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+            if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+                $nomeCondominio = $item['CFG_DCVALOR']; 
+                break; 
+            }
+        }  
+
         if (!isset($_POST['hash'])) {
             $message = "Erro: Nenhum código de liberação encontrado.";
             $messageType = "error";
@@ -29,9 +35,6 @@
             $userInfo = $siteAdmin->getUserInfoEncomenda($HASH); 
             $response = $siteAdmin->updateCheckboxEncomendasMoradorByApi($HASH);
 
-
-                
-            
             
             if (isset($userInfo['USU_DCTELEFONE'])) 
             {

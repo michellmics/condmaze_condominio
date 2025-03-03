@@ -2109,6 +2109,37 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
+        public function updateWhatsappAPIStatus($CFG_DCVALOR)
+        {
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try
+            {         
+                $sql = "UPDATE CFG_CONFIGURACAO SET CFG_DCVALOR = :CFG_DCVALOR WHERE CFG_DCPARAMETRO = 'WHATSAPP_STATUS'";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':CFG_DCVALOR', $CFG_DCVALOR, PDO::PARAM_STR);
+                $stmt->execute();     
+
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "UPDATE";
+                $LOG_DCMSG = "Status da API do Whatsapp foi alterada para $CFG_DCVALOR";
+                $LOG_DCUSUARIO = "SISTEMA";
+                $LOG_DCCODIGO = "N/A";
+                $LOG_DCAPARTAMENTO = "";
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+                //--------------------LOG----------------------//
+
+                return ["success" => "Status API Whatsapp atualizado com sucesso."];
+
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function updateCheckboxEncomendasPortaria($ENC_IDENCOMENDA, $ENC_STENTREGA_MORADOR)
         {
             // Verifica se a conexão já foi estabelecida
