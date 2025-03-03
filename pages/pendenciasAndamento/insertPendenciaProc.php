@@ -16,6 +16,17 @@ class registerPendencia extends SITE_ADMIN
                 $this->conexao();
             }
 
+            foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
+                if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
+                    $nomeCondominio = $item['CFG_DCVALOR']; 
+                } elseif ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
+                    $dominio = $item['CFG_DCVALOR']; 
+                } elseif ($item['CFG_DCPARAMETRO'] == 'WHATSAPP_ID_GRUPO_ALERTAS') {
+                    $grupoWhatsId = $item['CFG_DCVALOR']; 
+                }
+            }
+        
+
             // Prepara a consulta SQL para verificar o usuário
             $sql = "SELECT EPE_DCTITULO FROM EPE_EVOLUCAO_PENDENCIA WHERE EPE_DCTITULO = :EPE_DCTITULO";
             $stmt = $this->pdo->prepare($sql);
@@ -36,21 +47,42 @@ class registerPendencia extends SITE_ADMIN
                         $this->insertNotificacaoFront("Nova Pendência", $titulo, "TODOS");
                         $result = $this->insertPendenciaInfo($titulo, $evol, $obs);
                         
-                        /*                      
+                                              
                         //--------------------LOG----------------------//
-                        $LOG_DCTIPO = "NOVO CADASTRO";
-                        $LOG_DCMSG = "O usuário $nome foi cadastrado com sucesso com credenciais de $nivel.";
-                        $LOG_DCUSUARIO = $_SESSION['user_id'];
-                        $LOG_DCAPARTAMENTO = $apartamento;
+                        $LOG_DCTIPO = "NOTIFICAÇÃO";
+                        $LOG_DCMSG = "Pendência cadastrada com sucesso - Título: $titulo Evolução: $evol";
+                        $LOG_DCUSUARIO = 'N/A';
+                        $LOG_DCAPARTAMENTO = 'N/A';
                         $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
                         //--------------------LOG----------------------//
-                        */  
+
+                        $MSG = "Olá *Vizinhos*,\n\n"
+                        . "O Síndico(a) do *$nomeCondominio* acaba de cadastrar uma nova atividade (pendência) para acompanhamento!\n\n"
+                        . "*Título:* `$titulo`\n"
+                        . "*Evolução:* `$evol`%\n\n"
+                        . "Para visualizar mais detalhes, acesse:\n\n"
+                        . "https://$dominio/pages/login/index.php";
+                            
+                           
+                        $this->whatsappApiSendMessage($MSG, $grupoWhatsId);
+                         
                         echo "Pendência cadastrada com sucesso."; 
                     }
                     if($metodo == "update")
                     {
                             $result = $this->updatePendenciaInfo($titulo, $evol, $obs, $id);
                             $this->insertNotificacaoFront("Atualização Pendência", $titulo, "TODOS");
+
+
+                            $MSG = "Olá *Vizinhos*,\n\n"
+                            . "O Síndico(a) do *$nomeCondominio* acaba de atualizar a atividade (pendência) listada abaixo:\n\n"
+                            . "*Título:* `$titulo`\n"
+                            . "*Evolução:* `$evol`%\n\n"
+                            . "Para visualizar mais detalhes, acesse:\n\n"
+                            . "https://$dominio/pages/login/index.php";
+
+                            $this->whatsappApiSendMessage($MSG, $grupoWhatsId);
+
                             echo "Pendência atualizada com sucesso."; 
                     }
                     
