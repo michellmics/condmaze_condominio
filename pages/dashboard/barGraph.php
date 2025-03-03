@@ -1,6 +1,15 @@
 <?php
-    ini_set('display_errors', 1);  // Habilita a exibição de erros
-    error_reporting(E_ALL);        // Reporta todos os erros
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+function forbiddenResponse() {
+    http_response_code(403);
+    die('Acesso não autorizado.');
+}
+if (!isset($_SESSION['csrf_token'])) {
+    forbiddenResponse();
+}
+
     header('Content-Type: application/json');
 
 	include_once '../../objects/objects_chart.php'; 

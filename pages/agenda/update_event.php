@@ -1,7 +1,21 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+function forbiddenResponse() {
+    http_response_code(403);
+    die('Acesso não autorizado.');
+}
+if (!isset($_SESSION['csrf_token'])) {
+    forbiddenResponse();
+}
+
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 include_once "../../objects/objects.php";
+
+
 
 // Instancia a classe SITE_ADMIN e chama a função de conexão
 $admin = new SITE_ADMIN();
