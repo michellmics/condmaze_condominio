@@ -176,7 +176,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                                 pattern="<?= isset($data['pattern']) ? $data['pattern'] : '.*'; ?>" 
                                                                 maxlength="<?= isset($data['maxlength']) ? $data['maxlength'] : '255'; ?>" 
                                                                 oninput="
-                                                                    <?php if ($id === 'whatsSender' || $id === 'whatsToken') : ?>
+                                                                    <?php if ($id === 'EMAIL_SMTP_PORTA') : ?>
                                                                         this.value = this.value.replace(/[^0-9]/g, '');
                                                                     <?php elseif ($id === 'qtdeUnidades') : ?>
                                                                         this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);
