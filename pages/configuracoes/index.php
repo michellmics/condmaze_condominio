@@ -130,8 +130,8 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
                                                   "whatsStatus" => ["label" => "Whatsapp Status (ATIVO INATIVO)", "pattern" => "^[0-9]*$", "maxlength" => "10", "value" => $whatsStatus],
                                                   "whatsSindico" => ["label" => "Whatsapp Telefone Síndico", "pattern" => ".*", "maxlength" => "20", "value" => $whatsSindico],
                                                   "whatsportaria" => ["label" => "Whatsapp Telefone Portaria", "pattern" => ".*", "maxlength" => "20", "value" => $whatsportaria],
-                                                  "whatsEndpoint" => ["label" => "Whatsapp Token", "pattern" => ".*", "maxlength" => "20", "value" => $whatsEndpoint],
-                                                  "whatsInstancia" => ["label" => "Whatsapp SID", "pattern" => ".*", "maxlength" => "50", "value" => $whatsInstancia],
+                                                  "whatsEndpoint" => ["label" => "Whatsapp Endpoint", "pattern" => ".*", "maxlength" => "20", "value" => $whatsEndpoint],
+                                                  "whatsInstancia" => ["label" => "Whatsapp Instância", "pattern" => ".*", "maxlength" => "50", "value" => $whatsInstancia],
                                                   "whatsToken" => ["label" => "Whatsapp Token", "pattern" => ".*", "maxlength" => "50", "value" => $whatsToken],
                                                     
                                                     "idioma" => [
