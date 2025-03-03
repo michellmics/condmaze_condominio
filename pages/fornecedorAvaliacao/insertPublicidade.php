@@ -24,6 +24,8 @@
           break; 
       }
     }   
+
+    $ARRAY_CATEGORIA = $siteAdmin->getCategoriasPublicidadeInfo();
 ?>
 <!DOCTYPE html>
 <html lang="en" data-topbar-color="dark" data-menu-color="dark" data-sidenav-user="true" data-bs-theme="dark">
@@ -107,13 +109,7 @@
                                                  <label class="form-label" for="categoria">Categoria Publicidade</label>
                                                  <select id="categoria" name="categoria" class="form-control" required>
                                                      <?php 
-                                                     // Exemplo de array de categorias
-                                                     $ARRAY_CATEGORIA = [
-                                                         ["PUC_IDPUBLICIDADE_CATEGORIA" => 1, "PUC_DCNOME" => "Categoria 1"],
-                                                         ["PUC_IDPUBLICIDADE_CATEGORIA" => 2, "PUC_DCNOME" => "Categoria 2"],
-                                                         ["PUC_IDPUBLICIDADE_CATEGORIA" => 3, "PUC_DCNOME" => "Categoria 3"],
-                                                     ];
-                                                   
+                                                     
                                                      // Preenchendo o select com as categorias
                                                      foreach ($ARRAY_CATEGORIA as $categoria) {
                                                          echo '<option value="' . $categoria["PUC_IDPUBLICIDADE_CATEGORIA"] . '">' . $categoria["PUC_DCNOME"] . '</option>';
@@ -158,29 +154,6 @@
                                                   <input id="datapubfim" name="datapubfim" type="date" class="form-control" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a data de fim da publicidade.</div>
-                                              </div>
-
-                                              <!-- Data de Cadastro -->
-                                              <div class="position-relative mb-3">
-                                                  <label class="form-label" for="datacad">Data Cadastro</label>
-                                                  <input id="datacad" name="datacad" type="date" class="form-control" required />
-                                                  <div class="valid-tooltip">Validado!</div>
-                                                  <div class="invalid-tooltip">Por favor, preencha a data de cadastro.</div>
-                                              </div>
-
-                                              <!-- Status -->
-                                              <div class="position-relative mb-3">
-                                                  <label class="form-label" for="status">Status</label>
-                                                  <select id="status" name="status" class="form-control" required>
-                                                      <option value="ATIVO">Ativo</option>
-                                                      <option value="INATIVO">Inativo</option>
-                                                  </select>
-                                                  <div class="valid-tooltip">
-                                                      Validado!
-                                                  </div>
-                                                  <div class="invalid-tooltip">
-                                                      Por favor, escolha o status.
-                                                  </div>
                                               </div>
 
                                               <!-- Nome do Arquivo da Imagem -->

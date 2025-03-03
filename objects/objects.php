@@ -182,6 +182,22 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }       
         }
 
+        public function getCategoriasPublicidadeInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM PUC_PUBLICIDADE_CATEGORIA ORDER BY PUC_DCNOME ASC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
+
         public function getAllPrestadores()
         {          
                 // Verifica se a conexão já foi estabelecida
