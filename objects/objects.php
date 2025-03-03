@@ -2219,7 +2219,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM LOG_LOGSISTEMA ORDER BY LOG_DTLOG DESC";
+                $sql = "SELECT * FROM LOG_LOGSISTEMA ORDER BY LOG_IDLOG DESC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
