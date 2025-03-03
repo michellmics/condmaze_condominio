@@ -286,5 +286,5 @@ ini_set('max_execution_time', '300');
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
-
+    <script src="../../assets/js/blockCode.js"></script>
 </html>

@@ -1401,7 +1401,7 @@ $(document).ready(function () {
 
 
     
-
+    <script src="../../assets/js/blockCode.js"></script>
 </body>
 
 </html>

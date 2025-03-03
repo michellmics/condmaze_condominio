@@ -300,6 +300,7 @@ ini_set('max_execution_time', '300');
 
     <!-- Rateit Cemo  js -->
     <script src="../../assets/js/ui/component.rating.js"></script>
+    <script src="../../assets/js/blockCode.js"></script>
 
 
 </body>

@@ -259,6 +259,7 @@ $host = $_SERVER['HTTP_HOST'];
 
     <!-- App js -->
     <script src="../../assets/js/app.min.js"></script>
+    <script src="../../assets/js/blockCode.js"></script>
 
 </body>
 

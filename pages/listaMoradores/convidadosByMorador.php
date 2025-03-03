@@ -238,6 +238,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <!-- Datatable Demo Aapp js -->
     <script src="../../assets/js/pages/demo.datatable-init.js?ver=<?php echo time(); ?>"></script>
+    <script src="../../assets/js/blockCode.js"></script>
 
  
 

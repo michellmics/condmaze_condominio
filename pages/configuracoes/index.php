@@ -301,7 +301,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
 <!-- App js -->
 <script src="../../assets/js/app.min.js"></script>
 
-
+<script src="../../assets/js/blockCode.js"></script>
 </body>
 
 </html>

@@ -362,7 +362,7 @@ $(document).ready(function () {
 });
 
 </script>
-
+<script src="../../assets/js/blockCode.js"></script>
  
 
 </body>

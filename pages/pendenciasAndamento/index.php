@@ -339,8 +339,7 @@ $(document).ready(function () {
 });
 
 </script>
- 
-<!-- Code Block -->
+
 <script src="../../assets/js/blockCode.js"></script>
 </body>
 
