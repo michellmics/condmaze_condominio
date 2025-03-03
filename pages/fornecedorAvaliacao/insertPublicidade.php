@@ -109,7 +109,7 @@
                                                  <label class="form-label" for="categoria">Categoria Publicidade</label>
                                                  <select id="categoria" name="categoria" class="form-control" required>
                                                      <?php 
-                                                     
+
                                                      // Preenchendo o select com as categorias
                                                      foreach ($ARRAY_CATEGORIA as $categoria) {
                                                          echo '<option value="' . $categoria["PUC_IDPUBLICIDADE_CATEGORIA"] . '">' . $categoria["PUC_DCNOME"] . '</option>';
@@ -127,7 +127,7 @@
                                               <!-- Nome do Prestador -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="nomeprestador">Nome do Prestador</label>
-                                                  <input id="nomeprestador" name="nomeprestador" type="text" class="form-control" placeholder="Nome do Prestador" required />
+                                                  <input id="nomeprestador" name="nomeprestador" type="text" class="form-control" placeholder="Nome do Prestador" style="text-transform: uppercase;" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o nome do prestador de serviço.</div>
                                               </div>
@@ -135,7 +135,7 @@
                                               <!-- Campanha -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="campanha">Campanha</label>
-                                                  <input id="campanha" name="campanha" type="text" class="form-control" placeholder="Nome da Campanha" required />
+                                                  <input id="campanha" name="campanha" type="text" class="form-control" placeholder="Nome da Campanha" style="text-transform: uppercase;" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o nome da campanha.</div>
                                               </div>
@@ -167,7 +167,7 @@
                                               <!-- Ordem -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="ordem">Ordem</label>
-                                                  <input id="ordem" name="ordem" type="text" class="form-control" placeholder="Ordem" required />
+                                                  <input id="ordem" name="ordem" type="number" class="form-control" placeholder="Ordem" min="1" required oninput="if(this.value < 1) this.value = 1" />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a ordem.</div>
                                               </div>
@@ -183,7 +183,7 @@
                                               <!-- Cor de Fundo Hexadecimal -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="hexcolorbg">Cor de Fundo Hex</label>
-                                                  <input id="hexcolorbg" name="hexcolorbg" type="text" class="form-control" placeholder="Código Hexadecimal da Cor" required />
+                                                  <input id="hexcolorbg" name="hexcolorbg" type="text" class="form-control" placeholder="Código Hexadecimal da Cor" style="text-transform: uppercase;" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o código hexadecimal da cor de fundo.</div>
                                               </div>
