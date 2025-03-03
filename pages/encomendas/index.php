@@ -162,22 +162,13 @@
                                                         $telefone = $item['USU_DCTELEFONE'];   
                                                         $email = $item['USU_DCEMAIL'];                                                      
                                                         
-                                                        if($item['ENC_STENCOMENDA'] == "DISPONIVEL")
+                                                        if($item['USU_DCTELEFONE'] != "")
                                                         {
-                                                            $whatsColor = "#30ec6f";
-                                                            $telefone = '+55' . $item['USU_DCTELEFONE']; 
-                                                            $nomeWhats = $item['USU_DCNOME'];
-                                                            $linkEncomendaWhats = "https://parquedashortensias.codemaze.com.br/pages/login/index.php";
-                                                            $idEncomendaWhats = $item['ENC_IDENCOMENDA'];
-    
-                                                            $mensagem = "Olá $nomeWhats,\nSua entrega está disponível para retirada.\n\nLocal: Condomínio Parque das Hortênsias.\nID da Encomenda: $idEncomendaWhats\n\nAo chegar na portaria, acesse o link abaixo para liberar a entrega da sua encomenda.\nLiberar Entrega: $linkEncomendaWhats";   
-                                                            $mensagem_codificada = urlencode($mensagem);
-                                                            $linkWhats = "https://wa.me/$telefone?text=$mensagem_codificada";
+                                                           $whatsColor = "#30ec6f";
                                                         }
                                                         else
                                                         {
                                                             $whatsColor = "#484b49";
-                                                            $linkWhats = "";
                                                         }
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
@@ -200,6 +191,11 @@
                                                                 $fieldMorador = "";
                                                             }
 
+                                                        if($item['USU_DCTELEFONE'] == "")
+                                                        {
+                                                            $item['USU_DCTELEFONE'] = "WHATSAPP OFFLINE";
+                                                        }
+
                                                         $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
                                                         $dataPortaria = $date->format('d/m/Y H:i');
 
@@ -213,14 +209,10 @@
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['ENC_IDENCOMENDA']); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCAPARTAMENTO']); ?></td>
                                                         <td class="align-middle" nome="<?= htmlspecialchars($item['USU_DCNOME']); ?>" style="font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(substr($item['USU_DCNOME'],0,21)."..."); ?></td>    
-                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
+                                                        <td class="align-middle" telefone="<?= htmlspecialchars($item['USU_DCTELEFONE']); ?>" style="font-size: 12px; color: <?= $whatsColor; ?>;"><?= htmlspecialchars($item['USU_DCTELEFONE']); ?></td>     
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataMorador); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($obs); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;">
-                                                            <a <?= empty($linkWhats) ? 'style="pointer-events: none; cursor: default;"' : 'href="'.htmlspecialchars($linkWhats).'" target="_blank"' ?>>
-                                                                <i class="fab fa-whatsapp" style="font-size: 24px; color: <?= $whatsColor; ?>;"></i>
-                                                            </a>
-                                                        </td>
+                                                        <td class="align-middle" style="font-size: 12px;"><i class="fab fa-whatsapp" style="font-size: 24px; color: <?= $whatsColor; ?>;"></i></td>
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
@@ -574,12 +566,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify({ id, status, hash, idUser, email, nome, telefone })
             })
             .then(response => response.json()) // Converte a resposta para JSON
-            .then(data => {
-
-                // Exibe a resposta na tela (alert)
-                alert(`Status atualizado: ${data.message || 'Sucesso'}`);
-
-             }) // **Fechei corretamente o .then**
             .catch(error => console.error('Erro:', error))
             .finally(() => {
                //window.location.href = "index.php";
