@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <script>document.write(new Date().getFullYear())</script> © ConDMazE by Codemaze
+                <script>document.write(new Date().getFullYear())</script> © ConDMazE by <a href="https://codemaze.com.br/" target="_blank">Codemaze</a>
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
