@@ -82,9 +82,8 @@ class registerUser extends SITE_ADMIN
 // Processa a requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $TOKEN = $_POST['csrf_token'];
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        die($TOKEN);    
+        die('Acesso não autorizado.');    
     }
 
     $email = $_POST['email'];
