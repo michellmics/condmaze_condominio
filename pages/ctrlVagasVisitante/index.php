@@ -40,7 +40,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+        background: rgba(0, 0, 0, 0.5); 
         display: flex;
         justify-content: center;
         align-items: center;
@@ -49,7 +49,7 @@
 
     .popup-content {
         position: relative;
-		background: transparent; /* Alterado para transparente */
+		background: transparent; 
         padding: 20px;
         border-radius: 10px;
         box-shadow: none;
@@ -64,8 +64,8 @@
     }
 
     .close-btn {
-		top: -20px; /* Move o botão para cima da imagem */
-        right: -20px; /* Move o botão para a direita da imagem */
+		top: -20px; 
+        right: -20px; 
         position: absolute;
         background:rgb(0, 0, 0);
         color: white;
@@ -82,11 +82,8 @@
 </style>
 <!-- pop-up promoção CSS -->
 <style>
-    /* Estilo do corpo */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* text-align: center; */
-      /* background-color: #f4f7fa; */
       margin: 0;
       padding: 0;
     }
@@ -97,7 +94,6 @@
       color: #333;
     }
 
-    /* Estilo do estacionamento */
     .parking-lot {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -113,12 +109,10 @@
       align-items: center;
     }
 
-    /* Estilo das vagas */
     .slot {
       width: 150px;
       height: 150px;
-      border: 1px solid #000; /* Borda preta e mais fina */
-      /* background-color: #e0f7fa; */
+      border: 1px solid #000; 
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -288,7 +282,7 @@
                                             </div>
 
 
-                                            <?php //if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>        
+                                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PORTARIA'): ?>        
                                             <!-- Modal -->
                                             <div class="modal" id="inputModal">
                                               <div class="modal-content">
@@ -303,7 +297,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <?php //endif; ?> 
+                                            <?php endif; ?> 
 
                                                 <script>
                                                   const modal = document.getElementById('inputModal');
