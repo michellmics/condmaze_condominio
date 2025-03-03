@@ -63,7 +63,7 @@ return [
     'sugest_reclam' => 'Sugestões & Reclamações',
     'sugest_reclam_ini' => 'Compartilhe sua sugestão ou reclamação! Sua opinião é importante para construirmos juntos um condomínio mais harmonioso e agradável para todos.
 Atenção: Os recados aqui publicados não são moderados pelo síndico. Por isso, vamos manter o respeito e a cordialidade em nossas mensagens.
-As mensagens enviadas anonimamente por meio deste formulário serão visíveis para todos os moradores.',
+As mensagens enviadas anonimamente por meio deste formulário serão visíveis para <strong>todos os moradores.</strong>',
     'reclam_anonima' => 'Deixe sua reclamação ou sugestão de forma anônima.',
 
     // Outros
