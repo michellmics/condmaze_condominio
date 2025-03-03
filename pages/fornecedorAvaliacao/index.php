@@ -32,7 +32,7 @@
     $VIDRAÇARIA = $siteAdmin->getAvaliacoesByCategoria("VIDRACARIA");
     $ACADEMIA = $siteAdmin->getAvaliacoesByCategoria("ACADEMIA");
     $FASTFOOD = $siteAdmin->getAvaliacoesByCategoria("FASTFOOD");
-    $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("MATCONSTRUCAO");
+    $PEDREIRO = $siteAdmin->getAvaliacoesByCategoria("PEDREIRO");
     $GESSO = $siteAdmin->getAvaliacoesByCategoria("GESSO");
     $PISO = $siteAdmin->getAvaliacoesByCategoria("PISO");
     $PIZZARIA = $siteAdmin->getAvaliacoesByCategoria("PIZZARIA");
