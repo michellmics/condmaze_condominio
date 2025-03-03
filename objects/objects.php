@@ -82,7 +82,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             curl_setopt_array($curl, array(
               CURLOPT_URL => 'http://hoscc8g8owccks0cso444wo0.103.199.184.230.sslip.io/message/sendText/Parque das Hortências',
               CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '',
+              CURLOPT_ENCODING => '', 
               CURLOPT_MAXREDIRS => 10,
               CURLOPT_TIMEOUT => 0,
               CURLOPT_FOLLOWLOCATION => true,
