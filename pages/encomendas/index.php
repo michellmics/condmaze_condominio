@@ -168,7 +168,8 @@
                                                         }
                                                         else
                                                         {
-                                                            $whatsColor = "#484b49";
+                                                            $whatsColor = "#f70000";
+                                                            $item['USU_DCTELEFONE'] = "WHATSAPP OFFLINE";
                                                         }
 
                                                         if(($item['ENC_STENTREGA_MORADOR'] != "A RETIRAR" && $item['ENC_STENTREGA_MORADOR'] != "ENTREGUE") 
@@ -191,10 +192,6 @@
                                                                 $fieldMorador = "";
                                                             }
 
-                                                        if($item['USU_DCTELEFONE'] == "")
-                                                        {
-                                                            $item['USU_DCTELEFONE'] = "WHATSAPP OFFLINE";
-                                                        }
 
                                                         $date = new DateTime($item['ENC_DTENTREGA_PORTARIA']);
                                                         $dataPortaria = $date->format('d/m/Y H:i');
