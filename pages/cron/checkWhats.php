@@ -20,7 +20,7 @@ $response = $siteAdmin->whatsappApiSendMessage($MSG, $telefonePortaria);
 $response = json_decode($response, true);
 
 if (isset($response['status'])) {
-    $status = $data['status']; // Captura apenas o status
+    $status = $response['status']; // Captura apenas o status
 }
 
 if($status == "500")
