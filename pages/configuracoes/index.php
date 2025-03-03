@@ -25,8 +25,9 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
       if (trim($item['CFG_DCPARAMETRO'] == 'EMAIL_ALERTAS')) {$email = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_STATUS')) {$whatsStatus = $item['CFG_DCVALOR'];} 
 
-      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_SENDER')) {$whatsSender = $item['CFG_DCVALOR'];}
-      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_SID')) {$whatsSid = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_INSTANCIA')) {$whatsInstancia = $item['CFG_DCVALOR'];}
+      if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_ENDPOINT')) {$whatsEndpoint = $item['CFG_DCVALOR'];} 
+      if (trim($item['CFG_DCPARAMETRO'] == 'TELEFONE_PORTARIA')) {$whatsportaria = $item['CFG_DCVALOR'];} 
 
       if (trim($item['CFG_DCPARAMETRO'] == 'WHATSAPP_TOKEN')) {$whatsToken = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'IP_PORTARIA')) {$ipPortaria = $item['CFG_DCVALOR'];} 
@@ -38,7 +39,7 @@ if (!in_array(strtoupper($_SESSION['user_nivelacesso']), ["SINDICO", "SUPORTE"])
       if (trim($item['CFG_DCPARAMETRO'] == 'MAIL_SMTP_HOST')) {$MAIL_SMTP_HOST = $item['CFG_DCVALOR'];}
       if (trim($item['CFG_DCPARAMETRO'] == 'IDIOMA_APP')) {$IDIOMA_APP = $item['CFG_DCVALOR'];}
 
-    }   
+    }      
 
 ?>
 <!DOCTYPE html>
