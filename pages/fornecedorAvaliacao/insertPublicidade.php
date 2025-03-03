@@ -101,23 +101,33 @@
                                     <div class="tab-content">
                                       <div class="tab-pane show active" id="tooltips-validation-preview">
                                           <form class="needs-validation" id="form" name="form" role="form" method="POST" enctype="multipart/form-data" novalidate>
-                                              
-                                              <!-- ID Prestador de Serviço -->
-                                              <div class="position-relative mb-3">
-                                                  <label class="form-label" for="idprestador">ID Prestador de Serviço</label>
-                                                  <input id="idprestador" name="idprestador" type="text" class="form-control" placeholder="ID do Prestador" required />
-                                                  <div class="valid-tooltip">Validado!</div>
-                                                  <div class="invalid-tooltip">Por favor, preencha o ID do prestador de serviço.</div>
-                                              </div>
-                                    
+
                                               <!-- ID Publicidade Categoria -->
                                               <div class="position-relative mb-3">
-                                                  <label class="form-label" for="idpublicidade">ID Publicidade Categoria</label>
-                                                  <input id="idpublicidade" name="idpublicidade" type="text" class="form-control" placeholder="ID da Categoria" required />
-                                                  <div class="valid-tooltip">Validado!</div>
-                                                  <div class="invalid-tooltip">Por favor, preencha o ID da categoria de publicidade.</div>
+                                                 <label class="form-label" for="categoria">Categoria Publicidade</label>
+                                                 <select id="categoria" name="categoria" class="form-control" required>
+                                                     <?php 
+                                                     // Exemplo de array de categorias
+                                                     $ARRAY_CATEGORIA = [
+                                                         ["PUC_IDPUBLICIDADE_CATEGORIA" => 1, "PUC_DCNOME" => "Categoria 1"],
+                                                         ["PUC_IDPUBLICIDADE_CATEGORIA" => 2, "PUC_DCNOME" => "Categoria 2"],
+                                                         ["PUC_IDPUBLICIDADE_CATEGORIA" => 3, "PUC_DCNOME" => "Categoria 3"],
+                                                     ];
+                                                   
+                                                     // Preenchendo o select com as categorias
+                                                     foreach ($ARRAY_CATEGORIA as $categoria) {
+                                                         echo '<option value="' . $categoria["PUC_IDPUBLICIDADE_CATEGORIA"] . '">' . $categoria["PUC_DCNOME"] . '</option>';
+                                                     }
+                                                     ?>
+                                                 </select>
+                                                 <div class="valid-tooltip">
+                                                     Validado!
+                                                 </div>
+                                                 <div class="invalid-tooltip">
+                                                     Por favor, escolha uma categoria de publicidade.
+                                                 </div>
                                               </div>
-                                    
+
                                               <!-- Nome do Prestador -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="nomeprestador">Nome do Prestador</label>
@@ -125,7 +135,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o nome do prestador de serviço.</div>
                                               </div>
-                                    
+
                                               <!-- Campanha -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="campanha">Campanha</label>
@@ -133,7 +143,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o nome da campanha.</div>
                                               </div>
-                                    
+
                                               <!-- Data Início da Publicidade -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="datapubini">Data Início</label>
@@ -141,7 +151,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a data de início da publicidade.</div>
                                               </div>
-                                    
+
                                               <!-- Data Fim da Publicidade -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="datapubfim">Data Fim</label>
@@ -149,7 +159,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a data de fim da publicidade.</div>
                                               </div>
-                                    
+
                                               <!-- Data de Cadastro -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="datacad">Data Cadastro</label>
@@ -157,18 +167,22 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a data de cadastro.</div>
                                               </div>
-                                    
+
                                               <!-- Status -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="status">Status</label>
                                                   <select id="status" name="status" class="form-control" required>
-                                                      <option value="Ativo">Ativo</option>
-                                                      <option value="Inativo">Inativo</option>
+                                                      <option value="ATIVO">Ativo</option>
+                                                      <option value="INATIVO">Inativo</option>
                                                   </select>
-                                                  <div class="valid-tooltip">Validado!</div>
-                                                  <div class="invalid-tooltip">Por favor, selecione o status da campanha.</div>
+                                                  <div class="valid-tooltip">
+                                                      Validado!
+                                                  </div>
+                                                  <div class="invalid-tooltip">
+                                                      Por favor, escolha o status.
+                                                  </div>
                                               </div>
-                                    
+
                                               <!-- Nome do Arquivo da Imagem -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="imagem">Nome Arquivo Imagem</label>
@@ -176,7 +190,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, selecione uma imagem.</div>
                                               </div>
-                                    
+
                                               <!-- Ordem -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="ordem">Ordem</label>
@@ -184,7 +198,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a ordem.</div>
                                               </div>
-                                    
+
                                               <!-- URL -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="url">URL</label>
@@ -192,7 +206,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a URL.</div>
                                               </div>
-                                    
+
                                               <!-- Cor de Fundo Hexadecimal -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="hexcolorbg">Cor de Fundo Hex</label>
@@ -200,7 +214,7 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o código hexadecimal da cor de fundo.</div>
                                               </div>
-                                    
+
                                               <!-- Observações -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="observacoes">Observações</label>
@@ -208,10 +222,10 @@
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha as observações.</div>
                                               </div>
-                                    
+
                                               <button class="btn" style="background-color: #aa2ed8; color: white;" type="button" onclick="window.history.back()">Voltar</button>
                                               <button class="btn" style="background-color: #21feae; color: black;" type="submit" name="submit">Salvar</button>
-                                    
+
                                           </form>
                                       </div> <!-- end preview-->
                                   </div> <!-- end tab-content-->
