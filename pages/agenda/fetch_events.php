@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-
+require "../../src/sessionStartShield.php";
 include_once "../../objects/objects.php";
 
 // Instancia a classe SITE_ADMIN e chama a função de conexão

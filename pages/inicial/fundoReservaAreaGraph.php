@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: application/json');
-
+    require "../../src/sessionStartShield.php";
 	include_once '../../objects/objects_chart.php'; 
     $chartValor = new SITE_CHARTS(); 
 

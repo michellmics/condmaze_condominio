@@ -10,8 +10,8 @@ if (!isset($_SESSION['csrf_token'])) {
     forbiddenResponse();
 }
 
-
-	include_once "../../objects/objects.php";
+require "../../src/sessionStartShield.php";
+include_once "../../objects/objects.php";
 
 class registerUser extends SITE_ADMIN
 {

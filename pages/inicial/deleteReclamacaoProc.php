@@ -1,5 +1,6 @@
 <?php
-	include_once "../../objects/objects.php";
+require "../../src/sessionStartShield.php";
+include_once "../../objects/objects.php";
 
 class deleteReclamacaoObj extends SITE_ADMIN
 {

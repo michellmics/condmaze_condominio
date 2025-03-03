@@ -1,14 +1,5 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-function forbiddenResponse() {
-    http_response_code(403);
-    die('Acesso não autorizado.');
-}
-if (!isset($_SESSION['csrf_token'])) {
-    forbiddenResponse();
-}
+require "../../src/sessionStartShield.php";
 
 
 $data = json_decode(file_get_contents('php://input'), true);

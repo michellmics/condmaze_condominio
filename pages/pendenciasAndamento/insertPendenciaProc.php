@@ -1,21 +1,11 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-function forbiddenResponse() {
-    http_response_code(403);
-    die('Acesso não autorizado.');
-}
-if (!isset($_SESSION['csrf_token'])) {
-    forbiddenResponse();
-}
-
 ini_set('upload_max_filesize', '50M');
 ini_set('post_max_size', '50M');
 ini_set('memory_limit', '256M');
 ini_set('max_execution_time', '300');
 
-	include_once "../../objects/objects.php";
+require "../../src/sessionStartShield.php";
+include_once "../../objects/objects.php";
 
 class registerPendencia extends SITE_ADMIN
 {

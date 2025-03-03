@@ -1,4 +1,5 @@
 <?php
+require "../../src/sessionStartShield.php";
 include_once "../../objects/objects.php";
 
 $data = json_decode(file_get_contents("php://input"));
