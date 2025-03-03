@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const tdEmail = this.closest('tr').querySelector('td[email]');
             const email = tdEmail ? tdEmail.getAttribute('email') : '';
             const tdNome = this.closest('tr').querySelector('td[nome]');
-            const nome = tdNome ? tdNome.getAttribute('nome') : '';
+            const nome = tdEmail ? tdNome.getAttribute('nome') : '';
 
             fetch('updateStatusCheckboxDisponivel.php', {
                 method: 'POST',
@@ -578,17 +578,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Exibe a resposta na tela (alert)
                 alert(`Status atualizado: ${data.message || 'Sucesso'}`);
 
-                // Se quiser exibir em um elemento na página:
-                const statusMessage = document.getElementById('statusMessage');
-                if (statusMessage) {
-                    statusMessage.textContent = `Status atualizado: ${data.message || 'Sucesso'}`;
-                }
-            })
-            .catch(error => console.error('Erro:', error));
+            }) // **Fechei corretamente o .then**
+            .catch(error => console.error('Erro:', error))
+            .finally(() => {
+               //window.location.href = "index.php";
+            });
         });
     });
-});
-
 
     // Switch ENTREGUE
     const switchesEntregue = document.querySelectorAll('input[type="checkbox"][data-switch="entregue"]');
