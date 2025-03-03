@@ -1928,7 +1928,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
 
             try
             {         
-                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA";
+                $sql = "UPDATE ENC_ENCOMENDA SET ENC_STENTREGA_MORADOR = :ENC_STENTREGA_MORADOR WHERE ENC_DCHASHENTREGA = :ENC_DCHASHENTREGA AND ENC_DTENTREGA_MORADOR != 'ENTREGUE'";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':ENC_DCHASHENTREGA', $ENC_DCHASHENTREGA, PDO::PARAM_STR);
                 $stmt->bindParam(':ENC_STENTREGA_MORADOR', $ENC_STENTREGA_MORADOR, PDO::PARAM_STR); 
