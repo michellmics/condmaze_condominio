@@ -14,29 +14,23 @@ class registePublicidade extends SITE_ADMIN
 
             $metodo = "insert";
 
-
             if($metodo == "insert")
             {
                 $result = $this->insertPublicidadeInfo($categoria, $nomeprestador, $campanha, $datapubini, $datapubfim, $ordem, $url, $hexcolorbg, $observacoes, $nomeImg);
                 $LOG_DCMSG = "A publicidade foi cadastrada com sucesso.";
             }
-            if($metodo == "update")
-            {
-                $result = $this->updateVisitListaInfo($nome, $documento, $status, $idconvidado);
-                $LOG_DCMSG = "O visitante $nome foi atualizado com sucesso.";
-            }
 
             //--------------------LOG----------------------//
-            $LOG_DCTIPO = "CADASTRO DE VISITANTE";            
-            $LOG_DCUSUARIO = $userid;
-            $LOG_DCAPARTAMENTO = $apartamento;
+            $LOG_DCTIPO = "CADASTRO DE PUBLICIDADE";            
+            $LOG_DCUSUARIO = "SISTEMA";
+            $LOG_DCAPARTAMENTO = "N/A";
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
-            //--------------------LOG----------------------
-            echo "Convidado cadastrado com sucesso.";                                  
-                   
-                
+            //--------------------LOG----------------------//
+
+            return true; // Se inserido com sucesso
+
         } catch (PDOException $e) {  
-            echo "Erro ao cadastrar convidado."; 
+            return false; // Se houver erro
         } 
     }
 }
@@ -66,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         // Diretório de destino
         $diretorioDestino = '../../publicidade/';
-    
+
         // Caminho completo onde o arquivo será movido
         $caminhoDestino = $diretorioDestino . $nomeImg;
     
@@ -80,10 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Se foi salva a imagem com sucesso.
 
             // Cria o objeto de registro de publicidade
-            $registerPub= new registePublicidade();
-            $registerPub->insertPub($categoria, $nomeprestador, $campanha, $datapubini, $datapubfim, $ordem, $url, $hexcolorbg, $observacoes, $nomeImg);
+            $registerPub = new registePublicidade();
+            $insertSuccess = $registerPub->insertPub($categoria, $nomeprestador, $campanha, $datapubini, $datapubfim, $ordem, $url, $hexcolorbg, $observacoes, $nomeImg);
 
-$response = array("success" => false, "message" => "$nomeprestado");
+            if ($insertSuccess) {
+                $response = array("success" => true, "message" => "Publicidade cadastrada com sucesso.");
+            } else {
+                $response = array("success" => false, "message" => "Erro ao cadastrar a publicidade.");
+            }
 
         } else {
             // Se ocorrer algum erro ao mover a imagem
@@ -93,10 +91,6 @@ $response = array("success" => false, "message" => "$nomeprestado");
         // Se a imagem não foi enviada ou ocorreu um erro
         $response = array("success" => false, "message" => "Erro ao enviar a imagem.");
     }
-
-
-    // Exemplo de resposta de sucesso
-    $response = array("success" => true); // Ou false em caso de erro
 
     // Retorna a resposta como JSON
     echo json_encode($response);

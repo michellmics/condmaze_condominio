@@ -224,52 +224,51 @@
     <?php include '../../src/layoutConfig.php'; ?>
    <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();  // Previne o envio padrão do formulário
 
-    <script>
-    // Função para enviar o formulário via AJAX
-    document.getElementById('form').addEventListener('submit', function(event) {
-        event.preventDefault();  // Previne o envio padrão do formulário
+    // Criar FormData com os dados do formulário
+    var formData = new FormData(this);
 
-        // Criar FormData com os dados do formulário
-        var formData = new FormData(this);
-
-        // Enviar os dados usando AJAX
-        fetch('insertPublicidadeProc.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Exibe um SweetAlert baseado no retorno do PHP
-            if (data.success) {
-                // Caso o envio seja bem-sucedido
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sucesso!',
-                    text: 'Publicidade inserida com sucesso!',
-                }).then(() => {
-                    // Redireciona ou limpa o formulário
-                    window.location.reload();
-                });
-            } else {
-                // Caso ocorra um erro
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Houve um erro ao inserir a publicidade.',
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
+    // Enviar os dados usando AJAX
+    fetch('insertPublicidadeProc.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Exibe um SweetAlert baseado no retorno do PHP
+        if (data.success) {
+            // Caso o envio seja bem-sucedido
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: data.message,
+            }).then(() => {
+                // Redireciona ou limpa o formulário
+                window.location.reload();
+            });
+        } else {
+            // Caso ocorra um erro
             Swal.fire({
                 icon: 'error',
                 title: 'Erro!',
-                text: 'Não foi possível se conectar ao servidor.',
+                text: data.message,
             });
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: 'Não foi possível se conectar ao servidor.',
         });
     });
+});
 </script>
 
 <!-- ######################################################## --> 
