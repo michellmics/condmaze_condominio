@@ -1517,6 +1517,17 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
+        public function deleteOldLogs()
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+                $sql = "DELETE FROM LOG_LOGSISTEMA WHERE LOG_DTLOG < NOW() - INTERVAL 6 MONTH";
+                $stmt = $this->pdo->prepare($sql);            
+                $stmt->execute();        
+        }
+
         public function deleteArtigoInfo($INA_IDINSTRUCOES_ADEQUACOES)
         {       
             // Verifica se a conexão já foi estabelecida
