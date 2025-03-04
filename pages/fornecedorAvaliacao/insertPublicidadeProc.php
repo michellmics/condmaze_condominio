@@ -1,6 +1,6 @@
 <?php
-// Supondo que você tenha as variáveis que foram enviadas pelo formulário
 include_once "../../objects/objects.php";
+//require "../../src/sessionStartShield.php";
 
 class registePublicidade extends SITE_ADMIN
 {
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $registerPub= new registePublicidade();
             $registerPub->insertPub($categoria, $nomeprestador, $campanha, $datapubini, $datapubfim, $ordem, $url, $hexcolorbg, $observacoes, $nomeImg);
 
-
+$response = array("success" => false, "message" => "$nomeprestado");
 
         } else {
             // Se ocorrer algum erro ao mover a imagem
@@ -94,22 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = array("success" => false, "message" => "Erro ao enviar a imagem.");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Aqui você pode adicionar sua lógica para salvar os dados no banco de dados
 
     // Exemplo de resposta de sucesso
     $response = array("success" => true); // Ou false em caso de erro
