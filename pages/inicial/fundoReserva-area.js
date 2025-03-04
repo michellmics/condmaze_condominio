@@ -27,11 +27,11 @@ fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu scri
                 type: "area"
             },
             title: {
-                text: "Evolução do Fundo de Reserva", // Título principal
+                text: "", // Título principal
                 align: "center"
             },
             subtitle: {
-                text: "Este gráfico mostra a variação do fundo de reserva ao longo dos meses.", // Texto explicativo
+                text: "O fundo de reserva do condomínio é um recurso financeiro destinado a cobrir despesas emergenciais e imprevistos. Seu uso só é permitido mediante aprovação em assembleia ou pelo conselho do condomínio.", // Texto explicativo
                 align: "center",
                 style: {
                     fontSize: "12px",

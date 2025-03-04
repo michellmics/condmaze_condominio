@@ -16,7 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if($status == "ENTREGUE")
         {
-            //$result = $siteAdmin->whatsapp($nome, $telefone, $id, "entregue", "");
+            $MSG = "Olá *$nome*,\n\n"
+            . "A portaria do *$nomeCondominio* *ENTREGOU* a sua encomenda!\n\n"
+            . "📦 *Código da Encomenda:* `$id`\n\n\n"
+            . "Qualquer dúvida, consulte a portaria.\n\n";                
+               
+                $returnWhats = $siteAdmin->whatsappApiSendMessage($MSG, $telefone);
         }
 
         echo json_encode(['success' => true, 'message' => 'Status atualizado.']);
