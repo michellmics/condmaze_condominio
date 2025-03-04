@@ -180,7 +180,7 @@
                                                             data-bs-toggle="modal" 
                                                             data-bs-target="#scrollable-modal" 
                                                             style="cursor: pointer; margin-bottom: 9px;"
-                                                            data-title="<?php echo $item["EPE_DCTITULO"]; ?>"
+                                                            data-title="<?= htmlspecialchars($item['EPE_DCTITULO'], ENT_QUOTES, 'UTF-8'); ?>"
                                                             data-content="<?php echo $item["EPE_DCOBS"]; ?>"
                                                             >
                                                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 

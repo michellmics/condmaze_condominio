@@ -90,7 +90,7 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                 </div>
-                                <h4 class="page-title">Projetos e Pendências </h4>
+                                <h4 class="page-title">Atividades em Andamento </h4>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                     <h4 class="header-title">Acompanhamento do Condomínio</h4>
 
                                     <p class="text-muted font-14">
-                                        Aqui são listados os principais projetos ou pendências no qual o síndico(a) está atuando.
+                                        Aqui são listados as principais atividades, projetos ou pendências no qual o síndico(a) está atuando.
                                     </p>
                                     <div class="col-sm-5">
                                             <a href="insertPendencia.php" class="btn mb-2" style="background-color: #aa2ed8; color: white;"><i class="mdi mdi-plus-circle me-2"></i> Adicionar Pendência</a>

@@ -26,6 +26,18 @@ fetch("fundoReservaAreaGraph.php") // Substitua pelo caminho correto do seu scri
                 height: 380,
                 type: "area"
             },
+            title: {
+                text: "Evolução do Fundo de Reserva", // Título principal
+                align: "center"
+            },
+            subtitle: {
+                text: "Este gráfico mostra a variação do fundo de reserva ao longo dos meses.", // Texto explicativo
+                align: "center",
+                style: {
+                    fontSize: "12px",
+                    color: "#666"
+                }
+            },
             dataLabels: {
                 enabled: false
             },

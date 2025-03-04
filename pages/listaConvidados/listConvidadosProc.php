@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $documento = $_POST['documento'];
     $nome = strtoupper($_POST['nome']);
     $userid = $_POST['userid'];
-    $status = $_POST['status'];
+    $status = $_POST['status'] ?? 'INATIVO';
     $apartamento = $_POST['apartamento'];
     $metodo = $_POST['metodo']; 
     $idconvidado = $_POST['idconvidado'];
