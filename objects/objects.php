@@ -1471,6 +1471,46 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
+        public function insertPublicidadeInfo($PUC_IDPUBLICIDADE_CATEGORIA, $PDS_DCNOME_PRESTADOR, $PDS_DCCAMPANHA, $PDS_DTPUB_INI, $PDS_DTPUB_FIM, $PDS_DCORDEM, $PDS_DCURL, $PDS_DCHEXCOLORBG, $PDS_DCOBS, $PDS_DCIMGFILENAME)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "INSERT INTO PDS_PUBLICIDADE 
+                        (PUC_IDPUBLICIDADE_CATEGORIA, PDS_DCNOME_PRESTADOR, PDS_DCCAMPANHA, PDS_DTPUB_INI, PDS_DTPUB_FIM, PDS_DCORDEM, PDS_DCURL, PDS_DCHEXCOLORBG, PDS_DCOBS, PDS_DCIMGFILENAME, PDS_DTCADASTRO) 
+                        VALUES (:PUC_IDPUBLICIDADE_CATEGORIA, :PDS_DCNOME_PRESTADOR, :PDS_DCCAMPANHA, :PDS_DTPUB_INI, :PDS_DTPUB_FIM, :PDS_DCORDEM, :PDS_DCURL, :PDS_DCHEXCOLORBG, :PDS_DCOBS, :PDS_DCIMGFILENAME, :PDS_DTCADASTRO)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PUC_IDPUBLICIDADE_CATEGORIA', $PUC_IDPUBLICIDADE_CATEGORIA, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCNOME_PRESTADOR', $PDS_DCNOME_PRESTADOR, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCCAMPANHA', $PDS_DCCAMPANHA, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DTPUB_INI', $PDS_DTPUB_INI, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DTPUB_FIM', $PDS_DTPUB_FIM, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCORDEM', $PDS_DCORDEM, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCURL', $PDS_DCURL, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCHEXCOLORBG', $PDS_DCHEXCOLORBG, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCOBS', $PDS_DCOBS, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DCIMGFILENAME', $PDS_DCIMGFILENAME, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_DTCADASTRO', $DATA, PDO::PARAM_STR);                
+            
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Publicidade cadastrada com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function deleteArtigoInfo($INA_IDINSTRUCOES_ADEQUACOES)
         {       
             // Verifica se a conexão já foi estabelecida
