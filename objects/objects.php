@@ -1481,6 +1481,12 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             $now = new DateTime(); 
             $DATA = $now->format('Y-m-d H:i:s');
 
+            $now = new DateTime($PDS_DTPUB_INI); // Cria um objeto DateTime com o valor recebido
+            $PDS_DTPUB_INI = $now->format('Y-m-d H:i:s'); // Formata como 'Y-m-d H:i:s'
+
+            $now = new DateTime($PDS_DTPUB_FIM); // Cria um objeto DateTime com o valor recebido
+            $PDS_DTPUB_FIM = $now->format('Y-m-d H:i:s'); // Formata como 'Y-m-d H:i:s'
+
             try {
                 $sql = "INSERT INTO PDS_PUBLICIDADE 
                         (PUC_IDPUBLICIDADE_CATEGORIA, PDS_DCNOME_PRESTADOR, PDS_DCCAMPANHA, PDS_DTPUB_INI, PDS_DTPUB_FIM, PDS_DCORDEM, PDS_DCURL, PDS_DCHEXCOLORBG, PDS_DCOBS, PDS_DCIMGFILENAME, PDS_DTCADASTRO) 

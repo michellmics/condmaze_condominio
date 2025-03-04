@@ -143,7 +143,7 @@
                                               <!-- Data Início da Publicidade -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="datapubini">Data Início</label>
-                                                  <input id="datapubini" name="datapubini" type="date" class="form-control" required />
+                                                  <input id="datapubini" name="datapubini" type="datetime-local" class="form-control" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a data de início da publicidade.</div>
                                               </div>
@@ -151,7 +151,7 @@
                                               <!-- Data Fim da Publicidade -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="datapubfim">Data Fim</label>
-                                                  <input id="datapubfim" name="datapubfim" type="date" class="form-control" required />
+                                                  <input id="datapubfim" name="datapubfim" type="datetime-local" class="form-control" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha a data de fim da publicidade.</div>
                                               </div>
@@ -225,7 +225,7 @@
    <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+
     <script>
     // Função para enviar o formulário via AJAX
     document.getElementById('form').addEventListener('submit', function(event) {
