@@ -231,23 +231,32 @@
                             </script>
 
 
-                        <div class="col-xl-6">
-                            <div class="card">
-                            <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
-                                <div class="card-body">
-                                    <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-bank-card-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['evol_fundo_reserva']; ?></h4>
-                                        <div dir="ltr">
-                                            <div id="basic-area" class="apex-charts" data-colors="#FF004D"></div>
-                                        </div>
-                                    </div>
-                                    <!-- end card body-->
-                                    <?php endif; ?>
-                                </div>
-                                <!-- end card -->
-                            </div>
-                        </div><!-- end col-->
-                    </div>
-                    <!-- end row-->
+<div class="col-xl-6">
+    <div class="card">
+        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
+            <div class="card-body">
+                <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> 
+                    <i class="ri-bank-card-line ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> 
+                    <?php echo $translations['evol_fundo_reserva']; ?>
+                </h4>
+                
+                <div dir="ltr">
+                    <div id="basic-area" class="apex-charts" data-colors="#FF004D"></div>
+                </div>
+
+                <!-- Descrição abaixo do gráfico -->
+                <p style="margin-top: 10px; font-size: 12px; color: #777; text-align: center;">
+                    O fundo de reserva do condomínio é um recurso financeiro destinado a cobrir despesas emergenciais e imprevistos. 
+                    Seu uso só é permitido mediante aprovação em assembleia ou pelo conselho do condomínio.
+                </p>
+                
+            </div>
+            <!-- end card body-->
+        <?php endif; ?>
+    </div>
+    <!-- end card -->
+</div>
+
 
                     <!-- HEAD META BASIC LOAD-->
 	                <?php include '../../src/modalScroll.php'; ?>

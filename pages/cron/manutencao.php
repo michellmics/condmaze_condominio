@@ -2,7 +2,9 @@
 include_once "../../objects/objects.php";
 
 $siteAdmin = new SITE_ADMIN();
-$siteAdmin->deleteOldLogs();
+$siteAdmin->deleteOldLogs(); 
+$siteAdmin->deleteOldNot(); 
+$siteAdmin->deleteOldRecl();
  
 //--------------------LOG----------------------//
 $LOG_DCTIPO = "NOTIFICAÇÃO";

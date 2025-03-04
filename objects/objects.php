@@ -1528,6 +1528,28 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $stmt->execute();        
         }
 
+        public function deleteOldNot()
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+                $sql = "DELETE FROM USN_NOTIFICACAO WHERE NOT_DTINSERT < NOW() - INTERVAL 6 MONTH";
+                $stmt = $this->pdo->prepare($sql);            
+                $stmt->execute();        
+        }
+
+        public function deleteOldRecl()
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+                $sql = "DELETE FROM REC_RECLAMACAO WHERE REC_DTDATA < NOW() - INTERVAL 6 MONTH";
+                $stmt = $this->pdo->prepare($sql);            
+                $stmt->execute();        
+        }
+
         public function deleteArtigoInfo($INA_IDINSTRUCOES_ADEQUACOES)
         {       
             // Verifica se a conexão já foi estabelecida
