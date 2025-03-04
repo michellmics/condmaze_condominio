@@ -183,7 +183,7 @@
                                               <!-- Cor de Fundo Hexadecimal -->
                                               <div class="position-relative mb-3">
                                                   <label class="form-label" for="hexcolorbg">Cor de Fundo Hex</label>
-                                                  <input id="hexcolorbg" name="hexcolorbg" type="text" class="form-control" placeholder="Código Hexadecimal da Cor" style="text-transform: uppercase;" required />
+                                                  <input id="hexcolorbg" name="hexcolorbg" type="text" class="form-control" maxlength="7" placeholder="Código Hexadecimal da Cor" style="text-transform: uppercase;" required />
                                                   <div class="valid-tooltip">Validado!</div>
                                                   <div class="invalid-tooltip">Por favor, preencha o código hexadecimal da cor de fundo.</div>
                                               </div>
