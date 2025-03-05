@@ -221,7 +221,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM VW_PUBLICIDADE WHERE PUC_DCNOME = :PUC_DCNOME";
+                $sql = "SELECT * FROM VW_PUBLICIDADE WHERE PUC_DCNOME = :PUC_DCNOME AND PDS_STONAIR = 'SIM'";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':PUC_DCNOME', $PUC_DCNOME, PDO::PARAM_STR);
@@ -1825,6 +1825,34 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             
                 // Retorna uma mensagem de sucesso (opcional)
                 return ["success" => "Visitante atualizado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+        public function updatePublicidade($PDS_IDPRESTADOR_SERVICO, $PDS_STONAIR)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "UPDATE PDS_PUBLICIDADE 
+                        SET PDS_STONAIR = :PDS_STONAIR
+                        WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $PDS_IDPRESTADOR_SERVICO, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_STONAIR', $PDS_STONAIR, PDO::PARAM_STR);
+               
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Publicidade atualizada com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];

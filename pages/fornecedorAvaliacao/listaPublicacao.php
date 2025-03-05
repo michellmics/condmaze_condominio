@@ -173,8 +173,8 @@
                                                         
                                                     ?>
                                                     <tr>    
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars($item['PDS_DCNOME_PRESTADOR']); ?></td>
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($item['PDS_DCCAMPANHA']); ?></td>
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars(strtoupper($item['PDS_DCNOME_PRESTADOR'])); ?></td>
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars(strtoupper($item['PDS_DCCAMPANHA'])); ?></td>
                                                         <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($dataIni); ?></td>
                                                         <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($dataFim); ?></td>
                                                         <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($item['PUC_DCNOME']); ?></td>    
