@@ -97,7 +97,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Banner Publicitário</h4>
-                                    <p class="text-muted font-14">Nesta seção você pode cadastrar os banners publicitários localmente.
+                                    <p class="text-muted font-14">Nesta seção você pode cadastrar os banners publicitários.<br>
+                                    <strong>Atenção aos tamanhos</strong> <br>
+                                    <strong>Categoria PRO (Topo):</strong> 800px X 120px <br>
+                                    <strong>Categoria SEMIPRO:</strong> 800px X 80px <br>
+                                    <strong>Demais Categorias:</strong> 420px X 54px <br><br>
+                                    São aceitas imagens PNG, JPG e GIF.
                                     </p>
 
                                     <div class="tab-content">

@@ -8,4 +8,5 @@ services:
     volumes:
       - uploads:/var/www/html/pages/instrucoesAdequacoes/uploads
       - petsImg:/var/www/html/pages/petControle/PETS_IMG 
-      - vagasVisitante:/var/www/html/pages/ctrlVagasVisitante/vagas   
+      - vagasVisitante:/var/www/html/pages/ctrlVagasVisitante/vagas  
+      - publicidade:/var/www/html/publicidade  

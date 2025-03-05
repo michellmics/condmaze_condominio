@@ -130,7 +130,7 @@
 
                                     </p>
                                     <?php endif; ?>      
-                                    <button type="button" class="btn" style="background-color: #aa2ed8; color: white;" onclick="window.location.href='insertPublicidade.php';">
+                                    <button type="button" class="btn" style="background-color: #aa2ed8; color: white;" onclick="window.location.href='insertPublicidade.php';">Cadastrar Campanha</button>  
                                     <button type="button" class="btn float-end" style="background-color: #20ffad; color: black;" onclick="location.reload()">Refresh</button>                                    
                                     <br><br>
  
@@ -145,8 +145,8 @@
                                                         <th>DATA FIM</th>
                                                         <th>CATEGORIA</th> 
                                                         <th>ORDEM</th>
-                                                        <th>IMG</th>                                                   
-                                                        <th>STATUS</th> 
+                                                        <th></th>                                                   
+                                                        <th></th> 
                                                         <th></th> 
                                                     </tr>
                                                 </thead>
@@ -174,11 +174,11 @@
                                                     ?>
                                                     <tr>    
                                                         <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px; word-wrap: break-word;"><?= htmlspecialchars($item['PDS_DCNOME_PRESTADOR']); ?></td>
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?> font-size: 12px;"><?= htmlspecialchars($item['PDS_DCCAMPANHA']); ?></td>
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?> font-size: 12px;"><?= htmlspecialchars($dataIni); ?></td>
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?> font-size: 12px;"><?= htmlspecialchars($dataFim); ?></td>
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?> font-size: 12px;"><?= htmlspecialchars($item['PUC_DCNOME']); ?></td>    
-                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?> font-size: 12px;"><?= htmlspecialchars($item['PDS_DCORDEM']); ?></td>  
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($item['PDS_DCCAMPANHA']); ?></td>
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($dataIni); ?></td>
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($dataFim); ?></td>
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($item['PUC_DCNOME']); ?></td>    
+                                                        <td class="align-middle" style="color: <?= htmlspecialchars($colorText); ?>; font-size: 12px;"><?= htmlspecialchars($item['PDS_DCORDEM']); ?></td>  
                                                         <td class="align-middle" style="font-size: 12px;"><img src="<?= htmlspecialchars($imgUrl); ?>" height="30" /></td> 
 
                                                         <td class="align-middle">
