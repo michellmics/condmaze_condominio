@@ -22,8 +22,10 @@
     foreach ($siteAdmin->ARRAY_PARAMETERINFO as $item) {
       if ($item['CFG_DCPARAMETRO'] == 'NOME_CONDOMINIO') {
           $nomeCondominio = $item['CFG_DCVALOR']; 
-          break; 
       }
+      if ($item['CFG_DCPARAMETRO'] == 'DOMINIO') {
+        $dominio = $item['CFG_DCVALOR']; 
+    }
     }   
 
 ?>
@@ -160,7 +162,9 @@
 
                                                         $date = new DateTime($item['PDS_DTPUB_FIM']);
                                                         $dataFim = $date->format('d/m/Y H:i');
-                                                                                                             
+
+                                                        $nomeprestadordir = strtolower(str_replace(' ', '', $item['PDS_DCNOME_PRESTADOR']));
+                                                        $imgUrl = "https://$dominio/publicidade/$nomeprestadordir/".$item['PDS_DCIMGFILENAME'];                                                                                                             
                                                         
                                                     ?>
                                                     <tr>    
@@ -169,8 +173,8 @@
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataIni); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($dataFim); ?></td>
                                                         <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['PUC_DCNOME']); ?></td>    
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['PDS_DCORDEM']); ?></td> 
-                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['PDS_DCIMGFILENAME']); ?></td> 
+                                                        <td class="align-middle" style="font-size: 12px;"><?= htmlspecialchars($item['PDS_DCORDEM']); ?></td>  
+                                                        <td class="align-middle" style="font-size: 12px;"><img src="<?= htmlspecialchars($imgUrl); ?>" height="30" /></td> 
 
                                                         <td class="align-middle">
                                                             <!-- Switch -->
@@ -179,11 +183,10 @@
                                                                     type="checkbox" 
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="PUBLICADO" 
-                                                                    data-id="<?= $item['PDS_STSTATUS']; ?>" 
-                                                                    data-idUser="<?= $userid; ?>" 
+                                                                    data-id="<?= $item['PDS_IDPRESTADOR_SERVICO']; ?>" 
                                                                     <?= $item['PDS_STSTATUS'] === 'PUBLICADO' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation();"
-                                                                    <?= htmlspecialchars($fieldMorador); ?>
+                                                                    <?= htmlspecialchars('PUBLICADO'); ?>
                                                                 />
                                                                 <label 
                                                                     for="switch<?= $index; ?>" 
