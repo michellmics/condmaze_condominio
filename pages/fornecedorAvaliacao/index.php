@@ -124,9 +124,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end page title -->
+                    <!-- end page title --> 
 
                     <!-- start page promotion Full 800x120 PREMIUM row -->
+                    <?php if (isset($PRO[0]['PDS_DCIMGFILENAME'])): ?>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
@@ -138,6 +139,7 @@
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
+                    <?php endif; ?>
                     <!-- end page promotion Full row -->
 
                     <div class="row">
@@ -283,17 +285,19 @@
                     <!-- end row-->
                                         
                     <!-- start page promotion Full 800x80 PREMIUM row -->
+                    <?php if (isset($SEMIPRO[0]['PDS_DCIMGFILENAME'])): ?>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
-                                    <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                    <div onclick="window.open('<?php echo $SEMIPRO[0]['PDS_DCURL']; ?>', '_blank');" style="display: flex; align-items: center; justify-content: center; background-color: <?php echo $SEMIPRO[0]['PDS_DCHEXCOLORBG']; ?>; width: 100%; height: 100%; padding: 0; margin: 0;">
+                                        <img src="../../publicidade/<?php echo $SEMIPRO[0]['PDS_DCIMGFILENAME']; ?>" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
                                     </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
+                    <?php endif; ?>
                     <!-- end page promotion Full row -->
 
                     <div class="row">
@@ -441,17 +445,19 @@
                     <!-- end row-->
                                       
                     <!-- start page promotion Full 800x80 PREMIUM row -->
+                    <?php if (isset($SEMIPRO[1]['PDS_DCIMGFILENAME'])): ?>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
-                                    <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
-                                    </div>   
+                                    <div onclick="window.open('<?php echo $SEMIPRO[1]['PDS_DCURL']; ?>', '_blank');" style="display: flex; align-items: center; justify-content: center; background-color: <?php echo $SEMIPRO[1]['PDS_DCHEXCOLORBG']; ?>; width: 100%; height: 100%; padding: 0; margin: 0;">
+                                        <img src="../../publicidade/<?php echo $SEMIPRO[1]['PDS_DCIMGFILENAME']; ?>" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                    </div>  
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
+                    <?php endif; ?>
                     <!-- end page promotion Full row -->
 
                     <div class="row">
@@ -597,17 +603,20 @@
                     <!-- end row-->
                                       
                     <!-- start page promotion Full 800x80 PREMIUM row -->
+                    
+                    <?php if (isset($SEMIPRO[2]['PDS_DCIMGFILENAME'])): ?>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
-                                    <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
-                                    </div>   
+                                    <div onclick="window.open('<?php echo $SEMIPRO[2]['PDS_DCURL']; ?>', '_blank');" style="display: flex; align-items: center; justify-content: center; background-color: <?php echo $SEMIPRO[2]['PDS_DCHEXCOLORBG']; ?>; width: 100%; height: 100%; padding: 0; margin: 0;">
+                                        <img src="../../publicidade/<?php echo $SEMIPRO[2]['PDS_DCIMGFILENAME']; ?>" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                    </div>  
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
+                    <?php endif; ?>
                     <!-- end page promotion Full row -->
 
                     <div class="row">
