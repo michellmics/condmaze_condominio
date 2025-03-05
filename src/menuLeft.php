@@ -75,15 +75,6 @@
 
                     <?php if ($nivelAcesso == 'SUPORTE'): ?>
                     <li class="side-nav-item">
-                        <a href="../fornecedorAvaliacao/listaPublicacao.php" class="side-nav-link">
-                            <i class="uil-ruler"></i> 
-                            <span> <?php echo $translations['lista_publicacao']; ?> </span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
-
-                    <?php if ($nivelAcesso == 'SUPORTE'): ?>
-                    <li class="side-nav-item">
                         <a href="../petControle/index.php" class="side-nav-link">
                             <i class="uil-comments-alt"></i>
                             <span> Meus Pets </span>
@@ -171,6 +162,12 @@
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
                                     <a href="../pendenciasAndamento/index.php"><?php echo $translations['evolucao_pend']; ?></a>
+                                </li>
+                                <?php endif; ?>
+
+                                <?php if ($nivelAcesso == 'SUPORTE'): ?>
+                                <li>
+                                    <a href="../fornecedorAvaliacao/listaPublicacao.php"><?php echo $translations['lista_publicacao']; ?></a> 
                                 </li>
                                 <?php endif; ?>
 
