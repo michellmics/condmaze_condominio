@@ -17,6 +17,10 @@ foreach ($prestadoresAll as $item)
         {
             $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "SIM"); 
         }
+        else
+            {
+                $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "NÃO"); 
+            }
 
     } else {
 
