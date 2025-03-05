@@ -13,7 +13,10 @@ foreach ($prestadoresAll as $item)
     // Verificando se a data atual está dentro do intervalo
     if ($dataAtual >= $dataInicio && $dataAtual <= $dataFim) {
 
-        $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "SIM"); 
+        if($item['PDS_STSTATUS'] == "PUB")
+        {
+            $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "SIM"); 
+        }
 
     } else {
 
