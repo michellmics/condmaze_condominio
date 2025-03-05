@@ -5,8 +5,6 @@ $dataAtual = new DateTime();
 $siteAdmin = new SITE_ADMIN();
 $prestadoresAll = $siteAdmin->getAllPrestadores();
 
-var_dump($prestadoresAll);
-
 foreach ($prestadoresAll as $item)
 {
     $dataInicio = new DateTime($item['PDS_DTPUB_INI']);
