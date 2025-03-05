@@ -1688,6 +1688,30 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }
         }
 
+        public function deleteCampanhaPub($PDS_IDPRESTADOR_SERVICO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "DELETE FROM PDS_PUBLICIDADE WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $PDS_IDPRESTADOR_SERVICO, PDO::PARAM_STR);
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Campanha deletada com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function deleteNotificacoesbyUser($USU_IDUSUARIO)
         {       
             // Verifica se a conexão já foi estabelecida
@@ -2136,6 +2160,29 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 //--------------------LOG----------------------//
 
                 return ["success" => "Encomenda atualizada com sucesso."];
+
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+        public function updateCheckboxPublicidadeParceiro($PDS_IDPRESTADOR_SERVICO, $PDS_STSTATUS)
+        {
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try
+            {         
+                $sql = "UPDATE PDS_PUBLICIDADE SET PDS_STSTATUS = :PDS_STSTATUS WHERE PDS_IDPRESTADOR_SERVICO = :PDS_IDPRESTADOR_SERVICO";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':PDS_IDPRESTADOR_SERVICO', $PDS_IDPRESTADOR_SERVICO, PDO::PARAM_STR);
+                $stmt->bindParam(':PDS_STSTATUS', $PDS_STSTATUS, PDO::PARAM_STR); 
+                $stmt->execute();     
+
+                return ["success" => "Publicidade preparada para publicação com sucesso."];
 
             } catch (PDOException $e) {
                 // Captura e retorna o erro
