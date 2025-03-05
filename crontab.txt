@@ -1,4 +1,4 @@
 0 */6 * * * curl -s https://parquedashortensias.codemaze.com.br/pages/ctrlVagasVisitante/cron_service_vagaCheck.php?token=7823645327643294789073204237642397498237423
 0 */3 * * * curl -s https://parquedashortensias.codemaze.com.br/pages/cron/checkWhats.php
 0 0 * * * curl -s https://parquedashortensias.codemaze.com.br/pages/cron/manutencao.php >> /tmp/manutencao.log
-* * * * * curl -s https://parquedashortensias.codemaze.com.br/pages/cron/publicidade.php >> /tmp/publicidade.log
+* * * * * curl -s https://parquedashortensias.codemaze.com.br/pages/cron/publicidade.php >> /tmp/publicida.log

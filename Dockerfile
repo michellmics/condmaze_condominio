@@ -17,7 +17,6 @@ RUN apt-get update && apt-get install -y vim && apt-get install -y cron
 # Copia o arquivo de crontab para o usuário root e configura
 COPY crontab.txt /var/spool/cron/crontabs/root
 RUN chmod 600 /var/spool/cron/crontabs/root
-RUN cron -f &
 
 # instala sockets para o email funcionar
 RUN docker-php-ext-install sockets
