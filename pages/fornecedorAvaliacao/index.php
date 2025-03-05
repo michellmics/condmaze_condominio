@@ -45,6 +45,10 @@
     $MATCONSTRUCAO = $siteAdmin->getAvaliacoesByCategoria("MATCONSTRUCAO");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
     $PRO = $siteAdmin->getAvaliacoesByCategoria("PRO");
+    $SEMIPRO = $siteAdmin->getAvaliacoesByCategoria("SEMIPRO");
+
+    var_dump($PRO);
+    die();
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +133,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
-                                    <div onclick="window.open('<?php echo $PRO[0]['PDS_DCURL']; ?>', '_blank');" style="display: flex; align-items: center; justify-content: center; background-color: <?php echo $PRO['PDS_DCHEXCOLORBG']; ?>; width: 100%; height: 100%; padding: 0; margin: 0;">
+                                    <div onclick="window.open('<?php echo $PRO['PDS_DCURL']; ?>', '_blank');" style="display: flex; align-items: center; justify-content: center; background-color: <?php echo $PRO['PDS_DCHEXCOLORBG']; ?>; width: 100%; height: 100%; padding: 0; margin: 0;">
                                         <img src="../../publicidade/<?php var_dump($PRO); echo $PRO['PDS_DCIMGFILENAME']; ?>" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
                                     </div>   
                                 </div> <!-- end card-body-->
