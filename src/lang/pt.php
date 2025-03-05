@@ -35,6 +35,7 @@ return [
 
     // Serviços e Áreas Comuns
     'avaliacao_prestadores' => 'Nossos Parceiros',
+    'lista_publicacao' => 'Lista de Publicação',
     'salao_de_festas' => 'Salão de Festas',
     'portaria' => 'Portaria',
     'administracao' => 'Administração',

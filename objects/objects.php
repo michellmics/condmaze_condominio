@@ -44,6 +44,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
         public $MAIL_SMTP_USER;
         public $MAIL_SMTP_PASS;
         public $NOME_CONDOMINIO;
+        public $ARRAY_PUBINFO;
 
         function conexao()
         {
@@ -303,6 +304,22 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 $stmt->bindParam(':USU_DCTOKEN', $USU_DCTOKEN, PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_TOKENINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }       
+        }
+
+        public function getPubInfo()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM VW_PUBLICIDADE";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_PUBINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }       

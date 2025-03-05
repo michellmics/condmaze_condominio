@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ordem = $_POST['ordem'];
     $url = $_POST['url'];
     $hexcolorbg = $_POST['hexcolorbg'];
-    $observacoes = $_POST['observacoes'];
+    $observacoes = $_POST['observacoes']; 
 
 
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
@@ -59,7 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nomeImg = time() . '.' . $extensao; // Usando timestamp para renomear a imagem
     
         // Diretório de destino
-        $diretorioDestino = '../../publicidade/';
+        $nomeprestadordir = strtolower(str_replace(' ', '', $nomeprestador));
+        $diretorioDestino = "../../publicidade/$nomeprestadordir/";
 
         // Caminho completo onde o arquivo será movido
         $caminhoDestino = $diretorioDestino . $nomeImg;
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     
         // Move o arquivo para o diretório de destino
-        if (move_uploaded_file($imagem['tmp_name'], $caminhoDestino)) {
+        if (move_uploaded_file($imagem['tmp_name'], $caminhoDestino)) { 
             // Se foi salva a imagem com sucesso.
 
             // Cria o objeto de registro de publicidade
