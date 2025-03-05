@@ -189,7 +189,7 @@
                                                                     id="switch<?= $index; ?>" 
                                                                     data-switch="PUBLICADO" 
                                                                     data-id="<?= $item['PDS_IDPRESTADOR_SERVICO']; ?>" 
-                                                                    <?= $item['PDS_STSTATUS'] === 'PUBLICADO' ? 'checked' : ''; ?> 
+                                                                    <?= $item['PDS_STSTATUS'] === 'PUB' ? 'checked' : ''; ?> 
                                                                     onclick="event.stopPropagation(); changeStatus(<?= $item['PDS_IDPRESTADOR_SERVICO']; ?>, this)" 
                                                                     <?= htmlspecialchars('PUBLICADO'); ?>
                                                                 />

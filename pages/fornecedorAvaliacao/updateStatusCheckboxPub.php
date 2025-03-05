@@ -11,8 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $siteAdmin = new SITE_ADMIN(); 
      
     $result = $siteAdmin->updateCheckboxPublicidadeParceiro($id, $status);
-       
-
-
+    echo 'success';
 }
 ?>

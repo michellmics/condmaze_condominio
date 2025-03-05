@@ -205,7 +205,7 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM PDS_PUBLICIDADE ORDER BY PDS_DCNOME_PRESTADOR ASC";
+                $sql = "SELECT * FROM VW_PUBLICIDADE ORDER BY PDS_DCNOME_PRESTADOR ASC";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
@@ -215,16 +215,16 @@ include realpath(__DIR__ . '/../phpMailer/src/Exception.php');
             }       
         }
 
-        public function getAvaliacoesByCategoria($PDS_DCCATEGORIA)
+        public function getAvaliacoesByCategoria($PUC_DCNOME)
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM PDS_PUBLICIDADE WHERE PDS_DCCATEGORIA = :PDS_DCCATEGORIA";
+                $sql = "SELECT * FROM VW_PUBLICIDADE WHERE PUC_DCNOME = :PUC_DCNOME";
 
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':PDS_DCCATEGORIA', $PDS_DCCATEGORIA, PDO::PARAM_STR);
+                $stmt->bindParam(':PUC_DCNOME', $PUC_DCNOME, PDO::PARAM_STR);
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
