@@ -44,6 +44,7 @@
     $MOVEIS_PLANEJADOS = $siteAdmin->getAvaliacoesByCategoria("MOVEIS_PLANEJADOS");
     $MATCONSTRUCAO = $siteAdmin->getAvaliacoesByCategoria("MATCONSTRUCAO");
     $BAR = $siteAdmin->getAvaliacoesByCategoria("BAR");
+    $PRO = $siteAdmin->getAvaliacoesByCategoria("PRO");
 ?>
 
 <!DOCTYPE html>
@@ -128,8 +129,8 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
-                                    <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/img/promo_Codemaze_sejaParceiro.gif" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                    <div onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" style="display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>; width: 100%; height: 100%; padding: 0; margin: 0;">
+                                        <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
                                     </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -156,7 +157,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#academia<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>                                                        
@@ -189,7 +190,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#fastfood<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -227,7 +228,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#vidracaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -260,7 +261,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#pedreiro<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -285,7 +286,7 @@
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
                                     <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/img/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                        <img src="../../publicidade/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
                                     </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -312,7 +313,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#gesso<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -347,7 +348,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#piso<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -385,7 +386,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#pizzaria<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -418,7 +419,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#mecanica<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -443,7 +444,7 @@
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
                                     <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/img/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                        <img src="../../publicidade/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
                                     </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -470,7 +471,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#eletricista<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -503,7 +504,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#ar<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -541,7 +542,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#moveis<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -574,7 +575,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#bar<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -599,7 +600,7 @@
                             <div class="card">
                                 <div class="card-body" style="padding: 0; margin: 0;">                                    
                                     <div style="display: flex; align-items: center; justify-content: center; background-color: #000000; width: 100%; height: 100%; padding: 0; margin: 0;">
-                                        <img src="../../publicidade/img/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
+                                        <img src="../../publicidade/teste4.jpg" style="width: 100%; height: auto; display: block; padding: 0; margin: 0; border: none;">
                                     </div>   
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -626,7 +627,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#marido<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
@@ -659,7 +660,7 @@
                                                     <h2 class="accordion-header" id="headingOne">
                                                         <button class="accordion-button" onclick="window.open('<?php echo $item['PDS_DCURL']; ?>', '_blank');" type="button" data-bs-toggle="collapse" data-bs-target="#outros<?php echo $aux; ?>" aria-expanded="true" aria-controls="collapse<?php echo $aux; ?>" style="display: flex; justify-content: space-between; align-items: center; text-align: left; width: 100%; padding: 0; min-height: 20%; margin-bottom: 5px;">    
                                                             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: <?php echo $item['PDS_DCHEXCOLORBG']; ?>;">
-                                                                <img src="../../publicidade/img/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
+                                                                <img src="../../publicidade/<?php echo $item['PDS_DCIMGFILENAME']; ?>"  
                                                                 style="max-width: 100%; height: auto; display: block;">
                                                             </div>                                                                                                
                                                         </button>
