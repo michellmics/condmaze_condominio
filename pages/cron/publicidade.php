@@ -28,6 +28,13 @@ foreach ($prestadoresAll as $item)
     }
 }
 
-
+//--------------------LOG----------------------//
+$LOG_DCTIPO = "CRON";
+$LOG_DCMSG = "CRON PUBLICIDADE RODOU";
+$LOG_DCUSUARIO = "SISTEMA";
+$LOG_DCCODIGO = "N/A";
+$LOG_DCAPARTAMENTO = "";
+$siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
+//--------------------LOG----------------------//
 
 ?>
