@@ -59,8 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nomeImg = time() . '.' . $extensao; // Usando timestamp para renomear a imagem
     
         // Diretório de destino
-        $nomeprestadordir = strtolower(str_replace(' ', '', $nomeprestador));
-        $diretorioDestino = "../../publicidade/$nomeprestadordir/";
+        $diretorioDestino = "../../publicidade/";
 
         // Caminho completo onde o arquivo será movido
         $caminhoDestino = $diretorioDestino . $nomeImg;

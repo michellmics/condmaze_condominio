@@ -163,8 +163,7 @@
                                                         $date = new DateTime($item['PDS_DTPUB_FIM']);
                                                         $dataFim = $date->format('d/m/Y H:i');
 
-                                                        $nomeprestadordir = strtolower(str_replace(' ', '', $item['PDS_DCNOME_PRESTADOR']));
-                                                        $imgUrl = "https://$dominio/publicidade/$nomeprestadordir/".$item['PDS_DCIMGFILENAME'];                                                                                                             
+                                                        $imgUrl = "https://$dominio/publicidade/".$item['PDS_DCIMGFILENAME'];                                                                                                             
                                                         
                                                     ?>
                                                     <tr>    
