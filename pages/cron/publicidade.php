@@ -15,26 +15,17 @@ foreach ($prestadoresAll as $item)
 
         if($item['PDS_STSTATUS'] == "PUB")
         {
-            $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "SIM"); 
+            $return = $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "SIM"); 
         }
         else
             {
-                $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "NÃO"); 
+                $return = $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "NÃO"); 
             }
 
     } else {
 
-        $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "NÃO"); 
+        $return = $siteAdmin->updatePublicidade($item['PDS_IDPRESTADOR_SERVICO'], "NÃO"); 
     }
 }
-
-//--------------------LOG----------------------//
-$LOG_DCTIPO = "CRON";
-$LOG_DCMSG = "CRON PUBLICIDADE RODOU";
-$LOG_DCUSUARIO = "SISTEMA";
-$LOG_DCCODIGO = "N/A";
-$LOG_DCAPARTAMENTO = "";
-$siteAdmin->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO, $LOG_DCCODIGO);
-//--------------------LOG----------------------//
-
+var_dump($return);
 ?>
