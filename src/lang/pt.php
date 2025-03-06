@@ -14,6 +14,7 @@ return [
     'termo_priva' => 'Termo de Privacidade',
     'msg_placeholder' => 'Escreva aqui sua mensagem. (até 300 caracteres)',
     'sim' => 'Sim',
+    'ver_mais' => 'Ver mais',
     'nao' => 'Não', 
     'fundo_reserva' => 'O fundo de reserva do condomínio é um recurso financeiro destinado a cobrir despesas emergenciais e imprevistos. Seu uso só é permitido mediante aprovação em assembleia ou pelo conselho do condomínio.', 
     'recem_atualizado' => 'RECEM ATUALIZADO', 
@@ -55,7 +56,7 @@ return [
     'andamento_pend' => 'Atividades em Andamento',
     'evolucao_pend' => 'Atividades em Andamento',
     'evol_fundo_reserva' => 'Evolução F. de Reserva (R$)',
-    'andamento_pend_ini' => 'Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.',
+    'andamento_pend_ini' => 'Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. <br>Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.',
 
     // Comunicados e Procedimentos
     'proc_comunic' => 'Procedimentos & Comunicados',

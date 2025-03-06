@@ -184,7 +184,7 @@
                                                                  style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
                                                             </div>
                                                         </div>
-                                                        <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
+                                                        <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                             
                                                     </div>
                                                 <?php endforeach; ?>
                                             </div>
@@ -192,8 +192,8 @@
                                     </div>
                                                 
                                     <!-- Botão Ver Mais / Ver Menos -->
-                                    <div class="text-center">
-                                        <button id="toggleButton" class="btn btn-primary mt-2" onclick="togglePendencias()">Ver mais</button>
+                                    <div class="text-left">
+                                        <button id="toggleButton" class="btn mt-2" style="background-color: #21ffae; color: black;" onclick="togglePendencias()"><?php echo $translations['ver_mais']; ?></button>
                                     </div>
                                                  
                                 </div>
