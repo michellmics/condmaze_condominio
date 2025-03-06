@@ -56,7 +56,7 @@ return [
     'andamento_pend' => 'Atividades em Andamento',
     'evolucao_pend' => 'Atividades em Andamento',
     'evol_fundo_reserva' => 'Evolução F. de Reserva (R$)',
-    'andamento_pend_ini' => 'Aqui são atualizados pelo sindico(a), os status das <strong>pendências</strong> do condomínio. <br>Fique por dentro sobre o andamento das solicitações e projetos mais relevantes.',
+    'andamento_pend_ini' => 'Aqui são atualizados os status das <strong>pendências</strong> do condomínio. <br>Fique por dentro sobre o andamento das atividades mais relevantes.',
 
     // Comunicados e Procedimentos
     'proc_comunic' => 'Procedimentos & Comunicados',
