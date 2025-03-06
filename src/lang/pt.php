@@ -15,7 +15,8 @@ return [
     'msg_placeholder' => 'Escreva aqui sua mensagem. (até 300 caracteres)',
     'sim' => 'Sim',
     'nao' => 'Não', 
-    
+    'fundo_reserva' => 'O fundo de reserva do condomínio é um recurso financeiro destinado a cobrir despesas emergenciais e imprevistos. Seu uso só é permitido mediante aprovação em assembleia ou pelo conselho do condomínio.', 
+    'recem_atualizado' => 'RECEM ATUALIZADO', 
 
     // Moradores
     'lista_moradores' => 'Lista de Moradores',

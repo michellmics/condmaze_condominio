@@ -133,75 +133,105 @@
 
                     
                     <div class="row">
-                        <div class="col-xl-6">
-                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);"> <i class=" ri-customer-service-2-fill ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> <?php echo $translations['andamento_pend']; ?></h4>
-                                        <p class="text-muted font-14">
-                                        <?php echo $translations['andamento_pend_ini']; ?>
-                                        </p>
-                                        <div class="tab-content">
-                                            <div class="tab-pane show active" id="basic-example-preview">
-                                                <div class="table-responsive-sm">                                            
-                                                    <?php foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): ?>
-                                                        <?php
-                                                            if($item["EPE_DCEVOL"] < 30) {
-                                                                $color = "color:rgb(253, 89, 39)";
-                                                                $bg = "danger";
-                                                            }
-                                                            if($item["EPE_DCEVOL"] >= 30 && $item["EPE_DCEVOL"] < 50) {
-                                                                $color = "color:rgb(158, 148, 1)";
-                                                                $bg = "warning";
-                                                            }
-                                                            if($item["EPE_DCEVOL"] >= 50 && $item["EPE_DCEVOL"] < 80) {
-                                                                $color = "color:rgb(69, 93, 230)";
-                                                                $bg = "primary";
-                                                            }
-                                                            if($item["EPE_DCEVOL"] >= 80) {
-                                                                $color = "color:rgb(15, 185, 9)";
-                                                                $bg = "success";
-                                                            }
+                    <div class="col-xl-6">
+    <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title" style="display: flex; align-items: center; color:rgb(129, 155, 170);">
+                    <i class="ri-customer-service-2-fill ri-2x" style="color: #aa2ed8; margin-right: 8px;"></i> 
+                    <?php echo $translations['andamento_pend']; ?>
+                </h4>
+                <p class="text-muted font-14"><?php echo $translations['andamento_pend_ini']; ?></p>
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="basic-example-preview">
+                        <div class="table-responsive-sm">
+                            <div id="pendencias-container">
+                                <?php 
+                                $contador = 0;
+                                foreach ($siteAdmin->ARRAY_PENDENCIAINFO as $item): 
+                                    $contador++;
+                                    
+                                    if($item["EPE_DCEVOL"] < 30) {
+                                        $color = "color:rgb(253, 89, 39)";
+                                        $bg = "danger";
+                                    } elseif($item["EPE_DCEVOL"] >= 30 && $item["EPE_DCEVOL"] < 50) {
+                                        $color = "color:rgb(158, 148, 1)";
+                                        $bg = "warning";
+                                    } elseif($item["EPE_DCEVOL"] >= 50 && $item["EPE_DCEVOL"] < 80) {
+                                        $color = "color:rgb(69, 93, 230)";
+                                        $bg = "primary";
+                                    } else {
+                                        $color = "color:rgb(15, 185, 9)";
+                                        $bg = "success";
+                                    }
 
-                                                            $data_atual = new DateTime();
-                                                            $data_item = new DateTime($item["EPE_DTLASTUPDATE"]);
-                                                            $diferenca = $data_atual->diff($data_item);
+                                    $data_atual = new DateTime();
+                                    $data_item = new DateTime($item["EPE_DTLASTUPDATE"]);
+                                    $diferenca = $data_atual->diff($data_item);
+                                    $atualizado = ($diferenca->days <= 5 && $data_atual > $data_item) ? $translations['recem_atualizado'] : "";
 
-                                                            if ($diferenca->days <= 5 && $data_atual > $data_item) { 
-                                                                $atualizado = "RECEM ATUALIZADO";
-                                                            } else {
-                                                                $atualizado = "";
-                                                            }
-                                                        ?>
+                                    // Adiciona uma classe "hidden" nos itens depois do 6º
+                                    $hiddenClass = ($contador > 6) ? 'hidden' : '';
+                                ?>
 
-                                                        <!-- inicio barra -->                                            
-                                                        <p style="font-size: 11px; margin-bottom: 3px;"><span style="<?php echo $color; ?>; font-weight: bold;"><?php echo $item["EPE_DCEVOL"]; ?>%</span> <?php echo $item["EPE_DCTITULO"]; ?></p>                                            
-                                                        <div class="progress col-xl-10" 
-                                                            data-bs-toggle="modal" 
-                                                            data-bs-target="#scrollable-modal" 
-                                                            style="cursor: pointer; margin-bottom: 9px;"
-                                                            data-title="<?= htmlspecialchars($item['EPE_DCTITULO'], ENT_QUOTES, 'UTF-8'); ?>"
-                                                            data-content="<?php echo $item["EPE_DCOBS"]; ?>"
-                                                            >
-                                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
-                                                                 role="progressbar" 
-                                                                 aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
-                                                                 aria-valuemin="0" 
-                                                                 aria-valuemax="100" 
-                                                                 style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
-                                                            </div>
-                                                        </div>
-                                                        <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p>                                            
-                                                        
-                                                    <!-- Fim barra -->
-                                                    <?php endforeach; ?>
-                                                </div> <!-- end table-responsive-->
-                                            </div> <!-- end preview-->
-                                        </div> <!-- end tab-content-->
-                                    </div> <!-- end card body-->
-                                </div> <!-- end card -->
-                                <?php endif; ?>
-                            </div><!-- end col-->
+                                <div class="pendencia-item <?php echo $hiddenClass; ?>">
+                                    <p style="font-size: 11px; margin-bottom: 3px;">
+                                        <span style="<?php echo $color; ?>; font-weight: bold;">
+                                            <?php echo $item["EPE_DCEVOL"]; ?>%
+                                        </span> 
+                                        <?php echo $item["EPE_DCTITULO"]; ?>
+                                    </p>
+                                    <div class="progress col-xl-10" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#scrollable-modal" 
+                                        style="cursor: pointer; margin-bottom: 9px;"
+                                        data-title="<?= htmlspecialchars($item['EPE_DCTITULO'], ENT_QUOTES, 'UTF-8'); ?>"
+                                        data-content="<?php echo $item["EPE_DCOBS"]; ?>">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $bg; ?>" 
+                                            role="progressbar" 
+                                            aria-valuenow="<?php echo $item["EPE_DCEVOL"]; ?>" 
+                                            aria-valuemin="0" 
+                                            aria-valuemax="100" 
+                                            style="width: <?php echo $item["EPE_DCEVOL"]; ?>%;">
+                                        </div>
+                                    </div>
+                                    <p style="color:rgb(106, 131, 177); font-size: 8px; margin-top: 2px;"><?php echo $atualizado; ?></p> 
+                                </div>
+
+                                <?php endforeach; ?>
+                            </div> <!-- end pendencias-container -->
+
+                            <?php if ($contador > 6): ?>
+                                <button id="verMaisBtn" class="btn btn-primary btn-sm mt-2">Ver Mais</button>
+                            <?php endif; ?>
+                        </div> <!-- end table-responsive -->
+                    </div> <!-- end preview -->
+                </div> <!-- end tab-content -->
+            </div> <!-- end card body -->
+        </div> <!-- end card -->
+    <?php endif; ?>
+</div> <!-- end col -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let btn = document.getElementById("verMaisBtn");
+    if (btn) {
+        btn.addEventListener("click", function() {
+            document.querySelectorAll(".pendencia-item.hidden").forEach(item => {
+                item.classList.remove("hidden");
+            });
+            btn.style.display = "none"; // Esconde o botão após clicar
+        });
+    }
+});
+</script>
+
+<style>
+.hidden {
+    display: none;
+}
+</style>
+
 
                             <script>
                                     document.addEventListener("DOMContentLoaded", function () {
@@ -246,8 +276,7 @@
                             
                                     <!-- Descrição abaixo do gráfico -->
                                     <p style="margin-top: 10px; font-size: 12px; color: #819baa; text-align: center;">
-                                        O fundo de reserva do condomínio é um recurso financeiro destinado a cobrir despesas emergenciais e imprevistos. 
-                                        Seu uso só é permitido mediante aprovação em assembleia ou pelo conselho do condomínio.
+                                    <?php echo $translations['fundo_reserva']; ?>
                                     </p>
                                     
                                 </div>

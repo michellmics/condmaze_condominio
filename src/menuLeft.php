@@ -73,15 +73,6 @@
                     </li>
                     <?php endif; ?>
 
-                    <?php if ($nivelAcesso == 'SUPORTE'): ?>
-                    <li class="side-nav-item">
-                        <a href="../petControle/index.php" class="side-nav-link">
-                            <i class="uil-comments-alt"></i>
-                            <span> Meus Pets </span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
-
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarCrm" aria-expanded="false" aria-controls="sidebarCrm" class="side-nav-link">
                             <i class="uil-store-alt"></i>  
@@ -93,12 +84,6 @@
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'MORADOR' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
                                     <a href="../listaConvidados/index.php"><?php echo $translations['lista_convidados']; ?></a>
-                                </li>
-                                <?php endif; ?>
-
-                                <?php if ($nivelAcesso == 'SUPORTE'): ?>
-                                <li>
-                                    <a href="#">Reserva de Data</a>
                                 </li>
                                 <?php endif; ?>
                             </ul>
@@ -144,12 +129,6 @@
                                 <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'PARCEIRO' || $nivelAcesso == 'SUPORTE'): ?>
                                 <li>
                                     <a href="../auditoria/index.php"><?php echo $translations['auditoria']; ?></a>
-                                </li>
-                                <?php endif; ?>
-
-                                <?php if ($nivelAcesso == 'SUPORTE'): ?>
-                                <li>
-                                    <a href="../agenda/index.php">Agenda</a>
                                 </li>
                                 <?php endif; ?>
 
