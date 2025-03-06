@@ -195,7 +195,7 @@
                                     <div class="text-center">
                                         <button id="toggleButton" class="btn btn-primary mt-2" onclick="togglePendencias()">Ver mais</button>
                                     </div>
-                                                
+                                                 
                                 </div>
                             </div>
                         <?php endif; ?>
