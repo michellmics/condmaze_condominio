@@ -103,7 +103,7 @@
                                     <?php echo $translations['lista_moradores_ini']; ?>
                                     </p>
                                     <div class="tab-content">
-                                        <?php if ($nivelAcesso == 'SINDICO'): ?>
+                                        <?php if ($nivelAcesso == 'SINDICO' || $nivelAcesso == 'SUPORTE'): ?>
                                         <div class="col-sm-5">
                                             <a href="insertMorador.php" class="btn mb-2" style="background-color: #aa2ed8; color: white;"><i class="mdi mdi-plus-circle me-2"></i> <?php echo $translations['adicionar_morador']; ?></a>
                                         </div>
