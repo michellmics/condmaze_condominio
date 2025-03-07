@@ -3,18 +3,42 @@ header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *"); // Permite requisições de qualquer origem
 
 $api_key = "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";
-$regimento = file_get_contents("regimento.txt");
+$regimento = file_get_contents("regimento.txt"); // Carrega o regimento interno
+
+function buscarTrechosRelevantes($pergunta, $regimento) {
+    $linhas = explode("\n", $regimento);
+    $palavras_chave = explode(" ", strtolower($pergunta)); // Divide a pergunta em palavras-chave
+    $trechos_relevantes = [];
+
+    foreach ($linhas as $linha) {
+        foreach ($palavras_chave as $palavra) {
+            if (stripos($linha, $palavra) !== false) {
+                $trechos_relevantes[] = $linha;
+                break; // Evita adicionar a mesma linha várias vezes
+            }
+        }
+    }
+
+    return implode("\n", array_unique($trechos_relevantes)); // Remove duplicatas e junta os trechos
+}
 
 function perguntarChatbot($pergunta) {
     global $api_key, $regimento;
 
     $url = "https://api.openai.com/v1/chat/completions";
 
+    // Buscar apenas os trechos relevantes do regimento
+    $trechos_relevantes = buscarTrechosRelevantes($pergunta, $regimento);
+
+    if (empty($trechos_relevantes)) {
+        $trechos_relevantes = "Nenhuma informação específica foi encontrada no regimento. Responda da melhor forma possível com base em regras comuns de condomínios.";
+    }
+
     $data = [
         "model" => "gpt-4o-mini", 
         "messages" => [
             ["role" => "system", "content" => "Você é um assistente especializado no regimento interno do condomínio."],
-            ["role" => "user", "content" => "O regimento interno do condomínio é:\n" . $regimento],
+            ["role" => "user", "content" => "Baseado no seguinte regimento:\n" . $trechos_relevantes],
             ["role" => "user", "content" => $pergunta]
         ],
         "temperature" => 0.5,
