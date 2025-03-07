@@ -1,18 +1,17 @@
 <?php
-// Configurar a API Key da OpenAI
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *"); // Permite requisições de qualquer origem
+
 $api_key = "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";
+$regimento = file_get_contents("regimento.txt"); // Carrega o regimento interno
 
-// Carregar o regimento interno do condomínio
-$regimento = file_get_contents("regimento.txt");
-
-// Função para fazer a requisição à OpenAI
 function perguntarChatbot($pergunta) {
     global $api_key, $regimento;
 
     $url = "https://api.openai.com/v1/chat/completions";
 
     $data = [
-        "model" => "gpt-4", // Ou "gpt-3.5-turbo" para reduzir custos
+        "model" => "gpt-4", // Ou "gpt-3.5-turbo" para economizar
         "messages" => [
             ["role" => "system", "content" => "Você é um assistente especializado no regimento interno do condomínio."],
             ["role" => "user", "content" => "O regimento interno do condomínio é:\n" . $regimento],
@@ -41,9 +40,9 @@ function perguntarChatbot($pergunta) {
     return $decoded_response["choices"][0]["message"]["content"] ?? "Desculpe, não consegui responder.";
 }
 
-// Teste do chatbot
-$pergunta = "Quais são as regras para uso da piscina?";
-$resposta = perguntarChatbot($pergunta);
-echo "Pergunta: $pergunta\n";
-echo "Resposta: $resposta\n";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $pergunta = $_POST["pergunta"] ?? "";
+    $resposta = perguntarChatbot($pergunta);
+    echo json_encode(["resposta" => $resposta]);
+}
 ?>
