@@ -2,7 +2,7 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *"); // Permite requisições de qualquer origem
 
-$api_key = "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";
+$api_key = "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";
 $regimento = file_get_contents("regimento.txt"); // Carrega o regimento interno
 
 function buscarTrechosRelevantes($pergunta, $regimento) {
